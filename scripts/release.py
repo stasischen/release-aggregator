@@ -54,7 +54,7 @@ def release(pipeline_dist, output_dir, core_schema_dir, source_repo, source_comm
     # We treat each JSON file as a "package" item in the global manifest for this granularity level.
     # OR, if we had zipped packages, we'd pick those up. For now, individual files.
     
-    files_found = 0
+    files_found: int = 0
     for root, dirs, files in os.walk(dist_root):
         for file in files:
             if not file.endswith(".json"):
@@ -90,8 +90,10 @@ def release(pipeline_dist, output_dir, core_schema_dir, source_repo, source_comm
                     "built_at": datetime.datetime.now(datetime.timezone.utc).isoformat()
                 }
             }
-            manifest["packages"].append(package_entry)
-            files_found += 1
+            # Explicit cast for linter
+            packages_list: list = manifest["packages"] # type: ignore
+            packages_list.append(package_entry)
+            files_found = files_found + 1
             print(f"  └── Added {pkg_id}")
 
     if files_found == 0:

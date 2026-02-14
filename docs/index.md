@@ -4,6 +4,7 @@ Welcome to the central documentation hub for the Lingo multi-repo system.
 
 ## Navigation
 - [Repository Map](repo_map.md) - Overview of all repositories and their roles.
+- [Owners and Responsibilities](owners.md) - Role ownership and handoff boundaries.
 - [Workflow Map](workflow_map.md) - Standard Operating Procedures for content and code.
 - [Runbooks](runbooks/README.md) - Step-by-step guides for common tasks.
 

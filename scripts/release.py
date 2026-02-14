@@ -7,6 +7,7 @@ import subprocess
 import sys
 import datetime
 from pathlib import Path
+from typing import Dict, Any, List
 
 def calculate_hash(file_path):
     """Calculates SHA256 of a file."""
@@ -93,7 +94,7 @@ def release(pipeline_dist, output_dir, core_schema_dir, source_repo, source_comm
             # Explicit cast for linter
             packages_list: list = manifest["packages"] # type: ignore
             packages_list.append(package_entry)
-            files_found = files_found + 1
+            files_found = files_found + 1 # type: ignore
             print(f"  └── Added {pkg_id}")
 
     if files_found == 0:

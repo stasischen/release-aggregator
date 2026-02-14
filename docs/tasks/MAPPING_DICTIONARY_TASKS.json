@@ -1,0 +1,233 @@
+{
+  "epic": "ko-mapping-dictionary-stabilization",
+  "owner_repo": "/Users/ywchen/Dev/Lingourmet_universal",
+  "last_updated": "2026-02-14T00:00:00Z",
+  "objective": "Stabilize segmentation/mapping and dictionary flow for real KO content before scaling to more languages.",
+  "execution_mode": {
+    "rule": "Hybrid",
+    "notes": [
+      "Contract and data-shape tasks are strictly sequential.",
+      "Mapping track and dictionary track can run in parallel after shared staging format is frozen.",
+      "Pipeline/release/frontend gates are sequential after both tracks converge."
+    ]
+  },
+  "execution_order": [
+    "KO-FLOW-01",
+    "KO-FLOW-02",
+    "KO-MAP-01",
+    "KO-MAP-02",
+    "KO-DICT-01",
+    "KO-DICT-02",
+    "KO-GATE-01",
+    "KO-E2E-01"
+  ],
+  "parallel_groups": [
+    {
+      "after": "KO-FLOW-02",
+      "tasks": [
+        "KO-MAP-01",
+        "KO-DICT-01"
+      ],
+      "merge_on": "KO-GATE-01"
+    },
+    {
+      "after": [
+        "KO-MAP-01",
+        "KO-DICT-01"
+      ],
+      "tasks": [
+        "KO-MAP-02",
+        "KO-DICT-02"
+      ],
+      "merge_on": "KO-GATE-01"
+    }
+  ],
+  "tasks": [
+    {
+      "id": "KO-FLOW-01",
+      "title": "Freeze ID/Path policy and mapping contracts",
+      "status": "PENDING",
+      "target_repo": "core-schema",
+      "goal": "Prevent rework by locking canonical ID and fs-safe path behavior.",
+      "actions": [
+        "Lock canonical business IDs to colon format (for example ko:n-friend:01).",
+        "Lock filesystem-safe IDs to double underscore format (for example ko__n-friend__01) for path mapping only.",
+        "Document that fs_safe_id is optional and non-canonical.",
+        "Add/confirm schema examples for core and i18n with both id and fs_safe_id."
+      ],
+      "deliverables": [
+        "Updated contract doc for ID policy",
+        "Schema examples validating canonical id + fs_safe_id coexistence"
+      ],
+      "acceptance": [
+        "Validator passes for example_dictionary_core, dictionary_i18n, grammar_core, grammar_i18n.",
+        "Contract explicitly states fs_safe_id must not be used for business lookup."
+      ]
+    },
+    {
+      "id": "KO-FLOW-02",
+      "title": "Define staging data model for token and mapping workflow",
+      "status": "PENDING",
+      "target_repo": "content-ko",
+      "goal": "Create one stable handoff format between segmentation and dictionary filling.",
+      "actions": [
+        "Create staging files: token_candidates.jsonl, mapping_accepted.jsonl, mapping_conflicts.jsonl.",
+        "Define required fields (surface, source_ref, context, confidence, candidate_atom_ids, final_atom_id, resolver).",
+        "Add README for staging semantics and conflict resolution policy.",
+        "Add command docs for regenerate/append/review flows."
+      ],
+      "deliverables": [
+        "Staging schema docs",
+        "Initial empty staging files",
+        "Process readme"
+      ],
+      "acceptance": [
+        "Staging files can be regenerated deterministically from same source input.",
+        "Schema/shape checks fail on missing required fields."
+      ]
+    },
+    {
+      "id": "KO-MAP-01",
+      "title": "Build segmentation and auto-mapping pipeline",
+      "status": "PENDING",
+      "target_repo": "content-ko",
+      "goal": "Generate high-confidence mapping_accepted and isolate uncertain tokens to conflicts.",
+      "actions": [
+        "Run token extraction on dialogue source and generate token_candidates with source_ref traceability.",
+        "Apply auto-mapping heuristics using legacy map + lemma rules + override tables.",
+        "Emit high-confidence rows to mapping_accepted and low-confidence/multi-candidate rows to mapping_conflicts.",
+        "Add unresolved ratio and duplicate-final-id checks."
+      ],
+      "deliverables": [
+        "Scripts for extract and auto-map",
+        "Generated mapping_accepted and mapping_conflicts",
+        "Coverage report (resolved/unresolved counts)"
+      ],
+      "acceptance": [
+        "No duplicate final mapping for same source_ref token occurrence.",
+        "Conflict list is explicit and reviewable (not silently dropped)."
+      ]
+    },
+    {
+      "id": "KO-MAP-02",
+      "title": "Add human review loop for low-confidence conflicts",
+      "status": "PENDING",
+      "target_repo": "content-ko",
+      "goal": "Keep manual review bounded and auditable.",
+      "actions": [
+        "Create review input/export format for mapping_conflicts.",
+        "Implement apply-reviewed-mappings command that appends to mapping_accepted with reviewer metadata.",
+        "Add conflict aging report to track unresolved backlog.",
+        "Enforce precedence: manual override > auto-map."
+      ],
+      "deliverables": [
+        "Conflict review workflow docs",
+        "Reviewed conflict import/apply script",
+        "Conflict aging report"
+      ],
+      "acceptance": [
+        "Reviewed conflicts become deterministic accepted mappings.",
+        "Each accepted manual decision includes reviewer + timestamp + rationale."
+      ]
+    },
+    {
+      "id": "KO-DICT-01",
+      "title": "Generate dictionary core source from accepted mapping",
+      "status": "PENDING",
+      "target_repo": "content-ko",
+      "goal": "Build dictionary core from mapping truth instead of ad-hoc edits.",
+      "actions": [
+        "Generate/merge dictionary core entries from mapping_accepted.",
+        "Preserve required fields: atom_id, lemma_id, surface_forms, pos, senses, source_refs.",
+        "Implement merge precedence: manual dictionary overrides > generated defaults.",
+        "Emit validation report for empty senses/missing source_refs."
+      ],
+      "deliverables": [
+        "Dictionary core generation script",
+        "Updated core dictionary source files",
+        "Merge/validation report"
+      ],
+      "acceptance": [
+        "All generated core entries pass dictionary_core schema.",
+        "No entry exists without at least one sense and one source_ref."
+      ]
+    },
+    {
+      "id": "KO-DICT-02",
+      "title": "Fill dictionary i18n zh_tw and add coverage gates",
+      "status": "PENDING",
+      "target_repo": "content-ko",
+      "goal": "Complete learner-language layer without mutating core fields.",
+      "actions": [
+        "Generate i18n skeleton from core dictionary atom IDs.",
+        "Fill zh_tw gloss/definition fields and keep IDs aligned.",
+        "Add coverage report: translated, missing, stale IDs.",
+        "Fail gate when missing translation ratio exceeds threshold."
+      ],
+      "deliverables": [
+        "dictionary_i18n zh_tw source files",
+        "Coverage report",
+        "Threshold gate script"
+      ],
+      "acceptance": [
+        "i18n schema validation passes.",
+        "Coverage threshold is enforced in CI/smoke flow."
+      ]
+    },
+    {
+      "id": "KO-GATE-01",
+      "title": "Integrate mapping and dictionary quality gates into content-pipeline",
+      "status": "PENDING",
+      "target_repo": "content-pipeline",
+      "goal": "Make failures visible before release.",
+      "actions": [
+        "Add checks: duplicate IDs, unresolved token ratio, empty senses, i18n coverage threshold.",
+        "Fail build when any hard gate fails.",
+        "Publish machine-readable QA summary artifact per run."
+      ],
+      "deliverables": [
+        "Pipeline QA gate scripts",
+        "Updated smoke test",
+        "QA summary artifact"
+      ],
+      "acceptance": [
+        "Smoke test fails correctly on injected bad sample.",
+        "Smoke test passes on current KO baseline."
+      ]
+    },
+    {
+      "id": "KO-E2E-01",
+      "title": "Run full KO->release->frontend verification with real data",
+      "status": "PENDING",
+      "target_repo": "content-ko/content-pipeline/release-aggregator/lingo-frontend-web",
+      "goal": "Confirm end-to-end pipeline stability after flow rewrite.",
+      "actions": [
+        "Run content-ko extract/map/review/apply/build-dictionary sequence.",
+        "Run content-pipeline build and smoke test with new QA gates.",
+        "Run release-aggregator collect + manifest generation.",
+        "Run frontend sync and dictionary-related integration tests."
+      ],
+      "deliverables": [
+        "E2E run log",
+        "Manifest snapshot",
+        "Frontend verification report"
+      ],
+      "acceptance": [
+        "End-to-end run succeeds without manual patching in middle steps.",
+        "Frontend dictionary lookup path passes integration tests."
+      ]
+    }
+  ],
+  "reporting_format": {
+    "required": [
+      "task_id",
+      "commit_hash",
+      "changed_files",
+      "commands_run",
+      "test_results",
+      "blockers",
+      "handoff_file_path"
+    ]
+  },
+  "gemini_prompt_template": "請讀取 MAPPING_DICTIONARY_TASKS.json，執行任務 {TASK_ID}。完成後請用 reporting_format 回報，並附上可重現命令與測試結果。若任務屬於 parallel_groups，請明確標註是否可與另一任務並行。"
+}

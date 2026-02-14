@@ -24,15 +24,22 @@ graph TD
 - **Doc**: [lllo_ingestion_bootstrap.md](runbooks/lllo_ingestion_bootstrap.md)
 
 ### 3. Build (content-pipeline)
-- **Tool**: `scripts/generate_mapping_patch.py`
 - **Goal**: build and validate artifacts from canonical source.
 
 ### 4. Release (release-aggregator)
 - **Tool**: `scripts/release.py` and `scripts/release.sh`
-- **Validation**: Strict schema check against `core-schema`.
+- **Validation**: strict schema check against `core-schema`.
 
 ### 5. Intake (lingo-frontend-web)
-- **Action**: Sync assets to app and verify runtime contracts.
+- **Action**: sync assets to app and verify runtime contracts.
 - **Doc**: [release_cut_and_rollback.md](runbooks/release_cut_and_rollback.md)
+
+## Session Closeout Routing
+When user says "收工", choose closeout protocol by touched repositories:
+- Dispatcher: [gemini_closeout_protocol.md](runbooks/gemini_closeout_protocol.md)
+- Frontend: [closeout_frontend.md](runbooks/closeout_frontend.md)
+- Content: [closeout_content.md](runbooks/closeout_content.md)
+- Pipeline: [closeout_pipeline.md](runbooks/closeout_pipeline.md)
+- Release: [closeout_release.md](runbooks/closeout_release.md)
 
 For repository ownership boundaries, see [owners.md](owners.md).

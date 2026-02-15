@@ -35,7 +35,7 @@ Phase C: 前端整合（lingo-frontend-web）
 
 | Task ID | 描述 | Phase | 進度 | 檔案 |
 |---|---|---|---|---|
-| MAPPING_DICTIONARY | 字典映射標準化 + 品質驗證 | A2 | 0/8 tasks | [JSON](MAPPING_DICTIONARY_TASKS.json) |
+| MAPPING_DICTIONARY | 字典映射標準化 + 品質驗證 | A2 | 2/8 tasks | [JSON](MAPPING_DICTIONARY_TASKS.json) |
 
 ### Phase B/C — 待 Phase A 完成後啟動
 

@@ -20,9 +20,13 @@ Welcome to the central documentation hub for the Lingo multi-repo system.
 - [Daily Worklog Template](worklogs/_template.md) - Template for `YYYY-MM-DD.md` daily logs.
 
 ## Guides (使用者文件 / User-Facing Docs)
-- [V5 Automation Architecture](file:///Users/ywchen/Dev/lingo/release-aggregator/docs/guides/V5_AUTOMATION_ARCHITECTURE.md) - The global pipeline and repo handoff flow.
-- [Reversible Decomposition](file:///Users/ywchen/Dev/lingo/release-aggregator/docs/guides/REVERSIBLE_DECOMPOSITION.md) - The atomization strategy for V5.
-- [Content vs Pipeline Separation](file:///Users/ywchen/Dev/lingo/release-aggregator/docs/guides/CONTENT_PIPELINE_SEPARATION.md) - Strategy for cross-repo engine interop.
+- [V5 Automation Architecture](guides/V5_AUTOMATION_ARCHITECTURE.md) - V5 自動化架構。
+- [Reversible Decomposition](guides/REVERSIBLE_DECOMPOSITION.md) - 原子化與還原策略。
+- [Content vs Pipeline Separation](guides/CONTENT_PIPELINE_SEPARATION.md) - 職責分離計畫。
+- [Content Creation SOP](guides/CONTENT_CREATION_SOP.md) - 課程編寫與品質規範。
+- [Data Model Contracts](guides/DATA_MODEL_CONTRACTS.md) - 跨 Repo 資料結構定義。
+- [System Asset Strategy](guides/RELEASE_ASSET_STRATEGY.md) - 資產追蹤與發佈模式。
+- [Repo Responsibilities](guides/REPO_RESPONSIBILITIES.md) - 倉庫職責總覽。
 
 ## Repositories
 - **[core-schema](../../core-schema)**: Source of truth for data contracts.

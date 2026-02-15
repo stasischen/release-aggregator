@@ -388,6 +388,45 @@
                 "verification_status": "PASSED",
                 "notes": "Resolved ALL 82 unresolved tokens (3.1% -> 0.0%). Added 18 new suffix rules. Cleaned 52 conflicting conjugated forms. Split mapping.json into 5 category files. 56/56 rule tests pass. 2644/2644 tokens resolved."
             }
+        },
+        {
+            "id": "KO-RES-08",
+            "title": "Frontend dictionary hydration & polysemy tagging",
+            "status": "PENDING",
+            "target_repo": "content-ko + lingo-frontend-web",
+            "impact": "Ensures all pipeline-resolved atoms have matching frontend dictionary entries with correct POS, meanings, and multi-sense disambiguation",
+            "goal": "Bridge the gap between pipeline-side mapping.json (atom IDs only) and frontend-side dictionary packs (POS, senses, translations). Ensure 100% of resolved atoms can display correct terms to end users.",
+            "context": "After KO-RES-07 achieved 0% unresolved in the pipeline, ~60 new entries were added to mapping.json. However, the frontend base dictionary and language packs may not contain corresponding entries for these terms. Users tapping these words in the UI would see '[No Meaning]' or blank content.",
+            "actions": [
+                "A1: Gap analysis — cross-reference mapping.json entries against frontend base dictionary (assets/content/) to find terms missing from the frontend.",
+                "A2: Generate missing base dictionary entries with correct POS, word_type (sino/native/loan), and origin for each missing term.",
+                "A3: Generate language pack entries (ko_zh_tw, ko_en) with translated meanings and senses for each missing term.",
+                "A4: For polysemous words (e.g. 줄=line/row/to-know-how-to, 참=true/really/I-see), create multi-sense entries with distinct meanings and descriptions.",
+                "A5: Tag Yarn content atoms with senseIndex where a word has multiple senses and context disambiguates (e.g. 참 in '참, 진짜요?' = interjection vs '참을 수 없다' = endure).",
+                "A6: Add contextMeaning overrides in Yarn content for context-specific translations (e.g. 커서 = 'because [it's] big' not 'cursor').",
+                "A7: Verify frontend DictionaryContent widget displays correct POS badges, meanings, and Word Breakdown cards for all new entries.",
+                "A8: Run dictionary_service_test.dart and v5_dictionary_repro_test.dart to confirm no regressions."
+            ],
+            "affected_files": [
+                "content-ko/content/source/ko/i18n/mapping.json",
+                "content-ko/content/source/ko/i18n/mapping_*.json",
+                "lingo-frontend-web/assets/content/ko_base_dict.json",
+                "lingo-frontend-web/assets/content/ko_zh_tw.json",
+                "lingo-frontend-web/assets/content/ko_en.json",
+                "lllo/data/courses/ko/A1/**/*.yarn"
+            ],
+            "acceptance": [
+                "100% of mapping.json entries have corresponding frontend base dictionary entries.",
+                "All polysemous words have multi-sense entries with distinct meanings.",
+                "Language packs (zh_tw, en) cover all base dictionary entries.",
+                "DictionaryContent widget displays non-empty POS + meaning for every tappable word.",
+                "dictionary_service_test.dart passes.",
+                "No '[No Meaning]' or '[Invalid Format]' strings appear in UI for any A1 content word."
+            ],
+            "verification": "flutter test test/services/dictionary_service_test.dart && flutter test test/manual/v5_dictionary_repro_test.dart",
+            "dependencies": [
+                "KO-RES-07"
+            ]
         }
     ],
     "estimated_impact": {
@@ -397,7 +436,8 @@
         "KO-RES-04": "~40 tokens (8%)",
         "KO-RES-05": "~30 tokens (6%)",
         "KO-RES-06": "~20 tokens (4%)",
-        "KO-RES-07": "remaining ~24 tokens (5%)"
+        "KO-RES-07": "remaining ~24 tokens (5%)",
+        "KO-RES-08": "~60 entries (frontend dictionary coverage)"
     },
     "gemini_prompt_template": "請讀取 KO_RESOLUTION_100PCT_TASKS.json，執行任務 {TASK_ID}。工作對象在 content-ko 資料夾。完成後請用 reporting_format 回報，附上可重現命令與測試結果。每完成一個任務後執行 python tests/run_rule_tests.py && python scripts/run_mapping_pipeline.py 驗證。",
     "reporting_format": {

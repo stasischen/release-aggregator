@@ -41,5 +41,6 @@ When user says "收工", choose closeout protocol by touched repositories:
 - Content: [closeout_content.md](runbooks/closeout_content.md)
 - Pipeline: [closeout_pipeline.md](runbooks/closeout_pipeline.md)
 - Release: [closeout_release.md](runbooks/closeout_release.md)
+- Core Schema: [closeout_schema.md](runbooks/closeout_schema.md)
 
 For repository ownership boundaries, see [owners.md](owners.md).

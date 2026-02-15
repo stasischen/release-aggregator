@@ -47,7 +47,7 @@
         {
             "id": "KO-RES-01",
             "title": "Filter Yarn metadata from tokenizer input",
-            "status": "PENDING",
+            "status": "COMPLETED",
             "target_repo": "content-ko",
             "impact": "Eliminates ~200 false unresolved tokens (40% of total unresolved)",
             "goal": "Stop counting Yarn node IDs, metadata lines, and English labels as Korean tokens.",
@@ -66,7 +66,34 @@
                 "No Yarn node ID (e.g. L16-D1-01) appears in unresolved list.",
                 "Pipeline still reports same resolved tokens for actual Korean tokens."
             ],
-            "verification": "python scripts/run_mapping_pipeline.py && grep -c 'L[0-9]' in unresolved should be 0"
+            "verification": "python scripts/run_mapping_pipeline.py && grep -c 'L[0-9]' in unresolved should be 0",
+            "completion_report": {
+                "timestamp": "2026-02-15T16:05:00+08:00",
+                "commit_hash": "29c9c85",
+                "changed_files": [
+                    "content-ko/scripts/run_mapping_pipeline.py",
+                    "content-ko/scripts/analyze_unresolved.py"
+                ],
+                "commands_run": [
+                    "python scripts/run_mapping_pipeline.py",
+                    "python scripts/analyze_unresolved.py",
+                    "python tests/run_rule_tests.py"
+                ],
+                "test_results": {
+                    "rule_tests": "PASS",
+                    "pipeline_report": "content-ko/reports/qa_report_A1_Validation_*.md"
+                },
+                "unresolved_stats": {
+                    "before": "~700 (estimated)",
+                    "after": "489 (clean)",
+                    "reduction": "~211 invalid tokens removed"
+                },
+                "key_outcomes": [
+                    "Filtered Yarn metadata (title, tags, node IDs) from tokenizer.",
+                    "Filtered English-only tokens (e.g. 'Korean', 'hiking') while preserving mixed tokens.",
+                    "Fixed analyze_unresolved.py to read pipeline output provided accurate data."
+                ]
+            }
         },
         {
             "id": "KO-RES-02",

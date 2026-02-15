@@ -392,7 +392,7 @@
         {
             "id": "KO-RES-08",
             "title": "Frontend dictionary hydration & polysemy tagging",
-            "status": "PENDING",
+            "status": "IN_PROGRESS",
             "target_repo": "content-ko + lingo-frontend-web",
             "impact": "Ensures all pipeline-resolved atoms have matching frontend dictionary entries with correct POS, meanings, and multi-sense disambiguation",
             "goal": "Bridge the gap between pipeline-side mapping.json (atom IDs only) and frontend-side dictionary packs (POS, senses, translations). Ensure 100% of resolved atoms can display correct terms to end users.",

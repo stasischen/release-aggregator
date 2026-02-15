@@ -20,9 +20,9 @@ Welcome to the central documentation hub for the Lingo multi-repo system.
 - [Daily Worklog Template](worklogs/_template.md) - Template for `YYYY-MM-DD.md` daily logs.
 
 ## Guides (使用者文件 / User-Facing Docs)
-- [V5 Automation Architecture](guides/V5_AUTOMATION_ARCHITECTURE.md) - V5 自動化架構，從原始內容到原子化 Atom 的完整說明。
-- [Repo Responsibilities & Agent Guide](guides/REPO_RESPONSIBILITIES.md) - 各倉庫職責總覽，人類管理與 Agent 協作指南。
-- [Content vs Pipeline Separation](guides/CONTENT_PIPELINE_SEPARATION.md) - Content 與 Pipeline 的職責分離策略與遷移計畫。
+- [V5 Automation Architecture](file:///Users/ywchen/Dev/lingo/release-aggregator/docs/guides/V5_AUTOMATION_ARCHITECTURE.md) - The global pipeline and repo handoff flow.
+- [Reversible Decomposition](file:///Users/ywchen/Dev/lingo/release-aggregator/docs/guides/REVERSIBLE_DECOMPOSITION.md) - The atomization strategy for V5.
+- [Content vs Pipeline Separation](file:///Users/ywchen/Dev/lingo/release-aggregator/docs/guides/CONTENT_PIPELINE_SEPARATION.md) - Strategy for cross-repo engine interop.
 
 ## Repositories
 - **[core-schema](../../core-schema)**: Source of truth for data contracts.

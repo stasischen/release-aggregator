@@ -70,34 +70,31 @@ graph LR
 | 項目 / Item | 說明 / Description |
 |---|---|
 | **一句話 / TL;DR** | 韓語的「真相來源 (Source of Truth)」，包含所有原子化後的內容 |
-| **包含什麼 / Contains** | `mapping.json`, `atoms/*.json`, `grammar/*.json`, ingestion 腳本, 規則引擎 |
+| **包含什麼 / Contains** | `mapping.json`, `engine/` (Tokenizer, Rules), `content/source/ko/`, ingestion 腳本 |
 | **不包含什麼 / Does NOT contain** | 建置邏輯、前端程式碼、發佈腳本 |
-| **關鍵目錄 / Key Dirs** | `content/source/ko/` — 正式原始碼<br/>`scripts/core/` — 規則引擎核心<br/>`docs/handoffs/` — 技術文件 |
+| **關鍵目錄 / Key Dirs** | `content/source/ko/` — 正式原始碼<br/>`engine/` — 核心規則引擎與語法規則<br/>`scripts/ops/` — 主要維運腳本 |
 
 #### 🧑 人類管理要點 / Human Management
 
-- **主要操作**：跑 `python scripts/import_lllo_raw.py` 來匯入新內容。
+- **主要操作**：跑 `python scripts/ops/import_lllo_raw.py` 來匯入新內容。
 - **手動補丁**：未解析的 Token 需要你手動加到 `content/staging/manual_mapping_additions.json`。
-- **品質檢查**：跑 `python audit_03b.py` 查看剩餘問題。
-- **日常維護的 Makefile 指令**：
+- **品質檢查**：跑 `python scripts/ops/audit_reconstruction.py` 進行 100% 還原度檢查。
+- **日常維護的指令**：
 
 ```bash
 # 匯入新內容 / Import new content
-python scripts/import_lllo_raw.py
+python scripts/ops/import_lllo_raw.py
 
-# 審計未解析 Token / Audit unresolved tokens
-python audit_03b.py
-
-# 驗證 / Validate
-bash scripts/validate.sh
+# 審計還原度 / Audit reconstruction quality
+python scripts/ops/audit_reconstruction.py
 ```
 
 #### 🤖 Agent 溝通要點 / Agent Communication
 
 - ✅ **適合交給 Agent 的事**：
-  - 新增規則到 `scripts/core/rules/*.json`
-  - 修復 `RulesEngine.py` 中的編碼問題
-  - 分析 `audit_03b_results.txt` 並提出修復建議
+  - 新增規則到 `engine/rules/*.json`
+  - 修復 `engine/` 中的還原邏輯問題
+  - 分析 `audit_reconstruction_results.txt` 並提出修復建議
   - 更新 `mapping.json` 中的缺漏詞
 - ⚠️ **需要人類確認的事**：
   - 刪除任何 `atoms/*.json`（可能影響前端）
@@ -105,8 +102,8 @@ bash scripts/validate.sh
 
 > [!TIP]
 > **推薦指令**：
-> - 「幫我看 `audit_03b_results.txt`，分析剩下的 70 個 Token 屬於哪些類別」
-> - 「幫我修復 `덥다 → 더워요` 的 Jamo 還原問題」
+> - 「幫我看 `audit_reconstruction_results.txt`，確認是否真的 100% 通過品質門檻」
+> - 「幫我優化 `engine/rules/30_verb_endings.json` 中的規則」
 > - 「跑一次 `import_lllo_raw.py`，報告新發現的 Atom 數量」
 
 ---

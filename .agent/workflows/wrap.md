@@ -23,3 +23,4 @@ description: control-tower closeout shim — 收工協議入口
 - **Worklog 唯一存放處**：`release-aggregator/docs/worklogs/YYYY-MM-DD.md`。
 - 如當天已有 Worklog，必須以 **追加 (append)** 方式寫入，不可覆蓋。
 - 必須提供 commit hash 作為完成證據，不可空口 claim。
+- **防覆蓋**：寫入 Worklog 前必須先 `git pull` 再 `view_file` 確認現有內容，禁止直接 `write_to_file` + `Overwrite: true`。

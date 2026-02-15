@@ -26,6 +26,56 @@ git push origin main
 > 絕對不能寫入各 Repo 本地的 docs/ 或其他位置。
 > 每天只有一份 Worklog，如果該日已有 Worklog，則 **追加 (append)** 新的 Session 紀錄。
 
+### ⚠️ 多 Agent 防覆蓋規則 (Anti-Overwrite Protocol)
+
+多個 Agent 可能在同一天操作同一份 Worklog。如果不遵守以下規則，**後寫入的 Agent 會靜默覆蓋前一位 Agent 的紀錄**。
+
+#### 必須遵守的 4 步安全寫入流程：
+
+```
+Step 2a: git pull          — 拉取最新版本，確保不會覆蓋其他 Agent 的提交
+Step 2b: 讀取現有檔案      — 確認已有內容，決定追加位置
+Step 2c: 追加寫入          — 只在末尾追加，絕不覆蓋
+Step 2d: 立即 commit+push  — 縮短衝突視窗
+```
+
+#### Step 2a: 先 Pull
+```bash
+# // turbo
+cd /Users/ywchen/Dev/lingo/release-aggregator
+git pull origin main
+```
+
+#### Step 2b: 讀取現有檔案
+```
+# // turbo
+view_file /Users/ywchen/Dev/lingo/release-aggregator/docs/worklogs/YYYY-MM-DD.md
+```
+- 如果檔案存在：記住最後一行的行號，用於追加。
+- 如果檔案不存在：可以安全建立新檔案。
+
+#### Step 2c: 追加寫入（安全工具選擇）
+
+> [!WARNING]
+> **禁止行為** (以下任何一項都會導致覆蓋)：
+> - ❌ 使用 `write_to_file` 搭配 `Overwrite: true` 寫入已存在的 Worklog
+> - ❌ 不先 `git pull` 就直接寫入
+> - ❌ 不先讀取檔案就直接寫入
+>
+> **正確行為**：
+> - ✅ 如果檔案已存在：使用 `replace_file_content` 或 `multi_replace_file_content`，在檔案末尾追加新的 Session 區塊
+> - ✅ 如果檔案不存在：可以使用 `write_to_file`（此時 Overwrite 為 false）
+> - ✅ 或者使用 shell 的 `cat >> file` 追加模式
+
+#### Step 2d: 立即提交
+```bash
+# // turbo
+cd /Users/ywchen/Dev/lingo/release-aggregator
+git add docs/worklogs/
+git commit -m "worklog: YYYY-MM-DD session update"
+git push origin main
+```
+
 ### Worklog 格式
 ```markdown
 # Daily Worklog - YYYY-MM-DD
@@ -52,7 +102,9 @@ git push origin main
 如果當天已存在 Worklog：
 1. 在檔案末尾追加 `---` 分隔線。
 2. 然後追加新的 `## Session:` 區塊。
-3. **不要覆蓋已有內容**。
+3. **不要覆蓋已有內容。**
+4. **不要重寫標題 `# Daily Worklog`**（它已經存在）。
+
 
 ## Step 3: 輸出收工報告
 向使用者展示簡明的收工摘要：

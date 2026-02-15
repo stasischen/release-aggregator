@@ -39,7 +39,7 @@
         {
             "id": "VIEWER-01",
             "title": "Dictionary popup on word click (multi-layer)",
-            "status": "PENDING",
+            "status": "COMPLETED",
             "target_repo": "content-ko",
             "priority": "HIGH",
             "goal": "When user clicks a Korean word (atom) in the dialogue panel, show a popup/side panel with: surface text, POS badge, translated meaning, and atom breakdown — matching what the Flutter DictionaryContent widget does.",
@@ -72,7 +72,7 @@
         {
             "id": "VIEWER-02",
             "title": "Load and display old production courses",
-            "status": "PENDING",
+            "status": "COMPLETED",
             "target_repo": "content-ko",
             "priority": "HIGH",
             "goal": "The viewer should be able to display old production course content (from lingo-frontend-web/assets/content/9_production/) alongside the new LLLO curriculum. Currently the viewer only loads from content.js (new format).",

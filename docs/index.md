@@ -7,6 +7,8 @@ Welcome to the central documentation hub for the Lingo multi-repo system.
 - [Owners and Responsibilities](owners.md) - Role ownership and handoff boundaries.
 - [Workflow Map](workflow_map.md) - Standard operating procedures for content and code.
 - [Runbooks](runbooks/README.md) - Step-by-step guides for common tasks.
+- [Agent Reference Order](runbooks/agent_reference_order.md) - Mandatory document order for agents.
+- [Gemini Startup Protocol](runbooks/gemini_startup_protocol.md) - Ask objective first, then load relevant protocols.
 - [Worklog and Directory Governance](ops/worklog_and_directory_governance.md) - Where daily logs and WIP records live.
 - [Korean Stage Contract Matrix](ops/stage_contract_matrix_ko.md) - Gate and artifact contract for KO stages.
 - [Stage Handoff JSON Schema](ops/handoff_stage.schema.json) - Required machine-readable handoff format.

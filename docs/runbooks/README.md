@@ -13,6 +13,8 @@ Operational runbooks:
 - [Universal Archive Migration](universal_archive_migration.md)
 
 Execution and closeout protocols:
+- [Agent Reference Order](agent_reference_order.md)
+- [Gemini Startup Protocol (開工協議)](gemini_startup_protocol.md)
 - [Gemini Stage Execution Protocol (KO First)](gemini_stage_execution_protocol.md)
 - [Gemini Closeout Protocol (Dispatcher)](gemini_closeout_protocol.md)
 - [Closeout - Frontend](closeout_frontend.md)

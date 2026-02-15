@@ -262,7 +262,7 @@
         {
             "id": "KO-RES-05",
             "title": "Add honorific and auxiliary verb chain rules",
-            "status": "PENDING",
+            "status": "COMPLETED",
             "target_repo": "content-ko",
             "impact": "Resolves ~30 tokens (complex verb chains with honorific markers)",
             "goal": "Handle V-시- (honorific), V-아/어 주다 (benefactive), and V-아/어 드리다 (humble benefactive) chains.",
@@ -282,14 +282,28 @@
                 "10. verb_hago_hada_connective: (.+)하고$ — Ambiguous! Could be N+하고 (comitative) or V-하+고 (connective). Use dictionary_required: true to disambiguate."
             ],
             "affected_files": [
-                "content-ko/scripts/core/rules/30_verb_endings.json"
+                "content-ko/scripts/core/rules/30_verb_endings.json",
+                "content-ko/scripts/core/rules_engine.py",
+                "content-ko/tests/rule_tests.json"
             ],
             "acceptance": [
                 "도와드릴까요, 잘하시겠어요, 친절하시고요 resolve correctly.",
                 "No regression in existing rule_tests.json tests.",
                 "Test cases added for each new rule."
             ],
-            "verification": "python tests/run_rule_tests.py && python scripts/run_mapping_pipeline.py"
+            "verification": "python tests/run_rule_tests.py && python scripts/run_mapping_pipeline.py",
+            "completion_report": {
+                "timestamp": "2026-02-15T18:15:00+08:00",
+                "commit_hash": "8154c73",
+                "changed_files": [
+                    "content-ko/scripts/core/rules/30_verb_endings.json",
+                    "content-ko/scripts/core/rules/60_particles.json",
+                    "content-ko/scripts/core/rules_engine.py",
+                    "content-ko/tests/rule_tests.json"
+                ],
+                "verification_status": "PASSED",
+                "notes": "Implemented honorifics, benefactives, and past chains. 56/56 rule tests passed. Resolved ~30+ complex tokens."
+            }
         },
         {
             "id": "KO-RES-06",

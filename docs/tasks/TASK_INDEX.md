@@ -35,9 +35,7 @@ Phase C: 前端整合（lingo-frontend-web）
 
 | Task ID | 描述 | Phase | 進度 | 檔案 |
 |---|---|---|---|---|
-| VIEWER_ENHANCEMENT | Viewer 辭典彈出 + 舊課程顯示 | A1 | 2/3 tasks | [JSON](VIEWER_ENHANCEMENT_TASKS.json) |
 | MAPPING_DICTIONARY | 字典映射標準化 + 品質驗證 | A2 | 0/8 tasks | [JSON](MAPPING_DICTIONARY_TASKS.json) |
-| KO_RESOLUTION_100PCT | 韓語 Token + 多義詞標記 | A3 | 8/8 tasks | [JSON](KO_RESOLUTION_100PCT_TASKS.json) |
 
 ### Phase B/C — 待 Phase A 完成後啟動
 
@@ -51,4 +49,5 @@ Phase C: 前端整合（lingo-frontend-web）
 
 | Task ID | 描述 | 完成時間 |
 |---|---|---|
+| VIEWER_ENHANCEMENT | Viewer 辭典彈出 + 舊課程顯示 | 2026-02-15 |
 | KO_RESOLUTION_100PCT | 韓語 Token 解析 100% | 2026-02-15 |

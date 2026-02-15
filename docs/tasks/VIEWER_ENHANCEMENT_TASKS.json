@@ -98,7 +98,7 @@
         {
             "id": "VIEWER-03",
             "title": "Sync dict_viewer back to lllo/tools",
-            "status": "PENDING",
+            "status": "COMPLETED",
             "target_repo": "lllo",
             "priority": "MEDIUM",
             "goal": "Replace the simpler lllo/tools/viewer.html with the enhanced dict_viewer version so there is one canonical viewer.",

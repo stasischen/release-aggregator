@@ -181,7 +181,7 @@
         {
             "id": "KO-RES-04",
             "title": "Add particle combination rules",
-            "status": "PENDING",
+            "status": "COMPLETED",
             "target_repo": "content-ko",
             "impact": "Resolves ~40 tokens (noun + particle combos)",
             "goal": "Add rules for missing particle suffixes and particle chain patterns.",
@@ -207,7 +207,35 @@
                 "Test cases added to tests/rule_tests.json.",
                 "python tests/run_rule_tests.py passes."
             ],
-            "verification": "python tests/run_rule_tests.py && python scripts/run_mapping_pipeline.py"
+            "verification": "python tests/run_rule_tests.py && python scripts/run_mapping_pipeline.py",
+            "completion_report": {
+                "timestamp": "2026-02-15T16:22:00+08:00",
+                "commit_hash": "c634606faa8841ba0a92997379d60154b0228312",
+                "changed_files": [
+                    "content-ko/scripts/core/rules/60_particles.json",
+                    "content-ko/scripts/core/rules/50_noun_particle_combos.json",
+                    "content-ko/scripts/core/rules/20_regex_time.json",
+                    "content-ko/tests/rule_tests.json"
+                ],
+                "commands_run": [
+                    "python tests/run_rule_tests.py",
+                    "python scripts/run_mapping_pipeline.py"
+                ],
+                "test_results": {
+                    "rule_tests": "PASS (26/26)",
+                    "pipeline_report": "content-ko/reports/qa_report_A1_Validation_20260215_161920_*.md"
+                },
+                "unresolved_stats": {
+                    "before": "8.6%",
+                    "after": "6.4%",
+                    "reduction": "~120 tokens resolved"
+                },
+                "key_outcomes": [
+                    "Added particle rules: 까지, 밖에, 하고, 한테, 로",
+                    "Added numeric counter rules for time, floor, price, etc.",
+                    "Added specific Time+Until rule (10시까지)"
+                ]
+            }
         },
         {
             "id": "KO-RES-05",

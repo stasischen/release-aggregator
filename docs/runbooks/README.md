@@ -18,3 +18,4 @@ Execution and closeout protocols:
 - [Closeout - Content](closeout_content.md)
 - [Closeout - Pipeline](closeout_pipeline.md)
 - [Closeout - Release Aggregator](closeout_release.md)
+- [Closeout - Core Schema](closeout_schema.md)

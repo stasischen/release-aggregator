@@ -8,6 +8,7 @@ When user says "收工", Gemini selects only the protocol(s) that match touched 
 - If touched repo includes `content-ko`: include [closeout_content.md](closeout_content.md)
 - If touched repo includes `content-pipeline`: include [closeout_pipeline.md](closeout_pipeline.md)
 - If touched repo includes `release-aggregator`: include [closeout_release.md](closeout_release.md)
+- If touched repo includes `core-schema`: include [closeout_schema.md](closeout_schema.md)
 
 ## Do Not Include Unrelated Protocols
 - Backend/content work must not run frontend-only checks.

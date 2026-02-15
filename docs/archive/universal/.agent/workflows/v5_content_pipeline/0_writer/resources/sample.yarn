@@ -1,0 +1,28 @@
+// title: Sample Dialogue (Korean)
+// description: Golden sample aligned with V4 legacy structure.
+// -----------------------------------------------------------------------
+
+title: Start
+tags: 
+---
+<<declare $npc_Lisa = "Lisa">>
+
+// ✅ DIALOGUE BLOCK (Target Language with IDs)
+{$npc_Lisa}: 안녕하세요! 잘 지내시나요? #line:l0_sample_001
+    -> 네, 잘 지내요. 감사합니다! #line:l0_sample_002
+        Player: 네, 잘 지내요. 감사합니다! #line:l0_sample_003
+        {$npc_Lisa}: 듣던 중 반가운 소리네요. #line:l0_sample_004
+    -> 별로 좋지 않아요. #line:l0_sample_005
+        Player: 별로 좋지 않아요. #line:l0_sample_006
+        {$npc_Lisa}: 저런, 유감이네요. #line:l0_sample_007
+===
+
+// REFERENCE BLOCK (MIRROR)
+// Exact match to V4 style: No title header, functioning as unparsed metadata
+Lisa: Hello! How are you doing? #line:l0_sample_001
+    -> Yes, I am doing well. Thank you! #line:l0_sample_002
+        Player: Yes, I am doing well. Thank you! #line:l0_sample_003
+        Lisa: That is good to hear. #line:l0_sample_004
+    -> Not so good. #line:l0_sample_005
+        Player: Not so good. #line:l0_sample_006
+        Lisa: Oh, I am sorry. #line:l0_sample_007

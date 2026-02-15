@@ -1,0 +1,4 @@
+"id","lemma","pos","source","term","term_ruby","transliteration","category","trans_zh_TW","trans_en","trans_ja","trans_es","trans_id","note","examples"
+"ko_N_안녕하세요_hello","안녕하세요","N","native","안녕하세요","","annyeong-haseyo","auto-synced","你好","Hello","こんにちは","Hola","Halo","Greeting used at any time of day","안녕하세요! 잘 지내시나요?"
+"ko_V_가다_go","가다","V","native","가다","","gada","auto-synced","去","Go","行く","Ir","Pergi","","부산으로 여행을 갈 계획입니다."
+"ko_ADV_잘_well","잘","ADV","native","잘","","jal","auto-synced","好","Well","よく","Bien","Baik","Easily confused with '자' (ruler/sleep)","네, 잘 지내요."

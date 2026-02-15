@@ -1,0 +1,8 @@
+"line_id","node","speaker","type","text_source","trans_en","trans_zh_TW","trans_ja","trans_es","trans_id","status"
+"l0_sample_001","Start","{$npc_Lisa}","dialogue","안녕하세요! 잘 지내시나요?","Hello! How are you doing?","你好！你過得好嗎？","こんにちは！お元気ですか？","¡Hola! ¿Cómo estás?","Halo! Apa kabar?","reviewed"
+"l0_sample_002","Start","Option","Option","네, 잘 지내요. 감사합니다!","Yes, I am doing well. Thank you!","是的，我過得很好。謝謝！","はい、元気です。ありがとう！","Sí, estoy bien. Gracias.","Ya, saya baik-baik saja. Terima kasih!","reviewed"
+"l0_sample_003","Start","Player","dialogue","네, 잘 지내요. 감사합니다!","Yes, I am doing well. Thank you!","是的，我過得很好。謝謝！","はい、元気です。ありがとう！","Sí, estoy bien. Gracias.","Ya, saya baik-baik saja. Terima kasih!","reviewed"
+"l0_sample_004","Start","{$npc_Lisa}","dialogue","듣던 중 반가운 소리네요.","That is good to hear.","那真是太好了。","それは良かったです。","Eso es bueno escuchar.","Senang mendengarnya.","reviewed"
+"l0_sample_005","Start","Option","Option","별로 좋지 않아요.","Not so good.","不太好。","あまり良くないです。","No tan bien.","Tidak terlalu baik.","reviewed"
+"l0_sample_006","Start","Player","dialogue","별로 좋지 않아요.","Not so good.","不太好。","あまり良くないです。","No tan bien.","Tidak terlalu baik.","reviewed"
+"l0_sample_007","Start","{$npc_Lisa}","dialogue","저런, 유감이네요.","Oh, I am sorry.","噢，我很抱歉。","あ、それは残念です。","Oh, lo siento.","Oh, saya minta maaf.","reviewed"

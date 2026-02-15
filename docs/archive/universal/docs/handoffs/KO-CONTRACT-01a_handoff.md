@@ -1,0 +1,21 @@
+# Handoff: KO-CONTRACT-01a
+
+- **task_id**: KO-CONTRACT-01a
+- **commit_hash**: b794ed8544ebc66ccd90703b5d4e6e96045362a5
+- **changed_files**:
+  - `schemas/dictionary_core.schema.json`
+  - `schemas/dictionary_i18n.schema.json`
+  - `schemas/grammar_core.schema.json`
+  - `schemas/grammar_i18n.schema.json`
+  - `schemas/article_compat_grammar.schema.json`
+  - `examples/example_dictionary_core.json`
+  - `examples/example_grammar_core.json`
+- **commands_run**:
+  - `python3 validators/validate.py --schema schemas/dictionary_core.schema.json --target examples/example_dictionary_core.json` (PASS)
+  - `python3 validators/validate.py --schema schemas/grammar_core.schema.json --target examples/example_grammar_core.json` (PASS)
+- **test_results**:
+  - `additionalProperties: false` applied to all schemas.
+  - `senses` and `source_refs` are now mandatory in `dictionary_core`.
+  - Grammar `examples` are now structured with `token_refs`.
+- **blockers**: None.
+- **handoff_file_path**: `docs/handoffs/KO-CONTRACT-01a_handoff.md`

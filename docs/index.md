@@ -2,6 +2,16 @@
 
 Welcome to the central documentation hub for the Lingo multi-repo system.
 
+## 📋 Recent Worklogs
+| Date | File |
+|---|---|
+| 2026-02-15 | [2026-02-15.md](worklogs/2026-02-15.md) |
+| 2026-02-13 | [2026-02-13.md](worklogs/2026-02-13.md) |
+
+> [!TIP]
+> Worklog 唯一存放處：`release-aggregator/docs/worklogs/YYYY-MM-DD.md`。
+> 所有 Repo 的收工協議 (`/wrap`) 都會自動寫入此處。
+
 ## Navigation
 - [Repository Map](repo_map.md) - Overview of all repositories and their roles.
 - [Owners and Responsibilities](owners.md) - Role ownership and handoff boundaries.

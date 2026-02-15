@@ -1,20 +1,27 @@
 ---
-description: control-tower startup shim
+description: control-tower startup shim — 開工協議入口
 ---
-# Startup Shim (Control Tower)
+# /start — 開工 (Startup Shim)
 
-Active protocol source:
-- `/Users/ywchen/Dev/lingo/release-aggregator/docs/runbooks/gemini_startup_protocol.md`
+> **本檔案僅為跳轉入口。** Agent 開工時必須前往 Aggregator 讀取完整協議。
 
-Rules:
-1. Do not use local repo workflows as source-of-truth.
-2. Use only `release-aggregator/docs/**` as active protocol.
-3. If legacy comparison is needed, read only `release-aggregator/docs/archive/universal/**`.
+## 執行步驟
 
-Startup prompt:
-`今天要做哪個任務？請提供 task_id（若有）、目標 repo、是否只做單一 stage。`
+// turbo
+1. 讀取開工協議：
+   ```
+   view_file /Users/ywchen/Dev/lingo/release-aggregator/docs/runbooks/gemini_startup_protocol.md
+   ```
 
-Before execution, agent must output:
-- `active_docs_used`
-- `archive_docs_used` (if any)
-- `decision_source`
+// turbo
+2. 讀取控制塔首頁：
+   ```
+   view_file /Users/ywchen/Dev/lingo/release-aggregator/docs/index.md
+   ```
+
+3. 按照開工協議的 Step 1~3 向使用者確認目標。
+
+## 硬規則
+- 協議唯一來源：`release-aggregator/docs/runbooks/`。
+- **Worklog 唯一存放處**：`release-aggregator/docs/worklogs/YYYY-MM-DD.md`。
+- 不得使用各 Repo 本地的 legacy workflow 作為執行依據。

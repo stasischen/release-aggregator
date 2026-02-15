@@ -13,16 +13,12 @@ Welcome to the central documentation hub for the Lingo multi-repo system.
 > 所有 Repo 的收工協議 (`/wrap`) 都會自動寫入此處。
 
 ## 🎯 Task Registry (任務總表)
-| Task ID | 描述 | 檔案 |
-|---|---|---|
-| CONTENT_PIPELINE_SEPARATION | 職責分離計畫 | [TASKS.json](tasks/CONTENT_PIPELINE_SEPARATION_TASKS.json) |
-| KO_RESOLUTION_100PCT | 韓語 Token 解析 100% | [TASKS.json](tasks/KO_RESOLUTION_100PCT_TASKS.json) |
-| MAPPING_DICTIONARY | 字典映射標準化 | [TASKS.json](tasks/MAPPING_DICTIONARY_TASKS.json) |
-| VIEWER_ENHANCEMENT | Viewer 功能增強 | [TASKS.json](tasks/VIEWER_ENHANCEMENT_TASKS.json) |
+
+👉 **[TASK_INDEX.md](tasks/TASK_INDEX.md)** — 所有任務的全景索引（Active / Completed 分開顯示）
 
 > [!IMPORTANT]
-> Agent 開工時（`/start`）必須先掃描 `docs/tasks/` 下的**所有**任務檔，不可只讀一個。
-> 詳見 [開工協議 Step 0](runbooks/gemini_startup_protocol.md)。
+> Agent 開工時讀取 `TASK_INDEX.md` 即可掌握全局，不需要逐一讀 JSON 檔。
+> 任務完成或新增時，必須同步更新此索引。
 
 ## Navigation
 - [Repository Map](repo_map.md) - Overview of all repositories and their roles.

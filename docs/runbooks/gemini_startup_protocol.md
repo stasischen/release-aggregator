@@ -8,28 +8,16 @@
 ### Step 0: 載入任務全景 (Task Discovery)
 
 > [!IMPORTANT]
-> 開工時**必須先掃描所有進行中的任務**，不要只讀一個。
+> 開工時**必須先讀取任務索引**，掌握全部進行中的任務。
 
 // turbo
-列出所有 Task 檔案：
+讀取任務索引（唯一入口，不要直接讀 JSON）：
 ```
-list_dir /Users/ywchen/Dev/lingo/release-aggregator/docs/tasks/
-```
-
-// turbo
-逐一讀取每個 `*_TASKS.json` 的摘要（至少讀前 50 行以掌握 task 清單）：
-```
-view_file <each task file>
+view_file /Users/ywchen/Dev/lingo/release-aggregator/docs/tasks/TASK_INDEX.md
 ```
 
-讀完後，向使用者展示簡要的任務全景：
-```
-📋 目前進行中的任務：
-1. [CONTENT_PIPELINE_SEPARATION] - 職責分離計畫 (Phase 0 done)
-2. [KO_RESOLUTION_100PCT] - 韓語 Token 解析 100% 完成計畫
-3. [MAPPING_DICTIONARY] - 字典映射標準化
-4. [VIEWER_ENHANCEMENT] - Viewer 功能增強
-```
+讀完後，向使用者展示 **Active Tasks** 清單，詢問要做哪一個。
+如果使用者選擇了特定任務，**再去讀取**對應的 `*_TASKS.json` 取得細節。
 
 ### Step 1: 確認目標
 問使用者：

@@ -11,7 +11,8 @@ Operational runbooks:
 - [Release Cut and Rollback](release_cut_and_rollback.md)
 - [Windows Environment Setup](windows_setup_guide.md)
 
-Closeout runbooks:
+Execution and closeout protocols:
+- [Gemini Stage Execution Protocol (KO First)](gemini_stage_execution_protocol.md)
 - [Gemini Closeout Protocol (Dispatcher)](gemini_closeout_protocol.md)
 - [Closeout - Frontend](closeout_frontend.md)
 - [Closeout - Content](closeout_content.md)

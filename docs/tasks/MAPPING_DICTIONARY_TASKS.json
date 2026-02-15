@@ -1,6 +1,6 @@
 {
   "epic": "ko-mapping-dictionary-stabilization",
-  "owner_repo": "/Users/ywchen/Dev/Lingourmet_universal",
+  "owner_repo": "/Users/ywchen/Dev/lingo/release-aggregator",
   "last_updated": "2026-02-14T00:00:00Z",
   "objective": "Stabilize segmentation/mapping and dictionary flow for real KO content before scaling to more languages.",
   "execution_mode": {
@@ -229,5 +229,11 @@
       "handoff_file_path"
     ]
   },
-  "gemini_prompt_template": "請讀取 MAPPING_DICTIONARY_TASKS.json，執行任務 {TASK_ID}。完成後請用 reporting_format 回報，並附上可重現命令與測試結果。若任務屬於 parallel_groups，請明確標註是否可與另一任務並行。"
+  "gemini_prompt_template": "請讀取 MAPPING_DICTIONARY_TASKS.json，執行任務 {TASK_ID}。完成後請用 reporting_format 回報，並附上可重現命令與測試結果。若任務屬於 parallel_groups，請明確標註是否可與另一任務並行。",
+  "contract_refs": [
+    "docs/ops/stage_contract_matrix_ko.md",
+    "docs/ops/handoff_stage.schema.json",
+    "docs/ops/language_profiles/ko_tokenization_profile.md",
+    "docs/runbooks/gemini_stage_execution_protocol.md"
+  ]
 }

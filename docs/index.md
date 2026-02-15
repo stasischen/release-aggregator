@@ -5,10 +5,14 @@ Welcome to the central documentation hub for the Lingo multi-repo system.
 ## Navigation
 - [Repository Map](repo_map.md) - Overview of all repositories and their roles.
 - [Owners and Responsibilities](owners.md) - Role ownership and handoff boundaries.
-- [Workflow Map](workflow_map.md) - Standard Operating Procedures for content and code.
+- [Workflow Map](workflow_map.md) - Standard operating procedures for content and code.
 - [Runbooks](runbooks/README.md) - Step-by-step guides for common tasks.
 - [Worklog and Directory Governance](ops/worklog_and_directory_governance.md) - Where daily logs and WIP records live.
-- [Gemini Closeout Protocol](runbooks/gemini_closeout_protocol.md) - End-of-session checklist and report format.
+- [Korean Stage Contract Matrix](ops/stage_contract_matrix_ko.md) - Gate and artifact contract for KO stages.
+- [Stage Handoff JSON Schema](ops/handoff_stage.schema.json) - Required machine-readable handoff format.
+- [Korean Tokenization Profile](ops/language_profiles/ko_tokenization_profile.md) - KO-specific parsing and restoration policy.
+- [Gemini Stage Execution Protocol](runbooks/gemini_stage_execution_protocol.md) - One-stage execution protocol.
+- [Gemini Closeout Protocol](runbooks/gemini_closeout_protocol.md) - End-of-session protocol dispatcher.
 - [Daily Worklog Template](worklogs/_template.md) - Template for `YYYY-MM-DD.md` daily logs.
 
 ## Repositories

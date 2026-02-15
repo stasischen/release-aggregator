@@ -292,9 +292,9 @@ Original = Join(segment.surface for segment in segments)
 
 ## 4. 品質控管機制 / Quality Control Mechanism
 
-### 4a. 自動審計 / Automated Audit (`audit_03b.py`)
-
-| 檢查項目 / Check | 判定條件 / Condition | 嚴重度 / Severity |
+### 4a. 自動審計 / Automated Audit (`scripts/audit_reconstruction.py`)
+這份腳本會針對解析結果進行二次檢查，找出語意還原錯誤（例如「없」被解析為「있다」）或低信心度的項目。
+ / Check | 判定條件 / Condition | 嚴重度 / Severity |
 |---|---|---|
 | 信心度不足 / Low confidence | `0 < confidence < 0.9` | ⚠️ Warning |
 | 語意錯誤 / Semantic mismatch | Token 含 `없` 但 Atom 含 `있다` | 🔴 Bug |
@@ -308,7 +308,7 @@ Gate 1: missing_mapping_candidates.json
          → 必須在 manual_mapping_additions.json 中補齊才能繼續
          → Must resolve before proceeding
 
-Gate 2: audit_03b_results.txt
+- **Gate 2**: `audit_reconstruction_results.txt` 必須為空。
          → 低信心度與語意異常列表 / Low-confidence & semantic anomaly list
          → 可容忍少量，但必須趨近 0
          → Tolerable in small numbers, but must trend toward 0
@@ -346,7 +346,7 @@ graph LR
 | 1. 建立字典 | 提供**表層形 → Lemma → POS → 翻譯**的 JSON。這是基石。 |
 | 2. 定義規則 | 為該語言撰寫 `rules/*.json`，描述語法變形的正則表達式。 |
 | 3. 實作 Lemmatizer | 替換 `KoreanLemmatizer` 為該語言版本（如 `JapaneseLemmatizer`）。 |
-| 4. 執行 + 審計 | 跑 `import_lllo_raw.py`，再跑 `audit_03b.py` 檢查結果。 |
+| 4. 執行 + 審計 | 跑 `import_lllo_raw.py`，再跑 `scripts/audit_reconstruction.py` 檢查結果。 |
 | 5. 手動補丁 | 針對 `UNRESOLVED` 的 Token 補充到 `manual_mapping_additions.json`。反覆迭代直到收斂。 |
 
 ---

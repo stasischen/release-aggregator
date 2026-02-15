@@ -1,0 +1,255 @@
+{
+    "epic": "content-pipeline-separation",
+    "parent_epic": "lingo-architecture-v5",
+    "owner_repo": "release-aggregator",
+    "last_updated": "2026-02-15T20:54:00+08:00",
+    "objective": "Separate content-ko and content-pipeline responsibilities. Language-specific engines stay in content repos; pipeline holds language-agnostic framework only.",
+    "design_doc": "release-aggregator/docs/guides/CONTENT_PIPELINE_SEPARATION.md",
+    "execution_order": [
+        "SEP-00",
+        "SEP-01",
+        "SEP-02",
+        "SEP-03",
+        "SEP-04",
+        "SEP-05"
+    ],
+    "parallel_groups": [
+        {
+            "after": "SEP-01",
+            "tasks": [
+                "SEP-02",
+                "SEP-03"
+            ],
+            "note": "Pipeline framework and content-ko interface can be built in parallel"
+        },
+        {
+            "after": [
+                "SEP-02",
+                "SEP-03"
+            ],
+            "tasks": [
+                "SEP-04"
+            ],
+            "note": "E2E verification requires both sides ready"
+        }
+    ],
+    "prerequisites": {
+        "hard_blocker": "KO-RES-07 (100% token resolution) must be COMPLETED before starting SEP-01",
+        "can_start_now": [
+            "SEP-00"
+        ]
+    },
+    "tasks": [
+        {
+            "id": "SEP-00",
+            "title": "歸檔一次性腳本 / Archive one-off scripts",
+            "status": "PENDING",
+            "target_repo": "content-ko",
+            "impact": "Reduces scripts/ clutter from 30 files to ~12 active files",
+            "priority": "🟢 可以現在做 / Can do now",
+            "prerequisite": "None",
+            "goal": "Move completed migration/patching scripts to scripts/archive/ so only active tools remain in scripts/.",
+            "actions": [
+                "Create directory: content-ko/scripts/archive/",
+                "Move the following files to scripts/archive/: add_final_entries.py, add_remaining_entries.py, migrate_legacy_atoms.py, restore_canonical_ids.py, compare_vs_legacy.py, merge_atoms.py, merge_mapping_patch.py, split_mapping.py, unify_dictionary.py, import_lllo_ko.py (replaced by import_lllo_raw.py)",
+                "Verify no active script imports from any archived file: grep -r 'from.*add_final_entries\\|from.*migrate_legacy' scripts/",
+                "Verify pipeline still runs: python scripts/run_mapping_pipeline.py"
+            ],
+            "affected_files": [
+                "content-ko/scripts/archive/ (new directory)",
+                "content-ko/scripts/*.py (10 files moved)"
+            ],
+            "acceptance": [
+                "scripts/ directory contains only active tools (≤15 files).",
+                "scripts/archive/ contains all one-off scripts.",
+                "python scripts/run_mapping_pipeline.py still passes.",
+                "python tests/run_rule_tests.py still passes."
+            ],
+            "verification": "python tests/run_rule_tests.py && python scripts/run_mapping_pipeline.py"
+        },
+        {
+            "id": "SEP-01",
+            "title": "重整 content-ko 引擎目錄 / Restructure content-ko engine directory",
+            "status": "PENDING",
+            "target_repo": "content-ko",
+            "impact": "Establishes clean engine/ directory as the language-specific engine home",
+            "priority": "🟡 等韓語穩定後 / After KO stabilizes",
+            "prerequisite": "SEP-00, KO-RES-07 COMPLETED",
+            "goal": "Rename scripts/core/ to engine/ and update all import paths. This makes it clear that the engine is a first-class component, not a utility script.",
+            "actions": [
+                "Step 1: Create content-ko/engine/ directory",
+                "Step 2: Copy (do NOT delete yet) the following files from scripts/core/ to engine/: rules_engine.py, lemmatizer.py, tokenizer.py. Do NOT copy qa_gates.py and cache_manager.py (those go to pipeline later).",
+                "Step 3: Copy scripts/core/rules/ directory to engine/rules/",
+                "Step 4: Create engine/__init__.py with: from .rules_engine import RulesEngine; from .lemmatizer import KoreanLemmatizer; from .tokenizer import KoreanTokenizer",
+                "Step 5: Update import paths in ALL files that reference scripts.core or scripts/core: run_mapping_pipeline.py, import_lllo_raw.py, audit_content_tokens.py, audit_tokens.py, benchmark_p1.py, validate_p1.py, analyze_unresolved.py, debug_lookup.py. Change 'from scripts.core.X import Y' to 'from engine.X import Y' or adjust sys.path accordingly.",
+                "Step 6: Run full test suite to verify nothing broke.",
+                "Step 7: Only after all tests pass, delete the old scripts/core/ directory (except qa_gates.py and cache_manager.py which stay temporarily)."
+            ],
+            "affected_files": [
+                "content-ko/engine/ (new directory)",
+                "content-ko/engine/__init__.py (new)",
+                "content-ko/engine/rules_engine.py (copy from scripts/core/)",
+                "content-ko/engine/lemmatizer.py (copy from scripts/core/)",
+                "content-ko/engine/tokenizer.py (copy from scripts/core/)",
+                "content-ko/engine/rules/ (copy from scripts/core/rules/)",
+                "content-ko/scripts/run_mapping_pipeline.py (import path update)",
+                "content-ko/scripts/import_lllo_raw.py (import path update)",
+                "content-ko/scripts/audit_*.py (import path update)",
+                "content-ko/scripts/benchmark_p1.py (import path update)"
+            ],
+            "acceptance": [
+                "engine/ directory exists with rules_engine.py, lemmatizer.py, tokenizer.py, rules/.",
+                "scripts/core/ is deleted (except qa_gates.py, cache_manager.py if still needed).",
+                "All import paths updated — no reference to 'scripts.core' or 'scripts/core' remains.",
+                "python tests/run_rule_tests.py passes.",
+                "python scripts/run_mapping_pipeline.py passes with 0% unresolved."
+            ],
+            "verification": "grep -r 'scripts.core' scripts/ && grep -r 'scripts/core' scripts/ (should return 0 results) && python tests/run_rule_tests.py && python scripts/run_mapping_pipeline.py",
+            "rollback": "If tests fail, restore scripts/core/ from git: git checkout -- scripts/core/"
+        },
+        {
+            "id": "SEP-02",
+            "title": "建立 Pipeline 通用框架 / Build pipeline framework",
+            "status": "PENDING",
+            "target_repo": "content-pipeline",
+            "impact": "Establishes the language-agnostic framework that all content repos will use",
+            "priority": "🟡 與 SEP-01 同時或之後 / With or after SEP-01",
+            "prerequisite": "SEP-01",
+            "goal": "Create the framework/ and contracts/ directories in content-pipeline with universal tools.",
+            "actions": [
+                "Step 1: Create content-pipeline/contracts/engine_interface.py — Define BaseEngine abstract class with methods: tokenize(text) -> List[Dict], resolve_lemma(token) -> str, validate_reconstruction(tokens, original) -> bool",
+                "Step 2: Move content-ko/scripts/core/qa_gates.py to content-pipeline/framework/qa_gates.py. Remove language-specific regex (ko:* patterns) and make the gate interface generic.",
+                "Step 3: Move content-ko/scripts/core/cache_manager.py to content-pipeline/framework/cache_manager.py",
+                "Step 4: Create content-pipeline/framework/encoding.py — Extract NFC/NFD normalization utilities from rules_engine.py into a shared module. Do NOT move the Korean-specific Jamo logic, only the generic unicodedata.normalize wrappers.",
+                "Step 5: Create content-pipeline/framework/path_safety.py — Extract the ':' -> '__' path decoupling logic from content-ko/scripts/fix_windows_paths.py into a generic utility.",
+                "Step 6: Update content-pipeline/pipelines/build.py (new or updated) to accept --content-repo path and dynamically load the engine from that repo.",
+                "Step 7: Add content-pipeline/framework/__init__.py and content-pipeline/contracts/__init__.py"
+            ],
+            "affected_files": [
+                "content-pipeline/contracts/__init__.py (new)",
+                "content-pipeline/contracts/engine_interface.py (new)",
+                "content-pipeline/framework/__init__.py (new)",
+                "content-pipeline/framework/qa_gates.py (moved from content-ko)",
+                "content-pipeline/framework/cache_manager.py (moved from content-ko)",
+                "content-pipeline/framework/encoding.py (new, extracted)",
+                "content-pipeline/framework/path_safety.py (new, extracted)",
+                "content-pipeline/pipelines/build.py (new or updated)"
+            ],
+            "acceptance": [
+                "BaseEngine interface is importable: python -c 'from contracts.engine_interface import BaseEngine'",
+                "qa_gates.py works standalone without Korean-specific imports.",
+                "encoding.py provides normalize_nfc() and normalize_nfd() wrappers.",
+                "path_safety.py provides canonical_to_fs() and fs_to_canonical() functions.",
+                "No Korean-specific logic exists in content-pipeline/ (grep for 가-힣 should return 0 results)."
+            ],
+            "verification": "cd content-pipeline && python -c 'from contracts.engine_interface import BaseEngine; print(\"OK\")' && grep -r '[가-힣]' framework/ contracts/ (should be 0)"
+        },
+        {
+            "id": "SEP-03",
+            "title": "content-ko 實作 BaseEngine 介面 / content-ko implements BaseEngine",
+            "status": "PENDING",
+            "target_repo": "content-ko",
+            "impact": "Makes content-ko's engine callable by the pipeline framework",
+            "priority": "🟡 與 SEP-02 同時或之後 / With or after SEP-02",
+            "prerequisite": "SEP-01, SEP-02",
+            "goal": "Create a KoreanEngine class in content-ko/engine/ that implements the BaseEngine interface from content-pipeline.",
+            "actions": [
+                "Step 1: In content-ko/engine/__init__.py, create KoreanEngine class that inherits from BaseEngine.",
+                "Step 2: Implement tokenize() — wraps KoreanTokenizer.tokenize_text(), converts output to List[Dict] per interface spec.",
+                "Step 3: Implement resolve_lemma() — wraps KoreanLemmatizer.resolve().",
+                "Step 4: Implement validate_reconstruction() — joins token surfaces and compares to original text.",
+                "Step 5: Add a register_engine() entry point so pipeline can discover this engine dynamically: e.g. engine_info = {'lang': 'ko', 'class': 'KoreanEngine', 'version': '1.0'}",
+                "Step 6: Verify: python -c 'from engine import KoreanEngine; e = KoreanEngine(); print(e.tokenize(\"안녕하세요\"))'"
+            ],
+            "affected_files": [
+                "content-ko/engine/__init__.py (updated)"
+            ],
+            "acceptance": [
+                "KoreanEngine inherits from BaseEngine.",
+                "All three interface methods (tokenize, resolve_lemma, validate_reconstruction) work correctly.",
+                "python -c 'from engine import KoreanEngine' succeeds.",
+                "Existing tests still pass."
+            ],
+            "verification": "python -c 'from engine import KoreanEngine; e = KoreanEngine(); r = e.tokenize(\"저는 학생입니다\"); print(r)' && python tests/run_rule_tests.py"
+        },
+        {
+            "id": "SEP-04",
+            "title": "端到端驗證 / End-to-end verification",
+            "status": "PENDING",
+            "target_repo": "content-pipeline",
+            "impact": "Validates that the pipeline can build content-ko through the BaseEngine interface",
+            "priority": "🟡 Phase 2 / After SEP-02 + SEP-03",
+            "prerequisite": "SEP-02, SEP-03",
+            "goal": "Run the full build pipeline from content-pipeline, using content-ko's KoreanEngine through the interface.",
+            "actions": [
+                "Step 1: Run: cd content-pipeline && python pipelines/build.py --content-repo ../content-ko --lang ko --output ../release-aggregator/staging/",
+                "Step 2: Verify output assets match previous build output (diff check).",
+                "Step 3: Run QA gates from pipeline: python -m framework.qa_gates --report-dir ../content-ko/reports/",
+                "Step 4: If any discrepancy, fix and re-verify.",
+                "Step 5: Update release-aggregator/docs/guides/CONTENT_PIPELINE_SEPARATION.md — mark Phase 1+2 as COMPLETED."
+            ],
+            "affected_files": [
+                "content-pipeline/pipelines/build.py",
+                "release-aggregator/docs/guides/CONTENT_PIPELINE_SEPARATION.md"
+            ],
+            "acceptance": [
+                "Pipeline build completes without error.",
+                "Output assets are identical to previous direct build.",
+                "QA gates pass from pipeline context.",
+                "No Korean-specific logic leaked into content-pipeline."
+            ],
+            "verification": "cd content-pipeline && python pipelines/build.py --content-repo ../content-ko --lang ko --output /tmp/sep_test/ && diff -r /tmp/sep_test/ ../release-aggregator/staging/"
+        },
+        {
+            "id": "SEP-05",
+            "title": "更新文件與路徑引用 / Update documentation and path references",
+            "status": "PENDING",
+            "target_repo": "release-aggregator + content-ko",
+            "impact": "Ensures all docs reflect the new structure",
+            "priority": "🔵 最後 / Last",
+            "prerequisite": "SEP-04",
+            "goal": "Update all documentation to reflect the new directory structure.",
+            "actions": [
+                "Update content-ko/docs/handoffs/V5_AUTOMATION_ARCHITECTURE.md — change all scripts/core/ references to engine/.",
+                "Update content-ko/docs/handoffs/PIPELINE_COMPARISON.md — reflect new separation.",
+                "Update release-aggregator/docs/guides/V5_AUTOMATION_ARCHITECTURE.md — same path updates.",
+                "Update release-aggregator/docs/guides/REPO_RESPONSIBILITIES.md — update key directory listings.",
+                "Update release-aggregator/docs/guides/CONTENT_PIPELINE_SEPARATION.md — mark all phases COMPLETED.",
+                "Update release-aggregator/docs/workflow_map.md — add pipeline framework to flow.",
+                "Verify no broken file links: grep -r 'scripts/core' docs/"
+            ],
+            "affected_files": [
+                "content-ko/docs/handoffs/V5_AUTOMATION_ARCHITECTURE.md",
+                "content-ko/docs/handoffs/PIPELINE_COMPARISON.md",
+                "release-aggregator/docs/guides/V5_AUTOMATION_ARCHITECTURE.md",
+                "release-aggregator/docs/guides/REPO_RESPONSIBILITIES.md",
+                "release-aggregator/docs/guides/CONTENT_PIPELINE_SEPARATION.md",
+                "release-aggregator/docs/workflow_map.md"
+            ],
+            "acceptance": [
+                "No reference to 'scripts/core' remains in any doc file.",
+                "All file links in docs point to valid paths.",
+                "CONTENT_PIPELINE_SEPARATION.md shows all phases COMPLETED."
+            ],
+            "verification": "grep -r 'scripts/core' content-ko/docs/ release-aggregator/docs/ (should return 0)"
+        }
+    ],
+    "gemini_prompt_template": "請讀取 CONTENT_PIPELINE_SEPARATION_TASKS.json，執行任務 {TASK_ID}。設計文件在 release-aggregator/docs/guides/CONTENT_PIPELINE_SEPARATION.md。完成後請回報 changed_files、commands_run、test_results。",
+    "reporting_format": {
+        "required": [
+            "task_id",
+            "commit_hash",
+            "changed_files",
+            "commands_run",
+            "test_results",
+            "blockers"
+        ]
+    },
+    "notes": [
+        "SEP-00 can be done NOW, independently of Korean resolution status.",
+        "SEP-01 through SEP-04 should wait until KO-RES-07 is stable (0% unresolved).",
+        "Always use 'copy first, verify, then delete' strategy to avoid breaking anything.",
+        "The key rule: if it contains 가-힣 (Korean characters) in logic, it stays in content-ko. If it's pure framework, it goes to content-pipeline.",
+        "Each content-{lang} repo will follow content-ko's engine/ structure as a template."
+    ]
+}

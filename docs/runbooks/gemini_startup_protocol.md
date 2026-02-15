@@ -34,7 +34,10 @@ Then load by scope:
 - If repo includes `release-aggregator`: `docs/runbooks/closeout_release.md`
 - If repo includes `core-schema`: `docs/runbooks/closeout_schema.md`
 
+
 ## Boundary Rules
+- **Language**: Always communicate in **Traditional Chinese (繁體中文)** unless explicitly requested otherwise.
+- **Worklog**: You MUST update the worklog for **EVERY** commit you make.
 - Do not read protocol/workflow docs from `Lingourmet_universal` for active decisions.
 - Archive docs under `docs/archive/universal/**` are comparison-only.
 - If user did not define stage, do not auto-jump across stages.

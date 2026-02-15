@@ -344,7 +344,7 @@
         {
             "id": "KO-RES-07",
             "title": "Final sweep and 0% gate verification",
-            "status": "PENDING",
+            "status": "COMPLETED",
             "target_repo": "content-ko",
             "impact": "Closes any remaining gaps and verifies 0% unresolved",
             "goal": "Run pipeline, identify any remaining unresolved tokens, fix them, and verify 100% resolution.",
@@ -369,7 +369,25 @@
                 "handoff.stage-02.json updated with final gate results.",
                 "analyze_unresolved.py shows 0 unresolved tokens."
             ],
-            "verification": "python tests/run_rule_tests.py && python scripts/run_mapping_pipeline.py && python scripts/analyze_unresolved.py"
+            "verification": "python tests/run_rule_tests.py && python scripts/run_mapping_pipeline.py && python scripts/analyze_unresolved.py",
+            "completion_report": {
+                "timestamp": "2026-02-15T20:07:00+08:00",
+                "commit_hash": "f0f80b3",
+                "changed_files": [
+                    "content-ko/content/source/ko/i18n/mapping.json",
+                    "content-ko/content/source/ko/i18n/mapping_nouns.json",
+                    "content-ko/content/source/ko/i18n/mapping_verbs.json",
+                    "content-ko/content/source/ko/i18n/mapping_adjectives.json",
+                    "content-ko/content/source/ko/i18n/mapping_proper.json",
+                    "content-ko/content/source/ko/i18n/mapping_misc.json",
+                    "content-ko/scripts/core/rules/30_verb_endings.json",
+                    "content-ko/scripts/core/rules/40_copula.json",
+                    "content-ko/scripts/core/rules/60_particles.json",
+                    "content-ko/scripts/core/tokenizer.py"
+                ],
+                "verification_status": "PASSED",
+                "notes": "Resolved ALL 82 unresolved tokens (3.1% -> 0.0%). Added 18 new suffix rules. Cleaned 52 conflicting conjugated forms. Split mapping.json into 5 category files. 56/56 rule tests pass. 2644/2644 tokens resolved."
+            }
         }
     ],
     "estimated_impact": {

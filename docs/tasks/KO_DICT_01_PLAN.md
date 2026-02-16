@@ -22,13 +22,18 @@ Tokenizer auto-discovers `mapping_*.json` via glob (`engine/tokenizer.py:38-40`)
 
 ```text
 content/source/ko/i18n/
-├── mapping_nouns.json        ← TOPIK 3000 nouns (ko:n:)
-├── mapping_verbs.json        ← TOPIK 3000 verbs (ko:v:)
-├── mapping_adjectives.json   ← TOPIK 3000 adjectives (ko:adj:)
-├── mapping_misc.json         ← TOPIK 3000 adv/pron/num/det/intj
-├── mapping_proper.json       ← Course proper nouns (keep as-is)
-├── mapping_names.json        ← Course character names (keep as-is)
-└── mapping_course.json       ← [NEW] Course-specific gap vocabulary
+├── 📚 [BASE] (TOPIK 3000)
+│   ├── mapping_nouns.json
+│   ├── mapping_verbs.json
+│   ├── mapping_adjectives.json
+│   ├── mapping_adverbs.json
+│   └── mapping_misc.json
+│
+└── 🔌 [PLUGIN] (Course Specific)
+    ├── mapping_course_names.json   ← 特殊人名、寵物名
+    ├── mapping_course_proper.json  ← 特殊地名、品牌等
+    ├── mapping_course_numbers.json ← 韓語字典未收錄的特殊格式數字 (如 WiFi 密碼)
+    └── mapping_course_misc.json    ← 其他無法歸類的課程單詞
 ```
 
 > [!IMPORTANT]
@@ -54,17 +59,19 @@ content/source/ko/i18n/
 > - 已變化形（`더워요 → 덥다`）應由動詞變化規則處理
 > - `N+助詞` combo（`경찰관으로`）由 rules engine 處理
 
-### Phase 2 — Pipeline gap analysis
+### Phase 2 — Pipeline baseline gap analysis
+
+> [!IMPORTANT]
+> **Baseline Comparison**: Phase 2 的 Gap Report 必須被視為「原始基線 (Baseline)」。我們在 Phase 3 補強詞彙與 Phase B 補強文法後，將會再次執行 Gap Analysis 與此基線對照，驗證 Unresolved Ratio 的下降。
 
 1. Run `stage2_executor.py` with TOPIK 3000 base only
-2. Collect unresolved tokens → gap report
+2. Collect unresolved tokens → gap report (The Baseline)
 3. Gap = vocabulary in course dialogue not covered by TOPIK 3000
 
-### Phase 3 — Generate `mapping_course.json`
-
 - Auto-generate from gap report
+- Categorize into `names`, `proper`, `numbers`, `misc` based on automatic or manual tagging
 - Manual review before commit
-- Expected gap categories: food/drink, loanwords, colloquial, counters
+- Expected gap categories: food/drink, loanwords, colloquial, counters, technical one-offs (e.g., passwords)
 
 ---
 

@@ -16,6 +16,7 @@
     "KO-FLOW-02",
     "KO-MAP-01",
     "KO-MAP-02",
+    "KO-MAP-03",
     "KO-DICT-01",
     "KO-DICT-02",
     "KO-GATE-01",
@@ -132,9 +133,30 @@
       ]
     },
     {
+      "id": "KO-MAP-03",
+      "title": "Systematic Grammar Rules Audit (Lesson v3)",
+      "status": "PENDING",
+      "target_repo": "content-ko",
+      "goal": "Ensure all grammar points taught in lessons are supported by Rules Engine.",
+      "actions": [
+        "Audit docs/lesson_v3/grammar/ level 0-4 for missing patterns (e.g., ~지도, ~겠죠).",
+        "Implement missing rules in engine/rules/ and verify with unit tests.",
+        "Verify pipeline coverage for audited patterns."
+      ],
+      "deliverables": [
+        "Audit report of missing vs. supported grammar points",
+        "New rule JSON files in engine/rules/",
+        "Resolved token count increase"
+      ],
+      "acceptance": [
+        "All grammar points in Level 0-1 lessons are fully parsed by Rules Engine.",
+        "Zero 'emergency' mappings needed for audited grammar patterns."
+      ]
+    },
+    {
       "id": "KO-DICT-01",
       "title": "Build TOPIK 3000 base dictionary + course plugin",
-      "status": "IN_PROGRESS",
+      "status": "DONE",
       "target_repo": "content-ko",
       "plan_doc": "KO_DICT_01_PLAN.md",
       "goal": "Two-layer dictionary: TOPIK 3000 as base, course-specific gaps as plugin.",
@@ -142,7 +164,7 @@
         {
           "id": "1a",
           "title": "Rewrite import_vocabulary.py → categorized mapping_*.json",
-          "status": "PENDING",
+          "status": "DONE",
           "actions": [
             "Parse TOPIK 1000 + 2000 + 3000 markdown files.",
             "POS heuristic: verb/adjective/noun/adverb classification.",
@@ -152,7 +174,7 @@
         {
           "id": "1b",
           "title": "Delete legacy & redundant entries",
-          "status": "PENDING",
+          "status": "DONE",
           "actions": [
             "Delete monolithic mapping.json.",
             "Remove all ko:phrase:* band-aids from mapping_misc.json.",
@@ -163,7 +185,7 @@
         {
           "id": "2",
           "title": "Pipeline gap analysis",
-          "status": "PENDING",
+          "status": "DONE",
           "actions": [
             "Run stage2_executor.py with TOPIK 3000 base only.",
             "Collect unresolved tokens → gap report.",
@@ -173,7 +195,7 @@
         {
           "id": "3",
           "title": "Generate mapping_course.json from gaps",
-          "status": "PENDING",
+          "status": "DONE",
           "actions": [
             "Auto-generate mapping_course.json from gap report.",
             "Manual review before commit.",

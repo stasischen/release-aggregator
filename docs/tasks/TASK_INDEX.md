@@ -35,7 +35,7 @@ Phase C: 前端整合（lingo-frontend-web）
 
 | Task ID | 描述 | Phase | 進度 | 檔案 |
 |---|---|---|---|---|
-| MAPPING_DICTIONARY | 字典映射標準化 + 品質驗證 | A2 | 3/8 tasks | [JSON](MAPPING_DICTIONARY_TASKS.json) · [PLAN](KO_DICT_01_PLAN.md) |
+| MAPPING_DICTIONARY | 字典映射標準化 + 品質驗證 | A2 | 4/9 tasks | [JSON](MAPPING_DICTIONARY_TASKS.json) · [PLAN](KO_DICT_01_PLAN.md) |
 
 ### Future / Automation (未來優化)
 

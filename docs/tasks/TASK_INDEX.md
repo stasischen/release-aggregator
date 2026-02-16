@@ -9,7 +9,7 @@
 
 ## 🗺️ Execution Roadmap (執行路線圖)
 
-```
+```text
 Phase A: Viewer + 辭典（content-ko 內部閉環）
 │  ├── ✅ A1: Viewer 增強 — 辭典彈出、多義詞顯示     [VIEWER-01]
 │  ├── 🔧 A2: 辭典品質驗證 — Viewer 逐課檢查 688 字   [MAPPING_DICTIONARY]
@@ -33,9 +33,9 @@ Phase C: 前端整合（lingo-frontend-web）
 
 ### Phase A — 當前優先
 
-| Task ID | 描述 | Phase | 進度 | 檔案 |
-|---|---|---|---|---|
-| MAPPING_DICTIONARY | 字典映射標準化 + 品質驗證 | A2 | 4/9 tasks | [JSON](MAPPING_DICTIONARY_TASKS.json) · [PLAN](KO_DICT_01_PLAN.md) |
+| Task ID            | 描述                       | Phase | 進度       | 檔案                                                              |
+|--------------------|----------------------------|-------|------------|-------------------------------------------------------------------|
+| MAPPING_DICTIONARY | 字典映射標準化 + 品質驗證 | A2    | 4/9 tasks  | [JSON](MAPPING_DICTIONARY_TASKS.json) · [PLAN](KO_DICT_01_PLAN.md) |
 
 ### Future / Automation (未來優化)
 
@@ -80,6 +80,7 @@ Phase C: 前端整合（lingo-frontend-web）
 ### 封存 (Archive)
 
 完成的 Task JSON 和 Plan **應移至 `docs/tasks/archive/`**，且檔名開頭應加上日期：
+
 - 命名格式：`YYYYMMDD_{ORIGINAL_NAME}`
 - 例如：`20260215_VIEWER_ENHANCEMENT_TASKS.json`
 

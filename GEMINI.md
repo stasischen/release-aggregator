@@ -1,0 +1,1 @@
+/Users/ywchen/Dev/lingo/GEMINI.md

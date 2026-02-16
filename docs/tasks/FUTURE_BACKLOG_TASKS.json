@@ -1,0 +1,16 @@
+{
+  "epic": "task-management-automation",
+  "owner_repo": "release-aggregator",
+  "last_updated": "2026-02-16T11:32:00Z",
+  "objective": "Automate task status synchronization and reporting to reduce manual maintenance overhead.",
+  "tasks": [
+    {
+      "id": "AUTO-TASK-01",
+      "title": "Automated progress sync (JSON to INDEX)",
+      "status": "BACKLOG",
+      "target_repo": "release-aggregator",
+      "goal": "Write a script that parses all *_TASKS.json files and automatically updates the Progress and Status columns in TASK_INDEX.md.",
+      "note": "This avoids manual '3/8 tasks' updates and ensures the index is always accurate."
+    }
+  ]
+}

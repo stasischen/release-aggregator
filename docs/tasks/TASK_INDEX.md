@@ -33,9 +33,9 @@ Phase C: 前端整合（lingo-frontend-web）
 
 ### Phase A — 當前優先
 
-| Task ID            | 描述                       | Phase | 進度       | 檔案                                                              |
-|--------------------|----------------------------|-------|------------|-------------------------------------------------------------------|
-| MAPPING_DICTIONARY | 字典映射標準化 + 品質驗證 | A2    | 4/9 tasks  | [JSON](MAPPING_DICTIONARY_TASKS.json) · [PLAN](KO_DICT_01_PLAN.md) |
+| Task ID | 描述 | Phase | 進度 | 檔案 |
+| :--- | :--- | :--- | :--- | :--- |
+| MAPPING_DICTIONARY | 字典映射標準化 + 品質驗證 | A2 | 4/9 tasks | [JSON](MAPPING_DICTIONARY_TASKS.json) · [PLAN](KO_DICT_01_PLAN.md) |
 
 ### Future / Automation (未來優化)
 
@@ -73,6 +73,7 @@ Phase C: 前端整合（lingo-frontend-web）
 
 > [!IMPORTANT]
 > **不要只把 plan 放在個別 Agent 的 brain 資料夾。** 放在 release-aggregator 確保：
+>
 > - 任何電腦上的 Agent 都能讀到
 > - 版本控制 (git) 追蹤變更歷史
 > - 人類和 Agent 共享同一份文件

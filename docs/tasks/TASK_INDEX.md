@@ -36,6 +36,7 @@ Phase C: 前端整合（lingo-frontend-web）
 | Task ID | 描述 | Phase | 進度 | 檔案 |
 | :--- | :--- | :--- | :--- | :--- |
 | MAPPING_DICTIONARY | 字典映射標準化 + 品質驗證 | A2 | 4/9 tasks | [JSON](MAPPING_DICTIONARY_TASKS.json) · [PLAN](KO_DICT_01_PLAN.md) |
+| KO_GEMINI_REVIEW | KO 全量 Gemini 人工審核（mapping + TOPIK POS） | A2 | 3/4 tasks | [JSON](KO_GEMINI_REVIEW_TASKS.json) |
 
 ### Future / Automation (未來優化)
 

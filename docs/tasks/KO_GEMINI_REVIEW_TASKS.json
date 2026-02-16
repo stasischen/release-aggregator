@@ -1,0 +1,80 @@
+{
+  "epic": "ko-mapping-manual-audit",
+  "owner_repo": "release-aggregator",
+  "last_updated": "2026-02-16T10:40:00Z",
+  "objective": "Standardize a reproducible Gemini CLI manual review workflow for KO mapping and TOPIK3000 POS so all agents can run the same audit path.",
+  "execution_order": [
+    "KO-GEMINI-01",
+    "KO-GEMINI-02",
+    "KO-GEMINI-03",
+    "KO-GEMINI-04"
+  ],
+  "tasks": [
+    {
+      "id": "KO-GEMINI-01",
+      "title": "Publish mapping review runbook with minimal input contract",
+      "status": "DONE",
+      "target_repo": "content-ko",
+      "actions": [
+        "Document canonical Gemini input as tid+surface+atoms only.",
+        "Document chunked execution path and anti-truncation policy.",
+        "Document post-processing and source_ref backtrace join rules."
+      ],
+      "deliverables": [
+        "docs/handoffs/KO_GEMINI_MAPPING_REVIEW_RUNBOOK_2026-02-16.md",
+        ".codex_review/ko_gemini_review/README.md"
+      ]
+    },
+    {
+      "id": "KO-GEMINI-02",
+      "title": "Publish TOPIK3000 POS full-audit runbook",
+      "status": "DONE",
+      "target_repo": "content-ko",
+      "actions": [
+        "Freeze input file list and output contract for POS audit.",
+        "Provide one reproducible Gemini CLI command and retry guidance."
+      ],
+      "deliverables": [
+        "docs/handoffs/KO_TOPIK3000_POS_GEMINI_AUDIT_RUNBOOK_2026-02-16.md"
+      ]
+    },
+    {
+      "id": "KO-GEMINI-03",
+      "title": "Run full-volume lesson mapping manual review",
+      "status": "IN_PROGRESS",
+      "target_repo": "content-ko",
+      "actions": [
+        "Generate full minimal review inputs from latest staging artifacts.",
+        "Run chunked Gemini review for all lessons.",
+        "Normalize outputs to clean ndjson and extract WRONG/SUSPECT list."
+      ],
+      "deliverables": [
+        "Full-lesson review outputs",
+        "Merged issue list with source_ref"
+      ],
+      "acceptance": [
+        "All target lessons reviewed with machine-parseable output.",
+        "Every WRONG/SUSPECT row has source_ref backtrace."
+      ]
+    },
+    {
+      "id": "KO-GEMINI-04",
+      "title": "Translate audit findings into rule-engine fix backlog",
+      "status": "PENDING",
+      "target_repo": "content-ko",
+      "actions": [
+        "Cluster findings by rule family and priority conflicts.",
+        "Propose minimal patch set with expected QA metric impact.",
+        "Run mapping pipeline to compare before/after unresolved ratio."
+      ],
+      "deliverables": [
+        "Fix proposal list",
+        "Before/after QA report delta"
+      ],
+      "acceptance": [
+        "High-confidence wrong splits are reduced.",
+        "Regression cases are documented and reproducible."
+      ]
+    }
+  ]
+}

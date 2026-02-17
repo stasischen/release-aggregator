@@ -226,10 +226,10 @@
       "repo_plan_id": "CKO-MD-KO-DICT-02",
       "goal": "Complete learner-language layer without mutating core fields.",
       "actions": [
-        "Generate i18n skeleton from core dictionary atom IDs.",
+        "Generate i18n skeleton ONLY from atom IDs actually present in course content (active lemmas extracted from stage2 handoff).",
         "Fill zh_tw gloss/definition fields and keep IDs aligned.",
-        "Add coverage report: translated, missing, stale IDs.",
-        "Fail gate when missing translation ratio exceeds threshold."
+        "Add coverage report: translated, missing, stale IDs (scoped to active set).",
+        "Fail gate when missing translation ratio exceeds threshold for active set."
       ],
       "deliverables": [
         "dictionary_i18n zh_tw source files",

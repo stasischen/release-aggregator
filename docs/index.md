@@ -34,6 +34,7 @@ Welcome to the central documentation hub for the Lingo multi-repo system.
 - [Korean Tokenization Profile](ops/language_profiles/ko_tokenization_profile.md) - KO-specific parsing and restoration policy.
 - [Gemini Stage Execution Protocol](runbooks/gemini_stage_execution_protocol.md) - One-stage execution protocol.
 - [GSD Multi-Repo Workflow](runbooks/gsd_multi_repo_workflow.md) - Aggregator orchestration with per-repo execution phases.
+- [Codex <-> Antigravity Orchestration](runbooks/codex_antigravity_orchestration.md) - Packetized planning/execution/report loop across machines.
 - [Gemini Closeout Protocol](runbooks/gemini_closeout_protocol.md) - End-of-session protocol dispatcher.
 - [Universal Archive Migration Runbook](runbooks/universal_archive_migration.md) - Move monorepo docs into control-tower archive.
 - [Universal Archive Index](archive/universal/INDEX.md) - Archived monorepo document index.

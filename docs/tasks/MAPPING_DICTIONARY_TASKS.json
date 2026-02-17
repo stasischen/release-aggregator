@@ -1,7 +1,7 @@
 {
   "epic": "ko-mapping-dictionary-stabilization",
   "owner_repo": "release-aggregator",
-  "last_updated": "2026-02-16T11:00:00Z",
+  "last_updated": "2026-02-17T12:50:00Z",
   "repo_plan_file": "/Users/ywchen/Dev/lingo/content-ko/PLAN.md",
   "objective": "Stabilize segmentation/mapping and dictionary flow for real KO content before scaling to more languages.",
   "execution_mode": {
@@ -20,6 +20,7 @@
     "KO-MAP-03",
     "KO-DICT-01",
     "KO-DICT-02",
+    "KO-DICT-03",
     "KO-GATE-01",
     "KO-E2E-01"
   ],
@@ -238,6 +239,30 @@
       "acceptance": [
         "i18n schema validation passes.",
         "Coverage threshold is enforced in CI/smoke flow."
+      ]
+    },
+    {
+      "id": "KO-DICT-03",
+      "title": "Implement dual-layer POS contract for KO dictionary base",
+      "status": "PENDING",
+      "target_repo": "content-ko",
+      "repo_plan_id": "CKO-MD-KO-DICT-03",
+      "goal": "Enforce both teaching POS and universal POS for base dictionary entries instead of single-layer script-only classification.",
+      "actions": [
+        "Define canonical dual-layer POS data shape for KO base dictionary assets (teaching pos + universal upos) while keeping resolver IDs stable.",
+        "Extend import_vocabulary.py output path to generate dual-layer POS metadata from TOPIK source and manual review decisions.",
+        "Add validator and consistency checks: file bucket POS vs metadata POS, duplicate lemma cross-POS handling, and required upos coverage.",
+        "Wire dual-layer POS checks into stage2 and QA reporting so regressions fail fast."
+      ],
+      "deliverables": [
+        "Dual-layer POS contract doc and sample payload",
+        "Generated dual-layer POS metadata artifact for i18n/base",
+        "Validation script + QA summary section for POS-layer consistency"
+      ],
+      "acceptance": [
+        "Every TOPIK3000 base lemma has both teaching POS and UPOS metadata.",
+        "Known cross-POS lemmas are explicitly labeled as dual-POS or corrected to a single POS with evidence.",
+        "Stage/QA checks fail on missing UPOS or inconsistent POS layer mapping."
       ]
     },
     {

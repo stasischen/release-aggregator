@@ -1,12 +1,13 @@
 {
   "epic": "ko-mapping-manual-audit",
   "owner_repo": "release-aggregator",
-  "last_updated": "2026-02-16T10:40:00Z",
+  "last_updated": "2026-02-17T12:50:00Z",
   "repo_plan_file": "/Users/ywchen/Dev/lingo/content-ko/PLAN.md",
   "objective": "Standardize a reproducible Gemini CLI manual review workflow for KO mapping and TOPIK3000 POS so all agents can run the same audit path.",
   "execution_order": [
     "KO-GEMINI-01",
     "KO-GEMINI-02",
+    "KO-GEMINI-05",
     "KO-GEMINI-03",
     "KO-GEMINI-04"
   ],
@@ -37,6 +38,28 @@
       ],
       "deliverables": [
         "docs/handoffs/KO_TOPIK3000_POS_GEMINI_AUDIT_RUNBOOK_2026-02-16.md"
+      ]
+    },
+    {
+      "id": "KO-GEMINI-05",
+      "title": "Run manual POS review for TOPIK3000 i18n/base mappings",
+      "status": "PENDING",
+      "target_repo": "content-ko",
+      "repo_plan_id": "CKO-GR-KO-GEMINI-05",
+      "actions": [
+        "Review mapping_nouns/verbs/adjectives/adverbs in content/source/ko/i18n/base with Gemini using a strict manual-review instruction format.",
+        "Flag wrong POS placements, probable dual-POS lemmas, and function-word leakage with evidence snippets.",
+        "Produce a reviewed decision log per lemma: KEEP current POS, MOVE POS, or ALLOW dual POS.",
+        "Output a machine-parseable correction backlog that can be consumed by KO-MAP-02/KO-MAP-03 and dictionary scripts."
+      ],
+      "deliverables": [
+        "POS review report for i18n/base TOPIK mappings",
+        "Lemma-level decision log (KEEP/MOVE/DUAL + evidence)",
+        "Patch backlog jsonl for mapping updates"
+      ],
+      "acceptance": [
+        "All reviewed findings include reproducible evidence and confidence.",
+        "No unresolved WRONG/SUSPECT lemma is left without a disposition decision."
       ]
     },
     {

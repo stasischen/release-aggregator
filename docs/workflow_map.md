@@ -43,4 +43,8 @@ When user says "收工", choose closeout protocol by touched repositories:
 - Release: [closeout_release.md](runbooks/closeout_release.md)
 - Core Schema: [closeout_schema.md](runbooks/closeout_schema.md)
 
+## Execution Modes
+- `classic_stage`: single repo + single stage, follow [gemini_stage_execution_protocol.md](runbooks/gemini_stage_execution_protocol.md).
+- `gsd_phase`: multi-repo orchestration or phase waves, follow [gsd_multi_repo_workflow.md](runbooks/gsd_multi_repo_workflow.md).
+
 For repository ownership boundaries, see [owners.md](owners.md).

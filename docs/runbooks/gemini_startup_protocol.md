@@ -3,6 +3,10 @@
 ## Goal
 在每次 Session 開始時，快速釐清目標並載入相關協議，然後開始執行。
 
+> [!IMPORTANT]
+> 若任務涉及多個 Repo、phase 拆分執行、或需嚴格 session 重開，必須走 GSD 模式並載入：
+> `release-aggregator/docs/runbooks/gsd_multi_repo_workflow.md`
+
 ## Startup Sequence
 
 ### Step 0: 載入任務全景 (Task Discovery)
@@ -31,11 +35,22 @@ view_file /Users/ywchen/Dev/lingo/release-aggregator/docs/tasks/TASK_INDEX.md
 
 | 目標 Repo | 需要載入的文件 |
 |---|---|
-| **任何 Repo** | `docs/index.md`, `docs/guides/REPO_RESPONSIBILITIES.md` |
-| `content-ko` | `docs/ops/stage_contract_matrix_ko.md` |
+| **任何 Repo** | `release-aggregator/docs/index.md`, `release-aggregator/docs/guides/REPO_RESPONSIBILITIES.md` |
+| **跨 Repo / phase-based 任務** | `release-aggregator/docs/runbooks/gsd_multi_repo_workflow.md` |
+| `content-ko` | `release-aggregator/docs/ops/stage_contract_matrix_ko.md` |
 | `lingo-frontend-web` | `.agent/skills/flutter-coding-standards/SKILL.md` |
-| `core-schema` | `docs/guides/DATA_MODEL_CONTRACTS.md` |
+| `core-schema` | `release-aggregator/docs/guides/DATA_MODEL_CONTRACTS.md` |
 | `lllo` | `docs/SETUP_FOR_AGENT.md` |
+
+### Step 2.5: 決定執行模式
+在執行前必須先判斷模式：
+- `classic_stage`: 單一 Repo、單一 stage 任務。
+- `gsd_phase`: 多 Repo 編排、phase 任務、需要新 session 切換。
+
+判斷規則：
+- touched_repos > 1 -> `gsd_phase`
+- 任務描述含「phase/wave/里程碑拆分」-> `gsd_phase`
+- 其餘預設 `classic_stage`
 
 ### Step 3: 輸出執行計畫
 開工前，向使用者確認：
@@ -43,6 +58,7 @@ view_file /Users/ywchen/Dev/lingo/release-aggregator/docs/tasks/TASK_INDEX.md
 objective: <目標描述>
 task_id: <從 Step 0 選擇的 task_id，或 NEW>
 touched_repos: [<repo list>]
+execution_mode: <classic_stage|gsd_phase>
 active_docs_used: [<loaded docs>]
 execution_plan: <簡要計畫>
 ```

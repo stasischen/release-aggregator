@@ -3,12 +3,22 @@
 ## Trigger
 Use this when user asks to execute a specific stage task.
 
+> [!IMPORTANT]
+> This protocol is for `classic_stage` mode (single-repo, single-stage).
+> If execution requires multi-repo orchestration or phase waves, switch to
+> `docs/runbooks/gsd_multi_repo_workflow.md` (`gsd_phase` mode).
+
 ## Mandatory Steps
 1. Read `docs/ops/stage_contract_matrix_ko.md` and identify target stage.
 2. Print planned `inputs`, `commands`, `outputs`, and `hard_gates` before execution.
 3. Execute only one stage (no auto-jump to next stage).
 4. Validate output and generate `handoff.stage-XX.json` matching `docs/ops/handoff_stage.schema.json`.
 5. Return report with evidence.
+
+## GSD Compatibility Rules
+- A stage task may be one task inside a larger GSD phase, but this protocol still executes one stage only.
+- If blockers require changes in another repo, stop and hand back to aggregator planning.
+- Do not continue to the next stage in the same session unless explicitly requested.
 
 ## Stop Conditions
 - Any hard gate fail => `status=FAIL`, stop immediately.
@@ -19,6 +29,7 @@ Use this when user asks to execute a specific stage task.
 - `repo`
 - `branch`
 - `commit_hash`
+- `execution_mode` (`classic_stage` or `gsd_phase`)
 - `commands_run`
 - `output_files`
 - `gate_results`

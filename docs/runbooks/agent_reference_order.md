@@ -7,9 +7,10 @@ Prevent agent confusion between active protocol and archived historical docs.
 1. `docs/index.md`
 2. `docs/workflow_map.md`
 3. `docs/runbooks/gemini_startup_protocol.md`
-4. `docs/runbooks/gemini_stage_execution_protocol.md`
-5. `docs/runbooks/gemini_closeout_protocol.md`
-6. `docs/ops/stage_contract_matrix_ko.md`
+4. `docs/runbooks/gsd_multi_repo_workflow.md` (跨 Repo 或 phase-based 任務必讀)
+5. `docs/runbooks/gemini_stage_execution_protocol.md`
+6. `docs/runbooks/gemini_closeout_protocol.md`
+7. `docs/ops/stage_contract_matrix_ko.md`
 
 ## Optional Read (When Comparing Legacy Process)
 - `docs/archive/universal/INDEX.md`
@@ -31,3 +32,4 @@ Before execution, agent must output:
 - `active_docs_used`
 - `archive_docs_used` (if any)
 - `decision_source` (`active` or `comparison_only`)
+- `execution_mode` (`classic_stage` or `gsd_phase`)

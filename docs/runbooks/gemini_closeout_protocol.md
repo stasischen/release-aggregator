@@ -8,6 +8,10 @@
 2. **撰寫當日 Worklog** 到 `release-aggregator/docs/worklogs/YYYY-MM-DD.md`。
 3. **輸出收工報告** 供使用者確認。
 
+若本次為 `gsd_phase` 模式，另外必須：
+4. **回寫每個 touched repo 的 `STATE.md`**（已完成任務、blockers、next task）。
+5. **同步 aggregator 任務狀態**（`docs/tasks/` 相關任務檔與索引）。
+
 ---
 
 ## Step 1: 提交變更
@@ -22,6 +26,11 @@ git status  # 確認變更內容
 git commit -m "<type>: <description>"
 git push origin main
 ```
+
+### Step 1.5: GSD State Sync (only for `gsd_phase`)
+- 每個 touched repo 必須確認 `STATE.md` 已更新且納入 commit。
+- 若 task 狀態改變（active -> completed / blocked），同步更新 aggregator 的任務檔與 `TASK_INDEX.md`。
+- 若本次只完成部分 phase，需在 `STATE.md` 明確記錄尚未完成的 Task IDs。
 
 ## Step 2: 撰寫 Worklog
 
@@ -125,6 +134,7 @@ git push origin main
 ```yaml
 task_id: <如有>
 touched_repos: [content-ko, release-aggregator]
+execution_mode: <classic_stage|gsd_phase>
 commits:
   - repo: content-ko
     hash: abc1234

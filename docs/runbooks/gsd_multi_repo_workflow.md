@@ -74,10 +74,19 @@ npx get-shit-done-cc --gemini --global
 
 ## Session Policy
 - 新 phase 一律新 session（手動重開）。
+- phase 完成後禁止在同一 session 直接開始下一 phase（即使同 repo 也不行）。
 - 新 session 啟動時，僅載入：
   - 目標 Repo 的 `SPEC.md`、`PLAN.md`、`STATE.md`
   - 這次 Task 需要的少量程式碼檔案
 - 禁止延續舊 session 直接做下一個 phase。
+
+## Phase End Gate (Mandatory)
+每個 phase 結束時，Agent 必須先輸出以下內容，才可進入下一 phase：
+1. `commit_reminder`: 明確提醒使用者提交本 phase 變更（含建議 `git add/commit/push` 範圍）。
+2. `phase_completion_scope`: 本 phase 實際修改的 repo/path 與驗證結果摘要。
+3. `next_phase_prompt`: 可直接貼給新 session Agent 的完整 prompt（含要讀的檔案、限制、Task/Phase ID）。
+
+若以上任一缺失，視為 phase 未完成，不可切換下一 phase。
 
 ## Prompt Template (Target Repo)
 ```text
@@ -91,6 +100,27 @@ npx get-shit-done-cc --gemini --global
 - 不要做其他任務
 - 完成後更新 STATE.md
 - 提供建議 commit message 與驗證結果
+```
+
+## Next-Phase Prompt Template (Handoff)
+```text
+你在 <repo_path> 工作。請接續 GSD，執行 Phase <N>（不要重做 Phase <N-1>）。
+
+先讀（順序固定）：
+1) <repo>/SPEC.md
+2) <repo>/PLAN.md
+3) <repo>/STATE.md
+4) <phase-specific context/research/plan files...>
+
+目標：
+- 只執行 <Phase N / Task IDs>
+- 完成後更新 <repo>/STATE.md
+- 回報：變更檔案、驗證結果、blockers（若有）
+
+限制：
+- one-phase-one-repo
+- docs/** 為 active protocol source
+- docs/archive/** 僅供參考，不可作為執行依據
 ```
 
 ## Failure Handling

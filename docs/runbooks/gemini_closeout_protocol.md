@@ -148,6 +148,43 @@ next_actions:
   - <待辦 1>
 ```
 
+### Step 3.5: 下一階段交接輸出（Mandatory for phase workflow）
+Agent 在每次流程結束時，必須額外輸出兩段：
+
+1. `commit_reminder`
+```yaml
+commit_reminder:
+  phase: <phase_id>
+  repo: <repo_name>
+  required_actions:
+    - git add <phase_touched_paths>
+    - git commit -m "<type>: <phase summary>"
+    - git push origin <branch>
+```
+
+2. `next_phase_prompt`
+```text
+你在 <repo_path> 工作。請接續 GSD，執行 Phase <NEXT_PHASE_ID>（不要重做已完成 phase）。
+
+先讀（順序固定）：
+1) <repo>/SPEC.md
+2) <repo>/PLAN.md
+3) <repo>/STATE.md
+4) <phase artifact files for NEXT_PHASE>
+
+本次任務：
+- 執行 /gsd:discuss-phase <NEXT_PHASE_ID> 或 /gsd:execute-phase <NEXT_PHASE_ID>（依 STATE.md 指示）
+- 僅處理 <NEXT_PHASE scope>
+- 完成後更新 STATE.md，回報變更檔案與驗證結果
+
+限制：
+- one-phase-one-repo
+- docs/** 為 active protocol source
+- docs/archive/** 只能參考，不可作為執行依據
+```
+
+若未輸出上述兩段，收工視為不完整。
+
 ## Step 4: 選擇性執行 Repo 專用檢查
 
 根據 touched repo 執行對應的 closeout 子協議：

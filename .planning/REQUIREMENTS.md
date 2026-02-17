@@ -42,8 +42,8 @@
 | WF-02 | Phase 1 | In Progress |
 | WF-03 | Phase 1 | In Progress |
 | GOV-01 | Phase 1 | In Progress |
-| GOV-02 | Phase 2 | Pending |
-| GOV-03 | Phase 2 | Pending |
+| GOV-02 | Phase 2 | Verified in Phase 2 |
+| GOV-03 | Phase 2 | Verified in Phase 2 |
 | REL-01 | Phase 3 | Pending |
 | REL-02 | Phase 3 | Pending |
 | REL-03 | Phase 3 | Pending |
@@ -55,4 +55,4 @@
 
 ---
 *Requirements defined: 2026-02-17*
-*Last updated: 2026-02-17 after re-initialization*
+*Last updated: 2026-02-17 after Phase 2 execution*

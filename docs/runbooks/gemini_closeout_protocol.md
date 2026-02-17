@@ -31,6 +31,7 @@ git push origin main
 - 每個 touched repo 必須確認 `STATE.md` 已更新且納入 commit。
 - 若 task 狀態改變（active -> completed / blocked），同步更新 aggregator 的任務檔與 `TASK_INDEX.md`。
 - 若本次只完成部分 phase，需在 `STATE.md` 明確記錄尚未完成的 Task IDs。
+- 若為 `release-aggregator` session，必須檢查 `docs/tasks/TASK_INDEX.md` 是否需要同步更新（active/completed 變更）。
 
 ## Step 2: 撰寫 Worklog
 
@@ -114,6 +115,9 @@ git push origin main
 ### Pending Decisions
 - <如有未決事項列出>
 
+### Blockers
+- <如有 blocker，填原因與影響；若無填 none>
+
 ### Next Actions
 1. <下一步行動>
 ```
@@ -126,6 +130,13 @@ git push origin main
 2. 然後追加新的 `## Session:` 區塊。
 3. **不要覆蓋已有內容。**
 4. **不要重寫標題 `# Daily Worklog`**（它已經存在）。
+
+### Step 2.5: Closeout Checklist（release-aggregator）
+若本次 session 在 `release-aggregator` 執行，收工前必須逐項確認：
+1. Worklog 已 append 到 `docs/worklogs/YYYY-MM-DD.md`（不可寫到其他位置）。
+2. 本 phase touched repo 的 `STATE.md` 已同步（若本 repo 即 release-aggregator，檢查 `.planning/STATE.md`）。
+3. 任務狀態若有變更，`docs/tasks/TASK_INDEX.md` 已同步。
+4. 收工輸出包含 `blockers` 欄位（無則填 `none`）。
 
 ## Step 3: 輸出收工報告
 
@@ -204,3 +215,4 @@ commit_reminder:
 - **永遠不要** claim 完成但沒有提供 commit hash 作為證據。
 - **永遠不要** 把 worklog 寫到各 Repo 內部。
 - 如果有未確定事項，寫進 Worklog 的 `Pending Decisions` 區塊。
+- Worklog 區塊必須包含 `Blockers`（無則填 `none`）。

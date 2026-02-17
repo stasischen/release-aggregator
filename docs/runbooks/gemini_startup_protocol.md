@@ -52,6 +52,21 @@ view_file /Users/ywchen/Dev/lingo/release-aggregator/docs/tasks/TASK_INDEX.md
 - 任務描述含「phase/wave/里程碑拆分」-> `gsd_phase`
 - 其餘預設 `classic_stage`
 
+### Step 2.6: `gsd_phase` 分解檢查（Mandatory）
+若 `execution_mode = gsd_phase`，在任何 `/gsd:execute-phase` 前，必須先輸出以下檢查結果：
+
+```yaml
+decomposition_check:
+  request_scope: <原始需求一句話>
+  phase_id: <phase id>
+  target_repo: <only one repo>
+  touched_paths: [<repo-scoped paths>]
+  dependency_prev_phase: <none|phase id>
+  boundary_statement: "本 phase 僅修改 <target_repo>。"
+```
+
+若無法填出 `target_repo = single`，或 `touched_paths` 橫跨多 repo，必須停止執行並先拆 phase。
+
 ### Step 3: 輸出執行計畫
 開工前，向使用者確認：
 ```yaml
@@ -60,6 +75,7 @@ task_id: <從 Step 0 選擇的 task_id，或 NEW>
 touched_repos: [<repo list>]
 execution_mode: <classic_stage|gsd_phase>
 active_docs_used: [<loaded docs>]
+decomposition_check: <classic_stage 可填 n/a；gsd_phase 必填完整檢查>
 execution_plan: <簡要計畫>
 ```
 

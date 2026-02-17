@@ -44,6 +44,25 @@ npx get-shit-done-cc --gemini --global
 - 已完成 Gemini CLI 登入。
 - 在預期提交的 Repo 內執行指令（避免 commit 到錯誤倉庫）。
 - 每個 Repo 的 `SPEC.md`/`PLAN.md`/`STATE.md` 已存在（若缺失先補齊）。
+- 若任務為 `gsd_phase`，必須先完成「Phase Decomposition Checklist」再進入 execute。
+
+### 3) Phase Decomposition Checklist (Mandatory before execute)
+每次執行 `/gsd:execute-phase <N>` 前，先輸出：
+
+```yaml
+phase_decomposition:
+  phase_id: <N>
+  source_request: <原始需求摘要>
+  target_repo: <single repo only>
+  touched_paths: [<paths under target_repo>]
+  dependency_prev_phase: <none|phase id>
+  dependency_next_phase: <none|phase id>
+  boundary_statement: "One phase one repo. No cross-repo edits in this phase."
+```
+
+Gate rule:
+- 若 `target_repo` 不是單一 repo，或 `touched_paths` 涵蓋多 repo，必須停止並回到 planning 拆分 phase。
+- 拆分後再重跑 `/gsd:plan-phase` 與 `/gsd:execute-phase`，不得直接硬執行。
 
 ## Standard Operating Flow
 
@@ -71,6 +90,7 @@ npx get-shit-done-cc --gemini --global
 - 跨 Repo需求必須拆成兩個以上 Task，不可單 task 同改多 repo。
 - 每個 Task 使用原子 commit（可回滾、可審核）。
 - 未經使用者要求，不得跨 repo 自動改檔。
+- 若執行中發現單 phase 需同改兩個以上 repo：立即停止，標記 blocker 並拆分成新 phase。
 
 ## Session Policy
 - 新 phase 一律新 session（手動重開）。

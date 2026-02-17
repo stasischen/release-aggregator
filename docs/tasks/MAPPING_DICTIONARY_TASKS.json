@@ -17,6 +17,8 @@
     "KO-FLOW-02",
     "KO-MAP-01",
     "KO-MAP-02",
+    "KO-GEMINI-05",
+    "KO-MAP-04",
     "KO-MAP-03",
     "KO-DICT-01",
     "KO-DICT-02",
@@ -155,6 +157,30 @@
       "acceptance": [
         "All grammar points in Level 0-1 lessons are fully parsed by Rules Engine.",
         "Zero 'emergency' mappings needed for audited grammar patterns."
+      ]
+    },
+    {
+      "id": "KO-MAP-04",
+      "title": "Apply POS Audit Fixes and Clean Legacy Mapping",
+      "status": "PENDING",
+      "target_repo": "content-ko",
+      "repo_plan_id": "CKO-MD-KO-MAP-04",
+      "goal": "Apply manual review findings (KO-GEMINI-05) and remove redundant phrase mappings.",
+      "actions": [
+        "Incorporate POS decisions from KO-GEMINI-05 patch backlog (MOVE/DUAL).",
+        "Transfer -되다 verbs from mapping_adjectives to mapping_verbs.",
+        "Remove legacy ko:phrase:* band-aids from mapping files that are now handled by rules.",
+        "Execute stage2 gates to verify no regression in coverage."
+      ],
+      "deliverables": [
+        "Updated mapping_*.json files",
+        "Summary of removed redundant mappings",
+        "Deterministic coverage report"
+      ],
+      "acceptance": [
+        "Backlog from KO-GEMINI-05 is 100% applied.",
+        "Zero redundant ko:phrase mappings remain in base dictionary.",
+        "Stage2 and QA metrics remain stable or improve."
       ]
     },
     {

@@ -10,6 +10,7 @@ Operational runbooks:
 - [LLLO Ingestion Bootstrap (Korean)](lllo_ingestion_bootstrap.md)
 - [Release Cut and Rollback](release_cut_and_rollback.md)
 - [Windows Environment Setup](windows_setup_guide.md)
+- [Zellij Control Tower Setup](zellij_control_tower_setup.md)
 - [Universal Archive Migration](universal_archive_migration.md)
 
 Execution and closeout protocols:

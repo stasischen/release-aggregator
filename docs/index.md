@@ -25,6 +25,7 @@ Welcome to the central documentation hub for the Lingo multi-repo system.
 - [Owners and Responsibilities](owners.md) - Role ownership and handoff boundaries.
 - [Workflow Map](workflow_map.md) - Standard operating procedures for content and code.
 - [Runbooks](runbooks/README.md) - Step-by-step guides for common tasks.
+- [Zellij Control Tower Setup](runbooks/zellij_control_tower_setup.md) - Multi-repo terminal layout and launcher.
 - [Agent Reference Order](runbooks/agent_reference_order.md) - Mandatory document order for agents.
 - [Gemini Startup Protocol](runbooks/gemini_startup_protocol.md) - Ask objective first, then load relevant protocols.
 - [Worklog and Directory Governance](ops/worklog_and_directory_governance.md) - Where daily logs and WIP records live.

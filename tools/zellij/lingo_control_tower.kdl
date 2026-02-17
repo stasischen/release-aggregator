@@ -1,0 +1,33 @@
+layout {
+    tab name="control-tower" {
+        pane split_direction="vertical" {
+            pane command="zsh" {
+                args "-lc" "cd /Users/ywchen/Dev/lingo/release-aggregator && clear && exec zsh -l"
+            }
+            pane split_direction="horizontal" {
+                pane command="zsh" {
+                    args "-lc" "cd /Users/ywchen/Dev/lingo/content-ko && clear && exec zsh -l"
+                }
+                pane command="zsh" {
+                    args "-lc" "cd /Users/ywchen/Dev/lingo/content-pipeline && clear && exec zsh -l"
+                }
+            }
+        }
+    }
+
+    tab name="schema-frontend" {
+        pane split_direction="vertical" {
+            pane command="zsh" {
+                args "-lc" "cd /Users/ywchen/Dev/lingo/core-schema && clear && exec zsh -l"
+            }
+            pane split_direction="horizontal" {
+                pane command="zsh" {
+                    args "-lc" "cd /Users/ywchen/Dev/lingo/lingo-frontend-web && clear && exec zsh -l"
+                }
+                pane command="zsh" {
+                    args "-lc" "cd /Users/ywchen/Dev/lingo/lllo && clear && exec zsh -l"
+                }
+            }
+        }
+    }
+}

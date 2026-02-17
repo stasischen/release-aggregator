@@ -80,8 +80,11 @@
 - consumer_repo: lingo-frontend-web
 - inputs:
   - `content-pipeline/dist/**`
+  - `core-schema/schemas/manifest.schema.json`
+  - `core-schema/validators/validate.py`
 - command:
-  - `./scripts/release.sh --version vX.Y.Z`
+  - `./scripts/release.sh --version vX.Y.Z --source-commit <content-pipeline-commit>`
+  - or `./scripts/release.sh --output <staging_path> --pipeline-dist <dist_path> --core-schema <core_schema_path> --source-repo <name> --source-commit <commit>`
 - outputs:
   - `staging/vX.Y.Z/**`
   - `staging/vX.Y.Z/global_manifest.json`

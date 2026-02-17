@@ -39,6 +39,10 @@ def release(pipeline_dist, output_dir, core_schema_dir, source_repo, source_comm
     dist_root = Path(pipeline_dist)
     staging_root = Path(output_dir)
     staging_root.mkdir(parents=True, exist_ok=True)
+
+    if not dist_root.exists() or not dist_root.is_dir():
+        print(f"❌ Pipeline dist path not found or not a directory: {dist_root}")
+        return False
     
     # Manifest Metadata
     manifest = {
@@ -57,6 +61,8 @@ def release(pipeline_dist, output_dir, core_schema_dir, source_repo, source_comm
     
     files_found: int = 0
     for root, dirs, files in os.walk(dist_root):
+        dirs.sort()
+        files.sort()
         for file in files:
             if not file.endswith(".json"):
                 continue
@@ -103,7 +109,7 @@ def release(pipeline_dist, output_dir, core_schema_dir, source_repo, source_comm
 
     # 2. Generate Manifest File
     manifest_path = staging_root / "global_manifest.json"
-    with open(manifest_path, "w") as f:
+    with open(manifest_path, "w", encoding="utf-8") as f:
         json.dump(manifest, f, indent=2)
     
     print(f"📄 Generated global_manifest.json with {len(manifest['packages'])} packages.")
@@ -111,6 +117,13 @@ def release(pipeline_dist, output_dir, core_schema_dir, source_repo, source_comm
     # 3. Validate Manifest
     validator_path = Path(core_schema_dir) / "validators/validate.py"
     manifest_schema = Path(core_schema_dir) / "schemas/manifest.schema.json"
+
+    if not validator_path.exists():
+        print(f"❌ Validator not found: {validator_path}")
+        return False
+    if not manifest_schema.exists():
+        print(f"❌ Manifest schema not found: {manifest_schema}")
+        return False
     
     if not validate_manifest(validator_path, manifest_schema, manifest_path):
         return False

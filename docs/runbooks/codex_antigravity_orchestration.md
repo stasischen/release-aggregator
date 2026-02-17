@@ -16,6 +16,20 @@
 - 不擴 scope，不跨 repo。
 - 可跨多 session 持續同一 plan。
 - 在達到「完成門檻」或「阻塞門檻」時主動回報 Codex。
+- 必須遵守入口/出口協議：開工先 `/start`，收工必走 `/wrap`。
+
+## Protocol Entry/Exit Contract (Mandatory for Antigravity)
+
+每個 Antigravity session 都必須使用以下順序：
+
+1. `/start`：載入 startup protocol、確認 `execution_mode`、完成必要文件讀取。
+2. `gsd_phase` 才能執行 `/gsd:*`（`discuss/plan/execute/verify`）。
+3. `/wrap`：完成 closeout、worklog、state sync 與收工回報。
+
+補充規則：
+- 若執行器看不到 `/gsd:*`，改走本地 `/gsd` 入口（`.agent/workflows/gsd.md`）並按 runbook 流程執行。
+- 不可跳過 `/start` 直接執行 `/gsd:*`。
+- 不可在未執行 `/wrap` 的情況下宣告 plan 完成。
 
 ## End-to-End Flow
 
@@ -55,6 +69,10 @@ execution_packet:
   required_reads:
     - <abs path doc 1>
     - <abs path doc 2>
+  protocol_entry:
+    startup: "/start"
+    gsd_fallback: "/gsd (when /gsd:* is unavailable)"
+    closeout: "/wrap"
   required_commands:
     - <command 1>
     - <command 2>
@@ -176,6 +194,7 @@ Antigravity 每次「接到任務、準備開工」時，先做以下檢查：
 - 本機尚未同步
 - `release-aggregator` 尚未 push 最新任務
 4. 在使用者確認同步策略前，停止進一步執行，避免錯版本開工。
+5. 開工命令順序必須可稽核：先 `/start`，再進入該 plan 的執行指令。
 
 ## Minimal Operating Rhythm (Recommended)
 

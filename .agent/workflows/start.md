@@ -20,6 +20,7 @@ description: control-tower startup shim — 開工協議入口
    ```
 
 3. 按照開工協議的 Step 1~3 向使用者確認目標。
+4. 若 `/` 清單看不到 `/gsd:*`，改用本地入口 `/gsd`（`.agent/workflows/gsd.md`）。
 
 ## 硬規則
 - 協議唯一來源：`release-aggregator/docs/runbooks/`。

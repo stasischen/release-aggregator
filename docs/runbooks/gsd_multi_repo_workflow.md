@@ -11,6 +11,13 @@
 - GSD 是 workflow/orchestration 層。
 - Gemini CLI 是執行模型與命令載體。
 - 建議在控制台安裝 GSD（global），在各目標 Repo 執行 phase 指令。
+- `/start` 與 `/wrap` 是 session 入口/出口，GSD phase 僅負責中段執行。
+
+## Command Entry Points (Mandatory)
+- 開工一律先走 `/start`（載入 startup protocol 與任務全景）。
+- 進入 `gsd_phase` 後，再執行 `/gsd:*` 指令（`discuss/plan/execute/verify`）。
+- 每個 phase 結束或使用者收工時，一律走 `/wrap`（closeout + worklog + state sync）。
+- 不可直接跳過 `/start` 或 `/wrap` 只跑 `/gsd:*`。
 
 ## Directory and State Layout
 
@@ -67,9 +74,10 @@ Gate rule:
 ## Standard Operating Flow
 
 ### Stage A: Portfolio Planning (in aggregator)
-1. 開新 session，先讀 `docs/tasks/TASK_INDEX.md`。
-2. 選定本次里程碑與目標 Repo。
-3. 在 aggregator 記錄 phase 依賴與順序（A -> B -> C）。
+1. 開新 session，先執行 `/start`。
+2. 依 startup protocol 讀取 `docs/tasks/TASK_INDEX.md` 與必要 active docs。
+3. 選定本次里程碑與目標 Repo。
+4. 在 aggregator 記錄 phase 依賴與順序（A -> B -> C）。
 
 ### Stage B: Repo-specific Execution (in target repo)
 在目標 Repo 開新 session，執行：
@@ -84,6 +92,7 @@ Gate rule:
 1. 目標 Repo 完成原子 commit。
 2. 回寫該 Repo `STATE.md`。
 3. 回到 aggregator 更新任務狀態與 `docs/worklogs/YYYY-MM-DD.md`。
+4. 執行 `/wrap` 完成統一 closeout（含 commit 證據、worklog append、必要子協議）。
 
 ## Commit and Boundary Rules
 - 一個 phase 只允許一個 Repo。

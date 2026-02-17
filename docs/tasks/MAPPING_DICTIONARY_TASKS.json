@@ -116,7 +116,7 @@
     {
       "id": "KO-MAP-02",
       "title": "Add human review loop for low-confidence conflicts",
-      "status": "IN_PROGRESS",
+      "status": "DONE",
       "target_repo": "content-ko",
       "repo_plan_id": "CKO-MD-KO-MAP-02",
       "goal": "Keep manual review bounded and auditable.",
@@ -140,7 +140,7 @@
     {
       "id": "KO-MAP-03",
       "title": "Systematic Grammar Rules Audit (Lesson v3)",
-      "status": "PENDING",
+      "status": "IN_PROGRESS",
       "target_repo": "content-ko",
       "repo_plan_id": "CKO-MD-KO-MAP-03",
       "goal": "Ensure all grammar points taught in lessons are supported by Rules Engine.",
@@ -162,7 +162,7 @@
     {
       "id": "KO-MAP-04",
       "title": "Apply POS Audit Fixes and Clean Legacy Mapping",
-      "status": "PENDING",
+      "status": "IN_PROGRESS",
       "target_repo": "content-ko",
       "repo_plan_id": "CKO-MD-KO-MAP-04",
       "goal": "Apply manual review findings (KO-GEMINI-05) and remove redundant phrase mappings.",

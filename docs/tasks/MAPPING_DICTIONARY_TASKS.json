@@ -2,6 +2,7 @@
   "epic": "ko-mapping-dictionary-stabilization",
   "owner_repo": "release-aggregator",
   "last_updated": "2026-02-16T11:00:00Z",
+  "repo_plan_file": "/Users/ywchen/Dev/lingo/content-ko/PLAN.md",
   "objective": "Stabilize segmentation/mapping and dictionary flow for real KO content before scaling to more languages.",
   "execution_mode": {
     "rule": "Hybrid",
@@ -114,6 +115,7 @@
       "title": "Add human review loop for low-confidence conflicts",
       "status": "IN_PROGRESS",
       "target_repo": "content-ko",
+      "repo_plan_id": "CKO-MD-KO-MAP-02",
       "goal": "Keep manual review bounded and auditable.",
       "actions": [
         "Create review input/export format for mapping_conflicts.",
@@ -137,6 +139,7 @@
       "title": "Systematic Grammar Rules Audit (Lesson v3)",
       "status": "PENDING",
       "target_repo": "content-ko",
+      "repo_plan_id": "CKO-MD-KO-MAP-03",
       "goal": "Ensure all grammar points taught in lessons are supported by Rules Engine.",
       "actions": [
         "Audit docs/lesson_v3/grammar/ level 0-4 for missing patterns (e.g., ~지도, ~겠죠).",
@@ -219,6 +222,7 @@
       "title": "Fill dictionary i18n zh_tw and add coverage gates",
       "status": "PENDING",
       "target_repo": "content-ko",
+      "repo_plan_id": "CKO-MD-KO-DICT-02",
       "goal": "Complete learner-language layer without mutating core fields.",
       "actions": [
         "Generate i18n skeleton from core dictionary atom IDs.",

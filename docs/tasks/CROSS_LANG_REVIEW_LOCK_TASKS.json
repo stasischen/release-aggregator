@@ -1,0 +1,156 @@
+{
+  "epic": "cross-lang-review-lock-pipeline",
+  "owner_repo": "release-aggregator",
+  "last_updated": "2026-02-16T23:59:00Z",
+  "repo_plan_file": "/Users/ywchen/Dev/lingo/content-ko/PLAN.md",
+  "objective": "Build a language-agnostic review/lock pipeline that supports multi-machine collaboration while keeping language rules independent.",
+  "execution_order": [
+    "RL-ARCH-01",
+    "RL-KO-01",
+    "RL-KO-02",
+    "RL-KO-03",
+    "RL-KO-04",
+    "RL-CI-01",
+    "RL-XLANG-01"
+  ],
+  "tasks": [
+    {
+      "id": "RL-ARCH-01",
+      "title": "Freeze universal schema and directory contract",
+      "status": "PENDING",
+      "target_repo": "release-aggregator",
+      "actions": [
+        "Publish shared schemas for surface_candidates, surface_review_queue, surface_locks, and effective resolution.",
+        "Document canonical-vs-runtime directory policy.",
+        "Define candidate_signature and stale lock rules."
+      ],
+      "deliverables": [
+        "docs/tasks/CROSS_LANG_REVIEW_LOCK_PIPELINE_PLAN.md",
+        "Schema appendix or runbook section"
+      ],
+      "acceptance": [
+        "Schema fields are explicit and language-agnostic.",
+        "Runtime files are marked disposable; lock files marked canonical."
+      ]
+    },
+    {
+      "id": "RL-KO-01",
+      "title": "Migrate KO manual review outputs into canonical lock store",
+      "status": "PENDING",
+      "target_repo": "content-ko",
+      "repo_plan_id": "CKO-RL-RL-KO-01",
+      "actions": [
+        "Create content/source/ko/review/mapping/ structure.",
+        "Migrate existing override/lock data into surface_locks.jsonl + line_overrides/.",
+        "Backfill reviewer and timestamp metadata."
+      ],
+      "deliverables": [
+        "Canonical KO lock files",
+        "Migration script and migration log"
+      ],
+      "acceptance": [
+        "No lock data remains only in runtime paths.",
+        "Lock entries pass schema validation."
+      ]
+    },
+    {
+      "id": "RL-KO-02",
+      "title": "Integrate runtime review queue + effective resolution in KO pipeline",
+      "status": "PENDING",
+      "target_repo": "content-ko",
+      "repo_plan_id": "CKO-RL-RL-KO-02",
+      "actions": [
+        "Write runtime outputs under data/staging/runtime/.",
+        "Generate surface_review_queue based on new/changed/collision/stale logic.",
+        "Apply locks deterministically to produce mapping_accepted/mapping_conflicts."
+      ],
+      "deliverables": [
+        "Updated stage executor",
+        "Runtime queue/resolution artifacts"
+      ],
+      "acceptance": [
+        "Re-run does not erase canonical lock files.",
+        "Only unresolved surfaces stay in review queue."
+      ]
+    },
+    {
+      "id": "RL-KO-03",
+      "title": "Add claim/event workflow for multi-machine reviewers",
+      "status": "PENDING",
+      "target_repo": "content-ko",
+      "repo_plan_id": "CKO-RL-RL-KO-03",
+      "actions": [
+        "Add review_claims format and validator.",
+        "Add append-only review_events format.",
+        "Add compile_locks command to build deterministic lock snapshot."
+      ],
+      "deliverables": [
+        "claim checker",
+        "event -> lock compiler",
+        "review operation runbook"
+      ],
+      "acceptance": [
+        "Parallel reviewers can work without lock-file merge chaos.",
+        "Compiled lock output is deterministic across machines."
+      ]
+    },
+    {
+      "id": "RL-KO-04",
+      "title": "Scope KO processing to A1/A2/B1 and defer B2/C1",
+      "status": "IN_PROGRESS",
+      "target_repo": "content-ko",
+      "repo_plan_id": "CKO-RL-RL-KO-04",
+      "actions": [
+        "Filter pipeline input to A1/A2/B1.",
+        "Ensure non-target levels are excluded from queue and gate metrics.",
+        "Document scope in staging contract."
+      ],
+      "deliverables": [
+        "Scoped executor behavior",
+        "Updated staging docs"
+      ],
+      "acceptance": [
+        "No B2/C1 rows in runtime accepted/conflicts while scope is active."
+      ]
+    },
+    {
+      "id": "RL-CI-01",
+      "title": "Introduce hard gates for review/lock integrity",
+      "status": "PENDING",
+      "target_repo": "content-pipeline",
+      "actions": [
+        "Add gate checks: coverage_locked_rate, unresolved_surface_count, stale_lock_count, collision_unresolved_count.",
+        "Fail CI on hard gate violations.",
+        "Publish machine-readable gate summary artifact."
+      ],
+      "deliverables": [
+        "CI gate scripts",
+        "QA summary JSON schema"
+      ],
+      "acceptance": [
+        "Injected stale/collision samples fail CI as expected.",
+        "Healthy KO baseline passes with deterministic output."
+      ]
+    },
+    {
+      "id": "RL-XLANG-01",
+      "title": "Generalize review/lock core for additional languages",
+      "status": "PENDING",
+      "target_repo": "content-pipeline",
+      "actions": [
+        "Define adapter interface: tokenizer output -> universal candidate schema.",
+        "Pilot one non-KO language with shared lock/queue engine.",
+        "Document language-onboarding checklist."
+      ],
+      "deliverables": [
+        "Adapter contract",
+        "One pilot language runbook",
+        "Cross-language onboarding checklist"
+      ],
+      "acceptance": [
+        "Non-KO language can run review/lock flow without schema changes.",
+        "Language-specific rules stay in isolated language repo."
+      ]
+    }
+  ]
+}

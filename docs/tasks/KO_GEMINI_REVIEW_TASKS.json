@@ -2,6 +2,7 @@
   "epic": "ko-mapping-manual-audit",
   "owner_repo": "release-aggregator",
   "last_updated": "2026-02-16T10:40:00Z",
+  "repo_plan_file": "/Users/ywchen/Dev/lingo/content-ko/PLAN.md",
   "objective": "Standardize a reproducible Gemini CLI manual review workflow for KO mapping and TOPIK3000 POS so all agents can run the same audit path.",
   "execution_order": [
     "KO-GEMINI-01",
@@ -43,6 +44,7 @@
       "title": "Run full-volume lesson mapping manual review",
       "status": "IN_PROGRESS",
       "target_repo": "content-ko",
+      "repo_plan_id": "CKO-GR-KO-GEMINI-03",
       "actions": [
         "Generate full minimal review inputs from latest staging artifacts.",
         "Run chunked Gemini review for all lessons.",
@@ -62,6 +64,7 @@
       "title": "Translate audit findings into rule-engine fix backlog",
       "status": "PENDING",
       "target_repo": "content-ko",
+      "repo_plan_id": "CKO-GR-KO-GEMINI-04",
       "actions": [
         "Cluster findings by rule family and priority conflicts.",
         "Propose minimal patch set with expected QA metric impact.",

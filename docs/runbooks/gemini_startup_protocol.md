@@ -84,4 +84,5 @@ execution_plan: <簡要計畫>
 - **Worklog 規則**: 每個 Session 結束時，worklog 必須寫入 `release-aggregator/docs/worklogs/YYYY-MM-DD.md`（見收工協議）。
 - **不要跨邊界**: 除非使用者明確要求，不要自動跳到其他 Repo 或 Stage。
 - **Archive 唯讀**: `docs/archive/` 下的文件僅供參考比對，不可用為執行依據。
+- **Encoding 安全**: 撰寫 script 時嚴禁包含 Emoji 或特殊 Unicode 字元，以避免 Windows 環境下的 `UnicodeEncodeError`。
 - **Task 全景**: 每次開工必須先列出 `docs/tasks/` 下的所有任務檔，不可只讀一個。

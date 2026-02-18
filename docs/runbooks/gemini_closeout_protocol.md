@@ -137,6 +137,7 @@ git push origin main
 2. 本 phase touched repo 的 `STATE.md` 已同步（若本 repo 即 release-aggregator，檢查 `.planning/STATE.md`）。
 3. 任務狀態若有變更，`docs/tasks/TASK_INDEX.md` 已同步。
 4. 收工輸出包含 `blockers` 欄位（無則填 `none`）。
+5. **Encoding 檢查**: 檢查本次撰寫/修改的 Script 是否誤植 Emoji 或特殊 Unicode（建議使用 `grep -P "[^\x00-\x7F]" <files>`）。
 
 ## Step 3: 輸出收工報告
 

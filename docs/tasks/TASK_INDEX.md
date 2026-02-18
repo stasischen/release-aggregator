@@ -38,6 +38,7 @@ Phase C: 前端整合（lingo-frontend-web）
 | MAPPING_DICTIONARY | 字典映射標準化 + 品質驗證（含雙層詞性落地） | A2 | 6/14 tasks | [JSON](MAPPING_DICTIONARY_TASKS.json) · [PLAN](KO_DICT_01_PLAN.md) |
 | KO_GEMINI_REVIEW | KO 全量 Gemini 人工審核（mapping + TOPIK POS，含 i18n/base 詞性人工複核） | A2 | 3/7 tasks | [JSON](KO_GEMINI_REVIEW_TASKS.json) |
 | CROSS_LANG_REVIEW_LOCK | 跨語系 review/lock 流程（多機協作 + 規則分離） | A2/B1 | 1/7 tasks | [JSON](CROSS_LANG_REVIEW_LOCK_TASKS.json) · [PLAN](CROSS_LANG_REVIEW_LOCK_PIPELINE_PLAN.md) |
+| TTS_GENERATION | 高品質 Edge-TTS 語音生成 | Phase B | 1/2 tasks | [JSON](TTS_GENERATION_TASKS.json) |
 
 ### Future / Automation (未來優化)
 

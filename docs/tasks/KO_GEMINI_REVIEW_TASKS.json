@@ -43,7 +43,7 @@
     {
       "id": "KO-GEMINI-05",
       "title": "Run manual POS review for TOPIK3000 i18n/base mappings",
-      "status": "PENDING",
+      "status": "DONE",
       "target_repo": "content-ko",
       "repo_plan_id": "CKO-GR-KO-GEMINI-05",
       "actions": [
@@ -63,23 +63,62 @@
       ]
     },
     {
-      "id": "KO-GEMINI-03",
-      "title": "Run full-volume lesson mapping manual review",
+      "id": "KO-GEMINI-03-A1",
+      "title": "Establish KO Golden A1 (L01-20) POS/Segmentation Baseline",
       "status": "IN_PROGRESS",
       "target_repo": "content-ko",
-      "repo_plan_id": "CKO-GR-KO-GEMINI-03",
+      "repo_plan_id": "CKO-GR-KO-GEMINI-03-A1",
       "actions": [
-        "Generate full minimal review inputs from latest staging artifacts.",
-        "Run chunked Gemini review for all lessons.",
-        "Normalize outputs to clean ndjson and extract WRONG/SUSPECT list."
+        "Generate full minimal review inputs for A1 lessons (A1-01 to A1-20).",
+        "Run chunked Gemini review specifically focusing on segmentation correctness.",
+        "Normalize outputs and identify all remaining WRONG/SUSPECT cases.",
+        "Create 'golden' reference files for A1 segmentation that must not regress."
       ],
       "deliverables": [
-        "Full-lesson review outputs",
-        "Merged issue list with source_ref"
+        "runs/2026-02-18/A1_full_review_output.jsonl",
+        "tests/golden/A1_segmentation_golden.json",
+        "Merged issue list for A1"
       ],
       "acceptance": [
-        "All target lessons reviewed with machine-parseable output.",
-        "Every WRONG/SUSPECT row has source_ref backtrace."
+        "100% of A1 tokens have verified segmentation/POS.",
+        "Zero unresolved tokens or known bad splits in A1 golden set."
+      ]
+    },
+    {
+      "id": "KO-GEMINI-03-A2",
+      "title": "Establish KO Golden A2 (L01-20) POS/Segmentation Baseline",
+      "status": "PENDING",
+      "target_repo": "content-ko",
+      "repo_plan_id": "CKO-GR-KO-GEMINI-03-A2",
+      "actions": [
+        "Generate full minimal review inputs for A2 lessons (A2-01 to A2-20).",
+        "Run chunked Gemini review for A2.",
+        "Create 'golden' reference files for A2 segmentation."
+      ],
+      "deliverables": [
+        "tests/golden/A2_segmentation_golden.json"
+      ],
+      "acceptance": [
+        "100% of A2 tokens verified.",
+        "Zero unresolved tokens in A2 golden set."
+      ]
+    },
+    {
+      "id": "KO-GEMINI-03-B1",
+      "title": "Establish KO Golden B1 (L01-20) POS/Segmentation Baseline",
+      "status": "PENDING",
+      "target_repo": "content-ko",
+      "repo_plan_id": "CKO-GR-KO-GEMINI-03-B1",
+      "actions": [
+        "Generate full minimal review inputs for B1 lessons.",
+        "Run chunked Gemini review for B1.",
+        "Create 'golden' reference files for B1 segmentation."
+      ],
+      "deliverables": [
+        "tests/golden/B1_segmentation_golden.json"
+      ],
+      "acceptance": [
+        "100% of B1 tokens verified."
       ]
     },
     {

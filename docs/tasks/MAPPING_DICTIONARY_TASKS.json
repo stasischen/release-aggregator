@@ -20,6 +20,9 @@
     "KO-GEMINI-05",
     "KO-MAP-04",
     "KO-MAP-03",
+    "KO-MAP-05-A1",
+    "KO-MAP-05-A2",
+    "KO-MAP-05-B1",
     "KO-DICT-01",
     "KO-DICT-02",
     "KO-DICT-03",
@@ -162,7 +165,7 @@
     {
       "id": "KO-MAP-04",
       "title": "Apply POS Audit Fixes and Clean Legacy Mapping",
-      "status": "IN_PROGRESS",
+      "status": "DONE",
       "target_repo": "content-ko",
       "repo_plan_id": "CKO-MD-KO-MAP-04",
       "goal": "Apply manual review findings (KO-GEMINI-05) and remove redundant phrase mappings.",
@@ -181,6 +184,63 @@
         "Backlog from KO-GEMINI-05 is 100% applied.",
         "Zero redundant ko:phrase mappings remain in base dictionary.",
         "Stage2 and QA metrics remain stable or improve."
+      ]
+    },
+    {
+      "id": "KO-MAP-05-A1",
+      "title": "Lock A1 Segmentation Golden Set",
+      "status": "PENDING",
+      "target_repo": "content-ko",
+      "depends_on": [
+        "KO-GEMINI-03-A1",
+        "KO-MAP-04"
+      ],
+      "goal": "Ensure A1 segmentation never regresses.",
+      "actions": [
+        "Ingest A1 golden file (specifically completing L11-20).",
+        "Implement scripts/tests/verify_golden.py.",
+        "Add CI gate for A1 zero-deviation."
+      ],
+      "deliverables": [
+        "tests/golden/A1_segmentation_golden.json",
+        "scripts/tests/verify_golden.py"
+      ],
+      "acceptance": [
+        "Pipeline fails on A1 segmentation change."
+      ]
+    },
+    {
+      "id": "KO-MAP-05-A2",
+      "title": "Lock A2 Segmentation Golden Set",
+      "status": "PENDING",
+      "target_repo": "content-ko",
+      "depends_on": [
+        "KO-GEMINI-03-A2",
+        "KO-MAP-05-A1"
+      ],
+      "actions": [
+        "Establish A2 golden baseline.",
+        "Lock A2 in verify_golden.py."
+      ],
+      "acceptance": [
+        "Pipeline fails on A2 deviation."
+      ]
+    },
+    {
+      "id": "KO-MAP-05-B1",
+      "title": "Lock B1 Segmentation Golden Set",
+      "status": "PENDING",
+      "target_repo": "content-ko",
+      "depends_on": [
+        "KO-GEMINI-03-B1",
+        "KO-MAP-05-A2"
+      ],
+      "actions": [
+        "Establish B1 golden baseline.",
+        "Lock B1 in verify_golden.py."
+      ],
+      "acceptance": [
+        "Pipeline fails on B1 deviation."
       ]
     },
     {

@@ -59,7 +59,23 @@ On the new machine, create `.agent_identity.json` in each repository root (or th
 }
 ```
 
-## 6. Verification
+## 6. Python Virtual Environment (Optional but Recommended)
+
+To avoid system-wide dependency conflicts, use a virtual environment within each repository (especially `content-ko` and `content-pipeline`):
+
+```powershell
+# Create virtual environment
+python -m venv .venv
+
+# Activate environment
+.\.venv\Scripts\Activate.ps1
+
+# Install baseline dependencies
+pip install -r requirements.txt
+pip install google-genai pathspec python-dotenv
+```
+
+## 7. Verification
 
 Run the following to ensure the environment is ready:
 

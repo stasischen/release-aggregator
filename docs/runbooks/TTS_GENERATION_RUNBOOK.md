@@ -4,12 +4,11 @@
 
 ## 1. 核心工具
 
-- **腳本路徑**: `content-pipeline/scripts/tts/generate_edge_tts.py`
-- **技術棧**: Python + [Edge-TTS](https://github.com/rany2/edge-tts) (Microsoft Edge 高品質神經網路發音)
+- **基礎語音生成**: `content-pipeline/scripts/tts/generate_edge_tts.py`
+- **帶時間軸生成 (推薦)**: `content-pipeline/scripts/tts/generate_edge_tts_sentences.py`
+- **技術棧**: Python + [Edge-TTS](https://github.com/rany2/edge-tts)
 
 ## 2. 環境安裝
-
-在使用前，請確保已安裝 `edge-tts` 依賴套件：
 
 ```bash
 # 建議在 content-pipeline 目錄下執行
@@ -18,43 +17,54 @@ python -m pip install edge-tts
 
 ## 3. 使用方法
 
-### 基本指令
+### 單課生成 (推薦使用帶時間軸版本)
 
-執行腳本時需要指定輸入的 JSON 檔案（符合 Lingo V5 格式）以及輸出的目標資料夾。
-
-```bash
-python scripts/tts/generate_edge_tts.py --input <JSON_PATH> --output <OUTPUT_DIR>
-```
-
-### 範例：生成 A1-01 課文語音
+執行腳本時指定輸入的 V5 格式 JSON 及輸出目錄。
 
 ```bash
-python scripts/tts/generate_edge_tts.py \
-  --input "e:/Githubs/lingo/content-ko/content/core/dialogue/A1/A1-01.json" \
-  --output "e:/Githubs/lingo/content-ko/assets/audio/A1-01"
+# 產生音檔 (.mp3) 與段落時間軸 (.sentences.json)
+python scripts/tts/generate_edge_tts_sentences.py --input <JSON_PATH> --output <OUTPUT_DIR>
 ```
 
-## 4. 功能特性
+### 批次生成範例 (Batch Processing)
 
-### 角色音色映射 (Role Mapping)
+如果你有多個 A1 課文（A1-01, A1-02...），可以使用簡單的 PowerShell 或 Bash 迴圈：
 
-腳本會根據 JSON 內容中的 `role` 欄位自動切換適當的音色：
+**PowerShell:**
 
-| 角色 (Role) | 性別 | 語音 ID |
-|---|---|---|
-| `민수` | 男 | `ko-KR-InJoonNeural` |
-| `지수` | 女 | `ko-KR-SunHiNeural` |
-| `teacher` (或預設) | 女 | `ko-KR-SunHiNeural` |
+```powershell
+$lessons = "01", "02", "03" # 依此類推
+foreach ($no in $lessons) {
+    python scripts/tts/generate_edge_tts_sentences.py `
+      --input "e:/Githubs/lingo/content-ko/content/core/dialogue/A1/A1-$no.json" `
+      --output "e:/Githubs/lingo/content-ko/assets/audio/A1-$no"
+}
+```
 
-### 命名規範
+## 4. 產出物說明
 
-生成的檔案名稱將嚴格遵循 JSON 中的 `id`：
+執行後在輸出目錄會看到兩個對應檔案：
 
-- 格式: `{id}_{role}.mp3`
-- 範例: `L01-D1-01_민수.mp3`
+- `ID_ROLE.mp3`: 語音檔。
+- `ID_ROLE.sentences.json`: **句子級別時間軸**（包含每句話的 `start_ms` 與 `duration_ms`）。
 
-## 5. 注意事項
+## 5. 整合至 Dict Viewer
 
-1. **網路連接**: Edge-TTS 本質上是存取 Microsoft 的線上服務，執行時需保持網路連線。
-2. **輸出路徑**: 輸出的音檔目前存放在 `content-ko/assets/audio/`，未來發佈時需同步至 `lingo-frontend-web/assets/content/9_production/`。
-3. **字元編碼**: 傳送給 TTS 的文字必須為 UTF-8 編碼。
+生成音檔後，回到 `content-ko` 重跑資料聚合腳本：
+
+```bash
+# 在 content-ko 目錄下執行
+python scripts/ops/prepare_viewer_data.py
+```
+
+這會自動執行以下動作：
+
+1. 檢測 `assets/audio/` 下是否有對應音檔與 Metadata。
+2. 將數據注入 `data/content.js`。
+3. 將音檔同步更新到 Viewer 的內部路徑。
+
+## 6. 注意事項
+
+- **語音映射**: `민수` 為男聲，`지수` 為女聲。其他角色預設為女聲。
+- **網路依賴**: 本工具存取微軟線上 API，需保持網路通連。
+- **忽略規則**: 已在 `.gitignore` 設置 `*.mp3` 忽略，確保音檔不會被提交至 Git。

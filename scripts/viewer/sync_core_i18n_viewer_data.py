@@ -62,6 +62,14 @@ def main() -> int:
         shutil.copy2(src, dst)
         copied.append((src, dst))
 
+    src_audio = package_root / "course" / "audio"
+    dst_audio = viewer_data_dir / "audio"
+    if src_audio.exists():
+        if dst_audio.exists():
+            shutil.rmtree(dst_audio)
+        shutil.copytree(src_audio, dst_audio)
+        copied.append((src_audio, dst_audio))
+
     print(f"Synced run_id={run_id} lang={args.lang}")
     for src, dst in copied:
         print(f"- {src} -> {dst}")

@@ -26,3 +26,8 @@ Serve this directory with any static server and open `index.html`.
 cd /Users/ywchen/Dev/lingo/release-aggregator/tools/core_i18n_viewer
 python3 -m http.server 8080
 ```
+
+## Interactions
+- Click a token to inspect core+i18n dictionary entries.
+- Click a dialogue row to show lesson grammar notes.
+- Double-click a dialogue row to play line audio (if `course/audio` exists).

@@ -1,134 +1,489 @@
 <!doctype html>
-<html lang="en">
+<html lang="zh-Hant">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Core + I18N Viewer</title>
+  <title>Aggregator Core+I18N Viewer</title>
   <style>
-    body { font-family: ui-sans-serif, -apple-system, Segoe UI, Roboto, Arial, sans-serif; margin: 0; color: #111; }
-    header { padding: 12px 16px; border-bottom: 1px solid #ddd; background: #f7f7f7; }
-    main { display: grid; grid-template-columns: 2fr 1fr; min-height: calc(100vh - 52px); }
-    section { padding: 12px 16px; overflow: auto; }
-    #left { border-right: 1px solid #ddd; }
-    .line { padding: 8px 0; border-bottom: 1px dashed #e6e6e6; }
-    .line-id { color: #777; font-size: 12px; }
-    .token { cursor: pointer; padding: 0 2px; border-radius: 3px; }
-    .token:hover { background: #ffefc5; }
-    .badge { display: inline-block; font-size: 11px; background: #eef; border: 1px solid #ccd; padding: 2px 6px; border-radius: 8px; margin-right: 6px; }
-    pre { white-space: pre-wrap; word-break: break-word; background: #fafafa; border: 1px solid #eee; padding: 8px; }
-    .warn { color: #b06a00; }
+    :root {
+      --bg: #f4f6fb;
+      --panel: #ffffff;
+      --ink: #1e2a33;
+      --muted: #5d6b76;
+      --line: #d7dee8;
+      --brand: #1971c2;
+      --brand-soft: #e8f2ff;
+      --accent: #f08c00;
+      --sidebar: #0f2740;
+      --sidebar-ink: #dce8f5;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: "Noto Sans TC", "PingFang TC", "Heiti TC", sans-serif;
+      color: var(--ink);
+      background: radial-gradient(circle at 0 0, #f7fbff 0, var(--bg) 45%);
+      height: 100vh;
+      overflow: hidden;
+    }
+    #app { display: grid; grid-template-columns: 260px 1fr; height: 100vh; }
+    .sidebar {
+      background: linear-gradient(180deg, #0f2740 0%, #16375a 100%);
+      color: var(--sidebar-ink);
+      border-right: 1px solid #294a6f;
+      overflow: auto;
+      padding: 14px 12px;
+    }
+    .brand { font-size: 14px; font-weight: 700; letter-spacing: .3px; margin-bottom: 10px; }
+    .meta { font-size: 12px; opacity: .75; margin-bottom: 14px; }
+    .level { margin-bottom: 10px; border: 1px solid rgba(220,232,245,.15); border-radius: 8px; overflow: hidden; }
+    .level-title { cursor: pointer; padding: 8px 10px; font-weight: 700; background: rgba(255,255,255,.04); }
+    .lesson-item {
+      cursor: pointer;
+      padding: 7px 10px;
+      font-size: 13px;
+      border-top: 1px solid rgba(220,232,245,.08);
+      color: #cddcf0;
+    }
+    .lesson-item:hover { background: rgba(255,255,255,.07); color: #fff; }
+    .lesson-item.active { background: rgba(25,113,194,.35); color: #fff; }
+
+    .main { display: grid; grid-template-rows: auto 1fr; min-width: 0; }
+    .topbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 1px solid var(--line);
+      padding: 10px 14px;
+      background: #fff;
+    }
+    .top-title { font-weight: 700; font-size: 15px; }
+    #audioPlayer { width: 340px; max-width: 52vw; }
+
+    .content { display: grid; grid-template-columns: minmax(0, 2fr) minmax(300px, 1fr); gap: 14px; padding: 14px; min-height: 0; }
+    .panel {
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      overflow: hidden;
+      min-height: 0;
+      display: flex;
+      flex-direction: column;
+    }
+    .panel-h { padding: 9px 12px; border-bottom: 1px solid var(--line); font-size: 13px; font-weight: 700; background: #fafcff; }
+    .panel-b { padding: 10px 12px; overflow: auto; }
+
+    .line { padding: 10px 0; border-bottom: 1px dashed #e4e9f0; }
+    .line:last-child { border-bottom: 0; }
+    .line-top { display: flex; align-items: center; gap: 8px; margin-bottom: 4px; }
+    .play {
+      border: 1px solid #c9d8ea;
+      background: #f4f9ff;
+      color: #1d4e89;
+      border-radius: 999px;
+      padding: 2px 8px;
+      cursor: pointer;
+      font-size: 12px;
+    }
+    .play.active { background: #1d4e89; color: #fff; }
+    .id { font-size: 12px; color: var(--muted); }
+    .text { line-height: 1.7; font-size: 18px; }
+    .token {
+      cursor: pointer;
+      border-radius: 4px;
+      padding: 0 2px;
+      transition: background .12s;
+    }
+    .token:hover { background: var(--brand-soft); }
+    .token.active { background: #fff3bf; }
+    .seg-row { margin-top: 6px; display: flex; flex-wrap: wrap; gap: 6px; }
+    .seg {
+      border: 1px solid #d7e3f2;
+      background: #f6faff;
+      color: #28527f;
+      border-radius: 999px;
+      padding: 2px 8px;
+      cursor: pointer;
+      font-size: 12px;
+    }
+    .seg.active { background: #fff3bf; border-color: #f0c94d; color: #6b4a00; }
+    .tr { margin-top: 4px; color: var(--muted); font-size: 13px; }
+
+    .dict-empty { color: #7d8b95; font-size: 13px; }
+    .entry { border: 1px solid #e2e8f0; border-radius: 8px; padding: 8px; margin-bottom: 8px; }
+    .entry h4 { margin: 0 0 4px 0; font-size: 14px; }
+    .meta-row { font-size: 12px; color: #667684; margin-bottom: 4px; }
+    .note { margin-bottom: 10px; border: 1px solid #e4ebf4; border-radius: 8px; }
+    .note summary { cursor: pointer; padding: 8px; font-size: 13px; font-weight: 700; background: #f8fbff; }
+    .note pre { margin: 0; padding: 8px; white-space: pre-wrap; font-size: 12px; color: #2e3a44; }
+
+    @media (max-width: 980px) {
+      #app { grid-template-columns: 1fr; }
+      .sidebar { display: none; }
+      .content { grid-template-columns: 1fr; }
+      #audioPlayer { width: 100%; max-width: 100%; }
+      .topbar { flex-direction: column; align-items: flex-start; gap: 8px; }
+    }
   </style>
 </head>
 <body>
-  <header>
-    <strong>Core + I18N Viewer</strong>
-    <span id="meta" style="margin-left:12px;color:#666"></span>
-  </header>
-  <main>
-    <section id="left">
-      <h3>Dialogue</h3>
-      <div id="dialogue"></div>
-    </section>
-    <section>
-      <h3>Dictionary</h3>
-      <div id="dict"></div>
-    </section>
-  </main>
+  <div id="app">
+    <aside class="sidebar">
+      <div class="brand">Core + I18N Viewer</div>
+      <div class="meta" id="meta"></div>
+      <div id="sidebarLevels"></div>
+    </aside>
+
+    <main class="main">
+      <div class="topbar">
+        <div class="top-title" id="lessonTitle">Select a lesson</div>
+        <audio id="audioPlayer" controls preload="none"></audio>
+      </div>
+
+      <div class="content">
+        <section class="panel">
+          <div class="panel-h">Dialogue</div>
+          <div class="panel-b" id="dialoguePanel"></div>
+        </section>
+
+        <section class="panel">
+          <div class="panel-h">Dictionary</div>
+          <div class="panel-b" id="dictPanel"><div class="dict-empty">Click a token.</div></div>
+          <div class="panel-h">Grammar Notes</div>
+          <div class="panel-b" id="grammarPanel"><div class="dict-empty">Select a lesson.</div></div>
+        </section>
+      </div>
+    </main>
+  </div>
 
   <script>
-    const state = { course: null, core: null, i18n: null, mapping: null };
+    const state = {
+      course: null,
+      core: null,
+      i18n: null,
+      mapping: null,
+      levels: {},
+      selectedLessonId: '',
+      selectedToken: null,
+      activeLineId: '',
+      activeTimeMs: 0,
+      expanded: { A1: true, A2: false, B1: false },
+      metadataCache: {}
+    };
 
-    const norm = (s) => (s || '').trim();
+    const audioPlayer = document.getElementById('audioPlayer');
+
+    const esc = (s) => (s || '').replace(/[&<>]/g, (m) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;' }[m]));
 
     async function loadJson(path) {
       const r = await fetch(path);
-      if (!r.ok) throw new Error(`failed to load ${path}`);
+      if (!r.ok) throw new Error(`Failed to load ${path}`);
       return r.json();
+    }
+
+    function lessonLevel(lessonId) {
+      return String(lessonId || '').split('-')[0] || 'OTHER';
+    }
+
+    function lineSeq(lineId) {
+      const m = String(lineId || '').match(/L(\d+)-D(\d+)-(\d+)/);
+      if (!m) return Number.MAX_SAFE_INTEGER;
+      return Number(m[1]) * 1e6 + Number(m[2]) * 1e3 + Number(m[3]);
+    }
+
+    function buildLessonTree() {
+      const lines = state.course?.course?.dialogue || [];
+      const byLesson = {};
+      for (const line of lines) {
+        const lid = line.meta?.lesson_id || String(line.id || '').split(':', 1)[0] || 'UNKNOWN';
+        if (!byLesson[lid]) byLesson[lid] = [];
+        byLesson[lid].push(line);
+      }
+      for (const lid of Object.keys(byLesson)) {
+        byLesson[lid].sort((a, b) => lineSeq(a.id) - lineSeq(b.id));
+      }
+
+      const levels = {};
+      for (const lid of Object.keys(byLesson).sort()) {
+        const lv = lessonLevel(lid);
+        if (!levels[lv]) levels[lv] = {};
+        levels[lv][lid] = byLesson[lid];
+      }
+      state.levels = levels;
     }
 
     function renderMeta() {
       const runId = state.course?.run_id || '-';
-      const lang = state.course?.source_lang || '-';
-      document.getElementById('meta').textContent = `run_id=${runId} lang=${lang}`;
+      const src = state.course?.source_lang || '-';
+      document.getElementById('meta').textContent = `run=${runId} source=${src}`;
+    }
+
+    function renderSidebar() {
+      const root = document.getElementById('sidebarLevels');
+      const levelKeys = Object.keys(state.levels).sort((a, b) => {
+        const order = { A1: 1, A2: 2, B1: 3 };
+        return (order[a] || 99) - (order[b] || 99) || a.localeCompare(b);
+      });
+
+      root.innerHTML = levelKeys.map((lv) => {
+        const open = !!state.expanded[lv];
+        const lessons = Object.keys(state.levels[lv]).sort();
+        return `
+          <div class="level">
+            <div class="level-title" data-level="${lv}">${lv} ${open ? '▾' : '▸'}</div>
+            ${open ? lessons.map((lid) => `<div class="lesson-item ${state.selectedLessonId === lid ? 'active' : ''}" data-lesson="${lid}">${lid}</div>`).join('') : ''}
+          </div>
+        `;
+      }).join('');
+
+      root.querySelectorAll('.level-title').forEach((el) => {
+        el.onclick = () => {
+          const lv = el.dataset.level;
+          state.expanded[lv] = !state.expanded[lv];
+          renderSidebar();
+        };
+      });
+      root.querySelectorAll('.lesson-item').forEach((el) => {
+        el.onclick = () => selectLesson(el.dataset.lesson);
+      });
     }
 
     function tokensForLine(line) {
+      if (Array.isArray(line.tokens) && line.tokens.length) {
+        return line.tokens.map((t, i) => ({
+          idx: i,
+          surface: t.surface || t.lemma || '',
+          lemma: t.lemma || t.surface || '',
+          pos: t.pos || ''
+        }));
+      }
       const fromMap = state.mapping?.[line.id];
       if (Array.isArray(fromMap) && fromMap.length) {
-        return fromMap.map((lemma) => ({ surface: lemma, lemma }));
+        return fromMap.map((lemma, i) => ({ idx: i, surface: lemma, lemma, pos: '' }));
       }
-      return line.text.split(/\s+/).filter(Boolean).map((w) => ({ surface: w, lemma: w }));
+      return String(line.text || '').split(/\s+/).filter(Boolean).map((w, i) => ({ idx: i, surface: w, lemma: w, pos: '' }));
     }
 
-    function findCoreEntry(lemma) {
+    function findCoreEntries(tok) {
       const entries = state.core?.entries || [];
-      return entries.find((e) => e.lemma === lemma);
+      return entries.filter((e) => e.lemma === tok.lemma || e.lemma === tok.surface);
     }
 
-    function findI18nEntry(lemma) {
+    function findI18nEntries(tok) {
       const entries = state.i18n?.entries || [];
-      return entries.find((e) => e.lemma === lemma);
+      return entries.filter((e) => e.lemma === tok.lemma || e.lemma === tok.surface);
     }
 
-    function showEntry(tok) {
-      const core = findCoreEntry(tok.lemma);
-      const i18n = findI18nEntry(tok.lemma);
-      const el = document.getElementById('dict');
-
-      if (!core && !i18n) {
-        el.innerHTML = `<p class="warn">No entry for lemma: <code>${tok.lemma}</code></p>`;
+    function renderDictionary() {
+      const root = document.getElementById('dictPanel');
+      if (!state.selectedToken) {
+        root.innerHTML = '<div class="dict-empty">Click a token.</div>';
+        return;
+      }
+      const tok = state.selectedToken;
+      const core = findCoreEntries(tok);
+      const i18n = findI18nEntries(tok);
+      if (!core.length && !i18n.length) {
+        root.innerHTML = `<div class="dict-empty">No dictionary entry for <code>${esc(tok.lemma)}</code></div>`;
         return;
       }
 
-      el.innerHTML = '';
-      const title = document.createElement('div');
-      title.innerHTML = `<span class="badge">lemma</span><code>${tok.lemma}</code>`;
-      el.appendChild(title);
+      const rows = [];
+      for (const c of core) {
+        const t = i18n.find((x) => x.lemma === c.lemma && x.pos === c.pos) || i18n.find((x) => x.lemma === c.lemma);
+        rows.push(`
+          <div class="entry">
+            <h4>${esc(c.lemma || tok.surface)}</h4>
+            <div class="meta-row">POS: ${esc(c.pos || t?.pos || '-')} | freq: ${c.freq ?? '-'}</div>
+            <div>${esc(t?.translation || '(no translation)')}</div>
+          </div>
+        `);
+      }
+      if (!rows.length) {
+        for (const t of i18n) {
+          rows.push(`
+            <div class="entry">
+              <h4>${esc(t.lemma || tok.surface)}</h4>
+              <div class="meta-row">POS: ${esc(t.pos || '-')} | freq: ${t.freq ?? '-'}</div>
+              <div>${esc(t.translation || '(empty)')}</div>
+            </div>
+          `);
+        }
+      }
+      root.innerHTML = rows.join('');
+    }
 
-      if (core) {
-        const p = document.createElement('pre');
-        p.textContent = JSON.stringify(core, null, 2);
-        el.appendChild(p);
+    function renderGrammar() {
+      const root = document.getElementById('grammarPanel');
+      const lessonId = state.selectedLessonId;
+      const notes = state.course?.course?.grammar_notes?.[lessonId] || [];
+      if (!notes.length) {
+        root.innerHTML = '<div class="dict-empty">No grammar notes.</div>';
+        return;
       }
-      if (i18n) {
-        const p = document.createElement('pre');
-        p.textContent = JSON.stringify(i18n, null, 2);
-        el.appendChild(p);
+      root.innerHTML = notes.map((n) => `
+        <details class="note" open>
+          <summary>${esc(n.title || n.grammar_id || 'note')}</summary>
+          <pre>${esc(n.explanation_md || '')}</pre>
+        </details>
+      `).join('');
+    }
+
+    async function ensureLineMetadata(line) {
+      if (!line.audio_metadata) return null;
+      if (line._metadata) return line._metadata;
+      if (state.metadataCache[line.audio_metadata]) {
+        line._metadata = state.metadataCache[line.audio_metadata];
+        return line._metadata;
       }
+      try {
+        const md = await loadJson(`./data/audio/${line.audio_metadata}`);
+        state.metadataCache[line.audio_metadata] = md;
+        line._metadata = md;
+        return md;
+      } catch {
+        return null;
+      }
+    }
+
+    function isSentenceActive(line, s) {
+      if (state.activeLineId !== line.id) return false;
+      return state.activeTimeMs >= (s.start_ms || 0) && state.activeTimeMs <= ((s.start_ms || 0) + (s.duration_ms || 0));
+    }
+
+    function isTokenActive(line, tok) {
+      if (state.activeLineId !== line.id) return false;
+      const ss = line._metadata?.sentences || [];
+      const cur = ss.find((s) => isSentenceActive(line, s));
+      if (!cur) return false;
+      return String(cur.text || '').includes(tok.surface);
+    }
+
+    function renderLineBody(line) {
+      const toks = tokensForLine(line);
+      return toks.map((t) => `<span class="token ${isTokenActive(line, t) ? 'active' : ''}" data-line="${esc(line.id)}" data-token="${t.idx}">${esc(t.surface)}</span>`).join(' ');
+    }
+
+    function renderSentenceSegments(line) {
+      const ss = line._metadata?.sentences || [];
+      if (!ss.length) return '';
+      return `<div class="seg-row">${ss.map((s, i) => `<span class="seg ${isSentenceActive(line, s) ? 'active' : ''}" data-line="${esc(line.id)}" data-sent="${i}">${esc(s.text || ('#' + (i + 1)))}</span>`).join('')}</div>`;
+    }
+
+    function lessonLines() {
+      const lv = lessonLevel(state.selectedLessonId);
+      return state.levels?.[lv]?.[state.selectedLessonId] || [];
     }
 
     function renderDialogue() {
-      const root = document.getElementById('dialogue');
-      root.innerHTML = '';
-      const lines = state.course?.course?.dialogue || [];
-
-      for (const line of lines) {
-        const row = document.createElement('div');
-        row.className = 'line';
-
-        const id = document.createElement('div');
-        id.className = 'line-id';
-        id.textContent = line.id;
-        row.appendChild(id);
-
-        const text = document.createElement('div');
-        for (const tok of tokensForLine(line)) {
-          const sp = document.createElement('span');
-          sp.className = 'token';
-          sp.textContent = tok.surface + ' ';
-          sp.onclick = () => showEntry(tok);
-          text.appendChild(sp);
-        }
-        row.appendChild(text);
-
-        const tr = document.createElement('div');
-        tr.style.color = '#555';
-        tr.textContent = line.translation || '';
-        row.appendChild(tr);
-
-        root.appendChild(row);
+      const root = document.getElementById('dialoguePanel');
+      const lines = lessonLines();
+      if (!lines.length) {
+        root.innerHTML = '<div class="dict-empty">No lines.</div>';
+        return;
       }
+
+      root.innerHTML = lines.map((line) => `
+        <div class="line" data-line-wrap="${esc(line.id)}">
+          <div class="line-top">
+            <button class="play ${state.activeLineId === line.id ? 'active' : ''}" data-play="${esc(line.id)}">${state.activeLineId === line.id ? 'Stop' : 'Play'}</button>
+            <span class="id">${esc(line.id)}</span>
+          </div>
+          <div class="text">${renderLineBody(line)}</div>
+          ${renderSentenceSegments(line)}
+          <div class="tr">${esc(line.translation || '')}</div>
+        </div>
+      `).join('');
+
+      root.querySelectorAll('[data-token]').forEach((el) => {
+        el.onclick = () => {
+          const lid = el.dataset.line;
+          const line = lines.find((x) => x.id === lid);
+          const tok = tokensForLine(line)[Number(el.dataset.token)];
+          state.selectedToken = tok;
+          renderDictionary();
+        };
+      });
+
+      root.querySelectorAll('[data-play]').forEach((el) => {
+        el.onclick = async () => {
+          const lid = el.dataset.play;
+          const line = lines.find((x) => x.id === lid);
+          await playLine(line, 0);
+        };
+      });
+
+      root.querySelectorAll('[data-sent]').forEach((el) => {
+        el.onclick = async () => {
+          const lid = el.dataset.line;
+          const line = lines.find((x) => x.id === lid);
+          const idx = Number(el.dataset.sent);
+          await ensureLineMetadata(line);
+          const s = line._metadata?.sentences?.[idx];
+          await playLine(line, s?.start_ms || 0);
+        };
+      });
     }
+
+    async function playLine(line, seekMs) {
+      if (!line) return;
+      if (state.activeLineId === line.id && !audioPlayer.paused) {
+        audioPlayer.pause();
+        state.activeLineId = '';
+        state.activeTimeMs = 0;
+        renderDialogue();
+        return;
+      }
+
+      await ensureLineMetadata(line);
+      state.activeLineId = line.id;
+      state.activeTimeMs = seekMs || 0;
+
+      if (line.audio) {
+        audioPlayer.src = `./data/audio/${line.audio}`;
+        audioPlayer.load();
+        const onLoaded = () => {
+          audioPlayer.currentTime = (seekMs || 0) / 1000;
+          audioPlayer.play().catch(() => {});
+          audioPlayer.removeEventListener('loadedmetadata', onLoaded);
+        };
+        audioPlayer.addEventListener('loadedmetadata', onLoaded);
+      }
+      renderDialogue();
+    }
+
+    async function prefetchLessonMetadata() {
+      const lines = lessonLines();
+      await Promise.all(lines.map((line) => ensureLineMetadata(line)));
+      renderDialogue();
+    }
+
+    async function selectLesson(lessonId) {
+      state.selectedLessonId = lessonId;
+      state.selectedToken = null;
+      state.activeLineId = '';
+      state.activeTimeMs = 0;
+      audioPlayer.pause();
+      audioPlayer.src = '';
+
+      document.getElementById('lessonTitle').textContent = lessonId;
+      renderSidebar();
+      renderDialogue();
+      renderDictionary();
+      renderGrammar();
+      await prefetchLessonMetadata();
+    }
+
+    audioPlayer.addEventListener('timeupdate', () => {
+      state.activeTimeMs = audioPlayer.currentTime * 1000;
+      renderDialogue();
+    });
+
+    audioPlayer.addEventListener('ended', () => {
+      state.activeLineId = '';
+      state.activeTimeMs = 0;
+      renderDialogue();
+    });
 
     async function main() {
       try {
@@ -138,9 +493,15 @@
         state.mapping = await loadJson('./data/mapping.json');
 
         renderMeta();
-        renderDialogue();
+        buildLessonTree();
+        renderSidebar();
+
+        const first = Object.keys(state.levels?.A1 || {})[0] || Object.keys(Object.values(state.levels)[0] || {})[0];
+        if (first) {
+          await selectLesson(first);
+        }
       } catch (e) {
-        document.body.innerHTML = `<pre>${e.stack || e}</pre>`;
+        document.body.innerHTML = `<pre>${esc(String(e.stack || e))}</pre>`;
       }
     }
 

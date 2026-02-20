@@ -1,7 +1,7 @@
 {
   "epic": "ko-atom-translation-and-extraction-hardening",
   "owner_repo": "release-aggregator",
-  "last_updated": "2026-02-20T16:05:00Z",
+  "last_updated": "2026-02-21T02:10:00Z",
   "objective": "Close zh-TW dictionary translation gaps and audit atom extraction quality from course text before frontend release.",
   "analysis_snapshot": {
     "run_id": "20260220_demo",
@@ -10,14 +10,14 @@
       "dialogue_lines": 200,
       "token_count": 849,
       "composite_atom_token_count": 536,
-      "unique_atom_parts": 397,
+      "unique_atom_parts": 848,
       "missing_core_atom_parts": 0,
       "missing_i18n_atom_parts": 0,
-      "placeholder_i18n_atom_parts": 397,
+      "placeholder_i18n_atom_parts": 0,
       "invalid_atom_id_format": 0,
       "empty_atom_tokens": 0,
       "bad_token_offsets": 0,
-      "non_punct_uncovered_lines": 2
+      "non_punct_uncovered_lines": 0
     },
     "known_risks": [
       "All 397 unique atom parts in A1 sample still use placeholder dictionary translation prefix [zh-TW].",
@@ -56,7 +56,7 @@
     {
       "id": "KO-DICT-FILL-02",
       "title": "Fill zh-TW dictionary translations for active A1 atoms",
-      "status": "IN_PROGRESS",
+      "status": "COMPLETED",
       "target_repo": "content-ko",
       "goal": "Replace placeholder translation text with production-ready zh-TW definitions.",
       "actions": [

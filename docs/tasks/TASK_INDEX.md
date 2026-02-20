@@ -20,12 +20,14 @@ Phase B: Pipeline Build（content-ko → content-pipeline）
 │  └── 📅 B2: 跑完整 build，輸出 production assets
 │
 Phase C: 前端整合（lingo-frontend-web）
-│  ├── 📅 C1: 對照 build output，確認前端 parser
-│  ├── 📅 C2: 導入新資產，flutter test
-│  └── 📅 C3: 驗證多義詞在 App 內顯示效果
+│  ├── 🔧 C1: Viewer 功能整合 — 預錄音檔 + 句子高亮 + Grammar Notes [FRONTEND_VIEWER_INTEGRATION]
+│  ├── 📅 C2: 對照 build output，確認前端 parser
+│  ├── 📅 C3: 導入新資產，flutter test
+│  └── 📅 C4: 驗證多義詞在 App 內顯示效果
 ```
 
 **原則：上游先定義格式 → 驗證完畢 → 才往下游推送。**
+**例外：C1 的資料格式已由 Aggregator Viewer 驗證通過，可以立即啟動。**
 
 ---
 
@@ -40,6 +42,12 @@ Phase C: 前端整合（lingo-frontend-web）
 | CROSS_LANG_REVIEW_LOCK | 跨語系 review/lock 流程（多機協作 + 規則分離） | A2/B1 | 1/7 tasks | [JSON](CROSS_LANG_REVIEW_LOCK_TASKS.json) · [PLAN](CROSS_LANG_REVIEW_LOCK_PIPELINE_PLAN.md) |
 | TTS_GENERATION | 高品質 Edge-TTS 語音生成 | Phase B | 3/5 tasks | [JSON](TTS_GENERATION_TASKS.json) |
 | KO_ATOM_TRANSLATION_EXTRACTION | A1 atom 翻譯補齊 + 從課文抽取 atom 品質稽核 | A2/B1 | 3/6 tasks | [JSON](KO_ATOM_TRANSLATION_AND_EXTRACTION_TASKS.json) |
+
+### Phase C — 前端整合（可立即啟動）
+
+| Task ID | 描述 | Phase | 進度 | 檔案 |
+| :--- | :--- | :--- | :--- | :--- |
+| FRONTEND_VIEWER_INTEGRATION | Viewer 功能整合：預錄音檔 + 句子高亮 + Grammar Notes | C1 | 0/11 tasks | [JSON](FRONTEND_VIEWER_INTEGRATION_TASKS.json) · [PLAN](FRONTEND_VIEWER_INTEGRATION_PLAN.md) |
 
 ### Future / Automation (未來優化)
 

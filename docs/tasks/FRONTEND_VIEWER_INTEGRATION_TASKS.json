@@ -1,0 +1,315 @@
+{
+    "epic": "frontend-viewer-integration",
+    "parent_epic": "lingo-architecture-v5",
+    "owner_repo": "release-aggregator",
+    "last_updated": "2026-02-21T00:45:00+08:00",
+    "objective": "Integrate Aggregator core_i18n_viewer features (pre-recorded audio, sentence-level highlight, grammar notes) into lingo-frontend-web stable branch.",
+    "design_doc": "release-aggregator/docs/tasks/FRONTEND_VIEWER_INTEGRATION_PLAN.md",
+    "execution_order": [
+        "FVI-01",
+        "FVI-02",
+        "FVI-03",
+        "FVI-04",
+        "FVI-05",
+        "FVI-06",
+        "FVI-07",
+        "FVI-08",
+        "FVI-09",
+        "FVI-10",
+        "FVI-11"
+    ],
+    "parallel_groups": [
+        {
+            "after": "FVI-02",
+            "tasks": [
+                "FVI-03",
+                "FVI-04"
+            ],
+            "note": "Audio playback modification and highlight widget can be built in parallel"
+        },
+        {
+            "after": "FVI-06",
+            "tasks": [
+                "FVI-07",
+                "FVI-09"
+            ],
+            "note": "Grammar panel UI and asset bundling can be done in parallel"
+        }
+    ],
+    "prerequisites": {
+        "hard_blocker": "None — all data assets already exist in content-ko",
+        "soft_dependency": "TTS-04/05 (premium audio) would replace Edge-TTS MP3s, but current Edge-TTS files are sufficient for Phase 1"
+    },
+    "tasks": [
+        {
+            "id": "FVI-01",
+            "title": "建立 AudioTimelineModel / Audio Timeline Data Model",
+            "status": "TODO",
+            "target_repo": "lingo-frontend-web",
+            "priority": "🔴 Phase 1 核心",
+            "prerequisite": "None",
+            "size": "S",
+            "goal": "Create a Freezed model to parse .sentences.json timeline data.",
+            "actions": [
+                "Create lib/features/study/domain/models/audio_timeline.dart",
+                "Define AudioTimeline (id, full_text, sentences) and SentenceSegment (text, start_ms, duration_ms)",
+                "Use @freezed + @JsonKey for serialization",
+                "Add unit test to verify parsing of sample .sentences.json"
+            ],
+            "affected_files": [
+                "lingo-frontend-web/lib/features/study/domain/models/audio_timeline.dart (new)",
+                "lingo-frontend-web/test/models/audio_timeline_test.dart (new)"
+            ],
+            "acceptance": [
+                "AudioTimeline.fromJson() correctly parses sample .sentences.json",
+                "SentenceSegment has start_ms, duration_ms, text fields",
+                "Build passes with no errors"
+            ]
+        },
+        {
+            "id": "FVI-02",
+            "title": "建立 PrerecordedAudioService / Pre-recorded Audio Player",
+            "status": "TODO",
+            "target_repo": "lingo-frontend-web",
+            "priority": "🔴 Phase 1 核心",
+            "prerequisite": "FVI-01",
+            "size": "M",
+            "goal": "Create a service that plays MP3 files and emits current sentence index based on timeline data.",
+            "actions": [
+                "Add `just_audio` or `audioplayers` dependency to pubspec.yaml (evaluate which supports macOS+web+mobile)",
+                "Create lib/core/services/prerecorded_audio_service.dart",
+                "Implement playTurn(audioPath, timelinePath) method",
+                "Parse .sentences.json via AudioTimeline model",
+                "Use audio position stream + timeline to emit Stream<SentencePlaybackState> (currentSentenceIndex, isPlaying)",
+                "Implement stop(), pause(), seekToSentence(index) methods",
+                "Convention-based path resolution: turn ID + speaker → audio path"
+            ],
+            "affected_files": [
+                "lingo-frontend-web/pubspec.yaml (add audio dependency)",
+                "lingo-frontend-web/lib/core/services/prerecorded_audio_service.dart (new)"
+            ],
+            "acceptance": [
+                "Can play an MP3 from assets",
+                "Stream correctly emits sentence index changes as audio plays",
+                "seekToSentence(1) jumps to correct timestamp",
+                "Graceful fallback if audio file not found"
+            ],
+            "design_notes": "Path convention: assets/audio/{lessonFolder}/{turnId}_{speaker}.mp3 — e.g. assets/audio/A1-01/L01-D1-01_민수.mp3"
+        },
+        {
+            "id": "FVI-03",
+            "title": "整合 _playTurnAudio() / Integrate into EventOccurrenceScreen",
+            "status": "TODO",
+            "target_repo": "lingo-frontend-web",
+            "priority": "🔴 Phase 1 核心",
+            "prerequisite": "FVI-02",
+            "size": "M",
+            "goal": "Modify EventOccurrenceScreen to use PrerecordedAudioService when audio files exist, falling back to TTS.",
+            "actions": [
+                "In _playTurnAudio(), check if prerecorded audio exists for current turn",
+                "Use convention: construct path from turn.id + turn.speaker + learningLanguage",
+                "If file exists → use PrerecordedAudioService.playTurn()",
+                "If file doesn't exist → fallback to existing TTS logic",
+                "Wire up PrerecordedAudioService lifecycle (init/dispose)",
+                "Pass sentence state stream to dialogue adapter for highlighting"
+            ],
+            "affected_files": [
+                "lingo-frontend-web/lib/features/study/presentation/screens/event_occurrence_screen.dart"
+            ],
+            "acceptance": [
+                "A1-01 lessons play prerecorded audio instead of TTS",
+                "Lessons without audio files still use TTS (no regression)",
+                "Audio stops when navigating away"
+            ]
+        },
+        {
+            "id": "FVI-04",
+            "title": "建立句子高亮 Widget / Sentence Highlight Widget",
+            "status": "TODO",
+            "target_repo": "lingo-frontend-web",
+            "priority": "🔴 Phase 1 核心",
+            "prerequisite": "FVI-02",
+            "size": "M",
+            "goal": "Create a widget that highlights the currently playing sentence, mirroring viewer's .sentence-wrap.highlight behavior.",
+            "actions": [
+                "Create lib/features/study/presentation/widgets/event/sentence_highlight_text.dart",
+                "Accept text, List<SentenceSegment>, and currentSentenceIndex",
+                "Split text into sentence spans based on SentenceSegment.text boundaries",
+                "Apply highlight style (yellow background with animation) to active sentence",
+                "Support tap-on-sentence to seek audio to that sentence's start_ms",
+                "Integrate into StandardDialogueAdapter.buildView()"
+            ],
+            "affected_files": [
+                "lingo-frontend-web/lib/features/study/presentation/widgets/event/sentence_highlight_text.dart (new)",
+                "lingo-frontend-web/lib/features/study/presentation/adapters/standard_dialogue_adapter.dart"
+            ],
+            "acceptance": [
+                "Active sentence is visually highlighted (animated background)",
+                "Highlight moves as audio progresses through sentences",
+                "Tapping a sentence seeks audio to that position",
+                "Graceful fallback: if no timeline data, display text normally without highlighting"
+            ]
+        },
+        {
+            "id": "FVI-05",
+            "title": "搬運 A1 音檔至前端 / Bundle A1 Audio Assets",
+            "status": "TODO",
+            "target_repo": "content-ko → lingo-frontend-web",
+            "priority": "🟡 Phase 1 資產",
+            "prerequisite": "None (can run in parallel)",
+            "size": "S",
+            "goal": "Copy A1 audio files and sentence metadata from content-ko to lingo-frontend-web assets.",
+            "actions": [
+                "Copy content-ko/assets/audio/A1-01/*.mp3 to lingo-frontend-web/assets/audio/A1-01/",
+                "Copy content-ko/assets/audio/A1-01/*.sentences.json to same directory",
+                "Repeat for A1-02 (if ready)",
+                "Update pubspec.yaml to include assets/audio/ in flutter assets",
+                "Verify total added size (estimate ~5MB for A1-01)"
+            ],
+            "affected_files": [
+                "lingo-frontend-web/assets/audio/A1-01/ (new, ~35 MP3 + 35 .sentences.json)",
+                "lingo-frontend-web/pubspec.yaml (add asset path)"
+            ],
+            "acceptance": [
+                "All A1-01 MP3 files load successfully via rootBundle",
+                ".sentences.json files parse correctly via AudioTimeline.fromJson()",
+                "flutter build macos still succeeds"
+            ],
+            "open_question": "Bundle A1-01 only for PoC, or all A1 lessons? Decision affects app size by ~5MB per lesson."
+        },
+        {
+            "id": "FVI-06",
+            "title": "建立 GrammarNote Model + Service",
+            "status": "TODO",
+            "target_repo": "lingo-frontend-web",
+            "priority": "🔵 Phase 2",
+            "prerequisite": "None",
+            "size": "S",
+            "goal": "Create data model and service for loading grammar notes by lesson ID.",
+            "actions": [
+                "Create lib/features/study/domain/models/grammar_note.dart — Freezed model with grammar_id, title, learner_lang, explanation_md",
+                "Create lib/core/services/grammar_note_service.dart",
+                "Implement loadForLesson(lessonId) — scans assets for matching grammar JSON files by naming convention ko__g__{level}__{lesson}__*.json",
+                "Return List<GrammarNote> sorted by filename",
+                "Cache results per lesson"
+            ],
+            "affected_files": [
+                "lingo-frontend-web/lib/features/study/domain/models/grammar_note.dart (new)",
+                "lingo-frontend-web/lib/core/services/grammar_note_service.dart (new)"
+            ],
+            "acceptance": [
+                "GrammarNote.fromJson() parses zh_tw grammar JSON correctly",
+                "loadForLesson('A1-01') returns 4-6 grammar notes",
+                "explanation_md field contains valid Markdown with tables"
+            ]
+        },
+        {
+            "id": "FVI-07",
+            "title": "建立 Grammar Notes 面板 / Grammar Notes Panel UI",
+            "status": "TODO",
+            "target_repo": "lingo-frontend-web",
+            "priority": "🔵 Phase 2",
+            "prerequisite": "FVI-06",
+            "size": "M",
+            "goal": "Create a UI panel to display grammar notes with Markdown rendering.",
+            "actions": [
+                "Add flutter_markdown dependency to pubspec.yaml",
+                "Create lib/features/study/presentation/widgets/event/grammar_notes_panel.dart",
+                "Use ExpansionTile / Accordion for each grammar note section",
+                "Render explanation_md via MarkdownBody widget",
+                "Support Markdown tables (may need markdown: ^7.0.0 for table extension)",
+                "Style consistent with app theme (dark mode support)"
+            ],
+            "affected_files": [
+                "lingo-frontend-web/pubspec.yaml (add flutter_markdown)",
+                "lingo-frontend-web/lib/features/study/presentation/widgets/event/grammar_notes_panel.dart (new)"
+            ],
+            "acceptance": [
+                "Grammar notes render correctly with headers, tables, bold text",
+                "Each note is collapsible via ExpansionTile",
+                "Dark mode and light mode both render cleanly",
+                "Korean and Chinese characters display correctly"
+            ]
+        },
+        {
+            "id": "FVI-08",
+            "title": "整合 Grammar 入口 / Integrate Grammar Entry Point",
+            "status": "TODO",
+            "target_repo": "lingo-frontend-web",
+            "priority": "🔵 Phase 2",
+            "prerequisite": "FVI-07",
+            "size": "S",
+            "goal": "Add a grammar notes button to EventOccurrenceScreen that opens the grammar panel.",
+            "actions": [
+                "Add 📝 icon button to EventTopBar",
+                "On tap → show DraggableScrollableSheet (bottom sheet) with GrammarNotesPanel",
+                "Pass current lesson ID to GrammarNoteService.loadForLesson()",
+                "Bottom sheet should be dismissible and not block dialogue interaction"
+            ],
+            "affected_files": [
+                "lingo-frontend-web/lib/features/study/presentation/screens/event_occurrence_screen.dart",
+                "lingo-frontend-web/lib/features/study/presentation/widgets/event/event_top_bar.dart"
+            ],
+            "acceptance": [
+                "📝 button appears in event top bar",
+                "Tapping shows grammar notes for current lesson",
+                "Bottom sheet is scrollable and dismissible",
+                "Grammar notes load even when audio is playing (no conflict)"
+            ]
+        },
+        {
+            "id": "FVI-09",
+            "title": "搬運 Grammar JSON 至前端 / Bundle Grammar Assets",
+            "status": "TODO",
+            "target_repo": "content-ko → lingo-frontend-web",
+            "priority": "🟡 Phase 2 資產",
+            "prerequisite": "None (can run in parallel)",
+            "size": "S",
+            "goal": "Copy zh_tw grammar note JSON files into Flutter assets.",
+            "actions": [
+                "Copy content-ko/content/i18n/zh_tw/grammar/*.json to lingo-frontend-web/assets/content/grammar/",
+                "Update pubspec.yaml to include assets/content/grammar/",
+                "Verify total file count and size (~333 files, estimated ~150KB total)",
+                "Create a grammar_manifest.json listing all available grammar files per lesson (for runtime discovery without filesystem scan)"
+            ],
+            "affected_files": [
+                "lingo-frontend-web/assets/content/grammar/ (new, 333 JSON files)",
+                "lingo-frontend-web/assets/content/grammar/grammar_manifest.json (new, index file)",
+                "lingo-frontend-web/pubspec.yaml"
+            ],
+            "acceptance": [
+                "Grammar JSON files load correctly via rootBundle",
+                "grammar_manifest.json correctly maps lesson IDs to their grammar files",
+                "Total added size ≤ 200KB"
+            ],
+            "design_notes": "Flutter cannot scan asset directories at runtime. A manifest file is needed to discover available grammar files per lesson."
+        },
+        {
+            "id": "FVI-10",
+            "title": "建立 AssetResolver / Unified Asset Path Resolver",
+            "status": "BACKLOG",
+            "target_repo": "lingo-frontend-web",
+            "priority": "⚪ Phase 3",
+            "prerequisite": "Phase 1 + Phase 2 validated",
+            "size": "M",
+            "goal": "Create a unified service for resolving asset paths (local bundle vs remote download)."
+        },
+        {
+            "id": "FVI-11",
+            "title": "按需下載機制 / On-demand Asset Download",
+            "status": "BACKLOG",
+            "target_repo": "lingo-frontend-web",
+            "priority": "⚪ Phase 3",
+            "prerequisite": "FVI-10",
+            "size": "L",
+            "goal": "Implement on-demand downloading for A2/B1 assets from Firebase Storage."
+        }
+    ],
+    "notes": [
+        "Phase 1 (FVI-01~05) and Phase 2 (FVI-06~09) can be developed in parallel — they share no code dependencies.",
+        "The key insight: audio path can be derived by convention (turn_id + speaker), avoiding schema changes to Turn model.",
+        "Grammar notes require a manifest file because Flutter cannot scan asset directories at runtime.",
+        "All data formats are already validated by the Aggregator core_i18n_viewer — zero upstream changes needed.",
+        "Phase 3 is deferred until Phase 1+2 prove the UX value in the stable branch."
+    ]
+}

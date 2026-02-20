@@ -1,0 +1,828 @@
+<!doctype html>
+<html lang="zh-Hant">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+  <style>
+    :root {
+      --bg: #f4f6fb;
+      --panel: #ffffff;
+      --ink: #1e2a33;
+      --muted: #5d6b76;
+      --line: #d7dee8;
+      --brand: #1971c2;
+      --brand-soft: #e8f2ff;
+      --accent: #f08c00;
+      --sidebar: #0f2740;
+      --sidebar-ink: #dce8f5;
+      --highlight: #fff59d;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: "Noto Sans TC", "PingFang TC", "Heiti TC", sans-serif;
+      color: var(--ink);
+      background: radial-gradient(circle at 0 0, #f7fbff 0, var(--bg) 45%);
+      height: 100vh;
+      overflow: hidden;
+    }
+
+    #app {
+      display: grid;
+      grid-template-columns: 260px 1fr;
+      height: 100vh;
+    }
+
+    .sidebar {
+      background: linear-gradient(180deg, #0f2740 0%, #16375a 100%);
+      color: var(--sidebar-ink);
+      border-right: 1px solid #294a6f;
+      overflow: auto;
+      padding: 14px 12px;
+    }
+
+    .brand {
+      font-size: 14px;
+      font-weight: 700;
+      letter-spacing: .3px;
+      margin-bottom: 10px;
+    }
+
+    .meta {
+      font-size: 12px;
+      opacity: .75;
+      margin-bottom: 14px;
+    }
+
+    .level {
+      margin-bottom: 10px;
+      border: 1px solid rgba(220, 232, 245, .15);
+      border-radius: 8px;
+      overflow: hidden;
+    }
+
+    .level-title {
+      cursor: pointer;
+      padding: 8px 10px;
+      font-weight: 700;
+      background: rgba(255, 255, 255, .04);
+    }
+
+    .lesson-item {
+      cursor: pointer;
+      padding: 7px 10px;
+      font-size: 13px;
+      border-top: 1px solid rgba(220, 232, 245, .08);
+      color: #cddcf0;
+    }
+
+    .lesson-item:hover {
+      background: rgba(255, 255, 255, .07);
+      color: #fff;
+    }
+
+    .lesson-item.active {
+      background: rgba(25, 113, 194, .35);
+      color: #fff;
+    }
+
+    .main {
+      display: grid;
+      grid-template-rows: auto 1fr;
+      min-width: 0;
+    }
+
+    .topbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 1px solid var(--line);
+      padding: 10px 14px;
+      background: #fff;
+    }
+
+    .top-title {
+      font-weight: 700;
+      font-size: 15px;
+    }
+
+    #audioPlayer {
+      width: 340px;
+      max-width: 52vw;
+    }
+
+    .content {
+      display: grid;
+      grid-template-columns: minmax(0, 2fr) minmax(300px, 1fr);
+      gap: 14px;
+      padding: 14px;
+      min-height: 0;
+    }
+
+    .panel {
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      overflow: hidden;
+      min-height: 0;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .panel-h {
+      padding: 9px 12px;
+      border-bottom: 1px solid var(--line);
+      font-size: 13px;
+      font-weight: 700;
+      background: #fafcff;
+    }
+
+    .panel-b {
+      padding: 10px 12px;
+      overflow: auto;
+    }
+
+    .line {
+      padding: 10px 0;
+      border-bottom: 1px dashed #e4e9f0;
+    }
+
+    .line:last-child {
+      border-bottom: 0;
+    }
+
+    .line-top {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 4px;
+    }
+
+    .play {
+      border: 1px solid #c9d8ea;
+      background: #f4f9ff;
+      color: #1d4e89;
+      border-radius: 999px;
+      padding: 2px 8px;
+      cursor: pointer;
+      font-size: 12px;
+    }
+
+    .play.active {
+      background: #1d4e89;
+      color: #fff;
+    }
+
+    .id {
+      font-size: 12px;
+      color: var(--muted);
+    }
+
+    .text {
+      line-height: 1.7;
+      font-size: 1.2rem;
+    }
+
+    .sentence-wrap {
+      cursor: pointer;
+      padding: 1px 2px;
+      border-radius: 4px;
+      transition: background 0.2s;
+    }
+
+    .sentence-wrap.highlight {
+      background: var(--highlight);
+      box-shadow: 0 0 5px rgba(255, 235, 59, 0.5);
+    }
+
+    .token {
+      cursor: pointer;
+      border-radius: 4px;
+      padding: 0 1px;
+      transition: all .12s;
+    }
+
+    .token:hover {
+      background: var(--brand-soft);
+    }
+
+    .token.selected {
+      background: var(--brand);
+      color: #fff;
+    }
+
+    .tr {
+      margin-top: 4px;
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .dict-empty {
+      color: #7d8b95;
+      font-size: 13px;
+    }
+
+    .entry {
+      border: 1px solid #e2e8f0;
+      border-radius: 8px;
+      padding: 8px;
+      margin-bottom: 8px;
+    }
+
+    .entry h4 {
+      margin: 0 0 4px 0;
+      font-size: 14px;
+    }
+
+    .meta-row {
+      font-size: 12px;
+      color: #667684;
+      margin-bottom: 4px;
+    }
+
+    .note {
+      margin-bottom: 10px;
+      border: 1px solid #e4ebf4;
+      border-radius: 8px;
+    }
+
+    .note summary {
+      cursor: pointer;
+      padding: 8px;
+      font-size: 13px;
+      font-weight: 700;
+      background: #f8fbff;
+    }
+
+    .note pre,
+    .markdown-body {
+      margin: 0;
+      padding: 10px;
+      font-size: 13px;
+      color: #2e3a44;
+      line-height: 1.5;
+    }
+
+    .markdown-body h1,
+    .markdown-body h2 {
+      border-bottom: 1px solid #eee;
+      padding-bottom: 5px;
+      margin-top: 15px;
+      font-size: 1.1em;
+    }
+
+    .markdown-body table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 10px 0;
+    }
+
+    .markdown-body th,
+    .markdown-body td {
+      border: 1px solid #ddd;
+      padding: 6px;
+      text-align: left;
+    }
+
+    .markdown-body th {
+      background: #f5f5f5;
+    }
+
+    @media (max-width: 980px) {
+      #app {
+        grid-template-columns: 1fr;
+      }
+
+      .sidebar {
+        display: none;
+      }
+
+      .content {
+        grid-template-columns: 1fr;
+      }
+
+      #audioPlayer {
+        width: 100%;
+        max-width: 100%;
+      }
+
+      .topbar {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 8px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div id="app">
+    <aside class="sidebar">
+      <div class="brand">Core + I18N Viewer</div>
+      <div class="meta" id="meta"></div>
+      <div id="sidebarLevels"></div>
+    </aside>
+
+    <main class="main">
+      <div class="topbar">
+        <div class="top-title" id="lessonTitle">Select a lesson</div>
+        <audio id="audioPlayer" controls preload="none"></audio>
+      </div>
+
+      <div class="content">
+        <section class="panel">
+          <div class="panel-h">Dialogue</div>
+          <div class="panel-b" id="dialoguePanel"></div>
+        </section>
+
+        <section class="panel">
+          <div class="panel-h">Dictionary</div>
+          <div class="panel-b" id="dictPanel">
+            <div class="dict-empty">Click a token.</div>
+          </div>
+          <div class="panel-h">Grammar Notes</div>
+          <div class="panel-b" id="grammarPanel">
+            <div class="dict-empty">Select a lesson.</div>
+          </div>
+        </section>
+      </div>
+    </main>
+  </div>
+
+  <script>
+    const state = {
+      course: null,
+      core: null,
+      i18n: null,
+      mapping: null,
+      levels: {},
+      selectedLessonId: '',
+      selectedToken: null,
+      activeLineId: '',
+      activeTimeMs: 0,
+      expanded: { A1: true, A2: false, B1: false },
+      metadataCache: {}
+    };
+
+    const audioPlayer = document.getElementById('audioPlayer');
+
+    const esc = (s) => (s || '').replace(/[&<>]/g, (m) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;' }[m]));
+
+    async function loadJson(path) {
+      const r = await fetch(path);
+      if (!r.ok) throw new Error(`Failed to load ${path}`);
+      return r.json();
+    }
+
+    function lessonLevel(lessonId) {
+      return String(lessonId || '').split('-')[0] || 'OTHER';
+    }
+
+    function lineSeq(lineId) {
+      const m = String(lineId || '').match(/L(\d+)-D(\d+)-(\d+)/);
+      if (!m) return Number.MAX_SAFE_INTEGER;
+      return Number(m[1]) * 1e6 + Number(m[2]) * 1e3 + Number(m[3]);
+    }
+
+    function buildLessonTree() {
+      const lines = state.course?.course?.dialogue || [];
+      const byLesson = {};
+      for (const line of lines) {
+        const lid = line.meta?.lesson_id || String(line.id || '').split(':', 1)[0] || 'UNKNOWN';
+        if (!byLesson[lid]) byLesson[lid] = [];
+        byLesson[lid].push(line);
+      }
+      for (const lid of Object.keys(byLesson)) {
+        byLesson[lid].sort((a, b) => lineSeq(a.id) - lineSeq(b.id));
+      }
+
+      const levels = {};
+      for (const lid of Object.keys(byLesson).sort()) {
+        const lv = lessonLevel(lid);
+        if (!levels[lv]) levels[lv] = {};
+        levels[lv][lid] = byLesson[lid];
+      }
+      state.levels = levels;
+    }
+
+    function renderMeta() {
+      const runId = state.course?.run_id || '-';
+      const src = state.course?.source_lang || '-';
+      document.getElementById('meta').textContent = `run=${runId} source=${src}`;
+    }
+
+    function renderSidebar() {
+      const root = document.getElementById('sidebarLevels');
+      const levelKeys = Object.keys(state.levels).sort((a, b) => {
+        const order = { A1: 1, A2: 2, B1: 3 };
+        return (order[a] || 99) - (order[b] || 99) || a.localeCompare(b);
+      });
+
+      root.innerHTML = levelKeys.map((lv) => {
+        const open = !!state.expanded[lv];
+        const lessons = Object.keys(state.levels[lv]).sort();
+        return `
+          <div class="level">
+            <div class="level-title" data-level="${lv}">${lv} ${open ? '▾' : '▸'}</div>
+            ${open ? lessons.map((lid) => `<div class="lesson-item ${state.selectedLessonId === lid ? 'active' : ''}" data-lesson="${lid}">${lid}</div>`).join('') : ''}
+          </div>
+        `;
+      }).join('');
+
+      root.querySelectorAll('.level-title').forEach((el) => {
+        el.onclick = () => {
+          const lv = el.dataset.level;
+          state.expanded[lv] = !state.expanded[lv];
+          renderSidebar();
+        };
+      });
+      root.querySelectorAll('.lesson-item').forEach((el) => {
+        el.onclick = () => selectLesson(el.dataset.lesson);
+      });
+    }
+
+    function tokensForLine(line) {
+      if (Array.isArray(line.tokens) && line.tokens.length) {
+        return line.tokens.map((t, i) => ({
+          idx: i,
+          surface: t.surface || t.lemma || '',
+          lemma: t.lemma || t.surface || '',
+          pos: t.pos || '',
+          atom_id: t.atom_id || ''
+        }));
+      }
+      const fromMap = state.mapping?.[line.id];
+      if (Array.isArray(fromMap) && fromMap.length) {
+        return fromMap.map((atomOrLemma, i) => ({ idx: i, surface: atomOrLemma, lemma: atomOrLemma, pos: '', atom_id: atomOrLemma.includes(':') ? atomOrLemma : '' }));
+      }
+      return String(line.text || '').split(/\s+/).filter(Boolean).map((w, i) => ({ idx: i, surface: w, lemma: w, pos: '', atom_id: '' }));
+    }
+
+    function findCoreEntries(tok) {
+      const entries = state.core?.entries || [];
+      if (tok.atom_id) {
+        return entries.filter((e) => e.atom_id === tok.atom_id);
+      }
+      return entries.filter((e) => e.lemma === tok.lemma || e.lemma === tok.surface);
+    }
+
+    function findI18nEntries(tok) {
+      const entries = state.i18n?.entries || [];
+      if (tok.atom_id) {
+        return entries.filter((e) => e.atom_id === tok.atom_id);
+      }
+      return entries.filter((e) => e.lemma === tok.lemma || e.lemma === tok.surface);
+    }
+
+    function resolveAtomPart(part) {
+      const core = (state.core?.entries || []).find((e) => e.atom_id === part);
+      const i18n = (state.i18n?.entries || []).find((e) => e.atom_id === part);
+      if (core || i18n) {
+        return {
+          atom_id: part,
+          lemma: core?.lemma || i18n?.lemma || part.split(':').pop(),
+          pos: core?.pos || i18n?.pos || '-',
+          freq: core?.freq ?? i18n?.freq ?? '-',
+          translation: i18n?.translation || '(no translation)'
+        };
+      }
+      const parts = part.split(':');
+      return {
+        atom_id: part,
+        lemma: parts[2] || part,
+        pos: (parts[1] || '-').toUpperCase(),
+        freq: '-',
+        translation: '(no translation)'
+      };
+    }
+
+    function renderDictionary() {
+      const root = document.getElementById('dictPanel');
+      if (!state.selectedToken) {
+        root.innerHTML = '<div class="dict-empty">Click a token.</div>';
+        return;
+      }
+      const tok = state.selectedToken;
+      if (tok.atom_id && tok.atom_id.includes('+')) {
+        const cards = tok.atom_id.split('+').filter(Boolean).map((part) => resolveAtomPart(part));
+        root.innerHTML = cards.map((c) => `
+          <div class="entry">
+            <h4>${esc(c.lemma)}</h4>
+            <div class="meta-row">POS: ${esc(c.pos)} | freq: ${c.freq} | <code>${esc(c.atom_id)}</code></div>
+            <div>${esc(c.translation)}</div>
+          </div>
+        `).join('') + `<div class="meta-row">Combined: <code>${esc(tok.atom_id)}</code></div>`;
+        return;
+      }
+      const core = findCoreEntries(tok);
+      const i18n = findI18nEntries(tok);
+      if (!core.length && !i18n.length) {
+        root.innerHTML = `<div class="dict-empty">No dictionary entry for <code>${esc(tok.atom_id || tok.lemma)}</code></div>`;
+        return;
+      }
+
+      const rows = [];
+      for (const c of core) {
+        const t = i18n.find((x) => x.lemma === c.lemma && x.pos === c.pos) || i18n.find((x) => x.lemma === c.lemma);
+        rows.push(`
+          <div class="entry">
+            <h4>${esc(c.lemma || tok.surface)}</h4>
+            <div class="meta-row">POS: ${esc(c.pos || t?.pos || '-')} | freq: ${c.freq ?? '-'} | <code>${esc(c.atom_id || tok.atom_id || '-')}</code></div>
+            <div>${esc(t?.translation || '(no translation)')}</div>
+          </div>
+        `);
+      }
+      if (!rows.length) {
+        for (const t of i18n) {
+          rows.push(`
+            <div class="entry">
+              <h4>${esc(t.lemma || tok.surface)}</h4>
+              <div class="meta-row">POS: ${esc(t.pos || '-')} | freq: ${t.freq ?? '-'} | <code>${esc(t.atom_id || tok.atom_id || '-')}</code></div>
+              <div>${esc(t.translation || '(empty)')}</div>
+            </div>
+          `);
+        }
+      }
+      root.innerHTML = rows.join('');
+    }
+
+    function renderGrammar() {
+      const root = document.getElementById('grammarPanel');
+      const lessonId = state.selectedLessonId;
+      const notes = state.course?.course?.grammar_notes?.[lessonId] || [];
+      const targetLang = 'zh-TW'; // Default for viewer
+
+      // Also check if notes are provided in a map format as in content-viewer
+      let rawNotes = '';
+      if (Array.isArray(notes) && notes.length) {
+        rawNotes = notes.map(n => `### ${n.title || n.grammar_id}\n\n${n.explanation_md || ''}`).join('\n\n---\n\n');
+      } else if (state.course?.course?.grammar_notes?.["zh-TW"]) {
+        rawNotes = state.course.course.grammar_notes["zh-TW"];
+      }
+
+      if (!rawNotes) {
+        root.innerHTML = '<div class="dict-empty">No grammar notes.</div>';
+        return;
+      }
+
+      root.innerHTML = `<div class="markdown-body">${marked.parse(rawNotes)}</div>`;
+    }
+
+    async function ensureLineMetadata(line) {
+      if (!line.audio_metadata) return null;
+      if (line._metadata) return line._metadata;
+      if (state.metadataCache[line.audio_metadata]) {
+        line._metadata = state.metadataCache[line.audio_metadata];
+        return line._metadata;
+      }
+      try {
+        const md = await loadJson(`./data/audio/${line.audio_metadata}`);
+        state.metadataCache[line.audio_metadata] = md;
+        line._metadata = md;
+        return md;
+      } catch {
+        return null;
+      }
+    }
+
+    function isSentenceActive(line, sentIdx) {
+      if (state.activeLineId !== line.id) return false;
+      const s = line._metadata?.sentences?.[sentIdx];
+      if (!s) return false;
+      return state.activeTimeMs >= (s.start_ms || 0) && state.activeTimeMs <= ((s.start_ms || 0) + (s.duration_ms || 0));
+    }
+
+    function getDisplaySegments(line) {
+      const text = line.text || '';
+      const tokens = tokensForLine(line);
+      if (!tokens.length) return [{ text, isToken: false }];
+
+      const segments = [];
+      let cursor = 0;
+
+      for (const t of tokens) {
+        // Find current token's index in the remaining text
+        // Note: For core-i18n-viewer, tokens might not have start/end, 
+        // we try to locate surface text sequentially
+        const idx = text.indexOf(t.surface, cursor);
+        if (idx > cursor) {
+          segments.push({ text: text.substring(cursor, idx), isToken: false });
+        }
+        if (idx !== -1) {
+          segments.push({ ...t, isToken: true });
+          cursor = idx + t.surface.length;
+        }
+      }
+
+      if (cursor < text.length) {
+        segments.push({ text: text.substring(cursor), isToken: false });
+      }
+
+      return segments;
+    }
+
+    function renderLineBody(line) {
+      const segments = getDisplaySegments(line);
+      const sentences = line._metadata?.sentences || [{ text: line.text || '' }];
+
+      // Map segments to sentences to avoid the "same phrase twice" bug
+      const sentenceElements = sentences.map((s, sentIdx) => {
+        const sText = s.text || '';
+        // Find which segments belong to this sentence
+        // This is a simplified matching: tokens inside this text range
+        const activeClass = isSentenceActive(line, sentIdx) ? 'highlight' : '';
+
+        let sentHtml = `<span class="sentence-wrap ${activeClass}" data-line="${esc(line.id)}" data-sent-idx="${sentIdx}">`;
+
+        // In this simplified viewer, we check if segment text is part of sentence text
+        // To be more precise, we could use character offsets if available
+        const sentSegments = segments.filter(seg => sText.includes(seg.surface || seg.text));
+
+        sentHtml += segments.map((seg, segIdx) => {
+          // If we have multiple sentences, we only render the part of the segment 
+          // that actually belongs to this sentence.
+          // For simplicity in this viewer (which is more for auditing), 
+          // we'll use a wrapper approach if metadata is present.
+          if (!line._metadata) return renderSegment(seg, line);
+
+          // Only show segments that belong to this metadata sentence text
+          // (This part is tricky without character offsets in tokens, but usually works)
+          if (sText.includes(seg.surface || seg.text)) {
+            return renderSegment(seg, line);
+          }
+          return '';
+        }).join('');
+
+        sentHtml += `</span>`;
+        return sentHtml;
+      });
+
+      // If no metadata, just render all segments
+      if (!line._metadata) {
+        return segments.map(seg => renderSegment(seg, line)).join('');
+      }
+
+      return sentenceElements.join('');
+    }
+
+    function renderSegment(seg, line) {
+      if (!seg.isToken) return esc(seg.text);
+      const isSelected = state.selectedToken && state.selectedToken.idx === seg.idx && state.selectedToken.lineId === line.id;
+      return `<span class="token ${isSelected ? 'selected' : ''}" data-line="${esc(line.id)}" data-token-idx="${seg.idx}">${esc(seg.surface)}</span>`;
+    }
+
+    function lessonLines() {
+      const lv = lessonLevel(state.selectedLessonId);
+      return state.levels?.[lv]?.[state.selectedLessonId] || [];
+    }
+
+    function renderDialogue() {
+      const root = document.getElementById('dialoguePanel');
+      const lines = lessonLines();
+      if (!lines.length) {
+        root.innerHTML = '<div class="dict-empty">No lines.</div>';
+        return;
+      }
+
+      root.innerHTML = lines.map((line) => `
+        <div class="line" data-line-wrap="${esc(line.id)}">
+          <div class="line-top">
+            <button class="play ${state.activeLineId === line.id ? 'active' : ''}" data-play="${esc(line.id)}">${state.activeLineId === line.id ? 'Stop' : 'Play'}</button>
+            <span class="id">${esc(line.id)}</span>
+          </div>
+          <div class="text">${renderLineBody(line)}</div>
+          <div class="tr">${esc(line.translation || '')}</div>
+        </div>
+      `).join('');
+
+      // Token click handler
+      root.querySelectorAll('[data-token-idx]').forEach((el) => {
+        el.onclick = (e) => {
+          e.stopPropagation();
+          const lid = el.dataset.line;
+          const line = lines.find((x) => x.id === lid);
+          const tokIdx = Number(el.dataset.tokenIdx);
+          const tokens = tokensForLine(line);
+          const tok = tokens.find(t => t.idx === tokIdx);
+          if (tok) {
+            state.selectedToken = { ...tok, lineId: lid };
+            renderDialogue();
+            renderDictionary();
+          }
+        };
+      });
+
+      // Sentence click handler
+      root.querySelectorAll('.sentence-wrap').forEach((el) => {
+        el.onclick = async () => {
+          const lid = el.dataset.line;
+          const line = lines.find((x) => x.id === lid);
+          const sentIdx = Number(el.dataset.sentIdx);
+          await ensureLineMetadata(line);
+          const s = line._metadata?.sentences?.[sentIdx];
+          await playLine(line, s?.start_ms || 0);
+        };
+      });
+
+      root.querySelectorAll('[data-play]').forEach((el) => {
+        el.onclick = async (e) => {
+          e.stopPropagation();
+          const lid = el.dataset.play;
+          const line = lines.find((x) => x.id === lid);
+          await playLine(line, 0);
+        };
+      });
+    }
+
+
+    async function playLine(line, seekMs) {
+      if (!line) return;
+      if (state.activeLineId === line.id && !audioPlayer.paused) {
+        audioPlayer.pause();
+        state.activeLineId = '';
+        state.activeTimeMs = 0;
+        renderDialogue();
+        return;
+      }
+
+      await ensureLineMetadata(line);
+      state.activeLineId = line.id;
+      state.activeTimeMs = seekMs || 0;
+
+      if (line.audio) {
+        audioPlayer.src = `./data/audio/${line.audio}`;
+        audioPlayer.load();
+        const onLoaded = () => {
+          audioPlayer.currentTime = (seekMs || 0) / 1000;
+          audioPlayer.play().catch(() => { });
+          audioPlayer.removeEventListener('loadedmetadata', onLoaded);
+        };
+        audioPlayer.addEventListener('loadedmetadata', onLoaded);
+      }
+      renderDialogue();
+    }
+
+    async function prefetchLessonMetadata() {
+      const lines = lessonLines();
+      await Promise.all(lines.map((line) => ensureLineMetadata(line)));
+      renderDialogue();
+    }
+
+    async function selectLesson(lessonId) {
+      state.selectedLessonId = lessonId;
+      state.selectedToken = null;
+      state.activeLineId = '';
+      state.activeTimeMs = 0;
+      audioPlayer.pause();
+      audioPlayer.src = '';
+
+      document.getElementById('lessonTitle').textContent = lessonId;
+      renderSidebar();
+      renderDialogue();
+      renderDictionary();
+      renderGrammar();
+      await prefetchLessonMetadata();
+    }
+
+    audioPlayer.addEventListener('timeupdate', () => {
+      state.activeTimeMs = audioPlayer.currentTime * 1000;
+      renderDialogue();
+    });
+
+    audioPlayer.addEventListener('ended', () => {
+      state.activeLineId = '';
+      state.activeTimeMs = 0;
+      renderDialogue();
+    });
+
+    async function main() {
+      try {
+        state.course = await loadJson('./data/course.package.json');
+        state.core = await loadJson('./data/dictionary_core.json');
+        state.i18n = await loadJson('./data/dict_ko_zh_tw.json');
+        state.mapping = await loadJson('./data/mapping.json');
+
+        renderMeta();
+        buildLessonTree();
+        renderSidebar();
+
+        const first = Object.keys(state.levels?.A1 || {})[0] || Object.keys(Object.values(state.levels)[0] || {})[0];
+        if (first) {
+          await selectLesson(first);
+        }
+      } catch (e) {
+        document.body.innerHTML = `<pre>${esc(String(e.stack || e))}</pre>`;
+      }
+    }
+
+    main();
+  </script>
+</body>
+
+</html>

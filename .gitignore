@@ -4,3 +4,7 @@ staging/
 .DS_Store
 .gemini/
 .env
+
+# viewer local synced payloads
+tools/core_i18n_viewer/data/*.json
+tools/core_i18n_viewer/data/

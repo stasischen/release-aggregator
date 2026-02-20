@@ -25,11 +25,11 @@
     ]
   },
   "execution_order": [
-    "KO-DICT-FILL-01",
-    "KO-DICT-FILL-02",
     "KO-ATOM-AUDIT-01",
     "KO-ATOM-AUDIT-02",
     "KO-ATOM-AUDIT-03",
+    "KO-DICT-FILL-01",
+    "KO-DICT-FILL-02",
     "KO-GATE-ATOM-01"
   ],
   "tasks": [

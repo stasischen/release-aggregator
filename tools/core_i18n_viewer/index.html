@@ -1,9 +1,10 @@
 <!doctype html>
 <html lang="zh-Hant">
+
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Aggregator Core+I18N Viewer</title>
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
   <style>
     :root {
       --bg: #f4f6fb;
@@ -16,8 +17,13 @@
       --accent: #f08c00;
       --sidebar: #0f2740;
       --sidebar-ink: #dce8f5;
+      --highlight: #fff59d;
     }
-    * { box-sizing: border-box; }
+
+    * {
+      box-sizing: border-box;
+    }
+
     body {
       margin: 0;
       font-family: "Noto Sans TC", "PingFang TC", "Heiti TC", sans-serif;
@@ -26,7 +32,13 @@
       height: 100vh;
       overflow: hidden;
     }
-    #app { display: grid; grid-template-columns: 260px 1fr; height: 100vh; }
+
+    #app {
+      display: grid;
+      grid-template-columns: 260px 1fr;
+      height: 100vh;
+    }
+
     .sidebar {
       background: linear-gradient(180deg, #0f2740 0%, #16375a 100%);
       color: var(--sidebar-ink);
@@ -34,21 +46,58 @@
       overflow: auto;
       padding: 14px 12px;
     }
-    .brand { font-size: 14px; font-weight: 700; letter-spacing: .3px; margin-bottom: 10px; }
-    .meta { font-size: 12px; opacity: .75; margin-bottom: 14px; }
-    .level { margin-bottom: 10px; border: 1px solid rgba(220,232,245,.15); border-radius: 8px; overflow: hidden; }
-    .level-title { cursor: pointer; padding: 8px 10px; font-weight: 700; background: rgba(255,255,255,.04); }
+
+    .brand {
+      font-size: 14px;
+      font-weight: 700;
+      letter-spacing: .3px;
+      margin-bottom: 10px;
+    }
+
+    .meta {
+      font-size: 12px;
+      opacity: .75;
+      margin-bottom: 14px;
+    }
+
+    .level {
+      margin-bottom: 10px;
+      border: 1px solid rgba(220, 232, 245, .15);
+      border-radius: 8px;
+      overflow: hidden;
+    }
+
+    .level-title {
+      cursor: pointer;
+      padding: 8px 10px;
+      font-weight: 700;
+      background: rgba(255, 255, 255, .04);
+    }
+
     .lesson-item {
       cursor: pointer;
       padding: 7px 10px;
       font-size: 13px;
-      border-top: 1px solid rgba(220,232,245,.08);
+      border-top: 1px solid rgba(220, 232, 245, .08);
       color: #cddcf0;
     }
-    .lesson-item:hover { background: rgba(255,255,255,.07); color: #fff; }
-    .lesson-item.active { background: rgba(25,113,194,.35); color: #fff; }
 
-    .main { display: grid; grid-template-rows: auto 1fr; min-width: 0; }
+    .lesson-item:hover {
+      background: rgba(255, 255, 255, .07);
+      color: #fff;
+    }
+
+    .lesson-item.active {
+      background: rgba(25, 113, 194, .35);
+      color: #fff;
+    }
+
+    .main {
+      display: grid;
+      grid-template-rows: auto 1fr;
+      min-width: 0;
+    }
+
     .topbar {
       display: flex;
       align-items: center;
@@ -57,10 +106,25 @@
       padding: 10px 14px;
       background: #fff;
     }
-    .top-title { font-weight: 700; font-size: 15px; }
-    #audioPlayer { width: 340px; max-width: 52vw; }
 
-    .content { display: grid; grid-template-columns: minmax(0, 2fr) minmax(300px, 1fr); gap: 14px; padding: 14px; min-height: 0; }
+    .top-title {
+      font-weight: 700;
+      font-size: 15px;
+    }
+
+    #audioPlayer {
+      width: 340px;
+      max-width: 52vw;
+    }
+
+    .content {
+      display: grid;
+      grid-template-columns: minmax(0, 2fr) minmax(300px, 1fr);
+      gap: 14px;
+      padding: 14px;
+      min-height: 0;
+    }
+
     .panel {
       background: var(--panel);
       border: 1px solid var(--line);
@@ -70,12 +134,36 @@
       display: flex;
       flex-direction: column;
     }
-    .panel-h { padding: 9px 12px; border-bottom: 1px solid var(--line); font-size: 13px; font-weight: 700; background: #fafcff; }
-    .panel-b { padding: 10px 12px; overflow: auto; }
 
-    .line { padding: 10px 0; border-bottom: 1px dashed #e4e9f0; }
-    .line:last-child { border-bottom: 0; }
-    .line-top { display: flex; align-items: center; gap: 8px; margin-bottom: 4px; }
+    .panel-h {
+      padding: 9px 12px;
+      border-bottom: 1px solid var(--line);
+      font-size: 13px;
+      font-weight: 700;
+      background: #fafcff;
+    }
+
+    .panel-b {
+      padding: 10px 12px;
+      overflow: auto;
+    }
+
+    .line {
+      padding: 10px 0;
+      border-bottom: 1px dashed #e4e9f0;
+    }
+
+    .line:last-child {
+      border-bottom: 0;
+    }
+
+    .line-top {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 4px;
+    }
+
     .play {
       border: 1px solid #c9d8ea;
       background: #f4f9ff;
@@ -85,47 +173,154 @@
       cursor: pointer;
       font-size: 12px;
     }
-    .play.active { background: #1d4e89; color: #fff; }
-    .id { font-size: 12px; color: var(--muted); }
-    .text { line-height: 1.7; font-size: 18px; }
+
+    .play.active {
+      background: #1d4e89;
+      color: #fff;
+    }
+
+    .id {
+      font-size: 12px;
+      color: var(--muted);
+    }
+
+    .text {
+      line-height: 1.7;
+      font-size: 1.2rem;
+    }
+
+    .sentence-wrap {
+      cursor: pointer;
+      padding: 1px 2px;
+      border-radius: 4px;
+      transition: background 0.2s;
+    }
+
+    .sentence-wrap.highlight {
+      background: var(--highlight);
+      box-shadow: 0 0 5px rgba(255, 235, 59, 0.5);
+    }
+
     .token {
       cursor: pointer;
       border-radius: 4px;
-      padding: 0 2px;
-      transition: background .12s;
+      padding: 0 1px;
+      transition: all .12s;
     }
-    .token:hover { background: var(--brand-soft); }
-    .token.active { background: #fff3bf; }
-    .seg-row { margin-top: 6px; display: flex; flex-wrap: wrap; gap: 6px; }
-    .seg {
-      border: 1px solid #d7e3f2;
-      background: #f6faff;
-      color: #28527f;
-      border-radius: 999px;
-      padding: 2px 8px;
-      cursor: pointer;
-      font-size: 12px;
-    }
-    .seg.active { background: #fff3bf; border-color: #f0c94d; color: #6b4a00; }
-    .tr { margin-top: 4px; color: var(--muted); font-size: 13px; }
 
-    .dict-empty { color: #7d8b95; font-size: 13px; }
-    .entry { border: 1px solid #e2e8f0; border-radius: 8px; padding: 8px; margin-bottom: 8px; }
-    .entry h4 { margin: 0 0 4px 0; font-size: 14px; }
-    .meta-row { font-size: 12px; color: #667684; margin-bottom: 4px; }
-    .note { margin-bottom: 10px; border: 1px solid #e4ebf4; border-radius: 8px; }
-    .note summary { cursor: pointer; padding: 8px; font-size: 13px; font-weight: 700; background: #f8fbff; }
-    .note pre { margin: 0; padding: 8px; white-space: pre-wrap; font-size: 12px; color: #2e3a44; }
+    .token:hover {
+      background: var(--brand-soft);
+    }
+
+    .token.selected {
+      background: var(--brand);
+      color: #fff;
+    }
+
+    .tr {
+      margin-top: 4px;
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .dict-empty {
+      color: #7d8b95;
+      font-size: 13px;
+    }
+
+    .entry {
+      border: 1px solid #e2e8f0;
+      border-radius: 8px;
+      padding: 8px;
+      margin-bottom: 8px;
+    }
+
+    .entry h4 {
+      margin: 0 0 4px 0;
+      font-size: 14px;
+    }
+
+    .meta-row {
+      font-size: 12px;
+      color: #667684;
+      margin-bottom: 4px;
+    }
+
+    .note {
+      margin-bottom: 10px;
+      border: 1px solid #e4ebf4;
+      border-radius: 8px;
+    }
+
+    .note summary {
+      cursor: pointer;
+      padding: 8px;
+      font-size: 13px;
+      font-weight: 700;
+      background: #f8fbff;
+    }
+
+    .note pre,
+    .markdown-body {
+      margin: 0;
+      padding: 10px;
+      font-size: 13px;
+      color: #2e3a44;
+      line-height: 1.5;
+    }
+
+    .markdown-body h1,
+    .markdown-body h2 {
+      border-bottom: 1px solid #eee;
+      padding-bottom: 5px;
+      margin-top: 15px;
+      font-size: 1.1em;
+    }
+
+    .markdown-body table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 10px 0;
+    }
+
+    .markdown-body th,
+    .markdown-body td {
+      border: 1px solid #ddd;
+      padding: 6px;
+      text-align: left;
+    }
+
+    .markdown-body th {
+      background: #f5f5f5;
+    }
 
     @media (max-width: 980px) {
-      #app { grid-template-columns: 1fr; }
-      .sidebar { display: none; }
-      .content { grid-template-columns: 1fr; }
-      #audioPlayer { width: 100%; max-width: 100%; }
-      .topbar { flex-direction: column; align-items: flex-start; gap: 8px; }
+      #app {
+        grid-template-columns: 1fr;
+      }
+
+      .sidebar {
+        display: none;
+      }
+
+      .content {
+        grid-template-columns: 1fr;
+      }
+
+      #audioPlayer {
+        width: 100%;
+        max-width: 100%;
+      }
+
+      .topbar {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 8px;
+      }
     }
   </style>
 </head>
+
 <body>
   <div id="app">
     <aside class="sidebar">
@@ -148,9 +343,13 @@
 
         <section class="panel">
           <div class="panel-h">Dictionary</div>
-          <div class="panel-b" id="dictPanel"><div class="dict-empty">Click a token.</div></div>
+          <div class="panel-b" id="dictPanel">
+            <div class="dict-empty">Click a token.</div>
+          </div>
           <div class="panel-h">Grammar Notes</div>
-          <div class="panel-b" id="grammarPanel"><div class="dict-empty">Select a lesson.</div></div>
+          <div class="panel-b" id="grammarPanel">
+            <div class="dict-empty">Select a lesson.</div>
+          </div>
         </section>
       </div>
     </main>
@@ -357,16 +556,22 @@
       const root = document.getElementById('grammarPanel');
       const lessonId = state.selectedLessonId;
       const notes = state.course?.course?.grammar_notes?.[lessonId] || [];
-      if (!notes.length) {
+      const targetLang = 'zh-TW'; // Default for viewer
+
+      // Also check if notes are provided in a map format as in content-viewer
+      let rawNotes = '';
+      if (Array.isArray(notes) && notes.length) {
+        rawNotes = notes.map(n => `### ${n.title || n.grammar_id}\n\n${n.explanation_md || ''}`).join('\n\n---\n\n');
+      } else if (state.course?.course?.grammar_notes?.["zh-TW"]) {
+        rawNotes = state.course.course.grammar_notes["zh-TW"];
+      }
+
+      if (!rawNotes) {
         root.innerHTML = '<div class="dict-empty">No grammar notes.</div>';
         return;
       }
-      root.innerHTML = notes.map((n) => `
-        <details class="note" open>
-          <summary>${esc(n.title || n.grammar_id || 'note')}</summary>
-          <pre>${esc(n.explanation_md || '')}</pre>
-        </details>
-      `).join('');
+
+      root.innerHTML = `<div class="markdown-body">${marked.parse(rawNotes)}</div>`;
     }
 
     async function ensureLineMetadata(line) {
@@ -386,28 +591,90 @@
       }
     }
 
-    function isSentenceActive(line, s) {
+    function isSentenceActive(line, sentIdx) {
       if (state.activeLineId !== line.id) return false;
+      const s = line._metadata?.sentences?.[sentIdx];
+      if (!s) return false;
       return state.activeTimeMs >= (s.start_ms || 0) && state.activeTimeMs <= ((s.start_ms || 0) + (s.duration_ms || 0));
     }
 
-    function isTokenActive(line, tok) {
-      if (state.activeLineId !== line.id) return false;
-      const ss = line._metadata?.sentences || [];
-      const cur = ss.find((s) => isSentenceActive(line, s));
-      if (!cur) return false;
-      return String(cur.text || '').includes(tok.surface);
+    function getDisplaySegments(line) {
+      const text = line.text || '';
+      const tokens = tokensForLine(line);
+      if (!tokens.length) return [{ text, isToken: false }];
+
+      const segments = [];
+      let cursor = 0;
+
+      for (const t of tokens) {
+        // Find current token's index in the remaining text
+        // Note: For core-i18n-viewer, tokens might not have start/end, 
+        // we try to locate surface text sequentially
+        const idx = text.indexOf(t.surface, cursor);
+        if (idx > cursor) {
+          segments.push({ text: text.substring(cursor, idx), isToken: false });
+        }
+        if (idx !== -1) {
+          segments.push({ ...t, isToken: true });
+          cursor = idx + t.surface.length;
+        }
+      }
+
+      if (cursor < text.length) {
+        segments.push({ text: text.substring(cursor), isToken: false });
+      }
+
+      return segments;
     }
 
     function renderLineBody(line) {
-      const toks = tokensForLine(line);
-      return toks.map((t) => `<span class="token ${isTokenActive(line, t) ? 'active' : ''}" data-line="${esc(line.id)}" data-token="${t.idx}">${esc(t.surface)}</span>`).join(' ');
+      const segments = getDisplaySegments(line);
+      const sentences = line._metadata?.sentences || [{ text: line.text || '' }];
+
+      // Map segments to sentences to avoid the "same phrase twice" bug
+      const sentenceElements = sentences.map((s, sentIdx) => {
+        const sText = s.text || '';
+        // Find which segments belong to this sentence
+        // This is a simplified matching: tokens inside this text range
+        const activeClass = isSentenceActive(line, sentIdx) ? 'highlight' : '';
+
+        let sentHtml = `<span class="sentence-wrap ${activeClass}" data-line="${esc(line.id)}" data-sent-idx="${sentIdx}">`;
+
+        // In this simplified viewer, we check if segment text is part of sentence text
+        // To be more precise, we could use character offsets if available
+        const sentSegments = segments.filter(seg => sText.includes(seg.surface || seg.text));
+
+        sentHtml += segments.map((seg, segIdx) => {
+          // If we have multiple sentences, we only render the part of the segment 
+          // that actually belongs to this sentence.
+          // For simplicity in this viewer (which is more for auditing), 
+          // we'll use a wrapper approach if metadata is present.
+          if (!line._metadata) return renderSegment(seg, line);
+
+          // Only show segments that belong to this metadata sentence text
+          // (This part is tricky without character offsets in tokens, but usually works)
+          if (sText.includes(seg.surface || seg.text)) {
+            return renderSegment(seg, line);
+          }
+          return '';
+        }).join('');
+
+        sentHtml += `</span>`;
+        return sentHtml;
+      });
+
+      // If no metadata, just render all segments
+      if (!line._metadata) {
+        return segments.map(seg => renderSegment(seg, line)).join('');
+      }
+
+      return sentenceElements.join('');
     }
 
-    function renderSentenceSegments(line) {
-      const ss = line._metadata?.sentences || [];
-      if (!ss.length) return '';
-      return `<div class="seg-row">${ss.map((s, i) => `<span class="seg ${isSentenceActive(line, s) ? 'active' : ''}" data-line="${esc(line.id)}" data-sent="${i}">${esc(s.text || ('#' + (i + 1)))}</span>`).join('')}</div>`;
+    function renderSegment(seg, line) {
+      if (!seg.isToken) return esc(seg.text);
+      const isSelected = state.selectedToken && state.selectedToken.idx === seg.idx && state.selectedToken.lineId === line.id;
+      return `<span class="token ${isSelected ? 'selected' : ''}" data-line="${esc(line.id)}" data-token-idx="${seg.idx}">${esc(seg.surface)}</span>`;
     }
 
     function lessonLines() {
@@ -430,40 +697,49 @@
             <span class="id">${esc(line.id)}</span>
           </div>
           <div class="text">${renderLineBody(line)}</div>
-          ${renderSentenceSegments(line)}
           <div class="tr">${esc(line.translation || '')}</div>
         </div>
       `).join('');
 
-      root.querySelectorAll('[data-token]').forEach((el) => {
-        el.onclick = () => {
+      // Token click handler
+      root.querySelectorAll('[data-token-idx]').forEach((el) => {
+        el.onclick = (e) => {
+          e.stopPropagation();
           const lid = el.dataset.line;
           const line = lines.find((x) => x.id === lid);
-          const tok = tokensForLine(line)[Number(el.dataset.token)];
-          state.selectedToken = tok;
-          renderDictionary();
+          const tokIdx = Number(el.dataset.tokenIdx);
+          const tokens = tokensForLine(line);
+          const tok = tokens.find(t => t.idx === tokIdx);
+          if (tok) {
+            state.selectedToken = { ...tok, lineId: lid };
+            renderDialogue();
+            renderDictionary();
+          }
+        };
+      });
+
+      // Sentence click handler
+      root.querySelectorAll('.sentence-wrap').forEach((el) => {
+        el.onclick = async () => {
+          const lid = el.dataset.line;
+          const line = lines.find((x) => x.id === lid);
+          const sentIdx = Number(el.dataset.sentIdx);
+          await ensureLineMetadata(line);
+          const s = line._metadata?.sentences?.[sentIdx];
+          await playLine(line, s?.start_ms || 0);
         };
       });
 
       root.querySelectorAll('[data-play]').forEach((el) => {
-        el.onclick = async () => {
+        el.onclick = async (e) => {
+          e.stopPropagation();
           const lid = el.dataset.play;
           const line = lines.find((x) => x.id === lid);
           await playLine(line, 0);
         };
       });
-
-      root.querySelectorAll('[data-sent]').forEach((el) => {
-        el.onclick = async () => {
-          const lid = el.dataset.line;
-          const line = lines.find((x) => x.id === lid);
-          const idx = Number(el.dataset.sent);
-          await ensureLineMetadata(line);
-          const s = line._metadata?.sentences?.[idx];
-          await playLine(line, s?.start_ms || 0);
-        };
-      });
     }
+
 
     async function playLine(line, seekMs) {
       if (!line) return;
@@ -484,7 +760,7 @@
         audioPlayer.load();
         const onLoaded = () => {
           audioPlayer.currentTime = (seekMs || 0) / 1000;
-          audioPlayer.play().catch(() => {});
+          audioPlayer.play().catch(() => { });
           audioPlayer.removeEventListener('loadedmetadata', onLoaded);
         };
         audioPlayer.addEventListener('loadedmetadata', onLoaded);
@@ -548,4 +824,5 @@
     main();
   </script>
 </body>
+
 </html>

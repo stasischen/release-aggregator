@@ -36,7 +36,7 @@
     {
       "id": "KO-DICT-FILL-01",
       "title": "Generate A1 active atom translation backlog",
-      "status": "TODO",
+      "status": "COMPLETED",
       "target_repo": "content-ko",
       "goal": "Produce deterministic backlog for all placeholder atom translations used by A1 dialogue.",
       "actions": [
@@ -56,7 +56,7 @@
     {
       "id": "KO-DICT-FILL-02",
       "title": "Fill zh-TW dictionary translations for active A1 atoms",
-      "status": "TODO",
+      "status": "IN_PROGRESS",
       "target_repo": "content-ko",
       "goal": "Replace placeholder translation text with production-ready zh-TW definitions.",
       "actions": [
@@ -76,7 +76,7 @@
     {
       "id": "KO-ATOM-AUDIT-01",
       "title": "Automate extraction sanity checks for course-derived atoms",
-      "status": "TODO",
+      "status": "COMPLETED",
       "target_repo": "content-ko",
       "goal": "Detect structural extraction errors before data reaches frontend.",
       "actions": [
@@ -96,7 +96,7 @@
     {
       "id": "KO-ATOM-AUDIT-02",
       "title": "Review uncovered mixed-script spans in dialogue tokenization",
-      "status": "TODO",
+      "status": "COMPLETED",
       "target_repo": "content-ko",
       "goal": "Resolve uncovered non-punctuation spans currently found in 2 lines.",
       "actions": [

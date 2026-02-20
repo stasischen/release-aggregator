@@ -12,6 +12,7 @@
 
 ## 開發規範與目標
 - **韓文翻譯規則**: 須包含韓文原文、羅馬拼音、字詞拆解 (Segmentation) 以及繁體中文解釋。
+- **數據標準化規範**: 所有課程數據的原子化與 POS 修正必須嚴格遵守 `docs/SOPs/KO_DATA_STANDARDIZATION_PROTOCOL.md` 的標準，確保分詞純淨且可逆。
 ## 工作流程與協議
 - **開收工協議 (Startup/Closeout Rules)**:
   > [!IMPORTANT]

@@ -44,7 +44,7 @@
         {
             "id": "FVI-01",
             "title": "建立 AudioTimelineModel / Audio Timeline Data Model",
-            "status": "TODO",
+            "status": "DONE",
             "target_repo": "lingo-frontend-web",
             "priority": "🔴 Phase 1 核心",
             "prerequisite": "None",
@@ -69,7 +69,7 @@
         {
             "id": "FVI-02",
             "title": "建立 PrerecordedAudioService / Pre-recorded Audio Player",
-            "status": "TODO",
+            "status": "DONE",
             "target_repo": "lingo-frontend-web",
             "priority": "🔴 Phase 1 核心",
             "prerequisite": "FVI-01",
@@ -99,7 +99,7 @@
         {
             "id": "FVI-03",
             "title": "整合 _playTurnAudio() / Integrate into EventOccurrenceScreen",
-            "status": "TODO",
+            "status": "DONE",
             "target_repo": "lingo-frontend-web",
             "priority": "🔴 Phase 1 核心",
             "prerequisite": "FVI-02",
@@ -125,7 +125,7 @@
         {
             "id": "FVI-04",
             "title": "建立句子高亮 Widget / Sentence Highlight Widget",
-            "status": "TODO",
+            "status": "DONE",
             "target_repo": "lingo-frontend-web",
             "priority": "🔴 Phase 1 核心",
             "prerequisite": "FVI-02",
@@ -153,7 +153,7 @@
         {
             "id": "FVI-05",
             "title": "搬運 A1 音檔至前端 / Bundle A1 Audio Assets",
-            "status": "TODO",
+            "status": "DONE",
             "target_repo": "content-ko → lingo-frontend-web",
             "priority": "🟡 Phase 1 資產",
             "prerequisite": "None (can run in parallel)",

@@ -43,6 +43,33 @@
                 "docs/runbooks/TTS_GENERATION_RUNBOOK.md",
                 "scripts/tts/README.md"
             ]
+        },
+        {
+            "id": "TTS-04",
+            "title": "Integrate Local Qwen3TTS for Premium Voices",
+            "status": "TODO",
+            "target_repo": "content-pipeline",
+            "actions": [
+                "Setup local inference environment for Qwen3TTS/Qwen2-Audio.",
+                "Implement wrapper script in content-pipeline for premium TTS generation.",
+                "Establish role-to-local-voice mapping."
+            ],
+            "deliverables": [
+                "scripts/tts/generate_qwen_tts.py"
+            ]
+        },
+        {
+            "id": "TTS-05",
+            "title": "Extract Word/Chunk Timelines for Premium Audio",
+            "status": "TODO",
+            "target_repo": "content-pipeline",
+            "actions": [
+                "Map local TTS alignment output to .sentences.json / .words.json format.",
+                "Integrate forced alignment if not natively provided by TTS model."
+            ],
+            "deliverables": [
+                "scripts/tts/extract_qwen_timestamps.py"
+            ]
         }
     ]
 }

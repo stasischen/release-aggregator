@@ -180,7 +180,7 @@
         {
             "id": "FVI-06",
             "title": "建立 GrammarNote Model + Service",
-            "status": "TODO",
+            "status": "DONE",
             "target_repo": "lingo-frontend-web",
             "priority": "🔵 Phase 2",
             "prerequisite": "None",
@@ -206,7 +206,7 @@
         {
             "id": "FVI-07",
             "title": "建立 Grammar Notes 面板 / Grammar Notes Panel UI",
-            "status": "TODO",
+            "status": "DONE",
             "target_repo": "lingo-frontend-web",
             "priority": "🔵 Phase 2",
             "prerequisite": "FVI-06",
@@ -234,7 +234,7 @@
         {
             "id": "FVI-08",
             "title": "整合 Grammar 入口 / Integrate Grammar Entry Point",
-            "status": "TODO",
+            "status": "DONE",
             "target_repo": "lingo-frontend-web",
             "priority": "🔵 Phase 2",
             "prerequisite": "FVI-07",
@@ -260,7 +260,7 @@
         {
             "id": "FVI-09",
             "title": "搬運 Grammar JSON 至前端 / Bundle Grammar Assets",
-            "status": "TODO",
+            "status": "DONE",
             "target_repo": "content-ko → lingo-frontend-web",
             "priority": "🟡 Phase 2 資產",
             "prerequisite": "None (can run in parallel)",

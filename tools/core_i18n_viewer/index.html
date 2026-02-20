@@ -1,0 +1,150 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Core + I18N Viewer</title>
+  <style>
+    body { font-family: ui-sans-serif, -apple-system, Segoe UI, Roboto, Arial, sans-serif; margin: 0; color: #111; }
+    header { padding: 12px 16px; border-bottom: 1px solid #ddd; background: #f7f7f7; }
+    main { display: grid; grid-template-columns: 2fr 1fr; min-height: calc(100vh - 52px); }
+    section { padding: 12px 16px; overflow: auto; }
+    #left { border-right: 1px solid #ddd; }
+    .line { padding: 8px 0; border-bottom: 1px dashed #e6e6e6; }
+    .line-id { color: #777; font-size: 12px; }
+    .token { cursor: pointer; padding: 0 2px; border-radius: 3px; }
+    .token:hover { background: #ffefc5; }
+    .badge { display: inline-block; font-size: 11px; background: #eef; border: 1px solid #ccd; padding: 2px 6px; border-radius: 8px; margin-right: 6px; }
+    pre { white-space: pre-wrap; word-break: break-word; background: #fafafa; border: 1px solid #eee; padding: 8px; }
+    .warn { color: #b06a00; }
+  </style>
+</head>
+<body>
+  <header>
+    <strong>Core + I18N Viewer</strong>
+    <span id="meta" style="margin-left:12px;color:#666"></span>
+  </header>
+  <main>
+    <section id="left">
+      <h3>Dialogue</h3>
+      <div id="dialogue"></div>
+    </section>
+    <section>
+      <h3>Dictionary</h3>
+      <div id="dict"></div>
+    </section>
+  </main>
+
+  <script>
+    const state = { course: null, core: null, i18n: null, mapping: null };
+
+    const norm = (s) => (s || '').trim();
+
+    async function loadJson(path) {
+      const r = await fetch(path);
+      if (!r.ok) throw new Error(`failed to load ${path}`);
+      return r.json();
+    }
+
+    function renderMeta() {
+      const runId = state.course?.run_id || '-';
+      const lang = state.course?.source_lang || '-';
+      document.getElementById('meta').textContent = `run_id=${runId} lang=${lang}`;
+    }
+
+    function tokensForLine(line) {
+      const fromMap = state.mapping?.[line.id];
+      if (Array.isArray(fromMap) && fromMap.length) {
+        return fromMap.map((lemma) => ({ surface: lemma, lemma }));
+      }
+      return line.text.split(/\s+/).filter(Boolean).map((w) => ({ surface: w, lemma: w }));
+    }
+
+    function findCoreEntry(lemma) {
+      const entries = state.core?.entries || [];
+      return entries.find((e) => e.lemma === lemma);
+    }
+
+    function findI18nEntry(lemma) {
+      const entries = state.i18n?.entries || [];
+      return entries.find((e) => e.lemma === lemma);
+    }
+
+    function showEntry(tok) {
+      const core = findCoreEntry(tok.lemma);
+      const i18n = findI18nEntry(tok.lemma);
+      const el = document.getElementById('dict');
+
+      if (!core && !i18n) {
+        el.innerHTML = `<p class="warn">No entry for lemma: <code>${tok.lemma}</code></p>`;
+        return;
+      }
+
+      el.innerHTML = '';
+      const title = document.createElement('div');
+      title.innerHTML = `<span class="badge">lemma</span><code>${tok.lemma}</code>`;
+      el.appendChild(title);
+
+      if (core) {
+        const p = document.createElement('pre');
+        p.textContent = JSON.stringify(core, null, 2);
+        el.appendChild(p);
+      }
+      if (i18n) {
+        const p = document.createElement('pre');
+        p.textContent = JSON.stringify(i18n, null, 2);
+        el.appendChild(p);
+      }
+    }
+
+    function renderDialogue() {
+      const root = document.getElementById('dialogue');
+      root.innerHTML = '';
+      const lines = state.course?.course?.dialogue || [];
+
+      for (const line of lines) {
+        const row = document.createElement('div');
+        row.className = 'line';
+
+        const id = document.createElement('div');
+        id.className = 'line-id';
+        id.textContent = line.id;
+        row.appendChild(id);
+
+        const text = document.createElement('div');
+        for (const tok of tokensForLine(line)) {
+          const sp = document.createElement('span');
+          sp.className = 'token';
+          sp.textContent = tok.surface + ' ';
+          sp.onclick = () => showEntry(tok);
+          text.appendChild(sp);
+        }
+        row.appendChild(text);
+
+        const tr = document.createElement('div');
+        tr.style.color = '#555';
+        tr.textContent = line.translation || '';
+        row.appendChild(tr);
+
+        root.appendChild(row);
+      }
+    }
+
+    async function main() {
+      try {
+        state.course = await loadJson('./data/course.package.json');
+        state.core = await loadJson('./data/dictionary_core.json');
+        state.i18n = await loadJson('./data/dict_ko_zh_tw.json');
+        state.mapping = await loadJson('./data/mapping.json');
+
+        renderMeta();
+        renderDialogue();
+      } catch (e) {
+        document.body.innerHTML = `<pre>${e.stack || e}</pre>`;
+      }
+    }
+
+    main();
+  </script>
+</body>
+</html>

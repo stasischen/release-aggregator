@@ -20,7 +20,7 @@
         {
             "id": "TTS-02-A1",
             "title": "Generate Audio for A1 Lessons",
-            "status": "IN_PROGRESS",
+            "status": "DONE",
             "target_repo": "content-ko",
             "actions": [
                 "Batch generate audio for A1-01 to A1-20.",

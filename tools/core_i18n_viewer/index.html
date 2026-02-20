@@ -254,24 +254,53 @@
           idx: i,
           surface: t.surface || t.lemma || '',
           lemma: t.lemma || t.surface || '',
-          pos: t.pos || ''
+          pos: t.pos || '',
+          atom_id: t.atom_id || ''
         }));
       }
       const fromMap = state.mapping?.[line.id];
       if (Array.isArray(fromMap) && fromMap.length) {
-        return fromMap.map((lemma, i) => ({ idx: i, surface: lemma, lemma, pos: '' }));
+        return fromMap.map((atomOrLemma, i) => ({ idx: i, surface: atomOrLemma, lemma: atomOrLemma, pos: '', atom_id: atomOrLemma.includes(':') ? atomOrLemma : '' }));
       }
-      return String(line.text || '').split(/\s+/).filter(Boolean).map((w, i) => ({ idx: i, surface: w, lemma: w, pos: '' }));
+      return String(line.text || '').split(/\s+/).filter(Boolean).map((w, i) => ({ idx: i, surface: w, lemma: w, pos: '', atom_id: '' }));
     }
 
     function findCoreEntries(tok) {
       const entries = state.core?.entries || [];
+      if (tok.atom_id) {
+        return entries.filter((e) => e.atom_id === tok.atom_id);
+      }
       return entries.filter((e) => e.lemma === tok.lemma || e.lemma === tok.surface);
     }
 
     function findI18nEntries(tok) {
       const entries = state.i18n?.entries || [];
+      if (tok.atom_id) {
+        return entries.filter((e) => e.atom_id === tok.atom_id);
+      }
       return entries.filter((e) => e.lemma === tok.lemma || e.lemma === tok.surface);
+    }
+
+    function resolveAtomPart(part) {
+      const core = (state.core?.entries || []).find((e) => e.atom_id === part);
+      const i18n = (state.i18n?.entries || []).find((e) => e.atom_id === part);
+      if (core || i18n) {
+        return {
+          atom_id: part,
+          lemma: core?.lemma || i18n?.lemma || part.split(':').pop(),
+          pos: core?.pos || i18n?.pos || '-',
+          freq: core?.freq ?? i18n?.freq ?? '-',
+          translation: i18n?.translation || '(no translation)'
+        };
+      }
+      const parts = part.split(':');
+      return {
+        atom_id: part,
+        lemma: parts[2] || part,
+        pos: (parts[1] || '-').toUpperCase(),
+        freq: '-',
+        translation: '(no translation)'
+      };
     }
 
     function renderDictionary() {
@@ -281,10 +310,21 @@
         return;
       }
       const tok = state.selectedToken;
+      if (tok.atom_id && tok.atom_id.includes('+')) {
+        const cards = tok.atom_id.split('+').filter(Boolean).map((part) => resolveAtomPart(part));
+        root.innerHTML = cards.map((c) => `
+          <div class="entry">
+            <h4>${esc(c.lemma)}</h4>
+            <div class="meta-row">POS: ${esc(c.pos)} | freq: ${c.freq} | <code>${esc(c.atom_id)}</code></div>
+            <div>${esc(c.translation)}</div>
+          </div>
+        `).join('') + `<div class="meta-row">Combined: <code>${esc(tok.atom_id)}</code></div>`;
+        return;
+      }
       const core = findCoreEntries(tok);
       const i18n = findI18nEntries(tok);
       if (!core.length && !i18n.length) {
-        root.innerHTML = `<div class="dict-empty">No dictionary entry for <code>${esc(tok.lemma)}</code></div>`;
+        root.innerHTML = `<div class="dict-empty">No dictionary entry for <code>${esc(tok.atom_id || tok.lemma)}</code></div>`;
         return;
       }
 
@@ -294,7 +334,7 @@
         rows.push(`
           <div class="entry">
             <h4>${esc(c.lemma || tok.surface)}</h4>
-            <div class="meta-row">POS: ${esc(c.pos || t?.pos || '-')} | freq: ${c.freq ?? '-'}</div>
+            <div class="meta-row">POS: ${esc(c.pos || t?.pos || '-')} | freq: ${c.freq ?? '-'} | <code>${esc(c.atom_id || tok.atom_id || '-')}</code></div>
             <div>${esc(t?.translation || '(no translation)')}</div>
           </div>
         `);
@@ -304,7 +344,7 @@
           rows.push(`
             <div class="entry">
               <h4>${esc(t.lemma || tok.surface)}</h4>
-              <div class="meta-row">POS: ${esc(t.pos || '-')} | freq: ${t.freq ?? '-'}</div>
+              <div class="meta-row">POS: ${esc(t.pos || '-')} | freq: ${t.freq ?? '-'} | <code>${esc(t.atom_id || tok.atom_id || '-')}</code></div>
               <div>${esc(t.translation || '(empty)')}</div>
             </div>
           `);

@@ -1,0 +1,156 @@
+{
+  "epic": "ko-atom-translation-and-extraction-hardening",
+  "owner_repo": "release-aggregator",
+  "last_updated": "2026-02-20T16:05:00Z",
+  "objective": "Close zh-TW dictionary translation gaps and audit atom extraction quality from course text before frontend release.",
+  "analysis_snapshot": {
+    "run_id": "20260220_demo",
+    "scope": "A1 sample (200 dialogue lines)",
+    "metrics": {
+      "dialogue_lines": 200,
+      "token_count": 849,
+      "composite_atom_token_count": 536,
+      "unique_atom_parts": 397,
+      "missing_core_atom_parts": 0,
+      "missing_i18n_atom_parts": 0,
+      "placeholder_i18n_atom_parts": 397,
+      "invalid_atom_id_format": 0,
+      "empty_atom_tokens": 0,
+      "bad_token_offsets": 0,
+      "non_punct_uncovered_lines": 2
+    },
+    "known_risks": [
+      "All 397 unique atom parts in A1 sample still use placeholder dictionary translation prefix [zh-TW].",
+      "2 lines include uncovered non-punctuation spans (mixed-script segments like '(Korean Pop)' and 'AC')."
+    ]
+  },
+  "execution_order": [
+    "KO-DICT-FILL-01",
+    "KO-DICT-FILL-02",
+    "KO-ATOM-AUDIT-01",
+    "KO-ATOM-AUDIT-02",
+    "KO-ATOM-AUDIT-03",
+    "KO-GATE-ATOM-01"
+  ],
+  "tasks": [
+    {
+      "id": "KO-DICT-FILL-01",
+      "title": "Generate A1 active atom translation backlog",
+      "status": "TODO",
+      "target_repo": "content-ko",
+      "goal": "Produce deterministic backlog for all placeholder atom translations used by A1 dialogue.",
+      "actions": [
+        "Extract unique atom parts from `staging/frontend_intake/<run_id>/packages/ko/i18n/mapping.json`.",
+        "Join with `content/i18n/zh_tw/dictionary/*.json` and flag entries whose translation still starts with `[zh-TW]`.",
+        "Output backlog CSV/JSON sorted by frequency (high-frequency first)."
+      ],
+      "deliverables": [
+        "runs/<date>/a1_atom_translation_backlog.json",
+        "runs/<date>/a1_atom_translation_backlog.csv"
+      ],
+      "acceptance": [
+        "Backlog size equals placeholder atom part count in snapshot (currently 397) unless run scope changes.",
+        "Each row includes atom_id, lemma, pos, freq, and source lessons."
+      ]
+    },
+    {
+      "id": "KO-DICT-FILL-02",
+      "title": "Fill zh-TW dictionary translations for active A1 atoms",
+      "status": "TODO",
+      "target_repo": "content-ko",
+      "goal": "Replace placeholder translation text with production-ready zh-TW definitions.",
+      "actions": [
+        "Fill `content/i18n/zh_tw/dictionary/*.json` for backlog atoms.",
+        "Prefer concise learner-facing glosses; keep POS consistency with atom_id.",
+        "Re-run handoff and frontend-intake export after fill."
+      ],
+      "deliverables": [
+        "Updated `content/i18n/zh_tw/dictionary/*.json`",
+        "Updated `staging/frontend_intake/<run_id>/packages/ko/i18n/dict_ko_zh_tw.json`"
+      ],
+      "acceptance": [
+        "Placeholder ratio for active A1 atom parts is 0%.",
+        "No atom_id rename/regression introduced during translation updates."
+      ]
+    },
+    {
+      "id": "KO-ATOM-AUDIT-01",
+      "title": "Automate extraction sanity checks for course-derived atoms",
+      "status": "TODO",
+      "target_repo": "content-ko",
+      "goal": "Detect structural extraction errors before data reaches frontend.",
+      "actions": [
+        "Add QA script to validate atom_id format, token offsets, empty atom_id, and core/i18n presence.",
+        "Fail check if missing_core > 0, missing_i18n > 0, invalid_atom_id > 0, or bad_offsets > 0.",
+        "Emit machine-readable report for release gates."
+      ],
+      "deliverables": [
+        "scripts/qa/check_atom_extraction_integrity.py",
+        "runs/<date>/atom_extraction_integrity_report.json"
+      ],
+      "acceptance": [
+        "Script can run against `staging/frontend_intake/<run_id>/packages/ko`.",
+        "Output includes both summary counts and offending samples."
+      ]
+    },
+    {
+      "id": "KO-ATOM-AUDIT-02",
+      "title": "Review uncovered mixed-script spans in dialogue tokenization",
+      "status": "TODO",
+      "target_repo": "content-ko",
+      "goal": "Resolve uncovered non-punctuation spans currently found in 2 lines.",
+      "actions": [
+        "Inspect A1-03 lines with uncovered spans (`(Korean Pop)`, `AC`).",
+        "Decide policy: tokenize as dedicated atoms, normalize text, or allowlisted bypass.",
+        "Implement policy consistently in gold standards or preprocessors."
+      ],
+      "deliverables": [
+        "Policy note in docs/runbook or QA guide",
+        "Updated gold/tokenization data for affected lines"
+      ],
+      "acceptance": [
+        "Uncovered non-punctuation line count becomes 0, or explicit allowlist is documented and gated."
+      ]
+    },
+    {
+      "id": "KO-ATOM-AUDIT-03",
+      "title": "Manual semantic audit for high-frequency composite atoms",
+      "status": "TODO",
+      "target_repo": "content-ko",
+      "goal": "Catch linguistically wrong decomposition not detectable by structural checks.",
+      "actions": [
+        "Sample top 150 high-frequency tokens (prioritize composite atom_id containing '+').",
+        "Validate atom decomposition against sentence meaning and grammar context.",
+        "Record corrections into gold standards and dictionary as needed."
+      ],
+      "deliverables": [
+        "runs/<date>/atom_semantic_audit_sample.jsonl",
+        "runs/<date>/atom_semantic_audit_findings.md"
+      ],
+      "acceptance": [
+        "All sampled findings are either fixed or tracked with explicit rationale.",
+        "Net unresolved semantic mismatch in sampled set is 0 before release."
+      ]
+    },
+    {
+      "id": "KO-GATE-ATOM-01",
+      "title": "Add aggregator release gate for dictionary and atom extraction quality",
+      "status": "TODO",
+      "target_repo": "release-aggregator",
+      "goal": "Block release packaging when atom extraction or dictionary quality regresses.",
+      "actions": [
+        "Run extraction integrity check and placeholder check in release workflow.",
+        "Fail if active-scope placeholder translations > 0.",
+        "Archive run report under `docs/worklogs` or `runs/` with run_id traceability."
+      ],
+      "deliverables": [
+        "Gate command in runbook/checklist",
+        "Quality report artifact linked by run_id"
+      ],
+      "acceptance": [
+        "Release cannot proceed with placeholder atom translations in active scope.",
+        "Gate output is deterministic and reproducible."
+      ]
+    }
+  ]
+}

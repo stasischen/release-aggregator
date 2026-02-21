@@ -26,6 +26,7 @@
     "KO-DICT-01",
     "KO-DICT-02",
     "KO-DICT-03",
+    "KO-DICT-04",
     "KO-GATE-01",
     "KO-E2E-01"
   ],
@@ -349,6 +350,25 @@
         "Every TOPIK3000 base lemma has both teaching POS and UPOS metadata.",
         "Known cross-POS lemmas are explicitly labeled as dual-POS or corrected to a single POS with evidence.",
         "Stage/QA checks fail on missing UPOS or inconsistent POS layer mapping."
+      ]
+    },
+    {
+      "id": "KO-DICT-04",
+      "title": "Inject missing Phrase dictionary meanings",
+      "status": "PENDING",
+      "target_repo": "content-ko",
+      "goal": "Ensure items from mapping_phrase.json have translation definitions generated/injected into the i18n dictionary so they display correctly in the frontend.",
+      "actions": [
+        "Audit mapping_phrase.json for phrases that lack meanings in dict_ko_zh_tw.json (e.g., ko_PHRASE_안녕하세요).",
+        "Update the dictionary build pipeline to pull phrase meanings from translation sources or mapping metadata.",
+        "Generate and verify the updated dict_ko_zh_tw.json."
+      ],
+      "deliverables": [
+        "Updated dictionary builder scripts",
+        "Updated dict_ko_zh_tw.json"
+      ],
+      "acceptance": [
+        "Common phrases like '안녕하세요' display correct translations in the Frontend without hardcoded fallbacks."
       ]
     },
     {

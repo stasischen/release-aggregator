@@ -213,7 +213,7 @@
     {
       "id": "KO-MAP-05-A2",
       "title": "Lock A2 Segmentation Golden Set",
-      "status": "PENDING",
+      "status": "IN_PROGRESS",
       "target_repo": "content-ko",
       "depends_on": [
         "KO-GEMINI-03-A2",

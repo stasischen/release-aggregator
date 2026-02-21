@@ -57,11 +57,11 @@
     {
       "id": "KO-B2-02",
       "title": "[Phase 2] B2 Translation (zh-TW)",
-      "status": "PENDING",
+      "status": "DONE",
       "target_repo": "lllo",
       "goal": "Generate 25 translation CSVs for B2.",
       "actions": [
-        "Generate locales/zh-TW/B2/L01-L25.csv."
+        "Generate locales/zh-TW/B2/L01-L25.csv. (L01-L25 Completed)"
       ]
     },
     {

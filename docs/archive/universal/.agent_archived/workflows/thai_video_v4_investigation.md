@@ -4,7 +4,7 @@
 泰語影片 `th_v1_music_6f5sozKp0R0_fade_jeff.json` 使用舊的 V4 格式（`lines` 陣列），而不是 V5 格式（`nodes/turns` 結構）。
 
 ## 根因
-泰語影片沒有經過完整的 V5 pipeline 處理，直接從 Phase 0 (writer) 複製到 9_production。
+泰語影片沒有經過完整的 V5 pipeline 處理，直接從 Phase 0 (writer) 複製到 production。
 
 ## 正確流程
 
@@ -45,7 +45,7 @@ python -m tools.v5.8_staging.video_builder --src th --target zh-TW --id th_v1_mu
 python -m tools.v5.9_deploy.video_deploy --src th --id th_v1_music_6f5sozKp0R0_fade_jeff
 ```
 
-輸出：`lingostory_universal/content/9_production/packages/th/video/th_v1_music_6f5sozKp0R0_fade_jeff.json` (V5 格式)
+輸出：`lingostory_universal/content/production/packages/th/video/th_v1_music_6f5sozKp0R0_fade_jeff.json` (V5 格式)
 
 ## 臨時解決方案
 已在 `VideoRepository.loadSubtitles()` 中添加 V4 格式向後兼容性，但這只是臨時措施。

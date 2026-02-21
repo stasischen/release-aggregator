@@ -3,7 +3,7 @@ description: Phase 9 SOP: Deployment (Production Release)
 ---
 # Phase 9 SOP: Deployment
 
-**Objective**: Validate, package, and promote staged contents to the live application directory (`9_production`).
+**Objective**: Validate, package, and promote staged contents to the live application directory (`production`).
 
 ## Validations
 - **Phase 8 Complete**: JSON artifacts exist in `8_output`.
@@ -19,10 +19,10 @@ python -m tools.v5.9_deploy.deploy {lang}
 - **Smart Router**: Routes files to `yarn/`, `article/`, `video/` based on filename.
 - **i18n**: Consolidates `Strings_*.json` and `dict_*.json` into `i18n/`.
 - **Manifest**: Generates `manifest.json`.
-- **Sync**: Copies to `lingourmet_universal/assets/content/9_production`.
+- **Sync**: Copies to `lingourmet_universal/assets/content/production`.
 
 ### 2. Validation
-Check structure in `assets/content/9_production/packages/{lang}/`:
+Check structure in `assets/content/production/packages/{lang}/`:
 
 | Folder | Content |
 |:---|:---|

@@ -20,7 +20,7 @@ During the "Stable Branch Cleanup" (2026-02-21), several tests were skipped (`sk
    - `test/core/asset_integrity_test.dart`
    - *Action*: Ensure the test correctly handles environment-based checks (Stable vs. Experimental) so that adding new languages doesn't immediately break the build again.
 3. [ ] **Video Metadata Synchronization**:
-   - `assets/config/video_metadata.json` vs. `9_production` contents.
+   - `assets/config/video_metadata.json` vs. `production` contents.
    - *Action*: Ensure automated build scripts keep this metadata in sync with the physical asset deletion.
 
 ## Root Cause Analysis (RCA) Checklist

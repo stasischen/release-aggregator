@@ -18,7 +18,7 @@ git subtree split --prefix=lingourmet_universal -b split-frontend-v1
 git -C /Users/ywchen/Dev/Lingourmet_universal push git@github.com:stasischen/lingo-frontend-web.git split-frontend-v1:main
 
 # v2 fix for missing production assets
-git add .gitignore lingourmet_universal/assets/content/9_production/packages
+git add .gitignore lingourmet_universal/assets/content/production/packages
 git commit -m "Track frontend production package assets for split"
 git subtree split --prefix=lingourmet_universal -b split-frontend-v2
 git push git@github.com:stasischen/lingo-frontend-web.git split-frontend-v2:main --force-with-lease
@@ -43,7 +43,7 @@ git push git@github.com:stasischen/lingo-frontend-web.git split-frontend-v2:main
 ## Ongoing Operating Rules
 
 1. Content/Pipeline repo(s):
-   - build and validate `assets/content/9_production` artifacts.
+   - build and validate `assets/content/production` artifacts.
 2. Frontend repo (`lingo-frontend-web`):
    - consumes artifacts only.
    - does not run content production pipeline as source-of-truth.
@@ -81,7 +81,7 @@ If rollback is needed:
 ## Notes
 
 - Root cause of early failures:
-  - repo-level ignore rule (`**/content/9_production/`) in monorepo blocked tracking of most production assets.
+  - repo-level ignore rule (`**/content/production/`) in monorepo blocked tracking of most production assets.
 - Fix applied:
-  - explicit unignore for `lingourmet_universal/assets/content/9_production/**` in monorepo `.gitignore`.
+  - explicit unignore for `lingourmet_universal/assets/content/production/**` in monorepo `.gitignore`.
 - Stabilization tasks should be tracked in frontend repo issue/task board.

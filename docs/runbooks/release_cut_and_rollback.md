@@ -19,7 +19,7 @@ Procedures for aggregating build artifacts and preparing production releases.
 
 ### 2. Frontend Intake
 - **Repo**: `lingo-frontend-web`
-- **Action**: Sync the aggregated folder to `assets/content/9_production/`.
+- **Action**: Sync the aggregated folder to `assets/content/production/`.
 
 ### 3. Validation
 - **Command**: `npm run test:content` (in frontend)

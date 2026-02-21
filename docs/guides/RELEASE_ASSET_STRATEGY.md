@@ -6,7 +6,7 @@
 
 為了兼顧用戶體驗的穩定性與開發功能的完整性，Lingo 採行以下資產發佈策略：
 
-### 1. 穩定版 (Stable - `9_production`)
+### 1. 穩定版 (Stable - `production`)
 - **適用環境**：Production App / App Store Releases.
 - **資產範圍**：
   - **僅保留** 完整通過 V5 數據大修、原子化拆解 (Atomic Decomposition)、且獲准發佈的語系。

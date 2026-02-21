@@ -9,7 +9,7 @@ Integrated `lingo-frontend-web` with `release-aggregator` output.
 Established intake workflow for `ko__zh_tw` dialogue content.
 
 ## 2. Changes
-- **Updated `pubspec.yaml`**: Added `assets/content/9_production/packages/ko/dialogue/`.
+- **Updated `pubspec.yaml`**: Added `assets/content/production/packages/ko/dialogue/`.
 - **New Script**: `scripts/sync_content.sh` copies from `release-aggregator/staging`.
 - **Docs**: Updated `docs/operations/content_artifact_intake.md` with mapping table.
 - **Tests**: Updated `test/core/asset_integrity_test.dart` to verify `dialogue` assets.

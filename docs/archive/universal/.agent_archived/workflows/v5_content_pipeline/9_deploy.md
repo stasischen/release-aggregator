@@ -6,7 +6,7 @@ description: Phase 9 Deployment (Production Release). Validation and Deployment 
 
 **Goal**: Deploy verified artifacts (including `Strings.json`) from Phase 8 to the Production environment.
 
-**Context**: This is the final gate. It moves content from Staging (`8_output`) to Production (`9_production`).
+**Context**: This is the final gate. It moves content from Staging (`8_output`) to Production (`production`).
 
 ## Resources
 

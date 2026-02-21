@@ -7,7 +7,7 @@
 - **Description**: Migrate legacy Korean content (Level 0) to the V5 standardized format, including atomic dictionary decomposition and Yarn-format dialogues.
 
 ## Background
-V5 standardization for A1 (Level 1) is complete and deployed. However, legacy content (L0 Travel/Social/etc.) still uses the V4 ID format (`ko_POS_lemma`), which causes dictionary lookup failures in the new V5-compatible frontend. To maintain app integrity, these have been temporarily un-shipped from the 9_production build.
+V5 standardization for A1 (Level 1) is complete and deployed. However, legacy content (L0 Travel/Social/etc.) still uses the V4 ID format (`ko_POS_lemma`), which causes dictionary lookup failures in the new V5-compatible frontend. To maintain app integrity, these have been temporarily un-shipped from the production build.
 
 ## Objectives
 1. [ ] **Content Restructuring**: Split legacy L0 dialogues into `core` and `i18n` (zh_tw) components.
@@ -25,4 +25,4 @@ V5 standardization for A1 (Level 1) is complete and deployed. However, legacy co
 ## Next Steps
 1. Run `content-ko/scripts/ops/restructure_content.py` adapted for L0.
 2. Trigger Stage-02 (Tokenization) and Stage-03 (Atom Mapping) for L0 lessons.
-3. Verify via `lllo` viewer before promoting to `9_production`.
+3. Verify via `lllo` viewer before promoting to `production`.

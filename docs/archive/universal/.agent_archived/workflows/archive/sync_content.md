@@ -6,8 +6,8 @@ This workflow defines how to sync finalized V4 content to the Flutter app.
 ## 🚀 1. 同步流程 (Sync Steps)
 
 ### A. 自動化指令 (Automated Commands)
-執行預定義的腳本將 `9_production` 內容同步至 App 的 assets 目錄。
-Run the predefined script to sync `9_production` content to the App's assets directory.
+執行預定義的腳本將 `production` 內容同步至 App 的 assets 目錄。
+Run the predefined script to sync `production` content to the App's assets directory.
 
 ```bash
 # Sync all finalized content
@@ -15,8 +15,8 @@ python3 tools/v4/v4_sync.py
 ```
 
 ### B. 常見路徑 (Common Paths)
-- **Source (9_production)**: `lingostory_universal/content/9_production/`
-- **Destination (App Assets)**: `lingourmet_universal/assets/content/9_production/`
+- **Source (production)**: `lingostory_universal/content/production/`
+- **Destination (App Assets)**: `lingourmet_universal/assets/content/production/`
 
 ## 🛠️ 2. 維護與更新 (Maintenance)
 

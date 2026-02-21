@@ -197,13 +197,13 @@ python scripts/ops/audit_reconstruction.py
 | 項目 / Item | 說明 / Description |
 |---|---|
 | **一句話 / TL;DR** | Flutter Web 應用程式，負責接收發佈的資產並呈現給使用者 |
-| **包含什麼 / Contains** | Flutter 程式碼、已匯入的 production 資產 (`assets/content/9_production/`)、前端測試 |
+| **包含什麼 / Contains** | Flutter 程式碼、已匯入的 production 資產 (`assets/content/production/`)、前端測試 |
 | **不包含什麼 / Does NOT contain** | 內容產生邏輯、建置 Pipeline |
-| **關鍵目錄 / Key Dirs** | `assets/content/9_production/packages/` — 各語言的正式資產<br/>`.agent/skills/` — Agent 的 Flutter 開發技能包 |
+| **關鍵目錄 / Key Dirs** | `assets/content/production/packages/` — 各語言的正式資產<br/>`.agent/skills/` — Agent 的 Flutter 開發技能包 |
 
 #### 🧑 人類管理要點 / Human Management
 
-- **資產更新**：當 `release-aggregator` 有新版本時，需要將資產同步到 `assets/content/9_production/`。
+- **資產更新**：當 `release-aggregator` 有新版本時，需要將資產同步到 `assets/content/production/`。
 - **Flutter Skills**：前端 Agent 有專用的 Skills 文件（`.agent/skills/flutter-coding-standards/` 等），這些是給 Agent 的「開發規範手冊」。
 
 #### 🤖 Agent 溝通要點 / Agent Communication

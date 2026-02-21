@@ -1,7 +1,7 @@
 {
   "epic": "ko-b2-c1-optimization",
   "owner_repo": "lllo",
-  "last_updated": "2026-02-21T23:10:00Z",
+  "last_updated": "2026-02-21 23:45",
   "plan_file": "release-aggregator/docs/tasks/KO_B2_C1_OPTIMIZATION_PLAN.md",
   "objective": "Optimize B2/C1 Korean content: Characters, Tone, Translation, and Grammar.",
   "execution_order": [
@@ -35,7 +35,7 @@
     {
       "id": "KO-B2C1-02",
       "title": "[Phase 1] Task Index Update",
-      "status": "IN_PROGRESS",
+      "status": "DONE",
       "target_repo": "release-aggregator",
       "goal": "Visible task tracking in control tower.",
       "actions": [
@@ -45,14 +45,15 @@
     {
       "id": "KO-B2-01",
       "title": "[Phase 2] B2 Tone & Character Check",
-      "status": "PENDING",
+      "status": "IN_PROGRESS",
       "target_repo": "lllo",
       "goal": "Verify Management Phase tone (Formal).",
       "actions": [
-        "Batch audit L01-L25 dialogue.yarn in B2.",
+        "Batch audit L01-L25 dialogue.yarn in B2. (L01-L15 Completed)",
         "Ensure consistency with Manager Kim & Director Lee personas."
       ]
     },
+
     {
       "id": "KO-B2-02",
       "title": "[Phase 2] B2 Translation (zh-TW)",

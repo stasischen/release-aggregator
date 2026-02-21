@@ -42,6 +42,7 @@ Phase C: 前端整合（lingo-frontend-web）
 | CROSS_LANG_REVIEW_LOCK | 跨語系 review/lock 流程（多機協作 + 規則分離） | A2/B1 | 1/7 tasks | [JSON](CROSS_LANG_REVIEW_LOCK_TASKS.json) · [PLAN](CROSS_LANG_REVIEW_LOCK_PIPELINE_PLAN.md) |
 | TTS_GENERATION | 高品質 Edge-TTS 語音生成 | Phase B | 3/5 tasks | [JSON](TTS_GENERATION_TASKS.json) |
 | CONTENT_V5_MIGRATION_L0 | Legacy L0 Content V5 Standardization | A2 | 0/X tasks | [PLAN](CONTENT_V5_MIGRATION_L0.md) |
+| STABLE_TEST_RCA | Root Cause Analysis for Skipped Stable Tests | QA | 0/3 tasks | [PLAN](STABLE_TEST_ROOT_CAUSE_ANALYSIS.md) |
 | KO_ATOM_TRANSLATION_EXTRACTION | A1 atom 翻譯補齊 + 從課文抽取 atom 品質稽核 | A2/B1 | 4/6 tasks | [JSON](KO_ATOM_TRANSLATION_AND_EXTRACTION_TASKS.json) |
 
 ### Phase C — 前端整合（可立即啟動）

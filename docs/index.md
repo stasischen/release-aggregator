@@ -3,8 +3,9 @@
 Welcome to the central documentation hub for the Lingo multi-repo system.
 
 ## 📋 Recent Worklogs
+
 | Date | File |
-|---|---|
+| --- | --- |
 | 2026-02-15 | [2026-02-15.md](worklogs/2026-02-15.md) |
 | 2026-02-13 | [2026-02-13.md](worklogs/2026-02-13.md) |
 
@@ -21,6 +22,7 @@ Welcome to the central documentation hub for the Lingo multi-repo system.
 > 任務完成或新增時，必須同步更新此索引。
 
 ## Navigation
+
 - [Repository Map](repo_map.md) - Overview of all repositories and their roles.
 - [Owners and Responsibilities](owners.md) - Role ownership and handoff boundaries.
 - [Workflow Map](workflow_map.md) - Standard operating procedures for content and code.
@@ -41,6 +43,7 @@ Welcome to the central documentation hub for the Lingo multi-repo system.
 - [Daily Worklog Template](worklogs/_template.md) - Template for `YYYY-MM-DD.md` daily logs.
 
 ## Guides (使用者文件 / User-Facing Docs)
+
 - [V5 Automation Architecture](guides/V5_AUTOMATION_ARCHITECTURE.md) - V5 自動化架構。
 - [Reversible Decomposition](guides/REVERSIBLE_DECOMPOSITION.md) - 原子化與還原策略。
 - [Content vs Pipeline Separation](guides/CONTENT_PIPELINE_SEPARATION.md) - 職責分離計畫。
@@ -49,7 +52,12 @@ Welcome to the central documentation hub for the Lingo multi-repo system.
 - [System Asset Strategy](guides/RELEASE_ASSET_STRATEGY.md) - 資產追蹤與發佈模式。
 - [Repo Responsibilities](guides/REPO_RESPONSIBILITIES.md) - 倉庫職責總覽。
 
+## 🇰🇷 Korean Specific Standards
+- [KO Data Standardization SOP](../../content-ko/docs/SOPs/KO_DATA_STANDARDIZATION_PROTOCOL.md) - V5 韓文原子化標籤協議。
+- [KO Review Expert Guidance](../../content-ko/docs/prompts/KO_REVIEW_EXPERT_GUIDANCE.md) - 韓文數據審理專家指南與提示詞。
+
 ## Repositories
+
 - **[core-schema](../../core-schema)**: Source of truth for data contracts.
 - **[content-ko](../../content-ko)**: Korean content source and ingestion layer.
 - **[content-pipeline](../../content-pipeline)**: Build logic and validation gates.

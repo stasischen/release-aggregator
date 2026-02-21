@@ -1,0 +1,36 @@
+{
+    "epic": "dialogue-ui-redesign",
+    "owner_repo": "lingo-frontend-web",
+    "last_updated": "2026-02-21T22:14:00+08:00",
+    "objective": "Redesign the dialogue/event screen UI to improve comprehension, pronunciation cue visibility, and overall learner UX.",
+    "status": "SCOPING",
+    "notes": [
+        "此 Task 目前處於 SCOPING 階段，尚未定義細部設計方案。",
+        "需要先和 User 討論「對話介面應有哪些改動」，再定義執行計畫。",
+        "已知問題之一：Phrase chunk 顯示（供 TTS 發音）與字典釋義區的空白 meaning 之間的衝突，需要UI層面的解決方案。"
+    ],
+    "known_issues": [
+        {
+            "id": "DUI-ISSUE-01",
+            "description": "Phrase 片語（如 '안녕하세요'）在辭典 Overlay 頂部會顯示空 meaning 欄位，因為 dict_ko_zh_tw.json 中沒有對應的 Phrase 釋義。目前片語的 chunk 仍需顯示以支援 TTS 發音，不可移除。",
+            "workaround": "等待 KO-DICT-04 完成後，空 meaning 問題可自動解決。",
+            "related_task": "KO-DICT-04"
+        }
+    ],
+    "tasks": [
+        {
+            "id": "DUI-00",
+            "title": "Scoping Discussion — 定義對話介面改版範圍",
+            "status": "PENDING",
+            "goal": "與使用者討論並列出需要改動的 UI 項目清單，再拆分為具體子任務。",
+            "discussion_topics": [
+                "角色識別：每條對話需要有明確的角色頭像/名稱顯示？",
+                "字幕/翻譯：句子翻譯應如何顯示（inline/togglable/全隱藏）？",
+                "片語發音按鈕：Phrase chunk 的 TTS 按鈕位置與視覺設計。",
+                "辭典 Overlay 定位：Overlay 的出現方式、大小、關閉方式。",
+                "字型、字體大小、行距等排版參數。",
+                "深色/淺色主題支援。"
+            ]
+        }
+    ]
+}

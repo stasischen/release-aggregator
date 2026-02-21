@@ -64,7 +64,7 @@ def release(pipeline_dist, output_dir, core_schema_dir, source_repo, source_comm
         dirs.sort()
         files.sort()
         for file in files:
-            if not file.endswith(".json"):
+            if not (file.endswith(".json") or file.endswith(".ogg") or file.endswith(".mp3")):
                 continue
             
             src_path = Path(root) / file
@@ -82,7 +82,7 @@ def release(pipeline_dist, output_dir, core_schema_dir, source_repo, source_comm
             
             # Add to Manifest
             # ID is filename stem for now
-            pkg_id = file.replace(".json", "") 
+            pkg_id = src_path.stem
             
             package_entry = {
                 "id": pkg_id,

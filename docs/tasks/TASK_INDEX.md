@@ -51,7 +51,7 @@ Phase C: 前端整合（lingo-frontend-web）
 | Task ID | 描述 | Phase | 進度 | 檔案 |
 | :--- | :--- | :--- | :--- | :--- |
 | FRONTEND_VIEWER_INTEGRATION | Viewer 功能整合：預錄音檔 + 句子高亮 + Grammar Notes | C1 | 11/11 tasks | [JSON](FRONTEND_VIEWER_INTEGRATION_TASKS.json) · [PLAN](FRONTEND_VIEWER_INTEGRATION_PLAN.md) |
-| DIALOGUE_UI_REDESIGN | 對話介面 UI 改版：角色識別、字幕、片語 TTS、辭典 Overlay 等 | C2 | 0/X tasks (Scoping) | [JSON](DIALOGUE_UI_REDESIGN_TASKS.json) |
+| DIALOGUE_UI_REDESIGN | Zen Study 介面改版：居中對焦、翻譯開關、垂直字典 | C2 | 1/5 tasks (DUI-01) | [JSON](DIALOGUE_UI_REDESIGN_TASKS.json) |
 
 ### Future / Automation (未來優化)
 

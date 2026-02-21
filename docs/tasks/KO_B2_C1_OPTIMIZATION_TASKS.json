@@ -1,0 +1,119 @@
+{
+  "epic": "ko-b2-c1-optimization",
+  "owner_repo": "lllo",
+  "last_updated": "2026-02-21T23:10:00Z",
+  "plan_file": "release-aggregator/docs/tasks/KO_B2_C1_OPTIMIZATION_PLAN.md",
+  "objective": "Optimize B2/C1 Korean content: Characters, Tone, Translation, and Grammar.",
+  "execution_order": [
+    "KO-B2C1-01",
+    "KO-B2C1-02",
+    "KO-B2-01",
+    "KO-B2-02",
+    "KO-B2-03",
+    "KO-C1-01",
+    "KO-C1-02",
+    "KO-C1-03",
+    "KO-INGEST-01"
+  ],
+  "tasks": [
+    {
+      "id": "KO-B2C1-01",
+      "title": "[Phase 1] Infrastructure & Specs",
+      "status": "DONE",
+      "target_repo": "lllo",
+      "goal": "Establish persona and tracking foundation.",
+      "actions": [
+        "Update persona_governance.md with C1 Critics persona.",
+        "Create task tracking JSON and Plan MD."
+      ],
+      "deliverables": [
+        "Updated persona_governance.md",
+        "KO_B2_C1_OPTIMIZATION_PLAN.md",
+        "KO_B2_C1_OPTIMIZATION_TASKS.json"
+      ]
+    },
+    {
+      "id": "KO-B2C1-02",
+      "title": "[Phase 1] Task Index Update",
+      "status": "IN_PROGRESS",
+      "target_repo": "release-aggregator",
+      "goal": "Visible task tracking in control tower.",
+      "actions": [
+        "Update TASK_INDEX.md with new task entry."
+      ]
+    },
+    {
+      "id": "KO-B2-01",
+      "title": "[Phase 2] B2 Tone & Character Check",
+      "status": "PENDING",
+      "target_repo": "lllo",
+      "goal": "Verify Management Phase tone (Formal).",
+      "actions": [
+        "Batch audit L01-L25 dialogue.yarn in B2.",
+        "Ensure consistency with Manager Kim & Director Lee personas."
+      ]
+    },
+    {
+      "id": "KO-B2-02",
+      "title": "[Phase 2] B2 Translation (zh-TW)",
+      "status": "PENDING",
+      "target_repo": "lllo",
+      "goal": "Generate 25 translation CSVs for B2.",
+      "actions": [
+        "Generate locales/zh-TW/B2/L01-L25.csv."
+      ]
+    },
+    {
+      "id": "KO-B2-03",
+      "title": "[Phase 2] B2 Grammar Guides",
+      "status": "PENDING",
+      "target_repo": "lllo",
+      "goal": "Generate 25 grammar MDs for B2.",
+      "actions": [
+        "Generate locales/zh-TW/B2/L01-L25.md linked to modules."
+      ]
+    },
+    {
+      "id": "KO-C1-01",
+      "title": "[Phase 3] C1 Character Overhaul",
+      "status": "PENDING",
+      "target_repo": "lllo",
+      "goal": "Replace A1 characters with C1 Critics.",
+      "actions": [
+        "Replace Minsu/Jisu with Professor Park/Critic Choi in C1 L01-L25.",
+        "Adjust dialogue content to match sophisticated tone."
+      ]
+    },
+    {
+      "id": "KO-C1-02",
+      "title": "[Phase 3] C1 Translation (zh-TW)",
+      "status": "PENDING",
+      "target_repo": "lllo",
+      "goal": "Generate 25 translation CSVs for C1.",
+      "actions": [
+        "Generate locales/zh-TW/C1/L01-L25.csv."
+      ]
+    },
+    {
+      "id": "KO-C1-03",
+      "title": "[Phase 3] C1 Grammar Guides",
+      "status": "PENDING",
+      "target_repo": "lllo",
+      "goal": "Generate 25 grammar MDs for C1.",
+      "actions": [
+        "Generate locales/zh-TW/C1/L01-L25.md."
+      ]
+    },
+    {
+      "id": "KO-INGEST-01",
+      "title": "[Phase 4] V5 Pipeline Ingestion",
+      "status": "PENDING",
+      "target_repo": "content-ko",
+      "goal": "Integrate optimized content into core pipeline.",
+      "actions": [
+        "Sync LLLO data to content-ko/data/raw_yarn.",
+        "Run mapping pipeline and establish golden standards."
+      ]
+    }
+  ]
+}

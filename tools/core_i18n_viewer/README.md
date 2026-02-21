@@ -11,9 +11,8 @@ This viewer reads frontend intake artifacts in `core+i18n` shape.
 ## Sync data from frontend intake
 
 ```bash
-python3 /Users/ywchen/Dev/lingo/release-aggregator/scripts/viewer/sync_core_i18n_viewer_data.py \
-  --run-id 20260220_demo \
-  --lang ko
+# From repository root
+python scripts/viewer/sync_core_i18n_viewer_data.py --run-id latest --lang ko
 ```
 
 Use `--run-id latest` to auto-pick the latest run folder.
@@ -23,8 +22,8 @@ Use `--run-id latest` to auto-pick the latest run folder.
 Serve this directory with any static server and open `index.html`.
 
 ```bash
-cd /Users/ywchen/Dev/lingo/release-aggregator/tools/core_i18n_viewer
-python3 -m http.server 8080
+# From tools/core_i18n_viewer/
+python -m http.server 8080
 ```
 
 ## Interactions

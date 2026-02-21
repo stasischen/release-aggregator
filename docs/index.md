@@ -56,6 +56,11 @@ Welcome to the central documentation hub for the Lingo multi-repo system.
 - [KO Data Standardization SOP](../../content-ko/docs/SOPs/KO_DATA_STANDARDIZATION_PROTOCOL.md) - V5 韓文原子化標籤協議。
 - [KO Review Expert Guidance](../../content-ko/docs/prompts/KO_REVIEW_EXPERT_GUIDANCE.md) - 韓文數據審理專家指南與提示詞。
 
+## 🛠️ Internal Tools / Viewers
+
+- **[KO Content Dev Viewer](../../content-ko/scripts/tools/dict_viewer/index.html)** - Korean atomic data development viewer (for `content-ko` devs).
+- **[Release Artifact Viewer](../tools/core_i18n_viewer/index.html)** - Core + I18N package validator (for `aggregator` release checks).
+
 ## Repositories
 
 - **[core-schema](../../core-schema)**: Source of truth for data contracts.

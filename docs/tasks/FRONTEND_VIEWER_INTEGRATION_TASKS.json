@@ -2,7 +2,7 @@
     "epic": "frontend-viewer-integration",
     "parent_epic": "lingo-architecture-v5",
     "owner_repo": "release-aggregator",
-    "last_updated": "2026-02-21T00:45:00+08:00",
+    "last_updated": "2026-02-21T13:00:00+08:00",
     "objective": "Integrate Aggregator core_i18n_viewer features (pre-recorded audio, sentence-level highlight, grammar notes) into lingo-frontend-web stable branch.",
     "design_doc": "release-aggregator/docs/tasks/FRONTEND_VIEWER_INTEGRATION_PLAN.md",
     "execution_order": [
@@ -287,7 +287,7 @@
         {
             "id": "FVI-10",
             "title": "建立 AssetResolver / Unified Asset Path Resolver",
-            "status": "BACKLOG",
+            "status": "DONE",
             "target_repo": "lingo-frontend-web",
             "priority": "⚪ Phase 3",
             "prerequisite": "Phase 1 + Phase 2 validated",
@@ -297,7 +297,7 @@
         {
             "id": "FVI-11",
             "title": "按需下載機制 / On-demand Asset Download",
-            "status": "BACKLOG",
+            "status": "DONE",
             "target_repo": "lingo-frontend-web",
             "priority": "⚪ Phase 3",
             "prerequisite": "FVI-10",

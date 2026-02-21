@@ -47,7 +47,7 @@ Phase C: 前端整合（lingo-frontend-web）
 
 | Task ID | 描述 | Phase | 進度 | 檔案 |
 | :--- | :--- | :--- | :--- | :--- |
-| FRONTEND_VIEWER_INTEGRATION | Viewer 功能整合：預錄音檔 + 句子高亮 + Grammar Notes | C1 | 9/11 tasks | [JSON](FRONTEND_VIEWER_INTEGRATION_TASKS.json) · [PLAN](FRONTEND_VIEWER_INTEGRATION_PLAN.md) |
+| FRONTEND_VIEWER_INTEGRATION | Viewer 功能整合：預錄音檔 + 句子高亮 + Grammar Notes | C1 | 11/11 tasks | [JSON](FRONTEND_VIEWER_INTEGRATION_TASKS.json) · [PLAN](FRONTEND_VIEWER_INTEGRATION_PLAN.md) |
 
 ### Future / Automation (未來優化)
 

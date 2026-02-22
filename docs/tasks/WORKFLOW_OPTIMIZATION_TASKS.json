@@ -25,25 +25,34 @@
         },
         {
             "id": "OPT-02",
-            "title": "減少跨 Repo 關聯操作摩擦",
-            "status": "PENDING",
-            "target_repo": "release-aggregator",
-            "goal": "建立 unified ingestion script (e.g., make ingest-ko)。",
-            "actions": [
-                "整合 git pull lllo 與 content-ko mapping pipeline 的觸發流程。",
-                "完善 CONTENT_PIPELINE_SEPARATION 中引擎與建置的分離。"
-            ]
+            "title": "Ingestion 自動化 (Unified Ingest Script)",
+            "status": "DONE",
+            "owner": "Agent",
+            "description": "建立 `scripts/ingest_ko.py` 整合 git pull, sync 與 mapping pipeline。",
+            "subtasks": [
+                {
+                    "task": "git pull lllo",
+                    "status": "DONE"
+                },
+                {
+                    "task": "sync content-ko",
+                    "status": "DONE"
+                },
+                {
+                    "task": "trigger pipeline",
+                    "status": "DONE"
+                }
+            ],
+            "priority": "HIGH"
         },
         {
             "id": "OPT-03",
-            "title": "字典品質守門員左移 (Pre-validation)",
-            "status": "PENDING",
-            "target_repo": "content-ko",
-            "goal": "在提交前攔截缺失翻譯與格式錯誤。",
-            "actions": [
-                "整合 check_atom_extraction_integrity.py 至 CI 或 pre-commit。",
-                "實作掃描 [zh-TW] placeholder 的守門工具。"
-            ]
+            "title": "字典品質守門員左移 (Pre-validation Gates)",
+            "status": "DONE",
+            "owner": "Agent",
+            "description": "在 ingestion 前自動檢查 `[zh-TW]` 預留位置與 Atom 完整度。",
+            "subtasks": [],
+            "priority": "MEDIUM"
         },
         {
             "id": "OPT-04",

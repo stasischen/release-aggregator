@@ -107,12 +107,18 @@
     {
       "id": "KO-INGEST-01",
       "title": "[Phase 4] V5 Pipeline Ingestion",
-      "status": "PENDING",
+      "status": "IN_PROGRESS",
       "target_repo": "content-ko",
       "goal": "Integrate optimized content into core pipeline.",
       "actions": [
-        "Sync LLLO data to content-ko/data/raw_yarn.",
-        "Run mapping pipeline and establish golden standards."
+        "Sync LLLO data to content-ko/data/raw_yarn. (Completed)",
+        "Run mapping pipeline and establish staging baselines. (Completed)",
+        "Wave-1 (B1) Audit: (Pending)",
+        "Wave-2 (B2) Audit: (Pending)",
+        "Wave-3 (C1) Audit: C1-01 to C1-10 Complete (2026-02-22)"
+      ],
+      "deliverables": [
+        "content/gold_standards/dialogue/C1/C1-01~10.jsonl"
       ]
     }
   ]

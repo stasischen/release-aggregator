@@ -93,7 +93,7 @@
         "Ingest A2 content from LLLO repo (L01-25).",
         "Generate full minimal review inputs for A2 lessons.",
         "Execute V5 Surgeon (Agent Review) to establish golden baseline.",
-        "Fix irregulars/honorifics according to V5 Protocol."
+        "Fix irregulars/honorifics according to V5 Protocol (Batch 1: A2-21 to A2-25 COMPLETED)."
       ],
       "deliverables": [
         "content/gold_standards/dialogue/A2/*.jsonl",
@@ -107,7 +107,7 @@
     {
       "id": "KO-GEMINI-03-A1-V5-REV",
       "title": "A1 Gold Standard Secondary Review (V5 Protocol)",
-      "status": "IN_PROGRESS",
+      "status": "DONE",
       "target_repo": "content-ko",
       "repo_plan_id": "CKO-GR-KO-GEMINI-03-A1-V5",
       "actions": [

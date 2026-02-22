@@ -2,6 +2,13 @@
 
 Welcome to the central documentation hub for the Lingo multi-repo system.
 
+## ✅ Current Human Handbook (Latest)
+
+- [Human Handbook Start Here](human-handbook/00_START_HERE.md) - Current source-of-truth entrypoint for humans.
+- [End-to-End Stages (Current)](human-handbook/01_E2E_STAGES.md) - Stage definitions from content generation to deployment.
+- [Tool Catalog (Current)](human-handbook/02_TOOL_CATALOG.md) - Tools currently used in active flow.
+- [Stage Checklists](human-handbook/03_STAGE_CHECKLISTS.md) - Gate checklist before moving to next stage.
+
 ## 📋 Recent Worklogs
 
 | Date | File |
@@ -42,15 +49,19 @@ Welcome to the central documentation hub for the Lingo multi-repo system.
 - [Universal Archive Index](archive/universal/INDEX.md) - Archived monorepo document index.
 - [Daily Worklog Template](worklogs/_template.md) - Template for `YYYY-MM-DD.md` daily logs.
 
-## Guides (使用者文件 / User-Facing Docs)
+## Guides (Active References)
 
-- [V5 Automation Architecture](guides/V5_AUTOMATION_ARCHITECTURE.md) - V5 自動化架構。
 - [Reversible Decomposition](guides/REVERSIBLE_DECOMPOSITION.md) - 原子化與還原策略。
-- [Content vs Pipeline Separation](guides/CONTENT_PIPELINE_SEPARATION.md) - 職責分離計畫。
 - [Content Creation SOP](guides/CONTENT_CREATION_SOP.md) - 課程編寫與品質規範。
 - [Data Model Contracts](guides/DATA_MODEL_CONTRACTS.md) - 跨 Repo 資料結構定義。
 - [System Asset Strategy](guides/RELEASE_ASSET_STRATEGY.md) - 資產追蹤與發佈模式。
 - [Repo Responsibilities](guides/REPO_RESPONSIBILITIES.md) - 倉庫職責總覽。
+
+## Guides (Legacy / Archived)
+
+- [V5 Automation Architecture (Archived pointer)](guides/V5_AUTOMATION_ARCHITECTURE.md)
+- [Content vs Pipeline Separation (Archived pointer)](guides/CONTENT_PIPELINE_SEPARATION.md)
+- [Legacy Archive Root](archive/legacy/README.md)
 
 ## 🇰🇷 Korean Specific Standards
 - [KO Data Standardization SOP](../../content-ko/docs/SOPs/KO_DATA_STANDARDIZATION_PROTOCOL.md) - V5 韓文原子化標籤協議。

@@ -7,6 +7,7 @@ Use this protocol only when `release-aggregator` is touched.
 1. Run release/manifest generation command if logic changed.
 2. Verify manifest path and provenance fields.
 3. Confirm docs links and task-board status updates if documentation changed.
+4. Run `python scripts/sync_task_index.py` to ensure all task progress is reflected in the index.
 
 ## Required Report Fields
 - `repo`: release-aggregator

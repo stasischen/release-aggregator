@@ -2,6 +2,9 @@
 
 Standard operational flow for the Lingo Content Ecosystem.
 
+Current human-readable source of truth:
+- `docs/human-handbook/00_START_HERE.md`
+
 ```mermaid
 graph TD
     A["Phase 0/1: Writer Source (lllo)"] -->|handoff to content-ko| B[Phase 0/1 Ingestion]

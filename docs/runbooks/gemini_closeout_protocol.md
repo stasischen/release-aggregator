@@ -30,6 +30,11 @@ git push origin main
 ### Step 1.5: GSD State Sync (only for `gsd_phase`)
 - 每個 touched repo 必須確認 `STATE.md` 已更新且納入 commit。
 - 若 task 狀態改變（active -> completed / blocked），同步更新 aggregator 的任務檔與 `TASK_INDEX.md`。
+- **[MANDATORY] 執行任務索引同步**：
+  ```bash
+  # // turbo
+  python release-aggregator/scripts/sync_task_index.py
+  ```
 - 若本次只完成部分 phase，需在 `STATE.md` 明確記錄尚未完成的 Task IDs。
 - 若為 `release-aggregator` session，必須檢查 `docs/tasks/TASK_INDEX.md` 是否需要同步更新（active/completed 變更）。
 

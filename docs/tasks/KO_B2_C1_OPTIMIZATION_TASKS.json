@@ -1,7 +1,7 @@
 {
   "epic": "ko-b2-c1-optimization",
   "owner_repo": "lllo",
-  "last_updated": "2026-02-21T23:10:00Z",
+  "last_updated": "2026-02-22 10:55",
   "plan_file": "release-aggregator/docs/tasks/KO_B2_C1_OPTIMIZATION_PLAN.md",
   "objective": "Optimize B2/C1 Korean content: Characters, Tone, Translation, and Grammar.",
   "execution_order": [
@@ -35,7 +35,7 @@
     {
       "id": "KO-B2C1-02",
       "title": "[Phase 1] Task Index Update",
-      "status": "IN_PROGRESS",
+      "status": "DONE",
       "target_repo": "release-aggregator",
       "goal": "Visible task tracking in control tower.",
       "actions": [
@@ -45,40 +45,40 @@
     {
       "id": "KO-B2-01",
       "title": "[Phase 2] B2 Tone & Character Check",
-      "status": "PENDING",
+      "status": "DONE",
       "target_repo": "lllo",
       "goal": "Verify Management Phase tone (Formal).",
       "actions": [
-        "Batch audit L01-L25 dialogue.yarn in B2.",
+        "Batch audit L01-L25 dialogue.yarn in B2. (L01-L25 Completed)",
         "Ensure consistency with Manager Kim & Director Lee personas."
       ]
     },
     {
       "id": "KO-B2-02",
       "title": "[Phase 2] B2 Translation (zh-TW)",
-      "status": "PENDING",
+      "status": "DONE",
       "target_repo": "lllo",
       "goal": "Generate 25 translation CSVs for B2.",
       "actions": [
-        "Generate locales/zh-TW/B2/L01-L25.csv."
+        "Generate locales/zh-TW/B2/L01-L25.csv. (L01-L25 Completed)"
       ]
     },
     {
       "id": "KO-B2-03",
       "title": "[Phase 2] B2 Grammar Guides",
-      "status": "PENDING",
+      "status": "DONE",
       "target_repo": "lllo",
       "goal": "Generate 25 grammar MDs for B2.",
       "actions": [
-        "Generate locales/zh-TW/B2/L01-L25.md linked to modules."
+        "Generate locales/zh-TW/B2/L01-L25.md linked to modules. (L01-L25 Completed)"
       ]
     },
     {
       "id": "KO-C1-01",
       "title": "[Phase 3] C1 Character Overhaul",
-      "status": "PENDING",
+      "status": "IN_PROGRESS",
       "target_repo": "lllo",
-      "goal": "Replace A1 characters with C1 Critics.",
+      "goal": "Replace A1 characters with C1 Critics. (15/25 Completed)",
       "actions": [
         "Replace Minsu/Jisu with Professor Park/Critic Choi in C1 L01-L25.",
         "Adjust dialogue content to match sophisticated tone."
@@ -87,9 +87,9 @@
     {
       "id": "KO-C1-02",
       "title": "[Phase 3] C1 Translation (zh-TW)",
-      "status": "PENDING",
+      "status": "IN_PROGRESS",
       "target_repo": "lllo",
-      "goal": "Generate 25 translation CSVs for C1.",
+      "goal": "Generate 25 translation CSVs for C1. (15/25 Completed)",
       "actions": [
         "Generate locales/zh-TW/C1/L01-L25.csv."
       ]
@@ -97,9 +97,9 @@
     {
       "id": "KO-C1-03",
       "title": "[Phase 3] C1 Grammar Guides",
-      "status": "PENDING",
+      "status": "IN_PROGRESS",
       "target_repo": "lllo",
-      "goal": "Generate 25 grammar MDs for C1.",
+      "goal": "Generate 25 grammar MDs for C1. (15/25 Completed)",
       "actions": [
         "Generate locales/zh-TW/C1/L01-L25.md."
       ]

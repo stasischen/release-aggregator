@@ -76,9 +76,9 @@
     {
       "id": "KO-C1-01",
       "title": "[Phase 3] C1 Character Overhaul",
-      "status": "PENDING",
+      "status": "IN_PROGRESS",
       "target_repo": "lllo",
-      "goal": "Replace A1 characters with C1 Critics.",
+      "goal": "Replace A1 characters with C1 Critics. (15/25 Completed)",
       "actions": [
         "Replace Minsu/Jisu with Professor Park/Critic Choi in C1 L01-L25.",
         "Adjust dialogue content to match sophisticated tone."
@@ -87,9 +87,9 @@
     {
       "id": "KO-C1-02",
       "title": "[Phase 3] C1 Translation (zh-TW)",
-      "status": "PENDING",
+      "status": "IN_PROGRESS",
       "target_repo": "lllo",
-      "goal": "Generate 25 translation CSVs for C1.",
+      "goal": "Generate 25 translation CSVs for C1. (15/25 Completed)",
       "actions": [
         "Generate locales/zh-TW/C1/L01-L25.csv."
       ]
@@ -97,9 +97,9 @@
     {
       "id": "KO-C1-03",
       "title": "[Phase 3] C1 Grammar Guides",
-      "status": "PENDING",
+      "status": "IN_PROGRESS",
       "target_repo": "lllo",
-      "goal": "Generate 25 grammar MDs for C1.",
+      "goal": "Generate 25 grammar MDs for C1. (15/25 Completed)",
       "actions": [
         "Generate locales/zh-TW/C1/L01-L25.md."
       ]

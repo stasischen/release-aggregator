@@ -50,15 +50,12 @@ Phase C: 前端整合（lingo-frontend-web）
 
 | Task ID | 描述 | Phase | 進度 | 檔案 |
 | :--- | :--- | :--- | :--- | :--- |
-| FRONTEND_VIEWER_INTEGRATION | Viewer 功能整合：預錄音檔 + 句子高亮 + Grammar Notes | C1 | 11/11 tasks | [JSON](FRONTEND_VIEWER_INTEGRATION_TASKS.json) · [PLAN](FRONTEND_VIEWER_INTEGRATION_PLAN.md) |
 | DIALOGUE_UI_REDESIGN | Zen Study 介面改版：居中對焦、翻譯開關、垂直字典 | C2 | 4/5 tasks | [JSON](DIALOGUE_UI_REDESIGN_TASKS.json) |
 
 ### Future / Automation (未來優化)
 
 | Task ID | 描述 | Phase | 進度 | 檔案 |
 | :--- | :--- | :--- | :--- | :--- |
-| FUTURE_BACKLOG | 自動化與長期優化提案 | Future | 1/1 tasks | [JSON](FUTURE_BACKLOG_TASKS.json) |
-| WORKFLOW_OPTIMIZATION | 優化 Lingo 工作流程，減少手動維護負擔與跨 Repo 操作摩擦 | Future | 4/4 tasks | [JSON](WORKFLOW_OPTIMIZATION_TASKS.json) |
 
 ### Phase B/C — 待 Phase A 完成後啟動
 
@@ -74,6 +71,9 @@ Phase C: 前端整合（lingo-frontend-web）
 | :--- | :--- | :--- | :--- |
 | VIEWER_ENHANCEMENT | Viewer 辭典彈出 + 舊課程顯示 | 2026-02-15 | [ARCHIVE](archive/20260215_VIEWER_ENHANCEMENT_TASKS.json) |
 | KO_RESOLUTION_100PCT | 韓語 Token 解析 100% | 2026-02-15 | [ARCHIVE](archive/20260215_KO_RESOLUTION_100PCT_TASKS.json) |
+| FRONTEND_VIEWER_INTEGRATION | Viewer 整合 (音檔/高亮/文法) | 2026-02-22 | [ARCHIVE](archive/20260222_FRONTEND_VIEWER_INTEGRATION_TASKS.json) |
+| WORKFLOW_OPTIMIZATION | 工作流優化 (Ingest/Quality Gate/Index) | 2026-02-22 | [ARCHIVE](archive/20260222_WORKFLOW_OPTIMIZATION_TASKS.json) |
+| FUTURE_BACKLOG | 自動化與優化提案 | 2026-02-22 | [ARCHIVE](archive/20260222_FUTURE_BACKLOG_TASKS.json) |
 
 ---
 

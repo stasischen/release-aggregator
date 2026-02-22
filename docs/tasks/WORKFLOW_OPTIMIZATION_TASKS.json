@@ -1,0 +1,60 @@
+{
+    "epic": "workflow-optimization",
+    "owner_repo": "release-aggregator",
+    "last_updated": "2026-02-22T11:25:00Z",
+    "objective": "優化 Lingo 工作流程，減少手動維護負擔與跨 Repo 操作摩擦。",
+    "plan_file": "docs/tasks/WORKFLOW_OPTIMIZATION_PLAN.md",
+    "execution_order": [
+        "OPT-01",
+        "OPT-02",
+        "OPT-03",
+        "OPT-04"
+    ],
+    "tasks": [
+        {
+            "id": "OPT-01",
+            "title": "任務追蹤自動化 (AUTO-TASK-01)",
+            "status": "DONE",
+            "target_repo": "release-aggregator",
+            "goal": "建立 sync_task_index.py 自動同步 JSON 任務與 TASK_INDEX.md。",
+            "actions": [
+                "實作 scripts/sync_task_index.py 遍歷 JSON 並計算進度。",
+                "使用 Regex 更新 TASK_INDEX.md 的進度與狀態。",
+                "整合至 /wrap 收工協議中強制執行。"
+            ]
+        },
+        {
+            "id": "OPT-02",
+            "title": "減少跨 Repo 關聯操作摩擦",
+            "status": "PENDING",
+            "target_repo": "release-aggregator",
+            "goal": "建立 unified ingestion script (e.g., make ingest-ko)。",
+            "actions": [
+                "整合 git pull lllo 與 content-ko mapping pipeline 的觸發流程。",
+                "完善 CONTENT_PIPELINE_SEPARATION 中引擎與建置的分離。"
+            ]
+        },
+        {
+            "id": "OPT-03",
+            "title": "字典品質守門員左移 (Pre-validation)",
+            "status": "PENDING",
+            "target_repo": "content-ko",
+            "goal": "在提交前攔截缺失翻譯與格式錯誤。",
+            "actions": [
+                "整合 check_atom_extraction_integrity.py 至 CI 或 pre-commit。",
+                "實作掃描 [zh-TW] placeholder 的守門工具。"
+            ]
+        },
+        {
+            "id": "OPT-04",
+            "title": "Prompt / Context 優化",
+            "status": "PENDING",
+            "target_repo": "release-aggregator",
+            "goal": "收斂 runbook 通道，讓 Agent 更快掌握當前脈絡。",
+            "actions": [
+                "優化 docs/index.md 的引導架構。",
+                "評估精簡 runbook 的必要性。"
+            ]
+        }
+    ]
+}

@@ -7,10 +7,10 @@
     {
       "id": "AUTO-TASK-01",
       "title": "Automated progress sync (JSON to INDEX)",
-      "status": "BACKLOG",
+      "status": "IN_PROGRESS",
       "target_repo": "release-aggregator",
-      "goal": "Write a script that parses all *_TASKS.json files and automatically updates the Progress and Status columns in TASK_INDEX.md.",
-      "note": "This avoids manual '3/8 tasks' updates and ensures the index is always accurate."
+      "goal": "建立 sync_task_index.py 自動同步 JSON 任務與 TASK_INDEX.md。",
+      "note": "已納入 WORKFLOW_OPTIMIZATION 任務進行實作。"
     }
   ]
 }

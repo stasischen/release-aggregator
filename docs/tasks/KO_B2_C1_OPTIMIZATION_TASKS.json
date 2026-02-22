@@ -67,11 +67,11 @@
     {
       "id": "KO-B2-03",
       "title": "[Phase 2] B2 Grammar Guides",
-      "status": "PENDING",
+      "status": "IN_PROGRESS",
       "target_repo": "lllo",
       "goal": "Generate 25 grammar MDs for B2.",
       "actions": [
-        "Generate locales/zh-TW/B2/L01-L25.md linked to modules."
+        "Generate locales/zh-TW/B2/L01-L25.md linked to modules. (L01-L10 Completed)"
       ]
     },
     {

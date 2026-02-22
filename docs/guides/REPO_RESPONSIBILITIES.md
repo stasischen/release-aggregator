@@ -156,7 +156,7 @@ python scripts/ops/audit_reconstruction.py
 #### 🤖 Agent 溝通要點 / Agent Communication
 
 - ✅ 適合讓 Agent 設計 Pipeline 架構或撰寫建置腳本。
-- ⚠️ 由於此 Repo 較新，Agent 可能需要較多上下文。建議先指向 [V5_AUTOMATION_ARCHITECTURE.md](V5_AUTOMATION_ARCHITECTURE.md) 讓 Agent 讀取後再操作。
+- ⚠️ 由於此 Repo 較新，Agent 可能需要較多上下文。建議先指向 `docs/human-handbook/00_START_HERE.md` 與 `docs/human-handbook/01_E2E_STAGES.md`。
 
 ---
 
@@ -302,7 +302,7 @@ graph TD
 | 你想要… / You want to… | 去哪裡 / Go to… |
 |---|---|
 | 找任何文件的入口 | `release-aggregator/docs/index.md` |
-| 看系統架構如何運作 | `release-aggregator/docs/guides/V5_AUTOMATION_ARCHITECTURE.md` |
+| 看系統架構如何運作 | `release-aggregator/docs/human-handbook/01_E2E_STAGES.md` |
 | 看各 Repo 的職責 | `release-aggregator/docs/guides/REPO_RESPONSIBILITIES.md`（本文件） |
 | 看工作日誌 | `release-aggregator/docs/worklogs/` |
 | 看操作手冊（給 Agent） | `release-aggregator/docs/runbooks/` |

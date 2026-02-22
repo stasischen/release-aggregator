@@ -22,7 +22,7 @@ def get_task_status(json_path):
     if not tasks:
         return None
     
-    done_count = sum(1 for t in tasks if t.get("status") == "DONE")
+    done_count = sum(1 for t in tasks if t.get("status") in ["DONE", "COMPLETED"])
     total_count = len(tasks)
     
     return f"{done_count}/{total_count} tasks"

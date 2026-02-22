@@ -38,12 +38,12 @@ Phase C: 前端整合（lingo-frontend-web）
 | Task ID | 描述 | Phase | 進度 | 檔案 |
 | :--- | :--- | :--- | :--- | :--- |
 | MAPPING_DICTIONARY | 字典映射標準化 + 品質驗證（含雙層詞性落地） | A2 | 8/15 tasks | [JSON](MAPPING_DICTIONARY_TASKS.json) · [PLAN](KO_DICT_01_PLAN.md) |
-| KO_GEMINI_REVIEW | KO 全量 Gemini 人工審核（mapping + TOPIK POS，含 i18n/base 詞性人工複核） | A2 | 4/8 tasks | [JSON](KO_GEMINI_REVIEW_TASKS.json) |
+| KO_GEMINI_REVIEW | KO 全量 Gemini 人工審核（mapping + TOPIK POS，含 i18n/base 詞性人工複核） | A2 | 5/8 tasks | [JSON](KO_GEMINI_REVIEW_TASKS.json) |
 | CROSS_LANG_REVIEW_LOCK | 跨語系 review/lock 流程（多機協作 + 規則分離） | A2/B1 | 0/7 tasks | [JSON](CROSS_LANG_REVIEW_LOCK_TASKS.json) · [PLAN](CROSS_LANG_REVIEW_LOCK_PIPELINE_PLAN.md) |
 | TTS_GENERATION | 高品質 Edge-TTS 語音生成 | Phase B | 3/5 tasks | [JSON](TTS_GENERATION_TASKS.json) |
 | CONTENT_V5_MIGRATION_L0 | Legacy L0 Content V5 Standardization | A2 | 0/X tasks | [PLAN](CONTENT_V5_MIGRATION_L0.md) |
 | STABLE_TEST_RCA | Root Cause Analysis for Skipped Stable Tests | QA | 0/3 tasks | [PLAN](STABLE_TEST_ROOT_CAUSE_ANALYSIS.md) |
-| KO_ATOM_TRANSLATION_EXTRACTION | A1 atom 翻譯補齊 + 從課文抽取 atom 品質稽核 | A2/B1 | 0/6 tasks | [JSON](KO_ATOM_TRANSLATION_AND_EXTRACTION_TASKS.json) |
+| KO_ATOM_TRANSLATION_EXTRACTION | A1 atom 翻譯補齊 + 從課文抽取 atom 品質稽核 | A2/B1 | 4/6 tasks | [JSON](KO_ATOM_TRANSLATION_AND_EXTRACTION_TASKS.json) |
 | KO_B2_C1_OPTIMIZATION | B2/C1 課程優化：角色大修、商務/評論語氣、翻譯與文法補全 | B2/C1 | 5/9 tasks | [JSON](KO_B2_C1_OPTIMIZATION_TASKS.json) · [PLAN](KO_B2_C1_OPTIMIZATION_PLAN.md) |
 
 ### Phase C — 前端整合（可立即啟動）
@@ -51,14 +51,13 @@ Phase C: 前端整合（lingo-frontend-web）
 | Task ID | 描述 | Phase | 進度 | 檔案 |
 | :--- | :--- | :--- | :--- | :--- |
 | FRONTEND_VIEWER_INTEGRATION | Viewer 功能整合：預錄音檔 + 句子高亮 + Grammar Notes | C1 | 11/11 tasks | [JSON](FRONTEND_VIEWER_INTEGRATION_TASKS.json) · [PLAN](FRONTEND_VIEWER_INTEGRATION_PLAN.md) |
-| DIALOGUE_UI_REDESIGN | Zen Study 介面改版：居中對焦、翻譯開關、垂直字典 | C2 | 0/5 tasks | [JSON](DIALOGUE_UI_REDESIGN_TASKS.json) |
+| DIALOGUE_UI_REDESIGN | Zen Study 介面改版：居中對焦、翻譯開關、垂直字典 | C2 | 4/5 tasks | [JSON](DIALOGUE_UI_REDESIGN_TASKS.json) |
 
 ### Future / Automation (未來優化)
 
 | Task ID | 描述 | Phase | 進度 | 檔案 |
 | :--- | :--- | :--- | :--- | :--- |
 | FUTURE_BACKLOG | 自動化與長期優化提案 | Future | 0/1 tasks | [JSON](FUTURE_BACKLOG_TASKS.json) |
-| WORKFLOW_OPTIMIZATION | 工作流程自動化與優化：進度自動同步、跨 Repo 整合 | QA/Infra | 1/4 tasks | [JSON](WORKFLOW_OPTIMIZATION_TASKS.json) · [PLAN](WORKFLOW_OPTIMIZATION_PLAN.md) |
 
 ### Phase B/C — 待 Phase A 完成後啟動
 

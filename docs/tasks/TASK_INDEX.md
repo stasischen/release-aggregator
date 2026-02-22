@@ -44,7 +44,7 @@ Phase C: 前端整合（lingo-frontend-web）
 | CONTENT_V5_MIGRATION_L0 | Legacy L0 Content V5 Standardization | A2 | 0/X tasks | [PLAN](CONTENT_V5_MIGRATION_L0.md) |
 | STABLE_TEST_RCA | Root Cause Analysis for Skipped Stable Tests | QA | 0/3 tasks | [PLAN](STABLE_TEST_ROOT_CAUSE_ANALYSIS.md) |
 | KO_ATOM_TRANSLATION_EXTRACTION | A1 atom 翻譯補齊 + 從課文抽取 atom 品質稽核 | A2/B1 | 4/6 tasks | [JSON](KO_ATOM_TRANSLATION_AND_EXTRACTION_TASKS.json) |
-| KO_B2_C1_OPTIMIZATION | B2/C1 課程優化：角色大修、商務/評論語氣、翻譯與文法補全 | B2/C1 | 5/9 tasks (KO-B2-03: L01-L15 Completed) | [JSON](KO_B2_C1_OPTIMIZATION_TASKS.json) · [PLAN](KO_B2_C1_OPTIMIZATION_PLAN.md) |
+| KO_B2_C1_OPTIMIZATION | B2/C1 課程優化：角色大修、商務/評論語氣、翻譯與文法補全 | B2/C1 | 6/9 tasks (KO-B2-03: L01-L25 Completed) | [JSON](KO_B2_C1_OPTIMIZATION_TASKS.json) · [PLAN](KO_B2_C1_OPTIMIZATION_PLAN.md) |
 
 ### Phase C — 前端整合（可立即啟動）
 

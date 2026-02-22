@@ -1,7 +1,7 @@
 {
   "epic": "ko-b2-c1-optimization",
   "owner_repo": "lllo",
-  "last_updated": "2026-02-22 00:30",
+  "last_updated": "2026-02-22 10:30",
   "plan_file": "release-aggregator/docs/tasks/KO_B2_C1_OPTIMIZATION_PLAN.md",
   "objective": "Optimize B2/C1 Korean content: Characters, Tone, Translation, and Grammar.",
   "execution_order": [
@@ -71,7 +71,7 @@
       "target_repo": "lllo",
       "goal": "Generate 25 grammar MDs for B2.",
       "actions": [
-        "Generate locales/zh-TW/B2/L01-L25.md linked to modules. (L01-L10 Completed)"
+        "Generate locales/zh-TW/B2/L01-L25.md linked to modules. (L01-L15 Completed)"
       ]
     },
     {

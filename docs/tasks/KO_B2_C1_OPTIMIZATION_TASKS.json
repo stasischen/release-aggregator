@@ -1,7 +1,11 @@
 {
   "epic": "ko-b2-c1-optimization",
   "owner_repo": "lllo",
+<<<<<<< Updated upstream
   "last_updated": "2026-02-22 11:20",
+=======
+  "last_updated": "2026-02-22 12:15",
+>>>>>>> Stashed changes
   "plan_file": "release-aggregator/docs/tasks/KO_B2_C1_OPTIMIZATION_PLAN.md",
   "objective": "Optimize B2/C1 Korean content: Characters, Tone, Translation, and Grammar.",
   "execution_order": [

@@ -127,19 +127,19 @@
     {
       "id": "KO-GEMINI-03-B1",
       "title": "Establish KO Golden B1 (L01-20) POS/Segmentation Baseline",
-      "status": "PENDING",
+      "status": "IN_PROGRESS",
       "target_repo": "content-ko",
       "repo_plan_id": "CKO-GR-KO-GEMINI-03-B1",
       "actions": [
         "Generate full minimal review inputs for B1 lessons.",
-        "Run chunked Gemini review for B1.",
+        "Run chunked Gemini review for B1 (L01-L15 COMPLETED).",
         "Create 'golden' reference files for B1 segmentation."
       ],
       "deliverables": [
-        "tests/golden/B1_segmentation_golden.json"
+        "content/gold_standards/dialogue/B1/*.jsonl"
       ],
       "acceptance": [
-        "100% of B1 tokens verified."
+        "100% of B1 tokens verified (15/20 verified)."
       ]
     },
     {

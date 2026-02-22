@@ -25,31 +25,32 @@ Welcome to the central documentation hub for the Lingo multi-repo system.
 👉 **[TASK_INDEX.md](tasks/TASK_INDEX.md)** — 所有任務的全景索引（Active / Completed 分開顯示）
 
 > [!IMPORTANT]
-> Agent 開工時讀取 `TASK_INDEX.md` 即可掌握全局，不需要逐一讀 JSON 檔。
-> 任務完成或新增時，必須同步更新此索引。
+> Agent 開工時讀取 `TASK_INDEX.md` 即可掌握全局。
 
-## Navigation
+## 🚀 Agent Entry Point (Agent 開工必讀)
 
-- [Repository Map](repo_map.md) - Overview of all repositories and their roles.
-- [Owners and Responsibilities](owners.md) - Role ownership and handoff boundaries.
-- [Workflow Map](workflow_map.md) - Standard operating procedures for content and code.
-- [Runbooks](runbooks/README.md) - Step-by-step guides for common tasks.
-- [Zellij Control Tower Setup](runbooks/zellij_control_tower_setup.md) - Multi-repo terminal layout and launcher.
-- [Agent Reference Order](runbooks/agent_reference_order.md) - Mandatory document order for agents.
-- [Gemini Startup Protocol](runbooks/gemini_startup_protocol.md) - Ask objective first, then load relevant protocols.
-- [Worklog and Directory Governance](ops/worklog_and_directory_governance.md) - Where daily logs and WIP records live.
-- [Korean Stage Contract Matrix](ops/stage_contract_matrix_ko.md) - Gate and artifact contract for KO stages.
-- [Stage Handoff JSON Schema](ops/handoff_stage.schema.json) - Required machine-readable handoff format.
-- [Korean Tokenization Profile](ops/language_profiles/ko_tokenization_profile.md) - KO-specific parsing and restoration policy.
-- [Gemini Stage Execution Protocol](runbooks/gemini_stage_execution_protocol.md) - One-stage execution protocol.
-- [GSD Multi-Repo Workflow](runbooks/gsd_multi_repo_workflow.md) - Aggregator orchestration with per-repo execution phases.
-- [Codex <-> Antigravity Orchestration](runbooks/codex_antigravity_orchestration.md) - Packetized planning/execution/report loop across machines.
-- [Gemini Closeout Protocol](runbooks/gemini_closeout_protocol.md) - End-of-session protocol dispatcher.
-- [Universal Archive Migration Runbook](runbooks/universal_archive_migration.md) - Move monorepo docs into control-tower archive.
-- [Universal Archive Index](archive/universal/INDEX.md) - Archived monorepo document index.
-- [Daily Worklog Template](worklogs/_template.md) - Template for `YYYY-MM-DD.md` daily logs.
+1. **[/start](../../.agent/workflows/start.md)** - 入口指令 shim。
+2. **[Agent Reference Order](runbooks/agent_reference_order.md)** - 文件的參考順序規範。
+3. **[Gemini Startup Protocol](runbooks/gemini_startup_protocol.md)** - 開工協議 (Step-by-step)。
+4. **[TASK_INDEX.md](tasks/TASK_INDEX.md)** - 領取任務。
 
-## Guides (Active References)
+## 📑 SOPs & Protocols (標準協議)
+
+- **[GSD Multi-Repo Workflow](runbooks/gsd_multi_repo_workflow.md)** - 跨倉庫編排的工作流。
+- **[Gemini Stage Execution Protocol](runbooks/gemini_stage_execution_protocol.md)** - 單階段執行協議。
+- **[Gemini Closeout Protocol](runbooks/gemini_closeout_protocol.md)** - 收工協議 (/wrap) 主體與分配器。
+- **[Codex <-> Antigravity Orchestration](runbooks/codex_antigravity_orchestration.md)** - 跨機協作與計畫包封協議。
+- **[Korean Stage Contract Matrix](ops/stage_contract_matrix_ko.md)** - 韓文階段產出規範。
+
+## 🛠️ Operational Runbooks (技術手冊)
+
+- **[Runbooks Overview](runbooks/README.md)** - 手冊目錄總覽。
+- **[Zellij Setup](runbooks/zellij_control_tower_setup.md)** - 多倉庫終端環境佈置。
+- **[LLLO Ingestion Bootstrap](runbooks/lllo_ingestion_bootstrap.md)** - 韓文內容導入引導。
+- **[Universal Archive Migration](runbooks/universal_archive_migration.md)** - 舊文件遷移至 Control Tower。
+- **[Worklog Governance](ops/worklog_and_directory_governance.md)** - 日誌檔案命名與存放規範。
+
+## 📘 Guides & Reference (參考指南)
 
 - [Reversible Decomposition](guides/REVERSIBLE_DECOMPOSITION.md) - 原子化與還原策略。
 - [Content Creation SOP](guides/CONTENT_CREATION_SOP.md) - 課程編寫與品質規範。

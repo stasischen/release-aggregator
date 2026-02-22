@@ -57,8 +57,8 @@ Phase C: 前端整合（lingo-frontend-web）
 
 | Task ID | 描述 | Phase | 進度 | 檔案 |
 | :--- | :--- | :--- | :--- | :--- |
-| FUTURE_BACKLOG | 自動化與長期優化提案 | Future | 0/1 tasks | [JSON](FUTURE_BACKLOG_TASKS.json) |
-| WORKFLOW_OPTIMIZATION | 優化 Lingo 工作流程，減少手動維護負擔與跨 Repo 操作摩擦 | Future | 3/4 tasks | [JSON](WORKFLOW_OPTIMIZATION_TASKS.json) |
+| FUTURE_BACKLOG | 自動化與長期優化提案 | Future | 1/1 tasks | [JSON](FUTURE_BACKLOG_TASKS.json) |
+| WORKFLOW_OPTIMIZATION | 優化 Lingo 工作流程，減少手動維護負擔與跨 Repo 操作摩擦 | Future | 4/4 tasks | [JSON](WORKFLOW_OPTIMIZATION_TASKS.json) |
 
 ### Phase B/C — 待 Phase A 完成後啟動
 

@@ -57,12 +57,12 @@
         {
             "id": "OPT-04",
             "title": "Prompt / Context 優化",
-            "status": "PENDING",
+            "status": "DONE",
             "target_repo": "release-aggregator",
             "goal": "收斂 runbook 通道，讓 Agent 更快掌握當前脈絡。",
             "actions": [
                 "優化 docs/index.md 的引導架構。",
-                "評估精簡 runbook 的必要性。"
+                "評估精簡 runbook 的必要性（已評估，保持分離以維護 Context 隔離）。"
             ]
         }
     ]

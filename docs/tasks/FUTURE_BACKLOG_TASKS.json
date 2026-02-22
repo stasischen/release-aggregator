@@ -7,10 +7,10 @@
     {
       "id": "AUTO-TASK-01",
       "title": "Automated progress sync (JSON to INDEX)",
-      "status": "IN_PROGRESS",
+      "status": "DONE",
       "target_repo": "release-aggregator",
       "goal": "建立 sync_task_index.py 自動同步 JSON 任務與 TASK_INDEX.md。",
-      "note": "已納入 WORKFLOW_OPTIMIZATION 任務進行實作。"
+      "note": "已納入 WORKFLOW_OPTIMIZATION 任務進行實作 (OPT-01)。"
     }
   ]
 }

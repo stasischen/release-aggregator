@@ -1,7 +1,7 @@
 {
     "epic": "dialogue-ui-redesign",
     "owner_repo": "lingo-frontend-web",
-    "last_updated": "2026-02-21T23:35:00+08:00",
+    "last_updated": "2026-02-22T11:05:00+08:00",
     "objective": "Implement the 'Zen Study' UI: A minimalist, center-focused dialogue interface with vertical dictionary breakdowns and progressive translation reveal.",
     "status": "ACTIVE",
     "notes": [
@@ -12,7 +12,7 @@
         {
             "id": "DUI-01",
             "title": "Create ZenEventDialogueBox component",
-            "status": "IN_PROGRESS",
+            "status": "COMPLETED",
             "goal": "Build a new center-focused dialogue UI without the bottom black box."
         },
         {
@@ -24,19 +24,19 @@
         {
             "id": "DUI-03",
             "title": "Implement Progressive Reveal for translations",
-            "status": "PENDING",
+            "status": "COMPLETED",
             "goal": "Hide translations by default, only show when toggled via Top Bar."
         },
         {
             "id": "DUI-04",
             "title": "Update Dictionary to Vertical Breakdown",
-            "status": "PENDING",
+            "status": "COMPLETED",
             "goal": "Change horizontal component list to a vertical deep-dive list for phrases."
         },
         {
             "id": "DUI-05",
             "title": "Zen Mode Integration",
-            "status": "PENDING",
+            "status": "COMPLETED",
             "goal": "Switch StandardDialogueAdapter to use ZenEventDialogueBox."
         }
     ]

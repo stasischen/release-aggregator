@@ -20,11 +20,33 @@ Use this as the one-page run checklist for S1-S6.
 ## S2 分詞與映射
 
 1. `cd ../content-ko`
-2. Run generation / 執行產生：`python3 scripts/import_lllo_raw.py`
-3. Run audit / 執行稽核：`python3 scripts/audit_tokens.py`
-4. Confirm / 驗收：
-   - token/mapping artifacts exist under `content/source/ko/**`
-   - audit report has no blocking errors
+2. Review preflight (required docs) / 審查前置簽核（必讀文件）：
+   - `python3 scripts/review/00_review_preflight.py list`
+   - `python3 scripts/review/00_review_preflight.py ack --lesson <LESSON> --reviewer <id> --confirm-phrase I_READ_REQUIRED_KO_REVIEW_DOCS`
+3. Build review draft + surgery file / 產生 review 草稿與 surgery 檔：
+   - `python3 scripts/review/orchestrator.py draft --lesson <LESSON>`
+4. Run auto-remediation + lint / 執行自動修補與 lint：
+   - `python3 scripts/ops/remediate_gold.py --level <LEVEL> --glob '<LEVEL>-*.jsonl'`
+   - `python3 scripts/ops/lint_gold.py --level <LEVEL> --glob '<LEVEL>-*.jsonl'`
+5. Manual surgery full-pass review / 人工 surgery 全量審查：
+   - edit `data/reviews/runs/<LESSON>/surgery_<LESSON>.json`
+   - review every row at least once (high-risk first is OK, but must complete full sweep)
+   - script/lint reports are triage aids only and do NOT count as full-pass
+6. Apply surgery / 套用 surgery：
+   - `python3 scripts/review/orchestrator.py apply --lesson <LESSON>`
+7. Run unified QA gate / 執行統一 QA gate：
+   - `python3 scripts/ops/qa_gate.py --lesson <LESSON> --level <LEVEL> --glob '<LEVEL>-*.jsonl'`
+8. Build staged dictionary candidate / 建置 staged 字典候選產物：
+   - `python3 scripts/ops/build_dictionary.py --stage-name <candidate_name>`
+9. Review staged candidate + approve marker / 審查候選產物並放置核准標記：
+   - create `content/staging/dictionary_candidates/<candidate_name>/REVIEW_APPROVED`
+10. Promote to production dictionary/mapping / promotion 到正式 dictionary/mapping：
+   - `python3 scripts/ops/promote_dictionary_candidate.py --stage-dir content/staging/dictionary_candidates/<candidate_name> --yes`
+11. Confirm / 驗收：
+   - reviewed gold exists and passes QA gate
+   - manual surgery full-pass was completed (not script-only)
+   - staged candidate was reviewed before promotion
+   - production `content/core/dictionary/**` and `content/i18n/zh_tw/mapping.json` are updated intentionally
 
 ## S3 Build + Validate (`content-pipeline`)
 ## S3 建置與驗證

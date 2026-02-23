@@ -310,6 +310,7 @@ Purpose:
 Requirements before promotion:
 - QA gate passed
 - Candidate review passed
+- Candidate review should use the `content-ko` checklist (`docs/SOPs/KO_DICT_CANDIDATE_REVIEW_CHECKLIST.md`)
 - Approval marker exists: `REVIEW_APPROVED` (in stage root)
 - QA gate 通過
 - 候選產物審查通過

@@ -49,6 +49,59 @@ Notes:
 - `scripts/review/orchestrator.py draft/apply` 若 preflight ack 缺失或過期會直接失敗。
 - 任一必讀文件變更後，舊 ack 會失效，需重新 ack。
 
+## How To Ask An Agent (Natural Language) / 如何用自然語言要求 Agent 執行 S2 審查
+
+Use natural language, but include these fields clearly:
+- lesson scope (which lesson(s))
+- stop stage (run until where)
+- review mode (must keep manual surgery **full-pass**)
+- whether production promotion is allowed
+
+建議用自然語言，但請清楚包含這些欄位：
+- 課程範圍（哪些課）
+- 停止階段（做到哪一步）
+- 審查模式（必須保留 manual surgery **full-pass**）
+- 是否允許 promotion 到 production
+
+### Scope Expressions (Recommended) / 範圍表達（建議）
+
+- Single lesson / 單課：`B2-05`
+- Multiple lessons / 多課：`B2-05, B2-06, B2-08`
+- Range (same level) / 區間（同級）：`B2-05 到 B2-08` / `B2-05~B2-08`
+- Whole level / 整級：`B2 全部`
+- Mixed list / 混合清單：`A2-01, A2-03, B1-02`
+
+### Stop Stage Keywords (Recommended) / 停止階段關鍵字（建議）
+
+- `只做 preflight + draft`
+- `做到 surgery full-pass + apply`
+- `做到 qa gate`
+- `做到 dictionary candidate（不要 promotion）`
+- `做到 promotion`
+
+### Important Constraints To State / 建議明講的限制
+
+- `surgery 要 full-pass，不是只看 residual`
+- `先 engine-first remediation/lint，再人工 surgery`
+- `未經我確認不要 promotion`
+- `qa gate 沒過不要往下`
+
+### Example Requests (Good) / 良好範例
+
+1. `請跑 B2-05 的審查流程，做到 qa gate。surgery 要 full-pass，先 remediation/lint，再人工 review。不要 promotion。`
+2. `幫我跑 B2-05 到 B2-08 的 review pipeline，逐課 preflight，surgery 全量審查，做到 dictionary candidate stage 即可。`
+3. `請處理 A2-01、A2-03、B1-02，先做 draft + remediation/lint，人工 full-pass surgery 後 apply，再回報哪些課卡在 qa gate。`
+4. `把 B2 全部課程跑到 qa gate；如果發現新規律切錯，先回流引擎/override，不要只在 surgery 重複手改。`
+
+### Example Requests (Ambiguous; Avoid) / 容易誤解的說法（避免）
+
+- `幫我看一下 B2`
+- `把 review 跑完`
+- `把有問題的修一修`
+
+These are ambiguous because they do not specify scope, stop stage, or whether promotion is allowed.
+這些說法會造成歧義，因為沒有指定範圍、停止階段、以及是否允許 promotion。
+
 ### B. Draft + Surgery Workspace / 初版草稿與 Surgery 工作檔
 
 Purpose:
@@ -128,11 +181,21 @@ cd ../content-ko
 python3 scripts/review/orchestrator.py apply --lesson B2-05
 ```
 
+After manual full-pass is complete, write the full-pass attestation (required for QA gate pass by default):
+
+```bash
+cd ../content-ko
+python3 scripts/review/surgery_full_pass_attest.py write \
+  --lesson B2-05 \
+  --reviewer <human_or_agent_id> \
+  --confirm-phrase I_COMPLETED_FULL_PASS_MANUAL_SURGERY
+```
+
 ### E. QA Gate (Unified Gate Check) / QA Gate（統一通行證）
 
 Purpose:
-- Enforce preflight ack, remediation/lint report freshness, and blocker rules before dictionary steps.
-- 在進入字典步驟前，強制檢查 preflight ack、報告新鮮度與 blocker 規則。
+- Enforce preflight ack, surgery full-pass attestation, remediation/lint report freshness, and blocker rules before dictionary steps.
+- 在進入字典步驟前，強制檢查 preflight ack、surgery 全量簽核、報告新鮮度與 blocker 規則。
 
 ```bash
 cd ../content-ko

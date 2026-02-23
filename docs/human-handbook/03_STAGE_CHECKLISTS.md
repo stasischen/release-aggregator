@@ -34,17 +34,20 @@ Use this as the one-page run checklist for S1-S6.
    - script/lint reports are triage aids only and do NOT count as full-pass
 6. Apply surgery / 套用 surgery：
    - `python3 scripts/review/orchestrator.py apply --lesson <LESSON>`
-7. Run unified QA gate / 執行統一 QA gate：
+7. Write surgery full-pass attestation / 寫入 surgery 全量審查簽核：
+   - `python3 scripts/review/surgery_full_pass_attest.py write --lesson <LESSON> --reviewer <id> --confirm-phrase I_COMPLETED_FULL_PASS_MANUAL_SURGERY`
+8. Run unified QA gate / 執行統一 QA gate：
    - `python3 scripts/ops/qa_gate.py --lesson <LESSON> --level <LEVEL> --glob '<LEVEL>-*.jsonl'`
-8. Build staged dictionary candidate / 建置 staged 字典候選產物：
+9. Build staged dictionary candidate / 建置 staged 字典候選產物：
    - `python3 scripts/ops/build_dictionary.py --stage-name <candidate_name>`
-9. Review staged candidate + approve marker / 審查候選產物並放置核准標記：
+10. Review staged candidate + approve marker / 審查候選產物並放置核准標記：
    - create `content/staging/dictionary_candidates/<candidate_name>/REVIEW_APPROVED`
-10. Promote to production dictionary/mapping / promotion 到正式 dictionary/mapping：
+11. Promote to production dictionary/mapping / promotion 到正式 dictionary/mapping：
    - `python3 scripts/ops/promote_dictionary_candidate.py --stage-dir content/staging/dictionary_candidates/<candidate_name> --yes`
-11. Confirm / 驗收：
+12. Confirm / 驗收：
    - reviewed gold exists and passes QA gate
    - manual surgery full-pass was completed (not script-only)
+   - full-pass attestation exists and matches current surgery file
    - staged candidate was reviewed before promotion
    - production `content/core/dictionary/**` and `content/i18n/zh_tw/mapping.json` are updated intentionally
 

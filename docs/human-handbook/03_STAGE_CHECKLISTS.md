@@ -10,6 +10,8 @@ Use this as the one-page run checklist for S1-S6.
 1. `cd ../content-ko`
 2. Run dry-run / 執行預演：`python3 scripts/import_lllo_raw.py --dry-run`
 3. Review report / 檢查報告：`content/staging/reports/missing_mapping_candidates.json`
+   - Do not treat this as final segmentation/POS truth or final app `mapping.json` input
+   - 不可視為最終切分/POS真值或 app 正式 `mapping.json` 輸入
 4. Run write mode / 執行寫入：`python3 scripts/import_lllo_raw.py`
 5. Run audit / 執行稽核：`python3 scripts/audit_tokens.py`
 6. Confirm / 驗收：
@@ -18,6 +20,11 @@ Use this as the one-page run checklist for S1-S6.
 
 ## S2 Segmentation + Mapping (`content-ko`)
 ## S2 分詞與映射
+
+Inventory-only status audit variant (no file changes):
+- Use the fixed inventory schema in `docs/human-handbook/stages/S2_segmentation_mapping.md`
+- Split runs coverage into separate counts (run dirs / lesson_gold / surgery / preflight_ack / full_pass_attest)
+- Do not infer new-flow completion from reports alone
 
 1. `cd ../content-ko`
 2. Review preflight (required docs) / 審查前置簽核（必讀文件）：

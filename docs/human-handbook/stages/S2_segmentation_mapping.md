@@ -102,6 +102,81 @@ Use natural language, but include these fields clearly:
 These are ambiguous because they do not specify scope, stop stage, or whether promotion is allowed.
 這些說法會造成歧義，因為沒有指定範圍、停止階段、以及是否允許 promotion。
 
+## Inventory-Only Status Audit Mode / 僅盤點狀態模式（不修檔）
+
+Use this mode when the goal is to **inventory review status**, not to change content.
+當目標是**盤點 review 狀態**而非修改內容時，使用此模式。
+
+Required instruction to agent:
+- `inventory-only` (no file modifications, no commit, no remediation/apply/build/promotion)
+- `inventory-only`（不改檔、不提交、不執行 remediation/apply/build/promotion）
+
+### Required Output Schema (Fixed) / 固定輸出欄位
+
+1. Scope (`A2-01~A2-25`, `B2 only`, etc.)
+2. Gold file count / row count
+3. `review_applied` rows + percentage
+4. `gsd_action` distribution (`MANUAL_SURGERY`, `ENGINE_*`, other/empty)
+5. Runs coverage (split fields; **do not merge**):
+   - run dir count
+   - `lesson_gold` file count
+   - `surgery` file count
+   - `review_preflight_ack.json` count
+   - `surgery_full_pass_attest.json` count
+6. Reports coverage (`remediation`, `lint`, `qa_gate`)
+7. Status judgment (use taxonomy below)
+8. Risks
+9. Uncertainties / assumptions
+
+### Status Taxonomy (Recommended) / 狀態標籤（建議統一）
+
+- `legacy-complete`: strong legacy review coverage (e.g., high/full `review_applied`) but no new-flow gates
+- `legacy-partial`: legacy review traces exist, but partial coverage
+- `in-transition`: new-flow artifacts exist (reports/runs), but gates incomplete
+- `mixed-partial`: mixed legacy + partial runs/new-flow traces
+- `complete-new-flow`: preflight + full-pass attestation + qa_gate + staged candidate review/promotion evidence (rare; strict)
+- `unknown`: insufficient or contradictory evidence
+
+### Consistency Checks (Mandatory) / 一致性檢查（必做）
+
+Before finalizing the report, verify:
+- If `run dir count = 0`, then `lesson_gold/surgery/preflight_ack/full_pass_attest` counts should usually also be `0` (explain exceptions).
+- Do not mix denominators in one field (example error: `lesson_gold / surgery = 10 / 25` when `25` is total lessons rather than surgery count).
+- `reports` presence alone does **not** imply lesson-level new-flow completion.
+- Existing tracked files in `runs/` may be legacy artifacts; distinguish them from preflight/attestation/qa_gate evidence.
+
+### Inventory Prompt Add-On (Recommended) / 盤點 Prompt 補充片段（建議）
+
+Add this to agent prompts to reduce reporting errors:
+
+```text
+請做數字一致性檢查：
+- runs 覆蓋請分開回報 run dirs / lesson_gold / surgery / preflight_ack / full_pass_attest，不能合併欄位。
+- 若 run dirs=0，通常其他 runs 檔案計數也應接近0；若不是，請解釋。
+- 不要把 reports 存在誤判成新流程完成。
+```
+
+### Cross-Machine Progress Consolidation (Recommended) / 跨電腦進度統合（建議）
+
+Do **not** synchronize full `data/reviews/runs/**` work files across machines unless absolutely necessary.
+除非必要，否則不要跨電腦同步完整 `data/reviews/runs/**` 工作檔。
+
+Preferred method:
+1. Each machine generates a standardized inventory snapshot (small JSON)
+2. Commit/push snapshot only
+3. Aggregate snapshots into one progress report
+
+在 `content-ko` 的建議指令：
+
+```bash
+cd ../content-ko
+python3 scripts/ops/export_review_status_snapshot.py --machine <machine_id>
+python3 scripts/ops/aggregate_review_status.py
+```
+
+Tracked snapshot folder:
+- `../content-ko/reports/review_status_snapshots/`
+
 ### B. Draft + Surgery Workspace / 初版草稿與 Surgery 工作檔
 
 Purpose:

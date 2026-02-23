@@ -177,6 +177,10 @@ python3 scripts/ops/aggregate_review_status.py
 Tracked snapshot folder:
 - `../content-ko/reports/review_status_snapshots/`
 
+Recommended run-artifact policy in `content-ko`:
+- Track signoff artifacts (`review_preflight_ack.json`, `surgery_full_pass_attest.json`)
+- Keep `surgery_*.json` / `lesson_gold_*.jsonl` local-only (except legacy tracked files during migration)
+
 ### B. Draft + Surgery Workspace / 初版草稿與 Surgery 工作檔
 
 Purpose:

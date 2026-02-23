@@ -115,7 +115,8 @@
         "Run mapping pipeline and establish staging baselines. (Completed)",
         "Wave-1 (B1) Audit: B1-01 to B1-10 Complete (2026-02-22)",
         "Wave-2 (B2) Audit: B2-16 to B2-25 Complete (2026-02-22)",
-        "Wave-3 (C1) Audit: C1-01 to C1-25 COMPLETE (2026-02-22)"
+        "Wave-3 (C1) Audit: C1-01 to C1-25 COMPLETE (2026-02-22)",
+        "Wave-3 (C1) Dictionary Review: Stage pure_c1 REVIEW_APPROVED (2026-02-24)"
       ],
       "deliverables": [
         "content/gold_standards/dialogue/C1/*.jsonl",

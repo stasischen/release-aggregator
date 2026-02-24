@@ -1,0 +1,64 @@
+[
+    {
+        "candidate_id": "CAND-001",
+        "batch_id": "BATCH-2026-02-24",
+        "candidate_type": "Dialogue",
+        "target_level": "A2",
+        "target_unit_id": "U15",
+        "target_position": 1,
+        "title_zh_tw": "在咖啡廳點餐",
+        "subtitle_zh_tw": "學習如何用韓文點拿鐵和甜點",
+        "can_do_zh_tw": [
+            "能聽懂店員詢問內用或外帶",
+            "能表達點餐需求並完成支付"
+        ],
+        "review_summary_zh_tw": "這是一個標準的咖啡廳對話，適合 A2 初級學習者。",
+        "novelty_rationale_zh_tw": "加入了當前韓國受歡迎的「冰美式」文化元素。",
+        "risk_flags_zh_tw": [],
+        "agent_recommendation": "accept",
+        "scores": {
+            "fit": 0.9,
+            "novelty": 0.7,
+            "learnability": 0.8,
+            "reuse": 0.6,
+            "engagement": 0.85,
+            "cost": 0.5
+        },
+        "foreign_preview": {
+            "lines": [
+                "어떤 걸로 드릴까요?",
+                "아이스 아메리카노 한 잔 주세요."
+            ]
+        }
+    },
+    {
+        "candidate_id": "CAND-002",
+        "batch_id": "BATCH-2026-02-24",
+        "candidate_type": "Grammar",
+        "target_level": "B1",
+        "target_unit_id": "U08",
+        "target_position": 2,
+        "title_zh_tw": "雖然... 但是... (-지만)",
+        "subtitle_zh_tw": "對比句接辭的轉折用法",
+        "can_do_zh_tw": [
+            "能使用 -지만 連結兩個對比的句子"
+        ],
+        "review_summary_zh_tw": "解釋清楚，範例多樣。",
+        "novelty_rationale_zh_tw": "補充了口語中常見的省略用法。",
+        "risk_flags_zh_tw": [
+            "範例句過於複雜"
+        ],
+        "agent_recommendation": "revise",
+        "scores": {
+            "fit": 0.8,
+            "novelty": 0.6,
+            "learnability": 0.5,
+            "reuse": 0.9,
+            "engagement": 0.7,
+            "cost": 0.4
+        },
+        "foreign_preview": {
+            "explanation": "'-지만'은 대조를 나타내는 연결 어미입니다."
+        }
+    }
+]

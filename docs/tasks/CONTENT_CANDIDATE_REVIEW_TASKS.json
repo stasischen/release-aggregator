@@ -1,0 +1,42 @@
+{
+    "task_id": "CONTENT_CANDIDATE_REVIEW",
+    "description": "Content Candidate Review Station 審核台",
+    "status": "in_progress",
+    "tasks": [
+        {
+            "id": "AGG-CR-001",
+            "desc": "Schema + mock data: Define models and provide 10-20 sample candidates.",
+            "status": "done"
+        },
+        {
+            "id": "AGG-CR-002",
+            "desc": "Review screen MVP: Add ContentReviewScreen and route /content-review. Show list and details.",
+            "status": "done"
+        },
+        {
+            "id": "AGG-CR-003",
+            "desc": "Filters + search + progress: Implement filtering and progress tracking.",
+            "status": "done"
+        },
+        {
+            "id": "AGG-CR-004",
+            "desc": "Persistence: Save and load review status locally.",
+            "status": "done"
+        },
+        {
+            "id": "AGG-CR-005",
+            "desc": "Import/export: JSON file handling for review results.",
+            "status": "done"
+        },
+        {
+            "id": "AGG-CR-006",
+            "desc": "Batch actions: Bulk decision making (park/reject/clear).",
+            "status": "done"
+        },
+        {
+            "id": "AGG-CR-007",
+            "desc": "Export adapters: Generate catalog drafts and backlog seeds.",
+            "status": "todo"
+        }
+    ]
+}

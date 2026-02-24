@@ -1,0 +1,82 @@
+{
+  "task_id": "CONTENT_CANDIDATE_GENERATION_FRAMEWORK",
+  "description": "雙流程候選內容生成框架（API + Agent + QA + Review Bundle）",
+  "status": "todo",
+  "tasks": [
+    {
+      "id": "AGG-GEN-001",
+      "desc": "Shared schema v1: Define canonical candidate schema used by API/Agent/review station.",
+      "status": "todo"
+    },
+    {
+      "id": "AGG-GEN-002",
+      "desc": "Generation brief schema v1: Define batch inputs (level/unit/type/count/variants/style/cost).",
+      "status": "todo"
+    },
+    {
+      "id": "AGG-GEN-003",
+      "desc": "Batch directory convention + manifests: Standardize batch folder structure and output filenames.",
+      "status": "todo"
+    },
+    {
+      "id": "AGG-GEN-004",
+      "desc": "API flow prompt templates: lesson / grammar_note / dictionary_pack / path_node.",
+      "status": "todo"
+    },
+    {
+      "id": "AGG-GEN-005",
+      "desc": "API batch runner MVP: Generate candidate_packs.api.raw.json from generation_brief (provider-agnostic).",
+      "status": "todo"
+    },
+    {
+      "id": "AGG-GEN-006",
+      "desc": "API raw normalize adapter: Convert raw API output into canonical candidate schema.",
+      "status": "todo"
+    },
+    {
+      "id": "AGG-GEN-007",
+      "desc": "QA rules + qa_report.json: required fields, duplicate similarity, A1 guard, unit fit, zh-summary checks.",
+      "status": "todo"
+    },
+    {
+      "id": "AGG-GEN-008",
+      "desc": "Review-ready bundle exporter: Build review_ready_bundle.json importable by Content Review Station.",
+      "status": "todo"
+    },
+    {
+      "id": "AGG-GEN-009",
+      "desc": "Agent gap analysis spec + output schema (gap_report.json, Chinese-first summary).",
+      "status": "todo"
+    },
+    {
+      "id": "AGG-GEN-010",
+      "desc": "Agent generation spec: Candidate generation with mandatory Chinese review fields and placement rationale.",
+      "status": "todo"
+    },
+    {
+      "id": "AGG-GEN-011",
+      "desc": "Agent self-review spec: language quality, novelty, teachability, production cost, risk flags, recommendation.",
+      "status": "todo"
+    },
+    {
+      "id": "AGG-GEN-012",
+      "desc": "Agent raw normalize adapter: Convert agent outputs to canonical candidate schema.",
+      "status": "todo"
+    },
+    {
+      "id": "AGG-GEN-013",
+      "desc": "Accepted adapter (catalog): Transform accepted_candidates.json into catalog_draft.json.",
+      "status": "todo"
+    },
+    {
+      "id": "AGG-GEN-014",
+      "desc": "Accepted adapter (backlog): Transform accepted_candidates.json into backlog_seed.json.",
+      "status": "todo"
+    },
+    {
+      "id": "AGG-GEN-015",
+      "desc": "End-to-end dry run: Run one sample batch through generate -> normalize -> QA -> review import -> accepted adapters.",
+      "status": "todo"
+    }
+  ]
+}

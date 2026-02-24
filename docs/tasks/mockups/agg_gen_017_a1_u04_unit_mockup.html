@@ -1559,6 +1559,100 @@
       return `<div class="content-block"><div class="block-title">句型重點</div><div class="pattern-card-box">${html || '<div class="empty-state">無資料</div>'}</div></div>`;
     }
 
+    function renderPracticeCard(payload, node) {
+      const modeLabel = {
+        chunk_assembly: '拼句型練習',
+        response_builder: '回應建構',
+        guided: '引導式練習'
+      }[payload.mode || node.output_mode] || '練習卡';
+
+      const taskCount = Array.isArray(payload.tasks) ? payload.tasks.length : 0;
+      const itemCount = Array.isArray(payload.items) ? payload.items.length : 0;
+      const total = taskCount || itemCount;
+
+      return `
+        <div class="card-block animate-in">
+          <div class="block-title">Practice Card</div>
+          <div class="muted-text" style="margin-bottom:10px;">${escapeHtml(modeLabel)}</div>
+          ${payload.prompt_zh_tw ? `<div style="margin-bottom:10px;">${escapeHtml(payload.prompt_zh_tw)}</div>` : ''}
+          ${total ? `<div class="tiny-text muted">本節練習題數：${total}</div>` : ''}
+          <div class="tiny-text muted" style="margin-top:8px;">互動內容請見下方練習區塊。</div>
+        </div>
+      `;
+    }
+
+    function renderRoleplayPrompt(payload) {
+      return `
+        <div class="card-block animate-in">
+          <div class="block-title">Roleplay Prompt</div>
+          ${payload.scenery_ko ? `
+            <div style="margin-bottom:8px;">
+              <div class="tiny-text muted">情境（韓文）</div>
+              <div>${escapeHtml(payload.scenery_ko)}</div>
+              ${showBilingual() && payload.scenery_zh_tw ? `<div class="tiny-text muted" style="margin-top:4px;">${escapeHtml(payload.scenery_zh_tw)}</div>` : ''}
+            </div>` : ''
+          }
+          ${Array.isArray(payload.constraints_zh_tw) && payload.constraints_zh_tw.length ? `
+            <div style="margin-bottom:8px;">
+              <div class="tiny-text muted">限制條件</div>
+              <ul style="margin:6px 0 0 18px;">${payload.constraints_zh_tw.map(v => `<li>${escapeHtml(v)}</li>`).join('')}</ul>
+            </div>` : ''
+          }
+          ${Array.isArray(payload.required_patterns_zh_tw) && payload.required_patterns_zh_tw.length ? `
+            <div>
+              <div class="tiny-text muted">必用句型</div>
+              <div class="chip-cloud" style="margin-top:6px;">
+                ${payload.required_patterns_zh_tw.map(v => `<span class="word-chip">${escapeHtml(v)}</span>`).join('')}
+              </div>
+            </div>` : ''
+          }
+        </div>
+      `;
+    }
+
+    function renderMessagePrompt(payload) {
+      return `
+        <div class="card-block animate-in">
+          <div class="block-title">Message Prompt</div>
+          ${payload.prompt_ko ? `<div style="font-weight:700;">${escapeHtml(payload.prompt_ko)}</div>` : ''}
+          ${showBilingual() && payload.prompt_zh_tw ? `<div class="tiny-text muted" style="margin-top:6px;">${escapeHtml(payload.prompt_zh_tw)}</div>` : ''}
+          ${Array.isArray(payload.must_include_zh_tw) && payload.must_include_zh_tw.length ? `
+            <div style="margin-top:10px;">
+              <div class="tiny-text muted">需包含</div>
+              <ul style="margin:6px 0 0 18px;">${payload.must_include_zh_tw.map(v => `<li>${escapeHtml(v)}</li>`).join('')}</ul>
+            </div>` : ''
+          }
+          ${Array.isArray(payload.example_shape_ko) && payload.example_shape_ko.length ? `
+            <div style="margin-top:10px;">
+              <div class="tiny-text muted">句型輪廓</div>
+              ${(payload.example_shape_ko || []).map((ko, i) => `
+                <div style="padding:8px 10px; background:#faf7f1; border-radius:8px; margin-top:6px;">
+                  <div>${escapeHtml(ko)}</div>
+                  ${showBilingual() && payload.example_shape_zh_tw && payload.example_shape_zh_tw[i] ? `<div class="tiny-text muted">${escapeHtml(payload.example_shape_zh_tw[i])}</div>` : ''}
+                </div>
+              `).join('')}
+            </div>` : ''
+          }
+        </div>
+      `;
+    }
+
+    function renderReviewCard(payload) {
+      const prompts = payload.prompts_zh_tw || [];
+      return `
+        <div class="card-block animate-in">
+          <div class="block-title">Review Card</div>
+          <div class="muted-text" style="margin-bottom:8px;">先回想，再用下方互動區塊檢視提示與答案。</div>
+          ${payload.hint_policy ? `<div class="tiny-text muted" style="margin-bottom:8px;">提示策略：${escapeHtml(payload.hint_policy)}</div>` : ''}
+          ${prompts.length ? `
+            <ol style="margin:0 0 0 18px; padding:0;">
+              ${prompts.map(p => `<li style="margin-bottom:6px;">${escapeHtml(p)}</li>`).join('')}
+            </ol>` : ''
+          }
+        </div>
+      `;
+    }
+
     function renderGrammar(payload) {
       const sections = payload.sections || [];
       const html = sections.map(s => `
@@ -1822,6 +1916,10 @@
       else if (node.content_form === 'pattern_card') bodyHtml += renderPatternCard(p);
       else if (node.content_form === 'grammar_note') bodyHtml += renderGrammar(p);
       else if (node.content_form === 'functional_phrase_pack') bodyHtml += renderDictionary(p);
+      else if (node.content_form === 'practice_card') bodyHtml += renderPracticeCard(p, node);
+      else if (node.content_form === 'roleplay_prompt') bodyHtml += renderRoleplayPrompt(p);
+      else if (node.content_form === 'message_prompt') bodyHtml += renderMessagePrompt(p);
+      else if (node.content_form === 'review_card') bodyHtml += renderReviewCard(p);
       else {
         bodyHtml += `<div class="empty-state">未定義的內容形式: ${node.content_form}</div>`;
       }

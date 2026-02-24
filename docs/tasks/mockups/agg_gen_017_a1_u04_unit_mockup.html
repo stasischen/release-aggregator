@@ -1,0 +1,399 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>AGG-GEN-017 A1-U04 Unit Mockup</title>
+  <style>
+    :root {
+      --bg: #f6f2ea;
+      --card: #fffdf9;
+      --ink: #1c1b17;
+      --muted: #6a655b;
+      --line: #d9cfbf;
+      --accent: #c5522f;
+      --accent-soft: #f3d5cc;
+      --pill: #efe7da;
+      --ok: #216a3a;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: "Iowan Old Style", "Noto Serif TC", serif;
+      background:
+        radial-gradient(circle at 15% 10%, #fff8ec 0, transparent 35%),
+        radial-gradient(circle at 80% 0%, #ffe9d6 0, transparent 40%),
+        var(--bg);
+      color: var(--ink);
+    }
+    .wrap {
+      max-width: 1160px;
+      margin: 0 auto;
+      padding: 24px 16px 48px;
+      display: grid;
+      grid-template-columns: 320px 1fr;
+      gap: 16px;
+    }
+    .panel {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      box-shadow: 0 8px 24px rgba(28, 27, 23, 0.05);
+    }
+    .sidebar {
+      position: sticky;
+      top: 12px;
+      align-self: start;
+      padding: 16px;
+    }
+    h1, h2, h3 { margin: 0; line-height: 1.2; }
+    h1 { font-size: 26px; }
+    h2 { font-size: 18px; }
+    h3 { font-size: 15px; }
+    .muted { color: var(--muted); }
+    .meta-grid {
+      margin-top: 12px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 8px;
+    }
+    .meta {
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      padding: 10px;
+      background: #fff;
+    }
+    .meta .k {
+      display: block;
+      color: var(--muted);
+      font-size: 11px;
+      margin-bottom: 3px;
+    }
+    .can-do {
+      margin: 14px 0 0;
+      padding-left: 18px;
+      line-height: 1.5;
+      font-size: 13px;
+    }
+    .legend {
+      margin-top: 14px;
+      padding-top: 12px;
+      border-top: 1px dashed var(--line);
+      display: grid;
+      gap: 8px;
+    }
+    .legend-item {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 12px;
+    }
+    .dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 999px;
+      display: inline-block;
+      border: 1px solid rgba(0,0,0,0.08);
+    }
+    .main {
+      padding: 16px;
+    }
+    .topbar {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      padding-bottom: 12px;
+      border-bottom: 1px solid var(--line);
+      margin-bottom: 14px;
+    }
+    .stats {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+    .pill {
+      background: var(--pill);
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      padding: 6px 10px;
+      font-size: 12px;
+      white-space: nowrap;
+    }
+    .timeline {
+      display: grid;
+      gap: 10px;
+    }
+    .card {
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      background: #fff;
+      padding: 12px;
+      display: grid;
+      gap: 8px;
+    }
+    .card-header {
+      display: flex;
+      align-items: start;
+      justify-content: space-between;
+      gap: 8px;
+    }
+    .title {
+      font-size: 16px;
+      font-weight: 600;
+    }
+    .subline {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+    }
+    .tag {
+      background: #fbf7ef;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      padding: 4px 8px;
+      font-size: 11px;
+    }
+    .line-list {
+      margin: 0;
+      padding-left: 18px;
+      line-height: 1.45;
+      font-size: 13px;
+    }
+    .section-label {
+      color: var(--muted);
+      font-size: 11px;
+      letter-spacing: 0.03em;
+      text-transform: uppercase;
+    }
+    .expected {
+      background: #fcfaf5;
+      border: 1px dashed var(--line);
+      border-radius: 10px;
+      padding: 8px;
+      font-size: 12px;
+    }
+    .lane {
+      border-left: 5px solid #bbb;
+      padding-left: 10px;
+    }
+    .lane-immersion_input { border-color: #2b7a78; }
+    .lane-structure_pattern, .lane-structure_grammar { border-color: #7c5cff; }
+    .lane-controlled_output { border-color: #c5522f; }
+    .lane-immersion_output { border-color: #d98e04; }
+    .lane-review_retrieval, .lane-cross_unit_transfer { border-color: #216a3a; }
+    .followups {
+      margin-top: 16px;
+      padding-top: 12px;
+      border-top: 1px solid var(--line);
+      display: grid;
+      gap: 8px;
+    }
+    .followup {
+      padding: 10px;
+      border-radius: 12px;
+      border: 1px solid var(--line);
+      background: #f8fbf7;
+      font-size: 13px;
+    }
+    .tip {
+      margin-top: 12px;
+      font-size: 12px;
+      color: var(--muted);
+    }
+    .ok {
+      color: var(--ok);
+      font-weight: 600;
+    }
+    @media (max-width: 900px) {
+      .wrap {
+        grid-template-columns: 1fr;
+      }
+      .sidebar {
+        position: static;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <aside class="panel sidebar">
+      <h1 id="unitTitle">Loading...</h1>
+      <p class="muted" id="unitTheme"></p>
+      <div class="meta-grid" id="metaGrid"></div>
+      <h2 style="margin-top:14px;">Can-do</h2>
+      <ul class="can-do" id="canDoList"></ul>
+      <div class="legend">
+        <div class="legend-item"><span class="dot" style="background:#2b7a78"></span> Immersion Input</div>
+        <div class="legend-item"><span class="dot" style="background:#7c5cff"></span> Structure (Pattern/Grammar)</div>
+        <div class="legend-item"><span class="dot" style="background:#c5522f"></span> Controlled Output</div>
+        <div class="legend-item"><span class="dot" style="background:#d98e04"></span> Immersion Output</div>
+        <div class="legend-item"><span class="dot" style="background:#216a3a"></span> Review / Transfer</div>
+      </div>
+      <p class="tip">
+        這是 mockup（編排體驗版），目標是先驗證課程節奏與內容角色，之後再映射到 Flutter 既有頁面與元件。
+      </p>
+    </aside>
+
+    <main class="panel main">
+      <div class="topbar">
+        <div>
+          <h2>單元編排時間線（A1-U04）</h2>
+          <div class="muted" id="subtitleLine"></div>
+        </div>
+        <div class="stats" id="stats"></div>
+      </div>
+
+      <div class="timeline" id="timeline"></div>
+
+      <div class="followups">
+        <h3>跨單元複習排程（轉移練習）</h3>
+        <div id="followups"></div>
+      </div>
+    </main>
+  </div>
+
+  <script>
+    const dataPath = './agg_gen_017_a1_u04_unit_mockup_data.json';
+
+    const metaGrid = document.getElementById('metaGrid');
+    const canDoList = document.getElementById('canDoList');
+    const timeline = document.getElementById('timeline');
+    const followups = document.getElementById('followups');
+    const stats = document.getElementById('stats');
+
+    const roleCount = {};
+    let totalMinutes = 0;
+    let outputMinutes = 0;
+
+    function pill(text) {
+      const el = document.createElement('span');
+      el.className = 'pill';
+      el.textContent = text;
+      return el;
+    }
+
+    function makeTag(text) {
+      const el = document.createElement('span');
+      el.className = 'tag';
+      el.textContent = text;
+      return el;
+    }
+
+    function buildCard(item, idx) {
+      const card = document.createElement('section');
+      card.className = 'card lane lane-' + item.learning_role;
+
+      const header = document.createElement('div');
+      header.className = 'card-header';
+
+      const left = document.createElement('div');
+      const title = document.createElement('div');
+      title.className = 'title';
+      title.textContent = `${idx + 1}. ${item.title}`;
+      left.appendChild(title);
+
+      const subline = document.createElement('div');
+      subline.className = 'subline';
+      subline.appendChild(makeTag(item.id));
+      subline.appendChild(makeTag(item.candidate_type));
+      subline.appendChild(makeTag(item.content_form));
+      subline.appendChild(makeTag(item.learning_role));
+      subline.appendChild(makeTag(`output:${item.output_mode}`));
+      (item.skill_focus || []).forEach(s => subline.appendChild(makeTag(s)));
+      left.appendChild(subline);
+      header.appendChild(left);
+
+      const duration = document.createElement('div');
+      duration.className = 'tag';
+      duration.textContent = `${item.duration_min} min`;
+      header.appendChild(duration);
+      card.appendChild(header);
+
+      const summaryLabel = document.createElement('div');
+      summaryLabel.className = 'section-label';
+      summaryLabel.textContent = 'Summary';
+      card.appendChild(summaryLabel);
+      const summary = document.createElement('div');
+      summary.textContent = item.summary_zh_tw;
+      card.appendChild(summary);
+
+      const linesLabel = document.createElement('div');
+      linesLabel.className = 'section-label';
+      linesLabel.textContent = 'Sample';
+      card.appendChild(linesLabel);
+      const ul = document.createElement('ul');
+      ul.className = 'line-list';
+      (item.sample_lines || []).forEach(line => {
+        const li = document.createElement('li');
+        li.textContent = line;
+        ul.appendChild(li);
+      });
+      card.appendChild(ul);
+
+      const expected = document.createElement('div');
+      expected.className = 'expected';
+      expected.innerHTML = `<span class="section-label">Expected learner output</span><br>${item.expected_output}`;
+      card.appendChild(expected);
+
+      return card;
+    }
+
+    function render(data) {
+      document.getElementById('unitTitle').textContent = `${data.unit_id} ${data.title_zh_tw}`;
+      document.getElementById('unitTheme').textContent = `${data.target_language.toUpperCase()} · ${data.learner_locale_source} · ${data.level} · output ratio target ${Math.round(data.output_ratio_target * 100)}%`;
+      document.getElementById('subtitleLine').textContent = data.theme;
+
+      [
+        ['Target', data.target_language.toUpperCase()],
+        ['Locale', data.learner_locale_source],
+        ['Level', data.level],
+        ['Theme', 'Survival Ordering']
+      ].forEach(([k, v]) => {
+        const box = document.createElement('div');
+        box.className = 'meta';
+        box.innerHTML = `<span class="k">${k}</span>${v}`;
+        metaGrid.appendChild(box);
+      });
+
+      data.can_do_zh_tw.forEach(text => {
+        const li = document.createElement('li');
+        li.textContent = text;
+        canDoList.appendChild(li);
+      });
+
+      data.sequence.forEach((item, idx) => {
+        totalMinutes += item.duration_min || 0;
+        if (item.learning_role === 'controlled_output' || item.learning_role === 'immersion_output' || item.learning_role === 'review_retrieval') {
+          outputMinutes += item.duration_min || 0;
+        }
+        roleCount[item.learning_role] = (roleCount[item.learning_role] || 0) + 1;
+        timeline.appendChild(buildCard(item, idx));
+      });
+
+      stats.appendChild(pill(`Total items ${data.sequence.length}`));
+      stats.appendChild(pill(`Estimated ${totalMinutes} min`));
+      stats.appendChild(pill(`Output-like ${outputMinutes} min (${Math.round(outputMinutes / totalMinutes * 100)}%)`));
+      Object.keys(roleCount).forEach(role => {
+        stats.appendChild(pill(`${role}: ${roleCount[role]}`));
+      });
+
+      (data.scheduled_followups || []).forEach(item => {
+        const div = document.createElement('div');
+        div.className = 'followup';
+        div.innerHTML = `<strong>${item.id}</strong> <span class="ok">${item.timing}</span> → <strong>${item.transfer_to}</strong><br>${item.goal_zh_tw}`;
+        followups.appendChild(div);
+      });
+    }
+
+    fetch(dataPath)
+      .then(r => r.json())
+      .then(render)
+      .catch(err => {
+        document.getElementById('unitTitle').textContent = 'Mockup load failed';
+        document.getElementById('unitTheme').textContent = String(err);
+      });
+  </script>
+</body>
+</html>

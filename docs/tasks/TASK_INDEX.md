@@ -56,7 +56,7 @@ Phase C: 前端整合（lingo-frontend-web）
 
 | Task ID | 描述 | Phase | 進度 | 檔案 |
 | :--- | :--- | :--- | :--- | :--- |
-| CONTENT_CANDIDATE_GENERATION_FRAMEWORK | 候選內容生成雙流程框架（API + Agent + QA + 審核台對接） | B/C | 2/18 tasks | [JSON](CONTENT_CANDIDATE_GENERATION_FRAMEWORK_TASKS.json) · [PLAN](CONTENT_CANDIDATE_GENERATION_FRAMEWORK_PLAN.md) |
+| CONTENT_CANDIDATE_GENERATION_FRAMEWORK | 候選內容生成雙流程框架（API + Agent + QA + 審核台對接） | B/C | 4/20 tasks | [JSON](CONTENT_CANDIDATE_GENERATION_FRAMEWORK_TASKS.json) · [PLAN](CONTENT_CANDIDATE_GENERATION_FRAMEWORK_PLAN.md) |
 
 ### Phase B/C — 待 Phase A 完成後啟動
 

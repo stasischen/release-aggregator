@@ -10,6 +10,8 @@ Related tasks:
 
 Reference full unit example:
 - `docs/tasks/AGG_GEN_017_A1_U04_SURVIVAL_FULL_UNIT_EXAMPLE.md`
+- `docs/tasks/AGG_GEN_019_UNIT_MOCKUP_FRONTEND_TRANSFER_PLAN.md`
+- `docs/tasks/AGG_GEN_020_FRONTEND_TRANSFER_TEST_PLAN.md`
 
 ## 1. Goal
 

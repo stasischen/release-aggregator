@@ -92,6 +92,16 @@
       "id": "AGG-GEN-018",
       "desc": "Schema/brief extensions for multilingual pedagogy and review scheduling metadata (target_language, learner_locale_source, review cadence hints).",
       "status": "todo"
+    },
+    {
+      "id": "AGG-GEN-019",
+      "desc": "Single-unit sequencing mockup + frontend transfer plan: A1-U04 experience mock and adapter-first migration notes for existing Flutter frontend.",
+      "status": "done"
+    },
+    {
+      "id": "AGG-GEN-020",
+      "desc": "Detailed frontend transfer test plan (Gemini parallel streams): adapter/renderer/interaction/integration tests for A1-U04 mockup.",
+      "status": "done"
     }
   ]
 }

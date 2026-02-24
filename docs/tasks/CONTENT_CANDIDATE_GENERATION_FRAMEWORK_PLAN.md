@@ -578,6 +578,39 @@ tools/content_candidate_generation/
 - API/Agent specs 可引用新欄位而不破壞 v1 審核流程
 - review bundle exporter 能明確說明哪些欄位保留給審核台、哪些欄位為 metadata
 
+### AGG-GEN-019 — Single-unit sequencing mockup + frontend transfer plan (A1-U04)
+
+**Goal**
+- 做一個可體驗的單元編排 mockup（先在 `release-aggregator` 以靜態原型呈現），並規劃如何低風險轉移到既有 Flutter 前端。
+
+**Deliverables**
+- `docs/tasks/mockups/agg_gen_017_a1_u04_unit_mockup_data.json`
+- `docs/tasks/mockups/agg_gen_017_a1_u04_unit_mockup.html`
+- `docs/tasks/AGG_GEN_019_UNIT_MOCKUP_FRONTEND_TRANSFER_PLAN.md`
+
+**Constraints**
+- 不是 UI redesign；重點是驗證課程節奏、內容角色、輸出比例
+- 轉移策略需採 adapter-first，避免直接綁 canonical schema 到 Flutter widget
+
+**Acceptance**
+- PM 可開啟 mockup 直觀看到單元編排（輸入/結構/輸出/複習）
+- 文件清楚說明現有 Flutter 前端的轉移順序與風險控管
+
+### AGG-GEN-020 — Detailed frontend transfer test plan (Gemini parallel streams)
+
+**Goal**
+- 針對 A1-U04 mockup 設計可分頭執行的 Flutter 前端轉移測試計畫（adapter / renderer / interaction / integration）。
+
+**Deliverables**
+- `docs/tasks/AGG_GEN_020_FRONTEND_TRANSFER_TEST_PLAN.md`
+- Gemini stream 分工（A/B/C/D）與 test matrix
+- manual QA script（PM/Product 試用流程）
+
+**Acceptance**
+- 測試分層清楚（contract / widget / integration / golden / manual）
+- 每個 stream 可獨立開工且共享同一 fixture
+- 至少涵蓋 `A1-U04` 所需的混合 `content_form` 與 path node 互動
+
 ## Dependency Order (Gemini Assignment Suggestion)
 
 建議分配順序（可平行的已標示）：
@@ -589,10 +622,12 @@ tools/content_candidate_generation/
 5. `AGG-GEN-007` → `AGG-GEN-008`
 6. `AGG-GEN-016` + `AGG-GEN-017`（課程架構/內容策略先定）
 7. `AGG-GEN-018`（回寫 schema/brief 擴充）
-8. `AGG-GEN-009` + `AGG-GEN-010` + `AGG-GEN-011`（規格類可平行）
-9. `AGG-GEN-012`
-10. `AGG-GEN-013` + `AGG-GEN-014`（可平行）
-11. `AGG-GEN-015`
+8. `AGG-GEN-019`（單元編排 mockup 體驗與前端轉移策略）
+9. `AGG-GEN-020`（Gemini 前端轉移 test plan）
+10. `AGG-GEN-009` + `AGG-GEN-010` + `AGG-GEN-011`（規格類可平行）
+11. `AGG-GEN-012`
+12. `AGG-GEN-013` + `AGG-GEN-014`（可平行）
+13. `AGG-GEN-015`
 
 ## What You (PM/Product, Chinese-only) Should Review
 

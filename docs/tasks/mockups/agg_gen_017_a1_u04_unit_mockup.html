@@ -1173,7 +1173,16 @@
           <label for="bilingualToggle"><strong>韓中對照 (Bilingual)</strong></label>
           <input id="bilingualToggle" type="checkbox" checked />
         </div>
-
+        <div style="margin-top:10px;">
+          <div class="toggle-row">
+            <label for="ttsVoiceSelect"><strong>韓文語音 (TTS)</strong></label>
+            <button class="btn tiny-text" style="padding:4px 8px;" id="ttsTestBtn">測試</button>
+          </div>
+          <select id="ttsVoiceSelect" style="width:100%; margin-top:6px; border:1px solid var(--line); border-radius:8px; padding:6px 8px; background:#fff;">
+            <option value="">系統預設韓文語音</option>
+          </select>
+          <div class="tiny-text muted" id="ttsVoiceHint" style="margin-top:4px;">使用瀏覽器/系統韓文語音（ko-KR）。</div>
+        </div>
         <div id="followupsBox"></div>
       </div>
     </aside>
@@ -1221,7 +1230,7 @@
         reviewNodeIds: [],
         notesByNodeId: {},
         interactionStateByNodeId: {},
-        prefs: { showBilingual: true }
+        prefs: { showBilingual: true, ttsVoiceName: '' }
       }
     };
 
@@ -1249,6 +1258,9 @@
       jumpFirstOutputBtn: document.getElementById('jumpFirstOutputBtn'),
       jumpReviewSummaryBtn: document.getElementById('jumpReviewSummaryBtn'),
       bilingualToggle: document.getElementById('bilingualToggle'),
+      ttsVoiceSelect: document.getElementById('ttsVoiceSelect'),
+      ttsTestBtn: document.getElementById('ttsTestBtn'),
+      ttsVoiceHint: document.getElementById('ttsVoiceHint'),
       toastContainer: document.getElementById('toastContainer')
     };
 
@@ -1278,7 +1290,10 @@
           reviewNodeIds: Array.isArray(parsed.reviewNodeIds) ? parsed.reviewNodeIds : [],
           notesByNodeId: parsed.notesByNodeId || {},
           interactionStateByNodeId: parsed.interactionStateByNodeId || {},
-          prefs: parsed.prefs || { showBilingual: true }
+          prefs: {
+            showBilingual: parsed.prefs?.showBilingual !== false,
+            ttsVoiceName: typeof parsed.prefs?.ttsVoiceName === 'string' ? parsed.prefs.ttsVoiceName : ''
+          }
         };
       } catch (e) {
         console.warn('Progress load failed', e);
@@ -1303,9 +1318,96 @@
       renderCurrentNode();
     }
 
+    function setTtsVoiceName(name) {
+      state.progress.prefs.ttsVoiceName = name || '';
+      saveProgress(true);
+    }
+
     function escapeHtml(str) {
       if (!str) return '';
       return String(str).replace(/[&<>"']/g, m => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": "&#39;" }[m]));
+    }
+
+    function escapeJsSingle(str) {
+      return String(str || '')
+        .replace(/\\/g, '\\\\')
+        .replace(/'/g, "\\'")
+        .replace(/\n/g, '\\n');
+    }
+
+    function ttsSupported() {
+      return typeof window !== 'undefined' && 'speechSynthesis' in window && typeof SpeechSynthesisUtterance !== 'undefined';
+    }
+
+    function getKoreanVoices() {
+      if (!ttsSupported()) return [];
+      return window.speechSynthesis.getVoices().filter(v => (v.lang || '').toLowerCase().startsWith('ko'));
+    }
+
+    function pickPreferredKoreanVoice(voices) {
+      const list = Array.isArray(voices) ? voices : [];
+      return list.find(v => /yuna/i.test(v.name || '')) ||
+        list.find(v => (v.lang || '').toLowerCase() === 'ko-kr' && v.localService) ||
+        list.find(v => (v.lang || '').toLowerCase() === 'ko-kr') ||
+        list[0] ||
+        null;
+    }
+
+    function refreshTtsVoices() {
+      if (!el.ttsVoiceSelect) return;
+      if (!ttsSupported()) {
+        el.ttsVoiceSelect.disabled = true;
+        el.ttsTestBtn.disabled = true;
+        el.ttsVoiceHint.textContent = '此瀏覽器不支援語音播放 (Web Speech API)。';
+        return;
+      }
+      const voices = getKoreanVoices();
+      const saved = state.progress.prefs.ttsVoiceName || '';
+      el.ttsVoiceSelect.innerHTML = '<option value=\"\">系統預設韓文語音</option>' +
+        voices.map(v => `<option value="${escapeHtml(v.name)}">${escapeHtml(v.name)} (${escapeHtml(v.lang)})${v.localService ? ' · local' : ''}</option>`).join('');
+
+      const match = voices.find(v => v.name === saved);
+      if (match) {
+        el.ttsVoiceSelect.value = saved;
+      } else if (voices.length) {
+        const preferred = pickPreferredKoreanVoice(voices);
+        if (!saved) setTtsVoiceName(preferred.name);
+        el.ttsVoiceSelect.value = state.progress.prefs.ttsVoiceName || preferred.name;
+      } else {
+        el.ttsVoiceSelect.value = '';
+      }
+      el.ttsVoiceHint.textContent = voices.length
+        ? `找到 ${voices.length} 個韓文語音，可選你安裝的高品質語音。`
+        : '未找到韓文語音，將嘗試用系統預設語音。';
+    }
+
+    function getSelectedKoreanVoice() {
+      const voices = getKoreanVoices();
+      const saved = state.progress.prefs.ttsVoiceName || '';
+      return voices.find(v => v.name === saved) ||
+        pickPreferredKoreanVoice(voices) ||
+        null;
+    }
+
+    function speakKo(text) {
+      if (!text || !ttsSupported()) return;
+      const utter = new SpeechSynthesisUtterance(String(text));
+      utter.lang = 'ko-KR';
+      const voice = getSelectedKoreanVoice();
+      if (voice) utter.voice = voice;
+      window.speechSynthesis.cancel();
+      window.speechSynthesis.speak(utter);
+    }
+    window.speakKo = speakKo;
+
+    function renderSpeakButton(text) {
+      if (!text || !ttsSupported()) return '';
+      return `<button class="btn tiny-text" style="padding:2px 6px; margin-left:6px;" onclick="event.stopPropagation(); speakKo('${escapeJsSingle(text)}'); return false;" title="播放韓文">▶</button>`;
+    }
+
+    function renderSpeakInline(text) {
+      if (!text || !ttsSupported()) return '';
+      return `<span class="tiny-text" style="display:inline-block; margin-left:6px; padding:1px 5px; border:1px solid var(--line); border-radius:999px; background:#fff;" onclick="event.stopPropagation(); speakKo('${escapeJsSingle(text)}'); return false;" title="播放韓文">▶</span>`;
     }
 
     function nodeById(id) {
@@ -1362,6 +1464,9 @@
       el.rolePills.innerHTML = Object.entries(counts).map(([k, v]) => `<span class="pill">${k}: ${v}</span>`).join('');
 
       el.bilingualToggle.checked = showBilingual();
+      if (el.ttsVoiceSelect && state.progress.prefs.ttsVoiceName) {
+        el.ttsVoiceSelect.value = state.progress.prefs.ttsVoiceName;
+      }
       renderRoleSummary();
 
       if (state.data.scheduled_followups?.length) {
@@ -1482,7 +1587,7 @@
           <div class="dialogue-turn ${isRight ? 'turn-right' : 'turn-left'}">
             <div class="speaker-label">${escapeHtml(t.speaker)}</div>
             <div class="bubble">
-              <div class="bubble-ko">${escapeHtml(t.text)}</div>
+              <div class="bubble-ko">${escapeHtml(t.text)} ${renderSpeakButton(t.text)}</div>
               ${showBilingual() && t.zh_tw ? `<div class="bubble-zh">${escapeHtml(t.zh_tw)}</div>` : ''}
             </div>
           </div>
@@ -1496,7 +1601,7 @@
       const itemZh = payload.notice_items_zh_tw || [];
       const html = items.map((ko, idx) => `
         <div class="notice-item">
-          <span class="notice-ko">${escapeHtml(ko)}</span>
+          <span class="notice-ko">${escapeHtml(ko)} ${renderSpeakButton(ko)}</span>
           ${showBilingual() && itemZh[idx] ? `<span class="notice-zh">${escapeHtml(itemZh[idx])}</span>` : ''}
         </div>
       `).join('');
@@ -1511,7 +1616,7 @@
           <div class="msg-group ${isMe ? 'msg-right' : 'msg-left'}">
             <div class="msg-sender">${escapeHtml(m.sender)}</div>
             <div class="msg-bubble">
-              <div class="msg-ko">${escapeHtml(m.text)}</div>
+              <div class="msg-ko">${escapeHtml(m.text)} ${renderSpeakButton(m.text)}</div>
               ${showBilingual() && m.zh_tw ? `<div class="msg-zh">${escapeHtml(m.zh_tw)}</div>` : ''}
             </div>
           </div>
@@ -1678,7 +1783,7 @@
             <div class="chunk-cloud">
               ${(s.items || []).map(it => `
                 <div class="cloud-chunk">
-                  <strong>${escapeHtml(it)}</strong>
+                  <strong>${escapeHtml(it)}</strong> ${renderSpeakButton(it)}
                   ${showBilingual() && gloss[it] ? `<span class="chunk-zh">${escapeHtml(gloss[it])}</span>` : ''}
                 </div>
               `).join('')}
@@ -1704,7 +1809,7 @@
 
       const answerHtml = currentAnswers.map((a, i) => `
         <div class="chip" onclick="removeChunk(${i})">
-          ${escapeHtml(a)} ${showBilingual() && gloss[a] ? `<span class="tiny-text muted">(${gloss[a]})</span>` : ''}
+          ${escapeHtml(a)} ${showBilingual() && gloss[a] ? `<span class="tiny-text muted">(${gloss[a]})</span>` : ''} ${renderSpeakButton(a)}
         </div>
       `).join('');
 
@@ -1713,7 +1818,7 @@
         const totalCount = (task.chunks || []).filter(x => x === c).length;
         const isUsed = usedCount >= totalCount;
         return `<div class="chip ${isUsed ? 'used' : ''}" onclick="${isUsed ? '' : `addChunk('${c.replace(/'/g, "\\'")}')`}">
-          ${escapeHtml(c)} ${showBilingual() && gloss[c] ? `<span class="tiny-text muted">(${gloss[c]})</span>` : ''}
+          ${escapeHtml(c)} ${showBilingual() && gloss[c] ? `<span class="tiny-text muted">(${gloss[c]})</span>` : ''} ${renderSpeakButton(c)}
         </div>`;
       }).join('');
 
@@ -1786,13 +1891,14 @@
       const chosen = nodeState.chosenByIndex || {};
 
       const html = items.map((item, idx) => `
-        <div style="margin-bottom:24px; border-bottom:1px dashed var(--line); padding-bottom:16px;">
-          <div class="muted-text" style="font-weight:700; margin-bottom:8px;">情境 ${idx + 1}: ${escapeHtml(item.prompt_ko)}</div>
+          <div style="margin-bottom:24px; border-bottom:1px dashed var(--line); padding-bottom:16px;">
+          <div class="muted-text" style="font-weight:700; margin-bottom:8px;">情境 ${idx + 1}: ${escapeHtml(item.prompt_ko)} ${renderSpeakButton(item.prompt_ko)}</div>
           ${showBilingual() && item.prompt_zh_tw ? `<div class="tiny-text muted" style="margin-bottom:12px;">(${item.prompt_zh_tw})</div>` : ''}
           <div class="btn-group" style="flex-wrap:wrap;">
             ${(item.response_choices_ko || []).map(choice => `
               <button class="btn ${chosen[idx] === choice ? 'success' : ''}" style="font-size:12px; padding: 6px 12px;" onclick="pickResponse(${idx}, '${choice.replace(/'/g, "\\'")}')">
-                ${escapeHtml(choice)}
+                ${escapeHtml(choice)} ${renderSpeakInline(choice)}
+                ${showBilingual() && item.response_gloss_by_ko && item.response_gloss_by_ko[choice] ? `<span class="tiny-text muted" style="display:block; width:100%; margin-top:2px;">${escapeHtml(item.response_gloss_by_ko[choice])}</span>` : ''}
               </button>
             `).join('')}
           </div>
@@ -1854,7 +1960,7 @@
                 <button class="btn tiny-text" style="padding:4px 10px;" onclick="toggleRetrievalAnswer(${i})">${revealedAnswers[i] ? '隱藏答案' : '顯示答案'}</button>
               </div>
               ${revealedHints[i] ? `<div class="tiny-text muted" style="margin-top:8px; padding:8px; background:#faf7f1; border-radius:6px;">提示：先回想本單元的功能句型（點餐請求 / 回應店員 / 付款 / 約見）。</div>` : ''}
-              ${revealedAnswers[i] ? `<div style="margin-top:8px; padding:8px; background:#eef8f0; border:1px solid #d0e6d6; border-radius:6px;"><div class="tiny-text muted">參考答案（韓文）</div><div style="font-weight:600;">${escapeHtml(answers[i] || '尚未定義')}</div></div>` : ''}
+              ${revealedAnswers[i] ? `<div style="margin-top:8px; padding:8px; background:#eef8f0; border:1px solid #d0e6d6; border-radius:6px;"><div class="tiny-text muted">參考答案（韓文）</div><div style="font-weight:600;">${escapeHtml(answers[i] || '尚未定義')} ${answers[i] ? renderSpeakButton(answers[i]) : ''}</div></div>` : ''}
             </div>
           `).join('')}
         </div>
@@ -1970,6 +2076,11 @@
       el.markDoneBtn.onclick = () => toggleDone(state.data.sequence[state.currentIndex].id);
       el.markReviewBtn.onclick = () => toggleReview(state.data.sequence[state.currentIndex].id);
       el.bilingualToggle.onchange = (e) => setShowBilingual(e.target.checked);
+      el.ttsVoiceSelect.onchange = (e) => {
+        setTtsVoiceName(e.target.value || '');
+        showToast('已切換韓文語音');
+      };
+      el.ttsTestBtn.onclick = () => speakKo('안녕하세요. 주문하시겠어요?');
 
       el.resetProgressBtn.onclick = () => {
         if (confirm('確定清除及重置所有記錄？')) {
@@ -2015,6 +2126,10 @@
         state.data = await resp.json();
 
         loadProgress();
+        refreshTtsVoices();
+        if (ttsSupported() && 'onvoiceschanged' in window.speechSynthesis) {
+          window.speechSynthesis.onvoiceschanged = refreshTtsVoices;
+        }
         renderSidebar();
         wireEvents();
         renderCurrentNode();

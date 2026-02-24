@@ -154,6 +154,7 @@
                 "required": ["sender", "text"],
                 "properties": {
                   "sender": { "type": "string" },
+                  "is_self": { "type": "boolean" },
                   "text": { "type": "string" },
                   "zh_tw": { "type": "string" }
                 }
@@ -239,7 +240,8 @@
             "example_shape_ko": { "$ref": "#/$defs/stringList" },
             "example_shape_zh_tw": { "$ref": "#/$defs/stringList" },
             "prompts_zh_tw": { "$ref": "#/$defs/stringList" },
-            "reference_answers_ko": { "$ref": "#/$defs/stringList" }
+            "reference_answers_ko": { "$ref": "#/$defs/stringList" },
+            "answers_ko": { "$ref": "#/$defs/stringList" }
           },
           "additionalProperties": true
         },

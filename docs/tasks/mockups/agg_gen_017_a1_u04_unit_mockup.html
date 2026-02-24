@@ -1505,8 +1505,8 @@
 
     function renderMessageThread(payload) {
       const msgs = payload.messages || [];
-      const html = msgs.map(m => {
-        const isMe = m.sender === '我' || m.sender === 'Me';
+      const html = msgs.map((m, idx) => {
+        const isMe = typeof m.is_self === 'boolean' ? m.is_self : idx % 2 === 0;
         return `
           <div class="msg-group ${isMe ? 'msg-right' : 'msg-left'}">
             <div class="msg-sender">${escapeHtml(m.sender)}</div>
@@ -1741,18 +1741,50 @@
 
     function renderReviewRetrievalMode(node) {
       const prompts = node.payload.prompts_zh_tw || [];
+      const answers = node.payload.reference_answers_ko || node.payload.answers_ko || [];
+      const nodeState = getNodeInteractionState(node.id);
+      const retrievalDrafts = nodeState.retrievalDrafts || {};
+      const revealedHints = nodeState.revealedHints || {};
+      const revealedAnswers = nodeState.revealedAnswers || {};
       return `
         <div class="interaction-panel animate-in">
           <div class="interaction-label">🧠 單元複習回想</div>
-          <div class="muted-text" style="margin-bottom:16px;">閱讀以下情境，試著在大腦中提取剛學過的韓文表達：</div>
+          <div class="muted-text" style="margin-bottom:16px;">閱讀以下情境，先自己回想，再決定是否查看提示與答案（不自動評分）。</div>
           ${prompts.map((p, i) => `
             <div style="margin-bottom:12px; padding:12px; background:#fff; border-radius:8px; border:1px solid var(--line);">
               <div class="tiny-text muted">情境 ${i + 1}</div>
               <div>${escapeHtml(p)}</div>
+              <textarea style="margin-top:10px; min-height:70px;" placeholder="先寫下你回想的答案..." oninput="updateRetrievalDraft(${i}, this.value)">${escapeHtml(retrievalDrafts[i] || '')}</textarea>
+              <div class="btn-group" style="margin-top:8px; gap:6px; flex-wrap:wrap;">
+                <button class="btn tiny-text" style="padding:4px 10px;" onclick="toggleRetrievalHint(${i})">${revealedHints[i] ? '隱藏提示' : '顯示提示'}</button>
+                <button class="btn tiny-text" style="padding:4px 10px;" onclick="toggleRetrievalAnswer(${i})">${revealedAnswers[i] ? '隱藏答案' : '顯示答案'}</button>
+              </div>
+              ${revealedHints[i] ? `<div class="tiny-text muted" style="margin-top:8px; padding:8px; background:#faf7f1; border-radius:6px;">提示：先回想本單元的功能句型（點餐請求 / 回應店員 / 付款 / 約見）。</div>` : ''}
+              ${revealedAnswers[i] ? `<div style="margin-top:8px; padding:8px; background:#eef8f0; border:1px solid #d0e6d6; border-radius:6px;"><div class="tiny-text muted">參考答案（韓文）</div><div style="font-weight:600;">${escapeHtml(answers[i] || '尚未定義')}</div></div>` : ''}
             </div>
           `).join('')}
         </div>
       `;
+    }
+    window.updateRetrievalDraft = (idx, val) => {
+      const node = state.data.sequence[state.currentIndex];
+      const s = getNodeInteractionState(node.id);
+      s.retrievalDrafts = { ...(s.retrievalDrafts || {}), [idx]: val };
+      setNodeInteractionState(node.id, s);
+    }
+    window.toggleRetrievalHint = (idx) => {
+      const node = state.data.sequence[state.currentIndex];
+      const s = getNodeInteractionState(node.id);
+      s.revealedHints = { ...(s.revealedHints || {}), [idx]: !((s.revealedHints || {})[idx]) };
+      setNodeInteractionState(node.id, s);
+      renderCurrentNode();
+    }
+    window.toggleRetrievalAnswer = (idx) => {
+      const node = state.data.sequence[state.currentIndex];
+      const s = getNodeInteractionState(node.id);
+      s.revealedAnswers = { ...(s.revealedAnswers || {}), [idx]: !((s.revealedAnswers || {})[idx]) };
+      setNodeInteractionState(node.id, s);
+      renderCurrentNode();
     }
 
     function renderFreeNote(node) {
@@ -1845,15 +1877,6 @@
         if (confirm('確定清除及重置所有記錄？')) {
           localStorage.removeItem(storageKey());
           location.reload();
-        }
-      };
-      el.jumpNextIncompleteBtn.onclick = () => {
-        const idx = state.data.sequence.findIndex((n, i) => i > state.currentIndex && !isDone(n.id));
-        if (idx > -1) { state.currentIndex = idx; renderCurrentNode(); }
-        else {
-          const idx2 = state.data.sequence.findIndex((n) => !isDone(n.id));
-          if (idx2 > -1) { state.currentIndex = idx2; renderCurrentNode(); }
-          else showToast('全部完成啦！');
         }
       };
       el.jumpNextIncompleteBtn.onclick = () => {

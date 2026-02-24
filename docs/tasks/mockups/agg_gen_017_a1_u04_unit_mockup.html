@@ -107,6 +107,18 @@
       gap: 4px;
       font-size: 12px;
     }
+    .toggle-row {
+      margin-top: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px;
+      border: 1px dashed var(--line);
+      border-radius: 10px;
+      background: #fcfaf5;
+      padding: 8px;
+      font-size: 12px;
+    }
     .progress-track {
       height: 8px;
       border-radius: 999px;
@@ -372,6 +384,10 @@
       <h2 style="margin-top:12px;">Can-do</h2>
       <ul class="can-do" id="canDo"></ul>
       <div class="pills" id="rolePills"></div>
+      <div class="toggle-row">
+        <label for="bilingualToggle"><strong>韓中對照</strong></label>
+        <input id="bilingualToggle" type="checkbox" checked />
+      </div>
       <div class="progress">
         <div class="row" style="justify-content:space-between;">
           <strong>單元進度</strong>
@@ -451,7 +467,8 @@
       markReviewBtn: document.getElementById('markReviewBtn'),
       resetProgressBtn: document.getElementById('resetProgressBtn'),
       jumpNextIncompleteBtn: document.getElementById('jumpNextIncompleteBtn'),
-      jumpNextReviewBtn: document.getElementById('jumpNextReviewBtn')
+      jumpNextReviewBtn: document.getElementById('jumpNextReviewBtn'),
+      bilingualToggle: document.getElementById('bilingualToggle')
     };
 
     function storageKey() {
@@ -468,14 +485,17 @@
           completedNodeIds: Array.isArray(parsed.completedNodeIds) ? parsed.completedNodeIds : [],
           reviewNodeIds: Array.isArray(parsed.reviewNodeIds) ? parsed.reviewNodeIds : [],
           notesByNodeId: parsed.notesByNodeId && typeof parsed.notesByNodeId === 'object' ? parsed.notesByNodeId : {},
-          interactionStateByNodeId: parsed.interactionStateByNodeId && typeof parsed.interactionStateByNodeId === 'object' ? parsed.interactionStateByNodeId : {}
+          interactionStateByNodeId: parsed.interactionStateByNodeId && typeof parsed.interactionStateByNodeId === 'object' ? parsed.interactionStateByNodeId : {},
+          prefs: parsed.prefs && typeof parsed.prefs === 'object' ? parsed.prefs : { showBilingual: true }
         };
       } catch (e) {
         console.warn('progress parse failed', e);
       }
+      if (!state.progress.prefs) state.progress.prefs = { showBilingual: true };
     }
 
     function saveProgress() {
+      if (!state.progress.prefs) state.progress.prefs = { showBilingual: true };
       localStorage.setItem(storageKey(), JSON.stringify(state.progress));
       renderProgress();
       renderNodeList();
@@ -483,6 +503,30 @@
 
     function nodeById(nodeId) {
       return state.data.sequence.find(n => n.id === nodeId);
+    }
+
+    function showBilingual() {
+      return state.progress?.prefs?.showBilingual !== false;
+    }
+
+    function setShowBilingual(next) {
+      if (!state.progress.prefs) state.progress.prefs = {};
+      state.progress.prefs.showBilingual = !!next;
+      saveProgress();
+      renderCurrentNode();
+    }
+
+    function escapeHtml(str) {
+      return String(str)
+        .replaceAll('&', '&amp;')
+        .replaceAll('<', '&lt;')
+        .replaceAll('>', '&gt;');
+    }
+
+    function formatKoWithZh(koText, zhText) {
+      if (koText == null) return '';
+      if (showBilingual() && zhText) return `${koText}（${zhText}）`;
+      return String(koText);
     }
 
     function isDone(nodeId) {
@@ -571,6 +615,7 @@
       });
 
       el.followupsBox.innerHTML = '';
+      el.bilingualToggle.checked = showBilingual();
       if ((state.data.scheduled_followups || []).length) {
         const title = document.createElement('h2');
         title.style.fontSize = '16px';
@@ -733,7 +778,7 @@
       ul.className = 'line-list';
       turns.forEach(t => {
         const li = document.createElement('li');
-        li.innerHTML = `<strong>${t.speaker}</strong>: ${t.text}`;
+        li.innerHTML = `<strong>${escapeHtml(t.speaker)}</strong>: ${escapeHtml(t.text)}${showBilingual() && t.zh_tw ? `<div class="tiny muted">${escapeHtml(t.zh_tw)}</div>` : ''}`;
         ul.appendChild(li);
       });
       block.appendChild(ul);
@@ -742,14 +787,15 @@
 
     function renderNotice(node) {
       const items = node.payload?.notice_items || [];
+      const itemZh = node.payload?.notice_items_zh_tw || [];
       const block = document.createElement('div');
       block.className = 'block';
       block.innerHTML = '<h4>Notice</h4>';
       const ul = document.createElement('ul');
       ul.className = 'line-list';
-      items.forEach(x => {
+      items.forEach((x, idx) => {
         const li = document.createElement('li');
-        li.textContent = x;
+        li.innerHTML = `${escapeHtml(x)}${showBilingual() && itemZh[idx] ? `<div class="tiny muted">${escapeHtml(itemZh[idx])}</div>` : ''}`;
         ul.appendChild(li);
       });
       block.appendChild(ul);
@@ -768,7 +814,7 @@
         row.style.border = '1px solid var(--line)';
         row.style.borderRadius = '10px';
         row.style.background = '#fff';
-        row.innerHTML = `<strong>${m.sender}</strong><div style="margin-top:2px">${m.text}</div>`;
+        row.innerHTML = `<strong>${escapeHtml(m.sender)}</strong><div style="margin-top:2px">${escapeHtml(m.text)}</div>${showBilingual() && m.zh_tw ? `<div class="tiny muted" style="margin-top:4px">${escapeHtml(m.zh_tw)}</div>` : ''}`;
         block.appendChild(row);
       });
       el.detailBody.appendChild(block);
@@ -852,11 +898,12 @@
         d.appendChild(sum);
         const chips = document.createElement('div');
         chips.className = 'chunk-bank';
+        const gloss = s.item_gloss_by_ko || {};
         (s.items || []).forEach(item => {
           const span = document.createElement('span');
           span.className = 'chunk';
           span.style.cursor = 'default';
-          span.textContent = item;
+          span.textContent = formatKoWithZh(item, gloss[item]);
           chips.appendChild(span);
         });
         d.appendChild(chips);
@@ -875,6 +922,7 @@
         return;
       }
       const answers = Array.isArray(nodeState.answers) ? nodeState.answers.slice() : [];
+      const chunkGloss = task.chunk_gloss_by_ko || {};
 
       const header = document.createElement('div');
       header.className = 'block';
@@ -913,7 +961,7 @@
           const chip = document.createElement('button');
           chip.type = 'button';
           chip.className = 'answer-chip';
-          chip.textContent = a;
+          chip.textContent = formatKoWithZh(a, chunkGloss[a]);
           chip.onclick = () => {
             answers.splice(idx, 1);
             commitAnswers(answers);
@@ -932,7 +980,7 @@
           const btn = document.createElement('button');
           btn.type = 'button';
           btn.className = 'chunk' + (usedCountInTask >= totalCountInTask ? ' used' : '');
-          btn.textContent = chunkText;
+          btn.textContent = formatKoWithZh(chunkText, chunkGloss[chunkText]);
           btn.disabled = usedCountInTask >= totalCountInTask;
           btn.onclick = () => {
             answers.push(chunkText);
@@ -966,7 +1014,7 @@
       const exampleBox = document.createElement('div');
       exampleBox.className = 'tiny muted';
       exampleBox.style.display = 'none';
-      exampleBox.textContent = `示例：${(task.target_examples || []).join(' / ')}`;
+      exampleBox.textContent = `示例：${(task.target_examples || []).join(' / ')}${showBilingual() && (task.target_examples_zh_tw || []).length ? ` ｜ 中譯：${task.target_examples_zh_tw.join(' / ')}` : ''}`;
       exampleBtn.onclick = () => {
         exampleBox.style.display = exampleBox.style.display === 'none' ? 'block' : 'none';
       };
@@ -998,13 +1046,14 @@
       block.className = 'block';
       block.innerHTML = '<h4>Response Builder（不自動評分）</h4><div class="tiny muted">選一個你會用的回應；可查看建議答案</div>';
       items.forEach((item, idx) => {
+        const responseGloss = item.response_gloss_by_ko || {};
         const card = document.createElement('div');
         card.style.marginTop = '8px';
         card.style.padding = '8px';
         card.style.border = '1px dashed var(--line)';
         card.style.borderRadius = '10px';
         const prompt = document.createElement('div');
-        prompt.innerHTML = `<strong>Prompt ${idx + 1}</strong><div style="margin-top:4px">${item.prompt_ko}</div>`;
+        prompt.innerHTML = `<strong>Prompt ${idx + 1}</strong><div style="margin-top:4px">${escapeHtml(item.prompt_ko)}</div>${showBilingual() && item.prompt_zh_tw ? `<div class="tiny muted" style="margin-top:4px">${escapeHtml(item.prompt_zh_tw)}</div>` : ''}`;
         card.appendChild(prompt);
         const list = document.createElement('div');
         list.className = 'choice-list';
@@ -1013,7 +1062,7 @@
           const b = document.createElement('button');
           b.type = 'button';
           b.className = 'choice' + (chosen[idx] === choiceText ? ' selected' : '');
-          b.textContent = choiceText;
+          b.textContent = formatKoWithZh(choiceText, responseGloss[choiceText]);
           b.onclick = () => {
             const next = { ...chosen, [idx]: choiceText };
             setNodeInteractionState(node.id, { chosenByIndex: next });
@@ -1030,7 +1079,7 @@
         const ans = document.createElement('div');
         ans.className = 'tiny';
         ans.style.marginTop = '6px';
-        ans.textContent = (item.accepted_responses_ko || []).join(' / ');
+        ans.textContent = (item.accepted_responses_ko || []).map(x => formatKoWithZh(x, responseGloss[x])).join(' / ');
         details.appendChild(ans);
         card.appendChild(details);
         block.appendChild(card);
@@ -1233,10 +1282,11 @@
       };
       el.resetProgressBtn.onclick = () => {
         if (!confirm('確定要清除這個單元的完成記錄與互動輸入？')) return;
-        state.progress = { completedNodeIds: [], reviewNodeIds: [], notesByNodeId: {}, interactionStateByNodeId: {} };
+        state.progress = { completedNodeIds: [], reviewNodeIds: [], notesByNodeId: {}, interactionStateByNodeId: {}, prefs: { showBilingual: showBilingual() } };
         saveProgress();
         renderCurrentNode();
       };
+      el.bilingualToggle.onchange = () => setShowBilingual(el.bilingualToggle.checked);
       el.jumpNextIncompleteBtn.onclick = () => {
         const ok = jumpToNextByPredicate(node => !isDone(node.id));
         if (!ok) alert('沒有未完成節點了。');

@@ -131,7 +131,116 @@
         "expected_output_zh_tw": { "type": "string", "minLength": 1 },
         "payload": {
           "type": "object",
-          "description": "Interaction/renderer-specific typed payload. Freeform in v0; adapter/renderers read supported keys.",
+          "description": "Interaction/renderer-specific typed payload. Adapter/renderers read supported keys based on content_form and output_mode.",
+          "properties": {
+            "dialogue_turns": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "required": ["speaker", "text"],
+                "properties": {
+                  "speaker": { "type": "string" },
+                  "text": { "type": "string" },
+                  "zh_tw": { "type": "string" }
+                }
+              }
+            },
+            "notice_items": { "$ref": "#/$defs/stringList" },
+            "notice_items_zh_tw": { "$ref": "#/$defs/stringList" },
+            "messages": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "required": ["sender", "text"],
+                "properties": {
+                  "sender": { "type": "string" },
+                  "text": { "type": "string" },
+                  "zh_tw": { "type": "string" }
+                }
+              }
+            },
+            "options": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "required": ["id", "label_zh_tw"],
+                "properties": {
+                  "id": { "type": "string" },
+                  "label_ko": { "type": "string" },
+                  "label_zh_tw": { "type": "string" },
+                  "price_krw": { "type": "integer" },
+                  "pros_ko": { "$ref": "#/$defs/stringList" },
+                  "pros_zh_tw": { "$ref": "#/$defs/stringList" }
+                }
+              }
+            },
+            "frames": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "required": ["frame", "use_zh_tw"],
+                "properties": {
+                  "frame": { "type": "string" },
+                  "use_zh_tw": { "type": "string" },
+                  "slots_zh_tw": { "$ref": "#/$defs/stringList" }
+                }
+              }
+            },
+            "sections": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "required": ["title_zh_tw"],
+                "properties": {
+                  "title_zh_tw": { "type": "string" },
+                  "points_zh_tw": { "$ref": "#/$defs/stringList" },
+                  "ko_examples": { "$ref": "#/$defs/stringList" },
+                  "items": { "$ref": "#/$defs/stringList" },
+                  "item_gloss_by_ko": { "type": "object", "additionalProperties": { "type": "string" } }
+                }
+              }
+            },
+            "tasks": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "required": ["prompt_zh_tw", "chunks"],
+                "properties": {
+                  "prompt_zh_tw": { "type": "string" },
+                  "chunks": { "$ref": "#/$defs/stringList" },
+                  "chunk_gloss_by_ko": { "type": "object", "additionalProperties": { "type": "string" } },
+                  "target_examples": { "$ref": "#/$defs/stringList" },
+                  "target_examples_zh_tw": { "$ref": "#/$defs/stringList" }
+                }
+              }
+            },
+            "items": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "required": ["prompt_ko", "response_choices_ko"],
+                "properties": {
+                  "prompt_ko": { "type": "string" },
+                  "prompt_zh_tw": { "type": "string" },
+                  "response_choices_ko": { "$ref": "#/$defs/stringList" },
+                  "response_gloss_by_ko": { "type": "object", "additionalProperties": { "type": "string" } },
+                  "accepted_responses_ko": { "$ref": "#/$defs/stringList" }
+                }
+              }
+            },
+            "constraints_zh_tw": { "$ref": "#/$defs/stringList" },
+            "required_patterns_zh_tw": { "$ref": "#/$defs/stringList" },
+            "prompt_card_zh_tw": { "type": "string" },
+            "scenery_ko": { "type": "string" },
+            "scenery_zh_tw": { "type": "string" },
+            "prompt_ko": { "type": "string" },
+            "prompt_zh_tw": { "type": "string" },
+            "must_include_zh_tw": { "$ref": "#/$defs/stringList" },
+            "example_shape_ko": { "$ref": "#/$defs/stringList" },
+            "example_shape_zh_tw": { "$ref": "#/$defs/stringList" },
+            "prompts_zh_tw": { "$ref": "#/$defs/stringList" },
+            "reference_answers_ko": { "$ref": "#/$defs/stringList" }
+          },
           "additionalProperties": true
         },
         "flags": {

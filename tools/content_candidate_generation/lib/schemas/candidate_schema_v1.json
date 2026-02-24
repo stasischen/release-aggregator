@@ -1,0 +1,302 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://release-aggregator.local/schemas/content-candidate/candidate-v1.json",
+  "title": "Content Candidate Canonical Schema v1",
+  "description": "Canonical candidate contract shared by API flow, Agent flow, normalize/QA, and review bundle export. Chinese review fields are mandatory. Note: current review-station MVP still uses an integer target_position; exporters should map canonical target_position object into review-station import shape until review-station upgrades.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "candidate_id",
+    "batch_id",
+    "candidate_type",
+    "target_level",
+    "target_unit_id",
+    "target_position",
+    "title_zh_tw",
+    "subtitle_zh_tw",
+    "can_do_zh_tw",
+    "review_summary_zh_tw",
+    "novelty_rationale_zh_tw",
+    "risk_flags_zh_tw",
+    "agent_recommendation",
+    "scores",
+    "foreign_preview"
+  ],
+  "properties": {
+    "candidate_id": {
+      "type": "string",
+      "minLength": 1,
+      "description": "Stable ID unique within a batch; recommended format: {batch_id}-{type}-{seq}."
+    },
+    "batch_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "candidate_type": {
+      "type": "string",
+      "enum": [
+        "lesson",
+        "grammar_note",
+        "dictionary_pack",
+        "path_node"
+      ]
+    },
+    "target_level": {
+      "type": "string",
+      "minLength": 1,
+      "examples": [
+        "A1"
+      ]
+    },
+    "target_unit_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "target_position": {
+      "type": "object",
+      "description": "Canonical placement directive. Exactly one anchor style must be provided.",
+      "additionalProperties": false,
+      "oneOf": [
+        {
+          "required": [
+            "after_lesson_id"
+          ]
+        },
+        {
+          "required": [
+            "before_lesson_id"
+          ]
+        },
+        {
+          "required": [
+            "slot"
+          ]
+        }
+      ],
+      "properties": {
+        "after_lesson_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "before_lesson_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "slot": {
+          "type": "string",
+          "minLength": 1,
+          "description": "Named slot for insertion when lesson anchors are unavailable, e.g. unit_intro, unit_mid, unit_tail."
+        },
+        "rank_hint": {
+          "type": "integer",
+          "minimum": 0,
+          "description": "Optional order hint among candidates targeting the same anchor."
+        }
+      }
+    },
+    "title_zh_tw": {
+      "type": "string",
+      "minLength": 1
+    },
+    "subtitle_zh_tw": {
+      "type": "string",
+      "minLength": 1
+    },
+    "can_do_zh_tw": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "string",
+        "minLength": 1
+      }
+    },
+    "review_summary_zh_tw": {
+      "type": "string",
+      "minLength": 1,
+      "description": "Chinese-first summary for review station display."
+    },
+    "novelty_rationale_zh_tw": {
+      "type": "string",
+      "minLength": 1
+    },
+    "risk_flags_zh_tw": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1
+      },
+      "description": "Chinese risk notes; empty array allowed when no risk is found."
+    },
+    "agent_recommendation": {
+      "type": "string",
+      "enum": [
+        "accept",
+        "revise",
+        "reject"
+      ]
+    },
+    "scores": {
+      "$ref": "#/$defs/scores"
+    },
+    "foreign_preview": {
+      "description": "Collapsed preview payload for reviewer. May be object or plain text depending on candidate_type.",
+      "oneOf": [
+        {
+          "type": "object"
+        },
+        {
+          "type": "string",
+          "minLength": 1
+        }
+      ]
+    },
+    "theme_tags": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1
+      },
+      "default": []
+    },
+    "skill_tags": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1
+      },
+      "default": []
+    },
+    "estimated_minutes": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "grammar_focus": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1
+      },
+      "default": []
+    },
+    "dictionary_focus_terms": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1
+      },
+      "default": []
+    },
+    "production_cost": {
+      "type": "string",
+      "enum": [
+        "low",
+        "med",
+        "high"
+      ]
+    },
+    "confidence": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 1
+    },
+    "source_notes": {
+      "oneOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      ]
+    },
+    "qa_flags": {
+      "type": "array",
+      "description": "Writable by normalize/QA stages. Intended for non-blocking QA annotations attached to candidate.",
+      "items": {
+        "$ref": "#/$defs/qaFlag"
+      },
+      "default": []
+    },
+    "metadata": {
+      "type": "object",
+      "description": "Freeform producer metadata (provider/model/prompt_version/raw ids). Keep non-review fields here.",
+      "additionalProperties": true
+    }
+  },
+  "$defs": {
+    "scoreValue": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 1
+    },
+    "scores": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "fit",
+        "novelty",
+        "learnability",
+        "reuse",
+        "engagement",
+        "cost"
+      ],
+      "properties": {
+        "fit": {
+          "$ref": "#/$defs/scoreValue"
+        },
+        "novelty": {
+          "$ref": "#/$defs/scoreValue"
+        },
+        "learnability": {
+          "$ref": "#/$defs/scoreValue"
+        },
+        "reuse": {
+          "$ref": "#/$defs/scoreValue"
+        },
+        "engagement": {
+          "$ref": "#/$defs/scoreValue"
+        },
+        "cost": {
+          "$ref": "#/$defs/scoreValue",
+          "description": "Higher score = more favorable cost (cheaper), not absolute spend."
+        }
+      }
+    },
+    "qaFlag": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "severity",
+        "rule_id",
+        "message_zh_tw"
+      ],
+      "properties": {
+        "severity": {
+          "type": "string",
+          "enum": [
+            "error",
+            "warning",
+            "info"
+          ]
+        },
+        "rule_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "message_zh_tw": {
+          "type": "string",
+          "minLength": 1
+        },
+        "field_path": {
+          "type": "string"
+        },
+        "suggested_fix_zh_tw": {
+          "type": "string"
+        }
+      }
+    }
+  }
+}

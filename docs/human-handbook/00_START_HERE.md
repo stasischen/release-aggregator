@@ -15,6 +15,12 @@ Last reviewed: 2026-02-23
 3. `docs/human-handbook/03_STAGE_CHECKLISTS.md`
 4. `docs/runbooks/release_cut_and_rollback.md`
 
+## Content Candidate Framework (Draft, for AGG-GEN)
+## 內容候選 Framework（草案，供 AGG-GEN 使用）
+
+- `docs/human-handbook/07_CONTENT_CANDIDATE_COURSE_DESIGN.md`
+- 用途：保存內容形式 taxonomy、A1/A2 單元骨架、輸出比例與 QA 平衡原則（避免候選生成只剩對話/文章兩類）。
+
 ## Not Canonical (Historical)
 ## 非現行（歷史文件）
 

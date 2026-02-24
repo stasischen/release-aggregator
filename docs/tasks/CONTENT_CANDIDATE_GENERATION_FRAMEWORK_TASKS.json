@@ -1,12 +1,12 @@
 {
   "task_id": "CONTENT_CANDIDATE_GENERATION_FRAMEWORK",
   "description": "雙流程候選內容生成框架（API + Agent + QA + Review Bundle）",
-  "status": "todo",
+  "status": "in_progress",
   "tasks": [
     {
       "id": "AGG-GEN-001",
       "desc": "Shared schema v1: Define canonical candidate schema used by API/Agent/review station.",
-      "status": "todo"
+      "status": "done"
     },
     {
       "id": "AGG-GEN-002",
@@ -76,6 +76,21 @@
     {
       "id": "AGG-GEN-015",
       "desc": "End-to-end dry run: Run one sample batch through generate -> normalize -> QA -> review import -> accepted adapters.",
+      "status": "todo"
+    },
+    {
+      "id": "AGG-GEN-016",
+      "desc": "Multilingual curriculum architecture blueprint: target-language core + learner-locale pedagogy overlays (zh-TW first), with lllo directory conventions.",
+      "status": "todo"
+    },
+    {
+      "id": "AGG-GEN-017",
+      "desc": "Curriculum learning-loop design: immersive input + spaced review + structured sentence-pattern/grammar tracks, and candidate taxonomy alignment.",
+      "status": "done"
+    },
+    {
+      "id": "AGG-GEN-018",
+      "desc": "Schema/brief extensions for multilingual pedagogy and review scheduling metadata (target_language, learner_locale_source, review cadence hints).",
       "status": "todo"
     }
   ]

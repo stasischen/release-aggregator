@@ -518,6 +518,66 @@ tools/content_candidate_generation/
 - 生成 -> normalize -> QA -> review bundle -> review station import -> accepted adapter 至少走通一次
 - 列出阻塞點與技術債（中文）
 
+### AGG-GEN-016 — Multilingual curriculum architecture blueprint (lllo)
+
+**Goal**
+- 規劃 `lllo` 的多語系課程內容目錄與資料分層，支援「中文學各種語言」先行，後續再擴充其他 learner locale。
+
+**Deliverables**
+- `docs/architecture/multilingual_curriculum_blueprint.md`（可先放在 `release-aggregator/docs/` 草案）
+- `core` vs `pedagogy overlay` 欄位切分表（lesson / grammar / dictionary / path node）
+- `lllo` 目錄草案（`target_language` × `learner_locale`）
+
+**Required Decisions**
+- `target_language` 與 `learner_locale` 分離（不可把每個組合複製成獨立課程）
+- `zh-TW` 作為第一個 pedagogy overlay source-of-truth
+- accepted candidate 如何映射到 `core` 與 `pedagogy/zh-TW`
+
+**Acceptance**
+- 至少涵蓋 `ko` + `zh-TW` 的完整樣例路徑
+- 能解釋未來新增 `en` learner locale 時哪些檔案可重用、哪些要翻譯
+
+### AGG-GEN-017 — Curriculum learning-loop design (Immersion + Spaced Review + Structured)
+
+**Goal**
+- 定義課程骨架與內容節奏，讓候選生成不只補素材，而是補到正確的學習環節。
+
+**Deliverables**
+- `docs/tasks/AGG_GEN_017_CURRICULUM_LEARNING_LOOP_SPEC.md`（正式規格草案，含 survival blueprint 與 A1 sample）
+- 課程設計規格（單元內學習循環、跨單元複習節奏）
+- candidate taxonomy 對應表（`lesson / grammar_note / dictionary_pack / path_node` 各自扮演角色）
+- review/QA 需要檢查的教學結構欄位清單（例如 pattern focus, review timing hints）
+
+**Design Requirements**
+- 同時覆蓋三種學習模式：
+  - 沉浸式學習（情境輸入/輸出）
+  - 間歇複習（spaced repetition / retrieval）
+  - 結構化學習（常用句型 / 文法規則）
+- 明確定義單元內每一階段的目的、輸入與輸出
+- 定義哪些 candidate type 可作為複習內容、哪些只適合首次引入
+
+**Acceptance**
+- 提供至少 1 個 `A1` 單元的樣例流程（含 lesson/grammar/review 節點）
+- 可直接反推 generation brief 的欄位需求與 count targets
+
+### AGG-GEN-018 — Schema/brief extensions for multilingual pedagogy + review cadence metadata
+
+**Goal**
+- 擴充 canonical candidate 與 generation brief，使其可表達多語系教學 overlay 與複習節奏資訊。
+
+**Deliverables**
+- schema patch spec（或直接更新 v1.1 schema）：
+  - `target_language`
+  - `learner_locale_source`
+  - `localization_targets`（optional）
+  - review cadence hints（e.g. `review_window_days`, `revisit_after_units`）
+  - structure tags（常用句型/文法/情境角色）
+- generation brief example（含 `zh-TW -> en` 後續 localize 規劃）
+
+**Acceptance**
+- API/Agent specs 可引用新欄位而不破壞 v1 審核流程
+- review bundle exporter 能明確說明哪些欄位保留給審核台、哪些欄位為 metadata
+
 ## Dependency Order (Gemini Assignment Suggestion)
 
 建議分配順序（可平行的已標示）：
@@ -527,10 +587,12 @@ tools/content_candidate_generation/
 3. `AGG-GEN-004`
 4. `AGG-GEN-005` → `AGG-GEN-006`
 5. `AGG-GEN-007` → `AGG-GEN-008`
-6. `AGG-GEN-009` + `AGG-GEN-010` + `AGG-GEN-011`（規格類可平行）
-7. `AGG-GEN-012`
-8. `AGG-GEN-013` + `AGG-GEN-014`（可平行）
-9. `AGG-GEN-015`
+6. `AGG-GEN-016` + `AGG-GEN-017`（課程架構/內容策略先定）
+7. `AGG-GEN-018`（回寫 schema/brief 擴充）
+8. `AGG-GEN-009` + `AGG-GEN-010` + `AGG-GEN-011`（規格類可平行）
+9. `AGG-GEN-012`
+10. `AGG-GEN-013` + `AGG-GEN-014`（可平行）
+11. `AGG-GEN-015`
 
 ## What You (PM/Product, Chinese-only) Should Review
 

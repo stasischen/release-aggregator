@@ -1155,11 +1155,19 @@
           <div class="progress-track">
             <div class="progress-fill" id="progressFill"></div>
           </div>
-          <div class="btn-group" style="margin-top: 12px; width: 100%;">
-            <button class="btn tiny-text" style="flex:1; padding: 6px;" id="jumpNextIncompleteBtn">未完成</button>
-            <button class="btn tiny-text" style="flex:1; padding: 6px;" id="jumpNextReviewBtn">待回看</button>
+          <div class="btn-group" style="margin-top: 12px; width: 100%; flex-direction: column; gap: 6px;">
+            <div style="display:flex; gap:6px;">
+              <button class="btn tiny-text" style="flex:1; padding: 6px;" id="jumpNextIncompleteBtn" title="跳到下一個未完成節點">下一個未完成</button>
+              <button class="btn tiny-text" style="flex:1; padding: 6px;" id="jumpNextReviewBtn" title="跳到下一個標記待回看節點">下一個待回看</button>
+            </div>
+            <div style="display:flex; gap:6px;">
+              <button class="btn tiny-text" style="flex:1; padding: 6px;" id="jumpFirstOutputBtn" title="跳到第一個練習/輸出節點">第一個練習</button>
+              <button class="btn tiny-text" style="flex:1; padding: 6px;" id="jumpReviewSummaryBtn" title="跳到單元總結複習">單元總結</button>
+            </div>
           </div>
         </div>
+
+        <div id="roleSummaryBox" style="margin-top:20px;"></div>
 
         <div class="toggle-row">
           <label for="bilingualToggle"><strong>韓中對照 (Bilingual)</strong></label>
@@ -1227,6 +1235,7 @@
       progressFill: document.getElementById('progressFill'),
       followupsBox: document.getElementById('followupsBox'),
       nodeList: document.getElementById('nodeList'),
+      roleSummaryBox: document.getElementById('roleSummaryBox'),
       detailHeader: document.getElementById('detailHeader'),
       detailSummary: document.getElementById('detailSummary'),
       detailBody: document.getElementById('detailBody'),
@@ -1237,6 +1246,8 @@
       resetProgressBtn: document.getElementById('resetProgressBtn'),
       jumpNextIncompleteBtn: document.getElementById('jumpNextIncompleteBtn'),
       jumpNextReviewBtn: document.getElementById('jumpNextReviewBtn'),
+      jumpFirstOutputBtn: document.getElementById('jumpFirstOutputBtn'),
+      jumpReviewSummaryBtn: document.getElementById('jumpReviewSummaryBtn'),
       bilingualToggle: document.getElementById('bilingualToggle'),
       toastContainer: document.getElementById('toastContainer')
     };
@@ -1351,6 +1362,7 @@
       el.rolePills.innerHTML = Object.entries(counts).map(([k, v]) => `<span class="pill">${k}: ${v}</span>`).join('');
 
       el.bilingualToggle.checked = showBilingual();
+      renderRoleSummary();
 
       if (state.data.scheduled_followups?.length) {
         el.followupsBox.innerHTML = '<h2>跨單元複習排程</h2>' + state.data.scheduled_followups.map(f => `
@@ -1362,6 +1374,47 @@
       } else {
         el.followupsBox.innerHTML = '';
       }
+    }
+
+    function renderRoleSummary() {
+      const roles = ['immersion_input', 'structure_pattern', 'structure_grammar', 'controlled_output', 'immersion_output', 'review_retrieval'];
+      const roleNames = {
+        'immersion_input': '沉浸輸入',
+        'structure_pattern': '句型結構',
+        'structure_grammar': '最小語法',
+        'controlled_output': '可控輸出',
+        'immersion_output': '任務輸出',
+        'review_retrieval': '總結複習'
+      };
+
+      const stats = {};
+      roles.forEach(r => stats[r] = { total: 0, done: 0 });
+      
+      state.data.sequence.forEach(node => {
+        if (stats[node.learning_role]) {
+          stats[node.learning_role].total++;
+          if (isDone(node.id)) stats[node.learning_role].done++;
+        }
+      });
+
+      let html = '<h2>學習歷程摘要</h2><div style="display:grid; gap:6px;">';
+      roles.forEach(r => {
+        if (stats[r].total > 0) {
+          const percent = Math.round((stats[r].done / stats[r].total) * 100);
+          const isComplete = stats[r].done === stats[r].total;
+          html += `
+            <div style="font-size:11px; display:flex; justify-content:space-between; align-items:center;">
+              <span class="${isComplete ? 'muted-text' : ''}" style="font-weight:${isComplete ? '400' : '600'}">${roleNames[r]}</span>
+              <span style="color:${isComplete ? 'var(--ok)' : 'var(--muted)'}">${stats[r].done}/${stats[r].total} (${percent}%)</span>
+            </div>
+            <div style="height:3px; background:#eeeae3; border-radius:2px; margin-bottom:4px; overflow:hidden;">
+              <div style="height:100%; width:${percent}%; background:${isComplete ? 'var(--ok)' : 'var(--accent)'}; transition: width 0.3s;"></div>
+            </div>
+          `;
+        }
+      });
+      html += '</div>';
+      el.roleSummaryBox.innerHTML = html;
     }
 
     function renderProgress() {
@@ -1764,6 +1817,21 @@
 
       el.markDoneBtn.classList.toggle('success', !isDone(node.id));
       el.markReviewBtn.style.color = isReview(node.id) ? 'var(--warn)' : '';
+
+      // Add "Next Step" suggestion in footer if currently done
+      if (isDone(node.id)) {
+        const nextNode = state.data.sequence[state.currentIndex + 1];
+        if (nextNode) {
+          const tip = document.createElement('div');
+          tip.style = 'position:absolute; bottom:70px; right:24px; background:var(--ok-soft); border:1px solid var(--ok); padding:8px 12px; border-radius:8px; font-size:12px; animation: bounceIn 0.5s;';
+          tip.innerHTML = `<strong>完成！</strong> 下一站：${nextNode.title_zh_tw} →`;
+          tip.onclick = () => { state.currentIndex++; renderCurrentNode(); };
+          tip.style.cursor = 'pointer';
+          el.detailBody.appendChild(tip);
+        } else {
+          showToast('賀！單元全部節點已標記完成。');
+        }
+      }
     }
 
     function wireEvents() {
@@ -1788,6 +1856,15 @@
           else showToast('全部完成啦！');
         }
       };
+      el.jumpNextIncompleteBtn.onclick = () => {
+        const idx = state.data.sequence.findIndex((n, i) => i > state.currentIndex && !isDone(n.id));
+        if (idx > -1) { state.currentIndex = idx; renderCurrentNode(); }
+        else {
+          const idx2 = state.data.sequence.findIndex((n) => !isDone(n.id));
+          if (idx2 > -1) { state.currentIndex = idx2; renderCurrentNode(); }
+          else showToast('全部節點已完成！');
+        }
+      };
       el.jumpNextReviewBtn.onclick = () => {
         const idx = state.data.sequence.findIndex((n, i) => i > state.currentIndex && isReview(n.id));
         if (idx > -1) { state.currentIndex = idx; renderCurrentNode(); }
@@ -1796,6 +1873,17 @@
           if (idx2 > -1) { state.currentIndex = idx2; renderCurrentNode(); }
           else showToast('沒有標記回看的節點。');
         }
+      };
+      el.jumpFirstOutputBtn.onclick = () => {
+        const roles = new Set(['controlled_output', 'immersion_output']);
+        const idx = state.data.sequence.findIndex(n => roles.has(n.learning_role));
+        if (idx > -1) { state.currentIndex = idx; renderCurrentNode(); }
+        else showToast('未找到輸出練習節點。');
+      };
+      el.jumpReviewSummaryBtn.onclick = () => {
+        const idx = state.data.sequence.findIndex(n => n.learning_role === 'review_retrieval');
+        if (idx > -1) { state.currentIndex = idx; renderCurrentNode(); }
+        else showToast('未找到總結複習節點。');
       };
     }
 

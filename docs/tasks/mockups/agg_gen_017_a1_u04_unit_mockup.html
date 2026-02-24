@@ -3,397 +3,1301 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>AGG-GEN-017 A1-U04 Unit Mockup</title>
+  <title>A1-U04 Survival Unit Playable Mockup (HTML v1)</title>
   <style>
     :root {
-      --bg: #f6f2ea;
-      --card: #fffdf9;
-      --ink: #1c1b17;
-      --muted: #6a655b;
-      --line: #d9cfbf;
-      --accent: #c5522f;
-      --accent-soft: #f3d5cc;
-      --pill: #efe7da;
-      --ok: #216a3a;
+      --bg: #f6f1e8;
+      --card: #fffdf8;
+      --ink: #1f1d19;
+      --muted: #696257;
+      --line: #dbd0be;
+      --accent: #be4c2e;
+      --accent2: #2f7f77;
+      --accent3: #7b5cf5;
+      --ok: #1f6a39;
+      --warn: #b26a00;
+      --shadow: 0 8px 24px rgba(20, 18, 14, 0.06);
     }
     * { box-sizing: border-box; }
     body {
       margin: 0;
+      color: var(--ink);
       font-family: "Iowan Old Style", "Noto Serif TC", serif;
       background:
-        radial-gradient(circle at 15% 10%, #fff8ec 0, transparent 35%),
-        radial-gradient(circle at 80% 0%, #ffe9d6 0, transparent 40%),
+        radial-gradient(circle at 10% 0%, #fff8ed 0, transparent 35%),
+        radial-gradient(circle at 85% 2%, #ffe7d8 0, transparent 30%),
         var(--bg);
-      color: var(--ink);
     }
-    .wrap {
-      max-width: 1160px;
+    button, input, textarea {
+      font: inherit;
+    }
+    .page {
+      max-width: 1320px;
       margin: 0 auto;
-      padding: 24px 16px 48px;
+      padding: 16px;
       display: grid;
-      grid-template-columns: 320px 1fr;
-      gap: 16px;
+      grid-template-columns: 300px 360px 1fr;
+      gap: 14px;
     }
     .panel {
       background: var(--card);
       border: 1px solid var(--line);
       border-radius: 16px;
-      box-shadow: 0 8px 24px rgba(28, 27, 23, 0.05);
+      box-shadow: var(--shadow);
+      min-width: 0;
     }
-    .sidebar {
-      position: sticky;
-      top: 12px;
-      align-self: start;
-      padding: 16px;
+    .sidebar, .list-pane, .detail-pane {
+      padding: 14px;
     }
+    .sidebar { position: sticky; top: 10px; align-self: start; }
     h1, h2, h3 { margin: 0; line-height: 1.2; }
-    h1 { font-size: 26px; }
-    h2 { font-size: 18px; }
-    h3 { font-size: 15px; }
+    h1 { font-size: 24px; }
+    h2 { font-size: 17px; }
+    h3 { font-size: 14px; }
     .muted { color: var(--muted); }
+    .tiny { font-size: 12px; }
     .meta-grid {
-      margin-top: 12px;
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 8px;
+      margin-top: 12px;
     }
-    .meta {
+    .meta-box {
       border: 1px solid var(--line);
-      border-radius: 12px;
-      padding: 10px;
+      border-radius: 10px;
+      padding: 8px;
       background: #fff;
     }
-    .meta .k {
+    .meta-box .k {
       display: block;
-      color: var(--muted);
       font-size: 11px;
-      margin-bottom: 3px;
+      color: var(--muted);
+      margin-bottom: 2px;
     }
-    .can-do {
-      margin: 14px 0 0;
-      padding-left: 18px;
-      line-height: 1.5;
-      font-size: 13px;
-    }
-    .legend {
-      margin-top: 14px;
-      padding-top: 12px;
-      border-top: 1px dashed var(--line);
-      display: grid;
-      gap: 8px;
-    }
-    .legend-item {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      font-size: 12px;
-    }
-    .dot {
-      width: 10px;
-      height: 10px;
-      border-radius: 999px;
-      display: inline-block;
-      border: 1px solid rgba(0,0,0,0.08);
-    }
-    .main {
-      padding: 16px;
-    }
-    .topbar {
-      display: flex;
-      flex-wrap: wrap;
-      align-items: center;
-      justify-content: space-between;
-      gap: 10px;
-      padding-bottom: 12px;
-      border-bottom: 1px solid var(--line);
-      margin-bottom: 14px;
-    }
-    .stats {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-    }
+    .can-do { margin: 10px 0 0; padding-left: 18px; font-size: 13px; line-height: 1.45; }
+    .pills { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 10px; }
     .pill {
-      background: var(--pill);
       border: 1px solid var(--line);
+      background: #f2ebde;
       border-radius: 999px;
-      padding: 6px 10px;
-      font-size: 12px;
+      padding: 4px 8px;
+      font-size: 11px;
       white-space: nowrap;
     }
-    .timeline {
-      display: grid;
-      gap: 10px;
-    }
-    .card {
+    .progress {
+      margin-top: 12px;
       border: 1px solid var(--line);
-      border-radius: 14px;
+      border-radius: 12px;
       background: #fff;
-      padding: 12px;
-      display: grid;
-      gap: 8px;
+      padding: 8px;
     }
-    .card-header {
-      display: flex;
-      align-items: start;
-      justify-content: space-between;
-      gap: 8px;
-    }
-    .title {
-      font-size: 16px;
-      font-weight: 600;
-    }
-    .subline {
+    .progress-actions {
+      margin-top: 8px;
       display: flex;
       flex-wrap: wrap;
       gap: 6px;
     }
+    .progress-summary {
+      margin-top: 8px;
+      border: 1px dashed var(--line);
+      border-radius: 10px;
+      background: #fcfaf5;
+      padding: 8px;
+      display: grid;
+      gap: 4px;
+      font-size: 12px;
+    }
+    .progress-track {
+      height: 8px;
+      border-radius: 999px;
+      background: #eee4d6;
+      overflow: hidden;
+      margin-top: 6px;
+    }
+    .progress-fill {
+      height: 100%;
+      background: linear-gradient(90deg, var(--accent2), var(--accent));
+      width: 0%;
+      transition: width .2s ease;
+    }
+    .list-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px;
+      padding-bottom: 10px;
+      border-bottom: 1px solid var(--line);
+      margin-bottom: 10px;
+    }
+    .node-list {
+      display: grid;
+      gap: 8px;
+      max-height: calc(100vh - 140px);
+      overflow: auto;
+      padding-right: 2px;
+    }
+    .node-item {
+      border: 1px solid var(--line);
+      border-left: 5px solid #b7b0a5;
+      border-radius: 12px;
+      background: #fff;
+      padding: 10px;
+      cursor: pointer;
+      display: grid;
+      gap: 5px;
+    }
+    .node-item.active {
+      border-color: #c7a48f;
+      box-shadow: 0 0 0 2px rgba(190, 76, 46, 0.08);
+      background: #fffaf4;
+    }
+    .node-item.done {
+      background: #fbfff8;
+    }
+    .node-item .top {
+      display: flex;
+      justify-content: space-between;
+      gap: 8px;
+      align-items: start;
+    }
+    .node-item .title {
+      font-size: 13px;
+      font-weight: 600;
+      line-height: 1.3;
+    }
+    .node-item .meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 5px;
+      font-size: 10px;
+    }
     .tag {
-      background: #fbf7ef;
       border: 1px solid var(--line);
       border-radius: 999px;
-      padding: 4px 8px;
-      font-size: 11px;
+      padding: 2px 6px;
+      background: #fbf6ed;
     }
-    .line-list {
-      margin: 0;
-      padding-left: 18px;
-      line-height: 1.45;
-      font-size: 13px;
+    .badge {
+      font-size: 10px;
+      border-radius: 999px;
+      padding: 2px 6px;
+      border: 1px solid transparent;
+      white-space: nowrap;
     }
-    .section-label {
+    .badge.done {
+      color: var(--ok);
+      border-color: #bfddc7;
+      background: #eff9f1;
+    }
+    .badge.todo {
       color: var(--muted);
-      font-size: 11px;
-      letter-spacing: 0.03em;
-      text-transform: uppercase;
+      border-color: var(--line);
+      background: #f8f4ec;
     }
-    .expected {
-      background: #fcfaf5;
+    .lane-immersion_input { border-left-color: var(--accent2); }
+    .lane-structure_pattern, .lane-structure_grammar { border-left-color: var(--accent3); }
+    .lane-controlled_output { border-left-color: var(--accent); }
+    .lane-immersion_output { border-left-color: #d98d10; }
+    .lane-review_retrieval { border-left-color: var(--ok); }
+
+    .detail-pane {
+      display: grid;
+      grid-template-rows: auto auto 1fr auto;
+      gap: 12px;
+      min-height: 78vh;
+    }
+    .detail-head {
+      padding-bottom: 10px;
+      border-bottom: 1px solid var(--line);
+    }
+    .detail-head .title { font-size: 20px; font-weight: 700; margin-top: 4px; }
+    .detail-head .sub { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 8px; }
+    .detail-summary {
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      background: #fff;
+      padding: 10px;
+      display: grid;
+      gap: 8px;
+    }
+    .summary-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 8px;
+    }
+    .summary-box {
       border: 1px dashed var(--line);
       border-radius: 10px;
       padding: 8px;
       font-size: 12px;
+      background: #fcfaf5;
     }
-    .lane {
-      border-left: 5px solid #bbb;
-      padding-left: 10px;
+    .detail-body {
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      background: #fff;
+      padding: 10px;
+      overflow: auto;
+      display: grid;
+      gap: 10px;
+      align-content: start;
     }
-    .lane-immersion_input { border-color: #2b7a78; }
-    .lane-structure_pattern, .lane-structure_grammar { border-color: #7c5cff; }
-    .lane-controlled_output { border-color: #c5522f; }
-    .lane-immersion_output { border-color: #d98e04; }
-    .lane-review_retrieval, .lane-cross_unit_transfer { border-color: #216a3a; }
-    .followups {
-      margin-top: 16px;
-      padding-top: 12px;
+    .block {
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      padding: 8px;
+      background: #fefcf7;
+    }
+    .block h4 { margin: 0 0 6px; font-size: 13px; }
+    .line-list { margin: 0; padding-left: 18px; font-size: 13px; line-height: 1.45; }
+    .row { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; }
+    .btn {
+      border: 1px solid var(--line);
+      background: #fff;
+      color: var(--ink);
+      border-radius: 10px;
+      padding: 8px 10px;
+      cursor: pointer;
+    }
+    .btn:hover { background: #fcf8ef; }
+    .btn.primary {
+      background: #f8e1d9;
+      border-color: #e0b3a6;
+      color: #7b2f1d;
+    }
+    .btn.ghost {
+      background: transparent;
+    }
+    .btn.success {
+      background: #eaf6ed;
+      border-color: #bdd8c3;
+      color: var(--ok);
+    }
+    .btn[disabled] {
+      opacity: .45;
+      cursor: not-allowed;
+    }
+    textarea, input[type="text"] {
+      width: 100%;
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      background: #fff;
+      padding: 8px;
+      color: var(--ink);
+    }
+    textarea { min-height: 90px; resize: vertical; }
+    .chunk-bank { display: flex; flex-wrap: wrap; gap: 6px; }
+    .chunk {
+      border: 1px solid #d8c9b5;
+      background: #fff;
+      border-radius: 999px;
+      padding: 6px 10px;
+      cursor: pointer;
+      font-size: 12px;
+    }
+    .chunk.used { opacity: .45; cursor: not-allowed; }
+    .answer-strip {
+      border: 1px dashed var(--line);
+      border-radius: 10px;
+      min-height: 42px;
+      padding: 6px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      background: #fcfaf5;
+    }
+    .answer-chip {
+      border: 1px solid #cdbca7;
+      background: #fff;
+      border-radius: 999px;
+      padding: 4px 8px;
+      font-size: 12px;
+      cursor: pointer;
+    }
+    .choice-list { display: grid; gap: 6px; }
+    .choice {
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      background: #fff;
+      padding: 8px;
+      cursor: pointer;
+      font-size: 13px;
+      text-align: left;
+    }
+    .choice.selected { border-color: #c49d8d; background: #fff8f2; }
+    details {
+      border: 1px dashed var(--line);
+      border-radius: 10px;
+      padding: 6px 8px;
+      background: #fcfbf8;
+    }
+    summary { cursor: pointer; }
+    .footer-nav {
+      display: flex;
+      justify-content: space-between;
+      gap: 8px;
       border-top: 1px solid var(--line);
+      padding-top: 10px;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+    .footer-left, .footer-right { display: flex; gap: 8px; align-items: center; }
+    .followups {
+      margin-top: 8px;
       display: grid;
       gap: 8px;
     }
     .followup {
-      padding: 10px;
-      border-radius: 12px;
       border: 1px solid var(--line);
-      background: #f8fbf7;
-      font-size: 13px;
-    }
-    .tip {
-      margin-top: 12px;
+      border-radius: 10px;
+      background: #f7fbf7;
+      padding: 8px;
       font-size: 12px;
-      color: var(--muted);
     }
-    .ok {
-      color: var(--ok);
-      font-weight: 600;
-    }
-    @media (max-width: 900px) {
-      .wrap {
-        grid-template-columns: 1fr;
-      }
-      .sidebar {
-        position: static;
-      }
+    .empty { color: var(--muted); font-size: 13px; }
+    @media (max-width: 1100px) {
+      .page { grid-template-columns: 1fr; }
+      .sidebar { position: static; }
+      .node-list { max-height: none; }
+      .detail-pane { min-height: auto; }
     }
   </style>
 </head>
 <body>
-  <div class="wrap">
+  <div class="page">
     <aside class="panel sidebar">
       <h1 id="unitTitle">Loading...</h1>
-      <p class="muted" id="unitTheme"></p>
+      <div class="muted tiny" id="unitSub"></div>
       <div class="meta-grid" id="metaGrid"></div>
-      <h2 style="margin-top:14px;">Can-do</h2>
-      <ul class="can-do" id="canDoList"></ul>
-      <div class="legend">
-        <div class="legend-item"><span class="dot" style="background:#2b7a78"></span> Immersion Input</div>
-        <div class="legend-item"><span class="dot" style="background:#7c5cff"></span> Structure (Pattern/Grammar)</div>
-        <div class="legend-item"><span class="dot" style="background:#c5522f"></span> Controlled Output</div>
-        <div class="legend-item"><span class="dot" style="background:#d98e04"></span> Immersion Output</div>
-        <div class="legend-item"><span class="dot" style="background:#216a3a"></span> Review / Transfer</div>
+      <h2 style="margin-top:12px;">Can-do</h2>
+      <ul class="can-do" id="canDo"></ul>
+      <div class="pills" id="rolePills"></div>
+      <div class="progress">
+        <div class="row" style="justify-content:space-between;">
+          <strong>單元進度</strong>
+          <span class="tiny" id="progressText">0/0</span>
+        </div>
+        <div class="progress-track"><div class="progress-fill" id="progressFill"></div></div>
+        <div class="progress-actions">
+          <button class="btn ghost tiny" id="jumpNextIncompleteBtn">跳到下一個未完成</button>
+          <button class="btn ghost tiny" id="jumpNextReviewBtn">跳到下一個待回看</button>
+        </div>
+        <div class="progress-summary" id="progressSummary"></div>
+        <div class="tiny muted" style="margin-top:6px;">v1 不自動評分，只記錄完成與輸入內容，方便回看。</div>
       </div>
-      <p class="tip">
-        這是 mockup（編排體驗版），目標是先驗證課程節奏與內容角色，之後再映射到 Flutter 既有頁面與元件。
-      </p>
+      <div class="followups" id="followupsBox"></div>
     </aside>
 
-    <main class="panel main">
-      <div class="topbar">
+    <section class="panel list-pane">
+      <div class="list-header">
         <div>
-          <h2>單元編排時間線（A1-U04）</h2>
-          <div class="muted" id="subtitleLine"></div>
+          <h2>節點清單</h2>
+          <div class="tiny muted">可點選跳轉、回看、重做</div>
         </div>
-        <div class="stats" id="stats"></div>
+        <button class="btn ghost tiny" id="resetProgressBtn">重置記錄</button>
       </div>
+      <div class="node-list" id="nodeList"></div>
+    </section>
 
-      <div class="timeline" id="timeline"></div>
-
-      <div class="followups">
-        <h3>跨單元複習排程（轉移練習）</h3>
-        <div id="followups"></div>
+    <section class="panel detail-pane">
+      <div class="detail-head" id="detailHead"></div>
+      <div class="detail-summary" id="detailSummary"></div>
+      <div class="detail-body" id="detailBody"></div>
+      <div class="footer-nav">
+        <div class="footer-left">
+          <button class="btn" id="prevBtn">上一節</button>
+          <button class="btn" id="nextBtn">下一節</button>
+        </div>
+        <div class="footer-right">
+          <button class="btn" id="markReviewBtn">標記為待回看</button>
+          <button class="btn success" id="markDoneBtn">標記完成</button>
+        </div>
       </div>
-    </main>
+    </section>
   </div>
 
   <script>
-    const dataPath = './agg_gen_017_a1_u04_unit_mockup_data.json';
+    const BLUEPRINT_PATH = './a1_u04_unit_blueprint_v0.json';
+    const STORAGE_PREFIX = 'agg_gen_mockup_unit_v1:';
 
-    const metaGrid = document.getElementById('metaGrid');
-    const canDoList = document.getElementById('canDoList');
-    const timeline = document.getElementById('timeline');
-    const followups = document.getElementById('followups');
-    const stats = document.getElementById('stats');
+    const state = {
+      data: null,
+      currentIndex: 0,
+      progress: {
+        completedNodeIds: [],
+        reviewNodeIds: [],
+        notesByNodeId: {},
+        interactionStateByNodeId: {}
+      }
+    };
 
-    const roleCount = {};
-    let totalMinutes = 0;
-    let outputMinutes = 0;
+    const el = {
+      unitTitle: document.getElementById('unitTitle'),
+      unitSub: document.getElementById('unitSub'),
+      metaGrid: document.getElementById('metaGrid'),
+      canDo: document.getElementById('canDo'),
+      rolePills: document.getElementById('rolePills'),
+      progressText: document.getElementById('progressText'),
+      progressFill: document.getElementById('progressFill'),
+      progressSummary: document.getElementById('progressSummary'),
+      followupsBox: document.getElementById('followupsBox'),
+      nodeList: document.getElementById('nodeList'),
+      detailHead: document.getElementById('detailHead'),
+      detailSummary: document.getElementById('detailSummary'),
+      detailBody: document.getElementById('detailBody'),
+      prevBtn: document.getElementById('prevBtn'),
+      nextBtn: document.getElementById('nextBtn'),
+      markDoneBtn: document.getElementById('markDoneBtn'),
+      markReviewBtn: document.getElementById('markReviewBtn'),
+      resetProgressBtn: document.getElementById('resetProgressBtn'),
+      jumpNextIncompleteBtn: document.getElementById('jumpNextIncompleteBtn'),
+      jumpNextReviewBtn: document.getElementById('jumpNextReviewBtn')
+    };
 
-    function pill(text) {
-      const el = document.createElement('span');
-      el.className = 'pill';
-      el.textContent = text;
-      return el;
+    function storageKey() {
+      const unitId = state.data?.unit?.unit_id || 'unknown';
+      return STORAGE_PREFIX + unitId;
+    }
+
+    function loadProgress() {
+      try {
+        const raw = localStorage.getItem(storageKey());
+        if (!raw) return;
+        const parsed = JSON.parse(raw);
+        state.progress = {
+          completedNodeIds: Array.isArray(parsed.completedNodeIds) ? parsed.completedNodeIds : [],
+          reviewNodeIds: Array.isArray(parsed.reviewNodeIds) ? parsed.reviewNodeIds : [],
+          notesByNodeId: parsed.notesByNodeId && typeof parsed.notesByNodeId === 'object' ? parsed.notesByNodeId : {},
+          interactionStateByNodeId: parsed.interactionStateByNodeId && typeof parsed.interactionStateByNodeId === 'object' ? parsed.interactionStateByNodeId : {}
+        };
+      } catch (e) {
+        console.warn('progress parse failed', e);
+      }
+    }
+
+    function saveProgress() {
+      localStorage.setItem(storageKey(), JSON.stringify(state.progress));
+      renderProgress();
+      renderNodeList();
+    }
+
+    function nodeById(nodeId) {
+      return state.data.sequence.find(n => n.id === nodeId);
+    }
+
+    function isDone(nodeId) {
+      return state.progress.completedNodeIds.includes(nodeId);
+    }
+
+    function isReview(nodeId) {
+      return state.progress.reviewNodeIds.includes(nodeId);
+    }
+
+    function toggleDone(nodeId, force) {
+      const set = new Set(state.progress.completedNodeIds);
+      const next = force === undefined ? !set.has(nodeId) : !!force;
+      if (next) set.add(nodeId); else set.delete(nodeId);
+      state.progress.completedNodeIds = Array.from(set);
+      saveProgress();
+      renderDetailFooterButtons();
+    }
+
+    function toggleReview(nodeId, force) {
+      const set = new Set(state.progress.reviewNodeIds);
+      const next = force === undefined ? !set.has(nodeId) : !!force;
+      if (next) set.add(nodeId); else set.delete(nodeId);
+      state.progress.reviewNodeIds = Array.from(set);
+      saveProgress();
+      renderDetailFooterButtons();
+    }
+
+    function getNodeInteractionState(nodeId) {
+      if (!state.progress.interactionStateByNodeId[nodeId]) {
+        state.progress.interactionStateByNodeId[nodeId] = {};
+      }
+      return state.progress.interactionStateByNodeId[nodeId];
+    }
+
+    function setNodeInteractionState(nodeId, patch) {
+      const current = getNodeInteractionState(nodeId);
+      state.progress.interactionStateByNodeId[nodeId] = { ...current, ...patch };
+      saveProgress();
+    }
+
+    function laneClass(role) {
+      return 'lane-' + role;
     }
 
     function makeTag(text) {
-      const el = document.createElement('span');
-      el.className = 'tag';
-      el.textContent = text;
-      return el;
+      const t = document.createElement('span');
+      t.className = 'tag';
+      t.textContent = text;
+      return t;
     }
 
-    function buildCard(item, idx) {
-      const card = document.createElement('section');
-      card.className = 'card lane lane-' + item.learning_role;
+    function renderSidebar() {
+      const unit = state.data.unit;
+      el.unitTitle.textContent = `${unit.unit_id} ${unit.title_zh_tw}`;
+      el.unitSub.textContent = `${unit.target_language.toUpperCase()} · ${unit.learner_locale_source} · ${unit.level}`;
 
-      const header = document.createElement('div');
-      header.className = 'card-header';
+      el.metaGrid.innerHTML = '';
+      [
+        ['Theme', unit.theme_zh_tw],
+        ['Output', `${Math.round(unit.output_ratio_target * 100)}%`],
+        ['Nodes', String(state.data.sequence.length)],
+        ['Platform', 'HTML mock v1']
+      ].forEach(([k, v]) => {
+        const box = document.createElement('div');
+        box.className = 'meta-box';
+        box.innerHTML = `<span class="k">${k}</span>${v}`;
+        el.metaGrid.appendChild(box);
+      });
 
-      const left = document.createElement('div');
+      el.canDo.innerHTML = '';
+      unit.can_do_zh_tw.forEach(x => {
+        const li = document.createElement('li');
+        li.textContent = x;
+        el.canDo.appendChild(li);
+      });
+
+      const counts = {};
+      state.data.sequence.forEach(n => { counts[n.learning_role] = (counts[n.learning_role] || 0) + 1; });
+      el.rolePills.innerHTML = '';
+      Object.entries(counts).forEach(([k, v]) => {
+        const p = document.createElement('span');
+        p.className = 'pill';
+        p.textContent = `${k}: ${v}`;
+        el.rolePills.appendChild(p);
+      });
+
+      el.followupsBox.innerHTML = '';
+      if ((state.data.scheduled_followups || []).length) {
+        const title = document.createElement('h2');
+        title.style.fontSize = '16px';
+        title.style.marginTop = '8px';
+        title.textContent = '跨單元複習排程';
+        el.followupsBox.appendChild(title);
+      }
+      (state.data.scheduled_followups || []).forEach(f => {
+        const div = document.createElement('div');
+        div.className = 'followup';
+        div.innerHTML = `<strong>${f.id}</strong> <span class="muted">${f.timing}</span> → <strong>${f.transfer_to}</strong><br>${f.goal_zh_tw}`;
+        el.followupsBox.appendChild(div);
+      });
+    }
+
+    function renderProgress() {
+      const total = state.data.sequence.length;
+      const done = state.progress.completedNodeIds.filter(id => nodeById(id)).length;
+      const review = state.progress.reviewNodeIds.filter(id => nodeById(id)).length;
+      const outputLikeRoles = new Set(['controlled_output', 'immersion_output', 'review_retrieval']);
+      const outputLikeIds = state.data.sequence.filter(n => outputLikeRoles.has(n.learning_role)).map(n => n.id);
+      const outputDone = outputLikeIds.filter(id => isDone(id)).length;
+      el.progressText.textContent = `${done}/${total}`;
+      el.progressFill.style.width = total ? `${(done / total) * 100}%` : '0%';
+      el.progressSummary.innerHTML = `
+        <div>已完成：<strong>${done}</strong> / ${total}</div>
+        <div>待回看：<strong>${review}</strong></div>
+        <div>輸出/複習節點完成：<strong>${outputDone}</strong> / ${outputLikeIds.length}</div>
+      `;
+    }
+
+    function jumpToNextByPredicate(predicate) {
+      const total = state.data.sequence.length;
+      if (!total) return false;
+      for (let step = 1; step <= total; step += 1) {
+        const idx = (state.currentIndex + step) % total;
+        if (predicate(state.data.sequence[idx])) {
+          state.currentIndex = idx;
+          renderCurrentNode();
+          return true;
+        }
+      }
+      return false;
+    }
+
+    function renderNodeList() {
+      el.nodeList.innerHTML = '';
+      state.data.sequence.forEach((node, idx) => {
+        const div = document.createElement('div');
+        div.className = `node-item ${laneClass(node.learning_role)} ${idx === state.currentIndex ? 'active' : ''} ${isDone(node.id) ? 'done' : ''}`;
+        div.onclick = () => { state.currentIndex = idx; renderCurrentNode(); };
+
+        const top = document.createElement('div');
+        top.className = 'top';
+        const title = document.createElement('div');
+        title.className = 'title';
+        title.textContent = `${idx + 1}. ${node.title_zh_tw}`;
+        top.appendChild(title);
+
+        const badge = document.createElement('span');
+        badge.className = `badge ${isDone(node.id) ? 'done' : 'todo'}`;
+        badge.textContent = isDone(node.id) ? '已完成' : '未完成';
+        top.appendChild(badge);
+        div.appendChild(top);
+
+        const meta = document.createElement('div');
+        meta.className = 'meta';
+        meta.appendChild(makeTag(node.candidate_type));
+        meta.appendChild(makeTag(node.content_form));
+        meta.appendChild(makeTag(node.learning_role));
+        meta.appendChild(makeTag(`${node.duration_min}m`));
+        if (isReview(node.id)) meta.appendChild(makeTag('待回看'));
+        div.appendChild(meta);
+
+        const summary = document.createElement('div');
+        summary.className = 'tiny muted';
+        summary.textContent = node.summary_zh_tw;
+        div.appendChild(summary);
+
+        el.nodeList.appendChild(div);
+      });
+    }
+
+    function renderDetailHeader(node, idx) {
+      el.detailHead.innerHTML = '';
+      const k = document.createElement('div');
+      k.className = 'tiny muted';
+      k.textContent = `${idx + 1} / ${state.data.sequence.length}`;
+      el.detailHead.appendChild(k);
+
       const title = document.createElement('div');
       title.className = 'title';
-      title.textContent = `${idx + 1}. ${item.title}`;
-      left.appendChild(title);
+      title.textContent = node.title_zh_tw;
+      el.detailHead.appendChild(title);
 
-      const subline = document.createElement('div');
-      subline.className = 'subline';
-      subline.appendChild(makeTag(item.id));
-      subline.appendChild(makeTag(item.candidate_type));
-      subline.appendChild(makeTag(item.content_form));
-      subline.appendChild(makeTag(item.learning_role));
-      subline.appendChild(makeTag(`output:${item.output_mode}`));
-      (item.skill_focus || []).forEach(s => subline.appendChild(makeTag(s)));
-      left.appendChild(subline);
-      header.appendChild(left);
+      const sub = document.createElement('div');
+      sub.className = 'sub';
+      [node.id, node.candidate_type, node.content_form, node.learning_role, `output:${node.output_mode}`, `${node.duration_min} min`]
+        .forEach(x => sub.appendChild(makeTag(x)));
+      node.skill_focus.forEach(x => sub.appendChild(makeTag(x)));
+      if (isReview(node.id)) sub.appendChild(makeTag('待回看'));
+      el.detailHead.appendChild(sub);
+    }
 
-      const duration = document.createElement('div');
-      duration.className = 'tag';
-      duration.textContent = `${item.duration_min} min`;
-      header.appendChild(duration);
-      card.appendChild(header);
+    function renderDetailSummary(node) {
+      el.detailSummary.innerHTML = '';
+      const s1 = document.createElement('div');
+      s1.innerHTML = `<div class="tiny muted">摘要</div><div>${node.summary_zh_tw}</div>`;
+      el.detailSummary.appendChild(s1);
 
-      const summaryLabel = document.createElement('div');
-      summaryLabel.className = 'section-label';
-      summaryLabel.textContent = 'Summary';
-      card.appendChild(summaryLabel);
-      const summary = document.createElement('div');
-      summary.textContent = item.summary_zh_tw;
-      card.appendChild(summary);
+      const grid = document.createElement('div');
+      grid.className = 'summary-grid';
+      const box1 = document.createElement('div');
+      box1.className = 'summary-box';
+      box1.innerHTML = `<div class="tiny muted">預期學習者輸出</div>${node.expected_output_zh_tw}`;
+      const box2 = document.createElement('div');
+      box2.className = 'summary-box';
+      box2.innerHTML = `<div class="tiny muted">狀態</div>${isDone(node.id) ? '<span style="color:var(--ok)">已完成</span>' : '未完成'}${isReview(node.id) ? ' · <span style="color:var(--warn)">待回看</span>' : ''}`;
+      grid.appendChild(box1);
+      grid.appendChild(box2);
+      el.detailSummary.appendChild(grid);
+    }
 
-      const linesLabel = document.createElement('div');
-      linesLabel.className = 'section-label';
-      linesLabel.textContent = 'Sample';
-      card.appendChild(linesLabel);
+    function appendSampleLines(node) {
+      if (!node.sample_lines?.length) return;
+      const block = document.createElement('div');
+      block.className = 'block';
+      block.innerHTML = '<h4>Sample Content</h4>';
       const ul = document.createElement('ul');
       ul.className = 'line-list';
-      (item.sample_lines || []).forEach(line => {
+      node.sample_lines.forEach(line => {
         const li = document.createElement('li');
         li.textContent = line;
         ul.appendChild(li);
       });
-      card.appendChild(ul);
-
-      const expected = document.createElement('div');
-      expected.className = 'expected';
-      expected.innerHTML = `<span class="section-label">Expected learner output</span><br>${item.expected_output}`;
-      card.appendChild(expected);
-
-      return card;
+      block.appendChild(ul);
+      el.detailBody.appendChild(block);
     }
 
-    function render(data) {
-      document.getElementById('unitTitle').textContent = `${data.unit_id} ${data.title_zh_tw}`;
-      document.getElementById('unitTheme').textContent = `${data.target_language.toUpperCase()} · ${data.learner_locale_source} · ${data.level} · output ratio target ${Math.round(data.output_ratio_target * 100)}%`;
-      document.getElementById('subtitleLine').textContent = data.theme;
+    function appendJsonPreview(title, value) {
+      const block = document.createElement('div');
+      block.className = 'block';
+      const pre = document.createElement('pre');
+      pre.style.margin = '0';
+      pre.style.fontSize = '12px';
+      pre.style.whiteSpace = 'pre-wrap';
+      pre.style.wordBreak = 'break-word';
+      pre.textContent = JSON.stringify(value, null, 2);
+      block.innerHTML = `<h4>${title}</h4>`;
+      block.appendChild(pre);
+      el.detailBody.appendChild(block);
+    }
 
-      [
-        ['Target', data.target_language.toUpperCase()],
-        ['Locale', data.learner_locale_source],
-        ['Level', data.level],
-        ['Theme', 'Survival Ordering']
-      ].forEach(([k, v]) => {
-        const box = document.createElement('div');
-        box.className = 'meta';
-        box.innerHTML = `<span class="k">${k}</span>${v}`;
-        metaGrid.appendChild(box);
-      });
-
-      data.can_do_zh_tw.forEach(text => {
+    function renderDialogue(node) {
+      const turns = node.payload?.dialogue_turns || [];
+      const block = document.createElement('div');
+      block.className = 'block';
+      block.innerHTML = '<h4>Dialogue</h4>';
+      const ul = document.createElement('ul');
+      ul.className = 'line-list';
+      turns.forEach(t => {
         const li = document.createElement('li');
-        li.textContent = text;
-        canDoList.appendChild(li);
+        li.innerHTML = `<strong>${t.speaker}</strong>: ${t.text}`;
+        ul.appendChild(li);
       });
-
-      data.sequence.forEach((item, idx) => {
-        totalMinutes += item.duration_min || 0;
-        if (item.learning_role === 'controlled_output' || item.learning_role === 'immersion_output' || item.learning_role === 'review_retrieval') {
-          outputMinutes += item.duration_min || 0;
-        }
-        roleCount[item.learning_role] = (roleCount[item.learning_role] || 0) + 1;
-        timeline.appendChild(buildCard(item, idx));
-      });
-
-      stats.appendChild(pill(`Total items ${data.sequence.length}`));
-      stats.appendChild(pill(`Estimated ${totalMinutes} min`));
-      stats.appendChild(pill(`Output-like ${outputMinutes} min (${Math.round(outputMinutes / totalMinutes * 100)}%)`));
-      Object.keys(roleCount).forEach(role => {
-        stats.appendChild(pill(`${role}: ${roleCount[role]}`));
-      });
-
-      (data.scheduled_followups || []).forEach(item => {
-        const div = document.createElement('div');
-        div.className = 'followup';
-        div.innerHTML = `<strong>${item.id}</strong> <span class="ok">${item.timing}</span> → <strong>${item.transfer_to}</strong><br>${item.goal_zh_tw}`;
-        followups.appendChild(div);
-      });
+      block.appendChild(ul);
+      el.detailBody.appendChild(block);
     }
 
-    fetch(dataPath)
-      .then(r => r.json())
-      .then(render)
-      .catch(err => {
-        document.getElementById('unitTitle').textContent = 'Mockup load failed';
-        document.getElementById('unitTheme').textContent = String(err);
+    function renderNotice(node) {
+      const items = node.payload?.notice_items || [];
+      const block = document.createElement('div');
+      block.className = 'block';
+      block.innerHTML = '<h4>Notice</h4>';
+      const ul = document.createElement('ul');
+      ul.className = 'line-list';
+      items.forEach(x => {
+        const li = document.createElement('li');
+        li.textContent = x;
+        ul.appendChild(li);
       });
+      block.appendChild(ul);
+      el.detailBody.appendChild(block);
+    }
+
+    function renderMessageThread(node) {
+      const msgs = node.payload?.messages || [];
+      const block = document.createElement('div');
+      block.className = 'block';
+      block.innerHTML = '<h4>Message Thread</h4>';
+      msgs.forEach(m => {
+        const row = document.createElement('div');
+        row.style.margin = '6px 0';
+        row.style.padding = '6px 8px';
+        row.style.border = '1px solid var(--line)';
+        row.style.borderRadius = '10px';
+        row.style.background = '#fff';
+        row.innerHTML = `<strong>${m.sender}</strong><div style="margin-top:2px">${m.text}</div>`;
+        block.appendChild(row);
+      });
+      el.detailBody.appendChild(block);
+    }
+
+    function renderComparison(node) {
+      const opts = node.payload?.options || [];
+      const block = document.createElement('div');
+      block.className = 'block';
+      block.innerHTML = '<h4>Comparison</h4>';
+      const grid = document.createElement('div');
+      grid.className = 'summary-grid';
+      opts.forEach(o => {
+        const box = document.createElement('div');
+        box.className = 'summary-box';
+        box.innerHTML = `<strong>${o.id}: ${o.label_zh_tw}</strong><br>${o.price_krw} KRW<br>${(o.pros_zh_tw || []).join(' / ')}`;
+        grid.appendChild(box);
+      });
+      block.appendChild(grid);
+      if (node.payload?.reason_frame_zh_tw) {
+        const p = document.createElement('div');
+        p.className = 'tiny muted';
+        p.style.marginTop = '8px';
+        p.textContent = `句框：${node.payload.reason_frame_zh_tw}`;
+        block.appendChild(p);
+      }
+      el.detailBody.appendChild(block);
+    }
+
+    function renderPatternCard(node) {
+      const frames = node.payload?.frames || [];
+      const block = document.createElement('div');
+      block.className = 'block';
+      block.innerHTML = '<h4>Pattern Frames</h4>';
+      frames.forEach(f => {
+        const row = document.createElement('div');
+        row.style.margin = '6px 0';
+        row.style.padding = '6px 8px';
+        row.style.border = '1px dashed var(--line)';
+        row.style.borderRadius = '10px';
+        row.innerHTML = `<div><strong>${f.frame}</strong></div><div class="tiny muted">${f.use_zh_tw}</div><div class="tiny">槽位：${(f.slots_zh_tw || []).join(' / ') || '無'}</div>`;
+        block.appendChild(row);
+      });
+      el.detailBody.appendChild(block);
+    }
+
+    function renderGrammarSections(node) {
+      const sections = node.payload?.sections || [];
+      const block = document.createElement('div');
+      block.className = 'block';
+      block.innerHTML = '<h4>Grammar Notes</h4>';
+      sections.forEach(s => {
+        const d = document.createElement('details');
+        d.open = true;
+        const sum = document.createElement('summary');
+        sum.textContent = s.title_zh_tw;
+        d.appendChild(sum);
+        const ul = document.createElement('ul');
+        ul.className = 'line-list';
+        (s.points_zh_tw || []).forEach(p => {
+          const li = document.createElement('li');
+          li.textContent = p;
+          ul.appendChild(li);
+        });
+        d.appendChild(ul);
+        block.appendChild(d);
+      });
+      el.detailBody.appendChild(block);
+    }
+
+    function renderDictionaryPack(node) {
+      const sections = node.payload?.sections || [];
+      const block = document.createElement('div');
+      block.className = 'block';
+      block.innerHTML = '<h4>Dictionary Pack (Functional Chunks)</h4>';
+      sections.forEach(s => {
+        const d = document.createElement('details');
+        d.open = true;
+        const sum = document.createElement('summary');
+        sum.textContent = s.title_zh_tw;
+        d.appendChild(sum);
+        const chips = document.createElement('div');
+        chips.className = 'chunk-bank';
+        (s.items || []).forEach(item => {
+          const span = document.createElement('span');
+          span.className = 'chunk';
+          span.style.cursor = 'default';
+          span.textContent = item;
+          chips.appendChild(span);
+        });
+        d.appendChild(chips);
+        block.appendChild(d);
+      });
+      el.detailBody.appendChild(block);
+    }
+
+    function renderChunkAssembly(node) {
+      const nodeState = getNodeInteractionState(node.id);
+      const tasks = node.payload?.tasks || [];
+      const activeTaskIndex = Math.min(nodeState.activeTaskIndex || 0, Math.max(0, tasks.length - 1));
+      const task = tasks[activeTaskIndex];
+      if (!task) {
+        appendJsonPreview('Missing chunk_assembly payload', node.payload || {});
+        return;
+      }
+      const answers = Array.isArray(nodeState.answers) ? nodeState.answers.slice() : [];
+
+      const header = document.createElement('div');
+      header.className = 'block';
+      header.innerHTML = `<h4>Chunk Assembly</h4><div class="tiny muted">任務 ${activeTaskIndex + 1}/${tasks.length} · 不自動評分，可自行比對示例並標記完成</div><div style="margin-top:6px">${task.prompt_zh_tw}</div>`;
+      el.detailBody.appendChild(header);
+
+      const answerBlock = document.createElement('div');
+      answerBlock.className = 'block';
+      answerBlock.innerHTML = '<h4>你的句子（點擊詞塊加入；點擊答案可移除）</h4>';
+      const answerStrip = document.createElement('div');
+      answerStrip.className = 'answer-strip';
+      answerBlock.appendChild(answerStrip);
+      el.detailBody.appendChild(answerBlock);
+
+      const bankBlock = document.createElement('div');
+      bankBlock.className = 'block';
+      bankBlock.innerHTML = '<h4>詞塊庫</h4>';
+      const bank = document.createElement('div');
+      bank.className = 'chunk-bank';
+      bankBlock.appendChild(bank);
+      el.detailBody.appendChild(bankBlock);
+
+      function commitAnswers(nextAnswers) {
+        setNodeInteractionState(node.id, { activeTaskIndex, answers: nextAnswers });
+      }
+
+      function rerenderAnswers() {
+        answerStrip.innerHTML = '';
+        if (!answers.length) {
+          const p = document.createElement('div');
+          p.className = 'tiny muted';
+          p.textContent = '尚未組句';
+          answerStrip.appendChild(p);
+        }
+        answers.forEach((a, idx) => {
+          const chip = document.createElement('button');
+          chip.type = 'button';
+          chip.className = 'answer-chip';
+          chip.textContent = a;
+          chip.onclick = () => {
+            answers.splice(idx, 1);
+            commitAnswers(answers);
+            rerenderAnswers();
+            rerenderBank();
+          };
+          answerStrip.appendChild(chip);
+        });
+      }
+
+      function rerenderBank() {
+        bank.innerHTML = '';
+        (task.chunks || []).forEach(chunkText => {
+          const usedCountInTask = answers.filter(x => x === chunkText).length;
+          const totalCountInTask = (task.chunks || []).filter(x => x === chunkText).length;
+          const btn = document.createElement('button');
+          btn.type = 'button';
+          btn.className = 'chunk' + (usedCountInTask >= totalCountInTask ? ' used' : '');
+          btn.textContent = chunkText;
+          btn.disabled = usedCountInTask >= totalCountInTask;
+          btn.onclick = () => {
+            answers.push(chunkText);
+            commitAnswers(answers);
+            rerenderAnswers();
+            rerenderBank();
+          };
+          bank.appendChild(btn);
+        });
+      }
+
+      rerenderAnswers();
+      rerenderBank();
+
+      const controls = document.createElement('div');
+      controls.className = 'row';
+      const resetBtn = document.createElement('button');
+      resetBtn.className = 'btn';
+      resetBtn.textContent = '清空目前答案';
+      resetBtn.onclick = () => {
+        answers.length = 0;
+        commitAnswers([]);
+        rerenderAnswers();
+        rerenderBank();
+      };
+      controls.appendChild(resetBtn);
+
+      const exampleBtn = document.createElement('button');
+      exampleBtn.className = 'btn';
+      exampleBtn.textContent = '查看示例';
+      const exampleBox = document.createElement('div');
+      exampleBox.className = 'tiny muted';
+      exampleBox.style.display = 'none';
+      exampleBox.textContent = `示例：${(task.target_examples || []).join(' / ')}`;
+      exampleBtn.onclick = () => {
+        exampleBox.style.display = exampleBox.style.display === 'none' ? 'block' : 'none';
+      };
+      controls.appendChild(exampleBtn);
+
+      const nextTaskBtn = document.createElement('button');
+      nextTaskBtn.className = 'btn primary';
+      nextTaskBtn.textContent = activeTaskIndex < tasks.length - 1 ? '下一個拼句題' : '這是最後一題';
+      nextTaskBtn.disabled = activeTaskIndex >= tasks.length - 1;
+      nextTaskBtn.onclick = () => {
+        setNodeInteractionState(node.id, { activeTaskIndex: activeTaskIndex + 1, answers: [] });
+        renderCurrentNode();
+      };
+      controls.appendChild(nextTaskBtn);
+
+      const block = document.createElement('div');
+      block.className = 'block';
+      block.innerHTML = '<h4>操作</h4>';
+      block.appendChild(controls);
+      block.appendChild(exampleBox);
+      el.detailBody.appendChild(block);
+    }
+
+    function renderResponseBuilder(node) {
+      const nodeState = getNodeInteractionState(node.id);
+      const items = node.payload?.items || [];
+      const chosen = nodeState.chosenByIndex || {};
+      const block = document.createElement('div');
+      block.className = 'block';
+      block.innerHTML = '<h4>Response Builder（不自動評分）</h4><div class="tiny muted">選一個你會用的回應；可查看建議答案</div>';
+      items.forEach((item, idx) => {
+        const card = document.createElement('div');
+        card.style.marginTop = '8px';
+        card.style.padding = '8px';
+        card.style.border = '1px dashed var(--line)';
+        card.style.borderRadius = '10px';
+        const prompt = document.createElement('div');
+        prompt.innerHTML = `<strong>Prompt ${idx + 1}</strong><div style="margin-top:4px">${item.prompt_ko}</div>`;
+        card.appendChild(prompt);
+        const list = document.createElement('div');
+        list.className = 'choice-list';
+        list.style.marginTop = '6px';
+        (item.response_choices_ko || []).forEach(choiceText => {
+          const b = document.createElement('button');
+          b.type = 'button';
+          b.className = 'choice' + (chosen[idx] === choiceText ? ' selected' : '');
+          b.textContent = choiceText;
+          b.onclick = () => {
+            const next = { ...chosen, [idx]: choiceText };
+            setNodeInteractionState(node.id, { chosenByIndex: next });
+            renderCurrentNode();
+          };
+          list.appendChild(b);
+        });
+        card.appendChild(list);
+        const details = document.createElement('details');
+        details.style.marginTop = '6px';
+        const summary = document.createElement('summary');
+        summary.textContent = '查看建議答案';
+        details.appendChild(summary);
+        const ans = document.createElement('div');
+        ans.className = 'tiny';
+        ans.style.marginTop = '6px';
+        ans.textContent = (item.accepted_responses_ko || []).join(' / ');
+        details.appendChild(ans);
+        card.appendChild(details);
+        block.appendChild(card);
+      });
+      el.detailBody.appendChild(block);
+    }
+
+    function renderGuidedWriting(node) {
+      const nodeState = getNodeInteractionState(node.id);
+      const block = document.createElement('div');
+      block.className = 'block';
+      block.innerHTML = '<h4>Guided Writing（可完成 + 可回看）</h4>';
+      const p = document.createElement('div');
+      p.textContent = node.payload?.prompt_zh_tw || '請完成 1-2 句輸出';
+      block.appendChild(p);
+      if (node.payload?.must_include_zh_tw?.length) {
+        const ul = document.createElement('ul');
+        ul.className = 'line-list';
+        node.payload.must_include_zh_tw.forEach(x => {
+          const li = document.createElement('li');
+          li.textContent = `包含：${x}`;
+          ul.appendChild(li);
+        });
+        block.appendChild(ul);
+      }
+      const ta = document.createElement('textarea');
+      ta.placeholder = '在這裡輸入你的答案（不自動評分）';
+      ta.value = nodeState.draftText || '';
+      ta.oninput = () => setNodeInteractionState(node.id, { draftText: ta.value });
+      block.appendChild(ta);
+      const row = document.createElement('div');
+      row.className = 'row';
+      const exampleBtn = document.createElement('button');
+      exampleBtn.className = 'btn';
+      exampleBtn.textContent = '查看示例句型';
+      const ex = document.createElement('div');
+      ex.className = 'tiny muted';
+      ex.style.display = 'none';
+      ex.textContent = (node.payload?.example_shape_zh_tw || []).join(' / ');
+      exampleBtn.onclick = () => ex.style.display = ex.style.display === 'none' ? 'block' : 'none';
+      row.appendChild(exampleBtn);
+      const saveBtn = document.createElement('button');
+      saveBtn.className = 'btn primary';
+      saveBtn.textContent = '儲存草稿';
+      saveBtn.onclick = () => setNodeInteractionState(node.id, { draftText: ta.value, savedAt: Date.now() });
+      row.appendChild(saveBtn);
+      block.appendChild(row);
+      block.appendChild(ex);
+      el.detailBody.appendChild(block);
+    }
+
+    function renderGuidedSpeaking(node) {
+      const nodeState = getNodeInteractionState(node.id);
+      const block = document.createElement('div');
+      block.className = 'block';
+      block.innerHTML = '<h4>Guided Speaking Prompt（文字記錄版）</h4>';
+      const ul = document.createElement('ul');
+      ul.className = 'line-list';
+      (node.payload?.constraints_zh_tw || []).forEach(x => {
+        const li = document.createElement('li');
+        li.textContent = `條件：${x}`;
+        ul.appendChild(li);
+      });
+      block.appendChild(ul);
+      const req = document.createElement('div');
+      req.className = 'tiny muted';
+      req.textContent = `需使用：${(node.payload?.required_patterns_zh_tw || []).join(' / ')}`;
+      block.appendChild(req);
+      const ta = document.createElement('textarea');
+      ta.placeholder = '寫下你會怎麼說（或記錄口說內容摘要）';
+      ta.value = nodeState.speakingDraft || '';
+      ta.oninput = () => setNodeInteractionState(node.id, { speakingDraft: ta.value });
+      block.appendChild(ta);
+      el.detailBody.appendChild(block);
+    }
+
+    function renderReviewRetrieval(node) {
+      const nodeState = getNodeInteractionState(node.id);
+      const prompts = node.payload?.prompts_zh_tw || [];
+      const answers = nodeState.answersByIndex || {};
+      const reveals = nodeState.revealed || {};
+      const block = document.createElement('div');
+      block.className = 'block';
+      block.innerHTML = '<h4>Review Retrieval（先回想，再看提示）</h4><div class="tiny muted">不自動評分，只記錄你的回想內容與是否看提示</div>';
+      prompts.forEach((promptText, idx) => {
+        const card = document.createElement('div');
+        card.style.marginTop = '8px';
+        card.style.border = '1px dashed var(--line)';
+        card.style.borderRadius = '10px';
+        card.style.padding = '8px';
+        card.innerHTML = `<strong>Q${idx + 1}</strong><div style="margin-top:4px">${promptText}</div>`;
+        const ta = document.createElement('textarea');
+        ta.style.minHeight = '70px';
+        ta.placeholder = '先寫你記得的答案';
+        ta.value = answers[idx] || '';
+        ta.oninput = () => {
+          const next = { ...answers, [idx]: ta.value };
+          setNodeInteractionState(node.id, { answersByIndex: next, revealed: reveals });
+        };
+        card.appendChild(ta);
+        const row = document.createElement('div');
+        row.className = 'row';
+        const revealBtn = document.createElement('button');
+        revealBtn.className = 'btn';
+        revealBtn.textContent = reveals[idx] ? '隱藏提示' : '顯示提示';
+        revealBtn.onclick = () => {
+          const nextRevealed = { ...reveals, [idx]: !reveals[idx] };
+          setNodeInteractionState(node.id, { answersByIndex: answers, revealed: nextRevealed });
+          renderCurrentNode();
+        };
+        row.appendChild(revealBtn);
+        card.appendChild(row);
+        if (reveals[idx]) {
+          const hint = document.createElement('div');
+          hint.className = 'tiny muted';
+          hint.style.marginTop = '6px';
+          hint.textContent = '提示：回想本單元的點餐請求 / 外帶回應 / 刷卡回應 / 咖啡廳見面確認句。';
+          card.appendChild(hint);
+        }
+        block.appendChild(card);
+      });
+      el.detailBody.appendChild(block);
+    }
+
+    function renderGenericNotes(node) {
+      const notesKey = `${node.id}:freeNote`;
+      const nodeState = getNodeInteractionState(node.id);
+      const block = document.createElement('div');
+      block.className = 'block';
+      block.innerHTML = '<h4>我的筆記 / 回看註記</h4>';
+      const ta = document.createElement('textarea');
+      ta.placeholder = '寫下你想回看的地方、你會用的句子、卡住的點';
+      ta.value = nodeState[notesKey] || '';
+      ta.oninput = () => setNodeInteractionState(node.id, { [notesKey]: ta.value });
+      block.appendChild(ta);
+      el.detailBody.appendChild(block);
+    }
+
+    function renderByType(node) {
+      if (node.content_form === 'dialogue') renderDialogue(node);
+      else if (node.content_form === 'notice') renderNotice(node);
+      else if (node.content_form === 'message_thread') renderMessageThread(node);
+      else if (node.content_form === 'comparison_card') renderComparison(node);
+      else if (node.content_form === 'pattern_card') renderPatternCard(node);
+      else if (node.content_form === 'grammar_note') renderGrammarSections(node);
+      else if (node.content_form === 'functional_phrase_pack') renderDictionaryPack(node);
+      else {
+        appendJsonPreview('Renderer fallback (payload)', node.payload || {});
+      }
+
+      if (node.output_mode === 'chunk_assembly') renderChunkAssembly(node);
+      if (node.output_mode === 'response_builder') renderResponseBuilder(node);
+      if (node.output_mode === 'guided' && node.skill_focus.includes('writing')) renderGuidedWriting(node);
+      if (node.output_mode === 'guided' && node.skill_focus.includes('speaking')) renderGuidedSpeaking(node);
+      if (node.output_mode === 'review_retrieval') renderReviewRetrieval(node);
+
+      renderGenericNotes(node);
+    }
+
+    function renderDetailFooterButtons() {
+      const node = state.data.sequence[state.currentIndex];
+      el.prevBtn.disabled = state.currentIndex <= 0;
+      el.nextBtn.disabled = state.currentIndex >= state.data.sequence.length - 1;
+      el.markDoneBtn.textContent = isDone(node.id) ? '取消完成' : '標記完成';
+      el.markReviewBtn.textContent = isReview(node.id) ? '取消待回看' : '標記為待回看';
+    }
+
+    function renderCurrentNode() {
+      const node = state.data.sequence[state.currentIndex];
+      renderNodeList();
+      renderProgress();
+      renderDetailHeader(node, state.currentIndex);
+      renderDetailSummary(node);
+      el.detailBody.innerHTML = '';
+      appendSampleLines(node);
+      renderByType(node);
+      renderDetailFooterButtons();
+    }
+
+    function wireEvents() {
+      el.prevBtn.onclick = () => {
+        if (state.currentIndex > 0) {
+          state.currentIndex -= 1;
+          renderCurrentNode();
+        }
+      };
+      el.nextBtn.onclick = () => {
+        if (state.currentIndex < state.data.sequence.length - 1) {
+          state.currentIndex += 1;
+          renderCurrentNode();
+        }
+      };
+      el.markDoneBtn.onclick = () => {
+        const node = state.data.sequence[state.currentIndex];
+        toggleDone(node.id);
+      };
+      el.markReviewBtn.onclick = () => {
+        const node = state.data.sequence[state.currentIndex];
+        toggleReview(node.id);
+      };
+      el.resetProgressBtn.onclick = () => {
+        if (!confirm('確定要清除這個單元的完成記錄與互動輸入？')) return;
+        state.progress = { completedNodeIds: [], reviewNodeIds: [], notesByNodeId: {}, interactionStateByNodeId: {} };
+        saveProgress();
+        renderCurrentNode();
+      };
+      el.jumpNextIncompleteBtn.onclick = () => {
+        const ok = jumpToNextByPredicate(node => !isDone(node.id));
+        if (!ok) alert('沒有未完成節點了。');
+      };
+      el.jumpNextReviewBtn.onclick = () => {
+        const ok = jumpToNextByPredicate(node => isReview(node.id));
+        if (!ok) alert('目前沒有待回看節點。');
+      };
+    }
+
+    function migrateOldMockupDataIfNeeded(raw) {
+      // Accept the previous mockup JSON shape for backwards compatibility.
+      if (raw.version === 'unit_blueprint_v0') return raw;
+      if (!raw.unit_id || !Array.isArray(raw.sequence)) return raw;
+      return {
+        version: 'unit_blueprint_v0',
+        unit: {
+          unit_id: raw.unit_id,
+          title_zh_tw: raw.title_zh_tw || raw.unit_theme || raw.unit_id,
+          target_language: raw.target_language || 'ko',
+          learner_locale_source: raw.learner_locale_source || 'zh-TW',
+          level: raw.level || raw.level_band || 'A1',
+          theme_zh_tw: raw.theme || raw.unit_theme || '',
+          output_ratio_target: raw.output_ratio_target || 0.5,
+          can_do_zh_tw: raw.can_do_zh_tw || []
+        },
+        sequence: raw.sequence.map(item => ({
+          id: item.id,
+          candidate_type: item.candidate_type,
+          content_form: item.content_form || 'unknown',
+          learning_role: item.learning_role,
+          skill_focus: Array.isArray(item.skill_focus) ? item.skill_focus : [item.skill_focus || 'integrated'],
+          output_mode: item.output_mode || 'none',
+          duration_min: item.duration_min || 3,
+          title_zh_tw: item.title || item.title_zh_tw || item.id,
+          summary_zh_tw: item.summary_zh_tw || '',
+          sample_lines: item.sample_lines || [],
+          expected_output_zh_tw: item.expected_output || item.expected_output_zh_tw || '',
+          payload: item.payload || {}
+        })),
+        scheduled_followups: raw.scheduled_followups || []
+      };
+    }
+
+    async function bootstrap() {
+      wireEvents();
+      try {
+        const resp = await fetch(BLUEPRINT_PATH);
+        const raw = await resp.json();
+        state.data = migrateOldMockupDataIfNeeded(raw);
+      } catch (e) {
+        el.detailHead.innerHTML = '<div class="title">載入失敗</div>';
+        el.detailSummary.innerHTML = `<div class="empty">${String(e)}<br>請用 static server 開啟（例如 python3 -m http.server）</div>`;
+        return;
+      }
+      renderSidebar();
+      loadProgress();
+      renderCurrentNode();
+    }
+
+    bootstrap();
   </script>
 </body>
 </html>

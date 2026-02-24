@@ -1,0 +1,165 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://release-aggregator.local/schemas/unit-blueprint-v0.json",
+  "title": "Unit Blueprint v0 (HTML/Flutter Mockup Fixture)",
+  "description": "Fixture contract for playable unit mockups (HTML first, Flutter web next). Focuses on sequence rendering and interaction payloads, not production content schema.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "version",
+    "unit",
+    "sequence",
+    "scheduled_followups"
+  ],
+  "properties": {
+    "version": {
+      "type": "string",
+      "const": "unit_blueprint_v0"
+    },
+    "unit": {
+      "$ref": "#/$defs/unitMeta"
+    },
+    "sequence": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "$ref": "#/$defs/node"
+      }
+    },
+    "scheduled_followups": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/followup"
+      },
+      "default": []
+    }
+  },
+  "$defs": {
+    "stringList": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1
+      }
+    },
+    "unitMeta": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "unit_id",
+        "title_zh_tw",
+        "target_language",
+        "learner_locale_source",
+        "level",
+        "theme_zh_tw",
+        "output_ratio_target",
+        "can_do_zh_tw"
+      ],
+      "properties": {
+        "unit_id": { "type": "string", "minLength": 1 },
+        "title_zh_tw": { "type": "string", "minLength": 1 },
+        "target_language": { "type": "string", "minLength": 1 },
+        "learner_locale_source": { "type": "string", "minLength": 1 },
+        "level": { "type": "string", "minLength": 1 },
+        "theme_zh_tw": { "type": "string", "minLength": 1 },
+        "output_ratio_target": { "type": "number", "minimum": 0, "maximum": 1 },
+        "can_do_zh_tw": { "$ref": "#/$defs/stringList" }
+      }
+    },
+    "node": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "id",
+        "candidate_type",
+        "content_form",
+        "learning_role",
+        "skill_focus",
+        "output_mode",
+        "duration_min",
+        "title_zh_tw",
+        "summary_zh_tw",
+        "sample_lines",
+        "expected_output_zh_tw"
+      ],
+      "properties": {
+        "id": { "type": "string", "minLength": 1 },
+        "candidate_type": {
+          "type": "string",
+          "enum": ["lesson", "grammar_note", "dictionary_pack", "path_node"]
+        },
+        "content_form": { "type": "string", "minLength": 1 },
+        "learning_role": {
+          "type": "string",
+          "enum": [
+            "immersion_input",
+            "structure_pattern",
+            "structure_grammar",
+            "controlled_output",
+            "immersion_output",
+            "review_retrieval",
+            "cross_unit_transfer"
+          ]
+        },
+        "skill_focus": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "string",
+            "enum": ["listening", "speaking", "reading", "writing", "integrated"]
+          }
+        },
+        "output_mode": {
+          "type": "string",
+          "enum": [
+            "none",
+            "chunk_assembly",
+            "frame_fill",
+            "response_builder",
+            "pattern_transform",
+            "guided",
+            "open_task",
+            "retell",
+            "transform",
+            "review_retrieval"
+          ]
+        },
+        "duration_min": { "type": "integer", "minimum": 1 },
+        "title_zh_tw": { "type": "string", "minLength": 1 },
+        "summary_zh_tw": { "type": "string", "minLength": 1 },
+        "sample_lines": { "$ref": "#/$defs/stringList" },
+        "expected_output_zh_tw": { "type": "string", "minLength": 1 },
+        "payload": {
+          "type": "object",
+          "description": "Interaction/renderer-specific typed payload. Freeform in v0; adapter/renderers read supported keys.",
+          "additionalProperties": true
+        },
+        "flags": {
+          "type": "array",
+          "items": { "type": "string" },
+          "default": []
+        }
+      }
+    },
+    "followup": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "id",
+        "candidate_type",
+        "learning_role",
+        "timing",
+        "transfer_to",
+        "goal_zh_tw"
+      ],
+      "properties": {
+        "id": { "type": "string", "minLength": 1 },
+        "candidate_type": { "type": "string", "const": "path_node" },
+        "learning_role": { "type": "string", "const": "cross_unit_transfer" },
+        "timing": { "type": "string", "minLength": 1 },
+        "transfer_to": { "type": "string", "minLength": 1 },
+        "goal_zh_tw": { "type": "string", "minLength": 1 }
+      }
+    }
+  }
+}

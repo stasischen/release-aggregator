@@ -3,429 +3,417 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>A1-U04 Survival Unit Playable Mockup (HTML v1)</title>
+  <title>A1-U04 Survival Unit Playable Mockup (HTML v1 Polish)</title>
   <style>
     :root {
-      --bg: #f6f1e8;
-      --card: #fffdf8;
+      --bg: #f8f6f2;
+      --card: #ffffff;
       --ink: #1f1d19;
-      --muted: #696257;
-      --line: #dbd0be;
-      --accent: #be4c2e;
-      --accent2: #2f7f77;
-      --accent3: #7b5cf5;
-      --ok: #1f6a39;
+      --muted: #736e66;
+      --line: #e3ddd3;
+      --accent: #be4c2e; /* Terracotta */
+      --accent-soft: #f8e9e4;
+      --accent2: #2f7f77; /* Teal */
+      --accent2-soft: #eaf4f3;
+      --accent3: #6d58d3; /* Purple */
+      --accent3-soft: #f0eeff;
+      --ok: #2d7a46;
+      --ok-soft: #ebf5ee;
       --warn: #b26a00;
-      --shadow: 0 8px 24px rgba(20, 18, 14, 0.06);
+      --warn-soft: #fff8eb;
+      --shadow-sm: 0 2px 8px rgba(0,0,0,0.04);
+      --shadow-md: 0 8px 24px rgba(0,0,0,0.06);
+      --radius-lg: 20px;
+      --radius-md: 12px;
+      --radius-sm: 8px;
     }
     * { box-sizing: border-box; }
     body {
       margin: 0;
       color: var(--ink);
-      font-family: "Iowan Old Style", "Noto Serif TC", serif;
+      font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Noto Serif TC", serif;
       background:
-        radial-gradient(circle at 10% 0%, #fff8ed 0, transparent 35%),
-        radial-gradient(circle at 85% 2%, #ffe7d8 0, transparent 30%),
+        radial-gradient(circle at 10% 0%, #fffbf2 0, transparent 40%),
+        radial-gradient(circle at 90% 100%, #fdf5ef 0, transparent 40%),
         var(--bg);
+      line-height: 1.6;
     }
-    button, input, textarea {
-      font: inherit;
-    }
+    button, input, textarea { font: inherit; }
+    
     .page {
-      max-width: 1320px;
+      max-width: 1440px;
       margin: 0 auto;
-      padding: 16px;
+      padding: 20px;
       display: grid;
-      grid-template-columns: 300px 360px 1fr;
-      gap: 14px;
+      grid-template-columns: 320px 380px 1fr;
+      gap: 20px;
+      height: 100vh;
     }
+    
     .panel {
       background: var(--card);
       border: 1px solid var(--line);
-      border-radius: 16px;
-      box-shadow: var(--shadow);
-      min-width: 0;
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow-md);
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
     }
-    .sidebar, .list-pane, .detail-pane {
-      padding: 14px;
+    
+    .panel-header {
+      padding: 16px 20px;
+      border-bottom: 1px solid var(--line);
+      background: rgba(255,255,255,0.8);
+      backdrop-filter: blur(8px);
+      flex-shrink: 0;
+      z-index: 10;
     }
-    .sidebar { position: sticky; top: 10px; align-self: start; }
-    h1, h2, h3 { margin: 0; line-height: 1.2; }
-    h1 { font-size: 24px; }
-    h2 { font-size: 17px; }
-    h3 { font-size: 14px; }
-    .muted { color: var(--muted); }
-    .tiny { font-size: 12px; }
+    
+    .panel-content {
+      padding: 20px;
+      flex: 1;
+      overflow-y: auto;
+    }
+
+    /* Sidebar Styles */
+    .sidebar { grid-row: 1 / 2; }
+    .sidebar h1 { font-size: 22px; font-weight: 800; letter-spacing: -0.5px; margin: 0 0 4px; color: var(--accent); line-height: 1.2; }
+    .sidebar h2 { font-size: 13px; font-weight: 700; margin: 20px 0 8px; text-transform: uppercase; letter-spacing: 0.8px; color: var(--muted); }
+    
     .meta-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 8px;
-      margin-top: 12px;
+      gap: 10px;
+      margin: 12px 0;
     }
     .meta-box {
+      background: #fcfbf9;
       border: 1px solid var(--line);
-      border-radius: 10px;
-      padding: 8px;
-      background: #fff;
+      border-radius: var(--radius-md);
+      padding: 10px;
+      text-align: center;
     }
-    .meta-box .k {
-      display: block;
-      font-size: 11px;
-      color: var(--muted);
-      margin-bottom: 2px;
-    }
-    .can-do { margin: 10px 0 0; padding-left: 18px; font-size: 13px; line-height: 1.45; }
-    .pills { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 10px; }
+    .meta-box .k { font-size: 10px; color: var(--muted); display: block; margin-bottom: 2px; text-transform: uppercase; }
+    .meta-box .v { font-size: 14px; font-weight: 600; }
+
+    .can-do { margin: 0; padding-left: 18px; font-size: 13px; color: #4a453e; line-height: 1.5; }
+    .can-do li { margin-bottom: 6px; }
+
+    .pills { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 12px; }
     .pill {
+      background: var(--bg);
       border: 1px solid var(--line);
-      background: #f2ebde;
-      border-radius: 999px;
-      padding: 4px 8px;
+      border-radius: 99px;
+      padding: 4px 10px;
       font-size: 11px;
+      font-weight: 500;
       white-space: nowrap;
     }
-    .progress {
-      margin-top: 12px;
+
+    .unit-progress {
+      margin-top: 20px;
+      background: #faf8f5;
       border: 1px solid var(--line);
-      border-radius: 12px;
-      background: #fff;
-      padding: 8px;
+      border-radius: var(--radius-md);
+      padding: 16px;
     }
-    .progress-actions {
-      margin-top: 8px;
-      display: flex;
-      flex-wrap: wrap;
-      gap: 6px;
-    }
-    .progress-summary {
-      margin-top: 8px;
-      border: 1px dashed var(--line);
-      border-radius: 10px;
-      background: #fcfaf5;
-      padding: 8px;
-      display: grid;
-      gap: 4px;
-      font-size: 12px;
-    }
-    .toggle-row {
-      margin-top: 10px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 8px;
-      border: 1px dashed var(--line);
-      border-radius: 10px;
-      background: #fcfaf5;
-      padding: 8px;
-      font-size: 12px;
-    }
+    .progress-header { display: flex; justify-content: space-between; font-size: 13px; font-weight: 700; }
     .progress-track {
       height: 8px;
-      border-radius: 999px;
-      background: #eee4d6;
+      background: #eeeae3;
+      border-radius: 4px;
+      margin: 10px 0;
       overflow: hidden;
-      margin-top: 6px;
     }
     .progress-fill {
       height: 100%;
       background: linear-gradient(90deg, var(--accent2), var(--accent));
-      width: 0%;
-      transition: width .2s ease;
+      border-radius: 4px;
+      transition: width 0.6s cubic-bezier(0.16, 1, 0.3, 1);
     }
-    .list-header {
+
+    .toggle-row {
       display: flex;
       align-items: center;
       justify-content: space-between;
-      gap: 8px;
-      padding-bottom: 10px;
-      border-bottom: 1px solid var(--line);
-      margin-bottom: 10px;
-    }
-    .node-list {
-      display: grid;
-      gap: 8px;
-      max-height: calc(100vh - 140px);
-      overflow: auto;
-      padding-right: 2px;
-    }
-    .node-item {
-      border: 1px solid var(--line);
-      border-left: 5px solid #b7b0a5;
-      border-radius: 12px;
-      background: #fff;
-      padding: 10px;
-      cursor: pointer;
-      display: grid;
-      gap: 5px;
-    }
-    .node-item.active {
-      border-color: #c7a48f;
-      box-shadow: 0 0 0 2px rgba(190, 76, 46, 0.08);
-      background: #fffaf4;
-    }
-    .node-item.done {
-      background: #fbfff8;
-    }
-    .node-item .top {
-      display: flex;
-      justify-content: space-between;
-      gap: 8px;
-      align-items: start;
-    }
-    .node-item .title {
+      padding: 12px 0;
+      border-top: 1px dashed var(--line);
+      margin-top: 16px;
       font-size: 13px;
-      font-weight: 600;
-      line-height: 1.3;
     }
-    .node-item .meta {
+    
+    /* List Pane Styles */
+    .list-pane { overflow: hidden; }
+    .node-list { display: grid; gap: 12px; padding: 20px; }
+    .node-card {
+      padding: 16px;
+      border: 1px solid var(--line);
+      border-left: 4px solid var(--line);
+      border-radius: var(--radius-md);
+      cursor: pointer;
+      transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+      background: #fff;
       display: flex;
-      flex-wrap: wrap;
-      gap: 5px;
-      font-size: 10px;
+      flex-direction: column;
+      gap: 8px;
     }
-    .tag {
-      border: 1px solid var(--line);
-      border-radius: 999px;
-      padding: 2px 6px;
-      background: #fbf6ed;
-    }
-    .badge {
-      font-size: 10px;
-      border-radius: 999px;
-      padding: 2px 6px;
-      border: 1px solid transparent;
-      white-space: nowrap;
-    }
-    .badge.done {
-      color: var(--ok);
-      border-color: #bfddc7;
-      background: #eff9f1;
-    }
-    .badge.todo {
-      color: var(--muted);
-      border-color: var(--line);
-      background: #f8f4ec;
-    }
-    .lane-immersion_input { border-left-color: var(--accent2); }
-    .lane-structure_pattern, .lane-structure_grammar { border-left-color: var(--accent3); }
-    .lane-controlled_output { border-left-color: var(--accent); }
-    .lane-immersion_output { border-left-color: #d98d10; }
-    .lane-review_retrieval { border-left-color: var(--ok); }
+    .node-card:hover { border-color: var(--accent); transform: translateY(-2px); box-shadow: var(--shadow-sm); }
+    .node-card.active { border-color: var(--accent); background: var(--accent-soft); border-left-width: 6px; }
+    .node-card.done { border-left-color: var(--ok); }
+    .node-card.review-mark { background-image: radial-gradient(circle at top right, var(--warn-soft) 0%, transparent 100%); border-left-color: var(--warn); }
 
-    .detail-pane {
-      display: grid;
-      grid-template-rows: auto auto 1fr auto;
-      gap: 12px;
-      min-height: 78vh;
-    }
-    .detail-head {
-      padding-bottom: 10px;
-      border-bottom: 1px solid var(--line);
-    }
-    .detail-head .title { font-size: 20px; font-weight: 700; margin-top: 4px; }
-    .detail-head .sub { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 8px; }
-    .detail-summary {
+    .node-card .top-row { display: flex; justify-content: space-between; align-items: flex-start; gap: 10px; }
+    .node-card .title { font-size: 15px; font-weight: 700; color: var(--ink); line-height: 1.3; }
+    .node-card .summary { font-size: 12px; color: var(--muted); line-height: 1.4; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+    .node-card .meta-tags { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 4px; }
+    .tag { font-size: 10px; background: rgba(0,0,0,0.04); padding: 2px 6px; border-radius: 4px; color: var(--muted); font-weight: 500; border: 1px solid rgba(0,0,0,0.05); }
+
+    /* Learning Roles Colors */
+    .role-lane-immersion_input { border-left-color: var(--accent2); }
+    .role-lane-structure_pattern, .role-lane-structure_grammar { border-left-color: var(--accent3); }
+    .role-lane-controlled_output, .role-lane-immersion_output { border-left-color: var(--accent); }
+    .role-lane-review_retrieval { border-left-color: var(--ok); }
+
+    /* Detail Pane Styles */
+    .detail-pane { background: #fff; }
+    .content-header { margin-bottom: 24px; }
+    .content-header .type-tags { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 12px; }
+    .content-header .type-tag { font-size: 11px; font-weight: 800; color: var(--accent); background: var(--accent-soft); padding: 3px 12px; border-radius: 6px; text-transform: uppercase; letter-spacing: 0.5px; }
+    .content-header h1 { font-size: 32px; font-weight: 800; color: var(--ink); margin: 0; line-height: 1.2; }
+    
+    .content-summary {
+      background: #fcfbf9;
       border: 1px solid var(--line);
-      border-radius: 12px;
-      background: #fff;
-      padding: 10px;
-      display: grid;
-      gap: 8px;
+      border-radius: var(--radius-md);
+      padding: 20px;
+      margin-bottom: 30px;
+      font-size: 15px;
+      line-height: 1.6;
     }
-    .summary-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 8px;
+    .summary-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 16px; }
+    .summary-box { background: #fff; border: 1px dashed var(--line); padding: 12px; border-radius: var(--radius-sm); font-size: 13px; }
+    .summary-box .label { font-size: 10px; font-weight: 700; color: var(--muted); text-transform: uppercase; margin-bottom: 4px; display: block; }
+
+    /* Content Forms Styles */
+    .content-block { margin-bottom: 40px; animation: fadeIn 0.4s ease-out; }
+    .block-title { font-size: 13px; font-weight: 700; color: var(--muted); margin-bottom: 20px; display: flex; align-items: center; gap: 12px; text-transform: uppercase; letter-spacing: 0.8px; }
+    .block-title::after { content: ""; flex: 1; height: 1px; background: var(--line); }
+
+    /* Dialogue Form */
+    .dialogue-wrap { display: flex; flex-direction: column; gap: 16px; padding: 10px 0; }
+    .dialogue-turn { display: flex; flex-direction: column; max-width: 85%; }
+    .turn-left { align-self: flex-start; }
+    .turn-right { align-self: flex-end; align-items: flex-end; }
+    
+    .bubble {
+      padding: 14px 18px;
+      border-radius: 18px;
+      font-size: 17px;
+      line-height: 1.4;
+      box-shadow: var(--shadow-sm);
     }
-    .summary-box {
-      border: 1px dashed var(--line);
-      border-radius: 10px;
-      padding: 8px;
-      font-size: 12px;
-      background: #fcfaf5;
+    .turn-left .bubble { background: #f2f2f2; border-bottom-left-radius: 4px; color: #333; }
+    .turn-right .bubble { background: var(--accent2); color: #fff; border-bottom-right-radius: 4px; }
+    
+    .speaker-label { font-size: 11px; font-weight: 700; color: var(--muted); margin-bottom: 4px; margin-left: 4px; }
+    .turn-right .speaker-label { margin-left: 0; margin-right: 4px; }
+    
+    .bubble-zh { font-size: 14px; margin-top: 6px; padding-top: 6px; border-top: 1px solid rgba(0,0,0,0.06); opacity: 0.9; }
+    .turn-left .bubble-zh { color: #666; }
+    .turn-right .bubble-zh { color: rgba(255,255,255,0.85); border-top-color: rgba(255,255,255,0.2); }
+
+    /* Notice Form */
+    .notice-board {
+      background: #fffdf5;
+      border: 2px solid #f2e5bc;
+      border-radius: var(--radius-sm);
+      padding: 30px;
+      position: relative;
+      box-shadow: 4px 8px 20px rgba(0,0,0,0.04);
+      margin: 20px 0;
     }
-    .detail-body {
-      border: 1px solid var(--line);
-      border-radius: 12px;
-      background: #fff;
-      padding: 10px;
-      overflow: auto;
-      display: grid;
-      gap: 10px;
-      align-content: start;
+    .notice-board::before { content: "BOARD"; position: absolute; top: 0; left: 50%; transform: translate(-50%, -50%); background: var(--accent); color: #fff; padding: 4px 16px; font-size: 12px; font-weight: 800; border-radius: 4px; letter-spacing: 1px; }
+    .notice-item { margin-bottom: 20px; border-bottom: 1px dashed #e5d8b0; padding-bottom: 16px; }
+    .notice-item:last-child { margin-bottom: 0; border-bottom: none; }
+    .notice-ko { font-size: 19px; font-weight: 700; color: #4a453e; display: block; line-height: 1.3; }
+    .notice-zh { font-size: 15px; color: #8e7f5e; margin-top: 6px; }
+
+    /* Message Thread Form */
+    .message-container { display: flex; flex-direction: column; gap: 12px; background: #eaeff2; padding: 24px; border-radius: var(--radius-md); border: 1px solid #d0dbe5; box-shadow: inset 0 2px 4px rgba(0,0,0,0.05); }
+    .msg-group { display: flex; flex-direction: column; max-width: 80%; }
+    .msg-left { align-self: flex-start; }
+    .msg-right { align-self: flex-end; align-items: flex-end; }
+    .msg-bubble { padding: 12px 16px; border-radius: 16px; font-size: 15px; box-shadow: 0 1px 2px rgba(0,0,0,0.1); position: relative; }
+    .msg-left .msg-bubble { background: #fff; border-bottom-left-radius: 4px; color: #333; }
+    .msg-right .msg-bubble { background: #0084ff; color: #fff; border-bottom-right-radius: 4px; }
+    .msg-zh { font-size: 13px; margin-top: 6px; opacity: 0.85; line-height: 1.4; }
+    .msg-left .msg-zh { color: #666; }
+    .msg-right .msg-zh { color: rgba(255,255,255,0.9); }
+    .msg-sender { font-size: 11px; font-weight: 700; color: var(--muted); margin-bottom: 4px; }
+
+    /* Comparison Card Form */
+    .comparison-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 20px; }
+    .compare-card { 
+      border: 1px solid var(--line); 
+      border-radius: var(--radius-md); 
+      padding: 24px; 
+      background: #fff; 
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      position: relative;
     }
-    .block {
-      border: 1px solid var(--line);
-      border-radius: 10px;
-      padding: 8px;
-      background: #fefcf7;
-    }
-    .block h4 { margin: 0 0 6px; font-size: 13px; }
-    .line-list { margin: 0; padding-left: 18px; font-size: 13px; line-height: 1.45; }
-    .row { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; }
+    .compare-card:hover { border-color: var(--accent2); transform: translateY(-4px); box-shadow: var(--shadow-md); }
+    .compare-card .card-id { position: absolute; top: 12px; right: 12px; font-size: 10px; font-weight: 800; color: var(--muted); background: #f0f0f0; padding: 2px 8px; border-radius: 4px; }
+    .compare-card h4 { font-size: 20px; font-weight: 800; margin: 0; color: var(--accent2); }
+    .compare-card .price-tag { font-size: 14px; font-weight: 700; color: var(--muted); background: #f8f8f8; padding: 6px 12px; border-radius: 8px; align-self: flex-start; }
+    .compare-pros { display: flex; flex-direction: column; gap: 8px; }
+    .pro-item { font-size: 13px; display: flex; align-items: start; gap: 8px; color: #444; }
+    .pro-item::before { content: "✓"; color: var(--ok); font-weight: 800; margin-top: 2px; }
+
+    /* Pattern Card Form */
+    .pattern-card-box { background: var(--accent3-soft); border: 1px solid #d3d0f3; border-radius: var(--radius-md); padding: 24px; display: grid; gap: 24px; }
+    .pattern-entry { border-bottom: 1px solid rgba(109, 88, 211, 0.2); padding-bottom: 20px; }
+    .pattern-entry:last-child { border-bottom: none; padding-bottom: 0; }
+    .pattern-formula { font-size: 22px; font-weight: 800; color: var(--accent3); margin-bottom: 10px; font-family: "Courier New", Courier, monospace; letter-spacing: -0.5px; }
+    .pattern-use-case { font-size: 15px; font-weight: 700; color: #333; margin-bottom: 10px; }
+    .slot-tags { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; }
+    .slot-label { font-size: 11px; font-weight: 700; color: var(--muted); text-transform: uppercase; margin-right: 4px; }
+    .slot-tag { background: #fff; border: 1px solid #d3d0f3; color: var(--accent3); font-size: 12px; font-weight: 600; padding: 4px 12px; border-radius: 8px; }
+
+    /* Grammar Section Form */
+    .grammar-accordion { display: grid; gap: 14px; }
+    .grammar-accordion details { border: 1px solid var(--line); border-radius: var(--radius-md); overflow: hidden; padding: 0; background: #fff; }
+    .grammar-accordion summary { background: #fcfbf9; padding: 16px 20px; cursor: pointer; display: flex; justify-content: space-between; align-items: center; font-weight: 700; transition: background 0.2s; list-style: none; }
+    .grammar-accordion summary::-webkit-details-marker { display: none; }
+    .grammar-accordion summary::after { content: "+"; font-size: 20px; color: var(--muted); }
+    .grammar-accordion details[open] summary::after { content: "−"; }
+    .grammar-accordion summary:hover { background: #f5f2ed; }
+    .grammar-body { padding: 20px 24px; font-size: 15px; line-height: 1.7; border-top: 1px solid var(--line); }
+    .grammar-point-list { margin: 0; padding-left: 20px; }
+    .grammar-point-list li { margin-bottom: 10px; }
+
+    /* Dictionary Pack Form */
+    .dict-section { margin-bottom: 28px; }
+    .dict-box-title { font-size: 12px; font-weight: 800; color: var(--muted); text-transform: uppercase; margin-bottom: 16px; display: block; border-left: 4px solid var(--accent2); padding-left: 12px; letter-spacing: 0.5px; }
+    .chunk-cloud { display: flex; flex-wrap: wrap; gap: 10px; }
+    .cloud-chunk { background: #fff; border: 1px solid var(--line); padding: 10px 20px; border-radius: 99px; font-size: 16px; font-weight: 500; cursor: default; transition: all 0.2s; box-shadow: 0 1px 3px rgba(0,0,0,0.03); }
+    .cloud-chunk:hover { border-color: var(--accent2); background: var(--accent2-soft); transform: translateY(-2px); box-shadow: var(--shadow-sm); }
+    .chunk-zh { font-size: 12px; color: var(--muted); margin-top: 4px; display: block; text-align: center; border-top: 1px solid rgba(0,0,0,0.04); padding-top: 4px; }
+
+    /* Interaction Area */
+    .interaction-panel { margin-top: 24px; border: 2px solid var(--accent-soft); border-radius: var(--radius-md); padding: 24px; background: #fffaf8; }
+    .interaction-label { font-size: 16px; font-weight: 800; margin-bottom: 20px; display: flex; align-items: center; gap: 8px; color: var(--accent); }
+    .btn-row { display: flex; gap: 12px; margin-top: 20px; flex-wrap: wrap; }
     .btn {
       border: 1px solid var(--line);
       background: #fff;
       color: var(--ink);
       border-radius: 10px;
-      padding: 8px 10px;
+      padding: 10px 18px;
       cursor: pointer;
+      font-size: 14px;
+      font-weight: 600;
+      transition: all 0.2s;
     }
-    .btn:hover { background: #fcf8ef; }
-    .btn.primary {
-      background: #f8e1d9;
-      border-color: #e0b3a6;
-      color: #7b2f1d;
-    }
-    .btn.ghost {
-      background: transparent;
-    }
-    .btn.success {
-      background: #eaf6ed;
-      border-color: #bdd8c3;
-      color: var(--ok);
-    }
-    .btn[disabled] {
-      opacity: .45;
-      cursor: not-allowed;
-    }
-    textarea, input[type="text"] {
-      width: 100%;
-      border: 1px solid var(--line);
-      border-radius: 10px;
-      background: #fff;
-      padding: 8px;
-      color: var(--ink);
-    }
-    textarea { min-height: 90px; resize: vertical; }
-    .chunk-bank { display: flex; flex-wrap: wrap; gap: 6px; }
-    .chunk {
-      border: 1px solid #d8c9b5;
-      background: #fff;
-      border-radius: 999px;
-      padding: 6px 10px;
-      cursor: pointer;
-      font-size: 12px;
-    }
-    .chunk.used { opacity: .45; cursor: not-allowed; }
-    .answer-strip {
-      border: 1px dashed var(--line);
-      border-radius: 10px;
-      min-height: 42px;
-      padding: 6px;
-      display: flex;
-      flex-wrap: wrap;
-      gap: 6px;
-      background: #fcfaf5;
-    }
-    .answer-chip {
-      border: 1px solid #cdbca7;
-      background: #fff;
-      border-radius: 999px;
-      padding: 4px 8px;
-      font-size: 12px;
-      cursor: pointer;
-    }
-    .choice-list { display: grid; gap: 6px; }
-    .choice {
-      border: 1px solid var(--line);
-      border-radius: 10px;
-      background: #fff;
-      padding: 8px;
-      cursor: pointer;
-      font-size: 13px;
-      text-align: left;
-    }
-    .choice.selected { border-color: #c49d8d; background: #fff8f2; }
-    details {
-      border: 1px dashed var(--line);
-      border-radius: 10px;
-      padding: 6px 8px;
-      background: #fcfbf8;
-    }
-    summary { cursor: pointer; }
-    .footer-nav {
-      display: flex;
-      justify-content: space-between;
-      gap: 8px;
-      border-top: 1px solid var(--line);
-      padding-top: 10px;
-      align-items: center;
-      flex-wrap: wrap;
-    }
-    .footer-left, .footer-right { display: flex; gap: 8px; align-items: center; }
-    .followups {
-      margin-top: 8px;
-      display: grid;
-      gap: 8px;
-    }
-    .followup {
-      border: 1px solid var(--line);
-      border-radius: 10px;
-      background: #f7fbf7;
-      padding: 8px;
-      font-size: 12px;
-    }
-    .empty { color: var(--muted); font-size: 13px; }
-    @media (max-width: 1100px) {
-      .page { grid-template-columns: 1fr; }
-      .sidebar { position: static; }
-      .node-list { max-height: none; }
-      .detail-pane { min-height: auto; }
+    .btn:hover { background: #f8f8f8; border-color: var(--muted); }
+    .btn.primary { background: var(--accent); color: #fff; border-color: var(--accent); }
+    .btn.primary:hover { opacity: 0.9; transform: translateY(-1px); }
+    .btn.success { background: var(--ok); color: #fff; border-color: var(--ok); }
+    .btn.success:hover { background: #246a3b; }
+    .btn[disabled] { opacity: .4; cursor: not-allowed; transform: none !important; }
+
+    textarea { width: 100%; border: 1px solid var(--line); border-radius: var(--radius-md); padding: 16px; font-size: 15px; background: #fff; min-height: 120px; resize: vertical; transition: border-color 0.2s; }
+    textarea:focus { border-color: var(--accent); outline: none; }
+
+    /* Assembly UX */
+    .assembly-zone { display: grid; gap: 16px; }
+    .assembly-answer { min-height: 60px; padding: 12px; border: 2px dashed var(--line); border-radius: var(--radius-md); background: #fdfcf9; display: flex; flex-wrap: wrap; gap: 8px; align-items: center; }
+    .chip { padding: 8px 16px; border-radius: 99px; background: #fff; border: 1px solid var(--line); cursor: pointer; font-size: 14px; font-weight: 500; transition: all 0.2s; }
+    .chip:hover { border-color: var(--accent); }
+    .chip.used { opacity: 0.35; cursor: default; }
+
+    /* Utils */
+    .muted-text { color: var(--muted); }
+    .tiny-text { font-size: 11px; }
+    .empty-state { padding: 40px; text-align: center; color: var(--muted); font-size: 15px; }
+
+    @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+    .animate-in { animation: fadeIn 0.4s ease-out; }
+
+    /* Footer Bar */
+    .footer-bar { padding: 20px 24px; border-top: 1px solid var(--line); background: #fff; display: flex; justify-content: space-between; align-items: center; z-index: 10; }
+    .btn-group { display: flex; gap: 12px; }
+
+    @media (max-width: 1400px) {
+      .page { grid-template-columns: 320px 1fr; grid-template-rows: auto 1fr; height: auto; }
+      .sidebar { grid-column: 1 / 2; grid-row: 1 / 2; position: static; }
+      .list-pane { grid-column: 1 / 2; grid-row: 2 / 3; height: 700px; }
+      .detail-pane { grid-column: 2 / 3; grid-row: 1 / 3; height: calc(100vh - 40px); position: sticky; top: 20px; }
     }
   </style>
 </head>
 <body>
-  <div class="page">
+  <div class="page" id="mainPage">
+    <!-- Sidebar: Unit Overview -->
     <aside class="panel sidebar">
-      <h1 id="unitTitle">Loading...</h1>
-      <div class="muted tiny" id="unitSub"></div>
-      <div class="meta-grid" id="metaGrid"></div>
-      <h2 style="margin-top:12px;">Can-do</h2>
-      <ul class="can-do" id="canDo"></ul>
-      <div class="pills" id="rolePills"></div>
-      <div class="toggle-row">
-        <label for="bilingualToggle"><strong>韓中對照</strong></label>
-        <input id="bilingualToggle" type="checkbox" checked />
-      </div>
-      <div class="progress">
-        <div class="row" style="justify-content:space-between;">
-          <strong>單元進度</strong>
-          <span class="tiny" id="progressText">0/0</span>
+      <div class="panel-content">
+        <h1 id="unitTitle">Unit Title</h1>
+        <div class="muted-text tiny-text" id="unitSub">LEVEL · TL · LOCALE</div>
+        
+        <div class="meta-grid" id="unitMetaGrid"></div>
+        
+        <h2>學習目標 (Can-do)</h2>
+        <ul class="can-do" id="canDoList"></ul>
+        
+        <div class="pills" id="rolePills"></div>
+        
+        <div class="unit-progress">
+          <div class="progress-header">
+            <span>單元進度</span>
+            <span id="progressText">0/0</span>
+          </div>
+          <div class="progress-track"><div class="progress-fill" id="progressFill"></div></div>
+          <div class="btn-group" style="margin-top: 12px; width: 100%;">
+            <button class="btn tiny-text" style="flex:1; padding: 6px;" id="jumpNextIncompleteBtn">未完成</button>
+            <button class="btn tiny-text" style="flex:1; padding: 6px;" id="jumpNextReviewBtn">待回看</button>
+          </div>
         </div>
-        <div class="progress-track"><div class="progress-fill" id="progressFill"></div></div>
-        <div class="progress-actions">
-          <button class="btn ghost tiny" id="jumpNextIncompleteBtn">跳到下一個未完成</button>
-          <button class="btn ghost tiny" id="jumpNextReviewBtn">跳到下一個待回看</button>
+
+        <div class="toggle-row">
+          <label for="bilingualToggle"><strong>韓中對照 (Bilingual)</strong></label>
+          <input id="bilingualToggle" type="checkbox" checked />
         </div>
-        <div class="progress-summary" id="progressSummary"></div>
-        <div class="tiny muted" style="margin-top:6px;">v1 不自動評分，只記錄完成與輸入內容，方便回看。</div>
+
+        <div id="followupsBox"></div>
       </div>
-      <div class="followups" id="followupsBox"></div>
     </aside>
 
+    <!-- List Pane: Sequence -->
     <section class="panel list-pane">
-      <div class="list-header">
-        <div>
-          <h2>節點清單</h2>
-          <div class="tiny muted">可點選跳轉、回看、重做</div>
-        </div>
-        <button class="btn ghost tiny" id="resetProgressBtn">重置記錄</button>
+      <div class="panel-header" style="display:flex; justify-content:space-between; align-items:center;">
+        <h2 style="margin:0; font-size: 16px;">學習節點清單</h2>
+        <button class="btn tiny-text" style="padding: 4px 10px;" id="resetProgressBtn">重置</button>
       </div>
       <div class="node-list" id="nodeList"></div>
     </section>
 
+    <!-- Detail Pane: Content Viewer -->
     <section class="panel detail-pane">
-      <div class="detail-head" id="detailHead"></div>
-      <div class="detail-summary" id="detailSummary"></div>
-      <div class="detail-body" id="detailBody"></div>
-      <div class="footer-nav">
-        <div class="footer-left">
+      <div class="panel-content" id="detailContent">
+        <div id="detailHeader"></div>
+        <div id="detailSummary"></div>
+        <div id="detailBody"></div>
+      </div>
+      
+      <div class="footer-bar">
+        <div class="btn-group">
           <button class="btn" id="prevBtn">上一節</button>
           <button class="btn" id="nextBtn">下一節</button>
         </div>
-        <div class="footer-right">
-          <button class="btn" id="markReviewBtn">標記為待回看</button>
+        <div class="btn-group">
+          <button class="btn" id="markReviewBtn">待回看</button>
           <button class="btn success" id="markDoneBtn">標記完成</button>
         </div>
       </div>
@@ -443,22 +431,22 @@
         completedNodeIds: [],
         reviewNodeIds: [],
         notesByNodeId: {},
-        interactionStateByNodeId: {}
+        interactionStateByNodeId: {},
+        prefs: { showBilingual: true }
       }
     };
 
     const el = {
       unitTitle: document.getElementById('unitTitle'),
       unitSub: document.getElementById('unitSub'),
-      metaGrid: document.getElementById('metaGrid'),
-      canDo: document.getElementById('canDo'),
+      metaGrid: document.getElementById('unitMetaGrid'),
+      canDo: document.getElementById('canDoList'),
       rolePills: document.getElementById('rolePills'),
       progressText: document.getElementById('progressText'),
       progressFill: document.getElementById('progressFill'),
-      progressSummary: document.getElementById('progressSummary'),
       followupsBox: document.getElementById('followupsBox'),
       nodeList: document.getElementById('nodeList'),
-      detailHead: document.getElementById('detailHead'),
+      detailHeader: document.getElementById('detailHeader'),
       detailSummary: document.getElementById('detailSummary'),
       detailBody: document.getElementById('detailBody'),
       prevBtn: document.getElementById('prevBtn'),
@@ -484,850 +472,534 @@
         state.progress = {
           completedNodeIds: Array.isArray(parsed.completedNodeIds) ? parsed.completedNodeIds : [],
           reviewNodeIds: Array.isArray(parsed.reviewNodeIds) ? parsed.reviewNodeIds : [],
-          notesByNodeId: parsed.notesByNodeId && typeof parsed.notesByNodeId === 'object' ? parsed.notesByNodeId : {},
-          interactionStateByNodeId: parsed.interactionStateByNodeId && typeof parsed.interactionStateByNodeId === 'object' ? parsed.interactionStateByNodeId : {},
-          prefs: parsed.prefs && typeof parsed.prefs === 'object' ? parsed.prefs : { showBilingual: true }
+          notesByNodeId: parsed.notesByNodeId || {},
+          interactionStateByNodeId: parsed.interactionStateByNodeId || {},
+          prefs: parsed.prefs || { showBilingual: true }
         };
       } catch (e) {
-        console.warn('progress parse failed', e);
+        console.warn('Progress load failed', e);
       }
-      if (!state.progress.prefs) state.progress.prefs = { showBilingual: true };
     }
 
     function saveProgress() {
-      if (!state.progress.prefs) state.progress.prefs = { showBilingual: true };
       localStorage.setItem(storageKey(), JSON.stringify(state.progress));
       renderProgress();
       renderNodeList();
     }
 
-    function nodeById(nodeId) {
-      return state.data.sequence.find(n => n.id === nodeId);
-    }
-
     function showBilingual() {
-      return state.progress?.prefs?.showBilingual !== false;
+      return state.progress.prefs.showBilingual !== false;
     }
 
-    function setShowBilingual(next) {
-      if (!state.progress.prefs) state.progress.prefs = {};
-      state.progress.prefs.showBilingual = !!next;
+    function setShowBilingual(val) {
+      state.progress.prefs.showBilingual = !!val;
       saveProgress();
       renderCurrentNode();
     }
 
     function escapeHtml(str) {
-      return String(str)
-        .replaceAll('&', '&amp;')
-        .replaceAll('<', '&lt;')
-        .replaceAll('>', '&gt;');
+      if (!str) return '';
+      return String(str).replace(/[&<>"']/g, m => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":"&#39;"}[m]));
     }
 
-    function formatKoWithZh(koText, zhText) {
-      if (koText == null) return '';
-      if (showBilingual() && zhText) return `${koText}（${zhText}）`;
-      return String(koText);
+    function nodeById(id) {
+      return state.data.sequence.find(n => n.id === id);
     }
 
-    function isDone(nodeId) {
-      return state.progress.completedNodeIds.includes(nodeId);
-    }
+    function isDone(id) { return state.progress.completedNodeIds.includes(id); }
+    function isReview(id) { return state.progress.reviewNodeIds.includes(id); }
 
-    function isReview(nodeId) {
-      return state.progress.reviewNodeIds.includes(nodeId);
-    }
-
-    function toggleDone(nodeId, force) {
-      const set = new Set(state.progress.completedNodeIds);
-      const next = force === undefined ? !set.has(nodeId) : !!force;
-      if (next) set.add(nodeId); else set.delete(nodeId);
-      state.progress.completedNodeIds = Array.from(set);
+    function toggleDone(id) {
+      const idx = state.progress.completedNodeIds.indexOf(id);
+      if (idx > -1) state.progress.completedNodeIds.splice(idx, 1);
+      else state.progress.completedNodeIds.push(id);
       saveProgress();
-      renderDetailFooterButtons();
+      renderFooterButtons();
     }
 
-    function toggleReview(nodeId, force) {
-      const set = new Set(state.progress.reviewNodeIds);
-      const next = force === undefined ? !set.has(nodeId) : !!force;
-      if (next) set.add(nodeId); else set.delete(nodeId);
-      state.progress.reviewNodeIds = Array.from(set);
+    function toggleReview(id) {
+      const idx = state.progress.reviewNodeIds.indexOf(id);
+      if (idx > -1) state.progress.reviewNodeIds.splice(idx, 1);
+      else state.progress.reviewNodeIds.push(id);
       saveProgress();
-      renderDetailFooterButtons();
+      renderFooterButtons();
     }
 
-    function getNodeInteractionState(nodeId) {
-      if (!state.progress.interactionStateByNodeId[nodeId]) {
-        state.progress.interactionStateByNodeId[nodeId] = {};
-      }
-      return state.progress.interactionStateByNodeId[nodeId];
+    function getNodeInteractionState(id) {
+      if (!state.progress.interactionStateByNodeId[id]) state.progress.interactionStateByNodeId[id] = {};
+      return state.progress.interactionStateByNodeId[id];
     }
 
-    function setNodeInteractionState(nodeId, patch) {
-      const current = getNodeInteractionState(nodeId);
-      state.progress.interactionStateByNodeId[nodeId] = { ...current, ...patch };
+    function setNodeInteractionState(id, patch) {
+      const current = getNodeInteractionState(id);
+      state.progress.interactionStateByNodeId[id] = { ...current, ...patch };
       saveProgress();
     }
 
-    function laneClass(role) {
-      return 'lane-' + role;
-    }
-
-    function makeTag(text) {
-      const t = document.createElement('span');
-      t.className = 'tag';
-      t.textContent = text;
-      return t;
-    }
-
+    // Sidebar & Progress Rendering
     function renderSidebar() {
       const unit = state.data.unit;
       el.unitTitle.textContent = `${unit.unit_id} ${unit.title_zh_tw}`;
       el.unitSub.textContent = `${unit.target_language.toUpperCase()} · ${unit.learner_locale_source} · ${unit.level}`;
+      
+      el.metaGrid.innerHTML = `
+        <div class="meta-box"><span class="k">主題</span><span class="v">${unit.theme_zh_tw}</span></div>
+        <div class="meta-box"><span class="k">預期輸出</span><span class="v">${Math.round(unit.output_ratio_target*100)}%</span></div>
+        <div class="meta-box"><span class="k">節點數</span><span class="v">${state.data.sequence.length}</span></div>
+        <div class="meta-box"><span class="k">版本</span><span class="v">v1.1 Polish</span></div>
+      `;
 
-      el.metaGrid.innerHTML = '';
-      [
-        ['Theme', unit.theme_zh_tw],
-        ['Output', `${Math.round(unit.output_ratio_target * 100)}%`],
-        ['Nodes', String(state.data.sequence.length)],
-        ['Platform', 'HTML mock v1']
-      ].forEach(([k, v]) => {
-        const box = document.createElement('div');
-        box.className = 'meta-box';
-        box.innerHTML = `<span class="k">${k}</span>${v}`;
-        el.metaGrid.appendChild(box);
-      });
-
-      el.canDo.innerHTML = '';
-      unit.can_do_zh_tw.forEach(x => {
-        const li = document.createElement('li');
-        li.textContent = x;
-        el.canDo.appendChild(li);
-      });
-
+      el.canDo.innerHTML = unit.can_do_zh_tw.map(x => `<li>${escapeHtml(x)}</li>`).join('');
+      
       const counts = {};
-      state.data.sequence.forEach(n => { counts[n.learning_role] = (counts[n.learning_role] || 0) + 1; });
-      el.rolePills.innerHTML = '';
-      Object.entries(counts).forEach(([k, v]) => {
-        const p = document.createElement('span');
-        p.className = 'pill';
-        p.textContent = `${k}: ${v}`;
-        el.rolePills.appendChild(p);
-      });
+      state.data.sequence.forEach(n => counts[n.learning_role] = (counts[n.learning_role] || 0) + 1);
+      el.rolePills.innerHTML = Object.entries(counts).map(([k, v]) => `<span class="pill">${k}: ${v}</span>`).join('');
 
-      el.followupsBox.innerHTML = '';
       el.bilingualToggle.checked = showBilingual();
-      if ((state.data.scheduled_followups || []).length) {
-        const title = document.createElement('h2');
-        title.style.fontSize = '16px';
-        title.style.marginTop = '8px';
-        title.textContent = '跨單元複習排程';
-        el.followupsBox.appendChild(title);
+
+      if (state.data.scheduled_followups?.length) {
+        el.followupsBox.innerHTML = '<h2>跨單元複習排程</h2>' + state.data.scheduled_followups.map(f => `
+          <div class="meta-box" style="text-align:left; margin-bottom:8px;">
+            <div class="k">${f.timing} -> ${f.transfer_to}</div>
+            <div class="v" style="font-size:12px;">${f.goal_zh_tw}</div>
+          </div>
+        `).join('');
+      } else {
+        el.followupsBox.innerHTML = '';
       }
-      (state.data.scheduled_followups || []).forEach(f => {
-        const div = document.createElement('div');
-        div.className = 'followup';
-        div.innerHTML = `<strong>${f.id}</strong> <span class="muted">${f.timing}</span> → <strong>${f.transfer_to}</strong><br>${f.goal_zh_tw}`;
-        el.followupsBox.appendChild(div);
-      });
     }
 
     function renderProgress() {
       const total = state.data.sequence.length;
-      const done = state.progress.completedNodeIds.filter(id => nodeById(id)).length;
-      const review = state.progress.reviewNodeIds.filter(id => nodeById(id)).length;
-      const outputLikeRoles = new Set(['controlled_output', 'immersion_output', 'review_retrieval']);
-      const outputLikeIds = state.data.sequence.filter(n => outputLikeRoles.has(n.learning_role)).map(n => n.id);
-      const outputDone = outputLikeIds.filter(id => isDone(id)).length;
-      el.progressText.textContent = `${done}/${total}`;
-      el.progressFill.style.width = total ? `${(done / total) * 100}%` : '0%';
-      el.progressSummary.innerHTML = `
-        <div>已完成：<strong>${done}</strong> / ${total}</div>
-        <div>待回看：<strong>${review}</strong></div>
-        <div>輸出/複習節點完成：<strong>${outputDone}</strong> / ${outputLikeIds.length}</div>
-      `;
-    }
-
-    function jumpToNextByPredicate(predicate) {
-      const total = state.data.sequence.length;
-      if (!total) return false;
-      for (let step = 1; step <= total; step += 1) {
-        const idx = (state.currentIndex + step) % total;
-        if (predicate(state.data.sequence[idx])) {
-          state.currentIndex = idx;
-          renderCurrentNode();
-          return true;
-        }
-      }
-      return false;
+      const doneCount = state.progress.completedNodeIds.length;
+      el.progressText.textContent = `${doneCount}/${total}`;
+      el.progressFill.style.width = `${(doneCount / total) * 100}%`;
     }
 
     function renderNodeList() {
-      el.nodeList.innerHTML = '';
-      state.data.sequence.forEach((node, idx) => {
-        const div = document.createElement('div');
-        div.className = `node-item ${laneClass(node.learning_role)} ${idx === state.currentIndex ? 'active' : ''} ${isDone(node.id) ? 'done' : ''}`;
-        div.onclick = () => { state.currentIndex = idx; renderCurrentNode(); };
-
-        const top = document.createElement('div');
-        top.className = 'top';
-        const title = document.createElement('div');
-        title.className = 'title';
-        title.textContent = `${idx + 1}. ${node.title_zh_tw}`;
-        top.appendChild(title);
-
-        const badge = document.createElement('span');
-        badge.className = `badge ${isDone(node.id) ? 'done' : 'todo'}`;
-        badge.textContent = isDone(node.id) ? '已完成' : '未完成';
-        top.appendChild(badge);
-        div.appendChild(top);
-
-        const meta = document.createElement('div');
-        meta.className = 'meta';
-        meta.appendChild(makeTag(node.candidate_type));
-        meta.appendChild(makeTag(node.content_form));
-        meta.appendChild(makeTag(node.learning_role));
-        meta.appendChild(makeTag(`${node.duration_min}m`));
-        if (isReview(node.id)) meta.appendChild(makeTag('待回看'));
-        div.appendChild(meta);
-
-        const summary = document.createElement('div');
-        summary.className = 'tiny muted';
-        summary.textContent = node.summary_zh_tw;
-        div.appendChild(summary);
-
-        el.nodeList.appendChild(div);
-      });
+      el.nodeList.innerHTML = state.data.sequence.map((node, idx) => `
+        <div class="node-card role-lane-${node.learning_role} ${idx === state.currentIndex ? 'active' : ''} ${isDone(node.id) ? 'done' : ''} ${isReview(node.id) ? 'review-mark' : ''}" onclick="state.currentIndex=${idx}; renderCurrentNode();">
+          <div class="top-row">
+            <span class="title">${idx + 1}. ${node.title_zh_tw}</span>
+            <span class="tag tiny-text">${node.duration_min}m</span>
+          </div>
+          <div class="summary">${node.summary_zh_tw}</div>
+          <div class="meta-tags">
+            <span class="tag">${node.content_form}</span>
+            <span class="tag">${node.learning_role}</span>
+          </div>
+        </div>
+      `).join('');
     }
 
-    function renderDetailHeader(node, idx) {
-      el.detailHead.innerHTML = '';
-      const k = document.createElement('div');
-      k.className = 'tiny muted';
-      k.textContent = `${idx + 1} / ${state.data.sequence.length}`;
-      el.detailHead.appendChild(k);
-
-      const title = document.createElement('div');
-      title.className = 'title';
-      title.textContent = node.title_zh_tw;
-      el.detailHead.appendChild(title);
-
-      const sub = document.createElement('div');
-      sub.className = 'sub';
-      [node.id, node.candidate_type, node.content_form, node.learning_role, `output:${node.output_mode}`, `${node.duration_min} min`]
-        .forEach(x => sub.appendChild(makeTag(x)));
-      node.skill_focus.forEach(x => sub.appendChild(makeTag(x)));
-      if (isReview(node.id)) sub.appendChild(makeTag('待回看'));
-      el.detailHead.appendChild(sub);
+    // Detail Rendering
+    function renderDetailHeader(node) {
+      el.detailHeader.innerHTML = `
+        <div class="content-header animate-in">
+          <div class="type-tags">
+            <span class="type-tag">${node.learning_role}</span>
+            <span class="type-tag" style="background:var(--accent2-soft); color:var(--accent2);">${node.candidate_type}</span>
+          </div>
+          <h1>${node.title_zh_tw}</h1>
+        </div>
+      `;
     }
 
     function renderDetailSummary(node) {
-      el.detailSummary.innerHTML = '';
-      const s1 = document.createElement('div');
-      s1.innerHTML = `<div class="tiny muted">摘要</div><div>${node.summary_zh_tw}</div>`;
-      el.detailSummary.appendChild(s1);
-
-      const grid = document.createElement('div');
-      grid.className = 'summary-grid';
-      const box1 = document.createElement('div');
-      box1.className = 'summary-box';
-      box1.innerHTML = `<div class="tiny muted">預期學習者輸出</div>${node.expected_output_zh_tw}`;
-      const box2 = document.createElement('div');
-      box2.className = 'summary-box';
-      box2.innerHTML = `<div class="tiny muted">狀態</div>${isDone(node.id) ? '<span style="color:var(--ok)">已完成</span>' : '未完成'}${isReview(node.id) ? ' · <span style="color:var(--warn)">待回看</span>' : ''}`;
-      grid.appendChild(box1);
-      grid.appendChild(box2);
-      el.detailSummary.appendChild(grid);
+      el.detailSummary.innerHTML = `
+        <div class="content-summary animate-in">
+          <div style="font-weight:700; margin-bottom:8px;">本節目標</div>
+          <div class="muted-text">${node.summary_zh_tw}</div>
+          <div class="summary-grid">
+            <div class="summary-box">
+              <span class="label">預期輸出</span>
+              ${node.expected_output_zh_tw || '觀察與理解'}
+            </div>
+            <div class="summary-box">
+              <span class="label">技能焦查</span>
+              ${node.skill_focus.join(' / ')}
+            </div>
+          </div>
+        </div>
+      `;
     }
 
-    function appendSampleLines(node) {
-      if (!node.sample_lines?.length) return;
-      const block = document.createElement('div');
-      block.className = 'block';
-      block.innerHTML = '<h4>Sample Content</h4>';
-      const ul = document.createElement('ul');
-      ul.className = 'line-list';
-      node.sample_lines.forEach(line => {
-        const li = document.createElement('li');
-        li.textContent = line;
-        ul.appendChild(li);
-      });
-      block.appendChild(ul);
-      el.detailBody.appendChild(block);
+    // --- Content Form Renderers ---
+
+    function renderDialogue(payload) {
+      const turns = payload.dialogue_turns || [];
+      const html = turns.map((t, idx) => {
+        const isRight = idx % 2 !== 0; // Simple logic: alternate
+        return `
+          <div class="dialogue-turn ${isRight ? 'turn-right' : 'turn-left'}">
+            <div class="speaker-label">${escapeHtml(t.speaker)}</div>
+            <div class="bubble">
+              <div class="bubble-ko">${escapeHtml(t.text)}</div>
+              ${showBilingual() && t.zh_tw ? `<div class="bubble-zh">${escapeHtml(t.zh_tw)}</div>` : ''}
+            </div>
+          </div>
+        `;
+      }).join('');
+      return `<div class="content-block"><div class="block-title">情境對話</div><div class="dialogue-wrap">${html}</div></div>`;
     }
 
-    function appendJsonPreview(title, value) {
-      const block = document.createElement('div');
-      block.className = 'block';
-      const pre = document.createElement('pre');
-      pre.style.margin = '0';
-      pre.style.fontSize = '12px';
-      pre.style.whiteSpace = 'pre-wrap';
-      pre.style.wordBreak = 'break-word';
-      pre.textContent = JSON.stringify(value, null, 2);
-      block.innerHTML = `<h4>${title}</h4>`;
-      block.appendChild(pre);
-      el.detailBody.appendChild(block);
+    function renderNotice(payload) {
+      const items = payload.notice_items || [];
+      const itemZh = payload.notice_items_zh_tw || [];
+      const html = items.map((ko, idx) => `
+        <div class="notice-item">
+          <span class="notice-ko">${escapeHtml(ko)}</span>
+          ${showBilingual() && itemZh[idx] ? `<span class="notice-zh">${escapeHtml(itemZh[idx])}</span>` : ''}
+        </div>
+      `).join('');
+      return `<div class="content-block"><div class="block-title">告示與看板</div><div class="notice-board">${html}</div></div>`;
     }
 
-    function renderDialogue(node) {
-      const turns = node.payload?.dialogue_turns || [];
-      const block = document.createElement('div');
-      block.className = 'block';
-      block.innerHTML = '<h4>Dialogue</h4>';
-      const ul = document.createElement('ul');
-      ul.className = 'line-list';
-      turns.forEach(t => {
-        const li = document.createElement('li');
-        li.innerHTML = `<strong>${escapeHtml(t.speaker)}</strong>: ${escapeHtml(t.text)}${showBilingual() && t.zh_tw ? `<div class="tiny muted">${escapeHtml(t.zh_tw)}</div>` : ''}`;
-        ul.appendChild(li);
-      });
-      block.appendChild(ul);
-      el.detailBody.appendChild(block);
+    function renderMessageThread(payload) {
+      const msgs = payload.messages || [];
+      const html = msgs.map(m => {
+        const isMe = m.sender === '我' || m.sender === 'Me';
+        return `
+          <div class="msg-group ${isMe ? 'msg-right' : 'msg-left'}">
+            <div class="msg-sender">${escapeHtml(m.sender)}</div>
+            <div class="msg-bubble">
+              <div class="msg-ko">${escapeHtml(m.text)}</div>
+              ${showBilingual() && m.zh_tw ? `<div class="msg-zh">${escapeHtml(m.zh_tw)}</div>` : ''}
+            </div>
+          </div>
+        `;
+      }).join('');
+      return `<div class="content-block"><div class="block-title">簡訊對話</div><div class="message-container">${html || '<div class="empty-state">無訊息</div>'}</div></div>`;
     }
 
-    function renderNotice(node) {
-      const items = node.payload?.notice_items || [];
-      const itemZh = node.payload?.notice_items_zh_tw || [];
-      const block = document.createElement('div');
-      block.className = 'block';
-      block.innerHTML = '<h4>Notice</h4>';
-      const ul = document.createElement('ul');
-      ul.className = 'line-list';
-      items.forEach((x, idx) => {
-        const li = document.createElement('li');
-        li.innerHTML = `${escapeHtml(x)}${showBilingual() && itemZh[idx] ? `<div class="tiny muted">${escapeHtml(itemZh[idx])}</div>` : ''}`;
-        ul.appendChild(li);
-      });
-      block.appendChild(ul);
-      el.detailBody.appendChild(block);
-    }
-
-    function renderMessageThread(node) {
-      const msgs = node.payload?.messages || [];
-      const block = document.createElement('div');
-      block.className = 'block';
-      block.innerHTML = '<h4>Message Thread</h4>';
-      msgs.forEach(m => {
-        const row = document.createElement('div');
-        row.style.margin = '6px 0';
-        row.style.padding = '6px 8px';
-        row.style.border = '1px solid var(--line)';
-        row.style.borderRadius = '10px';
-        row.style.background = '#fff';
-        row.innerHTML = `<strong>${escapeHtml(m.sender)}</strong><div style="margin-top:2px">${escapeHtml(m.text)}</div>${showBilingual() && m.zh_tw ? `<div class="tiny muted" style="margin-top:4px">${escapeHtml(m.zh_tw)}</div>` : ''}`;
-        block.appendChild(row);
-      });
-      el.detailBody.appendChild(block);
-    }
-
-    function renderComparison(node) {
-      const opts = node.payload?.options || [];
-      const block = document.createElement('div');
-      block.className = 'block';
-      block.innerHTML = '<h4>Comparison</h4>';
-      const grid = document.createElement('div');
-      grid.className = 'summary-grid';
-      opts.forEach(o => {
-        const box = document.createElement('div');
-        box.className = 'summary-box';
-        box.innerHTML = `<strong>${o.id}: ${o.label_zh_tw}</strong><br>${o.price_krw} KRW<br>${(o.pros_zh_tw || []).join(' / ')}`;
-        grid.appendChild(box);
-      });
-      block.appendChild(grid);
-      if (node.payload?.reason_frame_zh_tw) {
-        const p = document.createElement('div');
-        p.className = 'tiny muted';
-        p.style.marginTop = '8px';
-        p.textContent = `句框：${node.payload.reason_frame_zh_tw}`;
-        block.appendChild(p);
+    function renderComparison(payload) {
+      const opts = payload.options || [];
+      const html = opts.map(o => `
+        <div class="compare-card">
+          <span class="card-id">${o.id}</span>
+          <h4>${escapeHtml(o.label_zh_tw)}</h4>
+          <div class="price-tag">${o.price_krw.toLocaleString()} KRW</div>
+          <div class="compare-pros">
+            ${(o.pros_zh_tw || []).map(p => `<div class="pro-item">${escapeHtml(p)}</div>`).join('')}
+          </div>
+        </div>
+      `).join('');
+      
+      let frameNote = '';
+      if (payload.reason_frame_zh_tw) {
+        frameNote = `<div class="summary-box" style="margin-top:20px; border-style:solid; border-color:var(--accent2-soft); background:var(--accent2-soft);">
+          <span class="label" style="color:var(--accent2);">推薦理由句型</span>
+          ${payload.reason_frame_zh_tw}
+        </div>`;
       }
-      el.detailBody.appendChild(block);
+
+      return `<div class="content-block"><div class="block-title">方案比較</div><div class="comparison-grid">${html}</div>${frameNote}</div>`;
     }
 
-    function renderPatternCard(node) {
-      const frames = node.payload?.frames || [];
-      const block = document.createElement('div');
-      block.className = 'block';
-      block.innerHTML = '<h4>Pattern Frames</h4>';
-      frames.forEach(f => {
-        const row = document.createElement('div');
-        row.style.margin = '6px 0';
-        row.style.padding = '6px 8px';
-        row.style.border = '1px dashed var(--line)';
-        row.style.borderRadius = '10px';
-        row.innerHTML = `<div><strong>${f.frame}</strong></div><div class="tiny muted">${f.use_zh_tw}</div><div class="tiny">槽位：${(f.slots_zh_tw || []).join(' / ') || '無'}</div>`;
-        block.appendChild(row);
-      });
-      el.detailBody.appendChild(block);
+    function renderPatternCard(payload) {
+      const frames = payload.frames || [];
+      const html = frames.map(f => `
+        <div class="pattern-entry">
+          <div class="pattern-formula">${escapeHtml(f.frame)}</div>
+          <div class="pattern-use-case">${escapeHtml(f.use_zh_tw)}</div>
+          <div class="slot-tags">
+            <span class="slot-label">詞類/插槽:</span>
+            ${(f.slots_zh_tw || []).map(s => `<span class="slot-tag">${escapeHtml(s)}</span>`).join('')}
+          </div>
+        </div>
+      `).join('');
+      return `<div class="content-block"><div class="block-title">句型重點</div><div class="pattern-card-box">${html || '<div class="empty-state">無資料</div>'}</div></div>`;
     }
 
-    function renderGrammarSections(node) {
-      const sections = node.payload?.sections || [];
-      const block = document.createElement('div');
-      block.className = 'block';
-      block.innerHTML = '<h4>Grammar Notes</h4>';
-      sections.forEach(s => {
-        const d = document.createElement('details');
-        d.open = true;
-        const sum = document.createElement('summary');
-        sum.textContent = s.title_zh_tw;
-        d.appendChild(sum);
-        const ul = document.createElement('ul');
-        ul.className = 'line-list';
-        (s.points_zh_tw || []).forEach(p => {
-          const li = document.createElement('li');
-          li.textContent = p;
-          ul.appendChild(li);
-        });
-        d.appendChild(ul);
-        block.appendChild(d);
-      });
-      el.detailBody.appendChild(block);
+    function renderGrammar(payload) {
+      const sections = payload.sections || [];
+      const html = sections.map(s => `
+        <details open>
+          <summary>${escapeHtml(s.title_zh_tw)}</summary>
+          <div class="grammar-body">
+            <ul class="grammar-point-list">
+              ${(s.points_zh_tw || []).map(p => `<li>${escapeHtml(p)}</li>`).join('')}
+            </ul>
+          </div>
+        </details>
+      `).join('');
+      return `<div class="content-block"><div class="block-title">文法詳解</div><div class="grammar-accordion">${html || '<div class="empty-state">無資料</div>'}</div></div>`;
     }
 
-    function renderDictionaryPack(node) {
-      const sections = node.payload?.sections || [];
-      const block = document.createElement('div');
-      block.className = 'block';
-      block.innerHTML = '<h4>Dictionary Pack (Functional Chunks)</h4>';
-      sections.forEach(s => {
-        const d = document.createElement('details');
-        d.open = true;
-        const sum = document.createElement('summary');
-        sum.textContent = s.title_zh_tw;
-        d.appendChild(sum);
-        const chips = document.createElement('div');
-        chips.className = 'chunk-bank';
+    function renderDictionary(payload) {
+      const sections = payload.sections || [];
+      const html = sections.map(s => {
         const gloss = s.item_gloss_by_ko || {};
-        (s.items || []).forEach(item => {
-          const span = document.createElement('span');
-          span.className = 'chunk';
-          span.style.cursor = 'default';
-          span.textContent = formatKoWithZh(item, gloss[item]);
-          chips.appendChild(span);
-        });
-        d.appendChild(chips);
-        block.appendChild(d);
-      });
-      el.detailBody.appendChild(block);
+        return `
+          <div class="dict-section">
+            <span class="dict-box-title">${escapeHtml(s.title_zh_tw)}</span>
+            <div class="chunk-cloud">
+              ${(s.items || []).map(it => `
+                <div class="cloud-chunk">
+                  <strong>${escapeHtml(it)}</strong>
+                  ${showBilingual() && gloss[it] ? `<span class="chunk-zh">${escapeHtml(gloss[it])}</span>` : ''}
+                </div>
+              `).join('')}
+            </div>
+          </div>
+        `;
+      }).join('');
+      return `<div class="content-block"><div class="block-title">核心詞彙與短語</div><div>${html || '<div class="empty-state">無資料</div>'}</div></div>`;
     }
 
-    function renderChunkAssembly(node) {
+    // --- Interaction Modes Renderers ---
+
+    function renderChunkAssemblyMode(node) {
+      const payload = node.payload;
       const nodeState = getNodeInteractionState(node.id);
-      const tasks = node.payload?.tasks || [];
-      const activeTaskIndex = Math.min(nodeState.activeTaskIndex || 0, Math.max(0, tasks.length - 1));
-      const task = tasks[activeTaskIndex];
-      if (!task) {
-        appendJsonPreview('Missing chunk_assembly payload', node.payload || {});
-        return;
-      }
-      const answers = Array.isArray(nodeState.answers) ? nodeState.answers.slice() : [];
-      const chunkGloss = task.chunk_gloss_by_ko || {};
+      const tasks = payload.tasks || [];
+      const taskIdx = nodeState.activeTaskIndex || 0;
+      const task = tasks[taskIdx];
+      if (!task) return '';
 
-      const header = document.createElement('div');
-      header.className = 'block';
-      header.innerHTML = `<h4>Chunk Assembly</h4><div class="tiny muted">任務 ${activeTaskIndex + 1}/${tasks.length} · 不自動評分，可自行比對示例並標記完成</div><div style="margin-top:6px">${task.prompt_zh_tw}</div>`;
-      el.detailBody.appendChild(header);
+      const currentAnswers = nodeState.answers || [];
+      const gloss = task.chunk_gloss_by_ko || {};
 
-      const answerBlock = document.createElement('div');
-      answerBlock.className = 'block';
-      answerBlock.innerHTML = '<h4>你的句子（點擊詞塊加入；點擊答案可移除）</h4>';
-      const answerStrip = document.createElement('div');
-      answerStrip.className = 'answer-strip';
-      answerBlock.appendChild(answerStrip);
-      el.detailBody.appendChild(answerBlock);
+      const answerHtml = currentAnswers.map((a, i) => `
+        <div class="chip" onclick="removeChunk(${i})">
+          ${escapeHtml(a)} ${showBilingual() && gloss[a] ? `<span class="tiny-text-muted">(${gloss[a]})</span>` : ''}
+        </div>
+      `).join('');
 
-      const bankBlock = document.createElement('div');
-      bankBlock.className = 'block';
-      bankBlock.innerHTML = '<h4>詞塊庫</h4>';
-      const bank = document.createElement('div');
-      bank.className = 'chunk-bank';
-      bankBlock.appendChild(bank);
-      el.detailBody.appendChild(bankBlock);
+      const bankHtml = (task.chunks || []).map((c, i) => {
+        const usedCount = currentAnswers.filter(x => x === c).length;
+        const totalCount = (task.chunks || []).filter(x => x === c).length;
+        const isUsed = usedCount >= totalCount;
+        return `<div class="chip ${isUsed ? 'used' : ''}" onclick="${isUsed ? '' : `addChunk('${c.replace(/'/g, "\\'")}')`}">
+          ${escapeHtml(c)} ${showBilingual() && gloss[c] ? `<span class="tiny-text-muted">(${gloss[c]})</span>` : ''}
+        </div>`;
+      }).join('');
 
-      function commitAnswers(nextAnswers) {
-        setNodeInteractionState(node.id, { activeTaskIndex, answers: nextAnswers });
-      }
+      return `
+        <div class="interaction-panel animate-in">
+          <div class="interaction-label">🧩 詞塊組句練習 (${taskIdx+1}/${tasks.length})</div>
+          <div class="muted-text" style="margin-bottom:12px;">${escapeHtml(task.prompt_zh_tw)}</div>
+          
+          <div class="assembly-zone">
+            <div class="block-title" style="margin-bottom:8px; font-size:11px;">你的組句 (點擊移除)</div>
+            <div class="assembly-answer">${answerHtml || '<div class="tiny-text muted">請從下方選擇詞塊...</div>'}</div>
+            
+            <div class="block-title" style="margin-bottom:8px; font-size:11px; margin-top:16px;">詞塊庫</div>
+            <div class="chunk-cloud">${bankHtml}</div>
+          </div>
 
-      function rerenderAnswers() {
-        answerStrip.innerHTML = '';
-        if (!answers.length) {
-          const p = document.createElement('div');
-          p.className = 'tiny muted';
-          p.textContent = '尚未組句';
-          answerStrip.appendChild(p);
-        }
-        answers.forEach((a, idx) => {
-          const chip = document.createElement('button');
-          chip.type = 'button';
-          chip.className = 'answer-chip';
-          chip.textContent = formatKoWithZh(a, chunkGloss[a]);
-          chip.onclick = () => {
-            answers.splice(idx, 1);
-            commitAnswers(answers);
-            rerenderAnswers();
-            rerenderBank();
-          };
-          answerStrip.appendChild(chip);
-        });
-      }
-
-      function rerenderBank() {
-        bank.innerHTML = '';
-        (task.chunks || []).forEach(chunkText => {
-          const usedCountInTask = answers.filter(x => x === chunkText).length;
-          const totalCountInTask = (task.chunks || []).filter(x => x === chunkText).length;
-          const btn = document.createElement('button');
-          btn.type = 'button';
-          btn.className = 'chunk' + (usedCountInTask >= totalCountInTask ? ' used' : '');
-          btn.textContent = formatKoWithZh(chunkText, chunkGloss[chunkText]);
-          btn.disabled = usedCountInTask >= totalCountInTask;
-          btn.onclick = () => {
-            answers.push(chunkText);
-            commitAnswers(answers);
-            rerenderAnswers();
-            rerenderBank();
-          };
-          bank.appendChild(btn);
-        });
-      }
-
-      rerenderAnswers();
-      rerenderBank();
-
-      const controls = document.createElement('div');
-      controls.className = 'row';
-      const resetBtn = document.createElement('button');
-      resetBtn.className = 'btn';
-      resetBtn.textContent = '清空目前答案';
-      resetBtn.onclick = () => {
-        answers.length = 0;
-        commitAnswers([]);
-        rerenderAnswers();
-        rerenderBank();
-      };
-      controls.appendChild(resetBtn);
-
-      const exampleBtn = document.createElement('button');
-      exampleBtn.className = 'btn';
-      exampleBtn.textContent = '查看示例';
-      const exampleBox = document.createElement('div');
-      exampleBox.className = 'tiny muted';
-      exampleBox.style.display = 'none';
-      exampleBox.textContent = `示例：${(task.target_examples || []).join(' / ')}${showBilingual() && (task.target_examples_zh_tw || []).length ? ` ｜ 中譯：${task.target_examples_zh_tw.join(' / ')}` : ''}`;
-      exampleBtn.onclick = () => {
-        exampleBox.style.display = exampleBox.style.display === 'none' ? 'block' : 'none';
-      };
-      controls.appendChild(exampleBtn);
-
-      const nextTaskBtn = document.createElement('button');
-      nextTaskBtn.className = 'btn primary';
-      nextTaskBtn.textContent = activeTaskIndex < tasks.length - 1 ? '下一個拼句題' : '這是最後一題';
-      nextTaskBtn.disabled = activeTaskIndex >= tasks.length - 1;
-      nextTaskBtn.onclick = () => {
-        setNodeInteractionState(node.id, { activeTaskIndex: activeTaskIndex + 1, answers: [] });
-        renderCurrentNode();
-      };
-      controls.appendChild(nextTaskBtn);
-
-      const block = document.createElement('div');
-      block.className = 'block';
-      block.innerHTML = '<h4>操作</h4>';
-      block.appendChild(controls);
-      block.appendChild(exampleBox);
-      el.detailBody.appendChild(block);
+          <div class="btn-row">
+            <button class="btn" onclick="clearAssembly()">清空</button>
+            <button class="btn" onclick="toggleTaskExample()">查看示例</button>
+            <button class="btn primary" ${taskIdx >= tasks.length-1 ? 'disabled' : ''} onclick="nextTask()">下一個題</button>
+          </div>
+          <div id="assemblyExample" class="summary-box" style="display:none; margin-top:16px; border-color:var(--ok-soft); background:var(--ok-soft);">
+            <span class="label" style="color:var(--ok);">預期示例</span>
+            ${(task.target_examples || []).join(' / ')}
+            ${showBilingual() && task.target_examples_zh_tw ? `<div class="tiny-text" style="margin-top:4px;">中譯：${task.target_examples_zh_tw.join(' / ')}</div>` : ''}
+          </div>
+        </div>
+      `;
     }
 
-    function renderResponseBuilder(node) {
+    // Window-exposed functions for interaction
+    window.addChunk = (txt) => {
+      const node = state.data.sequence[state.currentIndex];
+      const s = getNodeInteractionState(node.id);
+      if(!s.answers) s.answers = [];
+      s.answers.push(txt);
+      setNodeInteractionState(node.id, s);
+      renderCurrentNode();
+    };
+    window.removeChunk = (idx) => {
+      const node = state.data.sequence[state.currentIndex];
+      const s = getNodeInteractionState(node.id);
+      s.answers.splice(idx, 1);
+      setNodeInteractionState(node.id, s);
+      renderCurrentNode();
+    };
+    window.clearAssembly = () => {
+      const node = state.data.sequence[state.currentIndex];
+      setNodeInteractionState(node.id, { answers: [] });
+      renderCurrentNode();
+    };
+    window.toggleTaskExample = () => {
+      const box = document.getElementById('assemblyExample');
+      box.style.display = box.style.display === 'none' ? 'block' : 'none';
+    };
+    window.nextTask = () => {
+      const node = state.data.sequence[state.currentIndex];
+      const s = getNodeInteractionState(node.id);
+      s.activeTaskIndex = (s.activeTaskIndex || 0) + 1;
+      s.answers = [];
+      setNodeInteractionState(node.id, s);
+      renderCurrentNode();
+    };
+
+    function renderResponseBuilderMode(node) {
+      const items = node.payload.items || [];
       const nodeState = getNodeInteractionState(node.id);
-      const items = node.payload?.items || [];
       const chosen = nodeState.chosenByIndex || {};
-      const block = document.createElement('div');
-      block.className = 'block';
-      block.innerHTML = '<h4>Response Builder（不自動評分）</h4><div class="tiny muted">選一個你會用的回應；可查看建議答案</div>';
-      items.forEach((item, idx) => {
-        const responseGloss = item.response_gloss_by_ko || {};
-        const card = document.createElement('div');
-        card.style.marginTop = '8px';
-        card.style.padding = '8px';
-        card.style.border = '1px dashed var(--line)';
-        card.style.borderRadius = '10px';
-        const prompt = document.createElement('div');
-        prompt.innerHTML = `<strong>Prompt ${idx + 1}</strong><div style="margin-top:4px">${escapeHtml(item.prompt_ko)}</div>${showBilingual() && item.prompt_zh_tw ? `<div class="tiny muted" style="margin-top:4px">${escapeHtml(item.prompt_zh_tw)}</div>` : ''}`;
-        card.appendChild(prompt);
-        const list = document.createElement('div');
-        list.className = 'choice-list';
-        list.style.marginTop = '6px';
-        (item.response_choices_ko || []).forEach(choiceText => {
-          const b = document.createElement('button');
-          b.type = 'button';
-          b.className = 'choice' + (chosen[idx] === choiceText ? ' selected' : '');
-          b.textContent = formatKoWithZh(choiceText, responseGloss[choiceText]);
-          b.onclick = () => {
-            const next = { ...chosen, [idx]: choiceText };
-            setNodeInteractionState(node.id, { chosenByIndex: next });
-            renderCurrentNode();
-          };
-          list.appendChild(b);
-        });
-        card.appendChild(list);
-        const details = document.createElement('details');
-        details.style.marginTop = '6px';
-        const summary = document.createElement('summary');
-        summary.textContent = '查看建議答案';
-        details.appendChild(summary);
-        const ans = document.createElement('div');
-        ans.className = 'tiny';
-        ans.style.marginTop = '6px';
-        ans.textContent = (item.accepted_responses_ko || []).map(x => formatKoWithZh(x, responseGloss[x])).join(' / ');
-        details.appendChild(ans);
-        card.appendChild(details);
-        block.appendChild(card);
-      });
-      el.detailBody.appendChild(block);
+      
+      const html = items.map((item, idx) => `
+        <div style="margin-bottom:24px; border-bottom:1px dashed var(--line); padding-bottom:16px;">
+          <div class="muted-text" style="font-weight:700; margin-bottom:8px;">情境 ${idx+1}: ${escapeHtml(item.prompt_ko)}</div>
+          ${showBilingual() && item.prompt_zh_tw ? `<div class="tiny-text muted-text" style="margin-bottom:12px;">(${item.prompt_zh_tw})</div>` : ''}
+          <div class="btn-group" style="flex-wrap:wrap;">
+            ${(item.response_choices_ko || []).map(choice => `
+              <button class="btn ${chosen[idx] === choice ? 'success' : ''}" style="font-size:12px; padding: 6px 12px;" onclick="pickResponse(${idx}, '${choice.replace(/'/g, "\\'")}')">
+                ${escapeHtml(choice)}
+              </button>
+            `).join('')}
+          </div>
+        </div>
+      `).join('');
+
+      return `
+        <div class="interaction-panel animate-in">
+          <div class="interaction-label">💬 回應選擇練習</div>
+          ${html}
+        </div>
+      `;
+    }
+    window.pickResponse = (idx, choice) => {
+      const node = state.data.sequence[state.currentIndex];
+      const s = getNodeInteractionState(node.id);
+      if(!s.chosenByIndex) s.chosenByIndex = {};
+      s.chosenByIndex[idx] = choice;
+      setNodeInteractionState(node.id, s);
+      renderCurrentNode();
     }
 
-    function renderGuidedWriting(node) {
+    function renderGuidedOutputMode(node) {
       const nodeState = getNodeInteractionState(node.id);
-      const block = document.createElement('div');
-      block.className = 'block';
-      block.innerHTML = '<h4>Guided Writing（可完成 + 可回看）</h4>';
-      const p = document.createElement('div');
-      p.textContent = node.payload?.prompt_zh_tw || '請完成 1-2 句輸出';
-      block.appendChild(p);
-      if (node.payload?.must_include_zh_tw?.length) {
-        const ul = document.createElement('ul');
-        ul.className = 'line-list';
-        node.payload.must_include_zh_tw.forEach(x => {
-          const li = document.createElement('li');
-          li.textContent = `包含：${x}`;
-          ul.appendChild(li);
-        });
-        block.appendChild(ul);
-      }
-      const ta = document.createElement('textarea');
-      ta.placeholder = '在這裡輸入你的答案（不自動評分）';
-      ta.value = nodeState.draftText || '';
-      ta.oninput = () => setNodeInteractionState(node.id, { draftText: ta.value });
-      block.appendChild(ta);
-      const row = document.createElement('div');
-      row.className = 'row';
-      const exampleBtn = document.createElement('button');
-      exampleBtn.className = 'btn';
-      exampleBtn.textContent = '查看示例句型';
-      const ex = document.createElement('div');
-      ex.className = 'tiny muted';
-      ex.style.display = 'none';
-      ex.textContent = (node.payload?.example_shape_zh_tw || []).join(' / ');
-      exampleBtn.onclick = () => ex.style.display = ex.style.display === 'none' ? 'block' : 'none';
-      row.appendChild(exampleBtn);
-      const saveBtn = document.createElement('button');
-      saveBtn.className = 'btn primary';
-      saveBtn.textContent = '儲存草稿';
-      saveBtn.onclick = () => setNodeInteractionState(node.id, { draftText: ta.value, savedAt: Date.now() });
-      row.appendChild(saveBtn);
-      block.appendChild(row);
-      block.appendChild(ex);
-      el.detailBody.appendChild(block);
+      const isSpeaking = node.skill_focus.includes('speaking');
+      return `
+        <div class="interaction-panel animate-in">
+          <div class="interaction-label">${isSpeaking ? '🎤 口說練習' : '✍️ 任務型寫作'}</div>
+          <div class="muted-text" style="margin-bottom:12px;">${node.payload.prompt_zh_tw || node.summary_zh_tw}</div>
+          <textarea placeholder="點擊此處輸入回答或練習筆記..." oninput="updateDraft(this.value)">${nodeState.draft || ''}</textarea>
+          ${node.payload.must_include_zh_tw ? `<div class="tiny-text muted-text" style="margin-top:8px;">需包含: ${node.payload.must_include_zh_tw.join(' / ')}</div>` : ''}
+        </div>
+      `;
+    }
+    window.updateDraft = (val) => {
+      const node = state.data.sequence[state.currentIndex];
+      setNodeInteractionState(node.id, { draft: val });
     }
 
-    function renderGuidedSpeaking(node) {
+    function renderReviewRetrievalMode(node) {
+      const prompts = node.payload.prompts_zh_tw || [];
+      return `
+        <div class="interaction-panel animate-in">
+          <div class="interaction-label">🧠 單元複習回想</div>
+          <div class="muted-text" style="margin-bottom:16px;">閱讀以下情境，試著在大腦中提取剛學過的韓文表達：</div>
+          ${prompts.map((p, i) => `
+            <div style="margin-bottom:12px; padding:12px; background:#fff; border-radius:8px; border:1px solid var(--line);">
+              <div class="tiny-text muted-text">情境 ${i+1}</div>
+              <div>${escapeHtml(p)}</div>
+            </div>
+          `).join('')}
+        </div>
+      `;
+    }
+
+    function renderFreeNote(node) {
       const nodeState = getNodeInteractionState(node.id);
-      const block = document.createElement('div');
-      block.className = 'block';
-      block.innerHTML = '<h4>Guided Speaking Prompt（文字記錄版）</h4>';
-      const ul = document.createElement('ul');
-      ul.className = 'line-list';
-      (node.payload?.constraints_zh_tw || []).forEach(x => {
-        const li = document.createElement('li');
-        li.textContent = `條件：${x}`;
-        ul.appendChild(li);
-      });
-      block.appendChild(ul);
-      const req = document.createElement('div');
-      req.className = 'tiny muted';
-      req.textContent = `需使用：${(node.payload?.required_patterns_zh_tw || []).join(' / ')}`;
-      block.appendChild(req);
-      const ta = document.createElement('textarea');
-      ta.placeholder = '寫下你會怎麼說（或記錄口說內容摘要）';
-      ta.value = nodeState.speakingDraft || '';
-      ta.oninput = () => setNodeInteractionState(node.id, { speakingDraft: ta.value });
-      block.appendChild(ta);
-      el.detailBody.appendChild(block);
+      return `
+        <div style="margin-top:40px; border-top:1px solid var(--line); padding-top:20px;">
+          <div class="block-title">個人筆記</div>
+          <textarea style="min-height:80px; font-size:13px;" placeholder="記錄本節心得或卡關點..." oninput="updateNote(this.value)">${nodeState.note || ''}</textarea>
+        </div>
+      `;
+    }
+    window.updateNote = (val) => {
+      const node = state.data.sequence[state.currentIndex];
+      setNodeInteractionState(node.id, { note: val });
     }
 
-    function renderReviewRetrieval(node) {
-      const nodeState = getNodeInteractionState(node.id);
-      const prompts = node.payload?.prompts_zh_tw || [];
-      const answers = nodeState.answersByIndex || {};
-      const reveals = nodeState.revealed || {};
-      const block = document.createElement('div');
-      block.className = 'block';
-      block.innerHTML = '<h4>Review Retrieval（先回想，再看提示）</h4><div class="tiny muted">不自動評分，只記錄你的回想內容與是否看提示</div>';
-      prompts.forEach((promptText, idx) => {
-        const card = document.createElement('div');
-        card.style.marginTop = '8px';
-        card.style.border = '1px dashed var(--line)';
-        card.style.borderRadius = '10px';
-        card.style.padding = '8px';
-        card.innerHTML = `<strong>Q${idx + 1}</strong><div style="margin-top:4px">${promptText}</div>`;
-        const ta = document.createElement('textarea');
-        ta.style.minHeight = '70px';
-        ta.placeholder = '先寫你記得的答案';
-        ta.value = answers[idx] || '';
-        ta.oninput = () => {
-          const next = { ...answers, [idx]: ta.value };
-          setNodeInteractionState(node.id, { answersByIndex: next, revealed: reveals });
-        };
-        card.appendChild(ta);
-        const row = document.createElement('div');
-        row.className = 'row';
-        const revealBtn = document.createElement('button');
-        revealBtn.className = 'btn';
-        revealBtn.textContent = reveals[idx] ? '隱藏提示' : '顯示提示';
-        revealBtn.onclick = () => {
-          const nextRevealed = { ...reveals, [idx]: !reveals[idx] };
-          setNodeInteractionState(node.id, { answersByIndex: answers, revealed: nextRevealed });
-          renderCurrentNode();
-        };
-        row.appendChild(revealBtn);
-        card.appendChild(row);
-        if (reveals[idx]) {
-          const hint = document.createElement('div');
-          hint.className = 'tiny muted';
-          hint.style.marginTop = '6px';
-          hint.textContent = '提示：回想本單元的點餐請求 / 外帶回應 / 刷卡回應 / 咖啡廳見面確認句。';
-          card.appendChild(hint);
-        }
-        block.appendChild(card);
-      });
-      el.detailBody.appendChild(block);
-    }
+    // --- Core Master Render ---
+    function renderCurrentNode() {
+      const node = state.data.sequence[state.currentIndex];
+      if (!node) return;
 
-    function renderGenericNotes(node) {
-      const notesKey = `${node.id}:freeNote`;
-      const nodeState = getNodeInteractionState(node.id);
-      const block = document.createElement('div');
-      block.className = 'block';
-      block.innerHTML = '<h4>我的筆記 / 回看註記</h4>';
-      const ta = document.createElement('textarea');
-      ta.placeholder = '寫下你想回看的地方、你會用的句子、卡住的點';
-      ta.value = nodeState[notesKey] || '';
-      ta.oninput = () => setNodeInteractionState(node.id, { [notesKey]: ta.value });
-      block.appendChild(ta);
-      el.detailBody.appendChild(block);
-    }
+      renderNodeList();
+      renderProgress();
+      renderDetailHeader(node);
+      renderDetailSummary(node);
 
-    function renderByType(node) {
-      if (node.content_form === 'dialogue') renderDialogue(node);
-      else if (node.content_form === 'notice') renderNotice(node);
-      else if (node.content_form === 'message_thread') renderMessageThread(node);
-      else if (node.content_form === 'comparison_card') renderComparison(node);
-      else if (node.content_form === 'pattern_card') renderPatternCard(node);
-      else if (node.content_form === 'grammar_note') renderGrammarSections(node);
-      else if (node.content_form === 'functional_phrase_pack') renderDictionaryPack(node);
+      let bodyHtml = '';
+      const p = node.payload || {};
+
+      // Form Renderers
+      if (node.content_form === 'dialogue') bodyHtml += renderDialogue(p);
+      else if (node.content_form === 'notice') bodyHtml += renderNotice(p);
+      else if (node.content_form === 'message_thread') bodyHtml += renderMessageThread(p);
+      else if (node.content_form === 'comparison_card') bodyHtml += renderComparison(p);
+      else if (node.content_form === 'pattern_card') bodyHtml += renderPatternCard(p);
+      else if (node.content_form === 'grammar_note') bodyHtml += renderGrammar(p);
+      else if (node.content_form === 'functional_phrase_pack') bodyHtml += renderDictionary(p);
       else {
-        appendJsonPreview('Renderer fallback (payload)', node.payload || {});
+        bodyHtml += `<div class="empty-state">未定義的內容形式: ${node.content_form}</div>`;
       }
 
-      if (node.output_mode === 'chunk_assembly') renderChunkAssembly(node);
-      if (node.output_mode === 'response_builder') renderResponseBuilder(node);
-      if (node.output_mode === 'guided' && node.skill_focus.includes('writing')) renderGuidedWriting(node);
-      if (node.output_mode === 'guided' && node.skill_focus.includes('speaking')) renderGuidedSpeaking(node);
-      if (node.output_mode === 'review_retrieval') renderReviewRetrieval(node);
+      // Interaction Mode Renderers
+      if (node.output_mode === 'chunk_assembly') bodyHtml += renderChunkAssemblyMode(node);
+      else if (node.output_mode === 'response_builder') bodyHtml += renderResponseBuilderMode(node);
+      else if (node.output_mode === 'guided') bodyHtml += renderGuidedOutputMode(node);
+      else if (node.output_mode === 'review_retrieval') bodyHtml += renderReviewRetrievalMode(node);
 
-      renderGenericNotes(node);
+      bodyHtml += renderFreeNote(node);
+
+      el.detailBody.innerHTML = bodyHtml;
+      renderFooterButtons();
+
+      // UI Smooth scroll to top of details
+      document.getElementById('detailContent').scrollTop = 0;
     }
 
-    function renderDetailFooterButtons() {
+    function renderFooterButtons() {
       const node = state.data.sequence[state.currentIndex];
       el.prevBtn.disabled = state.currentIndex <= 0;
       el.nextBtn.disabled = state.currentIndex >= state.data.sequence.length - 1;
       el.markDoneBtn.textContent = isDone(node.id) ? '取消完成' : '標記完成';
-      el.markReviewBtn.textContent = isReview(node.id) ? '取消待回看' : '標記為待回看';
-    }
-
-    function renderCurrentNode() {
-      const node = state.data.sequence[state.currentIndex];
-      renderNodeList();
-      renderProgress();
-      renderDetailHeader(node, state.currentIndex);
-      renderDetailSummary(node);
-      el.detailBody.innerHTML = '';
-      appendSampleLines(node);
-      renderByType(node);
-      renderDetailFooterButtons();
+      el.markReviewBtn.textContent = isReview(node.id) ? '取消待回看' : '標記待回看';
+      
+      el.markDoneBtn.classList.toggle('success', !isDone(node.id));
+      el.markReviewBtn.style.color = isReview(node.id) ? 'var(--warn)' : '';
     }
 
     function wireEvents() {
-      el.prevBtn.onclick = () => {
-        if (state.currentIndex > 0) {
-          state.currentIndex -= 1;
-          renderCurrentNode();
-        }
-      };
-      el.nextBtn.onclick = () => {
-        if (state.currentIndex < state.data.sequence.length - 1) {
-          state.currentIndex += 1;
-          renderCurrentNode();
-        }
-      };
-      el.markDoneBtn.onclick = () => {
-        const node = state.data.sequence[state.currentIndex];
-        toggleDone(node.id);
-      };
-      el.markReviewBtn.onclick = () => {
-        const node = state.data.sequence[state.currentIndex];
-        toggleReview(node.id);
-      };
+      el.prevBtn.onclick = () => { if(state.currentIndex > 0) { state.currentIndex--; renderCurrentNode(); } };
+      el.nextBtn.onclick = () => { if(state.currentIndex < state.data.sequence.length-1) { state.currentIndex++; renderCurrentNode(); } };
+      el.markDoneBtn.onclick = () => toggleDone(state.data.sequence[state.currentIndex].id);
+      el.markReviewBtn.onclick = () => toggleReview(state.data.sequence[state.currentIndex].id);
+      el.bilingualToggle.onchange = (e) => setShowBilingual(e.target.checked);
+      
       el.resetProgressBtn.onclick = () => {
-        if (!confirm('確定要清除這個單元的完成記錄與互動輸入？')) return;
-        state.progress = { completedNodeIds: [], reviewNodeIds: [], notesByNodeId: {}, interactionStateByNodeId: {}, prefs: { showBilingual: showBilingual() } };
-        saveProgress();
-        renderCurrentNode();
+        if(confirm('確定清除紀錄？')) {
+          localStorage.removeItem(storageKey());
+          state.progress = { completedNodeIds:[], reviewNodeIds:[], notesByNodeId:{}, interactionStateByNodeId:{}, prefs:{showBilingual:showBilingual()} };
+          renderCurrentNode();
+        }
       };
-      el.bilingualToggle.onchange = () => setShowBilingual(el.bilingualToggle.checked);
       el.jumpNextIncompleteBtn.onclick = () => {
-        const ok = jumpToNextByPredicate(node => !isDone(node.id));
-        if (!ok) alert('沒有未完成節點了。');
+        const idx = state.data.sequence.findIndex((n, i) => i > state.currentIndex && !isDone(n.id));
+        if (idx > -1) { state.currentIndex = idx; renderCurrentNode(); }
+        else {
+          const idx2 = state.data.sequence.findIndex((n) => !isDone(n.id));
+          if(idx2 > -1) { state.currentIndex = idx2; renderCurrentNode(); }
+          else alert('全部完成啦！');
+        }
       };
       el.jumpNextReviewBtn.onclick = () => {
-        const ok = jumpToNextByPredicate(node => isReview(node.id));
-        if (!ok) alert('目前沒有待回看節點。');
-      };
-    }
-
-    function migrateOldMockupDataIfNeeded(raw) {
-      // Accept the previous mockup JSON shape for backwards compatibility.
-      if (raw.version === 'unit_blueprint_v0') return raw;
-      if (!raw.unit_id || !Array.isArray(raw.sequence)) return raw;
-      return {
-        version: 'unit_blueprint_v0',
-        unit: {
-          unit_id: raw.unit_id,
-          title_zh_tw: raw.title_zh_tw || raw.unit_theme || raw.unit_id,
-          target_language: raw.target_language || 'ko',
-          learner_locale_source: raw.learner_locale_source || 'zh-TW',
-          level: raw.level || raw.level_band || 'A1',
-          theme_zh_tw: raw.theme || raw.unit_theme || '',
-          output_ratio_target: raw.output_ratio_target || 0.5,
-          can_do_zh_tw: raw.can_do_zh_tw || []
-        },
-        sequence: raw.sequence.map(item => ({
-          id: item.id,
-          candidate_type: item.candidate_type,
-          content_form: item.content_form || 'unknown',
-          learning_role: item.learning_role,
-          skill_focus: Array.isArray(item.skill_focus) ? item.skill_focus : [item.skill_focus || 'integrated'],
-          output_mode: item.output_mode || 'none',
-          duration_min: item.duration_min || 3,
-          title_zh_tw: item.title || item.title_zh_tw || item.id,
-          summary_zh_tw: item.summary_zh_tw || '',
-          sample_lines: item.sample_lines || [],
-          expected_output_zh_tw: item.expected_output || item.expected_output_zh_tw || '',
-          payload: item.payload || {}
-        })),
-        scheduled_followups: raw.scheduled_followups || []
+        const idx = state.data.sequence.findIndex((n, i) => i > state.currentIndex && isReview(n.id));
+        if (idx > -1) { state.currentIndex = idx; renderCurrentNode(); }
+        else {
+          const idx2 = state.data.sequence.findIndex((n) => isReview(n.id));
+          if(idx2 > -1) { state.currentIndex = idx2; renderCurrentNode(); }
+          else alert('沒有標記回看的節點。');
+        }
       };
     }
 
@@ -1335,16 +1007,14 @@
       wireEvents();
       try {
         const resp = await fetch(BLUEPRINT_PATH);
-        const raw = await resp.json();
-        state.data = migrateOldMockupDataIfNeeded(raw);
+        const data = await resp.json();
+        state.data = data;
+        renderSidebar();
+        loadProgress();
+        renderCurrentNode();
       } catch (e) {
-        el.detailHead.innerHTML = '<div class="title">載入失敗</div>';
-        el.detailSummary.innerHTML = `<div class="empty">${String(e)}<br>請用 static server 開啟（例如 python3 -m http.server）</div>`;
-        return;
+        el.detailHeader.innerHTML = `<div class="empty-state">載入數據失敗: ${e}</div>`;
       }
-      renderSidebar();
-      loadProgress();
-      renderCurrentNode();
     }
 
     bootstrap();

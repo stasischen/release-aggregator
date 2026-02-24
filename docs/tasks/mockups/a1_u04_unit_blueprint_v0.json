@@ -21,7 +21,10 @@
       "candidate_type": "lesson",
       "content_form": "dialogue",
       "learning_role": "immersion_input",
-      "skill_focus": ["listening", "integrated"],
+      "skill_focus": [
+        "listening",
+        "integrated"
+      ],
       "output_mode": "none",
       "duration_min": 6,
       "title_zh_tw": "櫃台點餐對話 (咖啡與蛋糕)",
@@ -34,13 +37,41 @@
       "expected_output_zh_tw": "初步沉浸地聽與讀，隨後在 Path Node 進行可控輸出練習。",
       "payload": {
         "dialogue_turns": [
-          { "speaker": "店員", "text": "어서 오세요. 주문하시겠어요?", "zh_tw": "歡迎光臨，您要點餐嗎？" },
-          { "speaker": "顧客", "text": "아이스 아메리카노 한 잔이랑 치즈케이크 하나 주세요.", "zh_tw": "請給我一杯冰美式和一個起司蛋糕。" },
-          { "speaker": "店員", "text": "매장에서 드세요, 아니면 포장이세요?", "zh_tw": "內用還是外帶呢？" },
-          { "speaker": "顧客", "text": "포장이요.", "zh_tw": "外帶。" },
-          { "speaker": "店員", "text": "결제는 카드로 하세요?", "zh_tw": "要用信用卡付款嗎？" },
-          { "speaker": "顧客", "text": "네, 카드로 할게요. 얼마예요?", "zh_tw": "是，我刷卡。多少錢？" },
-          { "speaker": "店員", "text": "만 천 원입니다.", "zh_tw": "是一萬一千韓元。" }
+          {
+            "speaker": "店員",
+            "text": "어서 오세요. 주문하시겠어요?",
+            "zh_tw": "歡迎光臨，您要點餐嗎？"
+          },
+          {
+            "speaker": "顧客",
+            "text": "아이스 아메리카노 한 잔이랑 치즈케이크 하나 주세요.",
+            "zh_tw": "請給我一杯冰美式和一個起司蛋糕。"
+          },
+          {
+            "speaker": "店員",
+            "text": "매장에서 드세요, 아니면 포장이세요?",
+            "zh_tw": "內用還是外帶呢？"
+          },
+          {
+            "speaker": "顧客",
+            "text": "포장이요.",
+            "zh_tw": "外帶。"
+          },
+          {
+            "speaker": "店員",
+            "text": "결제는 카드로 하세요?",
+            "zh_tw": "要用信用卡付款嗎？"
+          },
+          {
+            "speaker": "顧客",
+            "text": "네, 카드로 할게요. 얼마예요?",
+            "zh_tw": "是，我刷卡。多少錢？"
+          },
+          {
+            "speaker": "店員",
+            "text": "만 천 원입니다.",
+            "zh_tw": "是一萬一千韓元。"
+          }
         ]
       }
     },
@@ -49,7 +80,9 @@
       "candidate_type": "lesson",
       "content_form": "notice",
       "learning_role": "immersion_input",
-      "skill_focus": ["reading"],
+      "skill_focus": [
+        "reading"
+      ],
       "output_mode": "none",
       "duration_min": 4,
       "title_zh_tw": "店內公告：每人低消與外食限制",
@@ -62,9 +95,9 @@
       "payload": {
         "notice_items": [
           "1인 1음료 주문 부탁드립니다.",
-          "외부 음식은 반입이 어렵습니다.",
+          "外部 음식은 반입이 어렵습니다.",
           "피크 시간에는 이용 시간이 제한될 수 있습니다.",
-          "와이파이 비밀번호는 영수증 하단에 있습니다."
+          "와이파이 비밀번호는 영수증 하端에 있습니다."
         ],
         "notice_items_zh_tw": [
           "每人請至少點一杯飲料。",
@@ -79,23 +112,42 @@
       "candidate_type": "lesson",
       "content_form": "message_thread",
       "learning_role": "immersion_input",
-      "skill_focus": ["reading", "integrated"],
+      "skill_focus": [
+        "reading",
+        "integrated"
+      ],
       "output_mode": "none",
       "duration_min": 4,
       "title_zh_tw": "通訊軟體：約在咖啡廳見面",
       "summary_zh_tw": "兩位朋友間的短訊息，協調見面時間與車站前的位置。",
       "sample_lines": [
         "오늘 카페에서 볼래?",
-        "7시 어때?",
+        "7時 어때?",
         "역 앞 카페로 갈게."
       ],
       "expected_output_zh_tw": "理解時間、地點的提問與回答方式，為後續寫作任務做準備。",
       "payload": {
         "messages": [
-          { "sender": "민수", "text": "오늘 카페에서 볼래?", "zh_tw": "今天要不要在咖啡廳見面？" },
-          { "sender": "지선", "text": "좋아. 몇 시가 좋아?", "zh_tw": "好啊，幾點比較好？" },
-          { "sender": "민수", "text": "저녁 7시 어때?", "zh_tw": "晚上 7 點如何？" },
-          { "sender": "지선", "text": "좋아. 강남역 앞 카페로 갈게.", "zh_tw": "好，我會去江南站前的咖啡廳。" }
+          {
+            "sender": "민수",
+            "text": "오늘 카페에서 볼래?",
+            "zh_tw": "今天要不要在咖啡廳見面？"
+          },
+          {
+            "sender": "지선",
+            "text": "좋아. 몇 시가 좋아?",
+            "zh_tw": "好啊，幾點比較好？"
+          },
+          {
+            "sender": "민수",
+            "text": "저녁 7시 어때?",
+            "zh_tw": "晚上 7 點如何？"
+          },
+          {
+            "sender": "지선",
+            "text": "좋아. 강남역 앞 카페로 갈게.",
+            "zh_tw": "好，我會去江南站前的咖啡廳。"
+          }
         ]
       }
     },
@@ -104,7 +156,9 @@
       "candidate_type": "lesson",
       "content_form": "comparison_card",
       "learning_role": "immersion_input",
-      "skill_focus": ["reading"],
+      "skill_focus": [
+        "reading"
+      ],
       "output_mode": "none",
       "duration_min": 3,
       "title_zh_tw": "選擇題：兩款招牌套餐比較",
@@ -121,16 +175,28 @@
             "label_ko": "아이스 아메리카노 세트",
             "label_zh_tw": "冰美式套餐",
             "price_krw": 9500,
-            "pros_ko": ["빨라요", "달지 않아요"],
-            "pros_zh_tw": ["出餐快", "不甜"]
+            "pros_ko": [
+              "빨라요",
+              "달지 않아요"
+            ],
+            "pros_zh_tw": [
+              "出餐快",
+              "不甜"
+            ]
           },
           {
             "id": "B",
             "label_ko": "카페라떼 세트",
             "label_zh_tw": "拿鐵套餐",
             "price_krw": 10500,
-            "pros_ko": ["우유가 있어요", "부드러워요"],
-            "pros_zh_tw": ["含牛奶", "口感滑順"]
+            "pros_ko": [
+              "우유가 있어요",
+              "부드러워요"
+            ],
+            "pros_zh_tw": [
+              "含牛奶",
+              "口感滑順"
+            ]
           }
         ],
         "reason_frame_zh_tw": "我想要 ___，因為 ___。"
@@ -141,7 +207,10 @@
       "candidate_type": "grammar_note",
       "content_form": "pattern_card",
       "learning_role": "structure_pattern",
-      "skill_focus": ["writing", "speaking"],
+      "skill_focus": [
+        "writing",
+        "speaking"
+      ],
       "output_mode": "frame_fill",
       "duration_min": 5,
       "title_zh_tw": "句型卡：點餐必修句框",
@@ -155,17 +224,25 @@
           {
             "frame": "___ (item) ___ (unit) 주세요.",
             "use_zh_tw": "基本點餐請求",
-            "slots_zh_tw": ["品項 (例如 아메리카노)", "數量代詞 (例如 한 잔)"]
+            "slots_zh_tw": [
+              "品項 (例如 아메리카노)",
+              "數量代詞 (例如 한 잔)"
+            ]
           },
           {
             "frame": "___ (item1)이랑/하고 ___ (item2) 주세요.",
             "use_zh_tw": "同時點兩樣東西",
-            "slots_zh_tw": ["第一樣品項", "第二樣品項"]
+            "slots_zh_tw": [
+              "第一樣品項",
+              "第二樣品項"
+            ]
           },
           {
             "frame": "___ (payment)로 할게요.",
             "use_zh_tw": "指定付款方式",
-            "slots_zh_tw": ["付款媒介 (카드/현금)"]
+            "slots_zh_tw": [
+              "付款媒介 (카드/현금)"
+            ]
           }
         ],
         "grammar_help_zh_tw": "주세요 是『請給我...』，是一切生存任務的起點。"
@@ -176,13 +253,15 @@
       "candidate_type": "grammar_note",
       "content_form": "grammar_note",
       "learning_role": "structure_grammar",
-      "skill_focus": ["reading"],
+      "skill_focus": [
+        "reading"
+      ],
       "output_mode": "none",
       "duration_min": 4,
       "title_zh_tw": "最小語法：數量與否定回應",
       "summary_zh_tw": "解釋為什麼要用 한 잔 而不是 하나，以及簡易否定法。",
       "sample_lines": [
-        "한 잔 / 두 잔 / 세 잔 (數量詞搭配)"
+        "한 잔 / 二 잔 / 세 잔 (數量詞搭配)"
       ],
       "expected_output_zh_tw": "理解韓文數詞與量詞的特殊搭配，避免直接用數字數數。",
       "payload": {
@@ -193,7 +272,11 @@
               "點飲料要用 잔 (杯)：한 잔, 두 잔, 세 잔",
               "點點心要用 개 (個) 或 하나 (一個)：하나, 두 개"
             ],
-            "ko_examples": ["아메리카노 한 잔", "케이크 하나", "라떼 두 잔"]
+            "ko_examples": [
+              "아메리카노 한 잔",
+              "케이크 하나",
+              "라떼 二 잔"
+            ]
           },
           {
             "title_zh_tw": "排除與選擇 (말고)",
@@ -201,7 +284,10 @@
               "想要排除某物時：A 말고 B (不要 A 要 B)",
               "例如：핫 말고 아이스 (不要熱的，要冰的)"
             ],
-            "ko_examples": ["아이스 말고 핫 주세요", "매장 말고 포장이요"]
+            "ko_examples": [
+              "아이스 말고 핫 주세요",
+              "매장 말고 포장이요"
+            ]
           }
         ]
       }
@@ -211,7 +297,9 @@
       "candidate_type": "dictionary_pack",
       "content_form": "functional_phrase_pack",
       "learning_role": "structure_pattern",
-      "skill_focus": ["integrated"],
+      "skill_focus": [
+        "integrated"
+      ],
       "output_mode": "chunk_assembly",
       "duration_min": 4,
       "title_zh_tw": "生存詞塊包：點餐篇",
@@ -219,12 +307,18 @@
       "sample_lines": [
         "아메리카노 / 라떼 / 포장 / 카드"
       ],
-      "expected_output_zh_tw": "這些詞塊是 Path Node 拼句子的基礎零件。",
+      "expected_output_zh_tw": "這些詞塊是 Path Node 拼句子基礎零件。",
       "payload": {
         "sections": [
           {
             "title_zh_tw": "常見品項 (Items)",
-            "items": ["아메리카노", "라떼", "케이크", "빵", "물"],
+            "items": [
+              "아메리카노",
+              "라떼",
+              "케이크",
+              "빵",
+              "물"
+            ],
             "item_gloss_by_ko": {
               "아메리카노": "美式咖啡",
               "라떼": "拿鐵",
@@ -235,7 +329,12 @@
           },
           {
             "title_zh_tw": "數量詞塊 (Quantity)",
-            "items": ["한 잔", "두 잔", "하나", "두 개"],
+            "items": [
+              "한 잔",
+              "두 잔",
+              "하나",
+              "두 개"
+            ],
             "item_gloss_by_ko": {
               "한 잔": "一杯",
               "두 잔": "兩杯",
@@ -245,7 +344,12 @@
           },
           {
             "title_zh_tw": "需求選項 (Options)",
-            "items": ["아이스", "핫", "포장", "매장"],
+            "items": [
+              "아이스",
+              "핫",
+              "포장",
+              "매장"
+            ],
             "item_gloss_by_ko": {
               "아이스": "冰 (Ice)",
               "핫": "熱 (Hot)",
@@ -255,7 +359,12 @@
           },
           {
             "title_zh_tw": "付款與疑問 (Payment & FAQ)",
-            "items": ["카드", "현금", "얼마예요?", "영수증"],
+            "items": [
+              "카드",
+              "현금",
+              "얼마예요?",
+              "영수증"
+            ],
             "item_gloss_by_ko": {
               "카드": "信用卡",
               "현금": "現金",
@@ -272,7 +381,10 @@
       "candidate_type": "path_node",
       "content_form": "practice_card",
       "learning_role": "controlled_output",
-      "skill_focus": ["writing", "speaking"],
+      "skill_focus": [
+        "writing",
+        "speaking"
+      ],
       "output_mode": "chunk_assembly",
       "duration_min": 5,
       "title_zh_tw": "零件組裝：拼出正確點餐句",
@@ -286,18 +398,33 @@
         "tasks": [
           {
             "prompt_zh_tw": "請組出「請給我一杯冰美式」",
-            "chunks": ["아이스 아메리카노", "한 잔", "주세요"],
+            "chunks": [
+              "아이스 아메리카노",
+              "한 잔",
+              "주세요"
+            ],
             "chunk_gloss_by_ko": {
               "아이스 아메리카노": "冰美式",
               "한 잔": "一杯",
               "주세요": "請給我"
             },
-            "target_examples": ["아이스 아메리카노 한 잔 주세요."],
-            "target_examples_zh_tw": ["請給我一杯冰美式。"]
+            "target_examples": [
+              "아이스 아메리카노 한 잔 주세요."
+            ],
+            "target_examples_zh_tw": [
+              "請給我一杯冰美式。"
+            ]
           },
           {
             "prompt_zh_tw": "請組出「請給我兩杯拿鐵和一個蛋糕」",
-            "chunks": ["라떼", "두 잔", "이랑", "케이크", "하나", "주세요"],
+            "chunks": [
+              "라떼",
+              "두 잔",
+              "이랑",
+              "케이크",
+              "하나",
+              "주세요"
+            ],
             "chunk_gloss_by_ko": {
               "라떼": "拿鐵",
               "두 잔": "兩杯",
@@ -306,19 +433,31 @@
               "하나": "一個",
               "주세요": "請給我"
             },
-            "target_examples": ["라떼 두 잔 이랑 케이크 하나 주세요."],
-            "target_examples_zh_tw": ["請給我兩杯拿鐵和一個蛋糕。"]
+            "target_examples": [
+              "라떼 두 잔 이랑 케이크 하나 주세요."
+            ],
+            "target_examples_zh_tw": [
+              "請給我兩杯拿鐵和一個蛋糕。"
+            ]
           },
           {
             "prompt_zh_tw": "請組出「多少錢？我要刷卡。」",
-            "chunks": ["얼마예요?", "카드로", "할게요"],
+            "chunks": [
+              "얼마예요?",
+              "카드로",
+              "할게요"
+            ],
             "chunk_gloss_by_ko": {
               "얼마예요?": "多少錢？",
               "카드로": "刷卡 (用卡)",
               "할게요": "我會做 (付款方式)"
             },
-            "target_examples": ["얼마예요? 카드로 할게요."],
-            "target_examples_zh_tw": ["多少錢？我會刷卡。"]
+            "target_examples": [
+              "얼마예요? 카드로 할게요."
+            ],
+            "target_examples_zh_tw": [
+              "多少錢？我會刷卡。"
+            ]
           }
         ]
       }
@@ -328,7 +467,9 @@
       "candidate_type": "path_node",
       "content_form": "practice_card",
       "learning_role": "controlled_output",
-      "skill_focus": ["speaking"],
+      "skill_focus": [
+        "speaking"
+      ],
       "output_mode": "response_builder",
       "duration_min": 4,
       "title_zh_tw": "精準回應：面對店員的追問",
@@ -343,35 +484,55 @@
           {
             "prompt_ko": "매장에서 드세요, 아니면 포장이세요?",
             "prompt_zh_tw": "店內吃還是外帶呢？",
-            "response_choices_ko": ["포장이요.", "카드로 할게요.", "얼마예요?"],
+            "response_choices_ko": [
+              "포장이요.",
+              "카드로 할게요.",
+              "얼마예요?"
+            ],
             "response_gloss_by_ko": {
               "포장이요.": "外帶。",
               "카드로 할게요.": "刷卡。",
               "얼마예요?": "多少錢？"
             },
-            "accepted_responses_ko": ["포장이요."]
+            "accepted_responses_ko": [
+              "포장이요."
+            ]
           },
           {
             "prompt_ko": "결제는 카드로 하세요?",
             "prompt_zh_tw": "您要用信用卡付款嗎？",
-            "response_choices_ko": ["네, 카드로 할게요.", "아니요, 현금으로 할게요.", "아이스로 주세요."],
+            "response_choices_ko": [
+              "네, 카드로 할게요.",
+              "아니요, 현금으로 할게요.",
+              "아이스로 주세요."
+            ],
             "response_gloss_by_ko": {
               "네, 카드로 할게요.": "是，刷卡。",
               "아니요, 현금으로 할게요.": "不，付現。",
               "아이스로 주세요.": "請給我冰的。"
             },
-            "accepted_responses_ko": ["네, 카드로 할게요.", "아니요, 현금으로 할게요."]
+            "accepted_responses_ko": [
+              "네, 카드로 할게요.",
+              "아니요, 현금으로 할게요."
+            ]
           },
           {
             "prompt_ko": "영수증 드릴까요?",
             "prompt_zh_tw": "要收據嗎？",
-            "response_choices_ko": ["네, 주세요.", "아니요, 괜찮아요.", "라떼 한 잔요."],
+            "response_choices_ko": [
+              "네, 주세요.",
+              "아니요, 괜찮아요.",
+              "라떼 한 잔요."
+            ],
             "response_gloss_by_ko": {
               "네, 주세요.": "好，請給我。",
               "아니요, 괜찮아요.": "不，沒關係方式。",
               "라떼 한 잔요.": "拿鐵一杯。"
             },
-            "accepted_responses_ko": ["네, 주세요.", "아니요, 괜찮아요."]
+            "accepted_responses_ko": [
+              "네, 주세요.",
+              "아니요, 괜찮아요."
+            ]
           }
         ]
       }
@@ -381,7 +542,9 @@
       "candidate_type": "path_node",
       "content_form": "roleplay_prompt",
       "learning_role": "immersion_output",
-      "skill_focus": ["speaking"],
+      "skill_focus": [
+        "speaking"
+      ],
       "output_mode": "guided",
       "duration_min": 6,
       "title_zh_tw": "口說任務：咖啡廳點餐大對決",
@@ -393,8 +556,16 @@
       "payload": {
         "scenery_ko": "장소: 강남역 앞 카페 / 상태: 매우 배가 고프고 추워요.",
         "scenery_zh_tw": "地點：江南站前的咖啡廳 / 狀態：肚子很餓且感覺很冷。",
-        "constraints_zh_tw": ["預算 10,000 韓元內", "一定要是『熱』的飲料", "需要外帶"],
-        "required_patterns_zh_tw": ["點餐請求句 (주세요)", "外帶回應 (포장이요)", "付款句 (할게요)"],
+        "constraints_zh_tw": [
+          "預算 10,000 韓元內",
+          "一定要是『熱』的飲料",
+          "需要外帶"
+        ],
+        "required_patterns_zh_tw": [
+          "點餐請求句 (주세요)",
+          "外帶回應 (포장이요)",
+          "付款句 (할게요)"
+        ],
         "prompt_card_zh_tw": "店員跟你打招呼後，請開始點餐。注意你的預算和天氣狀態（冷）！"
       }
     },
@@ -403,7 +574,9 @@
       "candidate_type": "path_node",
       "content_form": "message_prompt",
       "learning_role": "immersion_output",
-      "skill_focus": ["writing"],
+      "skill_focus": [
+        "writing"
+      ],
       "output_mode": "guided",
       "duration_min": 4,
       "title_zh_tw": "任務模擬：訊息約朋友",
@@ -415,9 +588,19 @@
       "payload": {
         "prompt_ko": "친구에게 메시지를 보내세요.",
         "prompt_zh_tw": "請傳訊息給朋友，確認今天晚上 7 點在『車站前咖啡廳』見面。",
-        "must_include_zh_tw": ["正確的時間 (7시)", "正確的地點 (역 앞 카페)", "徵詢意見的語氣 (어때? / 볼래?)"],
-        "example_shape_ko": ["오늘 7시에 역 앞 카페에서 볼래?", "저녁 7시 역 앞 카페 어때?"],
-        "example_shape_zh_tw": ["今天 7 點在車站前咖啡廳見面好嗎？", "晚上 7 點，車站前咖啡廳如何？"]
+        "must_include_zh_tw": [
+          "正確的時間 (7時)",
+          "正確的地點 (역 앞 카페)",
+          "徵詢意見的語氣 (어때? / 볼래?)"
+        ],
+        "example_shape_ko": [
+          "오늘 7시에 역 앞 카페에서 볼래?",
+          "저녁 7時 역 앞 카페 어때?"
+        ],
+        "example_shape_zh_tw": [
+          "今天 7 點在車站前咖啡廳見面好嗎？",
+          "晚上 7 點，車站前咖啡廳如何？"
+        ]
       }
     },
     {
@@ -425,11 +608,13 @@
       "candidate_type": "path_node",
       "content_form": "review_card",
       "learning_role": "review_retrieval",
-      "skill_focus": ["integrated"],
+      "skill_focus": [
+        "integrated"
+      ],
       "output_mode": "review_retrieval",
       "duration_min": 4,
       "title_zh_tw": "當日回想：點餐任務存檔",
-      "summary_zh_tw": "脫離輔助，僅靠中文提示回想起本單元最重要的四個溝通功能。",
+      "summary_zh_tw": "脫離輔導，僅靠中文提示回想起本單元最重要的四個溝通功能。",
       "sample_lines": [
         "冰拿鐵兩杯 / 內用 / 刷卡 / 7 點如何？"
       ],
@@ -441,8 +626,8 @@
           "結帳時要說『我要付現』，韓文是？",
           "傳訊息問朋友『晚上 7 點見面如何？』怎麼問？"
         ],
-        "hint_policy": "可點擊顯示槽位提示",
-        "reference_answers_ko": [
+        "hint_policy": "可逐步揭示提示，不自動評分",
+        "answers_ko": [
           "아이스 아메리카노 두 잔 주세요.",
           "매장에서 먹을게요. (或 매장이요)",
           "현금으로 할게요.",
@@ -470,4 +655,3 @@
     }
   ]
 }
-

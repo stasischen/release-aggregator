@@ -1,5 +1,14 @@
 {
   "version": "unit_blueprint_v0",
+  "adapter_contract": {
+    "adapter_version": "frontend_unit_adapter_v0",
+    "stability": "proposed",
+    "fallback_locale_order": [
+      "zh-TW",
+      "en"
+    ],
+    "notes": "Adapter-first contract draft for Flutter transfer planning; keep renderer switching on candidate_type/content_form/output_mode."
+  },
   "unit": {
     "unit_id": "A1-U04",
     "title_zh_tw": "咖啡廳 / 餐廳點餐與結帳 (Survival)",
@@ -73,6 +82,25 @@
             "zh_tw": "是一萬一千韓元。"
           }
         ]
+      },
+      "resource_links": {
+        "lesson_ids": [
+          "ko_l1_dialogue_a1_04"
+        ],
+        "grammar_note_ids": [
+          "A1-U04-G1",
+          "A1-U04-G2"
+        ],
+        "dictionary_terms": [
+          "아메리카노",
+          "포장",
+          "카드로 할게요"
+        ]
+      },
+      "adapter_hints": {
+        "entry_surface": "lesson_runtime",
+        "completion_mode": "view_complete",
+        "content_renderer_key": "dialogue"
       }
     },
     {
@@ -250,6 +278,25 @@
           }
         ],
         "grammar_help_zh_tw": "주세요 是『請給我...』，是一切生存任務的起點。"
+      },
+      "resource_links": {
+        "grammar_note_ids": [
+          "A1-U04-G1"
+        ],
+        "dictionary_terms": [
+          "주세요",
+          "카드로 할게요"
+        ],
+        "tool_routes": [
+          "/study/grammar-notes",
+          "/study/dictionary"
+        ]
+      },
+      "adapter_hints": {
+        "entry_surface": "tool_hub",
+        "completion_mode": "interaction_complete",
+        "content_renderer_key": "pattern_card",
+        "interaction_renderer_key": "frame_fill"
       }
     },
     {
@@ -378,6 +425,24 @@
           }
         ],
         "extra_zh_tw": "點擊詞塊可看詳細中譯。"
+      },
+      "resource_links": {
+        "dictionary_terms": [
+          "아메리카노",
+          "라떼",
+          "한 잔",
+          "포장",
+          "카드"
+        ],
+        "tool_routes": [
+          "/study/dictionary"
+        ]
+      },
+      "adapter_hints": {
+        "entry_surface": "tool_hub",
+        "completion_mode": "interaction_complete",
+        "content_renderer_key": "functional_phrase_pack",
+        "interaction_renderer_key": "chunk_assembly"
       }
     },
     {
@@ -464,6 +529,35 @@
             ]
           }
         ]
+      },
+      "sequencing": {
+        "depends_on_ids": [
+          "U04-L1",
+          "U04-G1",
+          "U04-D1"
+        ],
+        "unlock_behavior": "after_dependencies"
+      },
+      "resource_links": {
+        "grammar_note_ids": [
+          "A1-U04-G1"
+        ],
+        "dictionary_terms": [
+          "아이스 아메리카노",
+          "한 잔",
+          "주세요"
+        ],
+        "tool_routes": [
+          "/study/grammar-notes",
+          "/study/dictionary"
+        ]
+      },
+      "adapter_hints": {
+        "entry_surface": "unit_flow",
+        "completion_mode": "interaction_complete",
+        "content_renderer_key": "practice_card",
+        "interaction_renderer_key": "chunk_assembly",
+        "allow_skip": false
       }
     },
     {
@@ -637,6 +731,37 @@
           "현금으로 할게요.",
           "저녁 7시 어때요? (或 7시 어때?)"
         ]
+      },
+      "sequencing": {
+        "depends_on_ids": [
+          "U04-P1",
+          "U04-P2",
+          "U04-P3",
+          "U04-P4"
+        ],
+        "unlock_behavior": "after_dependencies"
+      },
+      "resource_links": {
+        "grammar_note_ids": [
+          "A1-U04-G1",
+          "A1-U04-G2"
+        ],
+        "dictionary_terms": [
+          "포장이요",
+          "카드로 할게요",
+          "어때?"
+        ],
+        "tool_routes": [
+          "/study/grammar-notes",
+          "/study/dictionary"
+        ]
+      },
+      "adapter_hints": {
+        "entry_surface": "unit_flow",
+        "completion_mode": "interaction_complete",
+        "content_renderer_key": "review_card",
+        "interaction_renderer_key": "review_retrieval",
+        "allow_skip": false
       }
     }
   ],

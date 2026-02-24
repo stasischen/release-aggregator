@@ -426,6 +426,15 @@ Recommended for curriculum linking:
 - `consumes_pattern_focus`
 - `produces_can_do_tags`
 
+Recommended for frontend adapter contract stability (adapter-first, non-UI):
+- `is_optional`
+- `unlock_behavior`
+- `resource_links` (`lesson_ids`, `grammar_note_ids`, `dictionary_terms`)
+- `adapter_hints` (`entry_surface`, `completion_mode`, optional renderer override keys)
+
+Reference:
+- `docs/tasks/AGG_GEN_018_SCHEMA_BRIEF_EXTENSION_SPEC.md` (adapter contract requirements + unit blueprint alignment)
+
 ## 11. Definition of Done for AGG-GEN-017
 
 This task is considered complete when:

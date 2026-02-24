@@ -90,7 +90,7 @@
     },
     {
       "id": "AGG-GEN-018",
-      "desc": "Schema/brief extensions for multilingual pedagogy and review scheduling metadata (target_language, learner_locale_source, review cadence hints).",
+      "desc": "Schema/brief extensions for multilingual pedagogy, review scheduling metadata, and adapter-safe unit/frontend contract fields (sequencing/resource_links/adapter_hints).",
       "status": "todo"
     },
     {

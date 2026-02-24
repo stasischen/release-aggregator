@@ -572,11 +572,13 @@ tools/content_candidate_generation/
   - `localization_targets`（optional）
   - review cadence hints（e.g. `review_window_days`, `revisit_after_units`）
   - structure tags（常用句型/文法/情境角色）
+- `AGG-GEN-018` adapter contract spec（frontend-adapter-safe fields / sequencing / resource links）
 - generation brief example（含 `zh-TW -> en` 後續 localize 規劃）
 
 **Acceptance**
 - API/Agent specs 可引用新欄位而不破壞 v1 審核流程
 - review bundle exporter 能明確說明哪些欄位保留給審核台、哪些欄位為 metadata
+- mockup fixture / frontend transfer docs 能引用同一組 adapter-safe contract（不需從 HTML 行為反推欄位）
 
 ### AGG-GEN-019 — Single-unit sequencing mockup + frontend transfer plan (A1-U04)
 

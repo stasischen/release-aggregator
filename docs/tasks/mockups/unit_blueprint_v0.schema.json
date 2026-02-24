@@ -16,6 +16,9 @@
       "type": "string",
       "const": "unit_blueprint_v0"
     },
+    "adapter_contract": {
+      "$ref": "#/$defs/adapterContract"
+    },
     "unit": {
       "$ref": "#/$defs/unitMeta"
     },
@@ -64,6 +67,60 @@
         "theme_zh_tw": { "type": "string", "minLength": 1 },
         "output_ratio_target": { "type": "number", "minimum": 0, "maximum": 1 },
         "can_do_zh_tw": { "$ref": "#/$defs/stringList" }
+      }
+    },
+    "adapterContract": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["adapter_version", "stability"],
+      "properties": {
+        "adapter_version": { "type": "string", "minLength": 1 },
+        "stability": {
+          "type": "string",
+          "enum": ["mock", "proposed", "locked"]
+        },
+        "notes": { "type": "string" },
+        "fallback_locale_order": { "$ref": "#/$defs/stringList" }
+      }
+    },
+    "sequencing": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "depends_on_ids": { "$ref": "#/$defs/stringList" },
+        "is_optional": { "type": "boolean", "default": false },
+        "unlock_behavior": {
+          "type": "string",
+          "enum": ["after_dependencies", "manual", "always_visible"],
+          "default": "after_dependencies"
+        }
+      }
+    },
+    "resourceLinks": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "lesson_ids": { "$ref": "#/$defs/stringList" },
+        "grammar_note_ids": { "$ref": "#/$defs/stringList" },
+        "dictionary_terms": { "$ref": "#/$defs/stringList" },
+        "tool_routes": { "$ref": "#/$defs/stringList" }
+      }
+    },
+    "adapterHints": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "entry_surface": {
+          "type": "string",
+          "enum": ["unit_flow", "lesson_runtime", "tool_hub", "standalone"]
+        },
+        "completion_mode": {
+          "type": "string",
+          "enum": ["view_complete", "interaction_complete", "manual_mark"]
+        },
+        "content_renderer_key": { "type": "string", "minLength": 1 },
+        "interaction_renderer_key": { "type": "string", "minLength": 1 },
+        "allow_skip": { "type": "boolean" }
       }
     },
     "node": {
@@ -249,6 +306,15 @@
           "type": "array",
           "items": { "type": "string" },
           "default": []
+        },
+        "sequencing": {
+          "$ref": "#/$defs/sequencing"
+        },
+        "resource_links": {
+          "$ref": "#/$defs/resourceLinks"
+        },
+        "adapter_hints": {
+          "$ref": "#/$defs/adapterHints"
         }
       }
     },

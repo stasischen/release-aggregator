@@ -21,7 +21,7 @@
     {
       "id": "UNITFAC-004",
       "desc": "Create unified mockup-check command with multi-fixture lint (schema + mixed-script + payload checks + supported forms/modes).",
-      "status": "todo"
+      "status": "done"
     },
     {
       "id": "UNITFAC-005",

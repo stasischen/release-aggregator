@@ -9,6 +9,11 @@
             "id": "A1-U05",
             "title": "在藥局買藥 (Scaffolded)",
             "path": "../a1_u05_unit_blueprint_v0.json"
+        },
+        {
+            "id": "A1-U06",
+            "title": "旅館入住 (Scaffolded)",
+            "path": "../a1_u06_unit_blueprint_v0.json"
         }
     ]
 }

@@ -4,8 +4,19 @@ import argparse
 import datetime
 from typing import List, Dict, Any
 
+import re
+from difflib import SequenceMatcher
+
 def log(msg):
     print(f"[{datetime.datetime.now().isoformat()}] {msg}")
+
+def has_chinese(text: str) -> bool:
+    if not text: return False
+    # Basic check for Chinese characters
+    return bool(re.search(r'[\u4e00-\u9fff]', text))
+
+def get_similarity(a: str, b: str) -> float:
+    return SequenceMatcher(None, a, b).ratio()
 
 def lint_required_fields(candidate: Dict[str, Any], required: List[str]) -> List[Dict[str, Any]]:
     issues = []
@@ -37,6 +48,17 @@ def lint_required_fields(candidate: Dict[str, Any], required: List[str]) -> List
                 "message_zh_tw": f"列表內容為空: {field}",
                 "field_path": field
             })
+            
+    # Explicit Chinese check for summary
+    summary = candidate.get("review_summary_zh_tw", "")
+    if summary and not has_chinese(summary):
+        issues.append({
+            "severity": "error",
+            "rule_id": "ZH_SUMMARY_MISSING",
+            "message_zh_tw": "中文摘要缺失或不包含中文字元",
+            "field_path": "review_summary_zh_tw"
+        })
+        
     return issues
 
 def lint_unit_fit(candidate: Dict[str, Any], brief: Dict[str, Any]) -> List[Dict[str, Any]]:
@@ -44,13 +66,25 @@ def lint_unit_fit(candidate: Dict[str, Any], brief: Dict[str, Any]) -> List[Dict
     target_levels = brief.get("target_levels", [])
     target_units = brief.get("target_units", [])
     
-    if candidate.get("target_level") not in target_levels:
+    level = candidate.get("target_level")
+    if level not in target_levels:
         issues.append({
             "severity": "error",
             "rule_id": "LEVEL_MISMATCH",
-            "message_zh_tw": f"等級不符: 預期 {target_levels}，實際 {candidate.get('target_level')}",
+            "message_zh_tw": f"等級不符: 預期 {target_levels}，實際 {level}",
             "field_path": "target_level"
         })
+    
+    # A1 Guard
+    if level == "A1":
+        title = candidate.get("title_zh_tw", "")
+        if len(title) > 20:
+            issues.append({
+                "severity": "warning",
+                "rule_id": "A1_COMPLEXITY_RISK",
+                "message_zh_tw": "A1 標題過長，可能超出初學者負荷",
+                "field_path": "title_zh_tw"
+            })
         
     if target_units and candidate.get("target_unit_id") not in target_units:
         issues.append({
@@ -60,6 +94,26 @@ def lint_unit_fit(candidate: Dict[str, Any], brief: Dict[str, Any]) -> List[Dict
             "field_path": "target_unit_id"
         })
         
+    return issues
+
+def lint_position(candidate: Dict[str, Any]) -> List[Dict[str, Any]]:
+    issues = []
+    pos = candidate.get("target_position")
+    if not isinstance(pos, dict):
+        issues.append({
+            "severity": "error",
+            "rule_id": "TARGET_POSITION_INVALID",
+            "message_zh_tw": "位置資訊格式錯誤 (應為 object)",
+            "field_path": "target_position"
+        })
+    else:
+        if not any(k in pos for k in ["slot", "after_lesson_id", "before_lesson_id"]):
+             issues.append({
+                "severity": "error",
+                "rule_id": "TARGET_POSITION_INVALID",
+                "message_zh_tw": "位置資訊不全 (缺失 slot, after_lesson_id 或 before_lesson_id)",
+                "field_path": "target_position"
+            })
     return issues
 
 def get_preview_text(foreign_preview: Any) -> str:
@@ -80,18 +134,21 @@ def check_duplicates(candidates: List[Dict[str, Any]]) -> List[Dict[str, Any]]:
             "message_zh_tw": f"候選 ID 重複: {list(duplicates)}"
         })
         
-    # Content Similarity (Simple Exact Match)
-    previews = []
+    # Content Similarity
+    items = []
     for c in candidates:
-        previews.append({
+        items.append({
             "id": c.get("candidate_id"), 
-            "text": get_preview_text(c.get("foreign_preview"))
+            "text": get_preview_text(c.get("foreign_preview")),
+            "title": c.get("title_zh_tw", "")
         })
         
-    for i in range(len(previews)):
-        for j in range(i + 1, len(previews)):
-            p1 = previews[i]
-            p2 = previews[j]
+    for i in range(len(items)):
+        for j in range(i + 1, len(items)):
+            p1 = items[i]
+            p2 = items[j]
+            
+            # Exact Match
             if p1["text"] == p2["text"] and p1["id"] != p2["id"]:
                 batch_issues.append({
                     "severity": "warning",
@@ -99,6 +156,17 @@ def check_duplicates(candidates: List[Dict[str, Any]]) -> List[Dict[str, Any]]:
                     "message_zh_tw": f"內容重複: {p1['id']} 與 {p2['id']} 的預覽內容完全相同。",
                     "involved_candidates": [p1["id"], p2["id"]]
                 })
+            
+            # Title Similarity
+            if p1["title"] and p2["title"]:
+                sim = get_similarity(p1["title"], p2["title"])
+                if sim > 0.8:
+                    batch_issues.append({
+                        "severity": "warning",
+                        "rule_id": "DUP_TITLE_SIMILAR_HIGH",
+                        "message_zh_tw": f"標題相似度過高 ({sim:.2f}): {p1['id']} ({p1['title']}) 與 {p2['id']} ({p2['title']})",
+                        "involved_candidates": [p1["id"], p2["id"]]
+                    })
     
     return batch_issues
 
@@ -134,16 +202,28 @@ def main():
     report_items = []
     batch_wide_issues = check_duplicates(candidates)
     
+    # Attach batch-wide issues to involved candidates
+    for issue in batch_wide_issues:
+        involved = issue.get("involved_candidates", [])
+        for cid in involved:
+            for c in candidates:
+                if c.get("candidate_id") == cid:
+                    if "qa_flags" not in c: c["qa_flags"] = []
+                    # Avoid duplicate attachment if re-running
+                    if not any(f["rule_id"] == issue["rule_id"] and f["message_zh_tw"] == issue["message_zh_tw"] for f in c["qa_flags"]):
+                        c["qa_flags"].append(issue)
+
     total_errors = 0
     total_warnings = 0
     
     for c in candidates:
         cid = c.get("candidate_id", "UNKNOWN")
-        issues = []
+        issues = c.get("qa_flags", [])
         issues.extend(lint_required_fields(c, required_fields))
         issues.extend(lint_unit_fit(c, brief))
+        issues.extend(lint_position(c))
         
-        # Attach issues to candidate
+        # Deduplicate and re-attach
         c["qa_flags"] = issues
         
         errors = len([i for i in issues if i["severity"] == "error"])

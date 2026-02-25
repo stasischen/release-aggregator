@@ -1,86 +1,140 @@
-[
-  {
-    "candidate_id": "20260225_A1_U04_sample-lesson-001",
-    "batch_id": "20260225_A1_U04_sample",
-    "candidate_type": "lesson",
-    "target_level": "A1",
-    "target_unit_id": "A1-U04",
-    "target_position": 1,
-    "title_zh_tw": "實用對話 1 (Mock)",
-    "subtitle_zh_tw": "學習基礎對話場景 1",
-    "can_do_zh_tw": [
-      "能用韓文進行基本對談"
-    ],
-    "review_summary_zh_tw": "由 MockProvider 生成的範例內容，用於測試流程。",
-    "novelty_rationale_zh_tw": "增加現有單元的練習密度。",
-    "risk_flags_zh_tw": [],
-    "agent_recommendation": "accept",
-    "scores": {
-      "fit": 0.8,
-      "novelty": 0.5,
-      "learnability": 0.9,
-      "reuse": 0.7,
-      "engagement": 0.8,
-      "cost": 1.0
+{
+  "bundle_version": "v1",
+  "batch_id": "20260225_A1_U04_sample",
+  "generated_at": "2026-02-25T16:33:50.959730",
+  "total_items": 2,
+  "items": [
+    {
+      "candidate_id": "20260225_A1_U04_sample-lesson-001",
+      "batch_id": "20260225_A1_U04_sample",
+      "candidate_type": "lesson",
+      "target_level": "A1",
+      "target_unit_id": "A1-U04",
+      "target_position": 1,
+      "title_zh_tw": "實用對話 1 (Mock)",
+      "subtitle_zh_tw": "學習基礎對話場景 1",
+      "can_do_zh_tw": [
+        "能用韓文進行基本對談"
+      ],
+      "review_summary_zh_tw": "由 MockProvider 生成的範例內容，用於測試流程。",
+      "novelty_rationale_zh_tw": "增加現有單元的練習密度。",
+      "risk_flags_zh_tw": [],
+      "agent_recommendation": "accept",
+      "scores": {
+        "fit": 0.8,
+        "novelty": 0.5,
+        "learnability": 0.9,
+        "reuse": 0.7,
+        "engagement": 0.8,
+        "cost": 1.0
+      },
+      "foreign_preview": {
+        "dialogue": [
+          {
+            "speaker": "A",
+            "text": "안녕하세요",
+            "translation_zh_tw": "你好"
+          },
+          {
+            "speaker": "B",
+            "text": "반갑습니다",
+            "translation_zh_tw": "見到你很高興"
+          }
+        ]
+      },
+      "qa_summary": {
+        "error_count": 0,
+        "warning_count": 2,
+        "flags": [
+          {
+            "severity": "warning",
+            "rule_id": "DUPLICATE_CONTENT",
+            "message_zh_tw": "內容重複: 20260225_A1_U04_sample-lesson-001 與 20260225_A1_U04_sample-lesson-002 的預覽內容完全相同。",
+            "involved_candidates": [
+              "20260225_A1_U04_sample-lesson-001",
+              "20260225_A1_U04_sample-lesson-002"
+            ]
+          },
+          {
+            "severity": "warning",
+            "rule_id": "DUP_TITLE_SIMILAR_HIGH",
+            "message_zh_tw": "標題相似度過高 (0.92): 20260225_A1_U04_sample-lesson-001 (實用對話 1 (Mock)) 與 20260225_A1_U04_sample-lesson-002 (實用對話 2 (Mock))",
+            "involved_candidates": [
+              "20260225_A1_U04_sample-lesson-001",
+              "20260225_A1_U04_sample-lesson-002"
+            ]
+          }
+        ]
+      },
+      "human_decision": "unreviewed",
+      "human_notes_zh_tw": "",
+      "updated_at": "2026-02-25T16:33:50.959730"
     },
-    "foreign_preview": {
-      "dialogue": [
-        {
-          "speaker": "A",
-          "text": "안녕하세요",
-          "translation_zh_tw": "你好"
-        },
-        {
-          "speaker": "B",
-          "text": "반갑습니다",
-          "translation_zh_tw": "見到你很高興"
-        }
-      ]
-    },
-    "human_decision": "unreviewed",
-    "human_notes_zh_tw": "",
-    "updated_at": "2026-02-25T10:58:24.355214"
-  },
-  {
-    "candidate_id": "20260225_A1_U04_sample-lesson-002",
-    "batch_id": "20260225_A1_U04_sample",
-    "candidate_type": "lesson",
-    "target_level": "A1",
-    "target_unit_id": "A1-U04",
-    "target_position": 1,
-    "title_zh_tw": "實用對話 2 (Mock)",
-    "subtitle_zh_tw": "學習基礎對話場景 2",
-    "can_do_zh_tw": [
-      "能用韓文進行基本對談"
-    ],
-    "review_summary_zh_tw": "由 MockProvider 生成的範例內容，用於測試流程。",
-    "novelty_rationale_zh_tw": "增加現有單元的練習密度。",
-    "risk_flags_zh_tw": [],
-    "agent_recommendation": "accept",
-    "scores": {
-      "fit": 0.8,
-      "novelty": 0.5,
-      "learnability": 0.9,
-      "reuse": 0.7,
-      "engagement": 0.8,
-      "cost": 1.0
-    },
-    "foreign_preview": {
-      "dialogue": [
-        {
-          "speaker": "A",
-          "text": "안녕하세요",
-          "translation_zh_tw": "你好"
-        },
-        {
-          "speaker": "B",
-          "text": "반갑습니다",
-          "translation_zh_tw": "見到你很高興"
-        }
-      ]
-    },
-    "human_decision": "unreviewed",
-    "human_notes_zh_tw": "",
-    "updated_at": "2026-02-25T10:58:24.355223"
-  }
-]
+    {
+      "candidate_id": "20260225_A1_U04_sample-lesson-002",
+      "batch_id": "20260225_A1_U04_sample",
+      "candidate_type": "lesson",
+      "target_level": "A1",
+      "target_unit_id": "A1-U04",
+      "target_position": 1,
+      "title_zh_tw": "實用對話 2 (Mock)",
+      "subtitle_zh_tw": "學習基礎對話場景 2",
+      "can_do_zh_tw": [
+        "能用韓文進行基本對談"
+      ],
+      "review_summary_zh_tw": "由 MockProvider 生成的範例內容，用於測試流程。",
+      "novelty_rationale_zh_tw": "增加現有單元的練習密度。",
+      "risk_flags_zh_tw": [],
+      "agent_recommendation": "accept",
+      "scores": {
+        "fit": 0.8,
+        "novelty": 0.5,
+        "learnability": 0.9,
+        "reuse": 0.7,
+        "engagement": 0.8,
+        "cost": 1.0
+      },
+      "foreign_preview": {
+        "dialogue": [
+          {
+            "speaker": "A",
+            "text": "안녕하세요",
+            "translation_zh_tw": "你好"
+          },
+          {
+            "speaker": "B",
+            "text": "반갑습니다",
+            "translation_zh_tw": "見到你很高興"
+          }
+        ]
+      },
+      "qa_summary": {
+        "error_count": 0,
+        "warning_count": 2,
+        "flags": [
+          {
+            "severity": "warning",
+            "rule_id": "DUPLICATE_CONTENT",
+            "message_zh_tw": "內容重複: 20260225_A1_U04_sample-lesson-001 與 20260225_A1_U04_sample-lesson-002 的預覽內容完全相同。",
+            "involved_candidates": [
+              "20260225_A1_U04_sample-lesson-001",
+              "20260225_A1_U04_sample-lesson-002"
+            ]
+          },
+          {
+            "severity": "warning",
+            "rule_id": "DUP_TITLE_SIMILAR_HIGH",
+            "message_zh_tw": "標題相似度過高 (0.92): 20260225_A1_U04_sample-lesson-001 (實用對話 1 (Mock)) 與 20260225_A1_U04_sample-lesson-002 (實用對話 2 (Mock))",
+            "involved_candidates": [
+              "20260225_A1_U04_sample-lesson-001",
+              "20260225_A1_U04_sample-lesson-002"
+            ]
+          }
+        ]
+      },
+      "human_decision": "unreviewed",
+      "human_notes_zh_tw": "",
+      "updated_at": "2026-02-25T16:33:50.959730"
+    }
+  ]
+}

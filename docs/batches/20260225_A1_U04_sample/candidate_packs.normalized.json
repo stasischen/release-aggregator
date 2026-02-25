@@ -42,7 +42,26 @@
       },
       "theme_tags": [],
       "skill_tags": [],
-      "qa_flags": []
+      "qa_flags": [
+        {
+          "severity": "warning",
+          "rule_id": "DUPLICATE_CONTENT",
+          "message_zh_tw": "內容重複: 20260225_A1_U04_sample-lesson-001 與 20260225_A1_U04_sample-lesson-002 的預覽內容完全相同。",
+          "involved_candidates": [
+            "20260225_A1_U04_sample-lesson-001",
+            "20260225_A1_U04_sample-lesson-002"
+          ]
+        },
+        {
+          "severity": "warning",
+          "rule_id": "DUP_TITLE_SIMILAR_HIGH",
+          "message_zh_tw": "標題相似度過高 (0.92): 20260225_A1_U04_sample-lesson-001 (實用對話 1 (Mock)) 與 20260225_A1_U04_sample-lesson-002 (實用對話 2 (Mock))",
+          "involved_candidates": [
+            "20260225_A1_U04_sample-lesson-001",
+            "20260225_A1_U04_sample-lesson-002"
+          ]
+        }
+      ]
     },
     {
       "candidate_id": "20260225_A1_U04_sample-lesson-002",
@@ -86,7 +105,26 @@
       },
       "theme_tags": [],
       "skill_tags": [],
-      "qa_flags": []
+      "qa_flags": [
+        {
+          "severity": "warning",
+          "rule_id": "DUPLICATE_CONTENT",
+          "message_zh_tw": "內容重複: 20260225_A1_U04_sample-lesson-001 與 20260225_A1_U04_sample-lesson-002 的預覽內容完全相同。",
+          "involved_candidates": [
+            "20260225_A1_U04_sample-lesson-001",
+            "20260225_A1_U04_sample-lesson-002"
+          ]
+        },
+        {
+          "severity": "warning",
+          "rule_id": "DUP_TITLE_SIMILAR_HIGH",
+          "message_zh_tw": "標題相似度過高 (0.92): 20260225_A1_U04_sample-lesson-001 (實用對話 1 (Mock)) 與 20260225_A1_U04_sample-lesson-002 (實用對話 2 (Mock))",
+          "involved_candidates": [
+            "20260225_A1_U04_sample-lesson-001",
+            "20260225_A1_U04_sample-lesson-002"
+          ]
+        }
+      ]
     }
   ]
 }

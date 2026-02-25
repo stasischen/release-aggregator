@@ -39,6 +39,10 @@ def ensure_preview_map(preview: Any) -> Dict[str, Any]:
     return {"raw_text": str(preview)}
 
 def convert_to_review_item(candidate: Dict[str, Any]) -> Dict[str, Any]:
+    qa_flags = candidate.get("qa_flags", [])
+    error_count = len([i for i in qa_flags if i.get("severity") == "error"])
+    warning_count = len([i for i in qa_flags if i.get("severity") == "warning"])
+    
     return {
         "candidate_id": candidate.get("candidate_id"),
         "batch_id": candidate.get("batch_id"),
@@ -55,6 +59,11 @@ def convert_to_review_item(candidate: Dict[str, Any]) -> Dict[str, Any]:
         "agent_recommendation": candidate.get("agent_recommendation", "accept"),
         "scores": candidate.get("scores", {}),
         "foreign_preview": ensure_preview_map(candidate.get("foreign_preview")),
+        "qa_summary": {
+            "error_count": error_count,
+            "warning_count": warning_count,
+            "flags": qa_flags[:3] # Only include top 3 for brevity
+        },
         "human_decision": "unreviewed",
         "human_notes_zh_tw": "",
         "updated_at": datetime.datetime.now().isoformat()
@@ -75,12 +84,22 @@ def main():
 
     candidates = data.get("candidates", [])
     review_items = [convert_to_review_item(c) for c in candidates]
+    
+    batch_id = candidates[0].get("batch_id", "UNKNOWN") if candidates else "UNKNOWN"
+
+    bundle = {
+        "bundle_version": "v1",
+        "batch_id": batch_id,
+        "generated_at": datetime.datetime.now().isoformat(),
+        "total_items": len(review_items),
+        "items": review_items
+    }
 
     batch_dir = os.path.dirname(os.path.abspath(args.input))
     output_path = args.output or os.path.join(batch_dir, "review_ready_bundle.json")
     
     with open(output_path, "w", encoding="utf-8") as f:
-        json.dump(review_items, f, ensure_ascii=False, indent=2)
+        json.dump(bundle, f, ensure_ascii=False, indent=2)
 
     log(f"Exported {len(review_items)} candidates to review bundle.")
     log(f"Output saved to: {output_path}")

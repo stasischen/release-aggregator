@@ -1,0 +1,119 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "title": "QA Report Schema v1",
+    "type": "object",
+    "required": [
+        "batch_id",
+        "timestamp",
+        "summary",
+        "per_candidate_reports"
+    ],
+    "properties": {
+        "batch_id": {
+            "type": "string"
+        },
+        "timestamp": {
+            "type": "string",
+            "format": "date-time"
+        },
+        "summary": {
+            "type": "object",
+            "required": [
+                "total_candidates",
+                "pass",
+                "total_errors",
+                "total_warnings"
+            ],
+            "properties": {
+                "total_candidates": {
+                    "type": "integer"
+                },
+                "pass": {
+                    "type": "boolean"
+                },
+                "total_errors": {
+                    "type": "integer"
+                },
+                "total_warnings": {
+                    "type": "integer"
+                }
+            }
+        },
+        "batch_wide_issues": {
+            "type": "array",
+            "items": {
+                "$ref": "#/definitions/qa_issue"
+            }
+        },
+        "per_candidate_reports": {
+            "type": "array",
+            "items": {
+                "type": "object",
+                "required": [
+                    "candidate_id",
+                    "pass",
+                    "error_count",
+                    "warning_count",
+                    "issues"
+                ],
+                "properties": {
+                    "candidate_id": {
+                        "type": "string"
+                    },
+                    "pass": {
+                        "type": "boolean"
+                    },
+                    "error_count": {
+                        "type": "integer"
+                    },
+                    "warning_count": {
+                        "type": "integer"
+                    },
+                    "issues": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/definitions/qa_issue"
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "definitions": {
+        "qa_issue": {
+            "type": "object",
+            "required": [
+                "severity",
+                "rule_id",
+                "message_zh_tw"
+            ],
+            "properties": {
+                "severity": {
+                    "type": "string",
+                    "enum": [
+                        "error",
+                        "warning"
+                    ]
+                },
+                "rule_id": {
+                    "type": "string"
+                },
+                "message_zh_tw": {
+                    "type": "string"
+                },
+                "field_path": {
+                    "type": "string"
+                },
+                "suggested_fix_zh_tw": {
+                    "type": "string"
+                },
+                "involved_candidates": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                }
+            }
+        }
+    }
+}

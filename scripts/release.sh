@@ -76,6 +76,10 @@ if [[ -z "${OUTPUT_DIR}" ]]; then
   exit 1
 fi
 
+echo "🔍 Running pre-release quality gates..."
+# Default to A1 scope if not specified, or we could pass it from arguments
+"${PYTHON_BIN}" "${ROOT_DIR}/scripts/check_quality.py" --scope A1
+
 exec "${PYTHON_BIN}" "${ROOT_DIR}/scripts/release.py" \
   --pipeline-dist "${PIPELINE_DIST}" \
   --output "${OUTPUT_DIR}" \

@@ -115,7 +115,7 @@
     {
       "id": "KO-ATOM-AUDIT-03",
       "title": "Manual semantic audit for high-frequency composite atoms",
-      "status": "TODO",
+      "status": "COMPLETED",
       "target_repo": "content-ko",
       "goal": "Catch linguistically wrong decomposition not detectable by structural checks.",
       "actions": [
@@ -135,7 +135,7 @@
     {
       "id": "KO-GATE-ATOM-01",
       "title": "Add aggregator release gate for dictionary and atom extraction quality",
-      "status": "TODO",
+      "status": "COMPLETED",
       "target_repo": "release-aggregator",
       "goal": "Block release packaging when atom extraction or dictionary quality regresses.",
       "actions": [

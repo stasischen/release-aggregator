@@ -76,7 +76,7 @@
     {
       "id": "RL-KO-03",
       "title": "Add claim/event workflow for multi-machine reviewers",
-      "status": "PENDING",
+      "status": "DONE",
       "target_repo": "content-ko",
       "repo_plan_id": "CKO-RL-RL-KO-03",
       "actions": [
@@ -85,9 +85,9 @@
         "Add compile_locks command to build deterministic lock snapshot."
       ],
       "deliverables": [
-        "claim checker",
-        "event -> lock compiler",
-        "review operation runbook"
+        "claim checker (scripts/ops/claim_workflow.py)",
+        "event -> lock compiler (scripts/ops/compile_locks.py)",
+        "review operation runbook (docs/SOPs/KO_MULTI_MACHINE_REVIEW_SOP.md)"
       ],
       "acceptance": [
         "Parallel reviewers can work without lock-file merge chaos.",

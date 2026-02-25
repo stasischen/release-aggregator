@@ -106,6 +106,59 @@
     {
       "id": "U04-L2",
       "candidate_type": "lesson",
+      "content_form": "comprehension_check",
+      "learning_role": "immersion_input",
+      "skill_focus": [
+        "reading"
+      ],
+      "output_mode": "response_builder",
+      "duration_min": 3,
+      "title_zh_tw": "內容檢核：咖啡廳點餐理解",
+      "summary_zh_tw": "針對 L1 對話內容的理解度檢查。",
+      "payload": {
+        "mode": "comprehension_check",
+        "items": [
+          {
+            "prompt_zh_tw": "顧客點了哪些品項？",
+            "response_choices_ko": [
+              "아이스 아메리카노와 치즈케이크",
+              "따뜻한 라떼와 초코빵",
+              "물과 샌드위치"
+            ],
+            "response_gloss_by_ko": {
+              "아이스 아메리카노와 치즈케이크": "冰美式和起司蛋糕",
+              "따뜻한 라떼와 초코빵": "熱拿鐵和巧克力麵包",
+              "물과 샌드위치": "水和三明治"
+            },
+            "accepted_responses_ko": [
+              "아이스 아메리카노와 치즈케이크"
+            ]
+          },
+          {
+            "prompt_zh_tw": "最後顧客選擇如何取餐與付款？",
+            "response_choices_ko": [
+              "매장에서 먹고 현금 결제",
+              "포장하고 카드 결제",
+              "배달하고 카드 결제"
+            ],
+            "response_gloss_by_ko": {
+              "매장에서 먹고 현금 결제": "內用且付現",
+              "포장하고 카드 결제": "外帶且刷卡",
+              "배달하고 카드 결제": "外送且刷卡"
+            },
+            "accepted_responses_ko": [
+              "포장하고 카드 결제"
+            ]
+          }
+        ]
+      },
+      "adapter_hints": {
+        "content_renderer_key": "comprehension_check"
+      }
+    },
+    {
+      "id": "U04-L3",
+      "candidate_type": "lesson",
       "content_form": "notice",
       "learning_role": "immersion_input",
       "skill_focus": [
@@ -136,7 +189,7 @@
       }
     },
     {
-      "id": "U04-L3",
+      "id": "U04-L4",
       "candidate_type": "lesson",
       "content_form": "message_thread",
       "learning_role": "immersion_input",
@@ -184,7 +237,7 @@
       }
     },
     {
-      "id": "U04-L4",
+      "id": "U04-L5",
       "candidate_type": "lesson",
       "content_form": "comparison_card",
       "learning_role": "immersion_input",

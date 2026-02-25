@@ -1,8 +1,14 @@
-# Cross-Language Review/Lock Pipeline Plan
+# Cross-Language Review/Lock Pipeline Plan (V1.0 - FROZEN)
 
-**Date**: 2026-02-16  
+**Date**: 2026-02-25  
+**Status**: ❄️ Frozen (Contract Locked)  
 **Owner**: release-aggregator  
-**Scope**: KO first (`A1/A2/B1`), then reusable for other languages.
+
+**Scope**: 
+
+- **Active**: KO (`A1`, `A2`, `B1`)
+- **Deferred**: KO (`B2`, `C1`)
+- **Goal**: Reusable for all languages (TH, DE, JP, etc.)
 
 ## 1. Problem
 
@@ -13,18 +19,18 @@ Current mapping outputs are rerunnable artifacts, but manual review decisions ca
 Separate pipeline into three layers:
 
 1. Language Rules Layer (language-specific)
-- Produces segmentation/mapping candidates only.
-- Per-language rules remain independent.
+   - Produces segmentation/mapping candidates only.
+   - Per-language rules remain independent.
 
 2. Universal Review/Lock Layer (shared)
-- Uses shared schemas for candidates, review queue, locks, and effective resolution.
-- Same logic for KO/TH/DE/JP/etc.
+   - Uses shared schemas for candidates, review queue, locks, and effective resolution.
+   - Same logic for KO/TH/DE/JP/etc.
 
 3. Collaboration Layer (multi-machine)
-- Runtime artifacts are disposable.
-- Human lock data is canonical and versioned in Git.
+   - Runtime artifacts are disposable.
+   - Human lock data is canonical and versioned in Git.
 
-## 3. Directory Contract
+## 3. Directory Contract (Naming & Layout)
 
 ### 3.1 Canonical human-reviewed data (commit to git)
 
@@ -47,47 +53,42 @@ Separate pipeline into three layers:
 - `data/staging/runs/{run_id}/...`
 - `data/staging/runs/latest.json`
 
-## 4. Data Model (Universal)
+## 4. Data Model (Universal Schema)
 
 ### 4.1 surface_candidates
 
-Required fields:
-- `lang`
-- `surface`
-- `candidate_atom_id`
-- `candidate_signature`
-- `sources` (`rule` / `dictionary` / `override`)
-- `rule_ids`
-- `occurrence_count`
-- `max_confidence`
-- `sample_source_refs`
-- `reconstruct_ok`
+Required for all languages to enter the review queue.
+
+- `lang`: Language code (e.g. `ko`)
+- `surface`: The raw text surface.
+- `candidate_atom_id`: Proposed atom ID from rules/dict.
+- `candidate_signature`: Hash of (surface + candidate_atom_id + rule_logic_version).
+- `sources`: List of strings (`rule`, `dictionary`, `override`, `suggestion`).
+- `rule_ids`: List of rule IDs that triggered this candidate.
+- `occurrence_count`: Number of times this surface appears in the batch.
+- `sample_source_refs`: List of `lesson:line` examples.
 
 ### 4.2 surface_locks
 
-Required fields:
-- `lang`
-- `surface`
-- `final_atom_id`
-- `candidate_signature`
-- `lock_scope` (`global` / `context`)
-- `context_signature` (nullable for global)
-- `status` (`locked` / `stale`)
-- `decision_source` (`manual` / `auto-promoted`)
-- `approved_by`
-- `approved_at`
-- `note`
+The final source of truth for a surface's mapping.
+
+- `lang`: Language code.
+- `surface`: The raw text surface.
+- `final_atom_id`: The locked atom ID.
+- `candidate_signature`: The signature this lock was based on (used for stale detection).
+- `lock_scope`: `global` (everywhere) or `context` (specific phrase/lesson).
+- `status`: `locked` or `stale`.
+- `decision_source`: `manual` (human) or `auto-promoted` (high confidence bot).
+- `approved_by`: Username/AgentID.
+- `approved_at`: ISO timestamp.
 
 ### 4.3 surface_review_queue
 
-Required fields:
-- `lang`
-- `surface`
-- `candidate_atom_ids`
-- `candidate_signature`
-- `reason` (`new_surface` / `signature_changed` / `collision` / `stale_lock`)
-- `priority`
-- `sample_source_refs`
+Items requiring human attention.
+
+- `surface`: The surface to review.
+- `reason`: `new_surface`, `signature_changed` (stale), `collision` (multiple high-conf candidates).
+- `priority`: `P0` (blocker), `P1` (new), `P2` (optimization).
 
 ## 5. Reuse Rules (Skip Re-review)
 
@@ -102,65 +103,37 @@ If candidate signature changes, mark old lock as `stale` and push to review queu
 ## 6. Multi-Machine Collaboration Model
 
 1. Claim before review:
-- Reviewer writes `review_claims/{reviewer}.json`
-- CI checks no duplicated active claim on same surface set.
+   - Reviewer writes `review_claims/{reviewer}.json`
+   - CI checks no duplicated active claim on same surface set.
 
 2. Review as append-only events:
-- Review writes to reviewer-specific event files.
-- No direct concurrent editing of one shared large lock file.
+   - Review writes to reviewer-specific event files.
+   - No direct concurrent editing of one shared large lock file.
 
 3. Compile locks deterministically:
-- `compile_locks` merges events => `surface_locks.jsonl`
-- Stable sorting + deterministic conflict policy.
+   - `compile_locks` merges events => `surface_locks.jsonl`
+   - Stable sorting + deterministic conflict policy.
 
-4. Branch policy:
-- One review batch per branch (e.g., `codex/ko-locks-a1-a2-b1-r1`)
-- PR gate runs queue/lock integrity checks.
+## 7. Gates (Language-agnostic Integrity)
 
-## 7. Gates (Language-agnostic)
+Hard gates (Must be 100% pass for production):
 
-Hard gates:
 - `coverage_locked_rate == 1.0` (for in-scope levels)
 - `unresolved_surface_count == 0`
 - `collision_unresolved_count == 0`
-- `reconstruction_pass_rate == 1.0`
 - `stale_lock_count == 0`
 
-Soft metrics:
-- `new_surface_count`
-- `auto_reuse_rate`
-- `manual_review_delta`
+## 8. KO Rollout Scope (A1/A2/B1)
 
-## 8. KO Rollout Plan (A1/A2/B1)
+**Phase R1 (Foundations) - CURRENT STATUS: DONE**
 
-Phase R1 (Foundations)
 - Freeze schemas and directories.
 - Move existing manual locks into canonical `surface_locks.jsonl`.
+- **Scope Limit**: Only process `A1`, `A2`, and `B1` levels.
+- **Deferral**: `B2` and `C1` levels are excluded from the current locking cycle to prioritize stabilization of the core levels.
 
-Phase R2 (Pipeline integration)
-- Write candidates/queue/effective resolution into runtime.
-- Apply locks + line overrides to produce accepted/conflicts.
+## 9. Appendix: Implementation Contract
 
-Phase R3 (Collaboration tooling)
-- Add claim checker + compile_locks command.
-- Add stale lock detector based on candidate signature.
-
-Phase R4 (CI)
-- Add hard gates and scoped-level validation (`A1/A2/B1` now, exclude `B2/C1`).
-
-Phase R5 (Cross-language adoption)
-- Implement adapter interfaces for TH/DE/JP.
-- Reuse same review/lock engine and gate scripts.
-
-## 9. Non-Goals
-
-- Unifying language-specific tokenizer rules.
-- Replacing linguistic manual judgment with auto-only mode.
-
-## 10. Acceptance Criteria
-
-1. Re-running pipeline does not erase manual locks.
-2. Previously approved stable surfaces are auto-reused.
-3. Only new/changed surfaces enter review queue.
-4. Same process can run on another machine with deterministic output.
-5. Same review/lock core can be reused by another language repo without changing lock schemas.
+1. **Naming Convention**: All lock-related files MUST use `.jsonl` (line-delimited JSON) for better git merging and large file handling, except for `review_claims` which is a single `.json`.
+2. **Signature Logic**: `candidate_signature` must be deterministic. If a language repo changes its tokenizer version, all signatures must be recalculated, triggering `stale_lock` states in the review queue.
+3. **Disposable Runtime**: Any file under `data/staging/runtime/` can be deleted at any time; the pipeline must be able to reconstruct it from `content/source/{lang}/review/` and `Gold Standard` files.

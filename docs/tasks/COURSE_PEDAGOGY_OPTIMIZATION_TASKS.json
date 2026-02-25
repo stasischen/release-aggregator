@@ -1,0 +1,67 @@
+{
+  "task_id": "COURSE_PEDAGOGY_OPTIMIZATION",
+  "description": "語言學習效果優化（理解檢查/變體遷移/修復策略/檢索複習/guided rubric/followup 設計）",
+  "status": "in_progress",
+  "tasks": [
+    {
+      "id": "PEDOPT-001",
+      "desc": "Comprehension check taxonomy + payload spec: info_extract / intent / next_response / sequence, with authoring examples and PM evaluation rules.",
+      "status": "todo"
+    },
+    {
+      "id": "PEDOPT-002",
+      "desc": "Transform practice spec: slot/scenario/function/politeness/correction transform types and progression rules for A1/A2.",
+      "status": "todo"
+    },
+    {
+      "id": "PEDOPT-003",
+      "desc": "Repair strategy practice spec: trigger recognition + repair response categories (repeat/slow_down/rephrase/confirm/reject_replace).",
+      "status": "todo"
+    },
+    {
+      "id": "PEDOPT-004",
+      "desc": "Review retrieval target spec: form/function/mixed retrieval design, examples, and unit placement guidelines.",
+      "status": "todo"
+    },
+    {
+      "id": "PEDOPT-005",
+      "desc": "Guided output completion rubric spec: task completion conditions, required elements, acceptable variants, and common mistake hints.",
+      "status": "todo"
+    },
+    {
+      "id": "PEDOPT-006",
+      "desc": "Dictionary pack production-readiness tags: production_ready/input_only, frame refs, and register hints for A1/A2.",
+      "status": "todo"
+    },
+    {
+      "id": "PEDOPT-007",
+      "desc": "Followup semantics spec: review vs transfer followups, transfer_pattern_refs usage, and cross-unit task clarity rules.",
+      "status": "todo"
+    },
+    {
+      "id": "PEDOPT-008",
+      "desc": "Listening discrimination micro-node proposal (optional): minimal TTS-supported listening checks for survival bottlenecks.",
+      "status": "todo"
+    },
+    {
+      "id": "PEDOPT-009",
+      "desc": "Integrate pedagogy metadata into contracts/templates/checkers: UNITFAC-001 contract freeze inputs, UNITFAC-005 templates, UNITFAC-004 mockup-check warnings.",
+      "status": "todo"
+    },
+    {
+      "id": "PEDOPT-010",
+      "desc": "Pilot application + review: patch A1-U04/A1-U05 (or next 2 PR-ready units) with selected pedagogy upgrades and document outcomes before freeze.",
+      "status": "todo"
+    },
+    {
+      "id": "PEDOPT-011",
+      "desc": "PM educational QA checklist v2: convert pedagogy optimizations into PM trial checklist items and issue triage labels.",
+      "status": "todo"
+    },
+    {
+      "id": "PEDOPT-012",
+      "desc": "Freeze readiness recommendation for UNITFAC-001: confirm which pedagogy fields/rules are stable enough for contract freeze vs deferred.",
+      "status": "todo"
+    }
+  ]
+}

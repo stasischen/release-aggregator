@@ -14,6 +14,7 @@ Related tasks:
 
 Formal task spec draft:
 - `docs/tasks/AGG_GEN_017_CURRICULUM_LEARNING_LOOP_SPEC.md`
+- `docs/tasks/COURSE_PEDAGOGY_OPTIMIZATION_PLAN.md` (pedagogy quality optimization workstream)
 
 ## Core Principle
 ## 核心原則
@@ -154,6 +155,121 @@ Allowed forms (`content_form` enum v1):
 - 每個 `grammar_note` 應連到至少 1 個輸出節點。
 - Cross-unit review nodes must declare recycled units.
 - 跨單元複習節點必須標註回收來源單元。
+
+## Why Pedagogy Optimization Matters (Reviewer Lens)
+## 為什麼要做教學優化（審稿者視角）
+
+The unit skeleton and taxonomy are necessary, but not sufficient.
+單元骨架與 taxonomy 很重要，但還不夠。
+
+Without explicit pedagogy quality rules, units can look structurally complete while remaining weak for learning transfer.
+如果沒有教學品質規則，單元可能「看起來結構完整」，但實際學習遷移效果偏弱。
+
+### 1) Comprehension check should not become translation-only
+### 1) 理解檢查不能退化成翻譯題
+
+- Risk:
+  - Learners can pass by reading Chinese support only.
+  - 風險：學習者可能只靠中文對照就過關。
+- Improvement direction:
+  - Mix at least two comprehension types (e.g. key info + intent/next response).
+  - 改進方向：至少混合兩種題型（例如資訊提取 + 意圖/下一步回應）。
+- Why it helps:
+  - Confirms that immersion input is actually processed, not only "read with translation."
+  - 價值：確認學習者真的處理了輸入，而不是只是看翻譯。
+
+### 2) Transform practice should train transfer, not only word replacement
+### 2) 變體練習要訓練遷移，不只換字
+
+- Risk:
+  - `pattern_transform` may degrade into simple noun swapping.
+  - 風險：`pattern_transform` 容易變成單純換名詞。
+- Improvement direction:
+  - Include scenario/function/politeness/correction transforms, not only slot transforms.
+  - 改進方向：加入情境/功能/禮貌度/修正型轉換，不只 slot 替換。
+- Why it helps:
+  - Builds the ability to reuse sentence patterns across contexts (cafe -> pharmacy -> hotel).
+  - 價值：訓練跨情境使用句型的能力（咖啡廳 -> 藥局 -> 旅館）。
+
+### 3) Repair practice is an interaction strategy, not just a phrase list
+### 3) 修復練習是互動策略，不只是句庫
+
+- Risk:
+  - Learners memorize "please repeat" but do not know when to use it.
+  - 風險：只背「請再說一次」，卻不知道何時該用。
+- Improvement direction:
+  - Train both trigger recognition and repair response selection.
+  - 改進方向：同時練「何時需要修復」與「要用哪種修復回應」。
+- Why it helps:
+  - In survival contexts, communication recovery matters as much as ideal outputs.
+  - 價值：生存場景中，修復能力和理想輸出同等重要。
+
+### 4) Retrieval review should distinguish form vs function
+### 4) 檢索複習要區分句型回想與情境反應
+
+- Risk:
+  - Review becomes only sentence translation/recall.
+  - 風險：複習容易只剩句子翻譯/回想。
+- Improvement direction:
+  - Tag review targets as `form`, `function`, or `mixed`.
+  - 改進方向：標註 `form` / `function` / `mixed` 檢索目標。
+- Why it helps:
+  - Survival learners need "what should I say next?" retrieval, not just phrase memory.
+  - 價值：生存學習更需要「下一句怎麼回」而不只是記住句子。
+
+### 5) Guided output needs a completion rubric (even without auto scoring)
+### 5) 引導輸出要有完成標準（即使沒有自動評分）
+
+- Risk:
+  - "Learner wrote something" may be treated as complete regardless of task success.
+  - 風險：只要有寫字就算完成，忽略任務是否達成。
+- Improvement direction:
+  - Define completion conditions, required elements, acceptable variants, and common mistakes.
+  - 改進方向：定義完成條件、必含元素、可接受變體、常見錯誤。
+- Why it helps:
+  - Aligns authors, PM reviewers, and future UI feedback behavior.
+  - 價值：讓作者、PM、未來前端回饋機制有一致標準。
+
+### 6) Followups should carry review/transfer goals, not only timing
+### 6) Followup 要有回收/遷移目標，不只是時間點
+
+- Risk:
+  - `+1` / `+3` followups become reminder-only.
+  - 風險：`+1` / `+3` 變成提醒而非學習任務。
+- Improvement direction:
+  - Distinguish `review` vs `transfer` and include pattern references / task hints.
+  - 改進方向：區分 `review` / `transfer` 並標註 pattern refs 與任務提示。
+- Why it helps:
+  - Spaced review becomes productive reuse, not passive repetition.
+  - 價值：讓間隔複習變成「再用一次」，不是只重看。
+
+## What Reviewers Should Look For (Pedagogy v2 Preview)
+## 審稿者應特別看什麼（教學品質 v2 預告）
+
+When reviewing a unit fixture or mockup, do not only check whether all node types exist.
+審單元 fixture 或 mockup 時，不要只看節點種類是否齊全。
+
+Also check:
+同時請檢查：
+
+- Does the comprehension check require real understanding (not only reading zh-TW)?
+- 理解檢查是否真的要求理解（而非只看中文）？
+- Does transform practice create transfer value across contexts/functions?
+- 變體練習是否真的有遷移價值（跨情境/功能）？
+- Is repair practice teaching recovery strategy, not only phrases?
+- 修復練習是否在教互動策略，而不只是句子？
+- Does review retrieval train both phrase recall and response selection?
+- 複習是否同時訓練句型回想與情境反應？
+- Does guided output have a clear completion standard?
+- 引導輸出是否有清楚完成標準？
+- Do followups clearly state review vs transfer goals?
+- followup 是否明確區分回收與遷移？
+
+For the formal optimization workstream, see:
+正式優化工單請見：
+
+- `docs/tasks/COURSE_PEDAGOGY_OPTIMIZATION_PLAN.md`
+- `docs/tasks/COURSE_PEDAGOGY_OPTIMIZATION_TASKS.json`
 
 ## Minimum Unit Package (A1/A2)
 ## 單元最低配置（A1/A2）

@@ -20,6 +20,11 @@ Last reviewed: 2026-02-23
 
 - `docs/human-handbook/07_CONTENT_CANDIDATE_COURSE_DESIGN.md`
 - 用途：保存內容形式 taxonomy、A1/A2 單元骨架、輸出比例與 QA 平衡原則（避免候選生成只剩對話/文章兩類）。
+- 補充：已納入「教學品質優化觀點」（理解檢查、變體遷移、修復策略、檢索複習、guided rubric、followup 任務化）的 reviewer 視角。
+
+Related optimization workstream (tasks/plans):
+- `docs/tasks/COURSE_PEDAGOGY_OPTIMIZATION_PLAN.md`
+- `docs/tasks/COURSE_PEDAGOGY_OPTIMIZATION_TASKS.json`
 
 ## Not Canonical (Historical)
 ## 非現行（歷史文件）

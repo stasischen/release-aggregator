@@ -51,6 +51,7 @@ Phase C: 前端整合（lingo-frontend-web）
 | Task ID | 描述 | Phase | 進度 | 檔案 |
 | :--- | :--- | :--- | :--- | :--- |
 | COURSE_UNIT_FACTORY | 課程單元量產工廠（unit blueprint 模板化 + lint + multi-unit mockup 驗證） | C+/Ops | 4/8 tasks | [JSON](COURSE_UNIT_FACTORY_TASKS.json) · [PLAN](COURSE_UNIT_FACTORY_PLAN.md) |
+| COURSE_PEDAGOGY_OPTIMIZATION | 語言學習效果優化（理解檢查/變體遷移/修復策略/檢索複習/guided rubric/followup 設計） | C+/Ops | 0/12 tasks | [JSON](COURSE_PEDAGOGY_OPTIMIZATION_TASKS.json) · [PLAN](COURSE_PEDAGOGY_OPTIMIZATION_PLAN.md) |
 
 ### Phase B/C — 待 Phase A 完成後啟動
 

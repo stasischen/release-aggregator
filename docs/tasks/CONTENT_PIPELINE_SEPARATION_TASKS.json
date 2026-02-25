@@ -2,7 +2,7 @@
     "epic": "content-pipeline-separation",
     "parent_epic": "lingo-architecture-v5",
     "owner_repo": "release-aggregator",
-    "last_updated": "2026-02-25T16:55:00+08:00",
+    "last_updated": "2026-02-25T17:05:00+08:00",
     "objective": "Separate content-ko and content-pipeline responsibilities. Language-specific engines stay in content repos; pipeline holds language-agnostic framework only.",
     "design_doc": "release-aggregator/docs/guides/CONTENT_PIPELINE_SEPARATION.md",
     "execution_order": [
@@ -147,7 +147,7 @@
         {
             "id": "SEP-03",
             "title": "content-ko 實作 BaseEngine 介面 / content-ko implements BaseEngine",
-            "status": "PENDING",
+            "status": "COMPLETED",
             "target_repo": "content-ko",
             "impact": "Makes content-ko's engine callable by the pipeline framework",
             "priority": "🟡 與 SEP-02 同時或之後 / With or after SEP-02",

@@ -31,12 +31,12 @@
     {
       "id": "UNITFAC-006",
       "desc": "Pilot production: expand A1-U05 into a full playable unit fixture using the standardized skeleton and checks.",
-      "status": "todo"
+      "status": "done"
     },
     {
       "id": "UNITFAC-007",
       "desc": "Multi-unit PM trial flow and acceptance checklist (A1-U04/A1-U05 + one additional unit) using modular viewer selector.",
-      "status": "todo"
+      "status": "done"
     },
     {
       "id": "UNITFAC-008",

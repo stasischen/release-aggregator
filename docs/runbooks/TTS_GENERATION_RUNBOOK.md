@@ -63,8 +63,36 @@ python scripts/ops/prepare_viewer_data.py
 2. 將數據注入 `data/content.js`。
 3. 將音檔同步更新到 Viewer 的內部路徑。
 
-## 6. 注意事項
+## 7. Premium TTS (Qwen3TTS) - 實驗性功能
 
-- **語音映射**: `민수` 為男聲，`지수` 為女聲。其他角色預設為女聲。
-- **網路依賴**: 本工具存取微軟線上 API，需保持網路通連。
-- **忽略規則**: 已在 `.gitignore` 設置 `*.mp3` 忽略，確保音檔不會被提交至 Git。
+為了提供更高品質的語音，我們引入了 Local Qwen3TTS 支援。
+
+### 安裝環境
+
+所需資源較大，建議在具備 GPU 的環境執行：
+
+```bash
+pip install -U qwen-tts
+```
+
+### 使用方法
+
+使用 `generate_qwen_tts.py`。該腳本支援自動回退機制，若本地未偵測到 Qwen 環境，預設會自動切換回 Edge-TTS。
+
+```bash
+# 使用 Premium 模式生成 (具備回退設計)
+python scripts/tts/generate_qwen_tts.py --input <JSON_PATH> --output <OUTPUT_DIR>
+
+# 強制不使用回退 (只用 Qwen)
+python scripts/tts/generate_qwen_tts.py --input <JSON_PATH> --output <OUTPUT_DIR> --no-fallback
+```
+
+### 時間軸提取 (Word/Chunk Level)
+
+Premium 語音支援更細緻的單詞級時間軸提取：
+
+```bash
+python scripts/tts/extract_qwen_timestamps.py --audio <AUDIO_PATH> --text "<TEXT>" --output <JSON_PATH>
+```
+
+產出的 `.words.json` 包含 `start_ms` 與 `duration_ms`。

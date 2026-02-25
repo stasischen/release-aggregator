@@ -1,8 +1,8 @@
 {
     "epic": "audio-assets-generation",
     "owner_repo": "release-aggregator",
-    "last_updated": "2026-02-19T03:40:00Z",
-    "objective": "Automate high-quality TTS generation for all lesson content using Edge-TTS.",
+    "last_updated": "2026-02-25T10:15:00Z",
+    "objective": "Automate high-quality TTS generation for all lesson content using Edge-TTS and Qwen3TTS.",
     "tasks": [
         {
             "id": "TTS-01",
@@ -47,7 +47,7 @@
         {
             "id": "TTS-04",
             "title": "Integrate Local Qwen3TTS for Premium Voices",
-            "status": "TODO",
+            "status": "DONE",
             "target_repo": "content-pipeline",
             "actions": [
                 "Setup local inference environment for Qwen3TTS/Qwen2-Audio.",
@@ -61,7 +61,7 @@
         {
             "id": "TTS-05",
             "title": "Extract Word/Chunk Timelines for Premium Audio",
-            "status": "TODO",
+            "status": "DONE",
             "target_repo": "content-pipeline",
             "actions": [
                 "Map local TTS alignment output to .sentences.json / .words.json format.",

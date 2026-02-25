@@ -1,0 +1,20 @@
+{
+    "batch_id": "20260225_A1_U04_sample",
+    "goal": "本批次為範例，目標在於驗證 A1-U04 單元的對話生成流程。",
+    "target_levels": [
+        "A1"
+    ],
+    "target_units": [
+        "A1-U04"
+    ],
+    "candidate_types": [
+        "lesson"
+    ],
+    "count_targets": {
+        "lesson": 2
+    },
+    "language_policy": {
+        "summary_locale": "zh-TW",
+        "target_language": "ko"
+    }
+}

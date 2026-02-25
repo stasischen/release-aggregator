@@ -1,0 +1,8 @@
+{
+  "batch_id": "20260225_A1_U04_sample",
+  "generated_at": "2026-02-25T10:08:32.346755",
+  "duration_seconds": 0.0,
+  "provider": "MockProvider",
+  "total_count": 2,
+  "status": "success"
+}

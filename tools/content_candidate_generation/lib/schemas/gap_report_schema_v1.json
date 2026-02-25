@@ -1,0 +1,80 @@
+{
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "$id": "https://release-aggregator.local/schemas/content-candidate/gap-report-v1.json",
+    "title": "Agent Gap Analysis Report Schema v1",
+    "description": "Output schema for the gap analysis stage in the Agent flow. Identifies missing content based on existing course data.",
+    "type": "object",
+    "additionalProperties": false,
+    "required": [
+        "batch_id",
+        "analysis_timestamp",
+        "summary_zh_tw",
+        "gaps"
+    ],
+    "properties": {
+        "batch_id": {
+            "type": "string",
+            "minLength": 1
+        },
+        "analysis_timestamp": {
+            "type": "string",
+            "format": "date-time"
+        },
+        "summary_zh_tw": {
+            "type": "string",
+            "minLength": 1,
+            "description": "High-level summary of the findings, explaining why these gaps were identified."
+        },
+        "gaps": {
+            "type": "array",
+            "items": {
+                "type": "object",
+                "additionalProperties": false,
+                "required": [
+                    "gap_id",
+                    "description_zh_tw",
+                    "priority",
+                    "target_unit",
+                    "missing_concepts"
+                ],
+                "properties": {
+                    "gap_id": {
+                        "type": "string",
+                        "minLength": 1
+                    },
+                    "description_zh_tw": {
+                        "type": "string",
+                        "minLength": 1
+                    },
+                    "priority": {
+                        "type": "string",
+                        "enum": [
+                            "high",
+                            "med",
+                            "low"
+                        ]
+                    },
+                    "target_unit": {
+                        "type": "string",
+                        "minLength": 1
+                    },
+                    "existing_coverage_notes": {
+                        "type": "string",
+                        "description": "Notes on what is already covered in this unit."
+                    },
+                    "missing_concepts": {
+                        "type": "array",
+                        "items": {
+                            "type": "string",
+                            "minLength": 1
+                        }
+                    }
+                }
+            }
+        },
+        "metadata": {
+            "type": "object",
+            "additionalProperties": true
+        }
+    }
+}

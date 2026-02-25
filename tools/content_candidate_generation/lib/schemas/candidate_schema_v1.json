@@ -17,6 +17,7 @@
     "can_do_zh_tw",
     "review_summary_zh_tw",
     "novelty_rationale_zh_tw",
+    "placement_rationale_zh_tw",
     "risk_flags_zh_tw",
     "agent_recommendation",
     "scores",
@@ -126,6 +127,10 @@
         "minLength": 1
       },
       "description": "Chinese risk notes; empty array allowed when no risk is found."
+    },
+    "placement_rationale_zh_tw": {
+      "type": "string",
+      "minLength": 1
     },
     "agent_recommendation": {
       "type": "string",

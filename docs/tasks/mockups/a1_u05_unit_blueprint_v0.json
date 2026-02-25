@@ -1,7 +1,7 @@
 {
-  "version": "unit_blueprint_v0.1",
+  "version": "unit_blueprint_v0",
   "adapter_contract": {
-    "adapter_version": "frontend_unit_adapter_v0.1",
+    "adapter_version": "frontend_unit_adapter_v0",
     "stability": "proposed",
     "fallback_locale_order": [
       "zh-TW",

@@ -66,17 +66,17 @@
     {
       "id": "AGG-GEN-013",
       "desc": "Accepted adapter (catalog): Transform accepted_candidates.json into catalog_draft.json.",
-      "status": "todo"
+      "status": "done"
     },
     {
       "id": "AGG-GEN-014",
       "desc": "Accepted adapter (backlog): Transform accepted_candidates.json into backlog_seed.json.",
-      "status": "todo"
+      "status": "done"
     },
     {
       "id": "AGG-GEN-015",
       "desc": "End-to-end dry run: Run one sample batch through generate -> normalize -> QA -> review import -> accepted adapters.",
-      "status": "todo"
+      "status": "done"
     },
     {
       "id": "AGG-GEN-016",

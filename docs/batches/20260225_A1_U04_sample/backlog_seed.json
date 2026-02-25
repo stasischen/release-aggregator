@@ -1,0 +1,23 @@
+{
+  "backlog_type": "production_seed",
+  "exported_at": "2026-02-25T16:56:45.463250",
+  "total_seeds": 1,
+  "seeds": [
+    {
+      "seed_id": "SEED-20260225_A1_U04_sample-lesson-001",
+      "candidate_id": "20260225_A1_U04_sample-lesson-001",
+      "work_type": "lesson",
+      "priority": "medium",
+      "title_zh_tw": "實用對話 1 (Mock)",
+      "suggested_tasks": [
+        "Content verification",
+        "Asset procurement (audio/visual)",
+        "Formatting for production"
+      ],
+      "dependencies": [],
+      "notes_zh_tw": "由 MockProvider 生成的範例內容，用於測試流程。",
+      "human_notes": "測試通過，內容符合 A1 等級。",
+      "status": "pending_production"
+    }
+  ]
+}

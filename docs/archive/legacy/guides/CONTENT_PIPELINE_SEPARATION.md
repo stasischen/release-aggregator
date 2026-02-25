@@ -240,29 +240,26 @@ def build(lang: str, content_repo_path: str):
 ## 4. 遷移計畫 / Migration Plan
 
 ### Phase 0：整理 content-ko 內部結構 (不跨 Repo)
-> [!TIP]
-> **這步可以現在就做，完全不影響功能。**
-
-- [ ] 將 `scripts/core/` 重命名為 `engine/`
-- [ ] 將 `scripts/core/rules/` 搬到 `engine/rules/`
-- [ ] 一次性腳本 (`add_final_entries.py` 等) 歸檔到 `scripts/archive/`
-- [ ] 確認所有 import 路徑仍然正確
+- [x] 將 `scripts/core/` 重命名為 `engine/`
+- [x] 將 `scripts/core/rules/` 搬到 `engine/rules/`
+- [x] 一次性腳本 (`add_final_entries.py` 等) 歸檔到 `scripts/archive/`
+- [x] 確認所有 import 路徑仍然正確
 
 ### Phase 1：建立 Pipeline 框架
-- [ ] 在 `content-pipeline` 中建立 `framework/` 和 `contracts/`
-- [ ] 定義 `BaseEngine` 介面
-- [ ] 將 `qa_gates.py` 和 `cache_manager.py` 搬到 `framework/`
-- [ ] 新增 `encoding.py`（通用 NFC/NFD 標準化）
-- [ ] 新增 `path_safety.py`（通用 Windows 路徑處理）
+- [x] 在 `content-pipeline` 中建立 `framework/` 和 `contracts/`
+- [x] 定義 `BaseEngine` 介面
+- [x] 將 `qa_gates.py` 和 `cache_manager.py` 搬到 `framework/`
+- [x] 新增 `encoding.py`（通用 NFC/NFD 標準化）
+- [x] 新增 `path_safety.py`（通用 Windows 路徑處理）
 
 ### Phase 2：content-ko 實作介面
-- [ ] 讓 `content-ko/engine/` 實作 `BaseEngine`
-- [ ] Pipeline 的 `build.py` 透過介面呼叫 content-ko 的引擎
-- [ ] 端到端驗證：`python -m content_pipeline build --content-repo ../content-ko`
+- [x] 讓 `content-ko/engine/` 實作 `BaseEngine`
+- [x] Pipeline 的 `build.py` 透過介面呼叫 content-ko 的引擎
+- [x] 端到端驗證：`python pipelines/build.py --content-repo ../content-ko --lang ko --output ../release-aggregator/staging/`
 
 ### Phase 3：清理與歸檔
-- [ ] 歸檔一次性腳本
-- [ ] 更新所有文件的路徑引用
+- [x] 歸檔一次性腳本
+- [x] 更新所有文件的路徑引用 (DONE in SEP-05)
 
 ---
 

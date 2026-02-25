@@ -150,8 +150,8 @@ python scripts/ops/audit_reconstruction.py
 
 #### 🧑 人類管理要點 / Human Management
 
-- **目前狀態**：此 Repo 仍在早期階段，主要的建置邏輯目前內嵌在 `content-ko` 的腳本中。
-- **長期目標**：將 `content-ko` 的 ingestion 邏輯抽離到此 Repo，實現「內容/建置分離」。
+- **目前狀態 (Current)**：實現了通用 Pipeline 框架與語言引擎 (`content-ko/engine`) 的分離。建置邏輯已遷移至此 Repo。
+- **長期目標 (Long-term)**：支援所有 Lingo 語言課程的統一化分詞、驗證與 Release 產物封裝。
 
 #### 🤖 Agent 溝通要點 / Agent Communication
 

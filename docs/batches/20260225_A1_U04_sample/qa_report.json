@@ -1,0 +1,37 @@
+{
+  "batch_id": "20260225_A1_U04_sample",
+  "timestamp": "2026-02-25T10:58:16.023252",
+  "summary": {
+    "total_candidates": 2,
+    "pass": true,
+    "total_errors": 0,
+    "total_warnings": 1
+  },
+  "batch_wide_issues": [
+    {
+      "severity": "warning",
+      "rule_id": "DUPLICATE_CONTENT",
+      "message_zh_tw": "內容重複: 20260225_A1_U04_sample-lesson-001 與 20260225_A1_U04_sample-lesson-002 的預覽內容完全相同。",
+      "involved_candidates": [
+        "20260225_A1_U04_sample-lesson-001",
+        "20260225_A1_U04_sample-lesson-002"
+      ]
+    }
+  ],
+  "per_candidate_reports": [
+    {
+      "candidate_id": "20260225_A1_U04_sample-lesson-001",
+      "pass": true,
+      "error_count": 0,
+      "warning_count": 0,
+      "issues": []
+    },
+    {
+      "candidate_id": "20260225_A1_U04_sample-lesson-002",
+      "pass": true,
+      "error_count": 0,
+      "warning_count": 0,
+      "issues": []
+    }
+  ]
+}

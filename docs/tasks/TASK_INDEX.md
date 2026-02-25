@@ -43,7 +43,6 @@ Phase C: 前端整合（lingo-frontend-web）
 | CONTENT_V5_MIGRATION_L0 | Legacy L0 Content V5 Standardization | A2 | 0/X tasks | [PLAN](CONTENT_V5_MIGRATION_L0.md) |
 | STABLE_TEST_RCA | Root Cause Analysis for Skipped Stable Tests | QA | 0/3 tasks | [PLAN](STABLE_TEST_ROOT_CAUSE_ANALYSIS.md) |
 | KO_ATOM_TRANSLATION_EXTRACTION | A1 atom 翻譯補齊 + 從課文抽取 atom 品質稽核 | A2/B1 | 4/6 tasks | [JSON](KO_ATOM_TRANSLATION_AND_EXTRACTION_TASKS.json) |
-| KO_B2_C1_OPTIMIZATION | B2/C1 課程優化：角色大修、商務/評論語氣、翻譯與文法補全 | B2/C1 | 8/9 tasks | [JSON](KO_B2_C1_OPTIMIZATION_TASKS.json) · [PLAN](KO_B2_C1_OPTIMIZATION_PLAN.md) |
 
 ### Phase C — 前端整合（可立即啟動）
 
@@ -76,6 +75,7 @@ Phase C: 前端整合（lingo-frontend-web）
 | CONTENT_CANDIDATE_REVIEW | Content Candidate Review Station 審核台 | 2026-02-25 | [ARCHIVE](archive/20260225_CONTENT_CANDIDATE_REVIEW_TASKS.json) |
 | DIALOGUE_UI_REDESIGN | Zen Study 介面改版：居中對焦、翻譯開關、垂直字典 | 2026-02-25 | [ARCHIVE](archive/20260225_DIALOGUE_UI_REDESIGN_TASKS.json) |
 | KO_GEMINI_REVIEW | KO 全量 Gemini 人工審核（mapping + TOPIK POS，含 i18n/base 詞性人工複核） | 2026-02-25 | [ARCHIVE](archive/20260225_KO_GEMINI_REVIEW_TASKS.json) |
+| KO_B2_C1_OPTIMIZATION | B2/C1 課程優化：角色大修、商務/評論語氣、翻譯與文法補全 | 2026-02-25 | [ARCHIVE](archive/20260225_KO_B2_C1_OPTIMIZATION_TASKS.json) |
 
 ---
 

@@ -1,9 +1,17 @@
-
+import sys
 import os
 import json
 import argparse
 import re
 from typing import List, Dict, Any
+
+# Ensure UTF-8 output even on Windows
+if sys.stdout.encoding.lower() != 'utf-8':
+    try:
+        from io import TextIOWrapper
+        sys.stdout = TextIOWrapper(sys.stdout.buffer, encoding='utf-8')
+    except:
+        pass
 
 def has_korean(text: str) -> bool:
     if not text: return False
@@ -67,7 +75,29 @@ class MockupChecker:
             self.log_issue("error", "INVALID_SEQUENCE", "Sequence must be a list")
             return
 
+        # UNITFAC-002: Structural Rules
+        if len(sequence) < 10:
+            self.log_issue("error", "ERR_MIN_NODE_COUNT", f"Unit has only {len(sequence)} nodes, minimum is 10 for Production-Ready.")
+
         node_ids = set()
+        roles_found = set()
+        first_input_idx = -1
+        first_output_idx = -1
+        comprehension_found_after_input = False
+
+        # Allowlists
+        ALLOWED_FORMS = {
+            "dialogue", "notice", "message_thread", "comparison_card", "pattern_card",
+            "grammar_note", "functional_phrase_pack", "practice_card", "roleplay_prompt",
+            "message_prompt", "review_card", "comprehension_check"
+        }
+        ALLOWED_ROLES = {
+            "immersion_input", "structure_pattern", "structure_grammar", "controlled_output",
+            "immersion_output", "review_retrieval", "cross_unit_transfer"
+        }
+        ALLOWED_TYPES = {"lesson", "grammar_note", "dictionary_pack", "path_node"}
+        ALLOWED_MODES = {"none", "frame_fill", "chunk_assembly", "response_builder", "guided", "review_retrieval"}
+
         for i, node in enumerate(sequence):
             path = f"sequence[{i}]"
             node_id = node.get("id")
@@ -84,18 +114,57 @@ class MockupChecker:
                 if field not in node:
                     self.log_issue("error", "MISSING_NODE_FIELD", f"Node {node_id} missing field: {field}", path)
 
+            # Allowlist checks
+            c_type = node.get("candidate_type")
+            if c_type and c_type not in ALLOWED_TYPES:
+                self.log_issue("error", "INVALID_CANDIDATE_TYPE", f"Invalid type: {c_type}", path)
+            
+            c_form = node.get("content_form")
+            if c_form and c_form not in ALLOWED_FORMS:
+                self.log_issue("error", "INVALID_CONTENT_FORM", f"Invalid form: {c_form}", path)
+            
+            l_role = node.get("learning_role")
+            if l_role:
+                roles_found.add(l_role)
+                if l_role not in ALLOWED_ROLES:
+                    self.log_issue("error", "INVALID_LEARNING_ROLE", f"Invalid role: {l_role}", path)
+            
+            o_mode = node.get("output_mode")
+            if o_mode and o_mode not in ALLOWED_MODES:
+                self.log_issue("error", "INVALID_OUTPUT_MODE", f"Invalid mode: {o_mode}", path)
+
+            # Tracking for structural rules
+            if l_role == "immersion_input":
+                if first_input_idx == -1: first_input_idx = i
+            elif l_role in ["controlled_output", "immersion_output"]:
+                if first_output_idx == -1: first_output_idx = i
+            
+            if c_form == "comprehension_check" and first_input_idx != -1 and i > first_input_idx:
+                comprehension_found_after_input = True
+
             # Check payload based on content_form
             payload = node.get("payload", {})
-            content_form = node.get("content_form")
-            if content_form == "dialogue":
+            if c_form == "dialogue":
                 if "dialogue_turns" not in payload:
                     self.log_issue("warning", "MISSING_PAYLOAD_FIELD", f"Dialogue node {node_id} missing dialogue_turns", path)
-            elif content_form == "pattern_card":
+            elif c_form == "pattern_card":
                 if "frames" not in payload:
                     self.log_issue("warning", "MISSING_PAYLOAD_FIELD", f"Pattern card {node_id} missing frames", path)
 
             # Language guards
             self._check_language_consistency(node, path)
+
+        # Structural Validation (UNITFAC-002)
+        mandatory_roles = {"immersion_input", "structure_pattern", "review_retrieval"}
+        missing_roles = mandatory_roles - roles_found
+        if missing_roles:
+            self.log_issue("error", "ERR_MISSING_ROLE", f"Missing mandatory roles: {list(missing_roles)}")
+
+        if first_input_idx != -1 and first_output_idx != -1 and first_output_idx < first_input_idx:
+            self.log_issue("error", "ERR_ORDER_VIOLATION", "Output nodes appear before any input nodes.")
+
+        if first_input_idx != -1 and not comprehension_found_after_input:
+            self.log_issue("warning", "ERR_MISSING_COMPREHENSION", "No comprehension_check found after the first input node.")
 
     def _check_language_consistency(self, node, path):
         # Basic check: target language fields should contain target language characters

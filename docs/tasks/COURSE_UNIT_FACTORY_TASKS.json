@@ -41,7 +41,7 @@
     {
       "id": "UNITFAC-008",
       "desc": "Batch production playbook: agent assembly-line workflow (author -> lint -> PM review -> fix -> freeze).",
-      "status": "todo"
+      "status": "done"
     }
   ]
 }

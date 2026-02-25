@@ -21,7 +21,7 @@
     {
       "id": "CPG-03",
       "desc": "Refine KoreanEngine lemma suffix heuristic to avoid incorrect +다 defaults for punctuation/symbol/non-verbal tokens.",
-      "status": "todo"
+      "status": "done"
     },
     {
       "id": "CPG-04",

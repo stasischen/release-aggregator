@@ -50,8 +50,6 @@ Phase C: 前端整合（lingo-frontend-web）
 
 | Task ID | 描述 | Phase | 進度 | 檔案 |
 | :--- | :--- | :--- | :--- | :--- |
-| DIALOGUE_UI_REDESIGN | Zen Study 介面改版：居中對焦、翻譯開關、垂直字典 | C2 | 5/5 tasks | [JSON](DIALOGUE_UI_REDESIGN_TASKS.json) |
-
 ### Future / Automation (未來優化)
 
 | Task ID | 描述 | Phase | 進度 | 檔案 |
@@ -62,7 +60,6 @@ Phase C: 前端整合（lingo-frontend-web）
 
 | Task ID | 描述 | Phase | 進度 | 檔案 |
 | :--- | :--- | :--- | :--- | :--- |
-| CONTENT_CANDIDATE_REVIEW | Content Candidate Review Station 審核台 | B/C | 6/7 tasks | [JSON](CONTENT_CANDIDATE_REVIEW_TASKS.json) · [PLAN](CONTENT_CANDIDATE_REVIEW_PLAN.md) |
 | CONTENT_PIPELINE_SEPARATION | 職責分離 + Build 格式 | B1 | 0/6 phases | [JSON](CONTENT_PIPELINE_SEPARATION_TASKS.json) |
 
 ---
@@ -76,6 +73,8 @@ Phase C: 前端整合（lingo-frontend-web）
 | FRONTEND_VIEWER_INTEGRATION | Viewer 整合 (音檔/高亮/文法) | 2026-02-22 | [ARCHIVE](archive/20260222_FRONTEND_VIEWER_INTEGRATION_TASKS.json) |
 | WORKFLOW_OPTIMIZATION | 工作流優化 (Ingest/Quality Gate/Index) | 2026-02-22 | [ARCHIVE](archive/20260222_WORKFLOW_OPTIMIZATION_TASKS.json) |
 | FUTURE_BACKLOG | 自動化與優化提案 | 2026-02-22 | [ARCHIVE](archive/20260222_FUTURE_BACKLOG_TASKS.json) |
+| CONTENT_CANDIDATE_REVIEW | Content Candidate Review Station 審核台 | 2026-02-25 | [ARCHIVE](archive/20260225_CONTENT_CANDIDATE_REVIEW_TASKS.json) |
+| DIALOGUE_UI_REDESIGN | Zen Study 介面改版：居中對焦、翻譯開關、垂直字典 | 2026-02-25 | [ARCHIVE](archive/20260225_DIALOGUE_UI_REDESIGN_TASKS.json) |
 
 ---
 

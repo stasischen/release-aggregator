@@ -1,7 +1,7 @@
 {
     "task_id": "CONTENT_CANDIDATE_REVIEW",
     "description": "Content Candidate Review Station 審核台",
-    "status": "in_progress",
+    "status": "done",
     "tasks": [
         {
             "id": "AGG-CR-001",
@@ -36,7 +36,7 @@
         {
             "id": "AGG-CR-007",
             "desc": "Export adapters: Generate catalog drafts and backlog seeds.",
-            "status": "todo"
+            "status": "done"
         }
     ]
 }

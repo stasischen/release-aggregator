@@ -229,6 +229,18 @@ class ContentReviewScreen extends StatelessWidget {
                   _copyToClipboard(context, provider.getAcceptedJson()),
             ),
             ListTile(
+              title: const Text('catalog_draft.json (草稿格式)'),
+              subtitle: const Text('用於對接課程目錄'),
+              onTap: () =>
+                  _copyToClipboard(context, provider.getCatalogDraftJson()),
+            ),
+            ListTile(
+              title: const Text('backlog_seed.json (任務種子)'),
+              subtitle: const Text('用於後續實作派工'),
+              onTap: () =>
+                  _copyToClipboard(context, provider.getBacklogSeedJson()),
+            ),
+            ListTile(
               title: const Text('審核統計摘要'),
               onTap: () => _copyToClipboard(context, provider.getSummary()),
             ),

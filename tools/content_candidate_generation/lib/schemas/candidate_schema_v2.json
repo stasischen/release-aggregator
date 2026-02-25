@@ -1,0 +1,321 @@
+{
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "$id": "https://release-aggregator.local/schemas/content-candidate/candidate-v2.json",
+    "title": "Content Candidate Canonical Schema v2",
+    "description": "Expanded candidate contract supporting multilingual pedagogy, unit sequencing, and frontend adapter hints.",
+    "type": "object",
+    "additionalProperties": false,
+    "required": [
+        "candidate_id",
+        "batch_id",
+        "candidate_type",
+        "target_level",
+        "target_unit_id",
+        "target_position",
+        "target_language",
+        "learner_locale",
+        "title_zh_tw",
+        "subtitle_zh_tw",
+        "can_do_zh_tw",
+        "review_summary_zh_tw",
+        "novelty_rationale_zh_tw",
+        "placement_rationale_zh_tw",
+        "risk_flags_zh_tw",
+        "agent_recommendation",
+        "scores",
+        "foreign_preview"
+    ],
+    "properties": {
+        "candidate_id": {
+            "type": "string"
+        },
+        "batch_id": {
+            "type": "string"
+        },
+        "candidate_type": {
+            "type": "string",
+            "enum": [
+                "lesson",
+                "grammar_note",
+                "dictionary_pack",
+                "path_node"
+            ]
+        },
+        "target_level": {
+            "type": "string"
+        },
+        "target_unit_id": {
+            "type": "string"
+        },
+        "target_position": {
+            "$ref": "#/$defs/targetPosition"
+        },
+        "target_language": {
+            "type": "string",
+            "enum": [
+                "ko",
+                "th",
+                "en",
+                "jp"
+            ],
+            "description": "The foreign language being taught."
+        },
+        "learner_locale": {
+            "type": "string",
+            "enum": [
+                "zh-TW"
+            ],
+            "default": "zh-TW",
+            "description": "The primary learner locale for this candidate."
+        },
+        "content_form": {
+            "type": "string",
+            "enum": [
+                "dialogue",
+                "practice_card",
+                "grammar_summary",
+                "vocabulary_list",
+                "path_node"
+            ],
+            "description": "The structural form of the content."
+        },
+        "learning_role": {
+            "type": "string",
+            "enum": [
+                "immersion_input",
+                "structural_scaffolding",
+                "output_practice",
+                "review_retrieval"
+            ],
+            "description": "The pedagogical role of this candidate in the learning loop."
+        },
+        "output_mode": {
+            "type": "string",
+            "enum": [
+                "passive_view",
+                "chunk_assembly",
+                "multiple_choice",
+                "open_response",
+                "flashcard_swipe"
+            ],
+            "description": "The interaction mode for the frontend."
+        },
+        "skill_focus": {
+            "type": "array",
+            "items": {
+                "type": "string",
+                "enum": [
+                    "listening",
+                    "reading",
+                    "speaking",
+                    "writing",
+                    "grammar",
+                    "vocabulary"
+                ]
+            }
+        },
+        "title_zh_tw": {
+            "type": "string"
+        },
+        "subtitle_zh_tw": {
+            "type": "string"
+        },
+        "can_do_zh_tw": {
+            "type": "array",
+            "items": {
+                "type": "string"
+            }
+        },
+        "review_summary_zh_tw": {
+            "type": "string"
+        },
+        "novelty_rationale_zh_tw": {
+            "type": "string"
+        },
+        "placement_rationale_zh_tw": {
+            "type": "string"
+        },
+        "risk_flags_zh_tw": {
+            "type": "array",
+            "items": {
+                "type": "string"
+            }
+        },
+        "agent_recommendation": {
+            "type": "string",
+            "enum": [
+                "accept",
+                "revise",
+                "reject"
+            ]
+        },
+        "scores": {
+            "$ref": "#/$defs/scores"
+        },
+        "foreign_preview": {
+            "oneOf": [
+                {
+                    "type": "object"
+                },
+                {
+                    "type": "string"
+                }
+            ]
+        },
+        "resource_links": {
+            "type": "object",
+            "properties": {
+                "lesson_ids": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "grammar_note_ids": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "dictionary_terms": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                }
+            }
+        },
+        "sequencing": {
+            "type": "object",
+            "properties": {
+                "depends_on_candidate_ids": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "is_optional": {
+                    "type": "boolean",
+                    "default": false
+                },
+                "unlock_behavior": {
+                    "type": "string",
+                    "enum": [
+                        "after_dependencies",
+                        "manual_only",
+                        "always_available"
+                    ],
+                    "default": "after_dependencies"
+                }
+            }
+        },
+        "adapter_hints": {
+            "type": "object",
+            "properties": {
+                "entry_surface": {
+                    "type": "string",
+                    "enum": [
+                        "unit_flow",
+                        "lesson_runtime",
+                        "tool_hub"
+                    ]
+                },
+                "completion_mode": {
+                    "type": "string",
+                    "enum": [
+                        "view_complete",
+                        "interaction_complete",
+                        "manual_mark"
+                    ]
+                },
+                "interaction_renderer_key": {
+                    "type": "string"
+                }
+            }
+        },
+        "review_metadata": {
+            "type": "object",
+            "properties": {
+                "revisit_after_units": {
+                    "type": "integer",
+                    "minimum": 1
+                },
+                "review_window_days": {
+                    "type": "integer",
+                    "minimum": 1
+                }
+            }
+        },
+        "metadata": {
+            "type": "object",
+            "additionalProperties": true
+        }
+    },
+    "$defs": {
+        "targetPosition": {
+            "type": "object",
+            "oneOf": [
+                {
+                    "required": [
+                        "after_lesson_id"
+                    ]
+                },
+                {
+                    "required": [
+                        "before_lesson_id"
+                    ]
+                },
+                {
+                    "required": [
+                        "slot"
+                    ]
+                }
+            ],
+            "properties": {
+                "after_lesson_id": {
+                    "type": "string"
+                },
+                "before_lesson_id": {
+                    "type": "string"
+                },
+                "slot": {
+                    "type": "string"
+                },
+                "rank_hint": {
+                    "type": "integer"
+                }
+            }
+        },
+        "scores": {
+            "type": "object",
+            "required": [
+                "fit",
+                "novelty",
+                "learnability",
+                "reuse",
+                "engagement",
+                "cost"
+            ],
+            "properties": {
+                "fit": {
+                    "type": "number"
+                },
+                "novelty": {
+                    "type": "number"
+                },
+                "learnability": {
+                    "type": "number"
+                },
+                "reuse": {
+                    "type": "number"
+                },
+                "engagement": {
+                    "type": "number"
+                },
+                "cost": {
+                    "type": "number"
+                }
+            }
+        }
+    }
+}

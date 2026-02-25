@@ -1,0 +1,151 @@
+{
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "$id": "https://release-aggregator.local/schemas/content-candidate/generation-brief-v2.json",
+    "title": "Generation Brief Schema v2",
+    "description": "Expanded brief contract for unit sequencing and pedagogical loop generation.",
+    "type": "object",
+    "additionalProperties": false,
+    "required": [
+        "batch_id",
+        "goal",
+        "target_levels",
+        "candidate_types",
+        "count_targets",
+        "language_policy"
+    ],
+    "properties": {
+        "batch_id": {
+            "type": "string"
+        },
+        "goal": {
+            "type": "string"
+        },
+        "target_levels": {
+            "type": "array",
+            "items": {
+                "type": "string",
+                "enum": [
+                    "A1",
+                    "A2",
+                    "B1",
+                    "B2",
+                    "C1",
+                    "C2"
+                ]
+            }
+        },
+        "target_units": {
+            "type": "array",
+            "items": {
+                "type": "string"
+            }
+        },
+        "candidate_types": {
+            "type": "array",
+            "items": {
+                "type": "string",
+                "enum": [
+                    "lesson",
+                    "grammar_note",
+                    "dictionary_pack",
+                    "path_node"
+                ]
+            }
+        },
+        "count_targets": {
+            "type": "object",
+            "additionalProperties": {
+                "type": "integer",
+                "minimum": 1
+            }
+        },
+        "pedagogy_loop_constraints": {
+            "type": "object",
+            "properties": {
+                "required_roles": {
+                    "type": "array",
+                    "items": {
+                        "type": "string",
+                        "enum": [
+                            "immersion_input",
+                            "structural_scaffolding",
+                            "output_practice",
+                            "review_retrieval"
+                        ]
+                    }
+                },
+                "allowed_forms": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "require_explicit_sequencing": {
+                    "type": "boolean",
+                    "default": true
+                },
+                "require_resource_linking": {
+                    "type": "object",
+                    "properties": {
+                        "grammar": {
+                            "type": "boolean"
+                        },
+                        "dictionary": {
+                            "type": "boolean"
+                        }
+                    }
+                }
+            }
+        },
+        "language_policy": {
+            "type": "object",
+            "required": [
+                "summary_locale",
+                "target_language"
+            ],
+            "properties": {
+                "summary_locale": {
+                    "type": "string",
+                    "enum": [
+                        "zh-TW"
+                    ],
+                    "default": "zh-TW"
+                },
+                "target_language": {
+                    "type": "string",
+                    "enum": [
+                        "ko",
+                        "th",
+                        "en",
+                        "jp"
+                    ]
+                },
+                "preview_format": {
+                    "type": "string",
+                    "default": "auto"
+                }
+            }
+        },
+        "input_snapshots": {
+            "type": "object",
+            "properties": {
+                "catalog_path": {
+                    "type": "string"
+                },
+                "grammar_index_path": {
+                    "type": "string"
+                },
+                "dictionary_atoms_path": {
+                    "type": "string"
+                },
+                "unit_blueprint_path": {
+                    "type": "string"
+                }
+            }
+        },
+        "metadata": {
+            "type": "object",
+            "additionalProperties": true
+        }
+    }
+}

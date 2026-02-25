@@ -1,0 +1,71 @@
+{
+    "batch_id": "20260225_A1_U04_multilingual_v2",
+    "candidates": [
+        {
+            "candidate_id": "20260225_A1_U04_multilingual_v2-lesson-001",
+            "batch_id": "20260225_A1_U04_multilingual_v2",
+            "candidate_type": "lesson",
+            "target_level": "A1",
+            "target_unit_id": "A1-U04",
+            "target_position": {
+                "slot": "unit_mid"
+            },
+            "target_language": "ko",
+            "learner_locale": "zh-TW",
+            "content_form": "dialogue",
+            "learning_role": "immersion_input",
+            "output_mode": "passive_view",
+            "skill_focus": [
+                "listening",
+                "reading"
+            ],
+            "title_zh_tw": "【沉浸】便利商店的神祕聲音",
+            "subtitle_zh_tw": "練習聽辨基本的問候語變體",
+            "can_do_zh_tw": [
+                "能在吵雜環境識別基礎問候"
+            ],
+            "review_summary_zh_tw": "本課透過模擬便利商店環境，引入 `안녕하세요` 的自然口語縮讀變體。",
+            "novelty_rationale_zh_tw": "目前教材僅有標準發音，缺乏真實語境模擬。",
+            "placement_rationale_zh_tw": "位於 U04 中段，作為核心文法後的綜合練習。",
+            "risk_flags_zh_tw": [
+                "背景噪音可能過大"
+            ],
+            "agent_recommendation": "accept",
+            "scores": {
+                "fit": 0.95,
+                "novelty": 0.9,
+                "learnability": 0.85,
+                "reuse": 0.7,
+                "engagement": 0.9,
+                "cost": 0.6
+            },
+            "foreign_preview": "A: 어서오세요~\nB: 네, 안녕하세요. 삼각김밥 있어요?",
+            "resource_links": {
+                "lesson_ids": [
+                    "A1-U04-L1"
+                ],
+                "grammar_note_ids": [
+                    "GN-KO-POLITE-BASIC"
+                ],
+                "dictionary_terms": [
+                    "어서오세요",
+                    "삼각김밥"
+                ]
+            },
+            "sequencing": {
+                "depends_on_candidate_ids": [],
+                "is_optional": false,
+                "unlock_behavior": "after_dependencies"
+            },
+            "adapter_hints": {
+                "entry_surface": "unit_flow",
+                "completion_mode": "view_complete",
+                "interaction_renderer_key": "v5_dialogue_player"
+            },
+            "review_metadata": {
+                "revisit_after_units": 2,
+                "review_window_days": 7
+            }
+        }
+    ]
+}

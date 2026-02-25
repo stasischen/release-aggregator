@@ -1,0 +1,40 @@
+{
+    "batch_id": "20260225_A1_U04_multilingual_v2",
+    "goal": "生成 A1-U04 的多語教學循環內容，包含沉浸輸入與結構化練習",
+    "target_levels": [
+        "A1"
+    ],
+    "target_units": [
+        "A1-U04"
+    ],
+    "candidate_types": [
+        "lesson",
+        "grammar_note",
+        "path_node"
+    ],
+    "count_targets": {
+        "lesson": 3,
+        "grammar_note": 1,
+        "path_node": 1
+    },
+    "pedagogy_loop_constraints": {
+        "required_roles": [
+            "immersion_input",
+            "structural_scaffolding",
+            "output_practice"
+        ],
+        "require_explicit_sequencing": true,
+        "require_resource_linking": {
+            "grammar": true,
+            "dictionary": true
+        }
+    },
+    "language_policy": {
+        "summary_locale": "zh-TW",
+        "target_language": "ko",
+        "preview_format": "dialogue_v5"
+    },
+    "metadata": {
+        "workflow": "unit_sequencing_v1"
+    }
+}

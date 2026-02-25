@@ -116,7 +116,7 @@
     {
       "id": "RL-CI-01",
       "title": "Introduce hard gates for review/lock integrity",
-      "status": "PENDING",
+      "status": "DONE",
       "target_repo": "content-pipeline",
       "actions": [
         "Add gate checks: coverage_locked_rate, unresolved_surface_count, stale_lock_count, collision_unresolved_count.",
@@ -124,13 +124,15 @@
         "Publish machine-readable gate summary artifact."
       ],
       "deliverables": [
-        "CI gate scripts",
-        "QA summary JSON schema"
+        "CI gate scripts (content-pipeline/scripts/integrity_gate.py)",
+        "content-ko shim (scripts/ops/integrity_gate.py)",
+        "Integrated gate logic in stage2_executor.py"
       ],
       "acceptance": [
         "Injected stale/collision samples fail CI as expected.",
         "Healthy KO baseline passes with deterministic output."
-      ]
+      ],
+      "completed_at": "2026-02-25T22:30:00Z"
     },
     {
       "id": "RL-XLANG-01",

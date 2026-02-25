@@ -11,27 +11,27 @@
     {
       "id": "AGG-GEN-002",
       "desc": "Generation brief schema v1: Define batch inputs (level/unit/type/count/variants/style/cost).",
-      "status": "todo"
+      "status": "done"
     },
     {
       "id": "AGG-GEN-003",
       "desc": "Batch directory convention + manifests: Standardize batch folder structure and output filenames.",
-      "status": "todo"
+      "status": "done"
     },
     {
       "id": "AGG-GEN-004",
       "desc": "API flow prompt templates: lesson / grammar_note / dictionary_pack / path_node.",
-      "status": "todo"
+      "status": "done"
     },
     {
       "id": "AGG-GEN-005",
       "desc": "API batch runner MVP: Generate candidate_packs.api.raw.json from generation_brief (provider-agnostic).",
-      "status": "todo"
+      "status": "done"
     },
     {
       "id": "AGG-GEN-006",
       "desc": "API raw normalize adapter: Convert raw API output into canonical candidate schema.",
-      "status": "todo"
+      "status": "done"
     },
     {
       "id": "AGG-GEN-007",

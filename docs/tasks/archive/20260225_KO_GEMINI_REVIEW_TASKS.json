@@ -1,7 +1,7 @@
 {
   "epic": "ko-mapping-manual-audit",
   "owner_repo": "release-aggregator",
-  "last_updated": "2026-02-25T10:10:00Z",
+  "last_updated": "2026-02-25T18:30:00Z",
   "repo_plan_file": "/Users/ywchen/Dev/lingo/content-ko/PLAN.md",
   "objective": "Standardize a reproducible Gemini CLI manual review workflow for KO mapping and TOPIK3000 POS so all agents can run the same audit path.",
   "progress_notes": [

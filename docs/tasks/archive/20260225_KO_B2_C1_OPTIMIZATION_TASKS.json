@@ -1,8 +1,8 @@
 {
   "epic": "ko-b2-c1-optimization",
   "owner_repo": "lllo",
-  "last_updated": "2026-02-22 16:00",
-  "plan_file": "release-aggregator/docs/tasks/KO_B2_C1_OPTIMIZATION_PLAN.md",
+  "last_updated": "2026-02-25 10:45",
+  "plan_file": "release-aggregator/docs/tasks/archive/20260225_KO_B2_C1_OPTIMIZATION_PLAN.md",
   "objective": "Optimize B2/C1 Korean content: Characters, Tone, Translation, and Grammar.",
   "execution_order": [
     "KO-B2C1-01",
@@ -107,21 +107,21 @@
     {
       "id": "KO-INGEST-01",
       "title": "[Phase 4] V5 Pipeline Ingestion",
-      "status": "IN_PROGRESS",
+      "status": "DONE",
       "target_repo": "content-ko",
       "goal": "Integrate optimized content into core pipeline.",
       "actions": [
         "Sync LLLO data to content-ko/data/raw_yarn. (Completed)",
         "Run mapping pipeline and establish staging baselines. (Completed)",
-        "Wave-1 (B1) Audit: B1-01 to B1-10 Complete (2026-02-22)",
+        "Wave-1 (B1) Audit: B1-01 to B1-25 Complete (2026-02-25)",
         "Wave-2 (B2) Audit: B2-16 to B2-25 Complete (2026-02-22)",
         "Wave-3 (C1) Audit: C1-01 to C1-25 COMPLETE (2026-02-22)",
-        "Wave-3 (C1) Dictionary Review: Stage pure_c1 REVIEW_APPROVED (2026-02-24)"
+        "Wave-3 (C1) Dictionary Review: Stage pure_c1 COMPLETE (2026-02-25)"
       ],
       "deliverables": [
         "content/gold_standards/dialogue/C1/*.jsonl",
         "content/gold_standards/dialogue/B2/B2-16~25.jsonl",
-        "content/gold_standards/dialogue/B1/B1-01~10.jsonl"
+        "content/gold_standards/dialogue/B1/B1-01~25.jsonl"
       ]
     }
   ]

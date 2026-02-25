@@ -1,0 +1,151 @@
+{
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "$id": "https://release-aggregator.local/schemas/content-candidate/generation-brief-v1.json",
+    "title": "Generation Brief Schema v1",
+    "description": "Input contract for a content generation batch (API or Agent flow). Defines what to generate and constraints.",
+    "type": "object",
+    "additionalProperties": false,
+    "required": [
+        "batch_id",
+        "goal",
+        "target_levels",
+        "candidate_types",
+        "count_targets",
+        "language_policy"
+    ],
+    "properties": {
+        "batch_id": {
+            "type": "string",
+            "minLength": 1,
+            "description": "Unique identifier for this generation batch. Recommended format: YYYYMMDD_{level}_{units}_{run_tag}."
+        },
+        "goal": {
+            "type": "string",
+            "minLength": 1,
+            "description": "A clear description of the batch objective in Traditional Chinese."
+        },
+        "target_levels": {
+            "type": "array",
+            "minItems": 1,
+            "items": {
+                "type": "string",
+                "enum": [
+                    "A1",
+                    "A2",
+                    "B1",
+                    "B2",
+                    "C1",
+                    "C2"
+                ]
+            }
+        },
+        "target_units": {
+            "type": "array",
+            "items": {
+                "type": "string",
+                "minLength": 1
+            },
+            "description": "Specific unit IDs to target (e.g. ['A1-U2', 'A1-U3'])."
+        },
+        "candidate_types": {
+            "type": "array",
+            "minItems": 1,
+            "items": {
+                "type": "string",
+                "enum": [
+                    "lesson",
+                    "grammar_note",
+                    "dictionary_pack",
+                    "path_node"
+                ]
+            }
+        },
+        "count_targets": {
+            "type": "object",
+            "description": "Number of candidates to generate per type.",
+            "additionalProperties": {
+                "type": "integer",
+                "minimum": 1
+            }
+        },
+        "variant_policy": {
+            "type": "string",
+            "enum": [
+                "none",
+                "3-variants"
+            ],
+            "default": "none",
+            "description": "Policy for generating multiple versions of the same concept."
+        },
+        "cost_preference": {
+            "type": "string",
+            "enum": [
+                "low-first",
+                "balanced",
+                "quality-first"
+            ],
+            "default": "balanced"
+        },
+        "language_policy": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+                "summary_locale",
+                "target_language"
+            ],
+            "properties": {
+                "summary_locale": {
+                    "type": "string",
+                    "enum": [
+                        "zh-TW"
+                    ],
+                    "default": "zh-TW"
+                },
+                "target_language": {
+                    "type": "string",
+                    "enum": [
+                        "ko",
+                        "th",
+                        "en",
+                        "jp"
+                    ],
+                    "description": "The foreign language being taught."
+                },
+                "preview_format": {
+                    "type": "string",
+                    "default": "auto",
+                    "description": "Instructions for foreign_preview field (e.g. 'dialogue_raw', 'markdown')."
+                }
+            }
+        },
+        "exclusion_rules": {
+            "type": "array",
+            "items": {
+                "type": "string"
+            },
+            "description": "List of themes or keywords to avoid (to reduce duplication)."
+        },
+        "input_snapshots": {
+            "type": "object",
+            "description": "Paths to snapshots of current content to provide context for generation.",
+            "properties": {
+                "catalog_path": {
+                    "type": "string"
+                },
+                "grammar_index_path": {
+                    "type": "string"
+                },
+                "dictionary_atoms_path": {
+                    "type": "string"
+                },
+                "unit_blueprint_path": {
+                    "type": "string"
+                }
+            }
+        },
+        "metadata": {
+            "type": "object",
+            "additionalProperties": true
+        }
+    }
+}

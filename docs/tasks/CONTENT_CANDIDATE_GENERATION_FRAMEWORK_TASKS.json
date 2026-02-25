@@ -1,7 +1,7 @@
 {
   "task_id": "CONTENT_CANDIDATE_GENERATION_FRAMEWORK",
   "description": "雙流程候選內容生成框架（API + Agent + QA + Review Bundle）",
-  "status": "in_progress",
+  "status": "done",
   "tasks": [
     {
       "id": "AGG-GEN-001",
@@ -121,17 +121,17 @@
     {
       "id": "AGG-GEN-024",
       "desc": "Unit blueprint scaffolding + authoring templates: generate new unit fixture skeletons and document required fields/checklists.",
-      "status": "todo"
+      "status": "done"
     },
     {
       "id": "AGG-GEN-025",
       "desc": "Fixture QA/lint hardening + unified mockup-check command: multi-fixture validation, contract drift checks, mixed-script guards.",
-      "status": "todo"
+      "status": "done"
     },
     {
       "id": "AGG-GEN-026",
       "desc": "Multi-unit HTML viewer shell: fixture index + unit selector + per-unit localStorage namespace isolation for PM trial scale-out.",
-      "status": "todo"
+      "status": "done"
     },
     {
       "id": "AGG-GEN-027",

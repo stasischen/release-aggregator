@@ -1,9 +1,11 @@
 /**
  * Lingourmet Mockup Main App Logic
  */
-const BLUEPRINT_PATH = '../a1_u04_unit_blueprint_v0.json';
+const FIXTURES_INDEX = 'data/fixtures.json';
+let currentBlueprintPath = '../a1_u04_unit_blueprint_v0.json';
 
 const elements = {
+    unitSelect: document.getElementById('unitSelect'),
     unitTitle: document.getElementById('unitTitle'),
     unitSub: document.getElementById('unitSub'),
     metaGrid: document.getElementById('unitMetaGrid'),
@@ -213,6 +215,13 @@ function wireEvents() {
             location.reload();
         }
     };
+    elements.unitSelect.onchange = (e) => {
+        const path = e.target.value;
+        if (path) {
+            localStorage.setItem('agg_gen_last_unit_path', path);
+            window.switchUnit(path);
+        }
+    };
     elements.jumpNextIncompleteBtn.onclick = () => {
         const idx = window.state.data.sequence.findIndex((n, i) => i > window.state.currentIndex && !window.isDone(n.id));
         if (idx > -1) { window.state.currentIndex = idx; window.renderCurrentNode(); }
@@ -244,9 +253,41 @@ function wireEvents() {
     };
 }
 
+window.switchUnit = async function (path) {
+    try {
+        currentBlueprintPath = path;
+        const resp = await fetch(path);
+        if (!resp.ok) throw new Error('Blueprint load failed');
+        window.state.data = await resp.json();
+        window.state.currentIndex = 0;
+
+        window.loadProgress();
+        window.renderSidebar();
+        window.renderCurrentNode();
+        window.showToast(`已載入單元: ${window.state.data.unit.unit_id}`);
+    } catch (e) {
+        elements.detailHeader.innerHTML = `<div class="empty-state">載入數據失敗: ${e.message}</div>`;
+    }
+}
+
 async function bootstrap() {
     try {
-        const resp = await fetch(BLUEPRINT_PATH);
+        // Load Fixtures Index
+        const fResp = await fetch(FIXTURES_INDEX);
+        if (fResp.ok) {
+            const index = await fResp.json();
+            elements.unitSelect.innerHTML = index.units.map(u => `<option value="${u.path}">${u.id} ${u.title}</option>`).join('');
+
+            const lastPath = localStorage.getItem('agg_gen_last_unit_path');
+            if (lastPath && index.units.find(u => u.path === lastPath)) {
+                currentBlueprintPath = lastPath;
+                elements.unitSelect.value = lastPath;
+            } else {
+                currentBlueprintPath = index.units[0].path;
+            }
+        }
+
+        const resp = await fetch(currentBlueprintPath);
         if (!resp.ok) throw new Error('Blueprint load failed');
         window.state.data = await resp.json();
 

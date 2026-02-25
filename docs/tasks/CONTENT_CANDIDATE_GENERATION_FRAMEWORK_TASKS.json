@@ -81,7 +81,7 @@
     {
       "id": "AGG-GEN-016",
       "desc": "Multilingual curriculum architecture blueprint: target-language core + learner-locale pedagogy overlays (zh-TW first), with lllo directory conventions.",
-      "status": "todo"
+      "status": "done"
     },
     {
       "id": "AGG-GEN-017",
@@ -91,7 +91,7 @@
     {
       "id": "AGG-GEN-018",
       "desc": "Schema/brief extensions for multilingual pedagogy, review scheduling metadata, and adapter-safe unit/frontend contract fields (sequencing/resource_links/adapter_hints).",
-      "status": "todo"
+      "status": "done"
     },
     {
       "id": "AGG-GEN-019",
@@ -111,12 +111,12 @@
     {
       "id": "AGG-GEN-022",
       "desc": "HTML mockup modularization (viewer shell + state/storage/TTS + renderer modules) with behavior parity to current A1-U04 playable mockup.",
-      "status": "todo"
+      "status": "done"
     },
     {
       "id": "AGG-GEN-023",
       "desc": "Renderer registry contract (content_form/output_mode) + fallback strategy + adapter-safe docs for future Flutter alignment.",
-      "status": "todo"
+      "status": "done"
     },
     {
       "id": "AGG-GEN-024",

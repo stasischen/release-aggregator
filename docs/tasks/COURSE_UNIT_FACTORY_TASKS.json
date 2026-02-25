@@ -11,7 +11,7 @@
     {
       "id": "UNITFAC-002",
       "desc": "Define complete A1/A2 unit skeleton spec (minimum node set and sequencing requirements) for scalable production.",
-      "status": "todo"
+      "status": "done"
     },
     {
       "id": "UNITFAC-003",

@@ -137,7 +137,7 @@
     {
       "id": "RL-XLANG-01",
       "title": "Generalize review/lock core for additional languages",
-      "status": "PENDING",
+      "status": "DONE",
       "target_repo": "content-pipeline",
       "actions": [
         "Define adapter interface: tokenizer output -> universal candidate schema.",

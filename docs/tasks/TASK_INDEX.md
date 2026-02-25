@@ -38,7 +38,7 @@ Phase C: 前端整合（lingo-frontend-web）
 | Task ID | 描述 | Phase | 進度 | 檔案 |
 | :--- | :--- | :--- | :--- | :--- |
 | MAPPING_DICTIONARY | 字典映射標準化 + 品質驗證（含雙層詞性落地） | A2 | 13/15 tasks | [JSON](MAPPING_DICTIONARY_TASKS.json) · [PLAN](KO_DICT_01_PLAN.md) |
-| CROSS_LANG_REVIEW_LOCK | 跨語系 review/lock 流程（多機協作 + 規則分離） | A2/B1 | 6/7 tasks | [JSON](CROSS_LANG_REVIEW_LOCK_TASKS.json) · [PLAN](CROSS_LANG_REVIEW_LOCK_PIPELINE_PLAN.md) |
+| CROSS_LANG_REVIEW_LOCK | 跨語系 review/lock 流程（多機協作 + 規則分離） | A2/B1 | 7/7 tasks | [JSON](CROSS_LANG_REVIEW_LOCK_TASKS.json) · [PLAN](CROSS_LANG_REVIEW_LOCK_PIPELINE_PLAN.md) |
 | CONTENT_V5_MIGRATION_L0 | Legacy L0 Content V5 Standardization | A2 | 0/X tasks | [PLAN](CONTENT_V5_MIGRATION_L0.md) |
 | STABLE_TEST_RCA | Root Cause Analysis for Skipped Stable Tests | QA | 0/3 tasks | [PLAN](STABLE_TEST_ROOT_CAUSE_ANALYSIS.md) |
 
@@ -51,7 +51,7 @@ Phase C: 前端整合（lingo-frontend-web）
 
 | Task ID | 描述 | Phase | 進度 | 檔案 |
 | :--- | :--- | :--- | :--- | :--- |
-| COURSE_UNIT_FACTORY | 課程單元量產工廠（unit blueprint 模板化 + lint + multi-unit mockup 驗證） | C+/Ops | 2/8 tasks | [JSON](COURSE_UNIT_FACTORY_TASKS.json) · [PLAN](COURSE_UNIT_FACTORY_PLAN.md) |
+| COURSE_UNIT_FACTORY | 課程單元量產工廠（unit blueprint 模板化 + lint + multi-unit mockup 驗證） | C+/Ops | 3/8 tasks | [JSON](COURSE_UNIT_FACTORY_TASKS.json) · [PLAN](COURSE_UNIT_FACTORY_PLAN.md) |
 
 ### Phase B/C — 待 Phase A 完成後啟動
 

@@ -7,7 +7,8 @@
   "progress_notes": [
     "A2 gold is content-clean and evidence-backfilled on main (qa_gate passes after local report regeneration).",
     "B1 gold is content-clean, qa-gate-pass (level), and evidence-backfilled on main; B1-only candidate review remains staging-only and must not be promoted directly.",
-    "C1 pure-candidate review completed as evidence-only (REVIEW_APPROVED on staging candidate, no promotion due to partial-corpus policy)."
+    "C1 pure-candidate review completed as evidence-only (REVIEW_APPROVED on staging candidate, no promotion due to partial-corpus policy).",
+    "KO-GEMINI-04: Translated audit findings into rule-engine fix backlog."
   ],
   "execution_order": [
     "KO-GEMINI-01",

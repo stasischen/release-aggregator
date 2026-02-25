@@ -73,6 +73,7 @@ Phase C: 前端整合（lingo-frontend-web）
 | WORKFLOW_OPTIMIZATION | 工作流優化 (Ingest/Quality Gate/Index) | 2026-02-22 | [ARCHIVE](archive/20260222_WORKFLOW_OPTIMIZATION_TASKS.json) |
 | FUTURE_BACKLOG | 自動化與優化提案 | 2026-02-22 | [ARCHIVE](archive/20260222_FUTURE_BACKLOG_TASKS.json) |
 | CONTENT_CANDIDATE_REVIEW | Content Candidate Review Station 審核台 | 2026-02-25 | [ARCHIVE](archive/20260225_CONTENT_CANDIDATE_REVIEW_TASKS.json) |
+| KO_GEMINI_REVIEW | KO 全量 Gemini 人工審核（mapping + TOPIK POS，含 i18n/base 詞性人工複核） | 2026-02-25 | [ARCHIVE](archive/20260225_KO_GEMINI_REVIEW_TASKS.json) |
 | DIALOGUE_UI_REDESIGN | Zen Study 介面改版：居中對焦、翻譯開關、垂直字典 | 2026-02-25 | [ARCHIVE](archive/20260225_DIALOGUE_UI_REDESIGN_TASKS.json) |
 | KO_GEMINI_REVIEW | KO 全量 Gemini 人工審核（mapping + TOPIK POS，含 i18n/base 詞性人工複核） | 2026-02-25 | [ARCHIVE](archive/20260225_KO_GEMINI_REVIEW_TASKS.json) |
 | KO_B2_C1_OPTIMIZATION | B2/C1 課程優化：角色大修、商務/評論語氣、翻譯與文法補全 | 2026-02-25 | [ARCHIVE](archive/20260225_KO_B2_C1_OPTIMIZATION_TASKS.json) |

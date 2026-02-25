@@ -2,7 +2,7 @@
     "epic": "content-pipeline-separation",
     "parent_epic": "lingo-architecture-v5",
     "owner_repo": "release-aggregator",
-    "last_updated": "2026-02-15T20:54:00+08:00",
+    "last_updated": "2026-02-25T16:55:00+08:00",
     "objective": "Separate content-ko and content-pipeline responsibilities. Language-specific engines stay in content repos; pipeline holds language-agnostic framework only.",
     "design_doc": "release-aggregator/docs/guides/CONTENT_PIPELINE_SEPARATION.md",
     "execution_order": [
@@ -43,7 +43,7 @@
         {
             "id": "SEP-00",
             "title": "歸檔一次性腳本 / Archive one-off scripts",
-            "status": "PENDING",
+            "status": "COMPLETED",
             "target_repo": "content-ko",
             "impact": "Reduces scripts/ clutter from 30 files to ~12 active files",
             "priority": "🟢 可以現在做 / Can do now",
@@ -70,7 +70,7 @@
         {
             "id": "SEP-01",
             "title": "重整 content-ko 引擎目錄 / Restructure content-ko engine directory",
-            "status": "PENDING",
+            "status": "COMPLETED",
             "target_repo": "content-ko",
             "impact": "Establishes clean engine/ directory as the language-specific engine home",
             "priority": "🟡 等韓語穩定後 / After KO stabilizes",
@@ -110,7 +110,7 @@
         {
             "id": "SEP-02",
             "title": "建立 Pipeline 通用框架 / Build pipeline framework",
-            "status": "PENDING",
+            "status": "COMPLETED",
             "target_repo": "content-pipeline",
             "impact": "Establishes the language-agnostic framework that all content repos will use",
             "priority": "🟡 與 SEP-01 同時或之後 / With or after SEP-01",

@@ -51,6 +51,7 @@ Phase C: 前端整合（lingo-frontend-web）
 
 | Task ID | 描述 | Phase | 進度 | 檔案 |
 | :--- | :--- | :--- | :--- | :--- |
+| COURSE_UNIT_FACTORY | 課程單元量產工廠（unit blueprint 模板化 + lint + multi-unit mockup 驗證） | C+/Ops | 0/8 tasks | [JSON](COURSE_UNIT_FACTORY_TASKS.json) · [PLAN](COURSE_UNIT_FACTORY_PLAN.md) |
 
 ### Phase B/C — 待 Phase A 完成後啟動
 

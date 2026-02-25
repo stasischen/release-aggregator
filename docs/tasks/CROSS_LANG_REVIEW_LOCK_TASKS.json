@@ -36,7 +36,7 @@
     {
       "id": "RL-KO-01",
       "title": "Migrate KO manual review outputs into canonical lock store",
-      "status": "PENDING",
+      "status": "DONE",
       "target_repo": "content-ko",
       "repo_plan_id": "CKO-RL-RL-KO-01",
       "actions": [
@@ -56,7 +56,7 @@
     {
       "id": "RL-KO-02",
       "title": "Integrate runtime review queue + effective resolution in KO pipeline",
-      "status": "PENDING",
+      "status": "DONE",
       "target_repo": "content-ko",
       "repo_plan_id": "CKO-RL-RL-KO-02",
       "actions": [

@@ -1,0 +1,182 @@
+{
+  "epic": "ko-mapping-manual-audit",
+  "owner_repo": "release-aggregator",
+  "last_updated": "2026-02-25T10:10:00Z",
+  "repo_plan_file": "/Users/ywchen/Dev/lingo/content-ko/PLAN.md",
+  "objective": "Standardize a reproducible Gemini CLI manual review workflow for KO mapping and TOPIK3000 POS so all agents can run the same audit path.",
+  "progress_notes": [
+    "A2 gold is content-clean and evidence-backfilled on main (qa_gate passes after local report regeneration).",
+    "B1 gold is content-clean, qa-gate-pass (level), and evidence-backfilled on main; B1-only candidate review remains staging-only and must not be promoted directly.",
+    "C1 pure-candidate review completed as evidence-only (REVIEW_APPROVED on staging candidate, no promotion due to partial-corpus policy).",
+    "KO-GEMINI-04: Translated audit findings into rule-engine fix backlog."
+  ],
+  "execution_order": [
+    "KO-GEMINI-01",
+    "KO-GEMINI-02",
+    "KO-GEMINI-05",
+    "KO-GEMINI-03",
+    "KO-GEMINI-04"
+  ],
+  "tasks": [
+    {
+      "id": "KO-GEMINI-01",
+      "title": "Publish mapping review runbook with minimal input contract",
+      "status": "DONE",
+      "target_repo": "content-ko",
+      "actions": [
+        "Document canonical Gemini input as tid+surface+atoms only.",
+        "Document chunked execution path and anti-truncation policy.",
+        "Document post-processing and source_ref backtrace join rules."
+      ],
+      "deliverables": [
+        "docs/handoffs/KO_GEMINI_MAPPING_REVIEW_RUNBOOK_2026-02-16.md",
+        ".codex_review/ko_gemini_review/README.md"
+      ]
+    },
+    {
+      "id": "KO-GEMINI-02",
+      "title": "Publish TOPIK3000 POS full-audit runbook",
+      "status": "DONE",
+      "target_repo": "content-ko",
+      "actions": [
+        "Freeze input file list and output contract for POS audit.",
+        "Provide one reproducible Gemini CLI command and retry guidance."
+      ],
+      "deliverables": [
+        "docs/handoffs/KO_TOPIK3000_POS_GEMINI_AUDIT_RUNBOOK_2026-02-16.md"
+      ]
+    },
+    {
+      "id": "KO-GEMINI-05",
+      "title": "Run manual POS review for TOPIK3000 i18n/base mappings",
+      "status": "DONE",
+      "target_repo": "content-ko",
+      "repo_plan_id": "CKO-GR-KO-GEMINI-05",
+      "actions": [
+        "Review mapping_nouns/verbs/adjectives/adverbs in content/source/ko/i18n/base with Gemini using a strict manual-review instruction format.",
+        "Flag wrong POS placements, probable dual-POS lemmas, and function-word leakage with evidence snippets.",
+        "Produce a reviewed decision log per lemma: KEEP current POS, MOVE POS, or ALLOW dual POS.",
+        "Output a machine-parseable correction backlog that can be consumed by KO-MAP-02/KO-MAP-03 and dictionary scripts."
+      ],
+      "deliverables": [
+        "POS review report for i18n/base TOPIK mappings",
+        "Lemma-level decision log (KEEP/MOVE/DUAL + evidence)",
+        "Patch backlog jsonl for mapping updates"
+      ],
+      "acceptance": [
+        "All reviewed findings include reproducible evidence and confidence.",
+        "No unresolved WRONG/SUSPECT lemma is left without a disposition decision."
+      ]
+    },
+    {
+      "id": "KO-GEMINI-03-A1",
+      "title": "Establish KO Golden A1 (L01-25) POS/Segmentation Baseline",
+      "status": "DONE",
+      "target_repo": "content-ko",
+      "repo_plan_id": "CKO-GR-KO-GEMINI-03-A1",
+      "actions": [
+        "Generate full minimal review inputs for A1 lessons (A1-01 to A1-25).",
+        "Run chunked Gemini review specifically focusing on segmentation correctness.",
+        "Normalize outputs and identify all remaining WRONG/SUSPECT cases.",
+        "Create 'golden' reference files for A1 segmentation that must not regress."
+      ],
+      "deliverables": [
+        ".codex_review/ko_gemini_review_api_v1/runs/A1-XX/lesson_gold_A1-XX.jsonl",
+        "Merged issue list for A1"
+      ],
+      "acceptance": [
+        "100% of A1 tokens have verified segmentation/POS.",
+        "Zero unresolved tokens or known bad splits in A1 golden set."
+      ]
+    },
+    {
+      "id": "KO-GEMINI-03-A2",
+      "title": "Establish KO Golden A2 (L01-25) POS/Segmentation Baseline",
+      "status": "DONE",
+      "target_repo": "content-ko",
+      "repo_plan_id": "CKO-GR-KO-GEMINI-03-A2",
+      "actions": [
+        "Ingest A2 content from LLLO repo (L01-25).",
+        "Generate full minimal review inputs for A2 lessons.",
+        "Execute V5 Surgeon (Agent Review) to establish golden baseline.",
+        "Fix irregulars/honorifics according to V5 Protocol.",
+        "Resolve A2 lint blockers and make level qa_gate pass (reports regenerated locally).",
+        "Backfill preflight/attestation evidence for A2-01 to A2-25 on main."
+      ],
+      "deliverables": [
+        "content/gold_standards/dialogue/A2/*.jsonl",
+        "A2 qa/lint/remediation reports (gitignored; regenerated locally)",
+        "data/reviews/runs/A2-*/review_preflight_ack.json",
+        "data/reviews/runs/A2-*/surgery_full_pass_attest.json"
+      ],
+      "acceptance": [
+        "A2 gold baseline is content-clean enough to pass level qa_gate after report regeneration.",
+        "A2 review evidence (preflight/attestation) is backfilled for A2-01 to A2-25 on main."
+      ]
+    },
+    {
+      "id": "KO-GEMINI-03-A1-V5-REV",
+      "title": "A1 Gold Standard Secondary Review (V5 Protocol)",
+      "status": "DONE",
+      "target_repo": "content-ko",
+      "repo_plan_id": "CKO-GR-KO-GEMINI-03-A1-V5",
+      "actions": [
+        "Audit A1-01 to A1-25 for V5 surgery compliance.",
+        "Decompose '세요', '이에요' and honorifics into atomic units.",
+        "Fix adjective/verb POS categorization based on V5 protocol.",
+        "Align phrase mappings with mapping_phrase.json."
+      ],
+      "deliverables": [
+        "content/gold_standards/dialogue/A1/*.jsonl (Fixed)"
+      ],
+      "acceptance": [
+        "100% atomic honorific decomposition.",
+        "Zero 'half-atomic' endings in A1."
+      ]
+    },
+    {
+      "id": "KO-GEMINI-03-B1",
+      "title": "Establish KO Golden B1 (L01-25) POS/Segmentation Baseline",
+      "status": "DONE",
+      "target_repo": "content-ko",
+      "repo_plan_id": "CKO-GR-KO-GEMINI-03-B1",
+      "actions": [
+        "Generate full minimal review inputs for B1 lessons.",
+        "Run chunked/manual review and cleanup for B1 (L01-L25).",
+        "Correct copula pollution and POS errors across B1 gold files.",
+        "Backfill B1-01 to B1-25 preflight and surgery attestation evidence.",
+        "Validate B1 level qa_gate passes on main.",
+        "Keep B1-only candidate review as staging-only evidence (no direct promotion)."
+      ],
+      "deliverables": [
+        "content/gold_standards/dialogue/B1/*.jsonl",
+        "data/reviews/runs/B1-*/review_preflight_ack.json",
+        "data/reviews/runs/B1-*/surgery_full_pass_attest.json"
+      ],
+      "acceptance": [
+        "B1-01 to B1-25 gold baseline is updated on main.",
+        "B1 level qa_gate passes with evidence backfilled (preflight/attestation 25/25)."
+      ]
+    },
+    {
+      "id": "KO-GEMINI-04",
+      "title": "Translate audit findings into rule-engine fix backlog",
+      "status": "DONE",
+      "target_repo": "content-ko",
+      "repo_plan_id": "CKO-GR-KO-GEMINI-04",
+      "actions": [
+        "Cluster findings by rule family and priority conflicts.",
+        "Propose minimal patch set with expected QA metric impact.",
+        "Run mapping pipeline to compare before/after unresolved ratio."
+      ],
+      "deliverables": [
+        "Fix proposal list",
+        "Before/after QA report delta"
+      ],
+      "acceptance": [
+        "High-confidence wrong splits are reduced.",
+        "Regression cases are documented and reproducible."
+      ]
+    }
+  ]
+}

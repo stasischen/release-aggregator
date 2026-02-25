@@ -102,6 +102,41 @@
       "id": "AGG-GEN-020",
       "desc": "Detailed frontend transfer test plan (Gemini parallel streams): adapter/renderer/interaction/integration tests for A1-U04 mockup.",
       "status": "done"
+    },
+    {
+      "id": "AGG-GEN-021",
+      "desc": "Agent work-order templates for HTML mockup modularization/scale-out: assignment prompts, delivery report template, and acceptance checklist.",
+      "status": "done"
+    },
+    {
+      "id": "AGG-GEN-022",
+      "desc": "HTML mockup modularization (viewer shell + state/storage/TTS + renderer modules) with behavior parity to current A1-U04 playable mockup.",
+      "status": "todo"
+    },
+    {
+      "id": "AGG-GEN-023",
+      "desc": "Renderer registry contract (content_form/output_mode) + fallback strategy + adapter-safe docs for future Flutter alignment.",
+      "status": "todo"
+    },
+    {
+      "id": "AGG-GEN-024",
+      "desc": "Unit blueprint scaffolding + authoring templates: generate new unit fixture skeletons and document required fields/checklists.",
+      "status": "todo"
+    },
+    {
+      "id": "AGG-GEN-025",
+      "desc": "Fixture QA/lint hardening + unified mockup-check command: multi-fixture validation, contract drift checks, mixed-script guards.",
+      "status": "todo"
+    },
+    {
+      "id": "AGG-GEN-026",
+      "desc": "Multi-unit HTML viewer shell: fixture index + unit selector + per-unit localStorage namespace isolation for PM trial scale-out.",
+      "status": "todo"
+    },
+    {
+      "id": "AGG-GEN-027",
+      "desc": "Educational flow optimization review + unit_blueprint v0.x field proposal (comprehension checks, repair practice, retrieval targets, transfer tasks).",
+      "status": "done"
     }
   ]
 }

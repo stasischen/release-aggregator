@@ -613,6 +613,118 @@ tools/content_candidate_generation/
 - 每個 stream 可獨立開工且共享同一 fixture
 - 至少涵蓋 `A1-U04` 所需的混合 `content_form` 與 path node 互動
 
+### AGG-GEN-021 — Agent work-order templates for mockup modularization / scale-out
+
+**Goal**
+- 把 HTML mockup 模組化與內容量產工作拆成可直接派給 agent 的標準工單（prompt + 回報模板 + 驗收清單），避免口頭交接造成漏項。
+
+**Deliverables**
+- `docs/tasks/AGG_GEN_021_AGENT_WORK_ORDER_TEMPLATES.md`
+- Gemini stream prompts（`M1..M5`）與統一交付回報模板
+- stream-specific acceptance checklist（模組化 / registry / scaffolding / lint / multi-unit viewer）
+
+**Acceptance**
+- PM 可直接複製 prompt 分派給 agent
+- 回報模板包含 `commit / 檔案清單 / 驗證結果 / 契約變動 / 回歸風險`
+- 後續 `AGG-GEN-022..026` 都可引用同一份模板
+
+### AGG-GEN-022 — HTML mockup modularization (viewer shell + modules)
+
+**Goal**
+- 將單一 HTML playable mockup 拆為可維護的 viewer 模組（shell / styles / state / storage / TTS / renderers），保留 A1-U04 行為一致性。
+
+**Deliverables**
+- `docs/tasks/mockups/viewer/` 模組化 viewer（HTML + CSS + JS modules）
+- migration note（單檔 HTML -> 模組化 viewer）
+- parity checklist（bilingual/TTS/progress/interactions/localStorage）
+
+**Acceptance**
+- A1-U04 fixture 在新 viewer 可完整試玩
+- `Yuna` 優先 TTS 與韓中對照、localStorage 行為不退化
+- 未定義 renderer 不 crash（顯示 fallback）
+
+### AGG-GEN-023 — Renderer registry contract (content_form / output_mode)
+
+**Goal**
+- 定義 `content_form` 與 `output_mode` 的 renderer registry 合約，支援新節點型態擴充與未來 Flutter adapter 對齊。
+
+**Deliverables**
+- registry modules（content + interaction）
+- renderer contract doc（signature / context object / fallback policy）
+- supported matrix（`content_form`, `output_mode`, `learning_role` style usage）
+
+**Acceptance**
+- 新增 renderer 時不需重改 core runtime flow
+- 缺少 renderer 時 viewer 可繼續運作並顯示 debug-friendly fallback
+- 文件可作為 frontend adapter 規格參考（不需從 HTML 行為反推）
+
+### AGG-GEN-024 — Unit blueprint scaffolding + authoring templates
+
+**Goal**
+- 建立 `unit_blueprint_v0` 的量產骨架工具與作者模板，讓新單元（如 `A1-U03`, `A1-U06`）可快速生成一致結構。
+
+**Deliverables**
+- `scripts/scaffold_unit_blueprint.py`（或等效腳本）
+- unit blueprint skeleton template（含 input/structure/output/review 節點骨架）
+- authoring checklist doc（必填欄位、雙語欄位、QA 自檢項）
+
+**Acceptance**
+- 一條命令可產生新單元 skeleton fixture
+- 生成後可通過 JSON parse + 基本 fixture lint
+- 模板清楚標示哪些欄位必填、哪些可後補
+
+### AGG-GEN-025 — Fixture QA/lint hardening + unified mockup-check command
+
+**Goal**
+- 強化 fixture QA/lint，防止混碼、欄位漂移、unsupported form/mode 等問題在 PM 試玩前流入 viewer。
+
+**Deliverables**
+- 擴充 `scripts/validate_mockup_fixture.py`（支援多 fixture / 更多規則）
+- unified mockup check entrypoint（script/command）
+- 使用說明（提交前檢查流程）
+
+**Suggested Checks**
+- mixed-script corruption in Korean strings
+- canonical field name vs legacy alias drift
+- unsupported `content_form` / `output_mode`
+- mode-specific payload key presence（lightweight）
+- bilingual array length mismatch
+
+**Acceptance**
+- 能在本地快速攔截常見資料錯誤
+- 錯誤訊息包含 `node_id` 與 path（方便 agent 修）
+- 可用於多單元 fixture（不只 A1-U04）
+
+### AGG-GEN-026 — Multi-unit HTML viewer shell (fixture index + selector)
+
+**Goal**
+- 讓 PM 可在同一 viewer 切換多個單元 fixture，作為內容量產後的批次試玩/審看入口。
+
+**Deliverables**
+- fixture index JSON（列出可載入 unit fixtures）
+- viewer fixture selector UI（dropdown / reload behavior）
+- per-unit localStorage namespace 隔離規則文件
+
+**Acceptance**
+- 可在 A1-U04 與另一個 fixture 間切換，不需改 code
+- 切換單元不污染彼此進度/互動狀態
+- 現有 path-node 互動與 TTS 功能在切換後仍正常
+
+### AGG-GEN-027 — Educational flow optimization review + unit blueprint v0.x field proposal
+
+**Goal**
+- 將目前課程流程的教育設計優化點（理解檢查、變體生成、修復練習、檢索目標、遷移任務）文件化，轉成可回寫 schema/brief/fixture 的欄位提案。
+
+**Deliverables**
+- `docs/tasks/AGG_GEN_027_EDUCATIONAL_FLOW_OPTIMIZATION_REVIEW.md`
+- `unit_blueprint v0.x` 欄位增補提案（不直接破壞 v0）
+- `AGG-GEN-018` / `AGG-GEN-024` 可引用的教育設計檢查清單
+
+**Acceptance**
+- 明確列出哪些優化先進 fixture/template、哪些要等 schema 擴充
+- 至少包含：`comprehension_check`, `pattern_transform`, `repair_response`, `retrieval_target`, `transfer_pattern_refs`
+- 能作為後續單元量產 QA 的教學品質標準
+
 ## Dependency Order (Gemini Assignment Suggestion)
 
 建議分配順序（可平行的已標示）：
@@ -626,10 +738,17 @@ tools/content_candidate_generation/
 7. `AGG-GEN-018`（回寫 schema/brief 擴充）
 8. `AGG-GEN-019`（單元編排 mockup 體驗與前端轉移策略）
 9. `AGG-GEN-020`（Gemini 前端轉移 test plan）
-10. `AGG-GEN-009` + `AGG-GEN-010` + `AGG-GEN-011`（規格類可平行）
-11. `AGG-GEN-012`
-12. `AGG-GEN-013` + `AGG-GEN-014`（可平行）
-13. `AGG-GEN-015`
+10. `AGG-GEN-021`（agent 派工 prompt + 回報模板，先定交付格式）
+11. `AGG-GEN-027`（教育設計優化 review，回寫到後續 template/schema）
+12. `AGG-GEN-022`（HTML mockup 模組化）
+13. `AGG-GEN-023`（renderer registry contract）
+14. `AGG-GEN-024`（unit blueprint scaffold + authoring templates）
+15. `AGG-GEN-025`（fixture QA/lint hardening + mockup-check）
+16. `AGG-GEN-026`（multi-unit viewer shell）
+17. `AGG-GEN-009` + `AGG-GEN-010` + `AGG-GEN-011`（規格類可平行）
+18. `AGG-GEN-012`
+19. `AGG-GEN-013` + `AGG-GEN-014`（可平行）
+20. `AGG-GEN-015`
 
 ## What You (PM/Product, Chinese-only) Should Review
 

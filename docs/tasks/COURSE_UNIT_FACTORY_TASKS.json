@@ -16,7 +16,7 @@
     {
       "id": "UNITFAC-003",
       "desc": "Implement scaffold_unit_blueprint generator for full unit skeletons (not demo-only 3-node fixtures).",
-      "status": "todo"
+      "status": "done"
     },
     {
       "id": "UNITFAC-004",

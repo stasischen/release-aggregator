@@ -46,22 +46,22 @@
     {
       "id": "AGG-GEN-009",
       "desc": "Agent gap analysis spec + output schema (gap_report.json, Chinese-first summary).",
-      "status": "todo"
+      "status": "done"
     },
     {
       "id": "AGG-GEN-010",
       "desc": "Agent generation spec: Candidate generation with mandatory Chinese review fields and placement rationale.",
-      "status": "todo"
+      "status": "done"
     },
     {
       "id": "AGG-GEN-011",
       "desc": "Agent self-review spec: language quality, novelty, teachability, production cost, risk flags, recommendation.",
-      "status": "todo"
+      "status": "done"
     },
     {
       "id": "AGG-GEN-012",
       "desc": "Agent raw normalize adapter: Convert agent outputs to canonical candidate schema.",
-      "status": "todo"
+      "status": "done"
     },
     {
       "id": "AGG-GEN-013",

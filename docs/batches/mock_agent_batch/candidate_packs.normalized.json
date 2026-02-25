@@ -1,0 +1,54 @@
+{
+  "candidates": [
+    {
+      "candidate_id": "agent-001",
+      "batch_id": "mock_agent_batch",
+      "candidate_type": "lesson",
+      "target_level": "A1",
+      "target_unit_id": "A1-U04",
+      "target_position": {
+        "after_lesson_id": "A1-U04-L2"
+      },
+      "title_zh_tw": "韓文初音：不同的問候",
+      "subtitle_zh_tw": "學習如何用非正式語氣打招呼",
+      "can_do_zh_tw": [
+        "能使用安寧哈瑟喲以外的問候語",
+        "能區分正式與非正式問候場合"
+      ],
+      "review_summary_zh_tw": "本課程補充了三種常見的非正式問候：안녕、반가워、잘 지냈어，並說明使用場合。",
+      "novelty_rationale_zh_tw": "使用了當代潮流用語，且現有 A1-U04 僅涵蓋標準正式語。",
+      "placement_rationale_zh_tw": "現有單元過於死板，補齊非正式語境下的問候變體。",
+      "risk_flags_zh_tw": [
+        "包含一個 A2 級別的語助詞，但已標註為固定用法。"
+      ],
+      "agent_recommendation": "accept",
+      "scores": {
+        "fit": 0.95,
+        "novelty": 0.85,
+        "learnability": 0.9,
+        "reuse": 0.8,
+        "engagement": 0.85,
+        "cost": 0.9
+      },
+      "foreign_preview": {
+        "dialogue": [
+          {
+            "speaker": "A",
+            "text": "안녕! 오랜만이야."
+          },
+          {
+            "speaker": "B",
+            "text": "어, 안녕! 잘 지냈어?"
+          }
+        ]
+      },
+      "metadata": {
+        "source": "agent_flow",
+        "raw_internal_id": "agent-001"
+      },
+      "theme_tags": [],
+      "skill_tags": [],
+      "qa_flags": []
+    }
+  ]
+}

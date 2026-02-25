@@ -1,0 +1,22 @@
+{
+    "batch_id": "mock_agent_batch",
+    "goal": "增加 A1-U04 單元的對話練習，重點在於基礎問候與自我介紹的變體。",
+    "target_levels": [
+        "A1"
+    ],
+    "target_units": [
+        "A1-U04"
+    ],
+    "candidate_types": [
+        "lesson"
+    ],
+    "count_targets": {
+        "lesson": 1
+    },
+    "variant_policy": "none",
+    "cost_preference": "balanced",
+    "language_policy": {
+        "summary_locale": "zh-TW",
+        "target_language": "ko"
+    }
+}

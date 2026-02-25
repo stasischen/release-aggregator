@@ -376,7 +376,7 @@
     {
       "id": "KO-GATE-01",
       "title": "Integrate mapping and dictionary quality gates into content-pipeline",
-      "status": "PENDING",
+      "status": "DONE",
       "target_repo": "content-pipeline",
       "goal": "Make failures visible before release.",
       "actions": [

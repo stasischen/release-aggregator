@@ -13,6 +13,18 @@ DEV_ROOT = AGGREGATOR_ROOT.parent
 LLLO_ROOT = DEV_ROOT / "lllo"
 CONTENT_KO_ROOT = DEV_ROOT / "content-ko"
 
+TEACHING_POS_WHITELIST = {
+    "N", "V", "ADJ", "ADV", "P", "E", "COP", "DET", "PRON", "VX", 
+    "COUNT", "NUM", "XNUM", "PROP", "PHRASE", "INTJ", 
+    "PUNCT", "SPACE", "UNK"
+}
+
+UPOS_WHITELIST = {
+    "NOUN", "VERB", "ADJ", "ADV", "PRON", "DET", "ADP", "NUM", 
+    "CONJ", "PART", "INTJ", "COP", "PROP", "PHRASE", 
+    "SYM", "PUNCT", "SPACE", "X"
+}
+
 def get_active_atoms(scope):
     """Retrieves all atoms used in the specified scope from content-ko gold standards."""
     gold_dir = CONTENT_KO_ROOT / "content" / "gold_standards" / "dialogue" / scope
@@ -79,6 +91,62 @@ def check_dict_completeness(scope=None):
 
     print(f"  Summary: {total_count} files checked, {missing_count} issues found.")
     return missing_count == 0
+
+def check_pos_validity(scope=None):
+    """Checks dictionary atoms for valid Teaching POS and UPOS tags."""
+    print(f"--- 3. POS/UPOS Validity Check ({scope if scope else 'All'}) ---")
+    dict_atoms_dir = CONTENT_KO_ROOT / "content" / "core" / "dictionary" / "atoms"
+    if not dict_atoms_dir.exists():
+        print(f"Skipping: Dictionary atoms directory not found at {dict_atoms_dir}")
+        return True
+
+    active_atoms = None
+    if scope:
+        active_atoms = get_active_atoms(scope)
+        print(f"  Scoping check to {len(active_atoms)} atoms.")
+
+    issue_count = 0
+    total_count = 0
+    
+    files_to_check = []
+    if active_atoms is not None:
+        for atom_id in active_atoms:
+            # Format: ko:pos:lemma -> pos/ko__pos__lemma.json
+            parts = atom_id.split(':')
+            if len(parts) >= 3:
+                safe_name = atom_id.replace(':', '__')
+                files_to_check.append(dict_atoms_dir / parts[1].upper() / f"{safe_name}.json")
+    else:
+        files_to_check = list(dict_atoms_dir.rglob("*.json"))
+
+    for f in files_to_check:
+        total_count += 1
+        if not f.exists():
+            print(f"  [MISSING] Atom file not found: {f.name}")
+            issue_count += 1
+            continue
+            
+        try:
+            with open(f, 'r', encoding='utf-8') as file:
+                data = json.load(file)
+                pos = data.get("pos")
+                upos = data.get("upos")
+                atom_id = data.get("atom_id", f.stem)
+                
+                if not pos or pos not in TEACHING_POS_WHITELIST:
+                    print(f"  [BAD-POS] {atom_id}: '{pos}' not in whitelist ({f.name})")
+                    issue_count += 1
+                
+                if not upos or upos not in UPOS_WHITELIST:
+                    print(f"  [BAD-UPOS] {atom_id}: '{upos}' not in whitelist ({f.name})")
+                    issue_count += 1
+                    
+        except Exception as e:
+            print(f"  [ERROR] Error reading {f.name}: {e}")
+            issue_count += 1
+
+    print(f"  Summary: {total_count} atoms checked, {issue_count} issues found.")
+    return issue_count == 0
 
 def check_placeholders_in_lllo(scope=None):
     """Scans LLLO source files for placeholder strings, optionally scoped."""
@@ -167,6 +235,10 @@ def main():
     success = True
     
     if not check_dict_completeness(args.scope):
+        success = False
+        
+    print()
+    if not check_pos_validity(args.scope):
         success = False
         
     print()

@@ -50,7 +50,7 @@ Phase C: 前端整合（lingo-frontend-web）
 
 | Task ID | 描述 | Phase | 進度 | 檔案 |
 | :--- | :--- | :--- | :--- | :--- |
-| DIALOGUE_UI_REDESIGN | Zen Study 介面改版：居中對焦、翻譯開關、垂直字典 | C2 | 4/5 tasks | [JSON](DIALOGUE_UI_REDESIGN_TASKS.json) |
+| DIALOGUE_UI_REDESIGN | Zen Study 介面改版：居中對焦、翻譯開關、垂直字典 | C2 | 5/5 tasks | [JSON](DIALOGUE_UI_REDESIGN_TASKS.json) |
 
 ### Future / Automation (未來優化)
 

@@ -3,7 +3,7 @@
     "owner_repo": "lingo-frontend-web",
     "last_updated": "2026-02-22T11:05:00+08:00",
     "objective": "Implement the 'Zen Study' UI: A minimalist, center-focused dialogue interface with vertical dictionary breakdowns and progressive translation reveal.",
-    "status": "ACTIVE",
+    "status": "COMPLETED",
     "notes": [
         "採用平行開發模式：建立全新組件 (Zen*) 而非直接修改舊版。",
         "核心變更：置中佈局、迷你頭像、翻譯開關移至右上角、字典垂直原子拆解。"
@@ -18,7 +18,7 @@
         {
             "id": "DUI-02",
             "title": "Upgrade Top Bar with controls",
-            "status": "PENDING",
+            "status": "COMPLETED",
             "goal": "Move translation toggle and grammar note trigger to the top right."
         },
         {

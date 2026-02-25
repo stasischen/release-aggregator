@@ -160,7 +160,7 @@
     {
       "id": "KO-GEMINI-04",
       "title": "Translate audit findings into rule-engine fix backlog",
-      "status": "PENDING",
+      "status": "DONE",
       "target_repo": "content-ko",
       "repo_plan_id": "CKO-GR-KO-GEMINI-04",
       "actions": [

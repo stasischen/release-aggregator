@@ -333,7 +333,7 @@
     {
       "id": "KO-DICT-03",
       "title": "Implement dual-layer POS contract for KO dictionary base",
-      "status": "PENDING",
+      "status": "DONE",
       "target_repo": "content-ko",
       "repo_plan_id": "CKO-MD-KO-DICT-03",
       "goal": "Enforce both teaching POS and universal POS for base dictionary entries instead of single-layer script-only classification.",
@@ -357,7 +357,7 @@
     {
       "id": "KO-DICT-04",
       "title": "Inject missing Phrase dictionary meanings",
-      "status": "PENDING",
+      "status": "IN_PROGRESS",
       "target_repo": "content-ko",
       "goal": "Ensure items from mapping_phrase.json have translation definitions generated/injected into the i18n dictionary so they display correctly in the frontend.",
       "actions": [

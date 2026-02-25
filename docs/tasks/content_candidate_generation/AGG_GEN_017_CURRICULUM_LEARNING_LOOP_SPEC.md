@@ -9,9 +9,9 @@ Related tasks:
 - `AGG-GEN-018` schema/brief extensions (taxonomy + review cadence metadata)
 
 Reference full unit example:
-- `docs/tasks/AGG_GEN_017_A1_U04_SURVIVAL_FULL_UNIT_EXAMPLE.md`
-- `docs/tasks/AGG_GEN_019_UNIT_MOCKUP_FRONTEND_TRANSFER_PLAN.md`
-- `docs/tasks/AGG_GEN_020_FRONTEND_TRANSFER_TEST_PLAN.md`
+- `AGG_GEN_017_A1_U04_SURVIVAL_FULL_UNIT_EXAMPLE.md`
+- `AGG_GEN_019_UNIT_MOCKUP_FRONTEND_TRANSFER_PLAN.md`
+- `AGG_GEN_020_FRONTEND_TRANSFER_TEST_PLAN.md`
 
 ## 1. Goal
 
@@ -433,7 +433,7 @@ Recommended for frontend adapter contract stability (adapter-first, non-UI):
 - `adapter_hints` (`entry_surface`, `completion_mode`, optional renderer override keys)
 
 Reference:
-- `docs/tasks/AGG_GEN_018_SCHEMA_BRIEF_EXTENSION_SPEC.md` (adapter contract requirements + unit blueprint alignment)
+- `AGG_GEN_018_SCHEMA_BRIEF_EXTENSION_SPEC.md` (adapter contract requirements + unit blueprint alignment)
 
 ## 11. Definition of Done for AGG-GEN-017
 

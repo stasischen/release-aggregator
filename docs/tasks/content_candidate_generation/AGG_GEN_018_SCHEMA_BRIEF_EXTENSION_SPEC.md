@@ -124,7 +124,7 @@ Generation briefs for unit sequencing should specify:
 
 ## 4. Unit Blueprint v0 Contract Alignment (Mockup Fixture Layer)
 
-`docs/tasks/mockups/unit_blueprint_v0.schema.json` should expose optional adapter-facing metadata blocks so PM mockups and frontend adapter tests can converge before canonical schema fully lands.
+`../mockups/unit_blueprint_v0.schema.json` should expose optional adapter-facing metadata blocks so PM mockups and frontend adapter tests can converge before canonical schema fully lands.
 
 Recommended optional blocks per node:
 

@@ -11,8 +11,8 @@ This task is not a frontend redesign. It is a transition planning artifact.
 
 ## 2. Deliverables
 
-- Mockup data: `docs/tasks/mockups/agg_gen_017_a1_u04_unit_mockup_data.json`
-- Mockup viewer: `docs/tasks/mockups/agg_gen_017_a1_u04_unit_mockup.html`
+- Mockup data: `../mockups/agg_gen_017_a1_u04_unit_mockup_data.json`
+- Mockup viewer: `../mockups/agg_gen_017_a1_u04_unit_mockup.html`
 - This plan doc (mapping + migration notes)
 
 ## 3. How To Experience the Mockup
@@ -23,7 +23,7 @@ Serve `docs/tasks/mockups/` with a local static server, then open:
 - `agg_gen_017_a1_u04_unit_mockup.html`
 
 Examples:
-- `python3 -m http.server` (from `docs/tasks/mockups/`)
+- `python3 -m http.server` (from `../mockups/`)
 - any local static preview extension/server
 
 ### Option B

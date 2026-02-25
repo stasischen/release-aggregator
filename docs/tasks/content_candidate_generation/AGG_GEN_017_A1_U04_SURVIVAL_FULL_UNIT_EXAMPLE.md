@@ -5,7 +5,7 @@ Status: Draft v1 (human-readable reference pack)
 Purpose: a complete single-unit example document for content design, candidate generation, QA, and review alignment.
 
 Related:
-- `docs/tasks/AGG_GEN_017_CURRICULUM_LEARNING_LOOP_SPEC.md`
+- `AGG_GEN_017_CURRICULUM_LEARNING_LOOP_SPEC.md`
 - `docs/human-handbook/07_CONTENT_CANDIDATE_COURSE_DESIGN.md`
 
 ## 1. Unit Snapshot

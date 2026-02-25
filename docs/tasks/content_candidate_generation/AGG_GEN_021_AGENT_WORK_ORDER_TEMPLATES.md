@@ -31,8 +31,8 @@ Baseline references:
 - docs/tasks/mockups/agg_gen_017_a1_u04_unit_mockup.html
 - docs/tasks/mockups/a1_u04_unit_blueprint_v0.json
 - docs/tasks/mockups/unit_blueprint_v0.schema.json
-- docs/tasks/AGG_GEN_019_UNIT_MOCKUP_FRONTEND_TRANSFER_PLAN.md
-- docs/tasks/AGG_GEN_020_FRONTEND_TRANSFER_TEST_PLAN.md
+- docs/tasks/content_candidate_generation/AGG_GEN_019_UNIT_MOCKUP_FRONTEND_TRANSFER_PLAN.md
+- docs/tasks/content_candidate_generation/AGG_GEN_020_FRONTEND_TRANSFER_TEST_PLAN.md
 
 Rules:
 - Make concrete file changes (not only proposals).

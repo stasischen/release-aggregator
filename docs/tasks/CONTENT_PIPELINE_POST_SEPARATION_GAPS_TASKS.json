@@ -1,0 +1,32 @@
+{
+  "task_id": "CONTENT_PIPELINE_POST_SEPARATION_GAPS",
+  "description": "Universal pipeline post-separation parity gaps (Yarn, mapping split, lemma heuristics, validation integration)",
+  "status": "todo",
+  "source_epic": "CONTENT_PIPELINE_SEPARATION",
+  "notes": [
+    "Created after CONTENT_PIPELINE_SEPARATION closeout to track known SEP-04/SEP-05 gaps without reopening the completed epic.",
+    "Prioritize parity and integration work before broadening to new languages."
+  ],
+  "tasks": [
+    {
+      "id": "CPG-01",
+      "desc": "Add .yarn source support to universal pipelines/build.py with parity to current .json dialogue build path.",
+      "status": "todo"
+    },
+    {
+      "id": "CPG-02",
+      "desc": "Migrate multi-file POS mapping split/verification logic from legacy scripts into the universal pipeline flow.",
+      "status": "todo"
+    },
+    {
+      "id": "CPG-03",
+      "desc": "Refine KoreanEngine lemma suffix heuristic to avoid incorrect +다 defaults for punctuation/symbol/non-verbal tokens.",
+      "status": "todo"
+    },
+    {
+      "id": "CPG-04",
+      "desc": "Integrate packaging and engine execution validation into a unified command/workflow (documented parity path -> executable path).",
+      "status": "todo"
+    }
+  ]
+}

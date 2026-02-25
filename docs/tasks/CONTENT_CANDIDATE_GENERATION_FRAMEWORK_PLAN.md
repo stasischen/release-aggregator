@@ -543,7 +543,7 @@ tools/content_candidate_generation/
 - 定義課程骨架與內容節奏，讓候選生成不只補素材，而是補到正確的學習環節。
 
 **Deliverables**
-- `docs/tasks/AGG_GEN_017_CURRICULUM_LEARNING_LOOP_SPEC.md`（正式規格草案，含 survival blueprint 與 A1 sample）
+- `docs/tasks/content_candidate_generation/AGG_GEN_017_CURRICULUM_LEARNING_LOOP_SPEC.md`（正式規格草案，含 survival blueprint 與 A1 sample）
 - 課程設計規格（單元內學習循環、跨單元複習節奏）
 - candidate taxonomy 對應表（`lesson / grammar_note / dictionary_pack / path_node` 各自扮演角色）
 - review/QA 需要檢查的教學結構欄位清單（例如 pattern focus, review timing hints）
@@ -588,7 +588,7 @@ tools/content_candidate_generation/
 **Deliverables**
 - `docs/tasks/mockups/agg_gen_017_a1_u04_unit_mockup_data.json`
 - `docs/tasks/mockups/agg_gen_017_a1_u04_unit_mockup.html`
-- `docs/tasks/AGG_GEN_019_UNIT_MOCKUP_FRONTEND_TRANSFER_PLAN.md`
+- `docs/tasks/content_candidate_generation/AGG_GEN_019_UNIT_MOCKUP_FRONTEND_TRANSFER_PLAN.md`
 
 **Constraints**
 - 不是 UI redesign；重點是驗證課程節奏、內容角色、輸出比例
@@ -604,7 +604,7 @@ tools/content_candidate_generation/
 - 針對 A1-U04 mockup 設計可分頭執行的 Flutter 前端轉移測試計畫（adapter / renderer / interaction / integration）。
 
 **Deliverables**
-- `docs/tasks/AGG_GEN_020_FRONTEND_TRANSFER_TEST_PLAN.md`
+- `docs/tasks/content_candidate_generation/AGG_GEN_020_FRONTEND_TRANSFER_TEST_PLAN.md`
 - Gemini stream 分工（A/B/C/D）與 test matrix
 - manual QA script（PM/Product 試用流程）
 
@@ -619,7 +619,7 @@ tools/content_candidate_generation/
 - 把 HTML mockup 模組化與內容量產工作拆成可直接派給 agent 的標準工單（prompt + 回報模板 + 驗收清單），避免口頭交接造成漏項。
 
 **Deliverables**
-- `docs/tasks/AGG_GEN_021_AGENT_WORK_ORDER_TEMPLATES.md`
+- `docs/tasks/content_candidate_generation/AGG_GEN_021_AGENT_WORK_ORDER_TEMPLATES.md`
 - Gemini stream prompts（`M1..M5`）與統一交付回報模板
 - stream-specific acceptance checklist（模組化 / registry / scaffolding / lint / multi-unit viewer）
 
@@ -716,7 +716,7 @@ tools/content_candidate_generation/
 - 將目前課程流程的教育設計優化點（理解檢查、變體生成、修復練習、檢索目標、遷移任務）文件化，轉成可回寫 schema/brief/fixture 的欄位提案。
 
 **Deliverables**
-- `docs/tasks/AGG_GEN_027_EDUCATIONAL_FLOW_OPTIMIZATION_REVIEW.md`
+- `docs/tasks/content_candidate_generation/AGG_GEN_027_EDUCATIONAL_FLOW_OPTIMIZATION_REVIEW.md`
 - `unit_blueprint v0.x` 欄位增補提案（不直接破壞 v0）
 - `AGG-GEN-018` / `AGG-GEN-024` 可引用的教育設計檢查清單
 

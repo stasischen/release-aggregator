@@ -26,7 +26,7 @@ Primary concerns:
 ## 3. Test Fixtures
 
 Source fixtures (aggregator side):
-- `docs/tasks/mockups/agg_gen_017_a1_u04_unit_mockup_data.json`
+- `../mockups/agg_gen_017_a1_u04_unit_mockup_data.json`
 
 Frontend test fixtures to create (Gemini Stream A):
 - `test/fixtures/a1_u04_unit_blueprint.json` (frontend-adapter target shape)

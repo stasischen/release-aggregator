@@ -52,7 +52,6 @@ Phase C: 前端整合（lingo-frontend-web）
 
 | Task ID | 描述 | Phase | 進度 | 檔案 |
 | :--- | :--- | :--- | :--- | :--- |
-| CONTENT_CANDIDATE_GENERATION_FRAMEWORK | 候選內容生成雙流程框架（API + Agent + QA + 審核台對接） | B/C | 27/27 tasks | [JSON](CONTENT_CANDIDATE_GENERATION_FRAMEWORK_TASKS.json) · [PLAN](CONTENT_CANDIDATE_GENERATION_FRAMEWORK_PLAN.md) |
 
 ### Phase B/C — 待 Phase A 完成後啟動
 
@@ -77,6 +76,7 @@ Phase C: 前端整合（lingo-frontend-web）
 | DIALOGUE_UI_REDESIGN | Zen Study 介面改版：居中對焦、翻譯開關、垂直字典 | 2026-02-25 | [ARCHIVE](archive/20260225_DIALOGUE_UI_REDESIGN_TASKS.json) |
 | KO_B2_C1_OPTIMIZATION | B2/C1 課程優化：角色大修、商務/評論語氣、翻譯與文法補全 | 2026-02-25 | [ARCHIVE](archive/20260225_KO_B2_C1_OPTIMIZATION_TASKS.json) |
 | TTS_GENERATION | 高品質 Edge-TTS 語音生成 | 2026-02-25 | [ARCHIVE](archive/20260225_TTS_GENERATION_TASKS.json) |
+| CONTENT_CANDIDATE_GENERATION_FRAMEWORK | 候選內容生成雙流程框架（API + Agent + QA + 審核台對接） | 2026-02-25 | [ARCHIVE](archive/20260225_CONTENT_CANDIDATE_GENERATION_FRAMEWORK_TASKS.json) |
 
 ---
 

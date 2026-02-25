@@ -1,7 +1,7 @@
 {
   "epic": "cross-lang-review-lock-pipeline",
   "owner_repo": "release-aggregator",
-  "last_updated": "2026-02-16T23:59:00Z",
+  "last_updated": "2026-02-25T11:00:00Z",
   "repo_plan_file": "/Users/ywchen/Dev/lingo/content-ko/PLAN.md",
   "objective": "Build a language-agnostic review/lock pipeline that supports multi-machine collaboration while keeping language rules independent.",
   "execution_order": [
@@ -17,7 +17,7 @@
     {
       "id": "RL-ARCH-01",
       "title": "Freeze universal schema and directory contract",
-      "status": "PENDING",
+      "status": "DONE",
       "target_repo": "release-aggregator",
       "actions": [
         "Publish shared schemas for surface_candidates, surface_review_queue, surface_locks, and effective resolution.",
@@ -97,7 +97,7 @@
     {
       "id": "RL-KO-04",
       "title": "Scope KO processing to A1/A2/B1 and defer B2/C1",
-      "status": "IN_PROGRESS",
+      "status": "DONE",
       "target_repo": "content-ko",
       "repo_plan_id": "CKO-RL-RL-KO-04",
       "actions": [

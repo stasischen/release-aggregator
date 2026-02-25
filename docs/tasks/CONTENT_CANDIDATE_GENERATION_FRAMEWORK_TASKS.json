@@ -36,12 +36,12 @@
     {
       "id": "AGG-GEN-007",
       "desc": "QA rules + qa_report.json: required fields, duplicate similarity, A1 guard, unit fit, zh-summary checks.",
-      "status": "todo"
+      "status": "done"
     },
     {
       "id": "AGG-GEN-008",
       "desc": "Review-ready bundle exporter: Build review_ready_bundle.json importable by Content Review Station.",
-      "status": "todo"
+      "status": "done"
     },
     {
       "id": "AGG-GEN-009",

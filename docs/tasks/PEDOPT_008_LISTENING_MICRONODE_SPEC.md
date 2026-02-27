@@ -102,6 +102,7 @@
     - `options`: 
         - `opt_1`: { "text": "四個", "is_correct": true }
         - `opt_2`: { "text": "三個", "is_correct": false }
+    - `distractor_rationale`: 學習者常將 '네' (4) 與 '세' (3) 混淆，因為兩者都是單音節且母音相似，僅 'ㄴ' (n) 與 'ㅅ' (s) 的聲母差異。
     - `feedback_zh_tw`: 「聽到了 'ㄴ' (n) 的發音，所以是 '네' (4) 而非 '세' (3)。」
 - **Signal**: 學習者是否能分辨高頻數字的發音差異。
 
@@ -109,10 +110,11 @@
 - **Target**: `-요` (結尾) vs `-ㅂ니다` (結尾) 的聽感區分。
 - **Payload Sketch**:
     - `prompt_zh_tw`: 「這段話聽起來是在跟誰說話？」
-    - `audio_ref`: 「만나서 반갑습니다.」
+    - `audio_ref`: 「만那서 반갑습니다.」
     - `options`: 
         - `opt_1`: { "text": "第一次見面的長輩 (正式)", "is_correct": true }
         - `opt_2`: { "text": "親近的朋友 (非正式)", "is_correct": false }
+    - `distractor_rationale`: 學習者在 A1 階段常混淆句尾階稱，可能因認出 '반갑(다)' 單字而忽略了 '-습니다' 帶來的正式度暗示。
     - `feedback_zh_tw`: 「聽到了 '-습니다'，這是在正式場合常用的敬語。」
 - **Signal**: 學習者對於韓文階稱環境的初步聽感。
 
@@ -135,6 +137,8 @@
     - `options`: 
         - `opt_1`: { "text": "受尊敬的人物 (如：母親)", "is_correct": true }
         - `opt_2`: { "text": "平輩或自己", "is_correct": false }
+    - `distractor_rationale`: '께서' 與 '이/가' 的聽覺差異顯著，但學習者若未建立「敬詞意識」，會將其視為一般助詞。
+    - `feedback_zh_tw`: 「'께서' 是專門用於尊敬對象的主詞助詞。」
 - **Signal**: 學習者能否聽出「敬語助詞」所帶來的身分暗示。
 
 ---
@@ -145,3 +149,4 @@
 - [ ] **目標精確點**: `discrimination_target` 是否真的屬於該級別的 bottleneck？
 - [ ] **反饋價值**: `feedback_zh_tw` 是否解釋了「怎麼聽出差異」？
 - [ ] **干擾項設計**: `distractor_rationale` 是否合理？（不是隨機湊數，而是真的會混淆的音）
+- [ ] **放置時機**: 節點是否放在第一次暴露後且在大規模練習前？

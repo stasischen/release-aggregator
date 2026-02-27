@@ -44,7 +44,7 @@ Phase C: 前端整合（lingo-frontend-web）
 
 | Task ID | 描述 | Phase | 進度 | 檔案 |
 | :--- | :--- | :--- | :--- | :--- |
-| COURSE_PEDAGOGY_OPTIMIZATION | 語言學習效果優化（理解檢查/變體遷移/修復策略/檢索複習/guided rubric/followup 設計） | C+/Ops | 11/12 tasks | [JSON](COURSE_PEDAGOGY_OPTIMIZATION_TASKS.json) · [PLAN](COURSE_PEDAGOGY_OPTIMIZATION_PLAN.md) |
+| COURSE_PEDAGOGY_OPTIMIZATION | 語言學習效果優化（理解檢查/變體遷移/修復策略/檢索複習/guided rubric/followup 設計） | C+/Ops | 12/12 tasks | [JSON](COURSE_PEDAGOGY_OPTIMIZATION_TASKS.json) · [PLAN](COURSE_PEDAGOGY_OPTIMIZATION_PLAN.md) |
 
 ### Future / Automation (未來優化)
 

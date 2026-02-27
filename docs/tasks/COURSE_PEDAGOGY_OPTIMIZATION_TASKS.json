@@ -61,7 +61,7 @@
     {
       "id": "PEDOPT-012",
       "desc": "Freeze readiness recommendation for UNITFAC-001: confirm which pedagogy fields/rules are stable enough for contract freeze vs deferred.",
-      "status": "todo"
+      "status": "done"
     }
   ]
 }

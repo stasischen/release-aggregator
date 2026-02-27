@@ -31,12 +31,12 @@
     {
       "id": "PEDOPT-006",
       "desc": "Dictionary pack production-readiness tags: production_ready/input_only, frame refs, and register hints for A1/A2.",
-      "status": "todo"
+      "status": "done"
     },
     {
       "id": "PEDOPT-007",
       "desc": "Followup semantics spec: review vs transfer followups, transfer_pattern_refs usage, and cross-unit task clarity rules.",
-      "status": "todo"
+      "status": "done"
     },
     {
       "id": "PEDOPT-008",

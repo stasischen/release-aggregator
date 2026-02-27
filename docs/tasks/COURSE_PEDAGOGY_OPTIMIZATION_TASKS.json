@@ -6,37 +6,37 @@
     {
       "id": "PEDOPT-001",
       "desc": "Comprehension check taxonomy + payload spec: info_extract / intent / next_response / sequence, with authoring examples and PM evaluation rules.",
-      "status": "todo"
+      "status": "done"
     },
     {
       "id": "PEDOPT-002",
       "desc": "Transform practice spec: slot/scenario/function/politeness/correction transform types and progression rules for A1/A2.",
-      "status": "todo"
+      "status": "done"
     },
     {
       "id": "PEDOPT-003",
       "desc": "Repair strategy practice spec: trigger recognition + repair response categories (repeat/slow_down/rephrase/confirm/reject_replace).",
-      "status": "todo"
+      "status": "done"
     },
     {
       "id": "PEDOPT-004",
       "desc": "Review retrieval target spec: form/function/mixed retrieval design, examples, and unit placement guidelines.",
-      "status": "todo"
+      "status": "done"
     },
     {
       "id": "PEDOPT-005",
       "desc": "Guided output completion rubric spec: task completion conditions, required elements, acceptable variants, and common mistake hints.",
-      "status": "todo"
+      "status": "done"
     },
     {
       "id": "PEDOPT-006",
       "desc": "Dictionary pack production-readiness tags: production_ready/input_only, frame refs, and register hints for A1/A2.",
-      "status": "todo"
+      "status": "done"
     },
     {
       "id": "PEDOPT-007",
       "desc": "Followup semantics spec: review vs transfer followups, transfer_pattern_refs usage, and cross-unit task clarity rules.",
-      "status": "todo"
+      "status": "done"
     },
     {
       "id": "PEDOPT-008",

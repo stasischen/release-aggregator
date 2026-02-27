@@ -26,7 +26,7 @@
     {
       "id": "PEDOPT-005",
       "desc": "Guided output completion rubric spec: task completion conditions, required elements, acceptable variants, and common mistake hints.",
-      "status": "todo"
+      "status": "done"
     },
     {
       "id": "PEDOPT-006",

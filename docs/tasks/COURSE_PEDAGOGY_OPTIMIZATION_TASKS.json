@@ -16,7 +16,7 @@
     {
       "id": "PEDOPT-003",
       "desc": "Repair strategy practice spec: trigger recognition + repair response categories (repeat/slow_down/rephrase/confirm/reject_replace).",
-      "status": "todo"
+      "status": "done"
     },
     {
       "id": "PEDOPT-004",

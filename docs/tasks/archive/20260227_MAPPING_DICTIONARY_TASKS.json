@@ -1,0 +1,409 @@
+{
+    "epic": "ko-mapping-dictionary-stabilization",
+    "owner_repo": "release-aggregator",
+    "last_updated": "2026-02-27T10:35:00+08:00",
+    "repo_plan_file": "f:/Githubs/lingo/content-ko/PLAN.md",
+    "objective": "Stabilize segmentation/mapping and dictionary flow for real KO content before scaling to more languages.",
+    "execution_mode": {
+        "rule": "Hybrid",
+        "notes": [
+            "Contract and data-shape tasks are strictly sequential.",
+            "Mapping track and dictionary track can run in parallel after shared staging format is frozen.",
+            "Pipeline/release/frontend gates are sequential after both tracks converge."
+        ]
+    },
+    "execution_order": [
+        "KO-FLOW-01",
+        "KO-FLOW-02",
+        "KO-MAP-01",
+        "KO-MAP-02",
+        "KO-MAP-03",
+        "KO-MAP-04",
+        "KO-MAP-05-A1",
+        "KO-MAP-05-A2",
+        "KO-MAP-05-B1",
+        "KO-DICT-01",
+        "KO-DICT-02",
+        "KO-DICT-03",
+        "KO-GATE-01",
+        "KO-DICT-04",
+        "KO-E2E-01"
+    ],
+    "tasks": [
+        {
+            "id": "KO-FLOW-01",
+            "title": "Freeze ID/Path policy and mapping contracts",
+            "status": "DONE",
+            "target_repo": "core-schema",
+            "goal": "Prevent rework by locking canonical ID and fs-safe path behavior.",
+            "actions": [
+                "Lock canonical business IDs to colon format (for example ko:n-friend:01).",
+                "Lock filesystem-safe IDs to double underscore format (for example ko__n-friend__01) for path mapping only.",
+                "Document that fs_safe_id is optional and non-canonical.",
+                "Add/confirm schema examples for core and i18n with both id and fs_safe_id."
+            ],
+            "deliverables": [
+                "Updated contract doc for ID policy",
+                "Schema examples validating canonical id + fs_safe_id coexistence"
+            ],
+            "acceptance": [
+                "Validator passes for example_dictionary_core, dictionary_i18n, grammar_core, grammar_i18n.",
+                "Contract explicitly states fs_safe_id must not be used for business lookup."
+            ]
+        },
+        {
+            "id": "KO-FLOW-02",
+            "title": "Define staging data model for token and mapping workflow",
+            "status": "DONE",
+            "target_repo": "content-ko",
+            "goal": "Create one stable handoff format between segmentation and dictionary filling.",
+            "actions": [
+                "Create staging files: token_candidates.jsonl, mapping_accepted.jsonl, mapping_conflicts.jsonl.",
+                "Define required fields (surface, source_ref, context, confidence, candidate_atom_ids, final_atom_id, resolver).",
+                "Add README for staging semantics and conflict resolution policy.",
+                "Add command docs for regenerate/append/review flows."
+            ],
+            "deliverables": [
+                "Staging schema docs",
+                "Initial empty staging files",
+                "Process readme"
+            ],
+            "acceptance": [
+                "Staging files can be regenerated deterministically from same source input.",
+                "Schema/shape checks fail on missing required fields."
+            ]
+        },
+        {
+            "id": "KO-MAP-01",
+            "title": "Build segmentation and auto-mapping pipeline",
+            "status": "DONE",
+            "target_repo": "content-ko",
+            "goal": "Generate high-confidence mapping_accepted and isolate uncertain tokens to conflicts.",
+            "actions": [
+                "Run token extraction on dialogue source and generate token_candidates with source_ref traceability.",
+                "Apply auto-mapping heuristics using legacy map + lemma rules + override tables.",
+                "Emit high-confidence rows to mapping_accepted and low-confidence/multi-candidate rows to mapping_conflicts.",
+                "Add unresolved ratio and duplicate-final-id checks."
+            ],
+            "deliverables": [
+                "Scripts for extract and auto-map",
+                "Generated mapping_accepted and mapping_conflicts",
+                "Coverage report (resolved/unresolved counts)"
+            ],
+            "acceptance": [
+                "No duplicate final mapping for same source_ref token occurrence.",
+                "Conflict list is explicit and reviewable (not silently dropped)."
+            ]
+        },
+        {
+            "id": "KO-MAP-02",
+            "title": "Add human review loop for low-confidence conflicts",
+            "status": "DONE",
+            "target_repo": "content-ko",
+            "repo_plan_id": "CKO-MD-KO-MAP-02",
+            "goal": "Keep manual review bounded and auditable.",
+            "actions": [
+                "Create review input/export format for mapping_conflicts.",
+                "Implement apply-reviewed-mappings command that appends to mapping_accepted with reviewer metadata.",
+                "Enforce precedence: manual override > auto-map.",
+                "Implement rules for '쯤' and generic numeric counters to replace manual mappings like '3개쯤', '10分'.",
+                "Phase out 'ko:phrase:*' emergency mappings (e.g., '가주실', '찾겠죠') by implementing missing grammar rules."
+            ],
+            "deliverables": [
+                "Conflict review workflow docs",
+                "Reviewed conflict import/apply script",
+                "Rule-based optimization for common suffixes"
+            ],
+            "acceptance": [
+                "Reviewed conflicts become deterministic accepted mappings.",
+                "Each accepted manual decision includes reviewer + timestamp + rationale."
+            ]
+        },
+        {
+            "id": "KO-MAP-03",
+            "title": "Systematic Grammar Rules Audit (Lesson v3)",
+            "status": "DONE",
+            "target_repo": "content-ko",
+            "repo_plan_id": "CKO-MD-KO-MAP-03",
+            "goal": "Ensure all grammar points taught in lessons are supported by Rules Engine.",
+            "actions": [
+                "Audit docs/lesson_v3/grammar/ level 0-4 for missing patterns (e.g., ~지도, ~겠죠).",
+                "Implement missing rules in engine/rules/ and verify with unit tests.",
+                "Verify pipeline coverage for audited patterns."
+            ],
+            "deliverables": [
+                "Audit report of missing vs. supported grammar points",
+                "New rule JSON files in engine/rules/",
+                "Resolved token count increase"
+            ],
+            "acceptance": [
+                "All grammar points in Level 0-1 lessons are fully parsed by Rules Engine.",
+                "Zero 'emergency' mappings needed for audited grammar patterns."
+            ]
+        },
+        {
+            "id": "KO-MAP-04",
+            "title": "Apply POS Audit Fixes and Clean Legacy Mapping",
+            "status": "DONE",
+            "target_repo": "content-ko",
+            "repo_plan_id": "CKO-MD-KO-MAP-04",
+            "goal": "Apply manual review findings (KO-GEMINI-05) and remove redundant phrase mappings.",
+            "actions": [
+                "Incorporate POS decisions from KO-GEMINI-05 patch backlog (MOVE/DUAL).",
+                "Transfer -되다 verbs from mapping_adjectives to mapping_verbs.",
+                "Remove legacy ko:phrase:* band-aids from mapping files that are now handled by rules.",
+                "Execute stage2 gates to verify no regression in coverage."
+            ],
+            "deliverables": [
+                "Updated mapping_*.json files",
+                "Summary of removed redundant mappings",
+                "Deterministic coverage report"
+            ],
+            "acceptance": [
+                "Backlog from KO-GEMINI-05 is 100% applied.",
+                "Zero redundant ko:phrase mappings remain in base dictionary.",
+                "Stage2 and QA metrics remain stable or improve."
+            ]
+        },
+        {
+            "id": "KO-MAP-05-A1",
+            "title": "Lock A1 Segmentation Golden Set",
+            "status": "DONE",
+            "target_repo": "content-ko",
+            "depends_on": [
+                "KO-GEMINI-03-A1",
+                "KO-MAP-04"
+            ],
+            "goal": "Ensure A1 segmentation never regresses.",
+            "actions": [
+                "Ingest A1 golden file (specifically completing L11-20).",
+                "Implement scripts/tests/verify_golden.py.",
+                "Add CI gate for A1 zero-deviation."
+            ],
+            "deliverables": [
+                "tests/golden/A1_segmentation_golden.json",
+                "scripts/tests/verify_golden.py"
+            ],
+            "acceptance": [
+                "Pipeline fails on A1 segmentation change."
+            ]
+        },
+        {
+            "id": "KO-MAP-05-A2",
+            "title": "Lock A2 Segmentation Golden Set",
+            "status": "DONE",
+            "target_repo": "content-ko",
+            "depends_on": [
+                "KO-GEMINI-03-A2",
+                "KO-MAP-05-A1"
+            ],
+            "actions": [
+                "Establish A2 golden baseline (25 lessons synced to gold_standards/dialogue/A2/).",
+                "Lock A2 in verify_golden.py (Integration with qa_gate.py)."
+            ],
+            "acceptance": [
+                "Pipeline fails on A2 deviation."
+            ]
+        },
+        {
+            "id": "KO-MAP-05-B1",
+            "title": "Lock B1 Segmentation Golden Set",
+            "status": "DONE",
+            "target_repo": "content-ko",
+            "depends_on": [
+                "KO_GEMINI_03_A2",
+                "KO-MAP-05-A2"
+            ],
+            "actions": [
+                "Establish B1 golden baseline (B1-01 to B1-25 audited).",
+                "Reinforce Rules Engine for high-frequency B1 patterns (텐데, 하셔, 하셨습니다, 습니다만).",
+                "Lock B1 in verify_golden.py via qa_gate system."
+            ],
+            "acceptance": [
+                "qa_gate passed for B1 Level (B1-01 to B1-25).",
+                "Residual ratio reduced via rule enhancement."
+            ]
+        },
+        {
+            "id": "KO-DICT-01",
+            "title": "Build TOPIK 3000 base dictionary + course plugin",
+            "status": "DONE",
+            "target_repo": "content-ko",
+            "plan_doc": "KO_DICT_01_PLAN.md",
+            "goal": "Two-layer dictionary: TOPIK 3000 as base, course-specific gaps as plugin.",
+            "phases": [
+                {
+                    "id": "1a",
+                    "title": "Rewrite import_vocabulary.py → categorized mapping_*.json",
+                    "status": "DONE",
+                    "actions": [
+                        "Parse TOPIK 1000 + 2000 + 3000 markdown files.",
+                        "POS heuristic: verb/adjective/noun/adverb classification.",
+                        "Output 4 categorized files: mapping_nouns/verbs/adjectives/misc.json."
+                    ]
+                },
+                {
+                    "id": "1b",
+                    "title": "Delete legacy & redundant entries",
+                    "status": "DONE",
+                    "actions": [
+                        "Delete monolithic mapping.json.",
+                        "Remove all ko:phrase:* band-aids from mapping_misc.json.",
+                        "Remove conjugated surface forms (handled by rules).",
+                        "Remove redundant N+助詞 combos (handled by rules engine)."
+                    ]
+                },
+                {
+                    "id": "2",
+                    "title": "Pipeline gap analysis",
+                    "status": "DONE",
+                    "actions": [
+                        "Run stage2_executor.py with TOPIK 3000 base only.",
+                        "Collect unresolved tokens → gap report.",
+                        "Classify gaps: food/drink, loanwords, colloquial, counters."
+                    ]
+                },
+                {
+                    "id": "3",
+                    "title": "Generate mapping_course.json from gaps",
+                    "status": "DONE",
+                    "actions": [
+                        "Auto-generate mapping_course.json from gap report.",
+                        "Manual review before commit.",
+                        "Keep mapping_proper.json and mapping_names.json as-is."
+                    ]
+                }
+            ],
+            "deliverables": [
+                "Categorized mapping_*.json files (TOPIK 3000 base)",
+                "Gap report from pipeline run",
+                "mapping_course.json (course-specific plugin)"
+            ],
+            "acceptance": [
+                "All TOPIK 3000 lemmas exist in categorized mapping files.",
+                "Monolithic mapping.json is deleted.",
+                "Pipeline completes with TOPIK 3000 base + course plugin."
+            ]
+        },
+        {
+            "id": "KO-DICT-02",
+            "title": "Fill dictionary i18n zh_tw and add coverage gates",
+            "status": "DONE",
+            "target_repo": "content-ko",
+            "repo_plan_id": "CKO-MD-KO-DICT-02",
+            "goal": "Complete learner-language layer without mutating core fields.",
+            "actions": [
+                "Generate i18n skeleton ONLY from atom IDs actually present in course content (active lemmas extracted from stage2 handoff).",
+                "Fill zh_tw gloss/definition fields and keep IDs aligned.",
+                "Add coverage report: translated, missing, stale IDs (scoped to active set).",
+                "Fail gate when missing translation ratio exceeds threshold for active set."
+            ],
+            "deliverables": [
+                "dictionary_i18n zh_tw source files",
+                "Coverage report",
+                "Threshold gate script"
+            ],
+            "acceptance": [
+                "i18n schema validation passes.",
+                "Coverage threshold is enforced in CI/smoke flow."
+            ]
+        },
+        {
+            "id": "KO-DICT-03",
+            "title": "Implement dual-layer POS contract for KO dictionary base",
+            "status": "DONE",
+            "target_repo": "content-ko",
+            "repo_plan_id": "CKO-MD-KO-DICT-03",
+            "goal": "Enforce both teaching POS and universal POS for base dictionary entries instead of single-layer script-only classification.",
+            "actions": [
+                "Define canonical dual-layer POS data shape for KO base dictionary assets (teaching pos + universal upos) while keeping resolver IDs stable.",
+                "Extend import_vocabulary.py output path to generate dual-layer POS metadata from TOPIK source and manual review decisions.",
+                "Add validator and consistency checks: file bucket POS vs metadata POS, duplicate lemma cross-POS handling, and required upos coverage.",
+                "Wire dual-layer POS checks into stage2 and QA reporting so regressions fail fast."
+            ],
+            "deliverables": [
+                "Dual-layer POS contract doc and sample payload",
+                "Generated dual-layer POS metadata artifact for i18n/base",
+                "Validation script + QA summary section for POS-layer consistency"
+            ],
+            "acceptance": [
+                "Every TOPIK3000 base lemma has both teaching POS and UPOS metadata.",
+                "Known cross-POS lemmas are explicitly labeled as dual-POS or corrected to a single POS with evidence.",
+                "Stage/QA checks fail on missing UPOS or inconsistent POS layer mapping."
+            ]
+        },
+        {
+            "id": "KO-GATE-01",
+            "title": "Integrate mapping and dictionary quality gates into content-pipeline",
+            "status": "DONE",
+            "target_repo": "content-pipeline",
+            "goal": "Make failures visible before release.",
+            "actions": [
+                "Add checks: duplicate IDs, unresolved token ratio, empty senses, i18n coverage threshold.",
+                "Fail build when any hard gate fails.",
+                "Publish machine-readable QA summary artifact per run."
+            ],
+            "deliverables": [
+                "Pipeline QA gate scripts",
+                "Updated smoke test",
+                "QA summary artifact"
+            ],
+            "acceptance": [
+                "Smoke test fails correctly on injected bad sample.",
+                "Smoke test passes on current KO baseline."
+            ]
+        },
+        {
+            "id": "KO-DICT-04",
+            "title": "Inject missing Phrase dictionary meanings",
+            "status": "DONE",
+            "target_repo": "content-ko",
+            "goal": "Ensure items from mapping_phrase.json have translation definitions generated/injected into the i18n dictionary so they display correctly in the frontend.",
+            "actions": [
+                "Audit mapping_phrase.json for phrases that lack meanings in dict_ko_zh_tw.json (e.g., ko_PHRASE_안녕하세요).",
+                "Update the dictionary build pipeline to pull phrase meanings from translation sources or mapping metadata.",
+                "Generate and verify the updated dict_ko_zh_tw.json."
+            ],
+            "deliverables": [
+                "Updated dictionary builder scripts",
+                "Updated dict_ko_zh_tw.json"
+            ],
+            "acceptance": [
+                "Common phrases like '안녕하세요' display correct translations in the Frontend without hardcoded fallbacks."
+            ]
+        },
+        {
+            "id": "KO-E2E-01",
+            "title": "Run full KO->release->frontend verification with real data",
+            "status": "DONE",
+            "target_repo": "content-ko/content-pipeline/release-aggregator/lingo-frontend-web",
+            "goal": "Confirm end-to-end pipeline stability after flow rewrite.",
+            "actions": [
+                "Run content-ko extract/map/review/apply/build-dictionary sequence.",
+                "Run content-pipeline build and smoke test with new QA gates.",
+                "Run release-aggregator collect + manifest generation.",
+                "Run frontend sync and dictionary-related integration tests."
+            ],
+            "deliverables": [
+                "E2E run log",
+                "Manifest snapshot",
+                "Frontend verification report"
+            ],
+            "acceptance": [
+                "End-to-end run succeeds without manual patching in middle steps.",
+                "Frontend dictionary lookup path passes integration tests."
+            ]
+        }
+    ],
+    "reporting_format": {
+        "required": [
+            "task_id",
+            "commit_hash",
+            "changed_files",
+            "commands_run",
+            "test_results",
+            "blockers",
+            "handoff_file_path"
+        ]
+    }
+}

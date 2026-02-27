@@ -81,9 +81,12 @@ class MockupChecker:
             self.log_error(f"Failed to parse JSON: {e}")
             return False
 
+        unit_version = fixture.get("version", "unit_blueprint_v0")
+        is_v0_1 = unit_version == "unit_blueprint_v0.1"
+
         # A. Basic Shape
-        if fixture.get("version") != "unit_blueprint_v0":
-            self.log_error("fixture.version must be 'unit_blueprint_v0'")
+        if unit_version not in ["unit_blueprint_v0", "unit_blueprint_v0.1"]:
+            self.log_error("fixture.version must be 'unit_blueprint_v0' or 'unit_blueprint_v0.1'")
         
         sequence = fixture.get("sequence", [])
         if not isinstance(sequence, list):
@@ -101,7 +104,8 @@ class MockupChecker:
                 if not value or value.strip() == "" or "TODO" in value:
                      self.log_warning(f"Field seems empty or contains TODO: {value!r}", path=s_path)
 
-        # C. Sequence Rules (UNITFAC-002)
+        # C. Sequence Rules (UNITFAC-002 & PEDOPT-009)
+
         if len(sequence) < MIN_NODE_COUNT:
             self.log_error(f"ERR_MIN_NODE_COUNT: Unit has {len(sequence)} nodes, minimum {MIN_NODE_COUNT} required for PR.")
 
@@ -109,14 +113,16 @@ class MockupChecker:
         found_output = False
         first_input_idx = -1
         found_comp_check = False
+        cc_types = []
 
         for i, node in enumerate(sequence):
             node_id = node.get("id", f"node_{i}")
             role = node.get("learning_role")
             form = node.get("content_form")
             mode = node.get("output_mode")
+            payload = node.get("payload") or {}
 
-            # Contract checks
+            # 1. Contract checks
             if role not in SUPPORTED_LEARNING_ROLES:
                 self.log_error(f"Unsupported learning_role: {role}", node_id=node_id)
             if form not in SUPPORTED_CONTENT_FORMS:
@@ -124,7 +130,7 @@ class MockupChecker:
             if mode not in SUPPORTED_OUTPUT_MODES:
                 self.log_error(f"Unsupported output_mode: {mode}", node_id=node_id)
 
-            # Order Violation
+            # 2. Order Violation
             if role in INPUT_ROLES:
                 found_input = True
                 if first_input_idx == -1:
@@ -134,12 +140,41 @@ class MockupChecker:
                 if not found_input:
                     self.log_error("ERR_ORDER_VIOLATION: Output node appeared before any input/structure node.", node_id=node_id)
 
+            # 3. Pedagogy Metadata (PEDOPT-009)
+            
             # Comprehension Check
             if form == "comprehension_check":
                 found_comp_check = True
+                q_type = payload.get("question_type")
+                if not q_type:
+                    self.log_warning("PED_MISSING_TYPE: comprehension_check missing 'question_type'", node_id=node_id)
+                else:
+                    cc_types.append(q_type)
 
-            # Payload Checks
-            payload = node.get("payload") or {}
+            # Pattern Transform
+            if mode == "pattern_transform":
+                t_type = payload.get("transform_type")
+                if not t_type:
+                    self.log_warning("PED_MISSING_TYPE: transform node missing 'transform_type'", node_id=node_id)
+
+            # Repair Practice
+            if mode == "repair_practice":
+                if not payload.get("trigger_type") or not payload.get("repair_goal"):
+                    self.log_warning("PED_MISSING_TYPE: repair_practice missing 'trigger_type' or 'repair_goal'", node_id=node_id)
+
+            # Review Retrieval
+            if form == "review_card":
+                if not payload.get("target_type"):
+                    self.log_warning("PED_MISSING_TYPE: review_card missing 'target_type'", node_id=node_id)
+                if not payload.get("retrieval_focus"):
+                    self.log_warning("PED_MISSING_RETRIEVAL_FOCUS: review_card missing 'retrieval_focus'", node_id=node_id)
+
+            # Listening Discrimination (Experimental)
+            if form == "listening_discrimination_micro":
+                if not payload.get("discrimination_target") or not payload.get("distractor_rationale"):
+                    self.log_warning("PED_LISTENING_NO_RATIONALE: missing 'discrimination_target' or 'distractor_rationale'", node_id=node_id)
+
+            # 4. Miscellaneous Payload Checks
             if "answers_ko" in payload:
                 self.log_warning("Uses legacy payload.answers_ko; prefer reference_answers_ko", node_id=node_id)
             
@@ -148,8 +183,24 @@ class MockupChecker:
                 if len(payload["notice_items"]) != len(payload["notice_items_zh_tw"]):
                     self.log_warning(f"notice_items length mismatch: {len(payload['notice_items'])} vs {len(payload['notice_items_zh_tw'])}", node_id=node_id)
 
+        # 5. Global Sequence Validations
         if found_input and not found_comp_check:
             self.log_error("ERR_MISSING_COMPREHENSION: No comprehension_check found in the sequence.")
+        
+        if len(cc_types) > 1 and len(set(cc_types)) == 1:
+            self.log_warning(f"PED_LOW_CC_DIVERSITY: All {len(cc_types)} CC nodes use the same type: {cc_types[0]}")
+
+        # 6. Followup Validations
+        for followup in fixture.get("scheduled_followups", []):
+            f_id = followup.get("id", "followup")
+            f_type = followup.get("followup_type")
+            p_refs = followup.get("transfer_pattern_refs", [])
+            
+            if f_type == "transfer" and not p_refs:
+                self.log_error("PED_FOLLOWUP_INCONSISTENT: followup_type is 'transfer' but 'transfer_pattern_refs' is empty.", node_id=f_id)
+            
+            if is_v0_1 and not f_type:
+                self.log_warning("PED_MISSING_TYPE: followup missing 'followup_type' in v0.1 unit", node_id=f_id)
 
         return len(self.errors) == 0
 

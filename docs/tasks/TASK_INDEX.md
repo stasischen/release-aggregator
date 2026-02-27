@@ -57,7 +57,6 @@ Phase C: 前端整合（lingo-frontend-web）
 
 | Task ID | 描述 | Phase | 進度 | 檔案 |
 | :--- | :--- | :--- | :--- | :--- |
-| CONTENT_PIPELINE_POST_SEPARATION_GAPS | Universal Pipeline 後續缺口收斂（Yarn / Mapping Split / Lemma Heuristic / Validation Integration） | B1/B2 | 3/4 tasks | [JSON](CONTENT_PIPELINE_POST_SEPARATION_GAPS_TASKS.json) |
 
 ---
 
@@ -81,6 +80,7 @@ Phase C: 前端整合（lingo-frontend-web）
 | CONTENT_PIPELINE_SEPARATION | 職責分離 + Build 格式 | 2026-02-25 | [ARCHIVE](archive/20260225_CONTENT_PIPELINE_SEPARATION_TASKS.json) |
 | MAPPING_DICTIONARY | 字典映射標準化 + 品質驗證（含雙層詞性落地） | 2026-02-27 | [ARCHIVE](archive/20260227_MAPPING_DICTIONARY_TASKS.json) |
 | COURSE_UNIT_FACTORY | 課程單元量產工廠（unit blueprint 模板化 + lint + multi-unit mockup 驗證） | 2026-02-27 | [ARCHIVE](archive/20260227_COURSE_UNIT_FACTORY_TASKS.json) |
+| CONTENT_PIPELINE_POST_SEPARATION_GAPS | Universal Pipeline 後續缺口收斂 | 2026-02-27 | [ARCHIVE](archive/20260227_CONTENT_PIPELINE_POST_SEPARATION_GAPS_TASKS.json) |
 
 ---
 

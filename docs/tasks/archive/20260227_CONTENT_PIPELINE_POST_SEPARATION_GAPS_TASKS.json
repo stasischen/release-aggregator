@@ -1,11 +1,12 @@
 {
   "task_id": "CONTENT_PIPELINE_POST_SEPARATION_GAPS",
   "description": "Universal pipeline post-separation parity gaps (Yarn, mapping split, lemma heuristics, validation integration)",
-  "status": "todo",
+  "status": "done",
   "source_epic": "CONTENT_PIPELINE_SEPARATION",
   "notes": [
     "Created after CONTENT_PIPELINE_SEPARATION closeout to track known SEP-04/SEP-05 gaps without reopening the completed epic.",
-    "Prioritize parity and integration work before broadening to new languages."
+    "Prioritize parity and integration work before broadening to new languages.",
+    "CPG-04 completed: Unified main.py workflow and baseline established (2026-02-27)."
   ],
   "tasks": [
     {
@@ -26,7 +27,7 @@
     {
       "id": "CPG-04",
       "desc": "Integrate packaging and engine execution validation into a unified command/workflow (documented parity path -> executable path).",
-      "status": "todo"
+      "status": "done"
     }
   ]
 }

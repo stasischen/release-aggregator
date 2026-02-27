@@ -16,7 +16,7 @@
     {
       "id": "CPG-02",
       "desc": "Migrate multi-file POS mapping split/verification logic from legacy scripts into the universal pipeline flow.",
-      "status": "todo"
+      "status": "done"
     },
     {
       "id": "CPG-03",

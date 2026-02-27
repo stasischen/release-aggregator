@@ -55,7 +55,7 @@ Phase C: 前端整合（lingo-frontend-web）
 
 | Task ID | 描述 | Phase | 進度 | 檔案 |
 | :--- | :--- | :--- | :--- | :--- |
-| CONTENT_PIPELINE_POST_SEPARATION_GAPS | Universal Pipeline 後續缺口收斂（Yarn / Mapping Split / Lemma Heuristic / Validation Integration） | B1/B2 | 2/4 tasks | [JSON](CONTENT_PIPELINE_POST_SEPARATION_GAPS_TASKS.json) |
+| CONTENT_PIPELINE_POST_SEPARATION_GAPS | Universal Pipeline 後續缺口收斂（Yarn / Mapping Split / Lemma Heuristic / Validation Integration） | B1/B2 | 3/4 tasks | [JSON](CONTENT_PIPELINE_POST_SEPARATION_GAPS_TASKS.json) |
 
 ---
 

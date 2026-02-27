@@ -94,6 +94,18 @@
 }
 ```
 
+### Comprehension Check (理解檢查)
+```json
+"payload": {
+  "question_type": "info_extract | intent | next_response | sequence",
+  "prompt_zh_tw": "題目描述",
+  "options": [
+    { "text": "對的選項", "is_correct": true, "feedback_zh_tw": "對的解析" },
+    { "text": "錯的選項", "is_correct": false, "feedback_zh_tw": "錯的提示" }
+  ]
+}
+```
+
 ### Pattern Card (句型卡)
 ```json
 "payload": {
@@ -105,6 +117,32 @@
     }
   ],
   "grammar_help_zh_tw": "畫面上方的快速指引"
+}
+```
+
+### Pattern Transform (變體練習)
+```json
+"payload": {
+  "transform_type": "slot | scenario | function | politeness | correction",
+  "base_sentence_ko": "저는 커피를 마셔요.",
+  "instruction_zh_tw": "請換成「茶」來練習",
+  "tasks": [
+    {
+       "prompt_zh_tw": "換成：茶 (차)",
+       "target_examples": ["저는 차를 마셔요."]
+    }
+  ]
+}
+```
+
+### Review Retrieval (複習檢索)
+```json
+"payload": {
+  "target_type": "form | function | mixed",
+  "retrieval_focus": "本次檢索的核心重點",
+  "context_zh_tw": "情境描述",
+  "prompt_zh_tw": "提示文字",
+  "target_examples": ["標準答案"]
 }
 ```
 
@@ -128,12 +166,16 @@
 
 ## 4. 教育品質核查清單 (Educational QA Checklist)
 
-### 骨架結構 (Unit Skeleton)
+#### 骨架結構 (Unit Skeleton)
 - [ ] **Scaffolding**: 單元安排是否遵循從沉浸輸入 -> 句型建模 -> 受控練習 -> 自由產出的順序？
 - [ ] **Balance**: 聽、讀、說、寫的比例是否平衡？(Target `output_ratio_target` 應介於 0.3 - 0.6)
 - [ ] **Retrieval**: 單元末尾是否有 `review_card` 進行無提示回想？
+- [ ] **Pedagogy Metadata**: 所有 `comprehension_check`, `pattern_transform`, `repair_practice`, `review_card` 是否都填寫了對應的 `type` 標籤？
 
-### 內容質量 (Content Quality)
+#### 內容質量 (Content Quality)
+- [ ] **CC Diversity**: 理解檢查題型是否多樣（不只有資訊提取）？
+- [ ] **Transform Transfer**: 變體練習是否包含 `scenario` 或 `function` 遷移，而非單純換名詞？
+- [ ] **Followup Semantics**: `scheduled_followups` 是否標明了 `followup_type` (review/transfer)？
 - [ ] **Bilingual**: 所有 `zh_tw` 翻譯是否準確且符合台灣用語習慣（非機器直譯）？
 - [ ] **Honorifics**: 韓文敬語等級在單元內是否一致（例如 A1 預設使用 해요體）？
 - [ ] **Authenticity**: 對話是否自然？（避免像機器人般的課本對話）

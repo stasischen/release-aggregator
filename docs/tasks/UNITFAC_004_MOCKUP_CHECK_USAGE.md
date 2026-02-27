@@ -34,13 +34,18 @@ python scripts/mockup_check.py --index docs/tasks/mockups/modular/data/fixtures.
 - **ERR_MIN_NODE_COUNT**: Unit has fewer than 10 nodes (PR standard is 12-18).
 - **ERR_ORDER_VIOLATION**: Output nodes appear before input or structure nodes.
 - **ERR_MISSING_COMPREHENSION**: No `comprehension_check` node found after the initial input.
+- **PED_FOLLOWUP_INCONSISTENT**: `followup_type: transfer` but `transfer_pattern_refs` is empty.
 - **Unsupported Values**: Use of unknown `learning_role`, `content_form`, or `output_mode`.
 - **Mixed-Script**: Detects Chinese characters accidentally mixed into Korean strings (e.g., `7時` instead of `7시`).
 
 ### Warnings
+- **PED_MISSING_TYPE**: `comprehension_check` or `pattern_transform` missing type label (e.g. `question_type`).
+- **PED_MISSING_RETRIEVAL_FOCUS**: `review_card` nodes missing `retrieval_focus` description.
+- **PED_LISTENING_NO_RATIONALE**: `listening_discrimination` missing `distractor_rationale` or `feedback_zh_tw`.
+- **PED_LOW_CC_DIVERSITY**: All CC nodes in a unit have the same `question_type`.
 - **Missing zh-TW**: Detects empty or `TODO` markers in Chinese translation fields.
 - **Legacy Aliases**: Detects use of `answers_ko` (deprecated) instead of `reference_answers_ko`.
-- **Bilingual Mismatch**: Detects cases where the number of Korean items doesn't match the number of Chinese translations (e.g., in `notice_items`).
+- **Bilingual Mismatch**: Detects cases where the number of Korean items doesn't match the number of Chinese translations.
 
 ## Allowlisted Values (Upgraded)
 

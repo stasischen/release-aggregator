@@ -46,22 +46,22 @@
     {
       "id": "PEDOPT-009",
       "desc": "Integrate pedagogy metadata into contracts/templates/checkers: UNITFAC-001 contract freeze inputs, UNITFAC-005 templates, UNITFAC-004 mockup-check warnings.",
-      "status": "todo"
+      "status": "done"
     },
     {
       "id": "PEDOPT-010",
       "desc": "Pilot application + review: patch A1-U04/A1-U05 (or next 2 PR-ready units) with selected pedagogy upgrades and document outcomes before freeze.",
-      "status": "todo"
+      "status": "done"
     },
     {
       "id": "PEDOPT-011",
       "desc": "PM educational QA checklist v2: convert pedagogy optimizations into PM trial checklist items and issue triage labels.",
-      "status": "todo"
+      "status": "done"
     },
     {
       "id": "PEDOPT-012",
       "desc": "Freeze readiness recommendation for UNITFAC-001: confirm which pedagogy fields/rules are stable enough for contract freeze vs deferred.",
-      "status": "todo"
+      "status": "done"
     }
   ]
 }

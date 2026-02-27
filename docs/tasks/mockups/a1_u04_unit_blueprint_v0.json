@@ -1,5 +1,5 @@
 {
-  "version": "unit_blueprint_v0",
+  "version": "unit_blueprint_v0.1",
   "adapter_contract": {
     "adapter_version": "frontend_unit_adapter_v0",
     "stability": "proposed",
@@ -117,6 +117,7 @@
       "summary_zh_tw": "針對 L1 對話內容的理解度檢查。",
       "payload": {
         "mode": "comprehension_check",
+        "question_type": "info_extract",
         "items": [
           {
             "prompt_zh_tw": "顧客點了哪些品項？",
@@ -771,6 +772,8 @@
       ],
       "expected_output_zh_tw": "能不看教材產出目標功能句，代表本單元任務成功。",
       "payload": {
+        "target_type": "mixed",
+        "retrieval_focus": "點餐核心句、付款、訊息約見時間",
         "prompts_zh_tw": [
           "你要點『冰美式兩杯』，韓文怎麼組？",
           "當店員問內用外帶，你要回『要在店裡吃』怎麼說？",
@@ -823,16 +826,24 @@
       "id": "U04-X1",
       "candidate_type": "path_node",
       "learning_role": "cross_unit_transfer",
+      "followup_type": "transfer",
       "timing": "+1 unit",
       "transfer_to": "A1-L06 (Accommodation)",
+      "transfer_pattern_refs": [
+        "주세요"
+      ],
       "goal_zh_tw": "將『請求 (주세요)』模式遷移至旅館情境：索取毛巾、詢問 Wi-Fi 密碼。"
     },
     {
       "id": "U04-X2",
       "candidate_type": "path_node",
       "learning_role": "cross_unit_transfer",
+      "followup_type": "transfer",
       "timing": "+3 units",
       "transfer_to": "A1-L08 (Pharmacy)",
+      "transfer_pattern_refs": [
+        "말고"
+      ],
       "goal_zh_tw": "將『不要... 要... (말고)』模式遷移至藥局情境：不要藥粉，要藥丸。"
     }
   ]

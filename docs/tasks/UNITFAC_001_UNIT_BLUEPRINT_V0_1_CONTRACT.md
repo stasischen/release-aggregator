@@ -31,17 +31,20 @@ The `unit_blueprint_v0.1` contract represents the transition from "Technical Moc
 ### 2.2 Node-Level Additions
 
 - **Comprehension Check**: `content_form: comprehension_check` is now a standard form.
-- **Review Metadata**: `review_card` nodes MUST include `retrieval_target` in the payload.
-  - `form`: Focus on spelling/structure.
-  - `function`: Focus on context/meaning.
-  - `mixed`: Both.
-- **Improved Output Modes**:
-  - `pattern_transform`: Explicitly for switching variables within a sentence frame.
-  - `repair_practice`: Focused on communication failure recovery (e.g., "Wait," "Slow down").
+  - MUST include `payload.question_type` (`info_extract`, `intent`, `next_response`, `sequence`).
+- **Pattern Transform**: `payload.transform_type` is now mandatory.
+  - Allowed: `slot`, `scenario`, `function`, `politeness`, `correction`.
+- **Repair Practice**: MUST include `payload.trigger_type` and `payload.repair_goal`.
+- **Review Metadata**: `review_card` nodes MUST include `retrieval_target` AND `retrieval_focus`.
+  - `retrieval_target`: `form` | `function` | `mixed`.
+  - `retrieval_focus`: zh-TW description of retrieval goal.
+- **Listening Discrimination**: `payload.discrimination_target` for minimal TTS checks.
 
 ### 2.3 Followup Extensions
 
-- `scheduled_followups[].transfer_pattern_refs`: An array of strings referencing the key patterns (e.g., `["주세요", "-(으)세요"]`) to be reinforced in future units.
+- `scheduled_followups[].followup_type`: `review` | `transfer`.
+- `scheduled_followups[].transfer_pattern_refs`: An array of strings referencing the key patterns (e.g., `["주세요", "-(으)세요"]`).
+  - **Mandatory** if `followup_type` is `transfer`.
 
 ---
 

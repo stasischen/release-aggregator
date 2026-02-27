@@ -203,12 +203,16 @@ textarea {
 /* List Pane Styles */
 .list-pane {
   overflow: hidden;
+  min-height: 0;
 }
 
 .node-list {
   display: grid;
   gap: 12px;
   padding: 20px;
+  overflow-y: auto;
+  flex: 1;
+  min-height: 0;
 }
 
 .node-card {
@@ -306,6 +310,7 @@ textarea {
 /* Detail Pane Styles */
 .detail-pane {
   background: #fff;
+  min-height: 0;
 }
 
 .content-header {

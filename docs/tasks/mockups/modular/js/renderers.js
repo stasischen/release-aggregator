@@ -205,19 +205,28 @@ const renderComparison = function (payload) {
   const html = opts.map(o => `
     <div class="compare-card">
       <span class="card-id">${o.id}</span>
-      <h4>${window.escapeHtml(o.label_zh_tw)}</h4>
+      <h4>
+        ${window.escapeHtml(o.label_ko || o.label_zh_tw || '')}
+        ${(window.showBilingual() && o.label_zh_tw && o.label_ko) ? `<div class="tiny-text muted" style="font-weight:500; margin-top:4px;">${window.escapeHtml(o.label_zh_tw)}</div>` : ''}
+      </h4>
       <div class="price-tag">${(o.price_krw || 0).toLocaleString()} KRW</div>
       <div class="compare-pros">
-        ${(o.pros_zh_tw || []).map(p => `<div class="pro-item">${window.escapeHtml(p)}</div>`).join('')}
+        ${(o.pros_ko || o.pros_zh_tw || []).map((p, idx) => `
+          <div class="pro-item">
+            ${window.escapeHtml(p)}
+            ${(window.showBilingual() && o.pros_ko && o.pros_zh_tw && o.pros_zh_tw[idx]) ? `<div class="tiny-text muted" style="margin-top:2px;">${window.escapeHtml(o.pros_zh_tw[idx])}</div>` : ''}
+          </div>
+        `).join('')}
       </div>
     </div>
   `).join('');
 
   let frameNote = '';
-  if (payload.reason_frame_zh_tw) {
+  if (payload.reason_frame_ko || payload.reason_frame_zh_tw) {
     frameNote = `<div class="summary-box" style="margin-top:20px; border-style:solid; border-color:var(--accent2-soft); background:var(--accent2-soft);">
       <span class="label" style="color:var(--accent2);">推薦理由句型</span>
-      ${payload.reason_frame_zh_tw}
+      ${window.escapeHtml(payload.reason_frame_ko || payload.reason_frame_zh_tw || '')}
+      ${(window.showBilingual() && payload.reason_frame_ko && payload.reason_frame_zh_tw) ? `<div class="tiny-text muted" style="margin-top:4px;">${window.escapeHtml(payload.reason_frame_zh_tw)}</div>` : ''}
     </div>`;
   }
 
@@ -257,6 +266,38 @@ const renderPracticeCardHead = function (payload, node) {
       ${payload.prompt_zh_tw ? `<div style="margin-bottom:10px;">${window.escapeHtml(payload.prompt_zh_tw)}</div>` : ''}
       ${total ? `<div class="tiny-text muted">本節練習題數：${total}</div>` : ''}
       <div class="tiny-text muted" style="margin-top:8px;">互動內容請見下方練習區塊。</div>
+    </div>
+  `;
+};
+
+const renderComprehensionCheck = function (payload) {
+  const items = payload.items || [];
+  const qType = payload.question_type || 'unknown';
+  const html = items.map((item, idx) => `
+    <div class="pattern-entry">
+      <div class="tiny-text muted">題目 ${idx + 1}</div>
+      <div style="font-weight:600; margin:4px 0 8px;">${window.escapeHtml(item.prompt_zh_tw || item.prompt_ko || '')}</div>
+      ${(item.response_choices_ko || []).length ? `
+        <div class="chip-cloud">
+          ${(item.response_choices_ko || []).map(c => `
+            <span class="word-chip">
+              ${window.escapeHtml(c)}
+              ${window.renderSpeakInline(c)}
+              ${window.showBilingual() && item.response_gloss_by_ko && item.response_gloss_by_ko[c] ? `
+                <span class="tiny-text muted" style="display:block; margin-top:3px;">${window.escapeHtml(item.response_gloss_by_ko[c])}</span>
+              ` : ''}
+            </span>
+          `).join('')}
+        </div>
+      ` : ''}
+    </div>
+  `).join('');
+
+  return `
+    <div class="content-block">
+      <div class="block-title">理解檢核</div>
+      <div class="tiny-text muted" style="margin-bottom:10px;">題型：${window.escapeHtml(qType)}</div>
+      <div class="pattern-card-box">${html || '<div class="empty-state">無題目資料</div>'}</div>
     </div>
   `;
 };
@@ -377,11 +418,14 @@ const renderChunkAssemblyMode = function (node) {
   const tasks = payload.tasks || [];
   const taskIdx = nodeState.activeTaskIndex || 0;
   const task = tasks[taskIdx];
-  if (!task) return `
-        <div class="interaction-panel">
-            <div class="muted-text">⚠️ 無法載入組句練習任務。</div>
-        </div>
+  if (!task) {
+    return `
+      <div class="interaction-panel">
+        <div class="interaction-label">ℹ️ 本節無互動題</div>
+        <div class="muted-text">此節點目前是內容瀏覽模式，未提供可操作的 chunk_assembly tasks。</div>
+      </div>
     `;
+  }
 
   const currentAnswers = nodeState.answers || [];
   const gloss = task.chunk_gloss_by_ko || {};
@@ -470,6 +514,48 @@ const renderGuidedOutputMode = function (node) {
   `;
 };
 
+const renderFrameFillMode = function (node) {
+  const frames = node.payload?.frames || [];
+  if (!frames.length) {
+    return `
+      <div class="interaction-panel">
+        <div class="interaction-label">ℹ️ Frame Fill</div>
+        <div class="muted-text">此節點未提供 frames，請先檢查 payload.frames。</div>
+      </div>
+    `;
+  }
+  return `
+    <div class="interaction-panel animate-in">
+      <div class="interaction-label">🧩 句框填空練習</div>
+      ${frames.map((f, idx) => `
+        <div style="margin-top:10px; padding:10px; background:#fff; border:1px solid var(--line); border-radius:8px;">
+          <div class="tiny-text muted">Frame ${idx + 1}</div>
+          <div style="font-weight:700; margin:4px 0;">${window.escapeHtml(f.frame || '')}</div>
+          ${f.use_zh_tw ? `<div class="tiny-text muted">${window.escapeHtml(f.use_zh_tw)}</div>` : ''}
+        </div>
+      `).join('')}
+      <div class="tiny-text muted" style="margin-top:10px;">先口頭替換 slot，再到筆記區寫一版完整句子。</div>
+    </div>
+  `;
+};
+
+const renderPatternTransformMode = function (node) {
+  const payload = node.payload || {};
+  return `
+    <div class="interaction-panel animate-in">
+      <div class="interaction-label">🔁 句型變換練習</div>
+      <div class="tiny-text muted">Transform Type: ${window.escapeHtml(payload.transform_type || 'unspecified')}</div>
+      <div style="margin-top:8px;">${window.escapeHtml(payload.prompt_zh_tw || node.summary_zh_tw || '請根據本節句型完成變換。')}</div>
+      ${(payload.must_include_zh_tw || []).length ? `
+        <div style="margin-top:8px;">
+          <div class="tiny-text muted">必含元素</div>
+          <div class="chip-cloud">${payload.must_include_zh_tw.map(v => `<span class="word-chip">${window.escapeHtml(v)}</span>`).join('')}</div>
+        </div>
+      ` : ''}
+    </div>
+  `;
+};
+
 const renderReviewRetrievalMode = function (node) {
   const prompts = node.payload.prompts_zh_tw || [];
   const answers = node.payload.reference_answers_ko || node.payload.answers_ko || [];
@@ -511,6 +597,7 @@ window.renderFreeNote = function (node) {
 // --- Registry Initialization ---
 
 window.RendererRegistry.registerContent('dialogue', renderDialogue);
+window.RendererRegistry.registerContent('comprehension_check', renderComprehensionCheck);
 window.RendererRegistry.registerContent('notice', renderNotice);
 window.RendererRegistry.registerContent('message_thread', renderMessageThread);
 window.RendererRegistry.registerContent('comparison_card', renderComparison);
@@ -524,6 +611,8 @@ window.RendererRegistry.registerContent('review_card', renderReviewCard);
 
 window.RendererRegistry.registerInteraction('chunk_assembly', renderChunkAssemblyMode);
 window.RendererRegistry.registerInteraction('response_builder', renderResponseBuilderMode);
+window.RendererRegistry.registerInteraction('frame_fill', renderFrameFillMode);
+window.RendererRegistry.registerInteraction('pattern_transform', renderPatternTransformMode);
 window.RendererRegistry.registerInteraction('guided', renderGuidedOutputMode);
 window.RendererRegistry.registerInteraction('review_retrieval', renderReviewRetrievalMode);
 
@@ -601,4 +690,3 @@ window.updateNote = (val) => {
   const node = window.state.data.sequence[window.state.currentIndex];
   window.setNodeInteractionState(node.id, { note: val });
 };
-

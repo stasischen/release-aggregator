@@ -1,0 +1,648 @@
+{
+  "version": "unit_blueprint_v0.1",
+  "adapter_contract": {
+    "adapter_version": "frontend_unit_adapter_v0",
+    "stability": "proposed",
+    "fallback_locale_order": [
+      "zh-TW",
+      "en"
+    ],
+    "notes": "Legacy A1-01 migrated to unit v0.1 without modifying original dialogue lines."
+  },
+  "unit": {
+    "unit_id": "A1-U01",
+    "title_zh_tw": "新生報到與校園問答（Legacy A1-01 migrated）",
+    "target_language": "ko",
+    "learner_locale_source": "zh-TW",
+    "level": "A1",
+    "theme_zh_tw": "問候、自我介紹、身分與地點提問、校園日常對話",
+    "output_ratio_target": 0.45,
+    "can_do_zh_tw": [
+      "能用韓文做基本自我介紹",
+      "能詢問並回答來自哪裡",
+      "能看懂校園日常對話中的時間與地點資訊"
+    ]
+  },
+  "sequence": [
+    {
+      "id": "A1-U01-L1",
+      "candidate_type": "lesson",
+      "content_form": "dialogue",
+      "learning_role": "immersion_input",
+      "skill_focus": [
+        "listening",
+        "reading"
+      ],
+      "output_mode": "none",
+      "duration_min": 5,
+      "title_zh_tw": "新生問候與自我介紹",
+      "summary_zh_tw": "聚焦於身分確認與基本寒暄（判型：first_exposure）",
+      "sample_lines": [
+        "안녕하세요! 혹시 신입생이에요?",
+        "네, 맞아요. 오늘이 첫날이에요.",
+        "아, 환영해요! 제 이름은 민수예요."
+      ],
+      "expected_output_zh_tw": "理解該段對話的核心功能與語氣，為後續輸出節點做準備。",
+      "payload": {
+        "dialogue_turns": [
+          {
+            "line_id": "L01-D1-01",
+            "speaker": "민수",
+            "text": "안녕하세요! 혹시 신입생이에요?",
+            "zh_tw": "你好！你是新生嗎？"
+          },
+          {
+            "line_id": "L01-D1-02",
+            "speaker": "지수",
+            "text": "네, 맞아요. 오늘이 첫날이에요.",
+            "zh_tw": "對，沒錯。今天是第一天。"
+          },
+          {
+            "line_id": "L01-D1-03",
+            "speaker": "민수",
+            "text": "아, 환영해요! 제 이름은 민수예요.",
+            "zh_tw": "啊，歡迎！我的名字是敏秀。"
+          },
+          {
+            "line_id": "L01-D1-04",
+            "speaker": "지수",
+            "text": "반가워요, 민수 씨. 저는 지수예요.",
+            "zh_tw": "很高興認識你，敏秀。我是智秀。"
+          },
+          {
+            "line_id": "L01-D1-05",
+            "speaker": "민수",
+            "text": "서울 사람이에요?",
+            "zh_tw": "你是首爾人嗎？"
+          },
+          {
+            "line_id": "L01-D1-06",
+            "speaker": "지수",
+            "text": "아니요, 부산에서 왔어요.",
+            "zh_tw": "不，我是從釜山來的。"
+          },
+          {
+            "line_id": "L01-D1-07",
+            "speaker": "민수",
+            "text": "와! 부산요? 부산 정말 좋은 곳이죠. 우리 학교 생활이 즐거웠으면 좋겠네요.",
+            "zh_tw": "哇！釜山嗎？釜山真是個好地方。希望你的學校生活會很愉快。"
+          },
+          {
+            "line_id": "L01-D1-08",
+            "speaker": "지수",
+            "text": "감사합니다. 민수 씨는 여기 사세요?",
+            "zh_tw": "謝謝。敏秀你住這嗎？"
+          },
+          {
+            "line_id": "L01-D1-09",
+            "speaker": "민수",
+            "text": "네, 저는 여기 토박이예요.",
+            "zh_tw": "對，我是這裡的在地人。"
+          }
+        ]
+      },
+      "adapter_hints": {
+        "entry_surface": "lesson_runtime",
+        "completion_mode": "view_complete",
+        "content_renderer_key": "dialogue"
+      }
+    },
+    {
+      "id": "A1-U01-CC1",
+      "candidate_type": "lesson",
+      "content_form": "comprehension_check",
+      "learning_role": "immersion_input",
+      "skill_focus": [
+        "reading"
+      ],
+      "output_mode": "response_builder",
+      "duration_min": 3,
+      "title_zh_tw": "理解檢核：新生對話",
+      "summary_zh_tw": "檢查是否抓到 D1 的關鍵資訊，不依賴逐字翻譯。",
+      "sample_lines": [
+        "혹시 신입생이에요?",
+        "부산에서 왔어요."
+      ],
+      "expected_output_zh_tw": "能判斷對話中的身分與來處資訊。",
+      "payload": {
+        "question_type": "info_extract",
+        "items": [
+          {
+            "prompt_ko": "지수 씨는 어디에서 왔어요?",
+            "prompt_zh_tw": "智秀是從哪裡來的？",
+            "response_choices_ko": [
+              "서울에서 왔어요.",
+              "부산에서 왔어요.",
+              "인천에서 왔어요."
+            ],
+            "response_gloss_by_ko": {
+              "서울에서 왔어요.": "從首爾來。",
+              "부산에서 왔어요.": "從釜山來。",
+              "인천에서 왔어요.": "從仁川來。"
+            },
+            "accepted_responses_ko": [
+              "부산에서 왔어요."
+            ]
+          },
+          {
+            "prompt_ko": "민수 씨는 지수 씨에게 먼저 무엇을 말했어요?",
+            "prompt_zh_tw": "敏秀先對智秀說了什麼？",
+            "response_choices_ko": [
+              "환영해요.",
+              "미안해요.",
+              "잘 가요."
+            ],
+            "response_gloss_by_ko": {
+              "환영해요.": "歡迎你。",
+              "미안해요.": "對不起。",
+              "잘 가요.": "慢走。"
+            },
+            "accepted_responses_ko": [
+              "환영해요."
+            ]
+          }
+        ]
+      },
+      "adapter_hints": {
+        "content_renderer_key": "comprehension_check"
+      }
+    },
+    {
+      "id": "A1-U01-L2",
+      "candidate_type": "lesson",
+      "content_form": "dialogue",
+      "learning_role": "immersion_input",
+      "skill_focus": [
+        "listening",
+        "reading"
+      ],
+      "output_mode": "none",
+      "duration_min": 5,
+      "title_zh_tw": "第一天課程感受交流",
+      "summary_zh_tw": "延伸到老師與課程感受描述（判型：controlled_variation）",
+      "sample_lines": [
+        "지수 씨, 첫날 수업은 어때요?",
+        "정말 좋아요. 학교가 참 예쁘네요!",
+        "수업들은 어때요?"
+      ],
+      "expected_output_zh_tw": "理解該段對話的核心功能與語氣，為後續輸出節點做準備。",
+      "payload": {
+        "dialogue_turns": [
+          {
+            "line_id": "L01-D2-01",
+            "speaker": "민수",
+            "text": "지수 씨, 첫날 수업은 어때요?",
+            "zh_tw": "智秀，第一天的課怎麼樣？"
+          },
+          {
+            "line_id": "L01-D2-02",
+            "speaker": "지수",
+            "text": "정말 좋아요. 학교가 참 예쁘네요!",
+            "zh_tw": "真的很棒。學校真漂亮！"
+          },
+          {
+            "line_id": "L01-D2-03",
+            "speaker": "민수",
+            "text": "수업들은 어때요?",
+            "zh_tw": "課程怎麼樣？"
+          },
+          {
+            "line_id": "L01-D2-04",
+            "speaker": "지수",
+            "text": "재미있어요! 선생님들이 정말 친절하세요.",
+            "zh_tw": "很有趣！老師們真的很親切。"
+          },
+          {
+            "line_id": "L01-D2-05",
+            "speaker": "민수",
+            "text": "선생님이 누구예요?",
+            "zh_tw": "老師是誰？"
+          },
+          {
+            "line_id": "L01-D2-06",
+            "speaker": "지수",
+            "text": "한국어 선생님은 김 선생님이에요.",
+            "zh_tw": "韓語老師是金老師。"
+          },
+          {
+            "line_id": "L01-D2-07",
+            "speaker": "민수",
+            "text": "아, 그분 정말 좋으신 분이에요.",
+            "zh_tw": "啊，他真的是位好人。"
+          },
+          {
+            "line_id": "L01-D2-08",
+            "speaker": "지수",
+            "text": "네, 맞아요. 영어 선생님은 박 선생님이에요.",
+            "zh_tw": "對，沒錯。英語老師是朴老師。"
+          },
+          {
+            "line_id": "L01-D2-09",
+            "speaker": "민수",
+            "text": "오, 그분도 정말 나이스하세요.",
+            "zh_tw": "喔，他也非常友善。"
+          },
+          {
+            "line_id": "L01-D2-10",
+            "speaker": "지수",
+            "text": "네, 수업이 정말 즐거워요.",
+            "zh_tw": "是啊，上課真的很開心。"
+          }
+        ]
+      },
+      "adapter_hints": {
+        "entry_surface": "lesson_runtime",
+        "completion_mode": "view_complete",
+        "content_renderer_key": "dialogue"
+      }
+    },
+    {
+      "id": "A1-U01-L3",
+      "candidate_type": "lesson",
+      "content_form": "dialogue",
+      "learning_role": "immersion_input",
+      "skill_focus": [
+        "listening",
+        "reading"
+      ],
+      "output_mode": "none",
+      "duration_min": 5,
+      "title_zh_tw": "家庭成員與職業描述",
+      "summary_zh_tw": "加入第三人稱與敬語稱謂（判型：controlled_variation）",
+      "sample_lines": [
+        "가족 사진이네요. 이분이 누구예요?",
+        "저희 아버지예요. 의사세요.",
+        "와, 키가 정말 크시네요."
+      ],
+      "expected_output_zh_tw": "理解該段對話的核心功能與語氣，為後續輸出節點做準備。",
+      "payload": {
+        "dialogue_turns": [
+          {
+            "line_id": "L01-D3-01",
+            "speaker": "민수",
+            "text": "가족 사진이네요. 이분이 누구예요?",
+            "zh_tw": "這是全家福呢。這一位是誰？"
+          },
+          {
+            "line_id": "L01-D3-02",
+            "speaker": "지수",
+            "text": "저희 아버지예요. 의사세요.",
+            "zh_tw": "是我父親。他是醫生。"
+          },
+          {
+            "line_id": "L01-D3-03",
+            "speaker": "민수",
+            "text": "와, 키가 정말 크시네요.",
+            "zh_tw": "哇，他真的很高。"
+          },
+          {
+            "line_id": "L01-D3-04",
+            "speaker": "지수",
+            "text": "네, 맞아요.",
+            "zh_tw": "對，沒錯。"
+          },
+          {
+            "line_id": "L01-D3-05",
+            "speaker": "민수",
+            "text": "이분은 어머니세요?",
+            "zh_tw": "這一位是母親嗎？"
+          },
+          {
+            "line_id": "L01-D3-06",
+            "speaker": "지수",
+            "text": "네, 어머니도 의사세요.",
+            "zh_tw": "對，母親也是醫生。"
+          },
+          {
+            "line_id": "L01-D3-07",
+            "speaker": "민수",
+            "text": "와! 똑똑한 가족이네요.",
+            "zh_tw": "哇！真是個聰明的家庭。"
+          }
+        ]
+      },
+      "adapter_hints": {
+        "entry_surface": "lesson_runtime",
+        "completion_mode": "view_complete",
+        "content_renderer_key": "dialogue"
+      }
+    },
+    {
+      "id": "A1-U01-L4",
+      "candidate_type": "lesson",
+      "content_form": "dialogue",
+      "learning_role": "immersion_input",
+      "skill_focus": [
+        "listening",
+        "reading"
+      ],
+      "output_mode": "none",
+      "duration_min": 5,
+      "title_zh_tw": "校園問路與上課安排",
+      "summary_zh_tw": "切到時間/地點詢問與原因說明（判型：transfer_application）",
+      "sample_lines": [
+        "민수 씨, 컴퓨터실이 어디예요?",
+        "복도 끝에 있어요.",
+        "내일 한국어 수업이 있어요."
+      ],
+      "expected_output_zh_tw": "理解該段對話的核心功能與語氣，為後續輸出節點做準備。",
+      "payload": {
+        "dialogue_turns": [
+          {
+            "line_id": "L01-D4-01",
+            "speaker": "지수",
+            "text": "민수 씨, 컴퓨터실이 어디예요?",
+            "zh_tw": "敏秀，電腦室在哪裡？"
+          },
+          {
+            "line_id": "L01-D4-02",
+            "speaker": "민수",
+            "text": "복도 끝에 있어요.",
+            "zh_tw": "在走廊盡頭。"
+          },
+          {
+            "line_id": "L01-D4-03",
+            "speaker": "지수",
+            "text": "내일 한국어 수업이 있어요.",
+            "zh_tw": "明天有韓語課。"
+          },
+          {
+            "line_id": "L01-D4-04",
+            "speaker": "민수",
+            "text": "아, 수업이 언제예요?",
+            "zh_tw": "啊，什麼時候上課？"
+          },
+          {
+            "line_id": "L01-D4-05",
+            "speaker": "지수",
+            "text": "방과 후 6시예요.",
+            "zh_tw": "放學後6點。"
+          },
+          {
+            "line_id": "L01-D4-06",
+            "speaker": "민수",
+            "text": "왜 온라인 수업이 아니에요?",
+            "zh_tw": "為什麼不是線上課程？"
+          },
+          {
+            "line_id": "L01-D4-07",
+            "speaker": "지수",
+            "text": "온라인이기도 한데, 제가 이사를 온 지 얼마 안 돼서 집에 아직 인터넷이 없어요.",
+            "zh_tw": "雖然也有線上的，但我剛搬來不久，家裡還沒有網路。"
+          },
+          {
+            "line_id": "L01-D4-08",
+            "speaker": "민수",
+            "text": "아, 그렇군요. 수업 잘 들으세요!",
+            "zh_tw": "啊，原來如此。上課加油！"
+          },
+          {
+            "line_id": "L01-D4-09",
+            "speaker": "지수",
+            "text": "고마워요. 온라인 수업이 정말 기대돼요!",
+            "zh_tw": "謝謝。真的很期待線上課程！"
+          }
+        ]
+      },
+      "adapter_hints": {
+        "entry_surface": "lesson_runtime",
+        "completion_mode": "view_complete",
+        "content_renderer_key": "dialogue"
+      }
+    },
+    {
+      "id": "A1-U01-G1",
+      "candidate_type": "grammar_note",
+      "content_form": "pattern_card",
+      "learning_role": "structure_pattern",
+      "skill_focus": [
+        "reading",
+        "writing"
+      ],
+      "output_mode": "frame_fill",
+      "duration_min": 4,
+      "title_zh_tw": "核心句型：N-이에요/예요",
+      "summary_zh_tw": "建立「是…」與「問身份」的基本句框。",
+      "sample_lines": [
+        "저는 ___예요.",
+        "___ 사람이에요?"
+      ],
+      "expected_output_zh_tw": "能替換名字、身分與城市進行自我介紹與提問。",
+      "payload": {
+        "frames": [
+          {
+            "frame": "저는 ___예요/이에요.",
+            "use_zh_tw": "介紹自己的名字/身份",
+            "slots_zh_tw": [
+              "名字/職業/身分"
+            ]
+          },
+          {
+            "frame": "___ 사람이에요?",
+            "use_zh_tw": "詢問對方來自哪裡",
+            "slots_zh_tw": [
+              "城市/國家"
+            ]
+          }
+        ]
+      },
+      "adapter_hints": {
+        "content_renderer_key": "pattern_card",
+        "interaction_renderer_key": "frame_fill"
+      }
+    },
+    {
+      "id": "A1-U01-D1",
+      "candidate_type": "dictionary_pack",
+      "content_form": "functional_phrase_pack",
+      "learning_role": "structure_pattern",
+      "skill_focus": [
+        "reading"
+      ],
+      "output_mode": "chunk_assembly",
+      "duration_min": 4,
+      "title_zh_tw": "高頻詞塊：問候與身份",
+      "summary_zh_tw": "整理本課最常用的生存詞塊。",
+      "sample_lines": [
+        "신입생이에요",
+        "부산에서 왔어요"
+      ],
+      "expected_output_zh_tw": "能快速辨識與組裝自我介紹相關短語。",
+      "payload": {
+        "sections": [
+          {
+            "title_zh_tw": "問候/身份",
+            "items": [
+              "안녕하세요",
+              "신입생이에요",
+              "저는 지수예요",
+              "서울 사람이에요?"
+            ],
+            "item_gloss_by_ko": {
+              "안녕하세요": "你好",
+              "신입생이에요": "是新生",
+              "저는 지수예요": "我是智秀",
+              "서울 사람이에요?": "是首爾人嗎？"
+            }
+          }
+        ]
+      },
+      "adapter_hints": {
+        "content_renderer_key": "functional_phrase_pack",
+        "interaction_renderer_key": "chunk_assembly"
+      }
+    },
+    {
+      "id": "A1-U01-P1",
+      "candidate_type": "path_node",
+      "content_form": "practice_card",
+      "learning_role": "controlled_output",
+      "skill_focus": [
+        "writing",
+        "speaking"
+      ],
+      "output_mode": "chunk_assembly",
+      "duration_min": 4,
+      "title_zh_tw": "拼句練習：自我介紹",
+      "summary_zh_tw": "使用詞塊組裝完整句子。",
+      "sample_lines": [
+        "저는 / 부산 / 사람이에요"
+      ],
+      "expected_output_zh_tw": "能正確組句並朗讀。",
+      "payload": {
+        "tasks": [
+          {
+            "prompt_zh_tw": "請組出「我是釜山人。」",
+            "chunks": [
+              "저는",
+              "부산",
+              "사람이에요"
+            ],
+            "chunk_gloss_by_ko": {
+              "저는": "我",
+              "부산": "釜山",
+              "사람이에요": "是…人"
+            },
+            "target_examples": [
+              "저는 부산 사람이에요."
+            ],
+            "target_examples_zh_tw": [
+              "我是釜山人。"
+            ]
+          },
+          {
+            "prompt_zh_tw": "請組出「你是新生嗎？」",
+            "chunks": [
+              "혹시",
+              "신입생이에요?"
+            ],
+            "chunk_gloss_by_ko": {
+              "혹시": "請問/或許",
+              "신입생이에요?": "是新生嗎？"
+            },
+            "target_examples": [
+              "혹시 신입생이에요?"
+            ],
+            "target_examples_zh_tw": [
+              "請問你是新生嗎？"
+            ]
+          }
+        ]
+      },
+      "adapter_hints": {
+        "content_renderer_key": "practice_card",
+        "interaction_renderer_key": "chunk_assembly"
+      }
+    },
+    {
+      "id": "A1-U01-P2",
+      "candidate_type": "path_node",
+      "content_form": "practice_card",
+      "learning_role": "controlled_output",
+      "skill_focus": [
+        "writing"
+      ],
+      "output_mode": "pattern_transform",
+      "duration_min": 4,
+      "title_zh_tw": "變體練習：城市替換",
+      "summary_zh_tw": "把「___ 사람이에요」套到不同城市。",
+      "sample_lines": [
+        "서울 사람이에요",
+        "부산 사람이에요"
+      ],
+      "expected_output_zh_tw": "能以同句型替換不同地名。",
+      "payload": {
+        "transform_type": "slot",
+        "prompt_zh_tw": "把句型「저는 ___ 사람이에요.」替換成你自己的城市。",
+        "must_include_zh_tw": [
+          "저는",
+          "사람이에요"
+        ]
+      },
+      "adapter_hints": {
+        "content_renderer_key": "practice_card",
+        "interaction_renderer_key": "pattern_transform"
+      }
+    },
+    {
+      "id": "A1-U01-R1",
+      "candidate_type": "path_node",
+      "content_form": "review_card",
+      "learning_role": "review_retrieval",
+      "skill_focus": [
+        "reading",
+        "writing"
+      ],
+      "output_mode": "review_retrieval",
+      "duration_min": 4,
+      "title_zh_tw": "課末回想：你還記得嗎？",
+      "summary_zh_tw": "先回想，再查看提示與參考答案。",
+      "sample_lines": [
+        "저는 ___예요.",
+        "___ 사람이에요?"
+      ],
+      "expected_output_zh_tw": "能在無提示下回想核心句型。",
+      "payload": {
+        "target_type": "form+function",
+        "retrieval_focus": "self_intro_and_origin",
+        "prompts_zh_tw": [
+          "請用韓文說「我是智秀。」",
+          "請用韓文問「你是首爾人嗎？」"
+        ],
+        "reference_answers_ko": [
+          "저는 지수예요.",
+          "서울 사람이에요?"
+        ],
+        "hint_policy": "先獨立作答 20 秒，再看提示。"
+      },
+      "adapter_hints": {
+        "content_renderer_key": "review_card",
+        "interaction_renderer_key": "review_retrieval"
+      }
+    }
+  ],
+  "scheduled_followups": [
+    {
+      "id": "A1-U01-X1",
+      "days_after": 1,
+      "title_zh_tw": "24 小時複習：自我介紹快速回想",
+      "followup_type": "review",
+      "prompts_zh_tw": [
+        "請說出「我是___」與「你是___人嗎？」兩句"
+      ]
+    },
+    {
+      "id": "A1-U01-X2",
+      "days_after": 3,
+      "title_zh_tw": "情境遷移：在社團初次見面",
+      "followup_type": "transfer",
+      "transfer_pattern_refs": [
+        "A1-U01-G1: 저는 ___예요/이에요",
+        "A1-U01-G1: ___ 사람이에요?"
+      ],
+      "prompts_zh_tw": [
+        "把同樣句型用到「社團迎新」情境，寫 2 句自我介紹。"
+      ]
+    }
+  ]
+}

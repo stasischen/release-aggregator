@@ -34,6 +34,28 @@ const elements = {
     ttsVoiceHint: document.getElementById('ttsVoiceHint')
 };
 
+function renderLoadError(err) {
+    const isFileProtocol = window.location.protocol === 'file:';
+    const advice = isFileProtocol
+        ? `
+        <div class="tiny-text muted" style="margin-top:8px;">
+          你目前是用 <code>file://</code> 直接開啟。多數瀏覽器會封鎖本地 JSON 的 <code>fetch</code>。
+        </div>
+        <pre style="margin-top:8px; font-size:11px; white-space:pre-wrap;">請改用本機 HTTP:
+cd /Users/ywchen/Dev/lingo/release-aggregator/docs/tasks/mockups/modular
+python3 -m http.server 8080
+# 開啟 http://localhost:8080</pre>
+        `
+        : '';
+
+    elements.detailHeader.innerHTML = `
+      <div class="empty-state">
+        載入數據失敗: ${window.escapeHtml(err.message || String(err))}
+        ${advice}
+      </div>
+    `;
+}
+
 // --- Sidebar & Progress Rendering ---
 
 window.renderSidebar = function () {
@@ -266,7 +288,7 @@ window.switchUnit = async function (path) {
         window.renderCurrentNode();
         window.showToast(`已載入單元: ${window.state.data.unit.unit_id}`);
     } catch (e) {
-        elements.detailHeader.innerHTML = `<div class="empty-state">載入數據失敗: ${e.message}</div>`;
+        renderLoadError(e);
     }
 }
 
@@ -300,7 +322,7 @@ async function bootstrap() {
         wireEvents();
         window.renderCurrentNode();
     } catch (e) {
-        elements.detailHeader.innerHTML = `<div class="empty-state">載入數據失敗: ${e.message}</div>`;
+        renderLoadError(e);
     }
 }
 

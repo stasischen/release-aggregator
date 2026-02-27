@@ -1,10 +1,9 @@
-import 'dart:convert';
-import 'dart:io';
-import '../lib/models/candidate_review_item.dart';
-import '../lib/utils/export_adapters.dart';
+import 'package:flutter/foundation.dart';
+import 'package:content_candidate_review/models/candidate_review_item.dart';
+import 'package:content_candidate_review/utils/export_adapters.dart';
 
 void main() {
-  print('--- Adapter Smoke Test ---');
+  debugPrint('--- Adapter Smoke Test ---');
 
   // 1. Mock Input Data (Review Results)
   final mockJson = [
@@ -55,14 +54,14 @@ void main() {
   final items = mockJson.map((j) => CandidateReviewItem.fromJson(j)).toList();
 
   // 2. Test Catalog Draft Export
-  print('\n[Output: catalog_draft.json]');
+  debugPrint('\n[Output: catalog_draft.json]');
   final catalogDraft = ExportAdapters.toCatalogDraft(items);
-  print(catalogDraft);
+  debugPrint(catalogDraft.toString());
 
   // 3. Test Backlog Seed Export
-  print('\n[Output: backlog_seed.json]');
+  debugPrint('\n[Output: backlog_seed.json]');
   final backlogSeed = ExportAdapters.toBacklogSeed(items);
-  print(backlogSeed);
+  debugPrint(backlogSeed.toString());
 
-  print('\n--- Smoke Test Completed ---');
+  debugPrint('\n--- Smoke Test Completed ---');
 }

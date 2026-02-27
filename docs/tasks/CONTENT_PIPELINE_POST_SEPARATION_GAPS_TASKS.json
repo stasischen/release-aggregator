@@ -11,7 +11,7 @@
     {
       "id": "CPG-01",
       "desc": "Add .yarn source support to universal pipelines/build.py with parity to current .json dialogue build path.",
-      "status": "todo"
+      "status": "done"
     },
     {
       "id": "CPG-02",

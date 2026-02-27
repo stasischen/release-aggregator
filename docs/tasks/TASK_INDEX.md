@@ -49,14 +49,14 @@ Phase C: 前端整合（lingo-frontend-web）
 
 | Task ID | 描述 | Phase | 進度 | 檔案 |
 | :--- | :--- | :--- | :--- | :--- |
-| COURSE_UNIT_FACTORY | 課程單元量產工廠（unit blueprint 模板化 + lint + multi-unit mockup 驗證） | C+/Ops | 4/8 tasks | [JSON](COURSE_UNIT_FACTORY_TASKS.json) · [PLAN](COURSE_UNIT_FACTORY_PLAN.md) |
+| COURSE_UNIT_FACTORY | 課程單元量產工廠（unit blueprint 模板化 + lint + multi-unit mockup 驗證） | C+/Ops | 7/8 tasks | [JSON](COURSE_UNIT_FACTORY_TASKS.json) · [PLAN](COURSE_UNIT_FACTORY_PLAN.md) |
 | COURSE_PEDAGOGY_OPTIMIZATION | 語言學習效果優化（理解檢查/變體遷移/修復策略/檢索複習/guided rubric/followup 設計） | C+/Ops | 0/12 tasks | [JSON](COURSE_PEDAGOGY_OPTIMIZATION_TASKS.json) · [PLAN](COURSE_PEDAGOGY_OPTIMIZATION_PLAN.md) |
 
 ### Phase B/C — 待 Phase A 完成後啟動
 
 | Task ID | 描述 | Phase | 進度 | 檔案 |
 | :--- | :--- | :--- | :--- | :--- |
-| CONTENT_PIPELINE_POST_SEPARATION_GAPS | Universal Pipeline 後續缺口收斂（Yarn / Mapping Split / Lemma Heuristic / Validation Integration） | B1/B2 | 1/4 tasks | [JSON](CONTENT_PIPELINE_POST_SEPARATION_GAPS_TASKS.json) |
+| CONTENT_PIPELINE_POST_SEPARATION_GAPS | Universal Pipeline 後續缺口收斂（Yarn / Mapping Split / Lemma Heuristic / Validation Integration） | B1/B2 | 2/4 tasks | [JSON](CONTENT_PIPELINE_POST_SEPARATION_GAPS_TASKS.json) |
 
 ---
 

@@ -1,0 +1,47 @@
+{
+  "task_id": "COURSE_UNIT_FACTORY",
+  "description": "課程單元量產工廠（unit blueprint 模板化 + lint + multi-unit mockup 驗證）",
+  "status": "done",
+  "tasks": [
+    {
+      "id": "UNITFAC-001",
+      "desc": "Freeze unit_blueprint v0.1 contract proposal: educational metadata additions and backward-safe migration rules from v0.",
+      "status": "done"
+    },
+    {
+      "id": "UNITFAC-002",
+      "desc": "Define complete A1/A2 unit skeleton spec (minimum node set and sequencing requirements) for scalable production.",
+      "status": "done"
+    },
+    {
+      "id": "UNITFAC-003",
+      "desc": "Implement scaffold_unit_blueprint generator for full unit skeletons (not demo-only 3-node fixtures).",
+      "status": "done"
+    },
+    {
+      "id": "UNITFAC-004",
+      "desc": "Create unified mockup-check command with multi-fixture lint (schema + mixed-script + payload checks + supported forms/modes).",
+      "status": "done"
+    },
+    {
+      "id": "UNITFAC-005",
+      "desc": "Authoring template pack for fixture production: payload templates, bilingual requirements, educational QA checklist.",
+      "status": "done"
+    },
+    {
+      "id": "UNITFAC-006",
+      "desc": "Pilot production: expand A1-U05 into a full playable unit fixture using the standardized skeleton and checks.",
+      "status": "done"
+    },
+    {
+      "id": "UNITFAC-007",
+      "desc": "Multi-unit PM trial flow and acceptance checklist (A1-U04/A1-U05 + one additional unit) using modular viewer selector.",
+      "status": "done"
+    },
+    {
+      "id": "UNITFAC-008",
+      "desc": "Batch production playbook: agent assembly-line workflow (author -> lint -> PM review -> fix -> freeze).",
+      "status": "done"
+    }
+  ]
+}

@@ -1,0 +1,231 @@
+{
+  "registry_id": "foundation_node_templates_v1",
+  "version": "1.0.0",
+  "notes": "Reusable node templates for multilingual foundation units. Authoring step should replace TODO payload text.",
+  "templates": [
+    {
+      "template_id": "immersion_dialogue_core",
+      "candidate_type": "lesson",
+      "content_form": "dialogue",
+      "learning_role": "immersion_input",
+      "skill_focus": ["listening", "integrated"],
+      "output_mode": "none",
+      "duration_min": 6,
+      "title_zh_tw": "核心場景對話",
+      "summary_zh_tw": "透過情境對話建立單元輸入。",
+      "sample_lines": ["TODO: KO line 1", "TODO: KO line 2"],
+      "expected_output_zh_tw": "先理解語意與回合，不要求自由輸出。",
+      "payload": {
+        "dialogue_turns": [
+          {"speaker": "A", "text": "TODO: KO", "zh_tw": "TODO: zh-TW"},
+          {"speaker": "B", "text": "TODO: KO", "zh_tw": "TODO: zh-TW"}
+        ]
+      },
+      "adapter_hints": {
+        "entry_surface": "lesson_runtime",
+        "completion_mode": "view_complete",
+        "content_renderer_key": "dialogue"
+      }
+    },
+    {
+      "template_id": "structure_pattern_card",
+      "candidate_type": "grammar_note",
+      "content_form": "pattern_card",
+      "learning_role": "structure_pattern",
+      "skill_focus": ["writing", "speaking"],
+      "output_mode": "frame_fill",
+      "duration_min": 5,
+      "title_zh_tw": "句型框模板",
+      "summary_zh_tw": "提供可替換的句型槽位。",
+      "sample_lines": ["TODO: frame sample"],
+      "expected_output_zh_tw": "能替換詞塊產出句子。",
+      "payload": {
+        "frames": [
+          {
+            "frame": "TODO: ___",
+            "use_zh_tw": "TODO: usage",
+            "slots_zh_tw": ["TODO: slot"]
+          }
+        ]
+      },
+      "adapter_hints": {
+        "entry_surface": "tool_hub",
+        "completion_mode": "interaction_complete",
+        "content_renderer_key": "pattern_card",
+        "interaction_renderer_key": "frame_fill"
+      }
+    },
+    {
+      "template_id": "dictionary_phrase_pack",
+      "candidate_type": "dictionary_pack",
+      "content_form": "functional_phrase_pack",
+      "learning_role": "structure_pattern",
+      "skill_focus": ["integrated"],
+      "output_mode": "chunk_assembly",
+      "duration_min": 4,
+      "title_zh_tw": "功能詞塊包",
+      "summary_zh_tw": "提供可直接拼句的高頻詞塊。",
+      "sample_lines": ["TODO: chunk1", "TODO: chunk2"],
+      "expected_output_zh_tw": "支援後續受控輸出。",
+      "payload": {
+        "sections": [
+          {
+            "title_zh_tw": "核心詞塊",
+            "items": ["TODO: KO 1", "TODO: KO 2"],
+            "item_gloss_by_ko": {
+              "TODO: KO 1": "TODO: zh-TW 1",
+              "TODO: KO 2": "TODO: zh-TW 2"
+            }
+          }
+        ]
+      },
+      "adapter_hints": {
+        "entry_surface": "tool_hub",
+        "completion_mode": "interaction_complete",
+        "content_renderer_key": "functional_phrase_pack",
+        "interaction_renderer_key": "chunk_assembly"
+      }
+    },
+    {
+      "template_id": "output_chunk_assembly",
+      "candidate_type": "path_node",
+      "content_form": "practice_card",
+      "learning_role": "controlled_output",
+      "skill_focus": ["writing", "speaking"],
+      "output_mode": "chunk_assembly",
+      "duration_min": 5,
+      "title_zh_tw": "拼句型練習",
+      "summary_zh_tw": "使用詞塊組裝可用句。",
+      "sample_lines": ["TODO: [chunk1] [chunk2]"],
+      "expected_output_zh_tw": "輸出完整可用句。",
+      "payload": {
+        "tasks": [
+          {
+            "prompt_zh_tw": "TODO: prompt",
+            "chunks": ["TODO: c1", "TODO: c2"],
+            "target_examples": ["TODO: target"]
+          }
+        ]
+      },
+      "adapter_hints": {
+        "entry_surface": "unit_flow",
+        "completion_mode": "interaction_complete",
+        "content_renderer_key": "practice_card",
+        "interaction_renderer_key": "chunk_assembly",
+        "allow_skip": false
+      }
+    },
+    {
+      "template_id": "output_response_builder",
+      "candidate_type": "path_node",
+      "content_form": "practice_card",
+      "learning_role": "controlled_output",
+      "skill_focus": ["speaking"],
+      "output_mode": "response_builder",
+      "duration_min": 4,
+      "title_zh_tw": "回應建構",
+      "summary_zh_tw": "根據情境選擇正確回應。",
+      "sample_lines": ["TODO: Q -> A"],
+      "expected_output_zh_tw": "短回應正確且可立即使用。",
+      "payload": {
+        "items": [
+          {
+            "prompt_ko": "TODO: KO prompt",
+            "prompt_zh_tw": "TODO: zh-TW prompt",
+            "response_choices_ko": ["TODO: r1", "TODO: r2"],
+            "accepted_responses_ko": ["TODO: accepted"]
+          }
+        ]
+      },
+      "adapter_hints": {
+        "entry_surface": "unit_flow",
+        "completion_mode": "interaction_complete",
+        "content_renderer_key": "practice_card",
+        "interaction_renderer_key": "response_builder",
+        "allow_skip": false
+      }
+    },
+    {
+      "template_id": "output_guided_message",
+      "candidate_type": "path_node",
+      "content_form": "message_prompt",
+      "learning_role": "immersion_output",
+      "skill_focus": ["writing"],
+      "output_mode": "guided",
+      "duration_min": 4,
+      "title_zh_tw": "引導式輸出",
+      "summary_zh_tw": "完成任務型輸出。",
+      "sample_lines": ["TODO: task brief"],
+      "expected_output_zh_tw": "至少完成一則具任務意圖的輸出。",
+      "payload": {
+        "prompt_ko": "TODO: KO prompt",
+        "prompt_zh_tw": "TODO: zh-TW prompt",
+        "must_include_zh_tw": ["TODO: must include item"]
+      },
+      "adapter_hints": {
+        "entry_surface": "unit_flow",
+        "completion_mode": "interaction_complete",
+        "content_renderer_key": "message_prompt",
+        "interaction_renderer_key": "guided",
+        "allow_skip": false
+      }
+    },
+    {
+      "template_id": "review_retrieval_daily",
+      "candidate_type": "path_node",
+      "content_form": "review_card",
+      "learning_role": "review_retrieval",
+      "skill_focus": ["integrated"],
+      "output_mode": "review_retrieval",
+      "duration_min": 4,
+      "title_zh_tw": "回想複習",
+      "summary_zh_tw": "以最少提示回想關鍵句型。",
+      "sample_lines": ["TODO: recall question"],
+      "expected_output_zh_tw": "能回想而非只辨識。",
+      "payload": {
+        "prompts_zh_tw": ["TODO: recall prompt"],
+        "reference_answers_ko": ["TODO: KO reference answer"]
+      },
+      "adapter_hints": {
+        "entry_surface": "unit_flow",
+        "completion_mode": "interaction_complete",
+        "content_renderer_key": "review_card",
+        "interaction_renderer_key": "review_retrieval",
+        "allow_skip": false
+      }
+    }
+  ],
+  "sample_profile": {
+    "profile_id": "foundation_a1_survival_v1",
+    "version": "1.0.0",
+    "display_name": "Foundation A1 Survival",
+    "target_levels": ["A1"],
+    "default_output_ratio_target": 0.5,
+    "constraints": {
+      "min_node_count": 7,
+      "required_learning_roles": [
+        "immersion_input",
+        "structure_pattern",
+        "controlled_output",
+        "immersion_output",
+        "review_retrieval"
+      ],
+      "output_mode_targets": {
+        "chunk_assembly": 1,
+        "response_builder": 1,
+        "guided": 1,
+        "review_retrieval": 1
+      },
+      "require_resource_links_for_output_nodes": true
+    },
+    "node_plan": [
+      {"node_suffix": "L1", "template_id": "immersion_dialogue_core"},
+      {"node_suffix": "G1", "template_id": "structure_pattern_card", "depends_on_suffixes": ["L1"]},
+      {"node_suffix": "D1", "template_id": "dictionary_phrase_pack", "depends_on_suffixes": ["L1"]},
+      {"node_suffix": "P1", "template_id": "output_chunk_assembly", "depends_on_suffixes": ["G1", "D1"]},
+      {"node_suffix": "P2", "template_id": "output_response_builder", "depends_on_suffixes": ["P1"]},
+      {"node_suffix": "P3", "template_id": "output_guided_message", "depends_on_suffixes": ["P2"]},
+      {"node_suffix": "R1", "template_id": "review_retrieval_daily", "depends_on_suffixes": ["P1", "P2", "P3"]}
+    ]
+  }
+}

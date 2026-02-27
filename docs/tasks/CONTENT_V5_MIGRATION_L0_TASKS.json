@@ -1,0 +1,57 @@
+{
+  "task_id": "CONTENT_V5_MIGRATION_L0",
+  "description": "Legacy L0 content migration to V5 contract (core/i18n split, atom mapping, gold standards, pipeline and frontend verification)",
+  "status": "todo",
+  "source_plan": "CONTENT_V5_MIGRATION_L0.md",
+  "scope": {
+    "language": "ko",
+    "level": "L0",
+    "target_lessons": [
+      "ko_l0_social_001_intro",
+      "ko_l0_travel_001_airport",
+      "ko_l0_travel_008_shopping"
+    ]
+  },
+  "tasks": [
+    {
+      "id": "L0V5-01",
+      "desc": "Inventory and freeze L0 lesson list and source baseline (ids, paths, current v4 format references).",
+      "status": "todo"
+    },
+    {
+      "id": "L0V5-02",
+      "desc": "Restructure L0 content into V5-aligned core/i18n split and normalize directory layout.",
+      "status": "todo"
+    },
+    {
+      "id": "L0V5-03",
+      "desc": "Run tokenization + atom segmentation for all L0 lesson sentences and generate candidate mapping artifacts.",
+      "status": "todo"
+    },
+    {
+      "id": "L0V5-04",
+      "desc": "Map L0 tokens to V5 dictionary atoms and resolve unresolved/high-frequency conflicts to target threshold.",
+      "status": "todo"
+    },
+    {
+      "id": "L0V5-05",
+      "desc": "Generate and lock gold standards for L0 dialogue (`gold_standards/dialogue/A0/*.jsonl`) for regression checks.",
+      "status": "todo"
+    },
+    {
+      "id": "L0V5-06",
+      "desc": "Integrate L0 into content-pipeline V5 build path and ensure mapping/integrity gates pass for scoped runs.",
+      "status": "todo"
+    },
+    {
+      "id": "L0V5-07",
+      "desc": "Validate frontend intake compatibility (parser/asset schema) and run a smoke pass on representative L0 lessons.",
+      "status": "todo"
+    },
+    {
+      "id": "L0V5-08",
+      "desc": "Closeout: publish migration report (coverage, unresolved deltas, rollback notes), update TASK_INDEX, and prepare release-ready bundle.",
+      "status": "todo"
+    }
+  ]
+}

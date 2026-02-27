@@ -41,7 +41,7 @@
     {
       "id": "PEDOPT-008",
       "desc": "Listening discrimination micro-node proposal (optional): minimal TTS-supported listening checks for survival bottlenecks.",
-      "status": "todo"
+      "status": "done"
     },
     {
       "id": "PEDOPT-009",

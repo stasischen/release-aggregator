@@ -357,7 +357,7 @@
     {
       "id": "KO-DICT-04",
       "title": "Inject missing Phrase dictionary meanings",
-      "status": "IN_PROGRESS",
+      "status": "DONE",
       "target_repo": "content-ko",
       "goal": "Ensure items from mapping_phrase.json have translation definitions generated/injected into the i18n dictionary so they display correctly in the frontend.",
       "actions": [
@@ -397,7 +397,7 @@
     {
       "id": "KO-E2E-01",
       "title": "Run full KO->release->frontend verification with real data",
-      "status": "PENDING",
+      "status": "DONE",
       "target_repo": "content-ko/content-pipeline/release-aggregator/lingo-frontend-web",
       "goal": "Confirm end-to-end pipeline stability after flow rewrite.",
       "actions": [

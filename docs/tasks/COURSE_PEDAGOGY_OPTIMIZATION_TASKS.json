@@ -6,12 +6,12 @@
     {
       "id": "PEDOPT-001",
       "desc": "Comprehension check taxonomy + payload spec: info_extract / intent / next_response / sequence, with authoring examples and PM evaluation rules.",
-      "status": "todo"
+      "status": "done"
     },
     {
       "id": "PEDOPT-002",
       "desc": "Transform practice spec: slot/scenario/function/politeness/correction transform types and progression rules for A1/A2.",
-      "status": "todo"
+      "status": "done"
     },
     {
       "id": "PEDOPT-003",

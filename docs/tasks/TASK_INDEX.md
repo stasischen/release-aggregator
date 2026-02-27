@@ -44,13 +44,12 @@ Phase C: 前端整合（lingo-frontend-web）
 
 | Task ID | 描述 | Phase | 進度 | 檔案 |
 | :--- | :--- | :--- | :--- | :--- |
+| COURSE_PEDAGOGY_OPTIMIZATION | 語言學習效果優化（理解檢查/變體遷移/修復策略/檢索複習/guided rubric/followup 設計） | C+/Ops | 2/12 tasks | [JSON](COURSE_PEDAGOGY_OPTIMIZATION_TASKS.json) · [PLAN](COURSE_PEDAGOGY_OPTIMIZATION_PLAN.md) |
 
 ### Future / Automation (未來優化)
 
 | Task ID | 描述 | Phase | 進度 | 檔案 |
 | :--- | :--- | :--- | :--- | :--- |
-| COURSE_UNIT_FACTORY | 課程單元量產工廠（unit blueprint 模板化 + lint + multi-unit mockup 驗證） | C+/Ops | 7/8 tasks | [JSON](COURSE_UNIT_FACTORY_TASKS.json) · [PLAN](COURSE_UNIT_FACTORY_PLAN.md) |
-| COURSE_PEDAGOGY_OPTIMIZATION | 語言學習效果優化（理解檢查/變體遷移/修復策略/檢索複習/guided rubric/followup 設計） | C+/Ops | 0/12 tasks | [JSON](COURSE_PEDAGOGY_OPTIMIZATION_TASKS.json) · [PLAN](COURSE_PEDAGOGY_OPTIMIZATION_PLAN.md) |
 
 ### Phase B/C — 待 Phase A 完成後啟動
 
@@ -79,6 +78,7 @@ Phase C: 前端整合（lingo-frontend-web）
 | CROSS_LANG_REVIEW_LOCK | 跨語系 review/lock 流程（多機協作 + 規則分離） | 2026-02-25 | [ARCHIVE](archive/20260225_CROSS_LANG_REVIEW_LOCK_TASKS.json) |
 | CONTENT_PIPELINE_SEPARATION | 職責分離 + Build 格式 | 2026-02-25 | [ARCHIVE](archive/20260225_CONTENT_PIPELINE_SEPARATION_TASKS.json) |
 | MAPPING_DICTIONARY | 字典映射標準化 + 品質驗證（含雙層詞性落地） | 2026-02-25 | [ARCHIVE](archive/20260225_MAPPING_DICTIONARY_TASKS.json) |
+| COURSE_UNIT_FACTORY | 課程單元量產工廠（unit blueprint 模板化 + lint + multi-unit mockup 驗證） | 2026-02-27 | [ARCHIVE](archive/20260227_COURSE_UNIT_FACTORY_TASKS.json) |
 
 ---
 

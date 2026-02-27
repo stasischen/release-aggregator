@@ -1,12 +1,12 @@
 {
   "task_id": "COURSE_UNIT_FACTORY",
   "description": "課程單元量產工廠（unit blueprint 模板化 + lint + multi-unit mockup 驗證）",
-  "status": "in_progress",
+  "status": "done",
   "tasks": [
     {
       "id": "UNITFAC-001",
       "desc": "Freeze unit_blueprint v0.1 contract proposal: educational metadata additions and backward-safe migration rules from v0.",
-      "status": "todo"
+      "status": "done"
     },
     {
       "id": "UNITFAC-002",

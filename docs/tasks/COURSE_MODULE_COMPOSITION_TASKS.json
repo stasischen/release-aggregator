@@ -1,0 +1,57 @@
+{
+  "task_id": "COURSE_MODULE_COMPOSITION",
+  "description": "課程模組組裝（Content / Interaction / Review 三層設計與 contract 對齊）",
+  "status": "in_progress",
+  "tasks": [
+    {
+      "id": "CMOD-001",
+      "desc": "Define canonical three-layer model: Content module, Interaction module, Review module, and their responsibilities.",
+      "status": "todo"
+    },
+    {
+      "id": "CMOD-002",
+      "desc": "Map existing node taxonomy to three-layer model: learning_role/content_form/output_mode to modular responsibilities.",
+      "status": "todo"
+    },
+    {
+      "id": "CMOD-003",
+      "desc": "Introduce interaction_modes contract proposal for multi-answer-path nodes (MCQ/assembly/typing/speaking/transform).",
+      "status": "todo"
+    },
+    {
+      "id": "CMOD-004",
+      "desc": "Introduce review_policy contract proposal for Anki-style scheduling and card source definitions.",
+      "status": "todo"
+    },
+    {
+      "id": "CMOD-005",
+      "desc": "Introduce completion_rules contract proposal (required_modes, min_attempts, pass_policy) for guided output consistency.",
+      "status": "todo"
+    },
+    {
+      "id": "CMOD-006",
+      "desc": "Resolve contract mismatches between UNITFAC specs/templates/checker (repair_practice, followup semantics, command paths).",
+      "status": "todo"
+    },
+    {
+      "id": "CMOD-007",
+      "desc": "Authoring template integration: add content/interaction/review sections and examples in UNITFAC-005 templates.",
+      "status": "todo"
+    },
+    {
+      "id": "CMOD-008",
+      "desc": "Checker integration: warning-first rules for missing interaction_modes/review_policy/completion_rules metadata.",
+      "status": "todo"
+    },
+    {
+      "id": "CMOD-009",
+      "desc": "Pilot application on A1-U05: attach modular metadata and validate mockup behavior with existing renderer registry.",
+      "status": "todo"
+    },
+    {
+      "id": "CMOD-010",
+      "desc": "Freeze recommendation: define what enters UNITFAC-001 v0.1 contract vs what remains optional.",
+      "status": "todo"
+    }
+  ]
+}

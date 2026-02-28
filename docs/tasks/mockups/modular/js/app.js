@@ -2,7 +2,8 @@
  * Lingourmet Mockup Main App Logic
  */
 const FIXTURES_INDEX = 'data/fixtures.json';
-let currentBlueprintPath = '../a1_u04_unit_blueprint_v0.json';
+// Keep a local default that works when serving from the modular directory.
+let currentBlueprintPath = 'data/units/a1_u04_unit_blueprint_v0.json';
 
 const elements = {
     unitSelect: document.getElementById('unitSelect'),

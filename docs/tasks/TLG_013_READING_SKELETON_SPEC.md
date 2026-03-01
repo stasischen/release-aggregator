@@ -38,6 +38,7 @@ Specifies the cognitive skills being tested. A single passage usually addresses 
 *   `inference`: Deducing meaning not explicitly stated.
 *   `reference`: Identifying what pronouns or cohesive devices refer to.
 *   `cohesion`: Understanding structural relationships between sentences/paragraphs.
+*   `evaluation`: Assessing author intent, tone, stance, or argument quality.
 
 #### C. Question Blueprint (`question_blueprint`)
 

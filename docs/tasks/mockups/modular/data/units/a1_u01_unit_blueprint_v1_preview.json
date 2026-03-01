@@ -7,28 +7,30 @@
       "zh_tw",
       "en"
     ],
-    "notes": "Converted from unit_blueprint_v1 for modular viewer preview."
+    "notes": "Converted from unit_blueprint_v1 with node-contract-first copy."
   },
   "unit": {
-    "unit_id": "A1-U04",
-    "title_zh_tw": "A1-U04 v1 Preview（TLG-005/006）",
+    "unit_id": "A1-U01",
+    "title_zh_tw": "A1-U01 v1 Preview（Node Contract）",
     "target_language": "ko",
     "learner_locale_source": "zh_tw",
     "level": "A1",
-    "theme_zh_tw": "v1 量產預覽",
+    "theme_zh_tw": "校園報到與自我介紹",
     "output_ratio_target": 0.5,
     "can_do_zh_tw": [
       "能用禮貌體打招呼並開啟對話。",
-      "能詢問是否有某項物品或服務。",
-      "能在店家用禮貌體點單。",
-      "能詢問價格。",
-      "能詢問洗手間或設施位置。",
+      "能用韓語做基本自我介紹（姓名）。",
+      "能禮貌詢問對方姓名。",
+      "能說明自己的國籍或出身國家。",
+      "能說明自己的職業。",
+      "能詢問與回答地點。",
+      "能說明自己的行程或約定。",
       "能請對方說慢一點。"
     ]
   },
   "sequence": [
     {
-      "id": "A1-U04-L1",
+      "id": "A1-U01-L1",
       "candidate_type": "path_node",
       "content_form": "dialogue",
       "learning_role": "immersion_input",
@@ -38,10 +40,15 @@
       ],
       "output_mode": "none",
       "duration_min": 4,
-      "title_zh_tw": "L1 沉浸輸入：禮貌開場",
-      "summary_zh_tw": "先熟悉真實場景中的打招呼句，建立口語禮貌體的聽感。",
-      "expected_output_zh_tw": "能聽懂並辨識對話中的禮貌開場語。",
+      "title_zh_tw": "L1 沉浸輸入：抵達國際處報到櫃台，先禮貌打招呼",
+      "summary_zh_tw": "建立第一輪情境聽讀理解。主題情境：校園報到與自我介紹。劇情步驟：抵達國際處報到櫃台，先禮貌打招呼。本節點語言目標：能用禮貌體打招呼並開啟對話。",
+      "expected_output_zh_tw": "能辨識該情境的核心開場與任務語句。對應功能：能用禮貌體打招呼並開啟對話。",
       "payload": {
+        "node_contract": {
+          "node_goal_zh_tw": "能用禮貌體打招呼並開啟對話。",
+          "input_from_prev": "unit_intent",
+          "output_to_next": "L2"
+        },
         "generation_constraints": {
           "target_lang": "ko",
           "genre": "dialogue",
@@ -100,7 +107,12 @@
           {
             "speaker": "A",
             "text": "안녕하세요.",
-            "zh_tw": "先固定禮貌打招呼作為高頻開場，再練平語/正式語切換，避免一開始就混用語體。"
+            "zh_tw": "L1 沉浸輸入：抵達國際處報到櫃台，先禮貌打招呼：建立第一輪情境聽讀理解。主題情境：校園報到與自我介紹。劇情步驟：抵達國際處報到櫃台，先禮貌打招呼。本節點語言目標：能用禮貌體打招呼並開啟對話。"
+          },
+          {
+            "speaker": "B",
+            "text": "네, 알겠습니다.",
+            "zh_tw": "好，我明白了。"
           }
         ]
       },
@@ -110,7 +122,7 @@
       }
     },
     {
-      "id": "A1-U04-L2",
+      "id": "A1-U01-L2",
       "candidate_type": "path_node",
       "content_form": "comprehension_check",
       "learning_role": "immersion_input",
@@ -120,9 +132,9 @@
       ],
       "output_mode": "response_builder",
       "duration_min": 4,
-      "title_zh_tw": "L2 理解檢核：有無問句判斷",
-      "summary_zh_tw": "聽讀後判斷店家是否有某項物品，建立「있어요? / 없어요」的理解速度。",
-      "expected_output_zh_tw": "能在題目中正確判斷有或沒有，並用完整禮貌句回應。",
+      "title_zh_tw": "L2 理解檢核：聽懂櫃台人員詢問，並確認對方姓名",
+      "summary_zh_tw": "確認是否讀懂關鍵資訊。主題情境：校園報到與自我介紹。劇情步驟：聽懂櫃台人員詢問，並確認對方姓名。本節點語言目標：能禮貌詢問對方姓名。",
+      "expected_output_zh_tw": "能針對輸入做正確判斷與回應。對應功能：能禮貌詢問對方姓名。",
       "payload": {
         "rubric": {
           "completion_policy": "pass_on_threshold",
@@ -134,6 +146,11 @@
           ],
           "acceptable_variants": [],
           "feedback_policy": "supportive"
+        },
+        "node_contract": {
+          "node_goal_zh_tw": "能禮貌詢問對方姓名。",
+          "input_from_prev": "L1",
+          "output_to_next": "L3"
         },
         "generation_constraints": {
           "target_lang": "ko",
@@ -166,34 +183,34 @@
           }
         },
         "pattern_meta": {
-          "pattern_id": "ko-A1-survival-007",
-          "can_do": "能詢問是否有某項物品或服務。",
+          "pattern_id": "ko-A1-survival-003",
+          "can_do": "能禮貌詢問對方姓名。",
           "required_elements": [
-            "{item}",
-            "있어요"
+            "이름",
+            "뭐예요"
           ],
           "acceptable_variants": [
-            "{item} 있나요",
-            "{item} 없어요"
+            "성함이 어떻게 되세요",
+            "이름이 뭐야"
           ],
           "transform_types": [
-            "negation",
-            "speech_level_shift"
+            "speech_level_shift",
+            "question_statement"
           ],
           "repair_links": [
-            "R-KO-FORM-002",
-            "R-KO-HON-002"
+            "R-KO-HON-002",
+            "R-KO-PRAG-001"
           ],
           "transfer_contexts": [
-            "convenience_store",
+            "classroom",
             "hotel_checkin",
-            "restaurant_order"
+            "office"
           ]
         },
         "items": [
           {
-            "prompt_ko": "{item} 있어요?",
-            "prompt_zh_tw": "根據對話內容，判斷店家是否有該商品，並選出正確回應。",
+            "prompt_ko": "이름이 뭐예요?",
+            "prompt_zh_tw": "L2 理解檢核：聽懂櫃台人員詢問，並確認對方姓名：根據報到情境作答（目標：能禮貌詢問對方姓名。）。",
             "response_choices_ko": [
               "네",
               "아니요"
@@ -210,7 +227,7 @@
       }
     },
     {
-      "id": "A1-U04-L3",
+      "id": "A1-U01-L3",
       "candidate_type": "path_node",
       "content_form": "notice",
       "learning_role": "immersion_input",
@@ -220,14 +237,19 @@
       ],
       "output_mode": "none",
       "duration_min": 4,
-      "title_zh_tw": "L3 閱讀輸入：設施問路",
-      "summary_zh_tw": "透過公告/短文輸入熟悉「哪裡？」問句在公共場域的使用方式。",
-      "expected_output_zh_tw": "能從文本抓到設施位置與問路關鍵詞。",
+      "title_zh_tw": "L3 閱讀輸入：閱讀校園地圖公告，找新生說明會教室",
+      "summary_zh_tw": "補足非對話文本的資訊抓取。主題情境：校園報到與自我介紹。劇情步驟：閱讀校園地圖公告，找新生說明會教室。本節點語言目標：能詢問與回答地點。",
+      "expected_output_zh_tw": "能從文本提取場景關鍵資訊。對應功能：能詢問與回答地點。",
       "payload": {
+        "node_contract": {
+          "node_goal_zh_tw": "能詢問與回答地點。",
+          "input_from_prev": "L2",
+          "output_to_next": "D1"
+        },
         "generation_constraints": {
           "target_lang": "ko",
           "genre": "notice",
-          "register_target": "spoken_polite",
+          "register_target": "neutral_written",
           "style_requirements": [
             "use compact informational style",
             "highlight key actionable details",
@@ -237,11 +259,11 @@
             "long conversational storytelling"
           ],
           "required_markers": [
-            "-요",
-            "주세요"
+            "clear sentence boundaries",
+            "topic continuity"
           ],
           "forbidden_markers": [
-            "반말 sentence endings in formal service contexts"
+            "chat-only fillers"
           ],
           "length_guidelines": {
             "min_tokens": 20,
@@ -254,15 +276,15 @@
           }
         },
         "pattern_meta": {
-          "pattern_id": "ko-A1-survival-012",
-          "can_do": "能詢問洗手間或設施位置。",
+          "pattern_id": "ko-A1-survival-006",
+          "can_do": "能詢問與回答地點。",
           "required_elements": [
-            "화장실",
+            "{place}",
             "어디예요"
           ],
           "acceptable_variants": [
-            "화장실 어디에 있어요",
-            "화장실이 어디죠"
+            "{place} 어디에 있어요",
+            "{place}이/가 어디야"
           ],
           "transform_types": [
             "slot_substitution",
@@ -273,64 +295,16 @@
             "R-KO-HON-001"
           ],
           "transfer_contexts": [
-            "airport",
             "subway_navigation",
+            "airport",
             "hotel_checkin"
           ]
         },
-        "reading_overlay": {
-          "node_id": "A1-U04-L3",
-          "phase": "while_read",
-          "text_profile": {
-            "genre": "notice",
-            "length_words": 60,
-            "lexical_coverage": {
-              "target_level_ratio": 0.9,
-              "next_level_ratio": 0.1
-            },
-            "syntactic_density": {
-              "max_clauses_per_sentence": 2,
-              "max_sentence_length": 20
-            }
-          },
-          "reading_skill_targets": [
-            "skimming",
-            "scanning"
-          ],
-          "question_blueprint": [
-            {
-              "question_id": "Q1",
-              "type": "literal",
-              "prompt": "公告主要在說什麼？",
-              "accepted_answers": [
-                "location information",
-                "where the restroom is"
-              ]
-            }
-          ],
-          "evidence_mapping": [
-            {
-              "question_id": "Q1",
-              "spans": [
-                {
-                  "start": 0,
-                  "end": 18
-                }
-              ]
-            }
-          ],
-          "rubric": {
-            "comprehension_accuracy_weight": 0.8,
-            "evidence_location_weight": 0.2,
-            "inference_validity_weight": 0.0,
-            "pass_threshold": 0.65
-          }
-        },
         "notice_items": [
-          "화장실이 어디예요?"
+          "{place}이/가 어디예요?"
         ],
         "notice_items_zh_tw": [
-          "固定設施問路框架後再替換地點名詞，能快速覆蓋旅遊生存需求。"
+          "L3 閱讀輸入：閱讀校園地圖公告，找新生說明會教室：補足非對話文本的資訊抓取。主題情境：校園報到與自我介紹。劇情步驟：閱讀校園地圖公告，找新生說明會教室。本節點語言目標：能詢問與回答地點。"
         ]
       },
       "adapter_hints": {
@@ -339,19 +313,19 @@
       }
     },
     {
-      "id": "A1-U04-D1",
-      "candidate_type": "path_node",
+      "id": "A1-U01-D1",
+      "candidate_type": "dictionary_pack",
       "content_form": "functional_phrase_pack",
       "learning_role": "structure_pattern",
       "skill_focus": [
-        "reading",
+        "speaking",
         "writing"
       ],
       "output_mode": "chunk_assembly",
-      "duration_min": 4,
-      "title_zh_tw": "D1 功能詞塊：詢問有沒有",
-      "summary_zh_tw": "先固定「{item} 있어요?」核心框架，再替換商品名詞建立可遷移詞塊。",
-      "expected_output_zh_tw": "看到不同商品時，能快速組出禮貌有無問句。",
+      "duration_min": 5,
+      "title_zh_tw": "D1 功能詞塊：整理自我介紹會用到的姓名詞塊",
+      "summary_zh_tw": "把句型拆成可替換詞塊。主題情境：校園報到與自我介紹。劇情步驟：整理自我介紹會用到的姓名詞塊。本節點語言目標：能用韓語做基本自我介紹（姓名）。",
+      "expected_output_zh_tw": "能替換關鍵 slot 組出新句。對應功能：能用韓語做基本自我介紹（姓名）。",
       "payload": {
         "rubric": {
           "completion_policy": "pass_on_threshold",
@@ -359,10 +333,15 @@
           "pass_threshold": 0.8,
           "max_hints_for_pass": 2,
           "required_elements": [
-            "item_slot"
+            "name_slot"
           ],
           "acceptable_variants": [],
           "feedback_policy": "supportive"
+        },
+        "node_contract": {
+          "node_goal_zh_tw": "能用韓語做基本自我介紹（姓名）。",
+          "input_from_prev": "L1~L3",
+          "output_to_next": "G1"
         },
         "generation_constraints": {
           "target_lang": "ko",
@@ -395,40 +374,34 @@
           }
         },
         "pattern_meta": {
-          "pattern_id": "ko-A1-survival-007",
-          "can_do": "能詢問是否有某項物品或服務。",
+          "pattern_id": "ko-A1-survival-002",
+          "can_do": "能用韓語做基本自我介紹（姓名）。",
           "required_elements": [
-            "{item}",
-            "있어요"
+            "저는",
+            "{name}",
+            "이에요/예요"
           ],
           "acceptable_variants": [
-            "{item} 있나요",
-            "{item} 없어요"
+            "제 이름은 {name}이에요",
+            "저는 {name}예요"
           ],
           "transform_types": [
-            "negation",
+            "slot_substitution",
             "speech_level_shift"
           ],
           "repair_links": [
-            "R-KO-FORM-002",
-            "R-KO-HON-002"
+            "R-KO-FORM-001",
+            "R-KO-HON-001"
           ],
           "transfer_contexts": [
-            "convenience_store",
-            "hotel_checkin",
-            "restaurant_order"
+            "classroom",
+            "office",
+            "online_message"
           ]
         },
         "tasks": [
           {
-            "prompt_zh_tw": "把商品名詞放入「있어요?」框架，完成有無詢問。",
-            "chunks": [
-              "안녕하세요",
-              "주세요"
-            ],
-            "target_examples": [
-              "{item} 있어요?"
-            ]
+            "prompt_zh_tw": "D1 功能詞塊：整理自我介紹會用到的姓名詞塊：用本節詞塊完成「能用韓語做基本自我介紹（姓名）。」相關組句。"
           }
         ]
       },
@@ -438,32 +411,36 @@
       }
     },
     {
-      "id": "A1-U04-G1",
-      "candidate_type": "path_node",
+      "id": "A1-U01-G1",
+      "candidate_type": "grammar_note",
       "content_form": "pattern_card",
       "learning_role": "structure_pattern",
       "skill_focus": [
-        "reading",
+        "speaking",
         "writing"
       ],
       "output_mode": "frame_fill",
-      "duration_min": 4,
-      "title_zh_tw": "G1 句型框：{item} 있어요?",
-      "summary_zh_tw": "掌握有無問句的最小句型結構，練習名詞 slot 替換。",
-      "expected_output_zh_tw": "能以至少 3 個不同 item 產出正確問句。",
+      "duration_min": 5,
+      "title_zh_tw": "G1 句型框：固定詢問姓名句型，準備與同學互動",
+      "summary_zh_tw": "固定核心句型框架。主題情境：校園報到與自我介紹。劇情步驟：固定詢問姓名句型，準備與同學互動。本節點語言目標：能禮貌詢問對方姓名。",
+      "expected_output_zh_tw": "能套用框架產出多個同功能句。對應功能：能禮貌詢問對方姓名。",
       "payload": {
-        "frame": "{item} 주세요.",
+        "frame": "이름이 뭐예요?",
         "rubric": {
           "completion_policy": "pass_on_threshold",
           "min_attempts": 2,
           "pass_threshold": 0.82,
           "max_hints_for_pass": 2,
           "required_elements": [
-            "item_slot",
-            "주세요"
+            "name_question"
           ],
           "acceptable_variants": [],
           "feedback_policy": "supportive"
+        },
+        "node_contract": {
+          "node_goal_zh_tw": "能禮貌詢問對方姓名。",
+          "input_from_prev": "D1",
+          "output_to_next": "G2"
         },
         "generation_constraints": {
           "target_lang": "ko",
@@ -496,30 +473,31 @@
           }
         },
         "pattern_meta": {
-          "pattern_id": "ko-A1-survival-007",
-          "can_do": "能詢問是否有某項物品或服務。",
+          "pattern_id": "ko-A1-survival-003",
+          "can_do": "能禮貌詢問對方姓名。",
           "required_elements": [
-            "{item}",
-            "있어요"
+            "이름",
+            "뭐예요"
           ],
           "acceptable_variants": [
-            "{item} 있나요",
-            "{item} 없어요"
+            "성함이 어떻게 되세요",
+            "이름이 뭐야"
           ],
           "transform_types": [
-            "negation",
-            "speech_level_shift"
+            "speech_level_shift",
+            "question_statement"
           ],
           "repair_links": [
-            "R-KO-FORM-002",
-            "R-KO-HON-002"
+            "R-KO-HON-002",
+            "R-KO-PRAG-001"
           ],
           "transfer_contexts": [
-            "convenience_store",
+            "classroom",
             "hotel_checkin",
-            "restaurant_order"
+            "office"
           ]
-        }
+        },
+        "usage_hint_zh_tw": "G1 句型框：固定詢問姓名句型，準備與同學互動：優先用此句型完成「能禮貌詢問對方姓名。」。"
       },
       "adapter_hints": {
         "content_renderer_key": "pattern_card",
@@ -527,23 +505,29 @@
       }
     },
     {
-      "id": "A1-U04-G2",
-      "candidate_type": "path_node",
+      "id": "A1-U01-G2",
+      "candidate_type": "grammar_note",
       "content_form": "grammar_note",
       "learning_role": "structure_grammar",
       "skill_focus": [
-        "reading"
+        "speaking",
+        "writing"
       ],
       "output_mode": "none",
-      "duration_min": 4,
-      "title_zh_tw": "G2 文法重點：있어요? 與回應",
-      "summary_zh_tw": "釐清有無問句的語氣與基本回應形式，避免只背單句不會應答。",
-      "expected_output_zh_tw": "能在同一情境中完成提問與肯定/否定回應。",
+      "duration_min": 5,
+      "title_zh_tw": "G2 文法重點：補上國籍資訊句型，完成基本自我介紹",
+      "summary_zh_tw": "說清楚規則與常見錯誤。主題情境：校園報到與自我介紹。劇情步驟：補上國籍資訊句型，完成基本自我介紹。本節點語言目標：能說明自己的國籍或出身國家。",
+      "expected_output_zh_tw": "能在提問與回應中保持語法穩定。對應功能：能說明自己的國籍或出身國家。",
       "payload": {
+        "node_contract": {
+          "node_goal_zh_tw": "能說明自己的國籍或出身國家。",
+          "input_from_prev": "G1",
+          "output_to_next": "P1"
+        },
         "generation_constraints": {
           "target_lang": "ko",
           "genre": "article",
-          "register_target": "spoken_polite",
+          "register_target": "formal_written",
           "style_requirements": [
             "use paragraph-level cohesion",
             "use explicit discourse connectors",
@@ -554,11 +538,10 @@
             "overuse of spoken fillers"
           ],
           "required_markers": [
-            "-요",
-            "주세요"
+            "consistent formal written tone"
           ],
           "forbidden_markers": [
-            "반말 sentence endings in formal service contexts"
+            "casual spoken particles"
           ],
           "length_guidelines": {
             "min_tokens": 80,
@@ -571,28 +554,29 @@
           }
         },
         "pattern_meta": {
-          "pattern_id": "ko-A1-survival-007",
-          "can_do": "能詢問是否有某項物品或服務。",
+          "pattern_id": "ko-A1-survival-004",
+          "can_do": "能說明自己的國籍或出身國家。",
           "required_elements": [
-            "{item}",
-            "있어요"
+            "저는",
+            "{country}",
+            "사람이에요"
           ],
           "acceptable_variants": [
-            "{item} 있나요",
-            "{item} 없어요"
+            "{country}에서 왔어요",
+            "저는 {country} 출신이에요"
           ],
           "transform_types": [
-            "negation",
-            "speech_level_shift"
+            "slot_substitution",
+            "context_retarget"
           ],
           "repair_links": [
-            "R-KO-FORM-002",
-            "R-KO-HON-002"
+            "R-KO-FORM-001",
+            "R-KO-PRAG-002"
           ],
           "transfer_contexts": [
-            "convenience_store",
-            "hotel_checkin",
-            "restaurant_order"
+            "classroom",
+            "airport",
+            "friend_chat"
           ]
         }
       },
@@ -602,19 +586,19 @@
       }
     },
     {
-      "id": "A1-U04-P1",
+      "id": "A1-U01-P1",
       "candidate_type": "path_node",
       "content_form": "practice_card",
       "learning_role": "controlled_output",
       "skill_focus": [
-        "writing",
-        "speaking"
+        "speaking",
+        "writing"
       ],
       "output_mode": "chunk_assembly",
       "duration_min": 4,
-      "title_zh_tw": "P1 句型組裝：禮貌點單",
-      "summary_zh_tw": "用 주세요 作為固定句尾，訓練在店家情境中快速組句。",
-      "expected_output_zh_tw": "能正確組出「{item} 주세요」並口頭輸出。",
+      "title_zh_tw": "P1 組裝練習：在報到現場組裝完整自我介紹句",
+      "summary_zh_tw": "把詞塊組成可用句。主題情境：校園報到與自我介紹。劇情步驟：在報到現場組裝完整自我介紹句。本節點語言目標：能用韓語做基本自我介紹（姓名）。",
+      "expected_output_zh_tw": "能在提示下產出完整句子。對應功能：能用韓語做基本自我介紹（姓名）。",
       "payload": {
         "rubric": {
           "completion_policy": "pass_on_threshold",
@@ -622,10 +606,15 @@
           "pass_threshold": 0.8,
           "max_hints_for_pass": 2,
           "required_elements": [
-            "price_question"
+            "self_intro"
           ],
           "acceptable_variants": [],
           "feedback_policy": "supportive"
+        },
+        "node_contract": {
+          "node_goal_zh_tw": "能用韓語做基本自我介紹（姓名）。",
+          "input_from_prev": "G1/G2",
+          "output_to_next": "P2"
         },
         "generation_constraints": {
           "target_lang": "ko",
@@ -658,42 +647,31 @@
           }
         },
         "pattern_meta": {
-          "pattern_id": "ko-A1-survival-008",
-          "can_do": "能在店家用禮貌體點單。",
+          "pattern_id": "ko-A1-survival-002",
+          "can_do": "能用韓語做基本自我介紹（姓名）。",
           "required_elements": [
-            "{item}",
-            "주세요"
+            "저는",
+            "{name}",
+            "이에요/예요"
           ],
           "acceptable_variants": [
-            "{item} 하나 주세요",
-            "{item} 부탁해요"
+            "제 이름은 {name}이에요",
+            "저는 {name}예요"
           ],
           "transform_types": [
             "slot_substitution",
-            "context_retarget"
+            "speech_level_shift"
           ],
           "repair_links": [
-            "R-KO-HON-001",
-            "R-KO-PRAG-003"
+            "R-KO-FORM-001",
+            "R-KO-HON-001"
           ],
           "transfer_contexts": [
-            "cafe_order",
-            "restaurant_order",
-            "convenience_store"
+            "classroom",
+            "office",
+            "online_message"
           ]
-        },
-        "tasks": [
-          {
-            "prompt_zh_tw": "把 주세요 當作禮貌請求核心，先固定句尾，再逐步加入數量/溫度等附加資訊。",
-            "chunks": [
-              "안녕하세요",
-              "주세요"
-            ],
-            "target_examples": [
-              "{item} 주세요."
-            ]
-          }
-        ]
+        }
       },
       "adapter_hints": {
         "content_renderer_key": "practice_card",
@@ -701,19 +679,19 @@
       }
     },
     {
-      "id": "A1-U04-P2",
+      "id": "A1-U01-P2",
       "candidate_type": "path_node",
       "content_form": "practice_card",
       "learning_role": "controlled_output",
       "skill_focus": [
-        "writing",
-        "speaking"
+        "speaking",
+        "writing"
       ],
       "output_mode": "response_builder",
       "duration_min": 4,
-      "title_zh_tw": "P2 情境應答：詢問價格",
-      "summary_zh_tw": "練習高頻價格問句，強化指示詞與禮貌語尾搭配。",
-      "expected_output_zh_tw": "能用 얼마예요? 正確詢價並理解回應。",
+      "title_zh_tw": "P2 情境應答：回應同學提問，補充自己的職業背景",
+      "summary_zh_tw": "在場景中快速選擇回應。主題情境：校園報到與自我介紹。劇情步驟：回應同學提問，補充自己的職業背景。本節點語言目標：能說明自己的職業。",
+      "expected_output_zh_tw": "能依語境回覆正確功能句。對應功能：能說明自己的職業。",
       "payload": {
         "rubric": {
           "completion_policy": "pass_on_threshold",
@@ -721,10 +699,15 @@
           "pass_threshold": 0.75,
           "max_hints_for_pass": 2,
           "required_elements": [
-            "price_question"
+            "job_slot"
           ],
           "acceptable_variants": [],
           "feedback_policy": "supportive"
+        },
+        "node_contract": {
+          "node_goal_zh_tw": "能說明自己的職業。",
+          "input_from_prev": "P1",
+          "output_to_next": "P3"
         },
         "generation_constraints": {
           "target_lang": "ko",
@@ -757,42 +740,31 @@
           }
         },
         "pattern_meta": {
-          "pattern_id": "ko-A1-survival-010",
-          "can_do": "能詢問價格。",
+          "pattern_id": "ko-A1-survival-005",
+          "can_do": "能說明自己的職業。",
           "required_elements": [
-            "얼마예요"
+            "저는",
+            "{job}",
+            "이에요/예요"
           ],
           "acceptable_variants": [
-            "{item} 얼마예요",
-            "가격이 얼마예요"
+            "직업은 {job}이에요",
+            "{job}로 일해요"
           ],
           "transform_types": [
             "slot_substitution",
-            "politeness_shift"
+            "question_statement"
           ],
           "repair_links": [
-            "R-KO-PRAG-002",
-            "R-KO-HON-001"
+            "R-KO-FORM-001",
+            "R-KO-ORDER-001"
           ],
           "transfer_contexts": [
-            "convenience_store",
-            "airport",
-            "market"
+            "office",
+            "classroom",
+            "online_message"
           ]
-        },
-        "items": [
-          {
-            "prompt_ko": "이거 얼마예요?",
-            "prompt_zh_tw": "價格問句高頻且可立即遷移；訓練重點在指示詞與禮貌前綴搭配。",
-            "response_choices_ko": [
-              "네",
-              "아니요"
-            ],
-            "accepted_responses_ko": [
-              "네"
-            ]
-          }
-        ]
+        }
       },
       "adapter_hints": {
         "content_renderer_key": "practice_card",
@@ -800,19 +772,19 @@
       }
     },
     {
-      "id": "A1-U04-P3",
+      "id": "A1-U01-P3",
       "candidate_type": "path_node",
       "content_form": "practice_card",
       "learning_role": "controlled_output",
       "skill_focus": [
-        "writing",
-        "speaking"
+        "speaking",
+        "writing"
       ],
       "output_mode": "pattern_transform",
       "duration_min": 4,
-      "title_zh_tw": "P3 轉換練習：肯定/否定回應",
-      "summary_zh_tw": "同一商品情境下切換「있어요 / 없어요」回應，訓練即時反應。",
-      "expected_output_zh_tw": "能在限定時間內完成正負回應轉換且語序正確。",
+      "title_zh_tw": "P3 變換練習：切換不同國籍資訊，練習自介變化",
+      "summary_zh_tw": "做肯定/否定或語體轉換。主題情境：校園報到與自我介紹。劇情步驟：切換不同國籍資訊，練習自介變化。本節點語言目標：能說明自己的國籍或出身國家。",
+      "expected_output_zh_tw": "能在限制條件下完成句型變換。對應功能：能說明自己的國籍或出身國家。",
       "payload": {
         "rubric": {
           "completion_policy": "pass_on_threshold",
@@ -825,6 +797,11 @@
           "acceptable_variants": [],
           "feedback_policy": "coach"
         },
+        "node_contract": {
+          "node_goal_zh_tw": "能說明自己的國籍或出身國家。",
+          "input_from_prev": "P2",
+          "output_to_next": "P4"
+        },
         "generation_constraints": {
           "target_lang": "ko",
           "genre": "dialogue",
@@ -856,28 +833,29 @@
           }
         },
         "pattern_meta": {
-          "pattern_id": "ko-A1-survival-007",
-          "can_do": "能詢問是否有某項物品或服務。",
+          "pattern_id": "ko-A1-survival-004",
+          "can_do": "能說明自己的國籍或出身國家。",
           "required_elements": [
-            "{item}",
-            "있어요"
+            "저는",
+            "{country}",
+            "사람이에요"
           ],
           "acceptable_variants": [
-            "{item} 있나요",
-            "{item} 없어요"
+            "{country}에서 왔어요",
+            "저는 {country} 출신이에요"
           ],
           "transform_types": [
-            "negation",
-            "speech_level_shift"
+            "slot_substitution",
+            "context_retarget"
           ],
           "repair_links": [
-            "R-KO-FORM-002",
-            "R-KO-HON-002"
+            "R-KO-FORM-001",
+            "R-KO-PRAG-002"
           ],
           "transfer_contexts": [
-            "convenience_store",
-            "hotel_checkin",
-            "restaurant_order"
+            "classroom",
+            "airport",
+            "friend_chat"
           ]
         }
       },
@@ -887,21 +865,21 @@
       }
     },
     {
-      "id": "A1-U04-P4",
+      "id": "A1-U01-P4",
       "candidate_type": "path_node",
       "content_form": "practice_card",
       "learning_role": "controlled_output",
       "skill_focus": [
-        "writing",
-        "speaking"
+        "speaking",
+        "writing"
       ],
       "output_mode": "response_builder",
       "duration_min": 4,
-      "title_zh_tw": "P4 修復練習：請慢一點",
-      "summary_zh_tw": "遇到聽不懂時使用修復句型，避免對話中斷。",
-      "expected_output_zh_tw": "能在對話卡關時主動提出請求澄清。",
+      "title_zh_tw": "P4 修復練習：聽不清楚時，禮貌請對方說慢一點",
+      "summary_zh_tw": "遇到卡關時主動修復溝通。主題情境：校園報到與自我介紹。劇情步驟：聽不清楚時，禮貌請對方說慢一點。本節點語言目標：能請對方說慢一點。",
+      "expected_output_zh_tw": "能使用修復句維持互動。對應功能：能請對方說慢一點。",
       "payload": {
-        "trigger_type": "muffled_audio",
+        "trigger_type": "fast_speech",
         "repair_goal": "ask_to_repeat_slowly",
         "rubric": {
           "completion_policy": "pass_on_threshold",
@@ -913,6 +891,11 @@
           ],
           "acceptable_variants": [],
           "feedback_policy": "coach"
+        },
+        "node_contract": {
+          "node_goal_zh_tw": "能請對方說慢一點。",
+          "input_from_prev": "P1~P3",
+          "output_to_next": "P5"
         },
         "generation_constraints": {
           "target_lang": "ko",
@@ -968,20 +951,7 @@
             "office",
             "classroom"
           ]
-        },
-        "items": [
-          {
-            "prompt_ko": "천천히 말해 주세요.",
-            "prompt_zh_tw": "把溝通修復句型列為 survival 必備，降低聽不懂時的中斷成本。",
-            "response_choices_ko": [
-              "네",
-              "아니요"
-            ],
-            "accepted_responses_ko": [
-              "네"
-            ]
-          }
-        ]
+        }
       },
       "adapter_hints": {
         "content_renderer_key": "practice_card",
@@ -989,19 +959,18 @@
       }
     },
     {
-      "id": "A1-U04-P5",
+      "id": "A1-U01-P5",
       "candidate_type": "path_node",
       "content_form": "roleplay_prompt",
       "learning_role": "immersion_output",
       "skill_focus": [
-        "speaking",
-        "writing"
+        "speaking"
       ],
       "output_mode": "guided",
-      "duration_min": 4,
-      "title_zh_tw": "P5 角色扮演：店內詢問任務",
-      "summary_zh_tw": "在模擬店家對話中整合有無問句、點單與詢價，完成完整互動。",
-      "expected_output_zh_tw": "能以 4-6 句完成一次自然的購物對話。",
+      "duration_min": 6,
+      "title_zh_tw": "P5 角色扮演：與同學對話，互相問路並找到教室",
+      "summary_zh_tw": "整合多句完成任務對話。主題情境：校園報到與自我介紹。劇情步驟：與同學對話，互相問路並找到教室。本節點語言目標：能詢問與回答地點。",
+      "expected_output_zh_tw": "能在模擬情境完成多輪互動。對應功能：能詢問與回答地點。",
       "payload": {
         "rubric": {
           "completion_policy": "complete_on_attempt",
@@ -1020,6 +989,11 @@
             "form_mismatch"
           ],
           "revise_allowed": true
+        },
+        "node_contract": {
+          "node_goal_zh_tw": "能詢問與回答地點。",
+          "input_from_prev": "P1~P4",
+          "output_to_next": "P6"
         },
         "generation_constraints": {
           "target_lang": "ko",
@@ -1052,31 +1026,31 @@
           }
         },
         "pattern_meta": {
-          "pattern_id": "ko-A1-survival-007",
-          "can_do": "能詢問是否有某項物品或服務。",
+          "pattern_id": "ko-A1-survival-006",
+          "can_do": "能詢問與回答地點。",
           "required_elements": [
-            "{item}",
-            "있어요"
+            "{place}",
+            "어디예요"
           ],
           "acceptable_variants": [
-            "{item} 있나요",
-            "{item} 없어요"
+            "{place} 어디에 있어요",
+            "{place}이/가 어디야"
           ],
           "transform_types": [
-            "negation",
+            "slot_substitution",
             "speech_level_shift"
           ],
           "repair_links": [
-            "R-KO-FORM-002",
-            "R-KO-HON-002"
+            "R-KO-PART-001",
+            "R-KO-HON-001"
           ],
           "transfer_contexts": [
-            "convenience_store",
-            "hotel_checkin",
-            "restaurant_order"
+            "subway_navigation",
+            "airport",
+            "hotel_checkin"
           ]
         },
-        "prompt_zh_tw": "你是顧客，在商店詢問商品是否有貨、價格是多少，最後完成禮貌點單。"
+        "prompt_zh_tw": "P5 角色扮演：與同學對話，互相問路並找到教室：請依照情境完成輸出（必須達成：能詢問與回答地點。）。"
       },
       "adapter_hints": {
         "content_renderer_key": "roleplay_prompt",
@@ -1084,19 +1058,18 @@
       }
     },
     {
-      "id": "A1-U04-P6",
+      "id": "A1-U01-P6",
       "candidate_type": "path_node",
       "content_form": "message_prompt",
       "learning_role": "immersion_output",
       "skill_focus": [
-        "speaking",
         "writing"
       ],
       "output_mode": "guided",
-      "duration_min": 4,
-      "title_zh_tw": "P6 訊息任務：文字詢價",
-      "summary_zh_tw": "把口語句型轉成簡短訊息，練習書寫版禮貌溝通。",
-      "expected_output_zh_tw": "能在訊息中完整詢問商品與價格。",
+      "duration_min": 6,
+      "title_zh_tw": "P6 訊息任務：傳訊息給同伴，確認集合時間與地點",
+      "summary_zh_tw": "把功能句遷移到文字溝通。主題情境：校園報到與自我介紹。劇情步驟：傳訊息給同伴，確認集合時間與地點。本節點語言目標：能說明自己的行程或約定。",
+      "expected_output_zh_tw": "能用短訊息完成同任務。對應功能：能說明自己的行程或約定。",
       "payload": {
         "rubric": {
           "completion_policy": "complete_on_attempt",
@@ -1115,6 +1088,11 @@
             "form_mismatch"
           ],
           "revise_allowed": true
+        },
+        "node_contract": {
+          "node_goal_zh_tw": "能說明自己的行程或約定。",
+          "input_from_prev": "P5",
+          "output_to_next": "R1"
         },
         "generation_constraints": {
           "target_lang": "ko",
@@ -1146,30 +1124,32 @@
           }
         },
         "pattern_meta": {
-          "pattern_id": "ko-A1-survival-010",
-          "can_do": "能詢問價格。",
+          "pattern_id": "ko-A1-survival-020",
+          "can_do": "能說明自己的行程或約定。",
           "required_elements": [
-            "얼마예요"
+            "{time}에",
+            "{plan}이/가",
+            "있어요"
           ],
           "acceptable_variants": [
-            "{item} 얼마예요",
-            "가격이 얼마예요"
+            "{time}에 {plan} 있어요",
+            "{time}에는 {plan}이 있어요"
           ],
           "transform_types": [
-            "slot_substitution",
-            "politeness_shift"
+            "time_expression_shift",
+            "slot_substitution"
           ],
           "repair_links": [
-            "R-KO-PRAG-002",
-            "R-KO-HON-001"
+            "R-KO-PART-002",
+            "R-KO-PART-001"
           ],
           "transfer_contexts": [
-            "convenience_store",
-            "airport",
-            "market"
+            "office",
+            "friend_chat",
+            "service_call"
           ]
         },
-        "prompt_zh_tw": "傳訊息給店家：先問某商品有沒有，再追問價格，最後禮貌收尾。"
+        "prompt_zh_tw": "P6 訊息任務：傳訊息給同伴，確認集合時間與地點：請依照情境完成輸出（必須達成：能說明自己的行程或約定。）。"
       },
       "adapter_hints": {
         "content_renderer_key": "message_prompt",
@@ -1177,19 +1157,19 @@
       }
     },
     {
-      "id": "A1-U04-R1",
+      "id": "A1-U01-R1",
       "candidate_type": "path_node",
       "content_form": "review_card",
       "learning_role": "review_retrieval",
       "skill_focus": [
-        "reading",
-        "writing"
+        "listening",
+        "reading"
       ],
       "output_mode": "review_retrieval",
       "duration_min": 4,
-      "title_zh_tw": "R1 回想複習：本課生存句型",
-      "summary_zh_tw": "不看提示回想本課核心任務句型，檢查是否可直接上手使用。",
-      "expected_output_zh_tw": "能獨立說出至少 3 個核心句型並用於新情境。",
+      "title_zh_tw": "R1 回想複習：回想整段報到流程的核心句型",
+      "summary_zh_tw": "不看提示回想核心句型。主題情境：校園報到與自我介紹。劇情步驟：回想整段報到流程的核心句型。本節點語言目標：能用韓語做基本自我介紹（姓名）。",
+      "expected_output_zh_tw": "能獨立提取本課關鍵表達。對應功能：能用韓語做基本自我介紹（姓名）。",
       "payload": {
         "rubric": {
           "completion_policy": "pass_on_threshold",
@@ -1209,10 +1189,15 @@
           ],
           "revise_allowed": true
         },
+        "node_contract": {
+          "node_goal_zh_tw": "能用韓語做基本自我介紹（姓名）。",
+          "input_from_prev": "P1~P6",
+          "output_to_next": "followups"
+        },
         "generation_constraints": {
           "target_lang": "ko",
           "genre": "notice",
-          "register_target": "spoken_polite",
+          "register_target": "neutral_written",
           "style_requirements": [
             "use compact informational style",
             "highlight key actionable details",
@@ -1222,11 +1207,11 @@
             "long conversational storytelling"
           ],
           "required_markers": [
-            "-요",
-            "주세요"
+            "clear sentence boundaries",
+            "topic continuity"
           ],
           "forbidden_markers": [
-            "반말 sentence endings in formal service contexts"
+            "chat-only fillers"
           ],
           "length_guidelines": {
             "min_tokens": 20,
@@ -1239,55 +1224,43 @@
           }
         },
         "pattern_meta": {
-          "pattern_id": "ko-A1-survival-007",
-          "can_do": "能詢問是否有某項物品或服務。",
+          "pattern_id": "ko-A1-survival-002",
+          "can_do": "能用韓語做基本自我介紹（姓名）。",
           "required_elements": [
-            "{item}",
-            "있어요"
+            "저는",
+            "{name}",
+            "이에요/예요"
           ],
           "acceptable_variants": [
-            "{item} 있나요",
-            "{item} 없어요"
+            "제 이름은 {name}이에요",
+            "저는 {name}예요"
           ],
           "transform_types": [
-            "negation",
+            "slot_substitution",
             "speech_level_shift"
           ],
           "repair_links": [
-            "R-KO-FORM-002",
-            "R-KO-HON-002"
+            "R-KO-FORM-001",
+            "R-KO-HON-001"
           ],
           "transfer_contexts": [
-            "convenience_store",
-            "hotel_checkin",
-            "restaurant_order"
+            "classroom",
+            "office",
+            "online_message"
           ]
         },
         "prompts_zh_tw": [
-          "不用看筆記，先口頭說出一個「詢問有沒有」的句子。",
-          "再說一個「禮貌點單」的句子。",
-          "最後說一個「詢問價格」的句子。"
+          "R1 回想複習：回想整段報到流程的核心句型：不用看提示，先說出一個可完成「能用韓語做基本自我介紹（姓名）。」的句子。",
+          "再說一個同主題但不同詞彙的變化句。"
         ],
         "reference_answers_ko": [
-          "{item} 있어요?"
+          "저는 {name}이에요."
         ]
       },
       "adapter_hints": {
         "content_renderer_key": "review_card",
         "interaction_renderer_key": "review_retrieval"
       }
-    }
-  ],
-  "scheduled_followups": [
-    {
-      "timing": "+1_unit",
-      "transfer_to": "review",
-      "goal_zh_tw": "回想核心句型並正確回應"
-    },
-    {
-      "timing": "+3_units",
-      "transfer_to": "transfer",
-      "goal_zh_tw": "把句型遷移到新情境"
     }
   ]
 }

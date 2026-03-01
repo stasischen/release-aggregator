@@ -47,7 +47,23 @@ CONTENT_FORM_TO_GENRE = {
     "practice_card": "dialogue",
     "roleplay_prompt": "dialogue",
     "message_prompt": "message",
-    "review_card": "notice",
+    "review_card": "dialogue",
+}
+
+NODE_COPY_BOOK = {
+    "L1": ("沉浸輸入", "建立第一輪情境聽讀理解", "能辨識該情境的核心開場與任務語句"),
+    "L2": ("理解檢核", "確認是否讀懂關鍵資訊", "能針對輸入做正確判斷與回應"),
+    "L3": ("閱讀輸入", "補足非對話文本的資訊抓取", "能從文本提取場景關鍵資訊"),
+    "D1": ("功能詞塊", "把句型拆成可替換詞塊", "能替換關鍵 slot 組出新句"),
+    "G1": ("句型框", "固定核心句型框架", "能套用框架產出多個同功能句"),
+    "G2": ("文法重點", "說清楚規則與常見錯誤", "能在提問與回應中保持語法穩定"),
+    "P1": ("組裝練習", "把詞塊組成可用句", "能在提示下產出完整句子"),
+    "P2": ("情境應答", "在場景中快速選擇回應", "能依語境回覆正確功能句"),
+    "P3": ("變換練習", "做肯定/否定或語體轉換", "能在限制條件下完成句型變換"),
+    "P4": ("修復練習", "遇到卡關時主動修復溝通", "能使用修復句維持互動"),
+    "P5": ("角色扮演", "整合多句完成任務對話", "能在模擬情境完成多輪互動"),
+    "P6": ("訊息任務", "把功能句遷移到文字溝通", "能用短訊息完成同任務"),
+    "R1": ("回想複習", "不看提示回想核心句型", "能獨立提取本課關鍵表達"),
 }
 
 
@@ -109,6 +125,61 @@ def make_node_summary(pattern_entry: dict[str, Any] | None) -> tuple[str, str, s
     return frame, zh, en
 
 
+def build_node_copy(
+    node_id: str,
+    can_do: str,
+    frame: str,
+    unit_theme_zh_tw: str,
+    storyline_step_zh_tw: str,
+) -> tuple[str, str, str, str]:
+    suffix = suffix_of(node_id)
+    stage, desc, expected = NODE_COPY_BOOK.get(suffix, ("節點", "完成本節點任務", "能達成該節點輸出"))
+    focus = (can_do or "完成本課核心溝通任務").strip()
+    if focus.endswith(("。", ".", "!", "?")):
+        focus = focus[:-1]
+    theme = unit_theme_zh_tw or "本單元主題"
+    storyline = storyline_step_zh_tw.strip()
+
+    title_zh = f"{suffix} {stage}：{storyline if storyline else focus}"
+    if storyline:
+        summary_zh = f"{desc}。主題情境：{theme}。劇情步驟：{storyline}。本節點語言目標：{focus}。"
+    else:
+        summary_zh = f"{desc}。主題情境：{theme}。本節點聚焦：{focus}。"
+    expected_zh = f"{expected}。對應功能：{focus}。"
+    summary_en = f"{suffix} focuses on: {focus}"
+    if frame:
+        summary_en = f"{summary_en} | frame: {frame}"
+    return title_zh, summary_zh, expected_zh, summary_en
+
+
+def build_node_contract(
+    node_id: str,
+    can_do: str,
+) -> dict[str, str]:
+    suffix = suffix_of(node_id)
+    chain = {
+        "L1": ("unit_intent", "L2"),
+        "L2": ("L1", "L3"),
+        "L3": ("L2", "D1"),
+        "D1": ("L1~L3", "G1"),
+        "G1": ("D1", "G2"),
+        "G2": ("G1", "P1"),
+        "P1": ("G1/G2", "P2"),
+        "P2": ("P1", "P3"),
+        "P3": ("P2", "P4"),
+        "P4": ("P1~P3", "P5"),
+        "P5": ("P1~P4", "P6"),
+        "P6": ("P5", "R1"),
+        "R1": ("P1~P6", "followups"),
+    }
+    incoming, outgoing = chain.get(suffix, ("previous_node", "next_node"))
+    return {
+        "node_goal_zh_tw": can_do or "完成節點任務",
+        "input_from_prev": incoming,
+        "output_to_next": outgoing,
+    }
+
+
 def attach_reading_overlay(sequence: list[dict[str, Any]], reading_overlay: dict[str, Any] | None) -> None:
     if not reading_overlay:
         return
@@ -168,6 +239,9 @@ def build_blueprint(
     pattern_map = build_pattern_map(pattern_library)
     register_map, genre_map = build_lang_indexes(lang_profile)
     sequence: list[dict[str, Any]] = []
+    unit_intent = base_input.get("unit_intent") or {}
+    unit_theme_zh_tw = str(unit_intent.get("theme_zh_tw", "")).strip()
+    node_storyline = unit_intent.get("node_storyline") or {}
 
     for node in base_input.get("nodes", []):
         node_id = str(node.get("node_id", ""))
@@ -178,8 +252,17 @@ def build_blueprint(
         pattern_id = str(node.get("pattern_id", ""))
         pattern_entry = pattern_map.get(pattern_id)
         summary_target, summary_zh, summary_en = make_node_summary(pattern_entry)
+        can_do = str((pattern_entry or {}).get("can_do", "")).strip()
+        title_zh, generated_summary_zh, expected_zh, generated_summary_en = build_node_copy(
+            node_id=node_id,
+            can_do=can_do,
+            frame=summary_target,
+            unit_theme_zh_tw=unit_theme_zh_tw,
+            storyline_step_zh_tw=str(node_storyline.get(node_id, "")).strip(),
+        )
 
         payload = dict(node.get("payload") or {})
+        payload["node_contract"] = build_node_contract(node_id=node_id, can_do=can_do)
         payload["generation_constraints"] = build_node_generation_constraints(
             target_lang=str(base_input.get("target_lang", "ko")),
             content_form=content_form,
@@ -206,9 +289,11 @@ def build_blueprint(
                 "learning_role": profile["learning_role"],
                 "content_form": content_form,
                 "output_mode": node.get("output_mode", "none"),
+                "title_zh_tw": title_zh,
                 "summary_target_lang": summary_target,
-                "summary_zh_tw": summary_zh,
-                "summary_en": summary_en,
+                "summary_zh_tw": generated_summary_zh if generated_summary_zh else summary_zh,
+                "summary_en": generated_summary_en if generated_summary_en else summary_en,
+                "expected_output_zh_tw": expected_zh,
                 "payload": payload,
             }
         )

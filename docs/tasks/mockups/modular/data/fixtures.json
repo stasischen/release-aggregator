@@ -19,6 +19,11 @@
             "id": "A1-U04-V1",
             "title": "A1-U04 v1 Preview (TLG-005/006)",
             "path": "data/units/a1_u04_unit_blueprint_v1_preview.json"
+        },
+        {
+            "id": "A1-U01-V1",
+            "title": "A1-U01 v1 Preview (Node Contract)",
+            "path": "data/units/a1_u01_unit_blueprint_v1_preview.json"
         }
     ]
 }

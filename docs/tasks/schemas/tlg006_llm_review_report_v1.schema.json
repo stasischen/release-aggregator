@@ -1,0 +1,85 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "tlg006_llm_review_report_v1",
+  "type": "object",
+  "required": [
+    "version",
+    "unit_id",
+    "model",
+    "overall_decision",
+    "scores",
+    "blocking_findings",
+    "node_reviews",
+    "summary_zh_tw"
+  ],
+  "properties": {
+    "version": {
+      "type": "string",
+      "const": "tlg006_llm_review_report_v1"
+    },
+    "unit_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "model": {
+      "type": "string",
+      "minLength": 1
+    },
+    "overall_decision": {
+      "type": "string",
+      "enum": ["pass", "revise", "fail"]
+    },
+    "scores": {
+      "type": "object",
+      "required": [
+        "theme_coherence",
+        "node_payload_alignment",
+        "progression_logic",
+        "task_authenticity",
+        "redundancy_control"
+      ],
+      "properties": {
+        "theme_coherence": { "type": "integer", "minimum": 1, "maximum": 5 },
+        "node_payload_alignment": { "type": "integer", "minimum": 1, "maximum": 5 },
+        "progression_logic": { "type": "integer", "minimum": 1, "maximum": 5 },
+        "task_authenticity": { "type": "integer", "minimum": 1, "maximum": 5 },
+        "redundancy_control": { "type": "integer", "minimum": 1, "maximum": 5 }
+      },
+      "additionalProperties": false
+    },
+    "blocking_findings": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["code", "severity", "message"],
+        "properties": {
+          "code": { "type": "string", "minLength": 1 },
+          "severity": { "type": "string", "enum": ["blocker", "warning"] },
+          "node_id": { "type": "string" },
+          "message": { "type": "string", "minLength": 1 }
+        },
+        "additionalProperties": false
+      }
+    },
+    "node_reviews": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": ["node_id", "verdict", "reason_zh_tw", "fix_hint_zh_tw"],
+        "properties": {
+          "node_id": { "type": "string", "minLength": 1 },
+          "verdict": { "type": "string", "enum": ["ok", "needs_revision", "off_theme"] },
+          "reason_zh_tw": { "type": "string", "minLength": 1 },
+          "fix_hint_zh_tw": { "type": "string", "minLength": 1 }
+        },
+        "additionalProperties": false
+      }
+    },
+    "summary_zh_tw": {
+      "type": "string",
+      "minLength": 1
+    }
+  },
+  "additionalProperties": false
+}

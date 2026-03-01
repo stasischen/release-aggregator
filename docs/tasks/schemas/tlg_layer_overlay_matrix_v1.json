@@ -1,0 +1,195 @@
+{
+  "matrix_id": "tlg_layer_overlay_matrix_v1",
+  "version": "1.0.0",
+  "status": "draft_for_tlg005",
+  "default_rollout": {
+    "phase_1": ["core"],
+    "phase_2": ["listening", "vocab_collocation"],
+    "phase_3": ["reading", "pronunciation_prosody"],
+    "phase_4": ["writing", "assessment", "personalization"]
+  },
+  "level_mix_targets": [
+    {
+      "level_band": "A1-A2",
+      "core_ratio": 0.7,
+      "overlay_ratio": 0.3,
+      "notes": "Prioritize survivability and reliable completion before heavy overlay density."
+    },
+    {
+      "level_band": "B1-C2",
+      "core_ratio": 0.5,
+      "overlay_ratio": 0.5,
+      "notes": "Increase reading/writing/discourse overlays for nuanced communication goals."
+    }
+  ],
+  "layers": [
+    {
+      "layer_id": "core",
+      "required": true,
+      "entry_gate": "TLG-002/003/004",
+      "primary_nodes": ["L1", "L2", "L3", "D1", "G1", "G2", "P1", "P2", "P3", "P4", "P5", "P6", "R1"],
+      "integration_mode": "base_sequence",
+      "priority": "P0"
+    },
+    {
+      "layer_id": "listening",
+      "required": false,
+      "entry_gate": "TLA-001~008",
+      "primary_nodes": ["L1", "L2", "R1", "X1"],
+      "integration_mode": "node_overlay",
+      "priority": "P1"
+    },
+    {
+      "layer_id": "reading",
+      "required": false,
+      "entry_gate": "TLR-001~008",
+      "primary_nodes": ["L3", "R1", "X2"],
+      "integration_mode": "node_overlay",
+      "priority": "P1"
+    },
+    {
+      "layer_id": "pronunciation_prosody",
+      "required": false,
+      "entry_gate": "TLA-002/005/007",
+      "primary_nodes": ["P5", "P6", "X1"],
+      "integration_mode": "node_overlay",
+      "priority": "P2"
+    },
+    {
+      "layer_id": "writing",
+      "required": false,
+      "entry_gate": "TLW-001~005",
+      "primary_nodes": ["P6", "R1", "X2"],
+      "integration_mode": "node_overlay_or_extra_node",
+      "priority": "P2"
+    },
+    {
+      "layer_id": "vocab_collocation",
+      "required": false,
+      "entry_gate": "TLV-001~005",
+      "primary_nodes": ["D1", "G1", "P1", "P2", "P3", "P4", "P5", "P6"],
+      "integration_mode": "cross_node_constraint",
+      "priority": "P1"
+    },
+    {
+      "layer_id": "grammar_progression",
+      "required": false,
+      "entry_gate": "TLGRA-001~005",
+      "primary_nodes": ["G2", "P3", "P4", "R1"],
+      "integration_mode": "sequence_constraint",
+      "priority": "P1"
+    },
+    {
+      "layer_id": "assessment",
+      "required": false,
+      "entry_gate": "TLAE-001~005",
+      "primary_nodes": ["R1", "X1", "X2"],
+      "integration_mode": "evaluation_overlay",
+      "priority": "P2"
+    },
+    {
+      "layer_id": "personalization",
+      "required": false,
+      "entry_gate": "TLP-001~005",
+      "primary_nodes": ["R1", "X1", "X2"],
+      "integration_mode": "scheduler_policy",
+      "priority": "P2"
+    }
+  ],
+  "node_overlay_rules": [
+    {
+      "node_id_suffix": "L1",
+      "allowed_layers": ["core", "listening"],
+      "max_overlay_items": 2
+    },
+    {
+      "node_id_suffix": "L2",
+      "allowed_layers": ["core", "listening"],
+      "max_overlay_items": 2
+    },
+    {
+      "node_id_suffix": "L3",
+      "allowed_layers": ["core", "reading"],
+      "max_overlay_items": 2
+    },
+    {
+      "node_id_suffix": "D1",
+      "allowed_layers": ["core", "vocab_collocation"],
+      "max_overlay_items": 3
+    },
+    {
+      "node_id_suffix": "G1",
+      "allowed_layers": ["core", "vocab_collocation"],
+      "max_overlay_items": 2
+    },
+    {
+      "node_id_suffix": "G2",
+      "allowed_layers": ["core", "grammar_progression"],
+      "max_overlay_items": 2
+    },
+    {
+      "node_id_suffix": "P1",
+      "allowed_layers": ["core", "vocab_collocation"],
+      "max_overlay_items": 2
+    },
+    {
+      "node_id_suffix": "P2",
+      "allowed_layers": ["core", "vocab_collocation"],
+      "max_overlay_items": 2
+    },
+    {
+      "node_id_suffix": "P3",
+      "allowed_layers": ["core", "vocab_collocation", "grammar_progression"],
+      "max_overlay_items": 3
+    },
+    {
+      "node_id_suffix": "P4",
+      "allowed_layers": ["core", "vocab_collocation", "grammar_progression"],
+      "max_overlay_items": 3
+    },
+    {
+      "node_id_suffix": "P5",
+      "allowed_layers": ["core", "pronunciation_prosody", "vocab_collocation"],
+      "max_overlay_items": 3
+    },
+    {
+      "node_id_suffix": "P6",
+      "allowed_layers": ["core", "pronunciation_prosody", "writing", "vocab_collocation"],
+      "max_overlay_items": 4
+    },
+    {
+      "node_id_suffix": "R1",
+      "allowed_layers": ["core", "listening", "reading", "writing", "assessment", "personalization", "grammar_progression"],
+      "max_overlay_items": 5
+    },
+    {
+      "node_id_suffix": "X1",
+      "allowed_layers": ["listening", "pronunciation_prosody", "assessment", "personalization"],
+      "max_overlay_items": 4
+    },
+    {
+      "node_id_suffix": "X2",
+      "allowed_layers": ["reading", "writing", "assessment", "personalization"],
+      "max_overlay_items": 4
+    }
+  ],
+  "generator_policy": {
+    "selection_order": ["core", "listening", "vocab_collocation", "reading", "pronunciation_prosody", "writing", "assessment", "personalization"],
+    "conflict_resolution": "higher_priority_layer_wins_then_keep_core_requirements",
+    "must_keep_core_constraints": true,
+    "drop_policy_when_over_budget": "drop_lowest_priority_overlay_first"
+  },
+  "gate_policy": {
+    "blockers": [
+      "missing_core_nodes",
+      "overlay_without_entry_gate",
+      "disallowed_layer_on_node",
+      "overlay_count_exceeds_node_limit"
+    ],
+    "warnings": [
+      "level_mix_target_not_met",
+      "over_reliance_on_single_overlay_layer",
+      "missing_followup_overlay_for_personalization"
+    ]
+  }
+}

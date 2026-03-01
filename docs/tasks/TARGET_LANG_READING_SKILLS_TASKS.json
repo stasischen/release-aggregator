@@ -1,0 +1,97 @@
+{
+  "task_id": "TARGET_LANG_READING_SKILLS",
+  "description": "目標語系閱讀層任務包：Reading comprehension architecture（literal/inferential/discourse）",
+  "status": "in_progress",
+  "tasks": [
+    {
+      "id": "TLR-001",
+      "desc": "Define reading layer contract (pre-read/while-read/post-read) and how it plugs into unit_blueprint sequence (spec: TLG-013).",
+      "status": "todo",
+      "depends_on": [
+        "TLG-002",
+        "TLG-003",
+        "TLG-004"
+      ]
+    },
+    {
+      "id": "TLR-002",
+      "desc": "Define text profile schema (genre, length, lexical coverage, syntax density, discourse markers).",
+      "status": "todo",
+      "depends_on": [
+        "TLR-001"
+      ]
+    },
+    {
+      "id": "TLR-003",
+      "desc": "Define reading skill targets by level: gist/detail/inference/reference/cohesion/evaluation.",
+      "status": "todo",
+      "depends_on": [
+        "TLR-001"
+      ]
+    },
+    {
+      "id": "TLR-004",
+      "desc": "Define question blueprint schema (literal, inferential, evaluative, structure) with accepted answer policy.",
+      "status": "todo",
+      "depends_on": [
+        "TLR-002",
+        "TLR-003"
+      ]
+    },
+    {
+      "id": "TLR-005",
+      "desc": "Define evidence mapping contract: each question must map to evidence span(s) in source text.",
+      "status": "todo",
+      "depends_on": [
+        "TLR-004"
+      ]
+    },
+    {
+      "id": "TLR-006",
+      "desc": "Define reading rubric profile and thresholds for A1/A2 (then B1+ extension hooks) (spec: TLG-014).",
+      "status": "todo",
+      "depends_on": [
+        "TLR-003",
+        "TLG-003"
+      ]
+    },
+    {
+      "id": "TLR-007",
+      "desc": "Add TLG-005 generator input extension for reading nodes and rubric payload contract (schema: tlg005_reading_generator_input_v1).",
+      "status": "todo",
+      "depends_on": [
+        "TLR-004",
+        "TLR-005",
+        "TLR-006",
+        "TLG-005"
+      ]
+    },
+    {
+      "id": "TLR-008",
+      "desc": "Implement TLG-006 gate rules for reading (missing evidence span, question-text mismatch, weak distractors).",
+      "status": "todo",
+      "depends_on": [
+        "TLR-005",
+        "TLR-006",
+        "TLG-006"
+      ]
+    },
+    {
+      "id": "TLR-009",
+      "desc": "Pilot on KO A1/A2: 2 units with full reading flow and QA defect report.",
+      "status": "todo",
+      "depends_on": [
+        "TLR-007",
+        "TLR-008"
+      ]
+    },
+    {
+      "id": "TLR-010",
+      "desc": "Freeze recommendation for reading layer: stable contract fields vs deferred advanced features.",
+      "status": "todo",
+      "depends_on": [
+        "TLR-009"
+      ]
+    }
+  ]
+}

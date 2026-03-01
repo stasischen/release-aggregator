@@ -1,0 +1,13 @@
+{
+  "task_id": "TARGET_LANG_GRAMMAR_PROGRESSION",
+  "description": "目標語系文法進階層任務包：功能導向 grammar unlock 與先修 DAG",
+  "status": "in_progress",
+  "tasks": [
+    {"id":"TLGRA-001","desc":"Define grammar progression contract driven by functional outcomes.","status":"todo","depends_on":["TLG-004"]},
+    {"id":"TLGRA-002","desc":"Define prerequisite DAG schema for grammar unlock rules.","status":"todo","depends_on":["TLGRA-001"]},
+    {"id":"TLGRA-003","desc":"Map grammar nodes to function IDs and pattern IDs by level.","status":"todo","depends_on":["TLGRA-001","TLG-004"]},
+    {"id":"TLGRA-004","desc":"Integrate progression constraints into generator sequencing.","status":"todo","depends_on":["TLGRA-002","TLGRA-003","TLG-005"]},
+    {"id":"TLGRA-005","desc":"Implement gate checks for prerequisite violations.","status":"todo","depends_on":["TLGRA-002","TLG-006"]},
+    {"id":"TLGRA-006","desc":"Pilot sequencing on KO A1/A2 path and review regressions.","status":"todo","depends_on":["TLGRA-004","TLGRA-005"]}
+  ]
+}

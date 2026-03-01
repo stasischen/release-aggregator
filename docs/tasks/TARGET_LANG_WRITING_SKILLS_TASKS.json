@@ -1,0 +1,13 @@
+{
+  "task_id": "TARGET_LANG_WRITING_SKILLS",
+  "description": "目標語系寫作層任務包：句級到段落級產出與評分",
+  "status": "in_progress",
+  "tasks": [
+    {"id":"TLW-001","desc":"Define writing layer contract (sentence -> paragraph) and node types.","status":"todo","depends_on":["TLG-002","TLG-003","TLG-004"]},
+    {"id":"TLW-002","desc":"Define writing prompt schema (goal, audience, register, constraints).","status":"todo","depends_on":["TLW-001"]},
+    {"id":"TLW-003","desc":"Define writing rubric profile (accuracy, coherence, task fulfillment, register).","status":"todo","depends_on":["TLW-001","TLG-003"]},
+    {"id":"TLW-004","desc":"Add TLG-005 generator input extension for writing nodes.","status":"todo","depends_on":["TLW-002","TLW-003","TLG-005"]},
+    {"id":"TLW-005","desc":"Implement TLG-006 gate checks for writing outputs and rubric completeness.","status":"todo","depends_on":["TLW-003","TLG-006"]},
+    {"id":"TLW-006","desc":"Pilot on KO A1/A2 with 2 units and collect QA defects.","status":"todo","depends_on":["TLW-004","TLW-005"]}
+  ]
+}

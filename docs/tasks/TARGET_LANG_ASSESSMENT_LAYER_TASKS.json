@@ -1,0 +1,13 @@
+{
+  "task_id": "TARGET_LANG_ASSESSMENT_LAYER",
+  "description": "目標語系測評層任務包：placement/progress/mastery",
+  "status": "in_progress",
+  "tasks": [
+    {"id":"TLAE-001","desc":"Define assessment layer contract for placement/progress/mastery tracks.","status":"todo","depends_on":["TLG-003"]},
+    {"id":"TLAE-002","desc":"Define item blueprint schema by output mode and level.","status":"todo","depends_on":["TLAE-001"]},
+    {"id":"TLAE-003","desc":"Define scoring/weight profiles aligned with rubric dimensions.","status":"todo","depends_on":["TLAE-001","TLG-003"]},
+    {"id":"TLAE-004","desc":"Integrate assessment generation flow into TLG-005 pipeline.","status":"todo","depends_on":["TLAE-002","TLAE-003","TLG-005"]},
+    {"id":"TLAE-005","desc":"Implement TLG-006 assessment gate checks for score explainability.","status":"todo","depends_on":["TLAE-003","TLG-006"]},
+    {"id":"TLAE-006","desc":"Pilot assessment reports on KO A1/A2 sample cohorts (offline simulation).","status":"todo","depends_on":["TLAE-004","TLAE-005"]}
+  ]
+}

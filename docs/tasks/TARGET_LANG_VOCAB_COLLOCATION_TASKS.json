@@ -1,0 +1,13 @@
+{
+  "task_id": "TARGET_LANG_VOCAB_COLLOCATION",
+  "description": "目標語系詞彙與搭配層任務包：功能詞塊、搭配、語域標記",
+  "status": "in_progress",
+  "tasks": [
+    {"id":"TLV-001","desc":"Define vocab/collocation contract with function-first lexical units.","status":"todo","depends_on":["TLG-004"]},
+    {"id":"TLV-002","desc":"Define collocation schema (core phrase, variants, anti-patterns, register).","status":"todo","depends_on":["TLV-001"]},
+    {"id":"TLV-003","desc":"Map collocation layer to function IDs and pattern IDs.","status":"todo","depends_on":["TLV-001","TLG-004"]},
+    {"id":"TLV-004","desc":"Add generator selection rules for collocation-aware surface realization.","status":"todo","depends_on":["TLV-002","TLV-003","TLG-005"]},
+    {"id":"TLV-005","desc":"Implement gate checks for invalid/unnatural collocations.","status":"todo","depends_on":["TLV-002","TLG-006"]},
+    {"id":"TLV-006","desc":"Pilot on KO A1/A2 2 units and compare output naturalness.","status":"todo","depends_on":["TLV-004","TLV-005"]}
+  ]
+}

@@ -1,0 +1,98 @@
+{
+  "task_id": "TARGET_LANG_AUDIO_SKILLS",
+  "description": "目標語系聽力與發音層（手機 App、無真人依賴）任務包：Listening + Pronunciation/Prosody",
+  "status": "in_progress",
+  "tasks": [
+    {
+      "id": "TLA-001",
+      "desc": "Define listening layer contract (gist/detail/inference) with mobile-first interaction constraints and TTS-only assumptions.",
+      "status": "todo",
+      "depends_on": [
+        "TLG-002",
+        "TLG-003",
+        "TLG-004"
+      ]
+    },
+    {
+      "id": "TLA-002",
+      "desc": "Define pronunciation/prosody layer contract with no-human-rater policy and explainable coaching output format.",
+      "status": "todo",
+      "depends_on": [
+        "TLG-003",
+        "TLG-004"
+      ]
+    },
+    {
+      "id": "TLA-003",
+      "desc": "Create TTS variation profile spec (speed/pause/intonation/noise) for listening robustness without human recordings.",
+      "status": "todo",
+      "depends_on": [
+        "TLA-001"
+      ]
+    },
+    {
+      "id": "TLA-004",
+      "desc": "Define listening item schema v1 (audio_ref, transcript_ref, question_type, evidence_span, accepted_answers).",
+      "status": "todo",
+      "depends_on": [
+        "TLA-001",
+        "TLA-003"
+      ]
+    },
+    {
+      "id": "TLA-005",
+      "desc": "Define pronunciation attempt schema v1 (target_utterance, learner_asr, timing, prosody_features, coaching_hints).",
+      "status": "todo",
+      "depends_on": [
+        "TLA-002"
+      ]
+    },
+    {
+      "id": "TLA-006",
+      "desc": "Add TLG-005 generator input extension for listening and pronunciation nodes, including mode-specific rubric payloads.",
+      "status": "todo",
+      "depends_on": [
+        "TLA-004",
+        "TLA-005",
+        "TLG-005"
+      ]
+    },
+    {
+      "id": "TLA-007",
+      "desc": "Implement TLG-006 gate rules for listening/pronunciation (missing audio refs, invalid evidence span, opaque scoring).",
+      "status": "todo",
+      "depends_on": [
+        "TLA-004",
+        "TLA-005",
+        "TLG-006"
+      ]
+    },
+    {
+      "id": "TLA-008",
+      "desc": "Define mobile UX constraints: max clip length, retry policy, hint cadence, offline fallback behavior.",
+      "status": "todo",
+      "depends_on": [
+        "TLA-001",
+        "TLA-002"
+      ]
+    },
+    {
+      "id": "TLA-009",
+      "desc": "Pilot on KO A1/A2 with 2 units: run listening + pronunciation microflow and collect QA defects.",
+      "status": "todo",
+      "depends_on": [
+        "TLA-006",
+        "TLA-007",
+        "TLA-008"
+      ]
+    },
+    {
+      "id": "TLA-010",
+      "desc": "Freeze readiness decision: define what enters stable contract vs deferred for human-recording future path.",
+      "status": "todo",
+      "depends_on": [
+        "TLA-009"
+      ]
+    }
+  ]
+}

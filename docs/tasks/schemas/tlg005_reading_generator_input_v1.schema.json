@@ -1,0 +1,126 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "tlg005_reading_generator_input_v1.schema.json",
+  "title": "TLG-005 Reading Overlay Input Contract v1",
+  "description": "Reading extension payload for TLG-005 generator. Designed to be used alongside tlg005_generator_input_v1.schema.json.",
+  "type": "object",
+  "required": ["unit_id", "target_lang", "level", "reading_nodes"],
+  "properties": {
+    "unit_id": { "type": "string", "minLength": 1 },
+    "target_lang": { "type": "string", "minLength": 2 },
+    "level": { "type": "string", "enum": ["A1", "A2", "B1", "B2", "C1", "C2"] },
+    "reading_nodes": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": ["node_id", "phase", "text_profile", "reading_skill_targets", "question_blueprint", "evidence_mapping", "rubric"],
+        "properties": {
+          "node_id": { "type": "string", "pattern": "-(L3|R1|X2)$" },
+          "phase": { "type": "string", "enum": ["pre_read", "while_read", "post_read"] },
+          "text_profile": {
+            "type": "object",
+            "required": ["genre", "length_words", "lexical_coverage", "syntactic_density"],
+            "properties": {
+              "genre": { "type": "string", "enum": ["article", "email", "announcement", "story", "report", "notice", "message_thread"] },
+              "length_words": { "type": "integer", "minimum": 20, "maximum": 1500 },
+              "lexical_coverage": {
+                "type": "object",
+                "required": ["target_level_ratio"],
+                "properties": {
+                  "target_level_ratio": { "type": "number", "minimum": 0.0, "maximum": 1.0 },
+                  "next_level_ratio": { "type": "number", "minimum": 0.0, "maximum": 1.0 }
+                },
+                "additionalProperties": false
+              },
+              "syntactic_density": {
+                "type": "object",
+                "required": ["max_clauses_per_sentence"],
+                "properties": {
+                  "max_clauses_per_sentence": { "type": "integer", "minimum": 1, "maximum": 6 },
+                  "max_sentence_length": { "type": "integer", "minimum": 4, "maximum": 60 }
+                },
+                "additionalProperties": false
+              }
+            },
+            "additionalProperties": false
+          },
+          "reading_skill_targets": {
+            "type": "array",
+            "minItems": 1,
+            "items": {
+              "type": "string",
+              "enum": ["skimming", "scanning", "inference", "reference", "cohesion", "evaluation"]
+            }
+          },
+          "question_blueprint": {
+            "type": "array",
+            "minItems": 1,
+            "items": {
+              "type": "object",
+              "required": ["question_id", "type", "prompt", "accepted_answers"],
+              "properties": {
+                "question_id": { "type": "string", "minLength": 1 },
+                "type": { "type": "string", "enum": ["literal", "inferential", "evaluative", "structure"] },
+                "prompt": { "type": "string", "minLength": 1 },
+                "accepted_answers": {
+                  "type": "array",
+                  "minItems": 1,
+                  "items": {
+                    "type": "string",
+                    "minLength": 1
+                  }
+                }
+              },
+              "additionalProperties": false
+            }
+          },
+          "evidence_mapping": {
+            "type": "array",
+            "minItems": 1,
+            "items": {
+              "type": "object",
+              "required": ["question_id", "spans"],
+              "properties": {
+                "question_id": { "type": "string", "minLength": 1 },
+                "spans": {
+                  "type": "array",
+                  "minItems": 1,
+                  "items": {
+                    "type": "object",
+                    "required": ["start", "end"],
+                    "properties": {
+                      "start": { "type": "integer", "minimum": 0 },
+                      "end": { "type": "integer", "minimum": 0 }
+                    },
+                    "allOf": [
+                      {
+                        "if": { "properties": { "start": { "type": "integer" }, "end": { "type": "integer" } }, "required": ["start", "end"] },
+                        "then": { "properties": { "end": { "minimum": 1 } } }
+                      }
+                    ],
+                    "additionalProperties": false
+                  }
+                }
+              },
+              "additionalProperties": false
+            }
+          },
+          "rubric": {
+            "type": "object",
+            "required": ["comprehension_accuracy_weight", "evidence_location_weight", "inference_validity_weight", "pass_threshold"],
+            "properties": {
+              "comprehension_accuracy_weight": { "type": "number", "minimum": 0.0, "maximum": 1.0 },
+              "evidence_location_weight": { "type": "number", "minimum": 0.0, "maximum": 1.0 },
+              "inference_validity_weight": { "type": "number", "minimum": 0.0, "maximum": 1.0 },
+              "pass_threshold": { "type": "number", "minimum": 0.5, "maximum": 1.0 }
+            },
+            "additionalProperties": false
+          }
+        },
+        "additionalProperties": false
+      }
+    }
+  },
+  "additionalProperties": false
+}

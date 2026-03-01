@@ -1,0 +1,13 @@
+{
+  "task_id": "TARGET_LANG_PERSONALIZATION_LAYER",
+  "description": "目標語系個人化層任務包：錯誤型態驅動的動態派題與補救",
+  "status": "in_progress",
+  "tasks": [
+    {"id":"TLP-001","desc":"Define personalization contract (signals, learner state, decision outputs).","status":"todo","depends_on":["TLG-003","TLG-004"]},
+    {"id":"TLP-002","desc":"Define learner-state schema (error profile, hint dependency, response latency).","status":"todo","depends_on":["TLP-001"]},
+    {"id":"TLP-003","desc":"Define task selection policy schema (reinforce/advance/repair/transfer).","status":"todo","depends_on":["TLP-001"]},
+    {"id":"TLP-004","desc":"Integrate personalization decision hook into TLG-005 generation pipeline.","status":"todo","depends_on":["TLP-002","TLP-003","TLG-005"]},
+    {"id":"TLP-005","desc":"Implement TLG-006 gate checks for unsafe or unstable policy outputs.","status":"todo","depends_on":["TLP-003","TLG-006"]},
+    {"id":"TLP-006","desc":"Pilot adaptive flow on KO A1/A2 and compare completion/retention metrics.","status":"todo","depends_on":["TLP-004","TLP-005"]}
+  ]
+}

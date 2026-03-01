@@ -1,0 +1,97 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "tlg005_generator_input_v1.schema.json",
+  "title": "TLG-005 Generator Input Contract v1",
+  "type": "object",
+  "required": ["unit_id", "target_lang", "level", "nodes"],
+  "properties": {
+    "unit_id": { "type": "string", "minLength": 1 },
+    "target_lang": { "type": "string", "minLength": 2 },
+    "level": { "type": "string", "enum": ["A1", "A2", "B1", "B2", "C1", "C2"] },
+    "theme": { "type": "string" },
+    "nodes": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": ["node_id", "output_mode", "pattern_id", "payload"],
+        "properties": {
+          "node_id": { "type": "string", "minLength": 1 },
+          "output_mode": {
+            "type": "string",
+            "enum": ["none", "chunk_assembly", "frame_fill", "response_builder", "pattern_transform", "guided", "review_retrieval"]
+          },
+          "pattern_id": { "type": "string", "minLength": 1 },
+          "payload": {
+            "type": "object",
+            "required": ["rubric"],
+            "properties": {
+              "frame": { "type": "string" },
+              "trigger_type": { "type": "string" },
+              "repair_goal": { "type": "string" },
+              "rubric": {
+                "type": "object",
+                "required": [
+                  "completion_policy",
+                  "min_attempts",
+                  "pass_threshold",
+                  "max_hints_for_pass",
+                  "required_elements",
+                  "feedback_policy"
+                ],
+                "properties": {
+                  "completion_policy": { "type": "string", "enum": ["pass_on_threshold", "complete_on_attempt"] },
+                  "min_attempts": { "type": "integer", "minimum": 1, "maximum": 5 },
+                  "pass_threshold": { "type": "number", "minimum": 0.5, "maximum": 1.0 },
+                  "max_hints_for_pass": { "type": "integer", "minimum": 0, "maximum": 5 },
+                  "required_elements": { "type": "array", "items": { "type": "string" }, "minItems": 1 },
+                  "acceptable_variants": { "type": "array", "items": { "type": "string" } },
+                  "feedback_policy": { "type": "string", "enum": ["strict", "supportive", "coach"] },
+                  "error_classes": { "type": "array", "items": { "type": "string" } },
+                  "revise_allowed": { "type": "boolean" }
+                },
+                "additionalProperties": true
+              }
+            },
+            "additionalProperties": true
+          }
+        },
+        "allOf": [
+          {
+            "if": { "properties": { "output_mode": { "const": "frame_fill" } } },
+            "then": {
+              "properties": {
+                "payload": {
+                  "required": ["frame", "rubric"]
+                }
+              }
+            }
+          },
+          {
+            "if": {
+              "properties": {
+                "output_mode": { "const": "response_builder" },
+                "node_id": { "pattern": "-P4$" }
+              }
+            },
+            "then": {
+              "properties": {
+                "payload": {
+                  "required": ["trigger_type", "repair_goal", "rubric"],
+                  "properties": {
+                    "rubric": {
+                      "properties": {
+                        "completion_policy": { "const": "pass_on_threshold" }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        ]
+      }
+    }
+  },
+  "additionalProperties": false
+}

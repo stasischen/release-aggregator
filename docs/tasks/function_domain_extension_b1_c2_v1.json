@@ -1,0 +1,356 @@
+{
+  "extension_id": "function_domain_extension_b1_c2_v1",
+  "version": "1.0.0",
+  "status": "draft_for_b1_c2_pipeline",
+  "note": "Extends function layer beyond A1/A2 survival. IDs are unique; no cross-domain duplicate IDs.",
+  "domains": [
+    {
+      "domain_id": "information_exchange",
+      "label_en": "Information Exchange",
+      "label_zh_tw": "資訊交換",
+      "subdomains": [
+        {
+          "subdomain_id": "INFO-QUALIFIED-INFORM",
+          "level_range": "B1-B2",
+          "label_en": "Qualified Informing",
+          "label_zh_tw": "帶條件資訊陳述",
+          "representative_function_ids": [
+            "F-QUALIFY",
+            "F-HEDGED-INFORM",
+            "F-COMMITMENT-CALIBRATE"
+          ]
+        },
+        {
+          "subdomain_id": "INFO-STANCE-CALIBRATION",
+          "level_range": "C1-C2",
+          "label_en": "Stance Calibration",
+          "label_zh_tw": "立場與確定性校準",
+          "representative_function_ids": [
+            "F-EPISTEMIC-CALIBRATE",
+            "F-EVIDENTIAL-INFORM",
+            "F-COUNTER-STANCE"
+          ]
+        }
+      ]
+    },
+    {
+      "domain_id": "social_relations",
+      "label_en": "Social Relations",
+      "label_zh_tw": "社交互動",
+      "subdomains": [
+        {
+          "subdomain_id": "SOC-AFFECTIVE-MANAGEMENT",
+          "level_range": "B1-B2",
+          "label_en": "Affective Management",
+          "label_zh_tw": "情感與心理功能",
+          "representative_function_ids": [
+            "F-EMPATHY",
+            "F-COMPLIMENT",
+            "F-HESITATION-MANAGE"
+          ]
+        },
+        {
+          "subdomain_id": "SOC-RELATIONAL-NEGOTIATION",
+          "level_range": "C1-C2",
+          "label_en": "Relational Negotiation",
+          "label_zh_tw": "關係協商與修復",
+          "representative_function_ids": [
+            "F-FACE-SAVE",
+            "F-SOCIAL-REPAIR",
+            "F-RELATIONAL-BOUNDARY"
+          ]
+        }
+      ]
+    },
+    {
+      "domain_id": "action_management",
+      "label_en": "Action Management",
+      "label_zh_tw": "行動管理",
+      "subdomains": [
+        {
+          "subdomain_id": "ACT-SOFTENED-REQUEST",
+          "level_range": "B1-B2",
+          "label_en": "Softened Requesting",
+          "label_zh_tw": "委婉請求與拒絕",
+          "representative_function_ids": [
+            "F-SOFTENED-REQUEST",
+            "F-POLITE-REFUSAL",
+            "F-CONDITIONAL-PERMISSION"
+          ]
+        },
+        {
+          "subdomain_id": "ACT-NEGOTIATED-ALIGNMENT",
+          "level_range": "C1-C2",
+          "label_en": "Negotiated Alignment",
+          "label_zh_tw": "高階協商與對齊",
+          "representative_function_ids": [
+            "F-NEGOTIATE-TRADEOFF",
+            "F-ALIGN-CONSTRAINTS",
+            "F-ESCALATE-DEESCALATE"
+          ]
+        }
+      ]
+    },
+    {
+      "domain_id": "discourse_management",
+      "label_en": "Discourse Management",
+      "label_zh_tw": "篇章與對話管理",
+      "subdomains": [
+        {
+          "subdomain_id": "DISC-TURN-TOPIC",
+          "level_range": "B1-B2",
+          "label_en": "Turn and Topic Management",
+          "label_zh_tw": "輪替與話題管理",
+          "representative_function_ids": [
+            "F-TURN-TAKING",
+            "F-TOPIC-SHIFT",
+            "F-OPENING-CLOSING"
+          ]
+        },
+        {
+          "subdomain_id": "DISC-RHETORICAL-CONTROL",
+          "level_range": "C1-C2",
+          "label_en": "Rhetorical Control",
+          "label_zh_tw": "修辭控制與節奏",
+          "representative_function_ids": [
+            "F-REGISTERED-SHIFT",
+            "F-RHETORICAL-PAUSE",
+            "F-FRAME-RECONTEXTUALIZE"
+          ]
+        }
+      ]
+    },
+    {
+      "domain_id": "opinion_argument",
+      "label_en": "Opinion and Argument",
+      "label_zh_tw": "意見與論證",
+      "subdomains": [
+        {
+          "subdomain_id": "ARG-HEDGED-OPINION",
+          "level_range": "B1-B2",
+          "label_en": "Hedged Opinion",
+          "label_zh_tw": "保留式意見表達",
+          "representative_function_ids": [
+            "F-HEDGING",
+            "F-PRO-CLAIM",
+            "F-CON-CLAIM"
+          ]
+        },
+        {
+          "subdomain_id": "ARG-CRITICAL-REASONING",
+          "level_range": "C1-C2",
+          "label_en": "Critical Reasoning",
+          "label_zh_tw": "批判推論與駁論",
+          "representative_function_ids": [
+            "F-REFUTE-WITH-EVIDENCE",
+            "F-CONCEDE-THEN-PIVOT",
+            "F-ABSTRACT-GENERALIZE"
+          ]
+        }
+      ]
+    },
+    {
+      "domain_id": "planning_coordination",
+      "label_en": "Planning and Coordination",
+      "label_zh_tw": "規劃與協作",
+      "subdomains": [
+        {
+          "subdomain_id": "PLAN-SCHEDULE-COORD",
+          "level_range": "B1-B2",
+          "label_en": "Schedule Coordination",
+          "label_zh_tw": "行程與協調",
+          "representative_function_ids": [
+            "F-SCHEDULE-COORD",
+            "F-PRIORITIZE",
+            "F-CONTINGENCY-PLAN"
+          ]
+        },
+        {
+          "subdomain_id": "PLAN-MULTI-PARTY-ALIGN",
+          "level_range": "C1-C2",
+          "label_en": "Multi-party Alignment",
+          "label_zh_tw": "多方對齊與推進",
+          "representative_function_ids": [
+            "F-STAKEHOLDER-ALIGN",
+            "F-DECISION-SYNTHESIZE",
+            "F-ACTION-OWNER-ASSIGN"
+          ]
+        }
+      ]
+    },
+    {
+      "domain_id": "repair_survival",
+      "label_en": "Repair and Survival",
+      "label_zh_tw": "修復與生存溝通",
+      "subdomains": [
+        {
+          "subdomain_id": "REPAIR-CLARIFICATION",
+          "level_range": "B1-B2",
+          "label_en": "Clarification Repair",
+          "label_zh_tw": "釐清與重述修復",
+          "representative_function_ids": [
+            "F-ASK-CLARIFY",
+            "F-CHECK-UNDERSTANDING",
+            "F-PARAPHRASE-REPAIR"
+          ]
+        },
+        {
+          "subdomain_id": "REPAIR-REALTIME-RECOVERY",
+          "level_range": "C1-C2",
+          "label_en": "Realtime Recovery",
+          "label_zh_tw": "即時失誤復原",
+          "representative_function_ids": [
+            "F-SELF-REPAIR",
+            "F-META-COMMENT",
+            "F-INTERACTION-RECOVERY"
+          ]
+        }
+      ]
+    },
+    {
+      "domain_id": "mediation",
+      "label_en": "Mediation",
+      "label_zh_tw": "中介與轉述",
+      "subdomains": [
+        {
+          "subdomain_id": "MEDIATION-ACCESS",
+          "level_range": "B1-B2",
+          "label_en": "Accessibility Mediation",
+          "label_zh_tw": "可理解化中介",
+          "representative_function_ids": [
+            "F-PARAPHRASE-MEDIATION",
+            "F-SUMMARIZE-FOR-OTHER",
+            "F-REGISTER-SIMPLIFY"
+          ]
+        },
+        {
+          "subdomain_id": "MEDIATION-NEUTRALIZATION",
+          "level_range": "C1-C2",
+          "label_en": "Neutral Mediation",
+          "label_zh_tw": "立場中立化中介",
+          "representative_function_ids": [
+            "F-NEUTRALIZE",
+            "F-BIAS-FLAG",
+            "F-CONFLICT-MEDIATE"
+          ]
+        }
+      ]
+    },
+    {
+      "domain_id": "pragmatics_politeness",
+      "label_en": "Pragmatics and Politeness",
+      "label_zh_tw": "語用與禮貌策略",
+      "subdomains": [
+        {
+          "subdomain_id": "PRAG-SOFTENING",
+          "level_range": "B1-B2",
+          "label_en": "Softening Strategies",
+          "label_zh_tw": "委婉化策略",
+          "representative_function_ids": [
+            "F-SOFTENING-MODAL",
+            "F-SOFTENING-PAST",
+            "F-SOFTENING-PHRASE"
+          ]
+        },
+        {
+          "subdomain_id": "PRAG-HIGH-STAKES-POLITENESS",
+          "level_range": "C1-C2",
+          "label_en": "High-stakes Politeness",
+          "label_zh_tw": "高風險禮貌應對",
+          "representative_function_ids": [
+            "F-INDIRECT-DISAGREE",
+            "F-DIPLOMATIC-DECLINE",
+            "F-STATUS-SENSITIVE-ASK"
+          ]
+        }
+      ]
+    },
+    {
+      "domain_id": "narrative_reflection",
+      "label_en": "Narrative and Reflection",
+      "label_zh_tw": "敘事與反思",
+      "subdomains": [
+        {
+          "subdomain_id": "NARR-EXPERIENCE-CHAIN",
+          "level_range": "B1-B2",
+          "label_en": "Experience Chaining",
+          "label_zh_tw": "經驗敘事串接",
+          "representative_function_ids": [
+            "F-PAST-SEQUENCE",
+            "F-CAUSE-EFFECT-NARRATE",
+            "F-LESSON-LEARNED"
+          ]
+        },
+        {
+          "subdomain_id": "NARR-STANCE-REFLECTION",
+          "level_range": "C1-C2",
+          "label_en": "Reflective Stance",
+          "label_zh_tw": "反思立場建構",
+          "representative_function_ids": [
+            "F-SELF-CRITIQUE",
+            "F-PERSPECTIVE-SHIFT",
+            "F-META-REFLECTION"
+          ]
+        }
+      ]
+    },
+    {
+      "domain_id": "professional_academic",
+      "label_en": "Professional and Academic",
+      "label_zh_tw": "職場與學術溝通",
+      "subdomains": [
+        {
+          "subdomain_id": "PROF-REPORTING",
+          "level_range": "B1-B2",
+          "label_en": "Structured Reporting",
+          "label_zh_tw": "結構化回報",
+          "representative_function_ids": [
+            "F-STATUS-REPORT",
+            "F-RISK-HIGHLIGHT",
+            "F-REQUEST-INPUT"
+          ]
+        },
+        {
+          "subdomain_id": "PROF-ABSTRACT-DISCUSSION",
+          "level_range": "C1-C2",
+          "label_en": "Abstract Discussion",
+          "label_zh_tw": "抽象議題討論",
+          "representative_function_ids": [
+            "F-CONCEPT-DEFINE",
+            "F-THEORETICAL-COMPARE",
+            "F-METHODOLOGY-DEFEND"
+          ]
+        }
+      ]
+    },
+    {
+      "domain_id": "culture_interpersonal",
+      "label_en": "Culture and Interpersonal Nuance",
+      "label_zh_tw": "文化與人際細緻度",
+      "subdomains": [
+        {
+          "subdomain_id": "CULT-NORM-AWARENESS",
+          "level_range": "B1-B2",
+          "label_en": "Norm Awareness",
+          "label_zh_tw": "文化規範意識",
+          "representative_function_ids": [
+            "F-NORM-CHECK",
+            "F-REGISTER-CHECK",
+            "F-INTENT-SAFEGUARD"
+          ]
+        },
+        {
+          "subdomain_id": "CULT-CROSS-CULTURAL-ADAPT",
+          "level_range": "C1-C2",
+          "label_en": "Cross-cultural Adaptation",
+          "label_zh_tw": "跨文化調適",
+          "representative_function_ids": [
+            "F-CULTURAL-BRIDGE",
+            "F-MEANING-NEGOTIATE",
+            "F-INTERPRET-NUANCE"
+          ]
+        }
+      ]
+    }
+  ]
+}

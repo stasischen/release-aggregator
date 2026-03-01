@@ -23,6 +23,7 @@
 | transform_types | ["speech_level_shift", "context_retarget"] |
 | repair_links | ["R-KO-HON-001", "R-KO-PRAG-001"] |
 | transfer_contexts | ["classroom", "office", "service_call"] |
+| variant_of |  |
 | teaching_notes.zh_tw | 先固定禮貌打招呼作為高頻開場，再練平語/正式語切換，避免一開始就混用語體。 |
 | teaching_notes.en | Use this fixed greeting in polite first-contact situations. |
 
@@ -44,6 +45,7 @@
 | transform_types | ["slot_substitution", "speech_level_shift"] |
 | repair_links | ["R-KO-FORM-001", "R-KO-HON-001"] |
 | transfer_contexts | ["classroom", "office", "online_message"] |
+| variant_of |  |
 | teaching_notes.zh_tw | 自介先鎖定主語標記與句尾 copula；用名字詞尾收音規則帶入 이에요/예요 對比。 |
 | teaching_notes.en | Use this frame to introduce your name politely. |
 
@@ -65,6 +67,7 @@
 | transform_types | ["speech_level_shift", "question_statement"] |
 | repair_links | ["R-KO-HON-002", "R-KO-PRAG-001"] |
 | transfer_contexts | ["classroom", "hotel_checkin", "office"] |
+| variant_of |  |
 | teaching_notes.zh_tw | 名字詢問是敬語敏感句，需明確區分 이름/성함 與句尾禮貌層級。 |
 | teaching_notes.en | Use this question to ask someone’s name in polite Korean. |
 
@@ -86,8 +89,9 @@
 | transform_types | ["slot_substitution", "context_retarget"] |
 | repair_links | ["R-KO-FORM-001", "R-KO-PRAG-002"] |
 | transfer_contexts | ["classroom", "airport", "friend_chat"] |
+| variant_of |  |
 | teaching_notes.zh_tw | 把國籍句型和出身句型並列，讓學習者能依場景切換 사람이에요 / 에서 왔어요。 |
-| teaching_notes.en | Use this pattern to ask where someone is from. |
+| teaching_notes.en | Use this sentence to state your nationality politely. |
 
 ### Slots
 | name | description | required | value_type | examples |
@@ -107,8 +111,9 @@
 | transform_types | ["slot_substitution", "question_statement"] |
 | repair_links | ["R-KO-FORM-001", "R-KO-ORDER-001"] |
 | transfer_contexts | ["office", "classroom", "online_message"] |
+| variant_of |  |
 | teaching_notes.zh_tw | 先練名詞判斷句，再擴展到 -로 일해요，避免把職稱直接硬接動詞。 |
-| teaching_notes.en | Use this sentence to say where you are from. |
+| teaching_notes.en | Use this sentence to state your job or occupation politely. |
 
 ### Slots
 | name | description | required | value_type | examples |
@@ -128,6 +133,7 @@
 | transform_types | ["slot_substitution", "speech_level_shift"] |
 | repair_links | ["R-KO-PART-001", "R-KO-HON-001"] |
 | transfer_contexts | ["subway_navigation", "airport", "hotel_checkin"] |
+| variant_of |  |
 | teaching_notes.zh_tw | 地點問句要一起練助詞選擇與禮貌句尾，避免只背 어디예요 而忽略前綴名詞。 |
 | teaching_notes.en | Use this location question to find a place politely. |
 
@@ -149,8 +155,9 @@
 | transform_types | ["negation", "speech_level_shift"] |
 | repair_links | ["R-KO-FORM-002", "R-KO-HON-002"] |
 | transfer_contexts | ["convenience_store", "hotel_checkin", "restaurant_order"] |
+| variant_of |  |
 | teaching_notes.zh_tw | 有無問句是生存核心，務必以成對輸入訓練 긍정/부정，提升回應速度。 |
-| teaching_notes.en | Use this request frame to order an item politely. |
+| teaching_notes.en | Use this pattern to ask if an item is available. |
 
 ### Slots
 | name | description | required | value_type | examples |
@@ -170,8 +177,9 @@
 | transform_types | ["slot_substitution", "context_retarget"] |
 | repair_links | ["R-KO-HON-001", "R-KO-PRAG-003"] |
 | transfer_contexts | ["cafe_order", "restaurant_order", "convenience_store"] |
+| variant_of |  |
 | teaching_notes.zh_tw | 把 주세요 當作禮貌請求核心，先固定句尾，再逐步加入數量/溫度等附加資訊。 |
-| teaching_notes.en | Use this expression to ask for the price of an item. |
+| teaching_notes.en | Use this frame to place an order politely with 주세요. |
 
 ### Slots
 | name | description | required | value_type | examples |
@@ -191,6 +199,7 @@
 | transform_types | ["slot_substitution", "context_retarget"] |
 | repair_links | ["R-KO-FORM-003", "R-KO-ORDER-002"] |
 | transfer_contexts | ["cafe_order", "restaurant_order", "convenience_store"] |
+| variant_of |  |
 | teaching_notes.zh_tw | 數量點單要把數詞-量詞視為一組 chunk，避免只替換單字造成不自然搭配。 |
 | teaching_notes.en | Use this frame to ask for quantity with a counter. |
 
@@ -214,8 +223,9 @@
 | transform_types | ["slot_substitution", "politeness_shift"] |
 | repair_links | ["R-KO-PRAG-002", "R-KO-HON-001"] |
 | transfer_contexts | ["convenience_store", "airport", "market"] |
+| variant_of |  |
 | teaching_notes.zh_tw | 價格問句高頻且可立即遷移；訓練重點在指示詞與禮貌前綴搭配。 |
-| teaching_notes.en | Use this phrase to ask for one more serving politely. |
+| teaching_notes.en | Use this expression to ask the price of an item. |
 
 ### Slots
 | name | description | required | value_type | examples |
@@ -235,8 +245,9 @@
 | transform_types | ["slot_substitution", "question_statement"] |
 | repair_links | ["R-KO-FORM-004", "R-KO-PRAG-003"] |
 | transfer_contexts | ["convenience_store", "restaurant_order", "taxi_ride"] |
+| variant_of |  |
 | teaching_notes.zh_tw | 把支付方式做 slot 代換，確保學習者不只會問 카드，也能切換到現金/行動支付。 |
-| teaching_notes.en |  |
+| teaching_notes.en | Use this survival pattern in polite Korean. Core frame: 카드 돼요? |
 
 ### Slots
 | name | description | required | value_type | examples |
@@ -256,8 +267,9 @@
 | transform_types | ["slot_substitution", "speech_level_shift"] |
 | repair_links | ["R-KO-PART-001", "R-KO-HON-001"] |
 | transfer_contexts | ["airport", "subway_navigation", "hotel_checkin"] |
+| variant_of | ko-A1-survival-006 |
 | teaching_notes.zh_tw | 固定設施問路框架後再替換地點名詞，能快速覆蓋旅遊生存需求。 |
-| teaching_notes.en |  |
+| teaching_notes.en | Use this survival pattern in polite Korean. Core frame: 화장실이 어디예요? |
 
 ### Slots
 | name | description | required | value_type | examples |
@@ -277,8 +289,9 @@
 | transform_types | ["slot_substitution", "politeness_shift"] |
 | repair_links | ["R-KO-PART-002", "R-KO-PRAG-003"] |
 | transfer_contexts | ["taxi_ride", "subway_navigation", "airport"] |
+| variant_of |  |
 | teaching_notes.zh_tw | 交通句型重點在方向助詞與請求形式切換，避免只會直譯『去嗎』。 |
-| teaching_notes.en |  |
+| teaching_notes.en | Use this survival pattern in polite Korean. Core frame: {destination}에 가요? |
 
 ### Slots
 | name | description | required | value_type | examples |
@@ -298,8 +311,9 @@
 | transform_types | ["question_statement", "speech_level_shift"] |
 | repair_links | ["R-KO-FORM-005", "R-KO-HON-001"] |
 | transfer_contexts | ["subway_navigation", "office", "friend_chat"] |
+| variant_of |  |
 | teaching_notes.zh_tw | 時間問句可直接串接班次/約會場景，建議搭配韓語固有數詞報時練習。 |
-| teaching_notes.en |  |
+| teaching_notes.en | Use this survival pattern in polite Korean. Core frame: 지금 몇 시예요? |
 
 ### Slots
 | name | description | required | value_type | examples |
@@ -319,8 +333,9 @@
 | transform_types | ["question_statement", "time_expression_shift"] |
 | repair_links | ["R-KO-FORM-005", "R-KO-ORDER-001"] |
 | transfer_contexts | ["office", "classroom", "service_call"] |
+| variant_of |  |
 | teaching_notes.zh_tw | 日期句型要和時間句型分離教學，避免學習者把 월/시 量詞混淆。 |
-| teaching_notes.en |  |
+| teaching_notes.en | Use this survival pattern in polite Korean. Core frame: 오늘이 몇 월 며칠이에요? |
 
 ### Slots
 | name | description | required | value_type | examples |
@@ -340,8 +355,9 @@
 | transform_types | ["slot_substitution", "speech_level_shift"] |
 | repair_links | ["R-KO-PART-003", "R-KO-HON-001"] |
 | transfer_contexts | ["friend_chat", "online_message", "office"] |
+| variant_of |  |
 | teaching_notes.zh_tw | 用天氣形容詞做第一批描述句，方便帶入主題助詞與句尾語體一致性。 |
-| teaching_notes.en |  |
+| teaching_notes.en | Use this survival pattern in polite Korean. Core frame: 오늘 날씨가 {weather_adj}. |
 
 ### Slots
 | name | description | required | value_type | examples |
@@ -361,8 +377,9 @@
 | transform_types | ["slot_substitution", "negation"] |
 | repair_links | ["R-KO-PART-004", "R-KO-HON-001"] |
 | transfer_contexts | ["friend_chat", "classroom", "online_message"] |
+| variant_of |  |
 | teaching_notes.zh_tw | 喜好句型可與否定對照練習（좋아해요/안 좋아해요），同時鞏固受詞助詞。 |
-| teaching_notes.en |  |
+| teaching_notes.en | Use this survival pattern in polite Korean. Core frame: 저는 {item}을/를 좋아해요. |
 
 ### Slots
 | name | description | required | value_type | examples |
@@ -382,8 +399,9 @@
 | transform_types | ["negation", "slot_substitution"] |
 | repair_links | ["R-KO-FORM-006", "R-KO-PART-004"] |
 | transfer_contexts | ["restaurant_order", "friend_chat", "classroom"] |
+| variant_of |  |
 | teaching_notes.zh_tw | 用 못/안 對比建立語意邊界，避免把所有否定都簡化成 안 해요。 |
-| teaching_notes.en |  |
+| teaching_notes.en | Use this survival pattern in polite Korean. Core frame: 저는 {action} 못 해요. |
 
 ### Slots
 | name | description | required | value_type | examples |
@@ -403,8 +421,9 @@
 | transform_types | ["speech_level_shift", "slot_substitution"] |
 | repair_links | ["R-KO-FORM-007", "R-KO-HON-001"] |
 | transfer_contexts | ["friend_chat", "online_message", "service_call"] |
+| variant_of |  |
 | teaching_notes.zh_tw | 想要句型適合接續行程規劃任務，先固定 하고 싶어요 再換 action slot。 |
-| teaching_notes.en |  |
+| teaching_notes.en | Use this survival pattern in polite Korean. Core frame: {action} 하고 싶어요. |
 
 ### Slots
 | name | description | required | value_type | examples |
@@ -424,8 +443,9 @@
 | transform_types | ["time_expression_shift", "slot_substitution"] |
 | repair_links | ["R-KO-PART-002", "R-KO-PART-001"] |
 | transfer_contexts | ["office", "friend_chat", "service_call"] |
+| variant_of |  |
 | teaching_notes.zh_tw | 行程句可同時練時間助詞與存在句結構，是 A1 進入任務型對話的重要橋接。 |
-| teaching_notes.en |  |
+| teaching_notes.en | Use this survival pattern in polite Korean. Core frame: {time}에 {plan}이/가 있어요. |
 
 ### Slots
 | name | description | required | value_type | examples |
@@ -446,8 +466,9 @@
 | transform_types | ["politeness_shift", "context_retarget"] |
 | repair_links | ["R-KO-HON-003", "R-KO-PRAG-004"] |
 | transfer_contexts | ["service_call", "office", "classroom"] |
+| variant_of |  |
 | teaching_notes.zh_tw | 把溝通修復句型列為 survival 必備，降低聽不懂時的中斷成本。 |
-| teaching_notes.en |  |
+| teaching_notes.en | Use this survival pattern in polite Korean. Core frame: 천천히 말해 주세요. |
 
 ### Slots
 | name | description | required | value_type | examples |
@@ -467,8 +488,9 @@
 | transform_types | ["speech_level_shift", "context_retarget"] |
 | repair_links | ["R-KO-HON-003", "R-KO-PRAG-004"] |
 | transfer_contexts | ["service_call", "subway_navigation", "classroom"] |
+| variant_of |  |
 | teaching_notes.zh_tw | 與『說慢一點』成對訓練，讓學習者有完整聽力修復工具組。 |
-| teaching_notes.en |  |
+| teaching_notes.en | Use this survival pattern in polite Korean. Core frame: 다시 말씀해 주세요. |
 
 ### Slots
 | name | description | required | value_type | examples |
@@ -488,8 +510,9 @@
 | transform_types | ["question_statement", "speech_level_shift"] |
 | repair_links | ["R-KO-HON-001", "R-KO-PRAG-001"] |
 | transfer_contexts | ["hotel_checkin", "office", "service_call"] |
+| variant_of |  |
 | teaching_notes.zh_tw | 確認語是互動節奏關鍵，應搭配上升語調問句與陳述句雙向轉換。 |
-| teaching_notes.en |  |
+| teaching_notes.en | Use this survival pattern in polite Korean. Core frame: 네, 맞아요. |
 
 ### Slots
 | name | description | required | value_type | examples |
@@ -509,8 +532,9 @@
 | transform_types | ["speech_level_shift", "context_retarget"] |
 | repair_links | ["R-KO-HON-004", "R-KO-PRAG-005"] |
 | transfer_contexts | ["service_call", "office", "friend_chat"] |
+| variant_of |  |
 | teaching_notes.zh_tw | 道歉語要明確分層：正式場合用 죄송합니다，熟人情境才用 미안해요。 |
-| teaching_notes.en |  |
+| teaching_notes.en | Use this survival pattern in polite Korean. Core frame: 죄송합니다. {reason}. |
 
 ### Slots
 | name | description | required | value_type | examples |
@@ -530,8 +554,9 @@
 | transform_types | ["speech_level_shift", "context_retarget"] |
 | repair_links | ["R-KO-HON-001", "R-KO-PRAG-001"] |
 | transfer_contexts | ["restaurant_order", "hotel_checkin", "office"] |
+| variant_of |  |
 | teaching_notes.zh_tw | 感謝語是收尾錨點，建議與道歉語一起教，形成禮貌互動閉環。 |
-| teaching_notes.en |  |
+| teaching_notes.en | Use this survival pattern in polite Korean. Core frame: 감사합니다. |
 
 ### Slots
 | name | description | required | value_type | examples |
@@ -551,8 +576,9 @@
 | transform_types | ["connective_extension", "negation", "time_expression_shift"] |
 | repair_links | ["R-KO-FORM-008", "R-KO-ORDER-003"] |
 | transfer_contexts | ["service_call", "office", "online_message"] |
+| variant_of |  |
 | teaching_notes.zh_tw | A2 開始要把原因-結果當成雙子句單位，重點是連接語尾選擇而非單字替換。 |
-| teaching_notes.en |  |
+| teaching_notes.en | Use this survival pattern in polite Korean. Core frame: {reason}아서/어서 {result}. |
 
 ### Slots
 | name | description | required | value_type | examples |
@@ -573,8 +599,9 @@
 | transform_types | ["modality_shift", "speech_level_shift", "context_retarget"] |
 | repair_links | ["R-KO-PRAG-006", "R-KO-HON-001"] |
 | transfer_contexts | ["friend_chat", "office", "online_message"] |
+| variant_of |  |
 | teaching_notes.zh_tw | 建議句要練語氣強度，讓學習者能在『提議』與『要求』間做語用區分。 |
-| teaching_notes.en |  |
+| teaching_notes.en | Use this survival pattern in polite Korean. Core frame: {action}할까요? |
 
 ### Slots
 | name | description | required | value_type | examples |
@@ -594,8 +621,9 @@
 | transform_types | ["modality_shift", "speech_level_shift", "question_statement"] |
 | repair_links | ["R-KO-FORM-009", "R-KO-HON-005"] |
 | transfer_contexts | ["classroom", "office", "restaurant_order"] |
+| variant_of |  |
 | teaching_notes.zh_tw | 許可問句是高頻社交策略，A2 要求能在 돼요/될까요 間做情境升降。 |
-| teaching_notes.en |  |
+| teaching_notes.en | Use this survival pattern in polite Korean. Core frame: {action}아/어도 돼요? |
 
 ### Slots
 | name | description | required | value_type | examples |
@@ -615,8 +643,9 @@
 | transform_types | ["modality_shift", "speech_level_shift", "context_retarget"] |
 | repair_links | ["R-KO-PRAG-006", "R-KO-FORM-010"] |
 | transfer_contexts | ["classroom", "airport", "service_call"] |
+| variant_of |  |
 | teaching_notes.zh_tw | 禁止句要同步教語氣緩和策略，避免學習者在服務場景直接使用生硬口吻。 |
-| teaching_notes.en |  |
+| teaching_notes.en | Use this survival pattern in polite Korean. Core frame: {action}으면 안 돼요. |
 
 ### Slots
 | name | description | required | value_type | examples |
@@ -636,8 +665,9 @@
 | transform_types | ["tense_shift", "negation", "slot_substitution"] |
 | repair_links | ["R-KO-FORM-011", "R-KO-ORDER-003"] |
 | transfer_contexts | ["friend_chat", "classroom", "online_message"] |
+| variant_of |  |
 | teaching_notes.zh_tw | 經驗句型是 A2 核心，需強化『本 적이』固定搭配與肯否定對照。 |
-| teaching_notes.en |  |
+| teaching_notes.en | Use this survival pattern in polite Korean. Core frame: {experience}아/어 본 적이 있어요. |
 
 ### Slots
 | name | description | required | value_type | examples |
@@ -657,8 +687,9 @@
 | transform_types | ["time_expression_shift", "speech_level_shift", "connective_extension"] |
 | repair_links | ["R-KO-FORM-012", "R-KO-HON-001"] |
 | transfer_contexts | ["office", "friend_chat", "service_call"] |
+| variant_of |  |
 | teaching_notes.zh_tw | 計畫句要從單句延伸到『時間 + 意圖』，為後續複句輸出打底。 |
-| teaching_notes.en |  |
+| teaching_notes.en | Use this survival pattern in polite Korean. Core frame: {plan}려고 해요. |
 
 ### Slots
 | name | description | required | value_type | examples |
@@ -678,8 +709,9 @@
 | transform_types | ["slot_substitution", "modality_shift", "context_retarget"] |
 | repair_links | ["R-KO-PART-005", "R-KO-ORDER-004"] |
 | transfer_contexts | ["restaurant_order", "subway_navigation", "friend_chat"] |
+| variant_of |  |
 | teaching_notes.zh_tw | 比較句要把 보다 當結構核心，並訓練語序互換，避免中文直譯序。 |
-| teaching_notes.en |  |
+| teaching_notes.en | Use this survival pattern in polite Korean. Core frame: {item_a}보다 {item_b}가 더 {adj}. |
 
 ### Slots
 | name | description | required | value_type | examples |
@@ -701,8 +733,9 @@
 | transform_types | ["connective_extension", "modality_shift", "negation"] |
 | repair_links | ["R-KO-FORM-010", "R-KO-ORDER-003"] |
 | transfer_contexts | ["friend_chat", "office", "online_message"] |
+| variant_of |  |
 | teaching_notes.zh_tw | 條件句是 A2 複句入口，需同時操練語尾形態與結果句語氣控制。 |
-| teaching_notes.en |  |
+| teaching_notes.en | Use this survival pattern in polite Korean. Core frame: {condition}으면 {result}. |
 
 ### Slots
 | name | description | required | value_type | examples |
@@ -723,8 +756,9 @@
 | transform_types | ["politeness_shift", "speech_level_shift", "question_statement"] |
 | repair_links | ["R-KO-HON-005", "R-KO-PRAG-007"] |
 | transfer_contexts | ["service_call", "office", "airport"] |
+| variant_of |  |
 | teaching_notes.zh_tw | A2 請求句要練『委婉度階梯』，從 주세요 到 주실 수 있어요? 的語用差異。 |
-| teaching_notes.en |  |
+| teaching_notes.en | Use this survival pattern in polite Korean. Core frame: {request}아/어 주실 수 있어요? |
 
 ### Slots
 | name | description | required | value_type | examples |
@@ -744,8 +778,9 @@
 | transform_types | ["modality_shift", "speech_level_shift", "negation"] |
 | repair_links | ["R-KO-FORM-013", "R-KO-PRAG-006"] |
 | transfer_contexts | ["office", "service_call", "classroom"] |
+| variant_of |  |
 | teaching_notes.zh_tw | 必要句型常見於實務任務，教學要附帶語氣緩和策略以符合人際禮貌。 |
-| teaching_notes.en |  |
+| teaching_notes.en | Use this survival pattern in polite Korean. Core frame: {task}아/어야 해요. |
 
 ### Slots
 | name | description | required | value_type | examples |
@@ -765,8 +800,9 @@
 | transform_types | ["time_expression_shift", "speech_level_shift", "slot_substitution"] |
 | repair_links | ["R-KO-FORM-014", "R-KO-PRAG-008"] |
 | transfer_contexts | ["friend_chat", "office", "classroom"] |
+| variant_of |  |
 | teaching_notes.zh_tw | 『-는 편이에요』可提升描述精度，讓學習者避免過度絕對化表達。 |
-| teaching_notes.en |  |
+| teaching_notes.en | Use this survival pattern in polite Korean. Core frame: 저는 보통 {habit}는 편이에요. |
 
 ### Slots
 | name | description | required | value_type | examples |
@@ -786,8 +822,9 @@
 | transform_types | ["connective_extension", "time_expression_shift", "context_retarget"] |
 | repair_links | ["R-KO-ORDER-005", "R-KO-FORM-015"] |
 | transfer_contexts | ["airport", "subway_navigation", "office"] |
+| variant_of |  |
 | teaching_notes.zh_tw | 流程描述是任務導向溝通核心，A2 要求能用連接詞清楚表達先後關係。 |
-| teaching_notes.en |  |
+| teaching_notes.en | Use this survival pattern in polite Korean. Core frame: 먼저 {step1}고, 그다음에 {step2}. |
 
 ### Slots
 | name | description | required | value_type | examples |
@@ -808,8 +845,9 @@
 | transform_types | ["connective_extension", "politeness_shift", "context_retarget"] |
 | repair_links | ["R-KO-PRAG-009", "R-KO-HON-005"] |
 | transfer_contexts | ["service_call", "hotel_checkin", "airport"] |
+| variant_of |  |
 | teaching_notes.zh_tw | 問題回報句要包含『問題 + 協助請求』雙段，才能在真實服務場景有效解決。 |
-| teaching_notes.en |  |
+| teaching_notes.en | Use this survival pattern in polite Korean. Core frame: {issue} 문제가 생겼어요. 도와주실 수 있어요? |
 
 ### Slots
 | name | description | required | value_type | examples |
@@ -829,8 +867,9 @@
 | transform_types | ["politeness_shift", "modality_shift", "context_retarget"] |
 | repair_links | ["R-KO-PRAG-010", "R-KO-HON-005"] |
 | transfer_contexts | ["market", "convenience_store", "service_call"] |
+| variant_of |  |
 | teaching_notes.zh_tw | 議價句型重點在語氣緩衝，不是語法難度；A2 要求能維持禮貌並提出明確請求。 |
-| teaching_notes.en |  |
+| teaching_notes.en | Use this survival pattern in polite Korean. Core frame: {item} 조금 깎아 주실 수 있어요? |
 
 ### Slots
 | name | description | required | value_type | examples |
@@ -850,8 +889,9 @@
 | transform_types | ["slot_substitution", "politeness_shift", "question_statement"] |
 | repair_links | ["R-KO-PRAG-004", "R-KO-HON-003"] |
 | transfer_contexts | ["classroom", "service_call", "online_message"] |
+| variant_of |  |
 | teaching_notes.zh_tw | 澄清句型能直接支援學習自救，建議與『請再說一次』搭配做 repair 任務鏈。 |
-| teaching_notes.en |  |
+| teaching_notes.en | Use this survival pattern in polite Korean. Core frame: {expression} 무슨 뜻이에요? |
 
 ### Slots
 | name | description | required | value_type | examples |

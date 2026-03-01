@@ -63,6 +63,7 @@ Library 檔案（例如 `ko_survival_pattern_library_v1.json`）必填：
 | `repair_links` | string[] | Yes | Repair strategy IDs |
 | `transfer_contexts` | string[] | Yes | Cross-scenario transfer list |
 | `teaching_notes` | object | Yes | Must include `zh_tw`, reserve `en` |
+| `variant_of` | string | Optional | Parent pattern ID when this entry is a specialized variant |
 
 `teaching_notes` contract:
 
@@ -177,6 +178,12 @@ Registry requirement:
 1. 每筆至少 1 個 `repair_links`。
 2. 若 pattern 含敬語/語體要求，必須含 `R-KO-HON-*`。
 3. 若 pattern 含助詞依賴，必須含 `R-KO-PART-*`。
+
+### 8.5 Variant Mapping (Optional)
+
+1. `variant_of` 僅用於「高重疊、可視為母句型特化」的 entry。
+2. `variant_of` 必須指向同 library 內存在的 `pattern_id`。
+3. `variant_of` 不可自我指向。
 
 ---
 
@@ -309,6 +316,11 @@ python3 /Users/ywchen/Dev/lingo/release-aggregator/scripts/pattern_library_codec
 python3 /Users/ywchen/Dev/lingo/release-aggregator/scripts/pattern_library_codec.py md-to-json \
   --input /Users/ywchen/Dev/lingo/release-aggregator/docs/tasks/pattern_library/ko_survival_pattern_library_v1.md \
   --output /Users/ywchen/Dev/lingo/release-aggregator/staging/ko_survival_pattern_library_v1.roundtrip.json
+
+# 6) Contract validation (includes repair registry resolution)
+python3 /Users/ywchen/Dev/lingo/release-aggregator/scripts/pattern_library_codec.py validate \
+  --input /Users/ywchen/Dev/lingo/release-aggregator/docs/tasks/pattern_library/ko_survival_pattern_library_v1.json \
+  --repair-registry /Users/ywchen/Dev/lingo/release-aggregator/docs/tasks/pattern_library/ko_repair_strategy_registry_v1.json
 ```
 
 ---
@@ -326,3 +338,5 @@ python3 /Users/ywchen/Dev/lingo/release-aggregator/scripts/pattern_library_codec
 Codec script:
 
 - `scripts/pattern_library_codec.py`
+- TLG-006 gate runner: `scripts/tlg006_pattern_gate.py`
+- TLG-005 input contract schema: `docs/tasks/schemas/tlg005_generator_input_v1.schema.json`

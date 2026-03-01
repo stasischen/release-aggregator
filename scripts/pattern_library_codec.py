@@ -8,6 +8,7 @@ from __future__ import annotations
 
 import argparse
 import json
+import re
 import sys
 from pathlib import Path
 from typing import Any
@@ -32,9 +33,40 @@ ENTRY_FIELD_ORDER = [
     "transform_types",
     "repair_links",
     "transfer_contexts",
+    "variant_of",
     "teaching_notes.zh_tw",
     "teaching_notes.en",
 ]
+
+ENTRY_REQUIRED_FIELDS = [
+    "level",
+    "can_do",
+    "frame",
+    "required_elements",
+    "acceptable_variants",
+    "constraints",
+    "transform_types",
+    "repair_links",
+    "transfer_contexts",
+    "teaching_notes.zh_tw",
+    "teaching_notes.en",
+]
+
+ALLOWED_LEVELS = {"A1", "A2"}
+ALLOWED_TRANSFORM_TYPES = {
+    "politeness_shift",
+    "speech_level_shift",
+    "tense_shift",
+    "negation",
+    "question_statement",
+    "slot_substitution",
+    "time_expression_shift",
+    "context_retarget",
+    "connective_extension",
+    "modality_shift",
+}
+REPAIR_ID_RE = re.compile(r"^R-[A-Z]{2,3}-(HON|FORM|ORDER|PART|PRAG)-\d{3}$")
+SLOT_RE = re.compile(r"\{([a-z0-9_]+)\}")
 
 
 def load_json(path: Path) -> Any:
@@ -198,7 +230,7 @@ def parse_library(rows: list[list[str]]) -> dict[str, Any]:
 
 def parse_entry_table(rows: list[list[str]]) -> dict[str, str]:
     d = {k: v for k, v in rows}
-    missing = [k for k in ENTRY_FIELD_ORDER if k not in d]
+    missing = [k for k in ENTRY_REQUIRED_FIELDS if k not in d]
     if missing:
         raise ValueError(f"Entry table missing fields: {missing}")
     return d
@@ -285,6 +317,8 @@ def markdown_to_json(md_text: str) -> dict[str, Any]:
                 "en": d["teaching_notes.en"],
             },
         }
+        if d.get("variant_of", "").strip():
+            entry["variant_of"] = d["variant_of"].strip()
         result["entries"].append(entry)
 
     expected_entry_count = result.pop("_expected_entry_count", "")
@@ -322,6 +356,122 @@ def cmd_md_to_json(input_path: Path, output_path: Path) -> int:
     return 0
 
 
+def extract_frame_slots(frame: str) -> set[str]:
+    return set(SLOT_RE.findall(frame or ""))
+
+
+def validate_library(data: dict[str, Any], repair_registry_ids: set[str] | None = None) -> tuple[list[str], list[str]]:
+    errors: list[str] = []
+    warnings: list[str] = []
+
+    if data.get("version") != "target_lang_pattern_library_v1":
+        errors.append("ERR_TLG_PATTERN_LIB_VERSION_INVALID: version must be target_lang_pattern_library_v1")
+
+    entries = data.get("entries")
+    if not isinstance(entries, list):
+        return ["ERR_TLG_PATTERN_ENTRY_MISSING_REQUIRED_FIELD: entries must be a list"], warnings
+
+    seen_ids: set[str] = set()
+    for i, entry in enumerate(entries, start=1):
+        entry_ref = entry.get("pattern_id") or f"index={i}"
+        required_fields = [
+            "pattern_id",
+            "level",
+            "can_do",
+            "frame",
+            "slots",
+            "required_elements",
+            "acceptable_variants",
+            "constraints",
+            "transform_types",
+            "repair_links",
+            "transfer_contexts",
+            "teaching_notes",
+        ]
+        missing = [f for f in required_fields if f not in entry]
+        if missing:
+            errors.append(f"ERR_TLG_PATTERN_ENTRY_MISSING_REQUIRED_FIELD: {entry_ref} missing {missing}")
+            continue
+
+        pattern_id = str(entry["pattern_id"])
+        if pattern_id in seen_ids:
+            errors.append(f"ERR_TLG_PATTERN_ID_DUPLICATED: {pattern_id}")
+        seen_ids.add(pattern_id)
+
+        if entry.get("level") not in ALLOWED_LEVELS:
+            errors.append(f"ERR_TLG_PATTERN_ENTRY_MISSING_REQUIRED_FIELD: {pattern_id} has invalid level")
+
+        frame_slots = extract_frame_slots(str(entry.get("frame", "")))
+        slot_defs = entry.get("slots", [])
+        slot_names = {s.get("name") for s in slot_defs if isinstance(s, dict)}
+        if frame_slots != slot_names:
+            errors.append(
+                f"ERR_TLG_PATTERN_SLOT_FRAME_MISMATCH: {pattern_id} frame_slots={sorted(frame_slots)} slot_defs={sorted(slot_names)}"
+            )
+
+        teaching_notes = entry.get("teaching_notes") or {}
+        zh_note = str(teaching_notes.get("zh_tw", "")).strip()
+        en_note = str(teaching_notes.get("en", "")).strip()
+        if not zh_note:
+            errors.append(f"ERR_TLG_PATTERN_EMPTY_ZH_TW_NOTE: {pattern_id}")
+        if not en_note:
+            warnings.append(f"WARN_TLG_PATTERN_EN_NOTE_STUB: {pattern_id}")
+
+        transfer_contexts = entry.get("transfer_contexts", [])
+        if len(transfer_contexts) < 2:
+            errors.append(f"ERR_TLG_PATTERN_NO_TRANSFER_CONTEXT: {pattern_id}")
+
+        transform_types = entry.get("transform_types", [])
+        if len(transform_types) < 2:
+            errors.append(f"ERR_TLG_PATTERN_NO_TRANSFORM_TYPE: {pattern_id}")
+        invalid_transforms = [t for t in transform_types if t not in ALLOWED_TRANSFORM_TYPES]
+        if invalid_transforms:
+            errors.append(f"ERR_TLG_PATTERN_ENTRY_MISSING_REQUIRED_FIELD: {pattern_id} invalid transform_types={invalid_transforms}")
+
+        repair_links = entry.get("repair_links", [])
+        if not repair_links:
+            warnings.append(f"WARN_TLG_PATTERN_WEAK_REPAIR_LINK: {pattern_id} has no repair_links")
+        for rid in repair_links:
+            rid_text = str(rid)
+            if not REPAIR_ID_RE.match(rid_text):
+                warnings.append(f"WARN_TLG_PATTERN_WEAK_REPAIR_LINK: {pattern_id} invalid format {rid_text}")
+            if repair_registry_ids is not None and rid_text not in repair_registry_ids:
+                errors.append(f"ERR_TLG_PATTERN_REPAIR_LINK_UNRESOLVED: {pattern_id} -> {rid_text}")
+
+        variant_of = str(entry.get("variant_of", "")).strip()
+        if variant_of and variant_of == pattern_id:
+            errors.append(f"ERR_TLG_PATTERN_ENTRY_MISSING_REQUIRED_FIELD: {pattern_id} variant_of cannot self-reference")
+
+    return errors, warnings
+
+
+def load_repair_registry_ids(path: Path) -> set[str]:
+    data = load_json(path)
+    entries = data.get("entries", [])
+    ids = set()
+    for entry in entries:
+        rid = entry.get("repair_id")
+        if isinstance(rid, str) and rid.strip():
+            ids.add(rid.strip())
+    return ids
+
+
+def cmd_validate(input_path: Path, repair_registry_path: Path | None) -> int:
+    data = load_json(input_path)
+    repair_registry_ids = load_repair_registry_ids(repair_registry_path) if repair_registry_path else None
+    errors, warnings = validate_library(data, repair_registry_ids=repair_registry_ids)
+
+    for err in errors:
+        print(err)
+    for warn in warnings:
+        print(warn)
+
+    print(
+        f"Validation summary: errors={len(errors)}, warnings={len(warnings)}, entries={len(data.get('entries', []))}"
+    )
+    return 1 if errors else 0
+
+
 def main() -> int:
     parser = argparse.ArgumentParser(description="Pattern library JSON/Markdown codec")
     subparsers = parser.add_subparsers(dest="cmd", required=True)
@@ -334,12 +484,19 @@ def main() -> int:
     p_md_to_json.add_argument("--input", required=True)
     p_md_to_json.add_argument("--output", required=True)
 
+    p_validate = subparsers.add_parser("validate", help="Validate pattern library contract for TLG-004/TLG-006 gates")
+    p_validate.add_argument("--input", required=True)
+    p_validate.add_argument("--repair-registry", required=False, help="Optional repair strategy registry JSON path")
+
     args = parser.parse_args()
 
     if args.cmd == "json-to-md":
         return cmd_json_to_md(Path(args.input), Path(args.output))
     if args.cmd == "md-to-json":
         return cmd_md_to_json(Path(args.input), Path(args.output))
+    if args.cmd == "validate":
+        repair_registry = Path(args.repair_registry) if args.repair_registry else None
+        return cmd_validate(Path(args.input), repair_registry)
 
     raise ValueError(f"Unknown command: {args.cmd}")
 

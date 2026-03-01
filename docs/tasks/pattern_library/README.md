@@ -34,7 +34,16 @@ jq -S . /Users/ywchen/Dev/lingo/release-aggregator/staging/ko_survival_pattern_l
 diff -u /Users/ywchen/Dev/lingo/release-aggregator/staging/orig.sorted.json /Users/ywchen/Dev/lingo/release-aggregator/staging/rt.sorted.json
 ```
 
+## Validate Contract
+
+```bash
+python3 /Users/ywchen/Dev/lingo/release-aggregator/scripts/pattern_library_codec.py validate \
+  --input /Users/ywchen/Dev/lingo/release-aggregator/docs/tasks/pattern_library/ko_survival_pattern_library_v1.json \
+  --repair-registry /Users/ywchen/Dev/lingo/release-aggregator/docs/tasks/pattern_library/ko_repair_strategy_registry_v1.json
+```
+
 ## Editing Notes
 
 - If a markdown table cell needs a pipe character, escape it as `\|`.
 - `entry_count` in `## Library` is treated as a consistency hint. `md-to-json` will emit a warning if it does not match parsed entries.
+- `variant_of` is optional. Use it only when an entry is effectively a specialized instance of a parent pattern.

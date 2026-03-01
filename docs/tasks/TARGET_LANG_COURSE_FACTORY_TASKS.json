@@ -1,0 +1,111 @@
+{
+  "task_id": "TARGET_LANG_COURSE_FACTORY",
+  "description": "目標語系課程工廠：以目標語內容為核心生成完整單元，並補齊中英文教學層與前端轉換",
+  "status": "in_progress",
+  "tasks": [
+    {
+      "id": "TLG-001",
+      "desc": "Freeze unit_blueprint_v1 contract fields: target_lang, support_langs, skill_targets, teaching_notes, and adapter-facing metadata.",
+      "status": "done",
+      "depends_on": []
+    },
+    {
+      "id": "TLG-002",
+      "desc": "Define target-language-first A1/A2 unit skeleton sequence (input/check/structure/output/review/followups) and required node constraints.",
+      "status": "done",
+      "depends_on": [
+        "TLG-001"
+      ]
+    },
+    {
+      "id": "TLG-003",
+      "desc": "Define mastery rubrics and completion thresholds for output modes (chunk_assembly/response_builder/pattern_transform/guided/review_retrieval).",
+      "status": "done",
+      "depends_on": [
+        "TLG-001",
+        "TLG-002"
+      ]
+    },
+    {
+      "id": "TLG-004",
+      "desc": "Build target language pattern library for survival curriculum (can_do, slots, constraints, common errors, repair mappings).",
+      "status": "done",
+      "depends_on": [
+        "TLG-001",
+        "TLG-002"
+      ]
+    },
+    {
+      "id": "TLG-005",
+      "desc": "Implement generator pipeline to produce full unit blueprints from skeleton + pattern library + theme input.",
+      "status": "todo",
+      "depends_on": [
+        "TLG-002",
+        "TLG-004"
+      ]
+    },
+    {
+      "id": "TLG-006",
+      "desc": "Implement language-specific validation gates for target language constraints (honorific/register, morphology, syntax, classifier/counter rules as applicable).",
+      "status": "todo",
+      "depends_on": [
+        "TLG-001",
+        "TLG-004",
+        "TLG-005"
+      ]
+    },
+    {
+      "id": "TLG-007",
+      "desc": "Implement bilingual teaching layer pipeline (target -> zh_tw/en) for all learner-facing strings and instructional notes.",
+      "status": "todo",
+      "depends_on": [
+        "TLG-005"
+      ]
+    },
+    {
+      "id": "TLG-008",
+      "desc": "Add bilingual QA gate checks: missing zh_tw/en, terminology inconsistency, TODO leakage, and non-localized learner strings.",
+      "status": "todo",
+      "depends_on": [
+        "TLG-001",
+        "TLG-007"
+      ]
+    },
+    {
+      "id": "TLG-009",
+      "desc": "Create translation memory and teaching glossary for stable zh_tw/en wording across units and levels.",
+      "status": "todo",
+      "depends_on": [
+        "TLG-007"
+      ]
+    },
+    {
+      "id": "TLG-010",
+      "desc": "Implement blueprint-to-frontend adapter contract and script to emit frontend_unit_flow_v1 fixtures for modular viewer consumption.",
+      "status": "todo",
+      "depends_on": [
+        "TLG-001",
+        "TLG-005",
+        "TLG-007"
+      ]
+    },
+    {
+      "id": "TLG-011",
+      "desc": "Define batch production runbook for target-language units (scaffold -> author -> translate -> validate -> PM trial -> freeze).",
+      "status": "todo",
+      "depends_on": [
+        "TLG-006",
+        "TLG-008",
+        "TLG-010"
+      ]
+    },
+    {
+      "id": "TLG-012",
+      "desc": "Run pilot freeze on 3 units (e.g., A1-U04/U05/U06) with full target-lang content, zh_tw/en teaching coverage, viewer verification, and regression report.",
+      "status": "todo",
+      "depends_on": [
+        "TLG-011"
+      ]
+    }
+  ]
+}

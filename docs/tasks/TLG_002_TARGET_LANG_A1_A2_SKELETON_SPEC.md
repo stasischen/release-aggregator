@@ -64,14 +64,14 @@
 
 ### 5.2 Structure Layer
 - `D1 functional_phrase_pack`: chunk-oriented items, not isolated nouns only.
-- `G1 pattern_card`: at least 1 frame with slot description.
+- `G1 pattern_card`: at least 1 frame with slot description; rubric follows `TLG-003` `frame_fill` contract.
 - `G2 grammar_note`: minimal grammar note tied to `G1` pattern usage.
 
 ### 5.3 Output Layer
 - `P1 chunk_assembly`: at least 2 tasks.
 - `P2 response_builder`: at least 2 scenario prompts.
 - `P3 pattern_transform`: at least 2 transformations with explicit constraints.
-- `P4 repair`: must include `trigger_type` and `repair_goal`.
+- `P4 repair`: must include `trigger_type` and `repair_goal`, and use `response_builder` repair sub-mode rubric in `TLG-003`.
 - `P5/P6 guided`: must include task constraints and required pattern hints.
 
 ### 5.4 Review Layer
@@ -122,4 +122,3 @@ TLG-002 is complete when:
 2. `TARGET_LANG_COURSE_FACTORY_TASKS.json` marks `TLG-002` as `done`.
 3. `TASK_INDEX.md` progress is updated.
 4. The spec can be directly consumed by scaffold/checker implementation tasks.
-

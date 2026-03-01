@@ -24,7 +24,7 @@
 | repair_links | ["R-KO-HON-001", "R-KO-PRAG-001"] |
 | transfer_contexts | ["classroom", "office", "service_call"] |
 | teaching_notes.zh_tw | 先固定禮貌打招呼作為高頻開場，再練平語/正式語切換，避免一開始就混用語體。 |
-| teaching_notes.en |  |
+| teaching_notes.en | Use this fixed greeting in polite first-contact situations. |
 
 ### Slots
 | name | description | required | value_type | examples |
@@ -45,7 +45,7 @@
 | repair_links | ["R-KO-FORM-001", "R-KO-HON-001"] |
 | transfer_contexts | ["classroom", "office", "online_message"] |
 | teaching_notes.zh_tw | 自介先鎖定主語標記與句尾 copula；用名字詞尾收音規則帶入 이에요/예요 對比。 |
-| teaching_notes.en |  |
+| teaching_notes.en | Use this frame to introduce your name politely. |
 
 ### Slots
 | name | description | required | value_type | examples |
@@ -66,7 +66,7 @@
 | repair_links | ["R-KO-HON-002", "R-KO-PRAG-001"] |
 | transfer_contexts | ["classroom", "hotel_checkin", "office"] |
 | teaching_notes.zh_tw | 名字詢問是敬語敏感句，需明確區分 이름/성함 與句尾禮貌層級。 |
-| teaching_notes.en |  |
+| teaching_notes.en | Use this question to ask someone’s name in polite Korean. |
 
 ### Slots
 | name | description | required | value_type | examples |
@@ -87,7 +87,7 @@
 | repair_links | ["R-KO-FORM-001", "R-KO-PRAG-002"] |
 | transfer_contexts | ["classroom", "airport", "friend_chat"] |
 | teaching_notes.zh_tw | 把國籍句型和出身句型並列，讓學習者能依場景切換 사람이에요 / 에서 왔어요。 |
-| teaching_notes.en |  |
+| teaching_notes.en | Use this pattern to ask where someone is from. |
 
 ### Slots
 | name | description | required | value_type | examples |
@@ -108,7 +108,7 @@
 | repair_links | ["R-KO-FORM-001", "R-KO-ORDER-001"] |
 | transfer_contexts | ["office", "classroom", "online_message"] |
 | teaching_notes.zh_tw | 先練名詞判斷句，再擴展到 -로 일해요，避免把職稱直接硬接動詞。 |
-| teaching_notes.en |  |
+| teaching_notes.en | Use this sentence to say where you are from. |
 
 ### Slots
 | name | description | required | value_type | examples |
@@ -129,7 +129,7 @@
 | repair_links | ["R-KO-PART-001", "R-KO-HON-001"] |
 | transfer_contexts | ["subway_navigation", "airport", "hotel_checkin"] |
 | teaching_notes.zh_tw | 地點問句要一起練助詞選擇與禮貌句尾，避免只背 어디예요 而忽略前綴名詞。 |
-| teaching_notes.en |  |
+| teaching_notes.en | Use this location question to find a place politely. |
 
 ### Slots
 | name | description | required | value_type | examples |
@@ -150,7 +150,7 @@
 | repair_links | ["R-KO-FORM-002", "R-KO-HON-002"] |
 | transfer_contexts | ["convenience_store", "hotel_checkin", "restaurant_order"] |
 | teaching_notes.zh_tw | 有無問句是生存核心，務必以成對輸入訓練 긍정/부정，提升回應速度。 |
-| teaching_notes.en |  |
+| teaching_notes.en | Use this request frame to order an item politely. |
 
 ### Slots
 | name | description | required | value_type | examples |
@@ -171,7 +171,7 @@
 | repair_links | ["R-KO-HON-001", "R-KO-PRAG-003"] |
 | transfer_contexts | ["cafe_order", "restaurant_order", "convenience_store"] |
 | teaching_notes.zh_tw | 把 주세요 當作禮貌請求核心，先固定句尾，再逐步加入數量/溫度等附加資訊。 |
-| teaching_notes.en |  |
+| teaching_notes.en | Use this expression to ask for the price of an item. |
 
 ### Slots
 | name | description | required | value_type | examples |
@@ -192,7 +192,7 @@
 | repair_links | ["R-KO-FORM-003", "R-KO-ORDER-002"] |
 | transfer_contexts | ["cafe_order", "restaurant_order", "convenience_store"] |
 | teaching_notes.zh_tw | 數量點單要把數詞-量詞視為一組 chunk，避免只替換單字造成不自然搭配。 |
-| teaching_notes.en |  |
+| teaching_notes.en | Use this frame to ask for quantity with a counter. |
 
 ### Slots
 | name | description | required | value_type | examples |
@@ -215,7 +215,7 @@
 | repair_links | ["R-KO-PRAG-002", "R-KO-HON-001"] |
 | transfer_contexts | ["convenience_store", "airport", "market"] |
 | teaching_notes.zh_tw | 價格問句高頻且可立即遷移；訓練重點在指示詞與禮貌前綴搭配。 |
-| teaching_notes.en |  |
+| teaching_notes.en | Use this phrase to ask for one more serving politely. |
 
 ### Slots
 | name | description | required | value_type | examples |

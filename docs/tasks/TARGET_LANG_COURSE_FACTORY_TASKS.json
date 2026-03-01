@@ -19,11 +19,12 @@
     },
     {
       "id": "TLG-003",
-      "desc": "Define mastery rubrics and completion thresholds for output modes (chunk_assembly/response_builder/pattern_transform/guided/review_retrieval).",
+      "desc": "Define mastery rubrics and completion thresholds for output modes (chunk_assembly/frame_fill/response_builder/pattern_transform/guided/review_retrieval), including repair sub-mode.",
       "status": "done",
       "depends_on": [
         "TLG-001",
-        "TLG-002"
+        "TLG-002",
+        "TLG-004"
       ]
     },
     {

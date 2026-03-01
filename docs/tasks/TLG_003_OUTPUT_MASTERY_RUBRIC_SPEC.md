@@ -15,10 +15,11 @@
 本規格涵蓋以下 output modes：
 
 1. `chunk_assembly`
-2. `response_builder`
-3. `pattern_transform`
-4. `guided` (speaking/writing)
-5. `review_retrieval`
+2. `frame_fill`
+3. `response_builder`
+4. `pattern_transform`
+5. `guided` (speaking/writing)
+6. `review_retrieval`
 
 ---
 
@@ -52,6 +53,7 @@ For `guided`/`review_retrieval`, add:
 | Output Mode | min_attempts | pass_threshold | max_hints_for_pass | Notes |
 | :--- | :--- | :--- | :--- | :--- |
 | `chunk_assembly` | 2 | 0.80 | 2 | 重點是組裝成功與詞塊順序。 |
+| `frame_fill` | 2 | 0.82 | 2 | 句框必填元素需完整，slot 可替換。 |
 | `response_builder` | 2 | 0.75 | 2 | 可接受多個正確語境回應。 |
 | `pattern_transform` | 2 | 0.70 | 2 | 以單變項轉換為主。 |
 | `guided` | 1 | 0.60 | 3 | 先鼓勵完成，不追求完美。 |
@@ -62,10 +64,18 @@ For `guided`/`review_retrieval`, add:
 | Output Mode | min_attempts | pass_threshold | max_hints_for_pass | Notes |
 | :--- | :--- | :--- | :--- | :--- |
 | `chunk_assembly` | 2 | 0.85 | 1 | 減少提示依賴。 |
+| `frame_fill` | 2 | 0.88 | 1 | frame 完整度與 slot 適配度需更穩定。 |
 | `response_builder` | 2 | 0.80 | 1 | 要求語用判斷更精準。 |
 | `pattern_transform` | 2 | 0.78 | 1 | 可要求雙變項轉換。 |
 | `guided` | 2 | 0.70 | 2 | 增加語氣/時態檢核。 |
 | `review_retrieval` | 2 | 0.72 | 1 | 提高 recall 穩定度。 |
+
+### 4.3 Threshold Validity Policy (Checker Contract)
+
+1. `pass_threshold` hard-valid range: **`0.50 <= x <= 1.00`**。
+2. `min_attempts` hard-valid range: **integer, `1 <= x <= 5`**。
+3. `max_hints_for_pass` hard-valid range: **integer, `0 <= x <= 5`**。
+4. 4.1/4.2 defaults 屬於 **soft reference**（非 hard floor）；若低於對應 level/mode default，checker 回 `WARN_TLG_PASS_TOO_LOW`，不直接 blocker。
 
 ---
 
@@ -75,22 +85,31 @@ For `guided`/`review_retrieval`, add:
 - PASS requires exact or allowed variant match in `target_lang`.
 - If using hints > `max_hints_for_pass`, downgrade to REVISE.
 
-2. `response_builder`
+2. `frame_fill`
+- PASS requires all frame-required elements to be present and slot value types valid.
+- If frame includes politeness/register constraint, must satisfy required ending/register form.
+
+3. `response_builder`
 - PASS if selected/constructed response is in `accepted_responses`.
 - At least one item should support multiple accepted answers to avoid overfitting.
 
-3. `pattern_transform`
+4. `pattern_transform`
 - PASS only if transformed output satisfies both:
   - target constraint (`transform_type`)
   - structural integrity (required elements present)
 
-4. `guided` (roleplay/message)
+5. `guided` (roleplay/message)
 - Can mark `REVISE` when semantics are correct but form/register is weak.
 - Must provide actionable feedback in zh_tw and optional en support.
 
-5. `review_retrieval`
+6. `review_retrieval`
 - PASS can accept partial recall if core functional intent is preserved.
 - Must include reference answers for self-check and PM review.
+
+7. `response_builder` (repair sub-mode for `P4`)
+- `completion_policy` must be `pass_on_threshold`.
+- `required_elements` must include repair intent token(s) (e.g., apology/clarification/rephrase marker).
+- Prompt payload must carry `trigger_type` and `repair_goal` so checker can verify repair alignment.
 
 ---
 
@@ -111,7 +130,7 @@ If target language needs more granularity (e.g., Korean honorific mismatch), add
 
 ### Blockers
 - `ERR_TLG_RUBRIC_MISSING`: interactive node missing `payload.rubric`.
-- `ERR_TLG_THRESHOLD_INVALID`: thresholds out of range or missing.
+- `ERR_TLG_THRESHOLD_INVALID`: any threshold missing, non-numeric, or outside 4.3 hard-valid range.
 - `ERR_TLG_REQUIRED_ELEMENTS_EMPTY`: `required_elements` empty.
 
 ### Warnings
@@ -129,4 +148,3 @@ TLG-003 is complete when:
 2. `TARGET_LANG_COURSE_FACTORY_TASKS.json` marks `TLG-003` as `done`.
 3. `TASK_INDEX.md` progress is updated.
 4. Spec is reference-ready for `TLG-005` generator payload templates and `TLG-008` QA checks.
-

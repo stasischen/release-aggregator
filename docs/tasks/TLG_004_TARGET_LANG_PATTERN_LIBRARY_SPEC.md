@@ -69,7 +69,7 @@ Library 檔案（例如 `ko_survival_pattern_library_v1.json`）必填：
 | Field | Type | Required | Rule |
 | :--- | :--- | :--- | :--- |
 | `teaching_notes.zh_tw` | string | Yes | Non-empty pedagogical explanation |
-| `teaching_notes.en` | string | Yes | Reserved field; can be empty string |
+| `teaching_notes.en` | string | Yes | Reserved field; empty string allowed as `TLG-007` stub in v1 |
 
 `slots[]` contract:
 
@@ -115,6 +115,10 @@ Repair ID format: `R-{LANG}-{CATEGORY}-{NNN}`
   - `ORDER` word order
   - `PART` particle selection
   - `PRAG` pragmatic fit
+
+Registry requirement:
+
+- `repair_links` 必須對應 `docs/tasks/pattern_library/ko_repair_strategy_registry_v1.json` 內存在的 `repair_id`。
 
 ### 5.3 `can_do` naming
 
@@ -257,6 +261,9 @@ Implementation note:
 4. `WARN_TLG_PATTERN_LOW_CONTEXT_DIVERSITY`
 - `transfer_contexts` 全屬同一 micro-domain。
 
+5. `WARN_TLG_PATTERN_EN_NOTE_STUB`
+- `teaching_notes.en` 為空字串（v1 允許；建議在 `TLG-007` 補齊）。
+
 ---
 
 ## 12. Definition of Done (TLG-004)
@@ -288,6 +295,11 @@ jq -e '.entries[] | .pattern_id and .level and .can_do and .frame and .slots and
 
 # 4) No incomplete-marker leakage in data
 rg -n "TODO|TBD|placeholder" /Users/ywchen/Dev/lingo/release-aggregator/docs/tasks/pattern_library/ko_survival_pattern_library_v1.json
+
+# 4.1) Repair links must be resolvable in KO registry
+jq -r '.entries[].repair_links[]' /Users/ywchen/Dev/lingo/release-aggregator/docs/tasks/pattern_library/ko_survival_pattern_library_v1.json | sort -u > /tmp/ko_repair_links.used.txt
+jq -r '.entries[].repair_id' /Users/ywchen/Dev/lingo/release-aggregator/docs/tasks/pattern_library/ko_repair_strategy_registry_v1.json | sort -u > /tmp/ko_repair_links.registry.txt
+comm -23 /tmp/ko_repair_links.used.txt /tmp/ko_repair_links.registry.txt
 
 # 5) JSON <-> Markdown round-trip (human-editable document)
 python3 /Users/ywchen/Dev/lingo/release-aggregator/scripts/pattern_library_codec.py json-to-md \

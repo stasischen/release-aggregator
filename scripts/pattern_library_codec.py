@@ -8,6 +8,7 @@ from __future__ import annotations
 
 import argparse
 import json
+import sys
 from pathlib import Path
 from typing import Any
 
@@ -61,7 +62,7 @@ def parse_table(lines: list[str], start: int) -> tuple[list[str], list[list[str]
     if i >= len(lines) or not lines[i].startswith("|"):
         raise ValueError(f"Expected markdown table at line {i + 1}")
 
-    header = [c.strip() for c in lines[i].strip().strip("|").split("|")]
+    header = split_markdown_row(lines[i])
     i += 1
     if i >= len(lines) or not lines[i].startswith("|"):
         raise ValueError(f"Expected table separator at line {i + 1}")
@@ -69,13 +70,40 @@ def parse_table(lines: list[str], start: int) -> tuple[list[str], list[list[str]
 
     rows: list[list[str]] = []
     while i < len(lines) and lines[i].startswith("|"):
-        row = [c.strip() for c in lines[i].strip().strip("|").split("|")]
+        row = split_markdown_row(lines[i])
         if len(row) != len(header):
             raise ValueError(f"Row width mismatch at line {i + 1}")
         rows.append(row)
         i += 1
 
     return header, rows, i
+
+
+def split_markdown_row(line: str) -> list[str]:
+    """Split markdown table row, allowing escaped pipes (\\|) inside cells."""
+    raw = line.strip()
+    if not (raw.startswith("|") and raw.endswith("|")):
+        raise ValueError(f"Invalid markdown table row: {line}")
+    content = raw[1:-1]
+
+    cells: list[str] = []
+    buf: list[str] = []
+    escape = False
+    for ch in content:
+        if escape:
+            buf.append(ch)
+            escape = False
+            continue
+        if ch == "\\":
+            escape = True
+            continue
+        if ch == "|":
+            cells.append("".join(buf).strip())
+            buf = []
+            continue
+        buf.append(ch)
+    cells.append("".join(buf).strip())
+    return cells
 
 
 def to_json_array_text(value: Any) -> str:
@@ -156,12 +184,14 @@ def json_to_markdown(data: dict[str, Any]) -> str:
 
 def parse_library(rows: list[list[str]]) -> dict[str, Any]:
     d = {k: v for k, v in rows}
+    expected_entry_count = d.get("entry_count", "").strip()
     return {
         "library_id": d.get("library_id", ""),
         "version": d.get("version", ""),
         "target_lang": d.get("target_lang", ""),
         "domain": d.get("domain", ""),
         "levels": parse_json_array_text(d.get("levels", "[]")),
+        "_expected_entry_count": expected_entry_count,
         "entries": [],
     }
 
@@ -256,6 +286,22 @@ def markdown_to_json(md_text: str) -> dict[str, Any]:
             },
         }
         result["entries"].append(entry)
+
+    expected_entry_count = result.pop("_expected_entry_count", "")
+    if expected_entry_count:
+        try:
+            expected = int(expected_entry_count)
+            actual = len(result["entries"])
+            if expected != actual:
+                print(
+                    f"Warning: entry_count mismatch in Markdown header (expected={expected}, actual={actual})",
+                    file=sys.stderr,
+                )
+        except ValueError:
+            print(
+                f"Warning: invalid entry_count in Markdown header ({expected_entry_count!r})",
+                file=sys.stderr,
+            )
 
     return result
 

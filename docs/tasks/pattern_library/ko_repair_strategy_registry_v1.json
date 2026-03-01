@@ -1,0 +1,368 @@
+{
+  "registry_id": "ko_repair_strategy_registry_v1",
+  "version": "target_lang_repair_registry_v1",
+  "target_lang": "ko",
+  "status": "draft_for_tlg005",
+  "entries": [
+    {
+      "repair_id": "R-KO-FORM-001",
+      "target_lang": "ko",
+      "category": "FORM",
+      "trigger_condition": "morphology, tense, or ending form is incorrect",
+      "repair_name_en": "요-ending normalization",
+      "repair_description_zh_tw": "把句尾正規化為 -요 體，避免半語體混用。",
+      "repair_description_en": "Use 요-ending normalization strategy to rewrite the learner output into a context-appropriate Korean sentence."
+    },
+    {
+      "repair_id": "R-KO-FORM-002",
+      "target_lang": "ko",
+      "category": "FORM",
+      "trigger_condition": "morphology, tense, or ending form is incorrect",
+      "repair_name_en": "copula consistency",
+      "repair_description_zh_tw": "修正 이다/예요/이에요 的搭配一致性。",
+      "repair_description_en": "Use copula consistency strategy to rewrite the learner output into a context-appropriate Korean sentence."
+    },
+    {
+      "repair_id": "R-KO-FORM-003",
+      "target_lang": "ko",
+      "category": "FORM",
+      "trigger_condition": "morphology, tense, or ending form is incorrect",
+      "repair_name_en": "negation form fix",
+      "repair_description_zh_tw": "修正 안/못/지 않다 的不當選擇。",
+      "repair_description_en": "Use negation form fix strategy to rewrite the learner output into a context-appropriate Korean sentence."
+    },
+    {
+      "repair_id": "R-KO-FORM-004",
+      "target_lang": "ko",
+      "category": "FORM",
+      "trigger_condition": "morphology, tense, or ending form is incorrect",
+      "repair_name_en": "question ending fix",
+      "repair_description_zh_tw": "修正疑問句終結語尾與語氣。",
+      "repair_description_en": "Use question ending fix strategy to rewrite the learner output into a context-appropriate Korean sentence."
+    },
+    {
+      "repair_id": "R-KO-FORM-005",
+      "target_lang": "ko",
+      "category": "FORM",
+      "trigger_condition": "morphology, tense, or ending form is incorrect",
+      "repair_name_en": "tense marker correction",
+      "repair_description_zh_tw": "修正過去/現在/未來時標記。",
+      "repair_description_en": "Use tense marker correction strategy to rewrite the learner output into a context-appropriate Korean sentence."
+    },
+    {
+      "repair_id": "R-KO-FORM-006",
+      "target_lang": "ko",
+      "category": "FORM",
+      "trigger_condition": "morphology, tense, or ending form is incorrect",
+      "repair_name_en": "counter format correction",
+      "repair_description_zh_tw": "修正數詞與單位格式。",
+      "repair_description_en": "Use counter format correction strategy to rewrite the learner output into a context-appropriate Korean sentence."
+    },
+    {
+      "repair_id": "R-KO-FORM-007",
+      "target_lang": "ko",
+      "category": "FORM",
+      "trigger_condition": "morphology, tense, or ending form is incorrect",
+      "repair_name_en": "connector form correction",
+      "repair_description_zh_tw": "修正連接語尾（-고/-아서 等）形式。",
+      "repair_description_en": "Use connector form correction strategy to rewrite the learner output into a context-appropriate Korean sentence."
+    },
+    {
+      "repair_id": "R-KO-FORM-008",
+      "target_lang": "ko",
+      "category": "FORM",
+      "trigger_condition": "morphology, tense, or ending form is incorrect",
+      "repair_name_en": "ability modality correction",
+      "repair_description_zh_tw": "修正 가능/不可能表達（-ㄹ 수 있다/없다）。",
+      "repair_description_en": "Use ability modality correction strategy to rewrite the learner output into a context-appropriate Korean sentence."
+    },
+    {
+      "repair_id": "R-KO-FORM-009",
+      "target_lang": "ko",
+      "category": "FORM",
+      "trigger_condition": "morphology, tense, or ending form is incorrect",
+      "repair_name_en": "permission/prohibition form",
+      "repair_description_zh_tw": "修正 可否/禁止語式（-아/어도 되다, -(으)면 안 되다）。",
+      "repair_description_en": "Use permission/prohibition form strategy to rewrite the learner output into a context-appropriate Korean sentence."
+    },
+    {
+      "repair_id": "R-KO-FORM-010",
+      "target_lang": "ko",
+      "category": "FORM",
+      "trigger_condition": "morphology, tense, or ending form is incorrect",
+      "repair_name_en": "intention form correction",
+      "repair_description_zh_tw": "修正意圖語式（-(으)려고 하다 等）。",
+      "repair_description_en": "Use intention form correction strategy to rewrite the learner output into a context-appropriate Korean sentence."
+    },
+    {
+      "repair_id": "R-KO-FORM-011",
+      "target_lang": "ko",
+      "category": "FORM",
+      "trigger_condition": "morphology, tense, or ending form is incorrect",
+      "repair_name_en": "reason-cause form correction",
+      "repair_description_zh_tw": "修正原因語式（-아서/어서, -(으)니까）。",
+      "repair_description_en": "Use reason-cause form correction strategy to rewrite the learner output into a context-appropriate Korean sentence."
+    },
+    {
+      "repair_id": "R-KO-FORM-012",
+      "target_lang": "ko",
+      "category": "FORM",
+      "trigger_condition": "morphology, tense, or ending form is incorrect",
+      "repair_name_en": "request form correction",
+      "repair_description_zh_tw": "修正請求語式（-아/어 주세요 等）。",
+      "repair_description_en": "Use request form correction strategy to rewrite the learner output into a context-appropriate Korean sentence."
+    },
+    {
+      "repair_id": "R-KO-FORM-013",
+      "target_lang": "ko",
+      "category": "FORM",
+      "trigger_condition": "morphology, tense, or ending form is incorrect",
+      "repair_name_en": "comparison form correction",
+      "repair_description_zh_tw": "修正比較語式（보다/더 等）。",
+      "repair_description_en": "Use comparison form correction strategy to rewrite the learner output into a context-appropriate Korean sentence."
+    },
+    {
+      "repair_id": "R-KO-FORM-014",
+      "target_lang": "ko",
+      "category": "FORM",
+      "trigger_condition": "morphology, tense, or ending form is incorrect",
+      "repair_name_en": "experience form correction",
+      "repair_description_zh_tw": "修正經驗語式（-아/어 본 적 있다）。",
+      "repair_description_en": "Use experience form correction strategy to rewrite the learner output into a context-appropriate Korean sentence."
+    },
+    {
+      "repair_id": "R-KO-FORM-015",
+      "target_lang": "ko",
+      "category": "FORM",
+      "trigger_condition": "morphology, tense, or ending form is incorrect",
+      "repair_name_en": "obligation form correction",
+      "repair_description_zh_tw": "修正義務語式（-아/어야 하다）。",
+      "repair_description_en": "Use obligation form correction strategy to rewrite the learner output into a context-appropriate Korean sentence."
+    },
+    {
+      "repair_id": "R-KO-HON-001",
+      "target_lang": "ko",
+      "category": "HON",
+      "trigger_condition": "register or politeness level mismatches context",
+      "repair_name_en": "default polite register",
+      "repair_description_zh_tw": "陌生人/服務場景一律使用禮貌體。",
+      "repair_description_en": "Use default polite register strategy to rewrite the learner output into a context-appropriate Korean sentence."
+    },
+    {
+      "repair_id": "R-KO-HON-002",
+      "target_lang": "ko",
+      "category": "HON",
+      "trigger_condition": "register or politeness level mismatches context",
+      "repair_name_en": "casual-safe boundary",
+      "repair_description_zh_tw": "朋友場景可用平語，其餘維持禮貌體。",
+      "repair_description_en": "Use casual-safe boundary strategy to rewrite the learner output into a context-appropriate Korean sentence."
+    },
+    {
+      "repair_id": "R-KO-HON-003",
+      "target_lang": "ko",
+      "category": "HON",
+      "trigger_condition": "register or politeness level mismatches context",
+      "repair_name_en": "service politeness upgrade",
+      "repair_description_zh_tw": "服務互動優先升級禮貌與緩和語氣。",
+      "repair_description_en": "Use service politeness upgrade strategy to rewrite the learner output into a context-appropriate Korean sentence."
+    },
+    {
+      "repair_id": "R-KO-HON-004",
+      "target_lang": "ko",
+      "category": "HON",
+      "trigger_condition": "register or politeness level mismatches context",
+      "repair_name_en": "request politeness mitigation",
+      "repair_description_zh_tw": "請求句加上緩和語，降低命令感。",
+      "repair_description_en": "Use request politeness mitigation strategy to rewrite the learner output into a context-appropriate Korean sentence."
+    },
+    {
+      "repair_id": "R-KO-HON-005",
+      "target_lang": "ko",
+      "category": "HON",
+      "trigger_condition": "register or politeness level mismatches context",
+      "repair_name_en": "formal deferential fallback",
+      "repair_description_zh_tw": "正式情境提供更敬語的 fallback。",
+      "repair_description_en": "Use formal deferential fallback strategy to rewrite the learner output into a context-appropriate Korean sentence."
+    },
+    {
+      "repair_id": "R-KO-ORDER-001",
+      "target_lang": "ko",
+      "category": "ORDER",
+      "trigger_condition": "word order is grammatical but unnatural or misleading",
+      "repair_name_en": "canonical SOV order",
+      "repair_description_zh_tw": "回復韓語 SOV 基本語序。",
+      "repair_description_en": "Use canonical SOV order strategy to rewrite the learner output into a context-appropriate Korean sentence."
+    },
+    {
+      "repair_id": "R-KO-ORDER-002",
+      "target_lang": "ko",
+      "category": "ORDER",
+      "trigger_condition": "word order is grammatical but unnatural or misleading",
+      "repair_name_en": "time-place ordering",
+      "repair_description_zh_tw": "修正時間/地點成分到自然位置。",
+      "repair_description_en": "Use time-place ordering strategy to rewrite the learner output into a context-appropriate Korean sentence."
+    },
+    {
+      "repair_id": "R-KO-ORDER-003",
+      "target_lang": "ko",
+      "category": "ORDER",
+      "trigger_condition": "word order is grammatical but unnatural or misleading",
+      "repair_name_en": "modifier-noun order",
+      "repair_description_zh_tw": "修正修飾語與名詞順序。",
+      "repair_description_en": "Use modifier-noun order strategy to rewrite the learner output into a context-appropriate Korean sentence."
+    },
+    {
+      "repair_id": "R-KO-ORDER-004",
+      "target_lang": "ko",
+      "category": "ORDER",
+      "trigger_condition": "word order is grammatical but unnatural or misleading",
+      "repair_name_en": "clause linkage order",
+      "repair_description_zh_tw": "修正子句連接順序與銜接。",
+      "repair_description_en": "Use clause linkage order strategy to rewrite the learner output into a context-appropriate Korean sentence."
+    },
+    {
+      "repair_id": "R-KO-ORDER-005",
+      "target_lang": "ko",
+      "category": "ORDER",
+      "trigger_condition": "word order is grammatical but unnatural or misleading",
+      "repair_name_en": "focus-last ordering",
+      "repair_description_zh_tw": "把資訊焦點置於句尾自然位置。",
+      "repair_description_en": "Use focus-last ordering strategy to rewrite the learner output into a context-appropriate Korean sentence."
+    },
+    {
+      "repair_id": "R-KO-PART-001",
+      "target_lang": "ko",
+      "category": "PART",
+      "trigger_condition": "particle choice causes role ambiguity",
+      "repair_name_en": "subject/topic particle",
+      "repair_description_zh_tw": "修正 이/가 與 은/는 的對比。",
+      "repair_description_en": "Use subject/topic particle strategy to rewrite the learner output into a context-appropriate Korean sentence."
+    },
+    {
+      "repair_id": "R-KO-PART-002",
+      "target_lang": "ko",
+      "category": "PART",
+      "trigger_condition": "particle choice causes role ambiguity",
+      "repair_name_en": "object particle",
+      "repair_description_zh_tw": "修正 을/를 的賓語標記。",
+      "repair_description_en": "Use object particle strategy to rewrite the learner output into a context-appropriate Korean sentence."
+    },
+    {
+      "repair_id": "R-KO-PART-003",
+      "target_lang": "ko",
+      "category": "PART",
+      "trigger_condition": "particle choice causes role ambiguity",
+      "repair_name_en": "location/time particle",
+      "repair_description_zh_tw": "修正 에/에서 的位置與事件標記。",
+      "repair_description_en": "Use location/time particle strategy to rewrite the learner output into a context-appropriate Korean sentence."
+    },
+    {
+      "repair_id": "R-KO-PART-004",
+      "target_lang": "ko",
+      "category": "PART",
+      "trigger_condition": "particle choice causes role ambiguity",
+      "repair_name_en": "direction/source particle",
+      "repair_description_zh_tw": "修正 으로/로 與 에게/한테 方向受詞。",
+      "repair_description_en": "Use direction/source particle strategy to rewrite the learner output into a context-appropriate Korean sentence."
+    },
+    {
+      "repair_id": "R-KO-PART-005",
+      "target_lang": "ko",
+      "category": "PART",
+      "trigger_condition": "particle choice causes role ambiguity",
+      "repair_name_en": "with/from particle",
+      "repair_description_zh_tw": "修正 와/과, 하고, 부터/까지 等搭配。",
+      "repair_description_en": "Use with/from particle strategy to rewrite the learner output into a context-appropriate Korean sentence."
+    },
+    {
+      "repair_id": "R-KO-PRAG-001",
+      "target_lang": "ko",
+      "category": "PRAG",
+      "trigger_condition": "utterance is grammatical but pragmatically weak",
+      "repair_name_en": "intent clarity",
+      "repair_description_zh_tw": "補上核心意圖詞，避免語義過空。",
+      "repair_description_en": "Use intent clarity strategy to rewrite the learner output into a context-appropriate Korean sentence."
+    },
+    {
+      "repair_id": "R-KO-PRAG-002",
+      "target_lang": "ko",
+      "category": "PRAG",
+      "trigger_condition": "utterance is grammatical but pragmatically weak",
+      "repair_name_en": "context fit rewrite",
+      "repair_description_zh_tw": "改寫成符合當前場景的說法。",
+      "repair_description_en": "Use context fit rewrite strategy to rewrite the learner output into a context-appropriate Korean sentence."
+    },
+    {
+      "repair_id": "R-KO-PRAG-003",
+      "target_lang": "ko",
+      "category": "PRAG",
+      "trigger_condition": "utterance is grammatical but pragmatically weak",
+      "repair_name_en": "specificity upgrade",
+      "repair_description_zh_tw": "補入必要 slot，避免過度籠統。",
+      "repair_description_en": "Use specificity upgrade strategy to rewrite the learner output into a context-appropriate Korean sentence."
+    },
+    {
+      "repair_id": "R-KO-PRAG-004",
+      "target_lang": "ko",
+      "category": "PRAG",
+      "trigger_condition": "utterance is grammatical but pragmatically weak",
+      "repair_name_en": "social softening",
+      "repair_description_zh_tw": "加入社交緩和語，降低衝突感。",
+      "repair_description_en": "Use social softening strategy to rewrite the learner output into a context-appropriate Korean sentence."
+    },
+    {
+      "repair_id": "R-KO-PRAG-005",
+      "target_lang": "ko",
+      "category": "PRAG",
+      "trigger_condition": "utterance is grammatical but pragmatically weak",
+      "repair_name_en": "service interaction norm",
+      "repair_description_zh_tw": "對店員/客服場景採用慣用禮貌格式。",
+      "repair_description_en": "Use service interaction norm strategy to rewrite the learner output into a context-appropriate Korean sentence."
+    },
+    {
+      "repair_id": "R-KO-PRAG-006",
+      "target_lang": "ko",
+      "category": "PRAG",
+      "trigger_condition": "utterance is grammatical but pragmatically weak",
+      "repair_name_en": "transfer-context retarget",
+      "repair_description_zh_tw": "在不改核心功能下改寫到新場景。",
+      "repair_description_en": "Use transfer-context retarget strategy to rewrite the learner output into a context-appropriate Korean sentence."
+    },
+    {
+      "repair_id": "R-KO-PRAG-007",
+      "target_lang": "ko",
+      "category": "PRAG",
+      "trigger_condition": "utterance is grammatical but pragmatically weak",
+      "repair_name_en": "disagreement softening",
+      "repair_description_zh_tw": "不同意時加入保留與緩和。",
+      "repair_description_en": "Use disagreement softening strategy to rewrite the learner output into a context-appropriate Korean sentence."
+    },
+    {
+      "repair_id": "R-KO-PRAG-008",
+      "target_lang": "ko",
+      "category": "PRAG",
+      "trigger_condition": "utterance is grammatical but pragmatically weak",
+      "repair_name_en": "suggestion framing",
+      "repair_description_zh_tw": "建議語氣改為可接受的協商框架。",
+      "repair_description_en": "Use suggestion framing strategy to rewrite the learner output into a context-appropriate Korean sentence."
+    },
+    {
+      "repair_id": "R-KO-PRAG-009",
+      "target_lang": "ko",
+      "category": "PRAG",
+      "trigger_condition": "utterance is grammatical but pragmatically weak",
+      "repair_name_en": "repair acknowledgement",
+      "repair_description_zh_tw": "先承認錯誤再提供修正內容。",
+      "repair_description_en": "Use repair acknowledgement strategy to rewrite the learner output into a context-appropriate Korean sentence."
+    },
+    {
+      "repair_id": "R-KO-PRAG-010",
+      "target_lang": "ko",
+      "category": "PRAG",
+      "trigger_condition": "utterance is grammatical but pragmatically weak",
+      "repair_name_en": "closure politeness",
+      "repair_description_zh_tw": "結尾加上自然收尾語，避免突兀結束。",
+      "repair_description_en": "Use closure politeness strategy to rewrite the learner output into a context-appropriate Korean sentence."
+    }
+  ]
+}

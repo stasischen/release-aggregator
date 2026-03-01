@@ -33,3 +33,8 @@ jq -S . /Users/ywchen/Dev/lingo/release-aggregator/docs/tasks/pattern_library/ko
 jq -S . /Users/ywchen/Dev/lingo/release-aggregator/staging/ko_survival_pattern_library_v1.roundtrip.json > /Users/ywchen/Dev/lingo/release-aggregator/staging/rt.sorted.json
 diff -u /Users/ywchen/Dev/lingo/release-aggregator/staging/orig.sorted.json /Users/ywchen/Dev/lingo/release-aggregator/staging/rt.sorted.json
 ```
+
+## Editing Notes
+
+- If a markdown table cell needs a pipe character, escape it as `\|`.
+- `entry_count` in `## Library` is treated as a consistency hint. `md-to-json` will emit a warning if it does not match parsed entries.

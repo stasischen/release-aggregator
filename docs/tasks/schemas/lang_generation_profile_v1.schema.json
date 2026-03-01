@@ -38,7 +38,13 @@
         "type": "object",
         "required": ["register_id", "usage_contexts", "required_markers", "forbidden_markers"],
         "properties": {
-          "register_id": { "type": "string", "enum": ["spoken_casual", "spoken_polite", "formal_written", "neutral_written"] },
+          "register_id": {
+            "type": "string",
+            "anyOf": [
+              { "enum": ["spoken_casual", "spoken_polite", "formal_written", "neutral_written"] },
+              { "pattern": "^[a-z]{2,3}_[a-z0-9_]+$" }
+            ]
+          },
           "usage_contexts": { "type": "array", "items": { "type": "string" }, "minItems": 1 },
           "required_markers": { "type": "array", "items": { "type": "string" } },
           "forbidden_markers": { "type": "array", "items": { "type": "string" } },
@@ -55,7 +61,13 @@
         "required": ["genre", "default_register", "style_requirements", "style_anti_patterns"],
         "properties": {
           "genre": { "type": "string", "enum": ["dialogue", "article", "notice", "email", "message", "report", "story"] },
-          "default_register": { "type": "string", "enum": ["spoken_casual", "spoken_polite", "formal_written", "neutral_written"] },
+          "default_register": {
+            "type": "string",
+            "anyOf": [
+              { "enum": ["spoken_casual", "spoken_polite", "formal_written", "neutral_written"] },
+              { "pattern": "^[a-z]{2,3}_[a-z0-9_]+$" }
+            ]
+          },
           "style_requirements": { "type": "array", "items": { "type": "string" }, "minItems": 1 },
           "style_anti_patterns": { "type": "array", "items": { "type": "string" } },
           "length_guidelines": {

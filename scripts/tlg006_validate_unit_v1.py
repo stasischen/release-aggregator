@@ -18,6 +18,19 @@ from typing import Any
 
 MANDATORY_SUFFIXES = ["L1", "L2", "L3", "D1", "G1", "G2", "P1", "P2", "P3", "P4", "P5", "P6", "R1"]
 INTERACTIVE_OUTPUT_MODES = {"chunk_assembly", "frame_fill", "response_builder", "pattern_transform", "guided", "review_retrieval"}
+CONTENT_FORM_TO_GENRE = {
+    "dialogue": {"dialogue"},
+    "comprehension_check": {"dialogue"},
+    "notice": {"notice", "article"},
+    "message_thread": {"message", "email"},
+    "functional_phrase_pack": {"dialogue"},
+    "pattern_card": {"dialogue"},
+    "grammar_note": {"article", "notice"},
+    "practice_card": {"dialogue", "message"},
+    "roleplay_prompt": {"dialogue"},
+    "message_prompt": {"message", "email"},
+    "review_card": {"notice", "article", "dialogue", "message"},
+}
 
 
 def load_json(path: Path) -> Any:
@@ -34,7 +47,20 @@ def load_repair_ids(path: Path) -> set[str]:
     return {str(e.get("repair_id", "")) for e in data.get("entries", []) if e.get("repair_id")}
 
 
-def validate(blueprint: dict[str, Any], repair_ids: set[str] | None) -> tuple[list[str], list[str]]:
+def resolve_lang_profile_path(target_lang: str, explicit_path: str | None) -> Path:
+    if explicit_path:
+        return Path(explicit_path)
+    return Path(f"docs/tasks/lang_profiles/{target_lang}_generation_profile_v1.json")
+
+
+def build_profile_indexes(profile: dict[str, Any]) -> tuple[set[str], set[str], dict[str, dict[str, Any]]]:
+    supported_genres = set(profile.get("supported_genres", []))
+    register_ids = {str(rp.get("register_id", "")) for rp in profile.get("register_profiles", []) if rp.get("register_id")}
+    register_map = {str(rp.get("register_id", "")): rp for rp in profile.get("register_profiles", []) if rp.get("register_id")}
+    return supported_genres, register_ids, register_map
+
+
+def validate(blueprint: dict[str, Any], repair_ids: set[str] | None, lang_profile: dict[str, Any] | None) -> tuple[list[str], list[str]]:
     errors: list[str] = []
     warnings: list[str] = []
 
@@ -44,9 +70,21 @@ def validate(blueprint: dict[str, Any], repair_ids: set[str] | None) -> tuple[li
         errors.append("ERR_UNSUPPORTED_ADAPTER_VERSION: adapter_version must be frontend_unit_adapter_v1")
 
     unit = blueprint.get("unit") or {}
+    unit_target_lang = str(unit.get("target_lang", "")).strip()
     support_langs = unit.get("support_langs", [])
     if not isinstance(support_langs, list) or not {"zh_tw", "en"}.issubset(set(support_langs)):
         errors.append("ERR_MISSING_SUPPORT_LANGS: support_langs must include zh_tw and en")
+
+    supported_genres: set[str] = set()
+    register_ids: set[str] = set()
+    register_map: dict[str, dict[str, Any]] = {}
+    if lang_profile is not None:
+        profile_lang = str(lang_profile.get("target_lang", "")).strip()
+        if profile_lang and profile_lang != unit_target_lang:
+            errors.append(f"ERR_LANG_MISMATCH: unit.target_lang={unit_target_lang}, profile.target_lang={profile_lang}")
+        supported_genres, register_ids, register_map = build_profile_indexes(lang_profile)
+    else:
+        warnings.append("WARN_LANG_PROFILE_MISSING: skip register/genre style validation")
 
     sequence = blueprint.get("sequence") or []
     suffixes = {suffix_of(str(n.get("node_id", ""))) for n in sequence}
@@ -100,6 +138,36 @@ def validate(blueprint: dict[str, Any], repair_ids: set[str] | None) -> tuple[li
             if not reading_overlay.get("evidence_mapping"):
                 errors.append(f"ERR_TLR_MISSING_EVIDENCE_MAPPING: {node_id}")
 
+        constraints = payload.get("generation_constraints")
+        if isinstance(constraints, dict):
+            c_lang = str(constraints.get("target_lang", "")).strip()
+            c_genre = str(constraints.get("genre", "")).strip()
+            c_register = str(constraints.get("register_target", "")).strip()
+            content_form = str(node.get("content_form", "")).strip()
+
+            if c_lang and c_lang != unit_target_lang:
+                errors.append(f"ERR_LANG_MISMATCH: {node_id} generation_constraints.target_lang={c_lang} unit.target_lang={unit_target_lang}")
+
+            if lang_profile is not None:
+                if c_genre and c_genre not in supported_genres:
+                    errors.append(f"ERR_GENRE_STYLE_MISMATCH: {node_id} unsupported genre={c_genre}")
+                allowed_genres = CONTENT_FORM_TO_GENRE.get(content_form)
+                if allowed_genres and c_genre and c_genre not in allowed_genres:
+                    errors.append(f"ERR_GENRE_STYLE_MISMATCH: {node_id} content_form={content_form} incompatible genre={c_genre}")
+                if c_register and c_register not in register_ids:
+                    errors.append(f"ERR_REGISTER_MISMATCH: {node_id} unknown register_target={c_register}")
+
+                # Deterministic marker check: if profile requires markers, node summary should contain at least one marker.
+                rp = register_map.get(c_register)
+                if isinstance(rp, dict):
+                    required_markers = [str(m) for m in rp.get("required_markers", []) if str(m).strip()]
+                    forbidden_markers = [str(m) for m in rp.get("forbidden_markers", []) if str(m).strip()]
+                    summary_target = str(node.get("summary_target_lang", ""))
+                    if required_markers and summary_target and not any(marker in summary_target for marker in required_markers):
+                        warnings.append(f"WARN_STYLE_WEAK_COHESION: {node_id} missing expected marker for register={c_register}")
+                    if forbidden_markers and summary_target and any(marker in summary_target for marker in forbidden_markers):
+                        errors.append(f"ERR_REGISTER_MISMATCH: {node_id} contains forbidden marker for register={c_register}")
+
     if not blueprint.get("scheduled_followups"):
         warnings.append("WARN_TLG_MISSING_FOLLOWUPS: scheduled_followups is empty")
 
@@ -110,12 +178,21 @@ def main() -> int:
     parser = argparse.ArgumentParser(description="Validate unit_blueprint_v1 against TLG-001..006 core rules")
     parser.add_argument("--blueprint", required=True, help="Path to unit_blueprint_v1 JSON")
     parser.add_argument("--repair-registry", help="Optional repair registry path for repair link resolution")
+    parser.add_argument("--lang-profile", help="Optional path to lang_generation_profile_v1 JSON; defaults to unit.target_lang profile")
     args = parser.parse_args()
 
     blueprint = load_json(Path(args.blueprint))
     repair_ids = load_repair_ids(Path(args.repair_registry)) if args.repair_registry else None
+    unit_target_lang = str((blueprint.get("unit") or {}).get("target_lang", "")).strip()
+    lang_profile = None
+    if unit_target_lang:
+        lang_profile_path = resolve_lang_profile_path(unit_target_lang, args.lang_profile)
+        if lang_profile_path.exists():
+            lang_profile = load_json(lang_profile_path)
+        elif args.lang_profile:
+            raise FileNotFoundError(f"Language profile not found: {lang_profile_path}")
 
-    errors, warnings = validate(blueprint, repair_ids)
+    errors, warnings = validate(blueprint, repair_ids, lang_profile)
 
     for err in errors:
         print(err)

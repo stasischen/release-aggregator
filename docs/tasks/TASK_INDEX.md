@@ -45,7 +45,7 @@ Phase C: 前端整合（lingo-frontend-web）
 | Task ID | 描述 | Phase | 進度 | 檔案 |
 | :--- | :--- | :--- | :--- | :--- |
 | COURSE_PEDAGOGY_OPTIMIZATION | 語言學習效果優化（理解檢查/變體遷移/修復策略/檢索複習/guided rubric/followup 設計） | C+/Ops | 12/12 tasks | [JSON](COURSE_PEDAGOGY_OPTIMIZATION_TASKS.json) · [PLAN](COURSE_PEDAGOGY_OPTIMIZATION_PLAN.md) |
-| TARGET_LANG_COURSE_FACTORY | 目標語系課程工廠（目標語內容優先 + 中英文教學層 + 前端轉換） | C+/Ops | 4/12 tasks | [JSON](TARGET_LANG_COURSE_FACTORY_TASKS.json) |
+| TARGET_LANG_COURSE_FACTORY | 目標語系課程工廠（目標語內容優先 + 中英文教學層 + 前端轉換） | C+/Ops | 8/16 tasks | [JSON](TARGET_LANG_COURSE_FACTORY_TASKS.json) |
 | TARGET_LANG_AUDIO_SKILLS | 目標語系聽力/發音層（手機 App、無真人依賴） | C+/Ops | 0/10 tasks | [JSON](TARGET_LANG_AUDIO_SKILLS_TASKS.json) · [PLAN](TARGET_LANG_AUDIO_SKILLS_PLAN.md) |
 | TARGET_LANG_READING_SKILLS | 目標語系閱讀層（文本理解/證據定位/推論） | C+/Ops | 0/10 tasks | [JSON](TARGET_LANG_READING_SKILLS_TASKS.json) · [PLAN](TARGET_LANG_READING_SKILLS_PLAN.md) |
 | TARGET_LANG_WRITING_SKILLS | 目標語系寫作層（句級到段落級產出） | C+/Ops | 0/6 tasks | [JSON](TARGET_LANG_WRITING_SKILLS_TASKS.json) · [PLAN](TARGET_LANG_WRITING_SKILLS_PLAN.md) |

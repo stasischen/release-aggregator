@@ -1,0 +1,179 @@
+{
+  "index_id": "KO-FUNCTIONAL-INDEX-V1",
+  "version": "v1",
+  "target_lang": "ko",
+  "support_langs": ["zh_tw", "en"],
+  "generated_at": "2026-03-02",
+  "entries": [
+    {
+      "function_id": "F-GREET",
+      "label_zh_tw": "打招呼",
+      "label_en": "Greet",
+      "can_do_zh_tw": "能在服務與初次見面時用禮貌體打招呼。",
+      "can_do_en": "Can greet politely in first-time and service encounters.",
+      "level_range": {"min": "A1", "max": "A1"},
+      "lesson_refs": [
+        {"lesson_id": "KO-A1-L01", "role": "core", "coverage_score": 1.0, "evidence": ["dialogue:1", "grammar_notes:L01-G1"]},
+        {"lesson_id": "KO-A1-L03", "role": "review", "coverage_score": 0.4, "evidence": ["warmup:greeting_loop"]}
+      ],
+      "pattern_refs": ["ko-A1-survival-001"],
+      "grammar_refs": ["G-KO-GREETING-ANNEONGHASEYO", "G-KO-HONORIFIC-POLITE-ENDINGS"],
+      "context_tags": ["travel", "service", "first_meeting"],
+      "prerequisite_function_ids": [],
+      "teaching_hint": {"zh_tw": "A1 預設用禮貌體，先求不失禮再談變化。", "en": "Default to polite style in A1 to reduce pragmatic errors."}
+    },
+    {
+      "function_id": "F-INTRODUCE-SELF",
+      "label_zh_tw": "自我介紹",
+      "label_en": "Introduce self",
+      "can_do_zh_tw": "能說姓名、國籍與職業。",
+      "can_do_en": "Can state name, nationality, and occupation.",
+      "level_range": {"min": "A1", "max": "A1"},
+      "lesson_refs": [
+        {"lesson_id": "KO-A1-L01", "role": "core", "coverage_score": 1.0, "evidence": ["dialogue:4", "dialogue:6"]},
+        {"lesson_id": "KO-A1-L02", "role": "support", "coverage_score": 0.8, "evidence": ["grammar_notes:L02-G2"]}
+      ],
+      "pattern_refs": ["ko-A1-survival-002", "ko-A1-survival-004", "ko-A1-survival-005"],
+      "grammar_refs": ["G-KO-COPULA-IEYO-YEYO"],
+      "context_tags": ["travel", "checkin", "social"],
+      "prerequisite_function_ids": ["F-GREET"],
+      "teaching_hint": {"zh_tw": "先固定句框再替換資訊 slot。", "en": "Automate the frame first, then swap info slots."}
+    },
+    {
+      "function_id": "F-ASK-IDENTITY",
+      "label_zh_tw": "詢問身分資訊",
+      "label_en": "Ask identity info",
+      "can_do_zh_tw": "能詢問對方姓名與國籍。",
+      "can_do_en": "Can ask for name and nationality.",
+      "level_range": {"min": "A1", "max": "A2"},
+      "lesson_refs": [
+        {"lesson_id": "KO-A1-L01", "role": "core", "coverage_score": 0.9, "evidence": ["grammar_notes:L01-G3", "dialogue:5"]},
+        {"lesson_id": "KO-A1-L05", "role": "review", "coverage_score": 0.5, "evidence": ["review:identity_qna"]}
+      ],
+      "pattern_refs": ["ko-A1-survival-003", "ko-A1-survival-004"],
+      "grammar_refs": ["G-KO-WHAT-NAME-MWOYEYO"],
+      "context_tags": ["travel", "social"],
+      "prerequisite_function_ids": ["F-GREET"],
+      "teaching_hint": {"zh_tw": "問句與回答成對練習，避免單向輸出。", "en": "Train question-answer pairs instead of one-way output."}
+    },
+    {
+      "function_id": "F-ASK-DIRECTION",
+      "label_zh_tw": "問路與找地點",
+      "label_en": "Ask direction/location",
+      "can_do_zh_tw": "能詢問地點在哪裡。",
+      "can_do_en": "Can ask where a place is.",
+      "level_range": {"min": "A1", "max": "A2"},
+      "lesson_refs": [
+        {"lesson_id": "KO-A1-L03", "role": "core", "coverage_score": 1.0, "evidence": ["grammar_notes:L03-G1"]},
+        {"lesson_id": "KO-A1-L05", "role": "support", "coverage_score": 0.5, "evidence": ["text:campus_map"]}
+      ],
+      "pattern_refs": ["ko-A1-survival-006", "ko-A1-survival-012"],
+      "grammar_refs": ["G-KO-LOCATION-EODIYEYO", "G-KO-PARTICLE-IGA"],
+      "context_tags": ["travel", "navigation"],
+      "prerequisite_function_ids": ["F-GREET"],
+      "teaching_hint": {"zh_tw": "先練 장소 slot 代換，再擴展成完整問路。", "en": "Start with place-slot substitution before full route queries."}
+    },
+    {
+      "function_id": "F-ASK-AVAILABILITY",
+      "label_zh_tw": "詢問有無",
+      "label_en": "Ask availability",
+      "can_do_zh_tw": "能問某樣物品有沒有。",
+      "can_do_en": "Can ask if an item is available.",
+      "level_range": {"min": "A1", "max": "A2"},
+      "lesson_refs": [
+        {"lesson_id": "KO-A1-L04", "role": "core", "coverage_score": 1.0, "evidence": ["grammar_notes:L04-G1"]},
+        {"lesson_id": "KO-A1-L05", "role": "review", "coverage_score": 0.6, "evidence": ["review:stock_check"]}
+      ],
+      "pattern_refs": ["ko-A1-survival-007"],
+      "grammar_refs": ["G-KO-AVAILABILITY-ISSEOYO"],
+      "context_tags": ["travel", "shopping", "ordering"],
+      "prerequisite_function_ids": ["F-GREET"],
+      "teaching_hint": {"zh_tw": "正反句一起練：있어요? / 없어요.", "en": "Train both positive and negative forms together."}
+    },
+    {
+      "function_id": "F-REQUEST",
+      "label_zh_tw": "提出請求",
+      "label_en": "Make requests",
+      "can_do_zh_tw": "能用 주세요 做基本禮貌請求。",
+      "can_do_en": "Can make basic polite requests with 주세요.",
+      "level_range": {"min": "A1", "max": "A2"},
+      "lesson_refs": [
+        {"lesson_id": "KO-A1-L04", "role": "core", "coverage_score": 1.0, "evidence": ["grammar_notes:L04-G2"]},
+        {"lesson_id": "KO-A1-L05", "role": "support", "coverage_score": 0.6, "evidence": ["dialogue:cafe_order"]}
+      ],
+      "pattern_refs": ["ko-A1-survival-008", "ko-A1-survival-009"],
+      "grammar_refs": ["G-KO-REQUEST-JUSEYO", "G-KO-HONORIFIC-POLITE-ENDINGS"],
+      "context_tags": ["travel", "ordering", "service"],
+      "prerequisite_function_ids": ["F-GREET"],
+      "teaching_hint": {"zh_tw": "先求穩定禮貌，再導入更長委婉句。", "en": "Stabilize polite request first, then add longer mitigated forms."}
+    },
+    {
+      "function_id": "F-ASK-PRICE",
+      "label_zh_tw": "問價格",
+      "label_en": "Ask price",
+      "can_do_zh_tw": "能詢問商品價格。",
+      "can_do_en": "Can ask the price of an item.",
+      "level_range": {"min": "A1", "max": "A2"},
+      "lesson_refs": [
+        {"lesson_id": "KO-A1-L05", "role": "core", "coverage_score": 0.9, "evidence": ["grammar_notes:L05-G1"]},
+        {"lesson_id": "KO-A1-L04", "role": "review", "coverage_score": 0.4, "evidence": ["dialogue:store_price_check"]}
+      ],
+      "pattern_refs": ["ko-A1-survival-010"],
+      "grammar_refs": ["G-KO-PRICE-EOLMAYEYO"],
+      "context_tags": ["travel", "shopping", "ordering"],
+      "prerequisite_function_ids": ["F-ASK-AVAILABILITY"],
+      "teaching_hint": {"zh_tw": "問價通常接在有無確認後。", "en": "Price questions usually follow availability checks."}
+    },
+    {
+      "function_id": "F-REORDER",
+      "label_zh_tw": "加點/再來一份",
+      "label_en": "Reorder",
+      "can_do_zh_tw": "能提出再來一份的需求。",
+      "can_do_en": "Can request one more serving/item.",
+      "level_range": {"min": "A1", "max": "A2"},
+      "lesson_refs": [
+        {"lesson_id": "KO-A1-L05", "role": "core", "coverage_score": 0.8, "evidence": ["dialogue:repeat_order"]},
+        {"lesson_id": "KO-A1-L04", "role": "support", "coverage_score": 0.4, "evidence": ["drill:order_extension"]}
+      ],
+      "pattern_refs": ["ko-A1-survival-011"],
+      "grammar_refs": ["G-KO-MORE-HANBEON-DEO", "G-KO-REQUEST-JUSEYO"],
+      "context_tags": ["travel", "ordering"],
+      "prerequisite_function_ids": ["F-REQUEST"],
+      "teaching_hint": {"zh_tw": "把 한 번 더 當固定塊可提升即時反應。", "en": "Chunking 한 번 더 improves real-time response speed."}
+    },
+    {
+      "function_id": "F-POLITENESS-BASE",
+      "label_zh_tw": "禮貌語域基礎",
+      "label_en": "Politeness baseline",
+      "can_do_zh_tw": "能在 A1 場景維持穩定禮貌體。",
+      "can_do_en": "Can maintain stable polite register in A1 scenarios.",
+      "level_range": {"min": "A1", "max": "B1"},
+      "lesson_refs": [
+        {"lesson_id": "KO-A1-L01", "role": "core", "coverage_score": 1.0, "evidence": ["dialogue:all_lines"]},
+        {"lesson_id": "KO-A1-L05", "role": "review", "coverage_score": 0.5, "evidence": ["review:register_check"]}
+      ],
+      "pattern_refs": ["ko-A1-survival-001", "ko-A1-survival-008", "ko-A1-survival-010"],
+      "grammar_refs": ["G-KO-HONORIFIC-POLITE-ENDINGS"],
+      "context_tags": ["travel", "service", "social"],
+      "prerequisite_function_ids": [],
+      "teaching_hint": {"zh_tw": "A1 不求多樣，只求語域不跳。", "en": "In A1, prioritize register stability over stylistic variety."}
+    },
+    {
+      "function_id": "F-ASK-BASIC-HELP",
+      "label_zh_tw": "基本求助",
+      "label_en": "Ask for basic help",
+      "can_do_zh_tw": "能在不懂時用簡短句請求協助。",
+      "can_do_en": "Can ask for help with short polite phrases when confused.",
+      "level_range": {"min": "A1", "max": "A2"},
+      "lesson_refs": [
+        {"lesson_id": "KO-A1-L03", "role": "support", "coverage_score": 0.6, "evidence": ["dialogue:help_request"]},
+        {"lesson_id": "KO-A1-L05", "role": "review", "coverage_score": 0.5, "evidence": ["review:help_phrase"]}
+      ],
+      "pattern_refs": ["ko-A1-survival-006", "ko-A1-survival-012"],
+      "grammar_refs": ["G-KO-LOCATION-EODIYEYO"],
+      "context_tags": ["travel", "problem_solving"],
+      "prerequisite_function_ids": ["F-GREET"],
+      "teaching_hint": {"zh_tw": "先會求助句，迷路時才有回旋空間。", "en": "Help-request phrases are a survival safety net for beginners."}
+    }
+  ]
+}

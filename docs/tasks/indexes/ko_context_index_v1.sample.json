@@ -1,0 +1,173 @@
+{
+  "index_id": "KO-CONTEXT-INDEX-V1",
+  "version": "v1",
+  "target_lang": "ko",
+  "support_langs": ["zh_tw", "en"],
+  "generated_at": "2026-03-02",
+  "entries": [
+    {
+      "context_id": "CTX-KO-TRAVEL-ARRIVAL-GREETING",
+      "label_zh_tw": "旅遊抵達與打招呼",
+      "label_en": "Arrival and greetings",
+      "domain": "travel",
+      "subdomain": "orientation",
+      "level_range": {"min": "A1", "max": "A1"},
+      "lesson_refs": [
+        {"lesson_id": "KO-A1-L01", "role": "primary", "coverage_score": 1.0, "evidence": ["dialogue:1-3"]}
+      ],
+      "function_refs": ["F-GREET", "F-INTRODUCE-SELF"],
+      "pattern_refs": ["ko-A1-survival-001", "ko-A1-survival-002", "ko-A1-survival-003"],
+      "grammar_refs": ["G-KO-GREETING-ANNEONGHASEYO", "G-KO-COPULA-IEYO-YEYO"],
+      "transfer_contexts": ["campus_checkin", "hotel_checkin"],
+      "task_outcomes": ["能完成初次見面開場與身份交換"]
+    },
+    {
+      "context_id": "CTX-KO-TRAVEL-ORDERING-CAFE",
+      "label_zh_tw": "咖啡店點餐",
+      "label_en": "Cafe ordering",
+      "domain": "travel",
+      "subdomain": "ordering",
+      "level_range": {"min": "A1", "max": "A2"},
+      "lesson_refs": [
+        {"lesson_id": "KO-A1-L04", "role": "primary", "coverage_score": 1.0, "evidence": ["dialogue:cafe_order"]},
+        {"lesson_id": "KO-A1-L05", "role": "secondary", "coverage_score": 0.7, "evidence": ["dialogue:repeat_order"]}
+      ],
+      "function_refs": ["F-REQUEST", "F-ASK-PRICE", "F-REORDER"],
+      "pattern_refs": ["ko-A1-survival-008", "ko-A1-survival-010", "ko-A1-survival-011"],
+      "grammar_refs": ["G-KO-REQUEST-JUSEYO", "G-KO-PRICE-EOLMAYEYO"],
+      "transfer_contexts": ["bakery_ordering", "street_food_ordering"],
+      "task_outcomes": ["能完成問價、下單、加點的完整流程"]
+    },
+    {
+      "context_id": "CTX-KO-TRAVEL-ORDERING-RESTAURANT",
+      "label_zh_tw": "餐廳點餐",
+      "label_en": "Restaurant ordering",
+      "domain": "travel",
+      "subdomain": "ordering",
+      "level_range": {"min": "A1", "max": "A2"},
+      "lesson_refs": [
+        {"lesson_id": "KO-A1-L05", "role": "primary", "coverage_score": 0.8, "evidence": ["dialogue:restaurant_order"]}
+      ],
+      "function_refs": ["F-REQUEST", "F-ASK-AVAILABILITY"],
+      "pattern_refs": ["ko-A1-survival-007", "ko-A1-survival-008", "ko-A1-survival-011"],
+      "grammar_refs": ["G-KO-AVAILABILITY-ISSEOYO", "G-KO-REQUEST-JUSEYO"],
+      "transfer_contexts": ["cafeteria_ordering"],
+      "task_outcomes": ["能在餐廳以禮貌體完成基本點餐"]
+    },
+    {
+      "context_id": "CTX-KO-TRAVEL-ASK-DIRECTION-SUBWAY",
+      "label_zh_tw": "地鐵站問路",
+      "label_en": "Asking direction at subway",
+      "domain": "travel",
+      "subdomain": "navigation",
+      "level_range": {"min": "A1", "max": "A2"},
+      "lesson_refs": [
+        {"lesson_id": "KO-A1-L03", "role": "primary", "coverage_score": 1.0, "evidence": ["grammar_notes:L03-G1"]},
+        {"lesson_id": "KO-A1-L05", "role": "review", "coverage_score": 0.5, "evidence": ["review:direction_qna"]}
+      ],
+      "function_refs": ["F-ASK-DIRECTION", "F-ASK-BASIC-HELP"],
+      "pattern_refs": ["ko-A1-survival-006", "ko-A1-survival-012"],
+      "grammar_refs": ["G-KO-LOCATION-EODIYEYO"],
+      "transfer_contexts": ["bus_terminal", "street_navigation"],
+      "task_outcomes": ["能問出目標地點位置"]
+    },
+    {
+      "context_id": "CTX-KO-TRAVEL-SHOPPING-AVAILABILITY",
+      "label_zh_tw": "商店詢問有無",
+      "label_en": "Shop availability check",
+      "domain": "travel",
+      "subdomain": "shopping",
+      "level_range": {"min": "A1", "max": "A2"},
+      "lesson_refs": [
+        {"lesson_id": "KO-A1-L04", "role": "primary", "coverage_score": 1.0, "evidence": ["grammar_notes:L04-G1"]}
+      ],
+      "function_refs": ["F-ASK-AVAILABILITY", "F-ASK-PRICE"],
+      "pattern_refs": ["ko-A1-survival-007", "ko-A1-survival-010"],
+      "grammar_refs": ["G-KO-AVAILABILITY-ISSEOYO", "G-KO-PRICE-EOLMAYEYO"],
+      "transfer_contexts": ["pharmacy_purchase", "souvenir_shop"],
+      "task_outcomes": ["能先確認有貨，再問價格"]
+    },
+    {
+      "context_id": "CTX-KO-TRAVEL-HOTEL-CHECKIN",
+      "label_zh_tw": "飯店入住櫃台",
+      "label_en": "Hotel check-in desk",
+      "domain": "travel",
+      "subdomain": "stay",
+      "level_range": {"min": "A1", "max": "A2"},
+      "lesson_refs": [
+        {"lesson_id": "KO-A1-L01", "role": "secondary", "coverage_score": 0.6, "evidence": ["dialogue:identity_exchange"]}
+      ],
+      "function_refs": ["F-GREET", "F-INTRODUCE-SELF", "F-ASK-IDENTITY"],
+      "pattern_refs": ["ko-A1-survival-001", "ko-A1-survival-003", "ko-A1-survival-004"],
+      "grammar_refs": ["G-KO-COPULA-IEYO-YEYO"],
+      "transfer_contexts": ["guesthouse_checkin"],
+      "task_outcomes": ["能在櫃台完成基本身份確認"]
+    },
+    {
+      "context_id": "CTX-KO-TRAVEL-AIRPORT-INFO-DESK",
+      "label_zh_tw": "機場服務台詢問",
+      "label_en": "Airport info desk",
+      "domain": "travel",
+      "subdomain": "airport",
+      "level_range": {"min": "A1", "max": "A2"},
+      "lesson_refs": [
+        {"lesson_id": "KO-A1-L03", "role": "secondary", "coverage_score": 0.6, "evidence": ["dialogue:location_qna"]}
+      ],
+      "function_refs": ["F-ASK-DIRECTION", "F-ASK-BASIC-HELP"],
+      "pattern_refs": ["ko-A1-survival-006"],
+      "grammar_refs": ["G-KO-LOCATION-EODIYEYO"],
+      "transfer_contexts": ["train_station_info_desk"],
+      "task_outcomes": ["能在服務台問到櫃位位置"]
+    },
+    {
+      "context_id": "CTX-KO-TRAVEL-FOODCOURT-REORDER",
+      "label_zh_tw": "美食街加點",
+      "label_en": "Food court reorder",
+      "domain": "travel",
+      "subdomain": "ordering",
+      "level_range": {"min": "A1", "max": "A2"},
+      "lesson_refs": [
+        {"lesson_id": "KO-A1-L05", "role": "primary", "coverage_score": 0.8, "evidence": ["dialogue:repeat_order"]}
+      ],
+      "function_refs": ["F-REORDER", "F-REQUEST"],
+      "pattern_refs": ["ko-A1-survival-011", "ko-A1-survival-008"],
+      "grammar_refs": ["G-KO-MORE-HANBEON-DEO", "G-KO-REQUEST-JUSEYO"],
+      "transfer_contexts": ["cafe_ordering"],
+      "task_outcomes": ["能用固定句追加點單"]
+    },
+    {
+      "context_id": "CTX-KO-TRAVEL-SOCIAL-SMALLTALK",
+      "label_zh_tw": "旅途寒暄",
+      "label_en": "Travel small talk",
+      "domain": "travel",
+      "subdomain": "social",
+      "level_range": {"min": "A1", "max": "A2"},
+      "lesson_refs": [
+        {"lesson_id": "KO-A1-L01", "role": "primary", "coverage_score": 0.8, "evidence": ["dialogue:1-6"]},
+        {"lesson_id": "KO-A1-L02", "role": "secondary", "coverage_score": 0.5, "evidence": ["pairwork:intro_round"]}
+      ],
+      "function_refs": ["F-GREET", "F-INTRODUCE-SELF", "F-ASK-IDENTITY"],
+      "pattern_refs": ["ko-A1-survival-001", "ko-A1-survival-003", "ko-A1-survival-004", "ko-A1-survival-005"],
+      "grammar_refs": ["G-KO-WHAT-NAME-MWOYEYO", "G-KO-NATIONALITY-NARA-SARAM"],
+      "transfer_contexts": ["campus_social", "host_family_intro"],
+      "task_outcomes": ["能完成短版寒暄與身份交換"]
+    },
+    {
+      "context_id": "CTX-KO-TRAVEL-PROBLEM-SOLVING-BASIC",
+      "label_zh_tw": "旅遊基礎求助",
+      "label_en": "Basic travel problem solving",
+      "domain": "travel",
+      "subdomain": "problem_solving",
+      "level_range": {"min": "A1", "max": "A2"},
+      "lesson_refs": [
+        {"lesson_id": "KO-A1-L03", "role": "secondary", "coverage_score": 0.5, "evidence": ["dialogue:help_request"]},
+        {"lesson_id": "KO-A1-L05", "role": "review", "coverage_score": 0.5, "evidence": ["review:help_phrase"]}
+      ],
+      "function_refs": ["F-ASK-BASIC-HELP", "F-ASK-DIRECTION"],
+      "pattern_refs": ["ko-A1-survival-006", "ko-A1-survival-012"],
+      "grammar_refs": ["G-KO-LOCATION-EODIYEYO"],
+      "transfer_contexts": ["lost_item_support", "station_assistance"],
+      "task_outcomes": ["能在不熟環境中提出最小可行求助"]
+    }
+  ]
+}

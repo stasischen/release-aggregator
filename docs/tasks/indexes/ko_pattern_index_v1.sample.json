@@ -1,0 +1,195 @@
+{
+  "index_id": "KO-PATTERN-INDEX-V1",
+  "version": "v1",
+  "target_lang": "ko",
+  "support_langs": ["zh_tw", "en"],
+  "generated_at": "2026-03-02",
+  "entries": [
+    {
+      "pattern_id": "ko-A1-survival-001",
+      "frame": "안녕하세요.",
+      "aliases": ["打招呼", "greeting"],
+      "level": "A1",
+      "lesson_refs": [
+        {"lesson_id": "KO-A1-L01", "role": "primary", "coverage_score": 1.0, "evidence": ["dialogue:1"]}
+      ],
+      "function_refs": ["F-GREET", "F-POLITENESS-BASE"],
+      "grammar_refs": ["G-KO-GREETING-ANNEONGHASEYO", "G-KO-HONORIFIC-POLITE-ENDINGS"],
+      "context_refs": ["CTX-KO-TRAVEL-ARRIVAL-GREETING", "CTX-KO-TRAVEL-SOCIAL-SMALLTALK"],
+      "transform_types": ["register_shift"],
+      "repair_links": ["R-KO-HON-001"],
+      "teaching_hint": {"zh_tw": "A1 優先固定禮貌打招呼。", "en": "Use this as the default polite opener."}
+    },
+    {
+      "pattern_id": "ko-A1-survival-002",
+      "frame": "저는 {name}이에요/예요.",
+      "aliases": ["我是...", "self intro name"],
+      "level": "A1",
+      "lesson_refs": [
+        {"lesson_id": "KO-A1-L01", "role": "primary", "coverage_score": 1.0, "evidence": ["dialogue:4"]}
+      ],
+      "function_refs": ["F-INTRODUCE-SELF"],
+      "grammar_refs": ["G-KO-COPULA-IEYO-YEYO"],
+      "context_refs": ["CTX-KO-TRAVEL-ARRIVAL-GREETING"],
+      "transform_types": ["slot_substitution"],
+      "repair_links": ["R-KO-GRAM-001"],
+      "teaching_hint": {"zh_tw": "姓名 slot 快速代換。", "en": "Run rapid name-slot substitutions."}
+    },
+    {
+      "pattern_id": "ko-A1-survival-003",
+      "frame": "이름이 뭐예요?",
+      "aliases": ["你叫什麼名字", "ask name"],
+      "level": "A1",
+      "lesson_refs": [
+        {"lesson_id": "KO-A1-L01", "role": "primary", "coverage_score": 0.9, "evidence": ["grammar_notes:L01-G3"]},
+        {"lesson_id": "KO-A1-L05", "role": "review", "coverage_score": 0.5, "evidence": ["review:identity_qna"]}
+      ],
+      "function_refs": ["F-ASK-IDENTITY"],
+      "grammar_refs": ["G-KO-WHAT-NAME-MWOYEYO"],
+      "context_refs": ["CTX-KO-TRAVEL-SOCIAL-SMALLTALK"],
+      "transform_types": ["intonation_control"],
+      "repair_links": ["R-KO-PRAG-001"],
+      "teaching_hint": {"zh_tw": "避免縮成 뭐?。", "en": "Avoid clipped informal variants at this stage."}
+    },
+    {
+      "pattern_id": "ko-A1-survival-004",
+      "frame": "어느 나라 사람이에요? / 저는 {나라} 사람이에요.",
+      "aliases": ["哪一國人", "nationality"],
+      "level": "A1",
+      "lesson_refs": [
+        {"lesson_id": "KO-A1-L01", "role": "primary", "coverage_score": 0.9, "evidence": ["dialogue:5-6"]}
+      ],
+      "function_refs": ["F-ASK-IDENTITY", "F-INTRODUCE-SELF"],
+      "grammar_refs": ["G-KO-NATIONALITY-NARA-SARAM"],
+      "context_refs": ["CTX-KO-TRAVEL-SOCIAL-SMALLTALK", "CTX-KO-TRAVEL-HOTEL-CHECKIN"],
+      "transform_types": ["qa_pair"],
+      "repair_links": ["R-KO-PRAG-001"],
+      "teaching_hint": {"zh_tw": "問與答必須一起練。", "en": "Practice question-answer pairing."}
+    },
+    {
+      "pattern_id": "ko-A1-survival-005",
+      "frame": "저는 {직업}이에요/예요.",
+      "aliases": ["職業介紹", "occupation"],
+      "level": "A1",
+      "lesson_refs": [
+        {"lesson_id": "KO-A1-L02", "role": "primary", "coverage_score": 0.9, "evidence": ["grammar_notes:L02-G2"]}
+      ],
+      "function_refs": ["F-INTRODUCE-SELF"],
+      "grammar_refs": ["G-KO-OCCUPATION-JOB-INTRO", "G-KO-COPULA-IEYO-YEYO"],
+      "context_refs": ["CTX-KO-TRAVEL-SOCIAL-SMALLTALK"],
+      "transform_types": ["slot_substitution"],
+      "repair_links": ["R-KO-GRAM-001"],
+      "teaching_hint": {"zh_tw": "同模板替換職業名詞。", "en": "Reuse the same frame with job noun swaps."}
+    },
+    {
+      "pattern_id": "ko-A1-survival-006",
+      "frame": "{장소}이/가 어디예요?",
+      "aliases": ["在哪裡", "where is"],
+      "level": "A1",
+      "lesson_refs": [
+        {"lesson_id": "KO-A1-L03", "role": "primary", "coverage_score": 1.0, "evidence": ["grammar_notes:L03-G1"]},
+        {"lesson_id": "KO-A1-L05", "role": "reinforce", "coverage_score": 0.5, "evidence": ["text:campus_map"]}
+      ],
+      "function_refs": ["F-ASK-DIRECTION", "F-ASK-BASIC-HELP"],
+      "grammar_refs": ["G-KO-LOCATION-EODIYEYO", "G-KO-PARTICLE-IGA"],
+      "context_refs": ["CTX-KO-TRAVEL-ASK-DIRECTION-SUBWAY", "CTX-KO-TRAVEL-AIRPORT-INFO-DESK"],
+      "transform_types": ["slot_substitution", "qa_pair"],
+      "repair_links": ["R-KO-PRAG-002"],
+      "teaching_hint": {"zh_tw": "地點詞替換是核心。", "en": "Place-noun substitution is the core drill."}
+    },
+    {
+      "pattern_id": "ko-A1-survival-007",
+      "frame": "{물건} 있어요? / 없어요?",
+      "aliases": ["有沒有", "availability"],
+      "level": "A1",
+      "lesson_refs": [
+        {"lesson_id": "KO-A1-L04", "role": "primary", "coverage_score": 1.0, "evidence": ["grammar_notes:L04-G1"]},
+        {"lesson_id": "KO-A1-L05", "role": "review", "coverage_score": 0.6, "evidence": ["review:stock_check"]}
+      ],
+      "function_refs": ["F-ASK-AVAILABILITY"],
+      "grammar_refs": ["G-KO-AVAILABILITY-ISSEOYO"],
+      "context_refs": ["CTX-KO-TRAVEL-SHOPPING-AVAILABILITY", "CTX-KO-TRAVEL-ORDERING-RESTAURANT"],
+      "transform_types": ["polarity_pair"],
+      "repair_links": ["R-KO-GRAM-002"],
+      "teaching_hint": {"zh_tw": "正反句成對輸入。", "en": "Input positive/negative pairs together."}
+    },
+    {
+      "pattern_id": "ko-A1-survival-008",
+      "frame": "{명사} 주세요.",
+      "aliases": ["請給我", "order politely"],
+      "level": "A1",
+      "lesson_refs": [
+        {"lesson_id": "KO-A1-L04", "role": "primary", "coverage_score": 1.0, "evidence": ["grammar_notes:L04-G2"]},
+        {"lesson_id": "KO-A1-L05", "role": "reinforce", "coverage_score": 0.6, "evidence": ["dialogue:cafe_order"]}
+      ],
+      "function_refs": ["F-REQUEST"],
+      "grammar_refs": ["G-KO-REQUEST-JUSEYO", "G-KO-HONORIFIC-POLITE-ENDINGS"],
+      "context_refs": ["CTX-KO-TRAVEL-ORDERING-CAFE", "CTX-KO-TRAVEL-ORDERING-RESTAURANT"],
+      "transform_types": ["slot_substitution"],
+      "repair_links": ["R-KO-HON-002"],
+      "teaching_hint": {"zh_tw": "生存點單第一優先句型。", "en": "Top-priority survival frame for ordering."}
+    },
+    {
+      "pattern_id": "ko-A1-survival-009",
+      "frame": "이거/그거 주세요.",
+      "aliases": ["這個請給我", "deictic order"],
+      "level": "A1",
+      "lesson_refs": [
+        {"lesson_id": "KO-A1-L04", "role": "primary", "coverage_score": 0.8, "evidence": ["drill:point_and_order"]}
+      ],
+      "function_refs": ["F-REQUEST"],
+      "grammar_refs": ["G-KO-REQUEST-JUSEYO"],
+      "context_refs": ["CTX-KO-TRAVEL-ORDERING-CAFE"],
+      "transform_types": ["deixis_shift"],
+      "repair_links": ["R-KO-PRAG-003"],
+      "teaching_hint": {"zh_tw": "搭配指物詞可快速下單。", "en": "Use with deictics for rapid ordering."}
+    },
+    {
+      "pattern_id": "ko-A1-survival-010",
+      "frame": "{물건} 얼마예요?",
+      "aliases": ["多少錢", "ask price"],
+      "level": "A1",
+      "lesson_refs": [
+        {"lesson_id": "KO-A1-L05", "role": "primary", "coverage_score": 0.9, "evidence": ["grammar_notes:L05-G1"]},
+        {"lesson_id": "KO-A1-L04", "role": "review", "coverage_score": 0.4, "evidence": ["dialogue:store_price_check"]}
+      ],
+      "function_refs": ["F-ASK-PRICE"],
+      "grammar_refs": ["G-KO-PRICE-EOLMAYEYO", "G-KO-PARTICLE-IGA"],
+      "context_refs": ["CTX-KO-TRAVEL-ORDERING-CAFE", "CTX-KO-TRAVEL-SHOPPING-AVAILABILITY"],
+      "transform_types": ["slot_substitution"],
+      "repair_links": ["R-KO-PRAG-004"],
+      "teaching_hint": {"zh_tw": "問價常接在有無確認後。", "en": "Typically comes after availability checks."}
+    },
+    {
+      "pattern_id": "ko-A1-survival-011",
+      "frame": "한 번 더 주세요.",
+      "aliases": ["再來一份", "one more"],
+      "level": "A1",
+      "lesson_refs": [
+        {"lesson_id": "KO-A1-L05", "role": "primary", "coverage_score": 0.8, "evidence": ["dialogue:repeat_order"]}
+      ],
+      "function_refs": ["F-REORDER"],
+      "grammar_refs": ["G-KO-MORE-HANBEON-DEO", "G-KO-REQUEST-JUSEYO"],
+      "context_refs": ["CTX-KO-TRAVEL-FOODCOURT-REORDER", "CTX-KO-TRAVEL-ORDERING-CAFE"],
+      "transform_types": ["quantifier_shift"],
+      "repair_links": ["R-KO-GRAM-003"],
+      "teaching_hint": {"zh_tw": "把 한 번 더 作為固定語塊。", "en": "Treat 한 번 더 as a fixed chunk."}
+    },
+    {
+      "pattern_id": "ko-A1-survival-012",
+      "frame": "화장실이 어디예요?",
+      "aliases": ["廁所在哪", "toilet location"],
+      "level": "A1",
+      "lesson_refs": [
+        {"lesson_id": "KO-A1-L03", "role": "primary", "coverage_score": 0.7, "evidence": ["dialogue:toilet_question"]},
+        {"lesson_id": "KO-A1-L05", "role": "review", "coverage_score": 0.5, "evidence": ["review:direction_qna"]}
+      ],
+      "function_refs": ["F-ASK-DIRECTION", "F-ASK-BASIC-HELP"],
+      "grammar_refs": ["G-KO-LOCATION-EODIYEYO"],
+      "context_refs": ["CTX-KO-TRAVEL-PROBLEM-SOLVING-BASIC", "CTX-KO-TRAVEL-ASK-DIRECTION-SUBWAY"],
+      "transform_types": ["slot_fixed_phrase"],
+      "repair_links": ["R-KO-PRAG-005"],
+      "teaching_hint": {"zh_tw": "高頻生存句，可先整句背。", "en": "A high-frequency survival phrase; chunk-first is acceptable."}
+    }
+  ]
+}

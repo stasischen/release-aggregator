@@ -107,6 +107,45 @@
       "depends_on": [
         "TLG-011"
       ]
+    },
+    {
+      "id": "TLG-019",
+      "desc": "Define functional outcome index contract (can_do -> lesson_refs) for learner goal-based navigation and generator filtering.",
+      "status": "done",
+      "depends_on": [
+        "TLG-004",
+        "TLG-005"
+      ]
+    },
+    {
+      "id": "TLG-020",
+      "desc": "Define context/scenario index contract (scene tags -> lesson_refs) for travel/use-case based lesson discovery.",
+      "status": "done",
+      "depends_on": [
+        "TLG-004",
+        "TLG-005"
+      ]
+    },
+    {
+      "id": "TLG-021",
+      "desc": "Define grammar topic index contract (grammar_point -> lesson_refs with core/support/review role) for grammar-driven learning paths.",
+      "status": "done",
+      "depends_on": [
+        "TLG-004",
+        "TLG-005"
+      ]
+    },
+    {
+      "id": "TLG-022",
+      "desc": "Define pattern index contract (pattern_id/frame alias -> lesson_refs) and cross-link with function/grammar/context indices.",
+      "status": "done",
+      "depends_on": [
+        "TLG-004",
+        "TLG-005",
+        "TLG-019",
+        "TLG-020",
+        "TLG-021"
+      ]
     }
   ]
 }

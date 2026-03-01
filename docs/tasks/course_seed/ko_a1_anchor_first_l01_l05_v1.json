@@ -1,0 +1,425 @@
+{
+  "version": "ko_a1_anchor_first_l01_l05_v1",
+  "target_lang": "ko",
+  "level_band": "A1",
+  "design_policy": {
+    "audience": "absolute_beginner",
+    "anchor_first": true,
+    "lesson_count": 5,
+    "node_scope": [
+      "L1_anchor",
+      "G2_grammar_note"
+    ],
+    "practice_nodes_included": false
+  },
+  "lessons": [
+    {
+      "lesson_id": "KO-A1-L01",
+      "title_zh_tw": "第一次見面：打招呼與自我介紹",
+      "theme": "first_meeting",
+      "can_do": [
+        "能用安녕하세요打招呼。",
+        "能用 저는 ...예요 做最基本自我介紹。",
+        "能聽懂名字詢問。"
+      ],
+      "anchor": {
+        "type": "dialogue",
+        "title_zh_tw": "新生報到櫃台",
+        "dialogue_turns": [
+          {
+            "speaker": "직원",
+            "text_ko": "안녕하세요.",
+            "text_zh_tw": "您好。"
+          },
+          {
+            "speaker": "학생",
+            "text_ko": "안녕하세요. 저는 지수예요.",
+            "text_zh_tw": "您好。我是智秀。"
+          },
+          {
+            "speaker": "직원",
+            "text_ko": "반가워요. 이름이 뭐예요?",
+            "text_zh_tw": "很高興認識你。你叫什麼名字？"
+          },
+          {
+            "speaker": "학생",
+            "text_ko": "저는 민지예요.",
+            "text_zh_tw": "我是敏智。"
+          },
+          {
+            "speaker": "직원",
+            "text_ko": "네, 감사합니다.",
+            "text_zh_tw": "好的，謝謝。"
+          }
+        ]
+      },
+      "grammar_notes": [
+        {
+          "point_id": "L01-G1",
+          "title_zh_tw": "N + 이에요/예요（是）",
+          "explanation_zh_tw": "名詞後面接 이에요/예요 表示「是...」。初學先背固定句：저는 민지예요。",
+          "examples": [
+            {
+              "ko": "저는 학생이에요.",
+              "zh_tw": "我是學生。"
+            },
+            {
+              "ko": "저는 지수예요.",
+              "zh_tw": "我是智秀。"
+            }
+          ]
+        },
+        {
+          "point_id": "L01-G2",
+          "title_zh_tw": "基本問候",
+          "explanation_zh_tw": "안녕하세요 是最通用的禮貌打招呼。對陌生人與服務人員都可用。",
+          "examples": [
+            {
+              "ko": "안녕하세요.",
+              "zh_tw": "您好。"
+            },
+            {
+              "ko": "반가워요.",
+              "zh_tw": "很高興認識你。"
+            }
+          ]
+        },
+        {
+          "point_id": "L01-G3",
+          "title_zh_tw": "名字問句：이름이 뭐예요?",
+          "explanation_zh_tw": "初學先整句記憶，不先拆過多語法細節。",
+          "examples": [
+            {
+              "ko": "이름이 뭐예요?",
+              "zh_tw": "你叫什麼名字？"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "lesson_id": "KO-A1-L02",
+      "title_zh_tw": "你從哪裡來：國籍與出身地",
+      "theme": "origin_and_nationality",
+      "can_do": [
+        "能詢問對方來自哪裡。",
+        "能說出自己的國籍。"
+      ],
+      "anchor": {
+        "type": "dialogue",
+        "title_zh_tw": "新同學聊天",
+        "dialogue_turns": [
+          {
+            "speaker": "민수",
+            "text_ko": "어디에서 왔어요?",
+            "text_zh_tw": "你從哪裡來？"
+          },
+          {
+            "speaker": "지수",
+            "text_ko": "저는 대만에서 왔어요.",
+            "text_zh_tw": "我從台灣來。"
+          },
+          {
+            "speaker": "민수",
+            "text_ko": "아, 저는 한국 사람이에요.",
+            "text_zh_tw": "啊，我是韓國人。"
+          },
+          {
+            "speaker": "지수",
+            "text_ko": "네, 반가워요.",
+            "text_zh_tw": "好的，很高興認識你。"
+          }
+        ]
+      },
+      "grammar_notes": [
+        {
+          "point_id": "L02-G1",
+          "title_zh_tw": "N에서 왔어요（從...來）",
+          "explanation_zh_tw": "N + 에서 왔어요 用來說出身地或來源地。",
+          "examples": [
+            {
+              "ko": "저는 대만에서 왔어요.",
+              "zh_tw": "我從台灣來。"
+            },
+            {
+              "ko": "저는 일본에서 왔어요.",
+              "zh_tw": "我從日本來。"
+            }
+          ]
+        },
+        {
+          "point_id": "L02-G2",
+          "title_zh_tw": "N 사람이에요（...人）",
+          "explanation_zh_tw": "國家名詞 + 사람이에요 可說國籍。",
+          "examples": [
+            {
+              "ko": "저는 한국 사람이에요.",
+              "zh_tw": "我是韓國人。"
+            },
+            {
+              "ko": "저는 대만 사람이에요.",
+              "zh_tw": "我是台灣人。"
+            }
+          ]
+        },
+        {
+          "point_id": "L02-G3",
+          "title_zh_tw": "어디에서 ...?（哪裡）",
+          "explanation_zh_tw": "어디에서 用來問來源地；先把整句當功能句使用。",
+          "examples": [
+            {
+              "ko": "어디에서 왔어요?",
+              "zh_tw": "你從哪裡來？"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "lesson_id": "KO-A1-L03",
+      "title_zh_tw": "校園問路：地點與存在",
+      "theme": "asking_directions",
+      "can_do": [
+        "能詢問某地點在哪裡。",
+        "能理解簡單位置回答。"
+      ],
+      "anchor": {
+        "type": "dialogue",
+        "title_zh_tw": "找教室",
+        "dialogue_turns": [
+          {
+            "speaker": "학생 A",
+            "text_ko": "도서관이 어디예요?",
+            "text_zh_tw": "圖書館在哪裡？"
+          },
+          {
+            "speaker": "학생 B",
+            "text_ko": "저쪽에 있어요.",
+            "text_zh_tw": "在那邊。"
+          },
+          {
+            "speaker": "학생 A",
+            "text_ko": "감사합니다.",
+            "text_zh_tw": "謝謝。"
+          },
+          {
+            "speaker": "학생 B",
+            "text_ko": "네, 천만에요.",
+            "text_zh_tw": "不客氣。"
+          }
+        ]
+      },
+      "grammar_notes": [
+        {
+          "point_id": "L03-G1",
+          "title_zh_tw": "{place}이/가 어디예요?（...在哪）",
+          "explanation_zh_tw": "問地點的核心句型。初期先把 place 當 slot 替換。",
+          "examples": [
+            {
+              "ko": "화장실이 어디예요?",
+              "zh_tw": "洗手間在哪裡？"
+            },
+            {
+              "ko": "도서관이 어디예요?",
+              "zh_tw": "圖書館在哪裡？"
+            }
+          ]
+        },
+        {
+          "point_id": "L03-G2",
+          "title_zh_tw": "있어요（在／有）",
+          "explanation_zh_tw": "있어요 在初級常用來回應位置與存在。",
+          "examples": [
+            {
+              "ko": "저쪽에 있어요.",
+              "zh_tw": "在那邊。"
+            },
+            {
+              "ko": "여기 있어요.",
+              "zh_tw": "在這裡。"
+            }
+          ]
+        },
+        {
+          "point_id": "L03-G3",
+          "title_zh_tw": "位置副詞",
+          "explanation_zh_tw": "여기/저기/저쪽 是問路場景高頻詞。",
+          "examples": [
+            {
+              "ko": "여기",
+              "zh_tw": "這裡"
+            },
+            {
+              "ko": "저쪽",
+              "zh_tw": "那邊"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "lesson_id": "KO-A1-L04",
+      "title_zh_tw": "便利商店：詢問有沒有與點單",
+      "theme": "store_basic_requests",
+      "can_do": [
+        "能詢問商品是否有貨。",
+        "能用 주세요 做禮貌請求。"
+      ],
+      "anchor": {
+        "type": "dialogue",
+        "title_zh_tw": "便利商店購物",
+        "dialogue_turns": [
+          {
+            "speaker": "손님",
+            "text_ko": "물 있어요?",
+            "text_zh_tw": "有水嗎？"
+          },
+          {
+            "speaker": "점원",
+            "text_ko": "네, 있어요.",
+            "text_zh_tw": "有的。"
+          },
+          {
+            "speaker": "손님",
+            "text_ko": "물 한 병 주세요.",
+            "text_zh_tw": "請給我一瓶水。"
+          },
+          {
+            "speaker": "점원",
+            "text_ko": "네, 여기요.",
+            "text_zh_tw": "好的，給您。"
+          }
+        ]
+      },
+      "grammar_notes": [
+        {
+          "point_id": "L04-G1",
+          "title_zh_tw": "{item} 있어요?（有...嗎）",
+          "explanation_zh_tw": "最實用的有無詢問句型，先練名詞替換。",
+          "examples": [
+            {
+              "ko": "커피 있어요?",
+              "zh_tw": "有咖啡嗎？"
+            },
+            {
+              "ko": "김밥 있어요?",
+              "zh_tw": "有飯捲嗎？"
+            }
+          ]
+        },
+        {
+          "point_id": "L04-G2",
+          "title_zh_tw": "{item} 주세요（請給我...）",
+          "explanation_zh_tw": "點單與購物核心請求句。",
+          "examples": [
+            {
+              "ko": "물 주세요.",
+              "zh_tw": "請給我水。"
+            },
+            {
+              "ko": "커피 주세요.",
+              "zh_tw": "請給我咖啡。"
+            }
+          ]
+        },
+        {
+          "point_id": "L04-G3",
+          "title_zh_tw": "數量 + 單位（入門）",
+          "explanation_zh_tw": "初級先記高頻組合：한 병（一瓶）、한 잔（一杯）。",
+          "examples": [
+            {
+              "ko": "물 한 병 주세요.",
+              "zh_tw": "請給我一瓶水。"
+            },
+            {
+              "ko": "커피 한 잔 주세요.",
+              "zh_tw": "請給我一杯咖啡。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "lesson_id": "KO-A1-L05",
+      "title_zh_tw": "時間與約定：今天幾點有課",
+      "theme": "time_and_schedule",
+      "can_do": [
+        "能詢問時間。",
+        "能說明自己有行程。"
+      ],
+      "anchor": {
+        "type": "dialogue",
+        "title_zh_tw": "課前約見面",
+        "dialogue_turns": [
+          {
+            "speaker": "지수",
+            "text_ko": "지금 몇 시예요?",
+            "text_zh_tw": "現在幾點？"
+          },
+          {
+            "speaker": "민수",
+            "text_ko": "두 시예요.",
+            "text_zh_tw": "兩點。"
+          },
+          {
+            "speaker": "지수",
+            "text_ko": "세 시에 수업이 있어요.",
+            "text_zh_tw": "三點有課。"
+          },
+          {
+            "speaker": "민수",
+            "text_ko": "네, 도서관에서 만나요.",
+            "text_zh_tw": "好，我們在圖書館見。"
+          }
+        ]
+      },
+      "grammar_notes": [
+        {
+          "point_id": "L05-G1",
+          "title_zh_tw": "지금 몇 시예요?（現在幾點）",
+          "explanation_zh_tw": "初級時間詢問固定句。",
+          "examples": [
+            {
+              "ko": "지금 몇 시예요?",
+              "zh_tw": "現在幾點？"
+            },
+            {
+              "ko": "지금 두 시예요.",
+              "zh_tw": "現在兩點。"
+            }
+          ]
+        },
+        {
+          "point_id": "L05-G2",
+          "title_zh_tw": "{time}에 {plan}이/가 있어요（有行程）",
+          "explanation_zh_tw": "用在課程、約會、工作安排等。",
+          "examples": [
+            {
+              "ko": "세 시에 수업이 있어요.",
+              "zh_tw": "三點有課。"
+            },
+            {
+              "ko": "저녁에 약속이 있어요.",
+              "zh_tw": "晚上有約。"
+            }
+          ]
+        },
+        {
+          "point_id": "L05-G3",
+          "title_zh_tw": "簡單約見句",
+          "explanation_zh_tw": "初級先學固定語塊：...에서 만나요（在...見）。",
+          "examples": [
+            {
+              "ko": "도서관에서 만나요.",
+              "zh_tw": "在圖書館見。"
+            },
+            {
+              "ko": "학교 앞에서 만나요.",
+              "zh_tw": "在學校前面見。"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

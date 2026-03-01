@@ -1,0 +1,161 @@
+{
+  "version": "ko_travel_subtopic_list_v1",
+  "target_lang": "ko",
+  "curriculum_scope": "survival_a1_a2",
+  "subtopics": [
+    {
+      "subtopic_id": "TRAVEL-ORIENTATION-ASK-DIRECTION",
+      "domain_id": "TRAVEL-ORIENTATION",
+      "label_zh_tw": "問路與找地點",
+      "recommended_order": 1,
+      "level": "A1",
+      "core_functions": [
+        "詢問地點",
+        "理解位置回覆"
+      ],
+      "prerequisites": []
+    },
+    {
+      "subtopic_id": "TRAVEL-ORIENTATION-READ-SIGNS",
+      "domain_id": "TRAVEL-ORIENTATION",
+      "label_zh_tw": "看告示與地圖",
+      "recommended_order": 2,
+      "level": "A1",
+      "core_functions": [
+        "閱讀短告示",
+        "提取地點資訊"
+      ],
+      "prerequisites": [
+        "TRAVEL-ORIENTATION-ASK-DIRECTION"
+      ]
+    },
+    {
+      "subtopic_id": "TRAVEL-ORDERING-CAFE",
+      "domain_id": "TRAVEL-ORDERING",
+      "label_zh_tw": "咖啡店點餐",
+      "recommended_order": 3,
+      "level": "A1",
+      "core_functions": [
+        "詢問有無",
+        "禮貌點單",
+        "詢問價格"
+      ],
+      "prerequisites": [
+        "TRAVEL-ORIENTATION-ASK-DIRECTION"
+      ]
+    },
+    {
+      "subtopic_id": "TRAVEL-ORDERING-RESTAURANT",
+      "domain_id": "TRAVEL-ORDERING",
+      "label_zh_tw": "餐廳點餐",
+      "recommended_order": 4,
+      "level": "A1",
+      "core_functions": [
+        "內用/外帶回應",
+        "點主餐與加點"
+      ],
+      "prerequisites": [
+        "TRAVEL-ORDERING-CAFE"
+      ]
+    },
+    {
+      "subtopic_id": "TRAVEL-ORDERING-CONVENIENCE",
+      "domain_id": "TRAVEL-ORDERING",
+      "label_zh_tw": "便利商店購物",
+      "recommended_order": 5,
+      "level": "A1",
+      "core_functions": [
+        "指定數量",
+        "快速結帳互動"
+      ],
+      "prerequisites": [
+        "TRAVEL-ORDERING-CAFE"
+      ]
+    },
+    {
+      "subtopic_id": "TRAVEL-TRANSPORT-BUY-TICKET",
+      "domain_id": "TRAVEL-TRANSPORT",
+      "label_zh_tw": "買票與確認票價",
+      "recommended_order": 6,
+      "level": "A1",
+      "core_functions": [
+        "詢問票價",
+        "確認目的地"
+      ],
+      "prerequisites": [
+        "TRAVEL-ORDERING-CONVENIENCE"
+      ]
+    },
+    {
+      "subtopic_id": "TRAVEL-TRANSPORT-PLATFORM-TRANSFER",
+      "domain_id": "TRAVEL-TRANSPORT",
+      "label_zh_tw": "找月台與轉乘",
+      "recommended_order": 7,
+      "level": "A1-A2",
+      "core_functions": [
+        "詢問月台",
+        "確認轉乘路線"
+      ],
+      "prerequisites": [
+        "TRAVEL-TRANSPORT-BUY-TICKET"
+      ]
+    },
+    {
+      "subtopic_id": "TRAVEL-STAY-HOTEL-CHECKIN",
+      "domain_id": "TRAVEL-STAY",
+      "label_zh_tw": "飯店入住",
+      "recommended_order": 8,
+      "level": "A1-A2",
+      "core_functions": [
+        "辦理入住",
+        "確認房型與日期"
+      ],
+      "prerequisites": [
+        "TRAVEL-TRANSPORT-BUY-TICKET"
+      ]
+    },
+    {
+      "subtopic_id": "TRAVEL-STAY-HOTEL-FACILITY",
+      "domain_id": "TRAVEL-STAY",
+      "label_zh_tw": "詢問飯店設施",
+      "recommended_order": 9,
+      "level": "A1-A2",
+      "core_functions": [
+        "詢問設施位置",
+        "詢問使用規則"
+      ],
+      "prerequisites": [
+        "TRAVEL-STAY-HOTEL-CHECKIN"
+      ]
+    },
+    {
+      "subtopic_id": "TRAVEL-PROBLEM-REPAIR",
+      "domain_id": "TRAVEL-PROBLEM-SOLVING",
+      "label_zh_tw": "聽不懂時修復溝通",
+      "recommended_order": 10,
+      "level": "A1",
+      "core_functions": [
+        "請對方說慢一點",
+        "請對方再說一次"
+      ],
+      "prerequisites": [
+        "TRAVEL-ORIENTATION-ASK-DIRECTION"
+      ]
+    },
+    {
+      "subtopic_id": "TRAVEL-PROBLEM-REPORT-ISSUE",
+      "domain_id": "TRAVEL-PROBLEM-SOLVING",
+      "label_zh_tw": "描述問題並求助",
+      "recommended_order": 11,
+      "level": "A2",
+      "core_functions": [
+        "描述服務問題",
+        "提出協助請求"
+      ],
+      "prerequisites": [
+        "TRAVEL-PROBLEM-REPAIR",
+        "TRAVEL-STAY-HOTEL-CHECKIN"
+      ]
+    }
+  ]
+}

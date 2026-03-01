@@ -1,0 +1,62 @@
+{
+  "version": "ko_travel_domain_list_v1",
+  "target_lang": "ko",
+  "curriculum_scope": "survival_a1_a2",
+  "domains": [
+    {
+      "domain_id": "TRAVEL-ORIENTATION",
+      "label_zh_tw": "旅遊定位與基本移動",
+      "label_en": "Travel Orientation & Basic Navigation",
+      "priority": 1,
+      "entry_level": "A1",
+      "exit_outcomes": [
+        "能詢問地點並理解基本方向。",
+        "能讀懂簡短地圖/告示資訊。"
+      ]
+    },
+    {
+      "domain_id": "TRAVEL-ORDERING",
+      "label_zh_tw": "旅遊點餐與購物",
+      "label_en": "Travel Ordering & Purchase",
+      "priority": 2,
+      "entry_level": "A1",
+      "exit_outcomes": [
+        "能在不同店型詢問有無與價格。",
+        "能用禮貌體完成點單與付款。"
+      ]
+    },
+    {
+      "domain_id": "TRAVEL-TRANSPORT",
+      "label_zh_tw": "旅遊交通移動",
+      "label_en": "Travel Transport",
+      "priority": 3,
+      "entry_level": "A1",
+      "exit_outcomes": [
+        "能問搭乘方式與月台/站點。",
+        "能確認時間與轉乘資訊。"
+      ]
+    },
+    {
+      "domain_id": "TRAVEL-STAY",
+      "label_zh_tw": "旅遊住宿與入住",
+      "label_en": "Travel Stay & Check-in",
+      "priority": 4,
+      "entry_level": "A1",
+      "exit_outcomes": [
+        "能完成入住基本對話。",
+        "能詢問設施與使用規則。"
+      ]
+    },
+    {
+      "domain_id": "TRAVEL-PROBLEM-SOLVING",
+      "label_zh_tw": "旅遊問題處理與求助",
+      "label_en": "Travel Problem Solving & Help",
+      "priority": 5,
+      "entry_level": "A1",
+      "exit_outcomes": [
+        "能在聽不懂時做修復請求。",
+        "能描述簡單問題並請求協助。"
+      ]
+    }
+  ]
+}

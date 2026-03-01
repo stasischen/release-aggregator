@@ -1,0 +1,20 @@
+{
+  "version": "ko_travel_domain_list_v2",
+  "target_lang": "ko",
+  "curriculum_scope": "survival_a1_b1",
+  "domains": [
+    { "domain_id": "TRAVEL-ORIENTATION", "label_zh_tw": "旅遊定位與基本移動", "priority": 1, "entry_level": "A1" },
+    { "domain_id": "TRAVEL-ORDERING", "label_zh_tw": "旅遊點餐與購物", "priority": 2, "entry_level": "A1" },
+    { "domain_id": "TRAVEL-TRANSPORT", "label_zh_tw": "旅遊交通移動", "priority": 3, "entry_level": "A1" },
+    { "domain_id": "TRAVEL-STAY", "label_zh_tw": "旅遊住宿與入住", "priority": 4, "entry_level": "A1" },
+    { "domain_id": "TRAVEL-PROBLEM-SOLVING", "label_zh_tw": "旅遊問題處理與求助", "priority": 5, "entry_level": "A1" },
+    { "domain_id": "TRAVEL-AIRPORT", "label_zh_tw": "機場流程與出入境", "priority": 6, "entry_level": "A1-A2" },
+    { "domain_id": "TRAVEL-ACCOMMODATION-SUPPORT", "label_zh_tw": "住宿加值需求與客訴", "priority": 7, "entry_level": "A2" },
+    { "domain_id": "TRAVEL-HEALTH-SAFETY", "label_zh_tw": "健康與安全應急", "priority": 8, "entry_level": "A2" },
+    { "domain_id": "TRAVEL-DIGITAL-SERVICES", "label_zh_tw": "旅遊數位服務", "priority": 9, "entry_level": "A2" },
+    { "domain_id": "TRAVEL-SOCIAL-SMALLTALK", "label_zh_tw": "旅途社交與寒暄", "priority": 10, "entry_level": "A1-A2" },
+    { "domain_id": "TRAVEL-ENTERTAINMENT-TICKETS", "label_zh_tw": "景點與票務處理", "priority": 11, "entry_level": "A2" },
+    { "domain_id": "TRAVEL-MONEY-PAYMENT", "label_zh_tw": "旅遊金流與付款問題", "priority": 12, "entry_level": "A2" },
+    { "domain_id": "TRAVEL-CROSS-CULTURAL-PRAGMATICS", "label_zh_tw": "跨文化禮貌與語用", "priority": 13, "entry_level": "A2-B1" }
+  ]
+}

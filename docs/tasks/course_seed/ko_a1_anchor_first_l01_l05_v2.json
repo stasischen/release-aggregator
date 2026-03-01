@@ -1,0 +1,522 @@
+{
+  "version": "ko_a1_anchor_first_l01_l05_v2",
+  "target_lang": "ko",
+  "level_band": "A1",
+  "design_policy": {
+    "audience": "absolute_beginner",
+    "anchor_first": true,
+    "anchors_per_lesson": [
+      "dialogue",
+      "text"
+    ],
+    "lesson_count": 5,
+    "practice_nodes_included": false
+  },
+  "lessons": [
+    {
+      "lesson_id": "KO-A1-L01",
+      "title_zh_tw": "新生報到：打招呼與自我介紹",
+      "theme": "campus_checkin",
+      "can_do": [
+        "能在櫃台用禮貌體打招呼。",
+        "能說自己的名字與國籍。",
+        "能聽懂對方詢問姓名。"
+      ],
+      "anchor_dialogue": {
+        "title_zh_tw": "國際處報到櫃台",
+        "lines": [
+          {
+            "speaker": "직원",
+            "ko": "안녕하세요. 국제처입니다.",
+            "zh_tw": "您好，這裡是國際處。"
+          },
+          {
+            "speaker": "학생",
+            "ko": "안녕하세요. 신입생 등록하러 왔어요.",
+            "zh_tw": "您好，我來辦新生報到。"
+          },
+          {
+            "speaker": "직원",
+            "ko": "네, 반가워요. 이름이 뭐예요?",
+            "zh_tw": "好的，很高興認識你。你叫什麼名字？"
+          },
+          {
+            "speaker": "학생",
+            "ko": "저는 장유恩이에요.",
+            "zh_tw": "我是張宥恩。"
+          },
+          {
+            "speaker": "직원",
+            "ko": "유恩 씨, 어느 나라 사람이에요?",
+            "zh_tw": "宥恩，你是哪一國人？"
+          },
+          {
+            "speaker": "학생",
+            "ko": "저는 대만 사람이에요.",
+            "zh_tw": "我是台灣人。"
+          },
+          {
+            "speaker": "직원",
+            "ko": "네, 감사합니다. 여기 사인해 주세요.",
+            "zh_tw": "好的，謝謝。請在這裡簽名。"
+          },
+          {
+            "speaker": "학생",
+            "ko": "네, 알겠습니다.",
+            "zh_tw": "好，我知道了。"
+          }
+        ]
+      },
+      "anchor_text": {
+        "title_zh_tw": "新生報到須知（短公告）",
+        "lines": [
+          {
+            "ko": "신입생 등록 시간은 오전 9시부터 오후 5시까지입니다.",
+            "zh_tw": "新生報到時間為上午9點到下午5點。"
+          },
+          {
+            "ko": "여권과 입학 서류를 준비해 주세요.",
+            "zh_tw": "請準備護照與入學文件。"
+          },
+          {
+            "ko": "질문이 있으면 국제처에 물어보세요.",
+            "zh_tw": "若有問題，請詢問國際處。"
+          }
+        ]
+      },
+      "grammar_notes": [
+        {
+          "point_id": "L01-G1",
+          "title_zh_tw": "禮貌開場：안녕하세요",
+          "explanation_zh_tw": "第一次見面與服務場景都用 안녕하세요。不要在正式場合直接用 반말。",
+          "source_refs": [
+            "anchor_dialogue:1",
+            "anchor_dialogue:2"
+          ]
+        },
+        {
+          "point_id": "L01-G2",
+          "title_zh_tw": "自我介紹：저는 {name}이에요/예요",
+          "explanation_zh_tw": "用 저는 ...이에요/예요 介紹姓名。初期先整句記憶，後續再學收音規則。",
+          "source_refs": [
+            "anchor_dialogue:4"
+          ]
+        },
+        {
+          "point_id": "L01-G3",
+          "title_zh_tw": "詢問姓名：이름이 뭐예요?",
+          "explanation_zh_tw": "這是高頻固定句型。常見錯誤是把語尾講成太隨便的 반말。",
+          "source_refs": [
+            "anchor_dialogue:3"
+          ]
+        }
+      ]
+    },
+    {
+      "lesson_id": "KO-A1-L02",
+      "title_zh_tw": "在學校裡問路：找教室與圖書館",
+      "theme": "campus_directions",
+      "can_do": [
+        "能詢問地點在哪裡。",
+        "能聽懂基本位置回應。",
+        "能禮貌收尾道謝。"
+      ],
+      "anchor_dialogue": {
+        "title_zh_tw": "新生找教室",
+        "lines": [
+          {
+            "speaker": "학생 A",
+            "ko": "저기요, 한국어 교실이 어디예요?",
+            "zh_tw": "不好意思，韓語教室在哪裡？"
+          },
+          {
+            "speaker": "학생 B",
+            "ko": "한국어 교실은 2층에 있어요.",
+            "zh_tw": "韓語教室在二樓。"
+          },
+          {
+            "speaker": "학생 A",
+            "ko": "아, 2층이요? 감사합니다.",
+            "zh_tw": "啊，二樓嗎？謝謝。"
+          },
+          {
+            "speaker": "학생 B",
+            "ko": "네, 계단 옆이에요.",
+            "zh_tw": "對，在樓梯旁邊。"
+          },
+          {
+            "speaker": "학생 A",
+            "ko": "도서관도 같은 건물이에요?",
+            "zh_tw": "圖書館也在同一棟嗎？"
+          },
+          {
+            "speaker": "학생 B",
+            "ko": "아니요, 도서관은 맞은편 건물이에요.",
+            "zh_tw": "不是，圖書館在對面那棟。"
+          },
+          {
+            "speaker": "학생 A",
+            "ko": "알겠어요. 정말 고마워요.",
+            "zh_tw": "知道了，真的很謝謝你。"
+          },
+          {
+            "speaker": "학생 B",
+            "ko": "천만에요.",
+            "zh_tw": "不客氣。"
+          }
+        ]
+      },
+      "anchor_text": {
+        "title_zh_tw": "校園地圖提示（短文）",
+        "lines": [
+          {
+            "ko": "한국어 교실은 본관 2층 203호입니다.",
+            "zh_tw": "韓語教室在本館2樓203教室。"
+          },
+          {
+            "ko": "도서관은 본관 맞은편 건물 1층에 있습니다.",
+            "zh_tw": "圖書館在本館對面建築的一樓。"
+          },
+          {
+            "ko": "수업 시작 10분 전에 교실에 와 주세요.",
+            "zh_tw": "請在上課前10分鐘到教室。"
+          }
+        ]
+      },
+      "grammar_notes": [
+        {
+          "point_id": "L02-G1",
+          "title_zh_tw": "{place}이/가 어디예요?",
+          "explanation_zh_tw": "問地點最核心句型。place slot 可替換成 교실/도서관/화장실。",
+          "source_refs": [
+            "anchor_dialogue:1"
+          ]
+        },
+        {
+          "point_id": "L02-G2",
+          "title_zh_tw": "{location}에 있어요（在...）",
+          "explanation_zh_tw": "回答位置時高頻使用。常見錯誤是漏掉 에。",
+          "source_refs": [
+            "anchor_dialogue:2",
+            "anchor_text:1"
+          ]
+        },
+        {
+          "point_id": "L02-G3",
+          "title_zh_tw": "位置詞：옆 / 맞은편",
+          "explanation_zh_tw": "校園問路常用。先學高頻位置詞，不先講太多複雜方向語。",
+          "source_refs": [
+            "anchor_dialogue:4",
+            "anchor_dialogue:6"
+          ]
+        }
+      ]
+    },
+    {
+      "lesson_id": "KO-A1-L03",
+      "title_zh_tw": "咖啡店點單：有沒有與請求",
+      "theme": "cafe_ordering",
+      "can_do": [
+        "能詢問商品是否有供應。",
+        "能用 주세요 禮貌點單。",
+        "能詢問價格。"
+      ],
+      "anchor_dialogue": {
+        "title_zh_tw": "校園咖啡店",
+        "lines": [
+          {
+            "speaker": "손님",
+            "ko": "안녕하세요. 아메리카노 있어요?",
+            "zh_tw": "您好，有美式咖啡嗎？"
+          },
+          {
+            "speaker": "점원",
+            "ko": "네, 있어요. 따뜻한 거요, 아이스요?",
+            "zh_tw": "有的。要熱的還是冰的？"
+          },
+          {
+            "speaker": "손님",
+            "ko": "아이스 아메리카노 한 잔 주세요.",
+            "zh_tw": "請給我一杯冰美式。"
+          },
+          {
+            "speaker": "점원",
+            "ko": "네. 다른 거 필요하세요?",
+            "zh_tw": "好的。還需要其他東西嗎？"
+          },
+          {
+            "speaker": "손님",
+            "ko": "샌드위치도 있어요?",
+            "zh_tw": "也有三明治嗎？"
+          },
+          {
+            "speaker": "점원",
+            "ko": "네, 있습니다.",
+            "zh_tw": "有。"
+          },
+          {
+            "speaker": "손님",
+            "ko": "그럼 샌드위치 하나도 주세요.",
+            "zh_tw": "那再請給我一個三明治。"
+          },
+          {
+            "speaker": "손님",
+            "ko": "총 얼마예요?",
+            "zh_tw": "總共多少錢？"
+          },
+          {
+            "speaker": "점원",
+            "ko": "8천 원이에요.",
+            "zh_tw": "八千韓元。"
+          }
+        ]
+      },
+      "anchor_text": {
+        "title_zh_tw": "咖啡店迷你菜單",
+        "lines": [
+          {
+            "ko": "아메리카노 3,500원 / 카페라떼 4,000원",
+            "zh_tw": "美式3,500韓元 / 拿鐵4,000韓元"
+          },
+          {
+            "ko": "샌드위치 4,500원",
+            "zh_tw": "三明治4,500韓元"
+          },
+          {
+            "ko": "테이크아웃 가능합니다.",
+            "zh_tw": "可外帶。"
+          }
+        ]
+      },
+      "grammar_notes": [
+        {
+          "point_id": "L03-G1",
+          "title_zh_tw": "{item} 있어요?（有...嗎）",
+          "explanation_zh_tw": "生存場景高頻句。可快速換商品名詞。",
+          "source_refs": [
+            "anchor_dialogue:1",
+            "anchor_dialogue:5"
+          ]
+        },
+        {
+          "point_id": "L03-G2",
+          "title_zh_tw": "{item} 주세요（請給我...）",
+          "explanation_zh_tw": "點單核心句。常見錯誤是用命令語氣取代禮貌請求。",
+          "source_refs": [
+            "anchor_dialogue:3",
+            "anchor_dialogue:7"
+          ]
+        },
+        {
+          "point_id": "L03-G3",
+          "title_zh_tw": "가격 질문：얼마예요?",
+          "explanation_zh_tw": "購物結帳必備。可搭配 이거/총共 詢價。",
+          "source_refs": [
+            "anchor_dialogue:8",
+            "anchor_dialogue:9"
+          ]
+        }
+      ]
+    },
+    {
+      "lesson_id": "KO-A1-L04",
+      "title_zh_tw": "時間與行程：今天幾點有課",
+      "theme": "time_and_schedule",
+      "can_do": [
+        "能詢問現在時間。",
+        "能說明自己幾點有行程。",
+        "能做簡單約見回覆。"
+      ],
+      "anchor_dialogue": {
+        "title_zh_tw": "課前約見面",
+        "lines": [
+          {
+            "speaker": "서연",
+            "ko": "지금 몇 시예요?",
+            "zh_tw": "現在幾點？"
+          },
+          {
+            "speaker": "민준",
+            "ko": "지금 한 시 반이에요.",
+            "zh_tw": "現在一點半。"
+          },
+          {
+            "speaker": "서연",
+            "ko": "두 시에 한국어 수업이 있어요.",
+            "zh_tw": "兩點有韓語課。"
+          },
+          {
+            "speaker": "민준",
+            "ko": "저도 두 시에 수업이 있어요.",
+            "zh_tw": "我兩點也有課。"
+          },
+          {
+            "speaker": "서연",
+            "ko": "수업 후에 도서관에서 만날까요?",
+            "zh_tw": "下課後在圖書館見嗎？"
+          },
+          {
+            "speaker": "민준",
+            "ko": "좋아요. 네 시에 만나요.",
+            "zh_tw": "好啊。四點見。"
+          },
+          {
+            "speaker": "서연",
+            "ko": "네, 알겠어요.",
+            "zh_tw": "好，知道了。"
+          },
+          {
+            "speaker": "민준",
+            "ko": "그때 봐요.",
+            "zh_tw": "到時見。"
+          }
+        ]
+      },
+      "anchor_text": {
+        "title_zh_tw": "今日課表（短文）",
+        "lines": [
+          {
+            "ko": "2시: 한국어 회화",
+            "zh_tw": "2點：韓語會話"
+          },
+          {
+            "ko": "4시: 자습 모임 (도서관 1층)",
+            "zh_tw": "4點：自習小組（圖書館1樓）"
+          },
+          {
+            "ko": "6시: 기숙사 오리엔테이션",
+            "zh_tw": "6點：宿舍說明會"
+          }
+        ]
+      },
+      "grammar_notes": [
+        {
+          "point_id": "L04-G1",
+          "title_zh_tw": "지금 몇 시예요?（幾點）",
+          "explanation_zh_tw": "時間詢問的固定句。A1 先掌握整點與半點。",
+          "source_refs": [
+            "anchor_dialogue:1",
+            "anchor_dialogue:2"
+          ]
+        },
+        {
+          "point_id": "L04-G2",
+          "title_zh_tw": "{time}에 {plan}이/가 있어요",
+          "explanation_zh_tw": "說明有課/有約/有活動的核心句型。",
+          "source_refs": [
+            "anchor_dialogue:3",
+            "anchor_dialogue:4",
+            "anchor_text:1"
+          ]
+        },
+        {
+          "point_id": "L04-G3",
+          "title_zh_tw": "約見句：...에 만나요",
+          "explanation_zh_tw": "用來確認見面時間地點。常見錯誤是漏掉 에。",
+          "source_refs": [
+            "anchor_dialogue:5",
+            "anchor_dialogue:6"
+          ]
+        }
+      ]
+    },
+    {
+      "lesson_id": "KO-A1-L05",
+      "title_zh_tw": "聽不懂時怎麼辦：請再說一次",
+      "theme": "repair_and_clarification",
+      "can_do": [
+        "能請對方說慢一點。",
+        "能請對方重複一次。",
+        "能用禮貌句維持對話。"
+      ],
+      "anchor_dialogue": {
+        "title_zh_tw": "社團報名櫃台",
+        "lines": [
+          {
+            "speaker": "직원",
+            "ko": "신청서는 오늘까지 제출해 주세요.",
+            "zh_tw": "申請表請在今天以前繳交。"
+          },
+          {
+            "speaker": "학생",
+            "ko": "죄송해요, 천천히 말해 주세요.",
+            "zh_tw": "不好意思，請您說慢一點。"
+          },
+          {
+            "speaker": "직원",
+            "ko": "네. 신청서는 오늘까지 제출해 주세요.",
+            "zh_tw": "好。申請表請在今天以前繳交。"
+          },
+          {
+            "speaker": "학생",
+            "ko": "다시 한 번 말씀해 주세요.",
+            "zh_tw": "請再說一次。"
+          },
+          {
+            "speaker": "직원",
+            "ko": "오늘 오후 다섯 시까지 내면 됩니다.",
+            "zh_tw": "今天下午五點前交就可以。"
+          },
+          {
+            "speaker": "학생",
+            "ko": "아, 알겠습니다. 감사합니다.",
+            "zh_tw": "啊，我知道了。謝謝。"
+          },
+          {
+            "speaker": "직원",
+            "ko": "네, 수고하세요.",
+            "zh_tw": "好的，辛苦了。"
+          },
+          {
+            "speaker": "학생",
+            "ko": "네, 안녕히 계세요.",
+            "zh_tw": "好的，再見。"
+          }
+        ]
+      },
+      "anchor_text": {
+        "title_zh_tw": "社團報名提醒（短公告）",
+        "lines": [
+          {
+            "ko": "동아리 신청 마감: 오늘 오후 5시",
+            "zh_tw": "社團報名截止：今天下午5點"
+          },
+          {
+            "ko": "신청서는 학생지원센터에 제출해 주세요.",
+            "zh_tw": "申請表請繳交至學生支援中心。"
+          },
+          {
+            "ko": "문의: 02-000-0000",
+            "zh_tw": "洽詢：02-000-0000"
+          }
+        ]
+      },
+      "grammar_notes": [
+        {
+          "point_id": "L05-G1",
+          "title_zh_tw": "천천히 말해 주세요（請慢慢說）",
+          "explanation_zh_tw": "最常用的聽力修復句。先背整句，實戰先活下來。",
+          "source_refs": [
+            "anchor_dialogue:2"
+          ]
+        },
+        {
+          "point_id": "L05-G2",
+          "title_zh_tw": "다시 ... 주세요（請再...）",
+          "explanation_zh_tw": "請對方重複時使用。禮貌又直接。",
+          "source_refs": [
+            "anchor_dialogue:4"
+          ]
+        },
+        {
+          "point_id": "L05-G3",
+          "title_zh_tw": "修復後收尾：알겠습니다 / 감사합니다",
+          "explanation_zh_tw": "修復句之後要用理解與感謝收尾，對話才自然完整。",
+          "source_refs": [
+            "anchor_dialogue:6"
+          ]
+        }
+      ]
+    }
+  ]
+}

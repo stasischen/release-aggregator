@@ -1,0 +1,301 @@
+{
+  "index_id": "KO-GRAMMAR-INDEX-V1",
+  "version": "v1",
+  "target_lang": "ko",
+  "support_langs": [
+    "zh_tw",
+    "en"
+  ],
+  "generated_at": "2026-03-02",
+  "entries": [
+    {
+      "grammar_id": "G-KO-GREETING-ANNEONGHASEYO",
+      "label_ko": "안녕하세요",
+      "label_zh_tw": "禮貌打招呼",
+      "label_en": "Polite greeting",
+      "category": "pragmatic",
+      "level_range": { "min": "A1", "max": "A1" },
+      "aliases": ["打招呼", "greeting", "안녕하세요"],
+      "lesson_refs": [
+        { "lesson_id": "KO-A1-L01", "role": "core", "coverage_score": 1.0, "evidence": ["grammar_notes:L01-G1"] },
+        { "lesson_id": "KO-A1-L03", "role": "review", "coverage_score": 0.4, "evidence": ["dialogue:opening_line"] }
+      ],
+      "pattern_refs": ["ko-A1-survival-001"],
+      "function_refs": ["F-GREET"],
+      "prerequisite_grammar_ids": [],
+      "related_grammar_ids": ["G-KO-HONORIFIC-POLITE-ENDINGS"],
+      "teaching_hint": {
+        "zh_tw": "在服務場景和初次見面都優先用安寧哈塞呦，不要直接用半語。",
+        "en": "Use polite greeting by default in first-time and service encounters."
+      },
+      "common_confusions": [
+        { "confusion_id": "CF-GREET-01", "description_zh_tw": "把安寧哈塞呦說成半語安寧。", "repair_strategy_id": "R-KO-HON-001" }
+      ]
+    },
+    {
+      "grammar_id": "G-KO-COPULA-IEYO-YEYO",
+      "label_ko": "N + 이에요/예요",
+      "label_zh_tw": "名詞判斷句（是）",
+      "label_en": "Copula 이에요/예요",
+      "category": "syntax",
+      "level_range": { "min": "A1", "max": "A1" },
+      "aliases": ["이에요", "예요", "是"],
+      "lesson_refs": [
+        { "lesson_id": "KO-A1-L01", "role": "core", "coverage_score": 1.0, "evidence": ["grammar_notes:L01-G2"] },
+        { "lesson_id": "KO-A1-L04", "role": "support", "coverage_score": 0.5, "evidence": ["text:profile_intro"] }
+      ],
+      "pattern_refs": ["ko-A1-survival-002", "ko-A1-survival-004", "ko-A1-survival-005"],
+      "function_refs": ["F-INTRODUCE-SELF"],
+      "prerequisite_grammar_ids": [],
+      "related_grammar_ids": ["G-KO-PARTICLE-EUNNEUN", "G-KO-PARTICLE-IGA"],
+      "teaching_hint": {
+        "zh_tw": "初期先當固定句尾記憶，再補收音規則與名詞搭配。",
+        "en": "Memorize it as a fixed ending first, then refine with 받침 rules."
+      },
+      "common_confusions": [
+        { "confusion_id": "CF-COPULA-01", "description_zh_tw": "把 이에요/예요 跟 이에요? 混用，語調不穩定。" }
+      ]
+    },
+    {
+      "grammar_id": "G-KO-WHAT-NAME-MWOYEYO",
+      "label_ko": "이름이 뭐예요?",
+      "label_zh_tw": "詢問名字",
+      "label_en": "Asking name",
+      "category": "pragmatic",
+      "level_range": { "min": "A1", "max": "A1" },
+      "aliases": ["名字", "what is your name", "뭐예요"],
+      "lesson_refs": [
+        { "lesson_id": "KO-A1-L01", "role": "core", "coverage_score": 0.9, "evidence": ["grammar_notes:L01-G3"] },
+        { "lesson_id": "KO-A1-L05", "role": "review", "coverage_score": 0.5, "evidence": ["review:identity_check"] }
+      ],
+      "pattern_refs": ["ko-A1-survival-003"],
+      "function_refs": ["F-ASK-IDENTITY"],
+      "prerequisite_grammar_ids": ["G-KO-HONORIFIC-POLITE-ENDINGS"],
+      "related_grammar_ids": ["G-KO-COPULA-IEYO-YEYO"],
+      "teaching_hint": {
+        "zh_tw": "先練完整固定問句，避免只說 뭐? 造成不禮貌。",
+        "en": "Practice the full polite form instead of clipped 뭐?"
+      },
+      "common_confusions": [
+        { "confusion_id": "CF-NAME-01", "description_zh_tw": "語尾降成半語，聽感像命令。", "repair_strategy_id": "R-KO-PRAG-001" }
+      ]
+    },
+    {
+      "grammar_id": "G-KO-NATIONALITY-NARA-SARAM",
+      "label_ko": "어느 나라 사람이에요? / 저는 {나라} 사람이에요.",
+      "label_zh_tw": "詢問與說明國籍",
+      "label_en": "Asking/stating nationality",
+      "category": "syntax",
+      "level_range": { "min": "A1", "max": "A1" },
+      "aliases": ["國籍", "哪一國", "나라 사람"],
+      "lesson_refs": [
+        { "lesson_id": "KO-A1-L01", "role": "core", "coverage_score": 0.9, "evidence": ["dialogue:5", "dialogue:6"] },
+        { "lesson_id": "KO-A1-L02", "role": "review", "coverage_score": 0.4, "evidence": ["warmup:identity_round"] }
+      ],
+      "pattern_refs": ["ko-A1-survival-004"],
+      "function_refs": ["F-ASK-BACKGROUND", "F-INTRODUCE-SELF"],
+      "prerequisite_grammar_ids": ["G-KO-COPULA-IEYO-YEYO"],
+      "related_grammar_ids": ["G-KO-WHAT-NAME-MWOYEYO"],
+      "teaching_hint": {
+        "zh_tw": "問與答要成對練習，避免只會回答不會提問。",
+        "en": "Train the question-answer pair together for automatic turn-taking."
+      },
+      "common_confusions": [
+        { "confusion_id": "CF-NATION-01", "description_zh_tw": "把 나라 跟 나라의 混用，初級先不加屬格。" }
+      ]
+    },
+    {
+      "grammar_id": "G-KO-OCCUPATION-JOB-INTRO",
+      "label_ko": "저는 {직업}이에요/예요",
+      "label_zh_tw": "說明職業",
+      "label_en": "Stating occupation",
+      "category": "syntax",
+      "level_range": { "min": "A1", "max": "A1" },
+      "aliases": ["職業", "我是學生", "직업"],
+      "lesson_refs": [
+        { "lesson_id": "KO-A1-L02", "role": "core", "coverage_score": 0.9, "evidence": ["grammar_notes:L02-G2"] },
+        { "lesson_id": "KO-A1-L04", "role": "review", "coverage_score": 0.4, "evidence": ["pairwork:introduce_profession"] }
+      ],
+      "pattern_refs": ["ko-A1-survival-005"],
+      "function_refs": ["F-INTRODUCE-SELF"],
+      "prerequisite_grammar_ids": ["G-KO-COPULA-IEYO-YEYO"],
+      "related_grammar_ids": ["G-KO-NATIONALITY-NARA-SARAM"],
+      "teaching_hint": {
+        "zh_tw": "用同一模板快速替換職業名詞，建立句型流暢度。",
+        "en": "Use rapid noun substitution drills to automate this frame."
+      },
+      "common_confusions": [
+        { "confusion_id": "CF-JOB-01", "description_zh_tw": "職業詞尾和 copula 銜接時停頓過長。" }
+      ]
+    },
+    {
+      "grammar_id": "G-KO-LOCATION-EODIYEYO",
+      "label_ko": "{장소}이/가 어디예요?",
+      "label_zh_tw": "詢問地點",
+      "label_en": "Asking location",
+      "category": "syntax",
+      "level_range": { "min": "A1", "max": "A2" },
+      "aliases": ["在哪裡", "어디예요", "location question"],
+      "lesson_refs": [
+        { "lesson_id": "KO-A1-L03", "role": "core", "coverage_score": 1.0, "evidence": ["grammar_notes:L03-G1"] },
+        { "lesson_id": "KO-A1-L05", "role": "support", "coverage_score": 0.5, "evidence": ["text:campus_map"] }
+      ],
+      "pattern_refs": ["ko-A1-survival-006", "ko-A1-survival-012"],
+      "function_refs": ["F-ASK-DIRECTION"],
+      "prerequisite_grammar_ids": ["G-KO-PARTICLE-IGA"],
+      "related_grammar_ids": ["G-KO-AVAILABILITY-ISSEOYO"],
+      "teaching_hint": {
+        "zh_tw": "先以 장소 slot 代換練熟，再導入更長的路線問句。",
+        "en": "Master the slot substitution first, then extend to route-level questions."
+      },
+      "common_confusions": [
+        { "confusion_id": "CF-LOC-01", "description_zh_tw": "把 어디예요 問句說成陳述語調。", "repair_strategy_id": "R-KO-PRAG-002" }
+      ]
+    },
+    {
+      "grammar_id": "G-KO-AVAILABILITY-ISSEOYO",
+      "label_ko": "{물건} 있어요? / 없어요?",
+      "label_zh_tw": "有沒有某物",
+      "label_en": "Availability question",
+      "category": "syntax",
+      "level_range": { "min": "A1", "max": "A2" },
+      "aliases": ["有沒有", "있어요", "없어요"],
+      "lesson_refs": [
+        { "lesson_id": "KO-A1-L04", "role": "core", "coverage_score": 1.0, "evidence": ["grammar_notes:L04-G1"] },
+        { "lesson_id": "KO-A1-L05", "role": "review", "coverage_score": 0.6, "evidence": ["review:stock_check"] }
+      ],
+      "pattern_refs": ["ko-A1-survival-007"],
+      "function_refs": ["F-ASK-AVAILABILITY"],
+      "prerequisite_grammar_ids": [],
+      "related_grammar_ids": ["G-KO-NEGATION-AN-OPSEOYO"],
+      "teaching_hint": {
+        "zh_tw": "正反問句需成對訓練，避免只會問 있어요? 不會回應 없어요。",
+        "en": "Train positive/negative pairs together for fast real-time response."
+      },
+      "common_confusions": [
+        { "confusion_id": "CF-AVAIL-01", "description_zh_tw": "把 없어요 說成 안 있어요，初期優先用 없어요。" }
+      ]
+    },
+    {
+      "grammar_id": "G-KO-REQUEST-JUSEYO",
+      "label_ko": "{명사} 주세요",
+      "label_zh_tw": "禮貌點單/請給我",
+      "label_en": "Polite request 주세요",
+      "category": "pragmatic",
+      "level_range": { "min": "A1", "max": "A2" },
+      "aliases": ["주세요", "點餐", "請給我"],
+      "lesson_refs": [
+        { "lesson_id": "KO-A1-L04", "role": "core", "coverage_score": 1.0, "evidence": ["grammar_notes:L04-G2"] },
+        { "lesson_id": "KO-A1-L05", "role": "support", "coverage_score": 0.6, "evidence": ["dialogue:cafe_order"] }
+      ],
+      "pattern_refs": ["ko-A1-survival-008", "ko-A1-survival-009"],
+      "function_refs": ["F-REQUEST", "F-ORDER"],
+      "prerequisite_grammar_ids": ["G-KO-HONORIFIC-POLITE-ENDINGS"],
+      "related_grammar_ids": ["G-KO-AVAILABILITY-ISSEOYO"],
+      "teaching_hint": {
+        "zh_tw": "先以名詞+주세요建立高頻生存句，再擴展到動詞請求。",
+        "en": "Use noun+주세요 as the first survival request frame."
+      },
+      "common_confusions": [
+        { "confusion_id": "CF-JUSEYO-01", "description_zh_tw": "把 주세요 說成 줘요，正式場景不夠禮貌。", "repair_strategy_id": "R-KO-HON-002" }
+      ]
+    },
+    {
+      "grammar_id": "G-KO-PRICE-EOLMAYEYO",
+      "label_ko": "{물건} 얼마예요?",
+      "label_zh_tw": "詢問價格",
+      "label_en": "Asking price",
+      "category": "pragmatic",
+      "level_range": { "min": "A1", "max": "A2" },
+      "aliases": ["多少錢", "얼마예요", "price"],
+      "lesson_refs": [
+        { "lesson_id": "KO-A1-L05", "role": "core", "coverage_score": 0.9, "evidence": ["grammar_notes:L05-G1"] },
+        { "lesson_id": "KO-A1-L04", "role": "review", "coverage_score": 0.4, "evidence": ["dialogue:store_price_check"] }
+      ],
+      "pattern_refs": ["ko-A1-survival-010"],
+      "function_refs": ["F-ASK-PRICE"],
+      "prerequisite_grammar_ids": ["G-KO-COPULA-IEYO-YEYO"],
+      "related_grammar_ids": ["G-KO-REQUEST-JUSEYO"],
+      "teaching_hint": {
+        "zh_tw": "與點單句連用最實用，先問價再下單。",
+        "en": "Pair this with ordering flow: ask price before committing."
+      },
+      "common_confusions": [
+        { "confusion_id": "CF-PRICE-01", "description_zh_tw": "把 얼마예요 的重音放錯，聽感像陳述。" }
+      ]
+    },
+    {
+      "grammar_id": "G-KO-MORE-HANBEON-DEO",
+      "label_ko": "한 번 더 주세요",
+      "label_zh_tw": "再來一份/再一次",
+      "label_en": "One more please",
+      "category": "pragmatic",
+      "level_range": { "min": "A1", "max": "A2" },
+      "aliases": ["再來一份", "one more", "한 번 더"],
+      "lesson_refs": [
+        { "lesson_id": "KO-A1-L05", "role": "core", "coverage_score": 0.8, "evidence": ["dialogue:repeat_order"] },
+        { "lesson_id": "KO-A1-L04", "role": "support", "coverage_score": 0.4, "evidence": ["drill:order_extension"] }
+      ],
+      "pattern_refs": ["ko-A1-survival-011"],
+      "function_refs": ["F-ORDER"],
+      "prerequisite_grammar_ids": ["G-KO-REQUEST-JUSEYO"],
+      "related_grammar_ids": ["G-KO-PRICE-EOLMAYEYO"],
+      "teaching_hint": {
+        "zh_tw": "把 한 번 더 當成固定塊，能快速補單。",
+        "en": "Treat 한 번 더 as a chunk for fast reorder actions."
+      },
+      "common_confusions": [
+        { "confusion_id": "CF-MORE-01", "description_zh_tw": "漏掉 주세요 會顯得語氣生硬。" }
+      ]
+    },
+    {
+      "grammar_id": "G-KO-HONORIFIC-POLITE-ENDINGS",
+      "label_ko": "해요체（요 結尾）",
+      "label_zh_tw": "禮貌終結語尾",
+      "label_en": "Polite sentence endings",
+      "category": "morphology",
+      "level_range": { "min": "A1", "max": "B1" },
+      "aliases": ["요結尾", "禮貌體", "polite ending"],
+      "lesson_refs": [
+        { "lesson_id": "KO-A1-L01", "role": "core", "coverage_score": 1.0, "evidence": ["dialogue:all_lines"] },
+        { "lesson_id": "KO-A1-L02", "role": "support", "coverage_score": 0.6, "evidence": ["feedback:register_fix"] },
+        { "lesson_id": "KO-A1-L05", "role": "review", "coverage_score": 0.5, "evidence": ["review:register_check"] }
+      ],
+      "pattern_refs": ["ko-A1-survival-001", "ko-A1-survival-008", "ko-A1-survival-010"],
+      "function_refs": ["F-POLITENESS-BASE"],
+      "prerequisite_grammar_ids": [],
+      "related_grammar_ids": ["G-KO-REQUEST-JUSEYO"],
+      "teaching_hint": {
+        "zh_tw": "A1 先固定用 해요체，降低語用風險。",
+        "en": "Default to polite endings in A1 to reduce pragmatic errors."
+      },
+      "common_confusions": [
+        { "confusion_id": "CF-POLITE-01", "description_zh_tw": "混入半語終結造成語域跳動。", "repair_strategy_id": "R-KO-HON-003" }
+      ]
+    },
+    {
+      "grammar_id": "G-KO-PARTICLE-IGA",
+      "label_ko": "이/가",
+      "label_zh_tw": "主格助詞",
+      "label_en": "Subject particle 이/가",
+      "category": "morphology",
+      "level_range": { "min": "A1", "max": "A2" },
+      "aliases": ["이/가", "主格助詞", "subject marker"],
+      "lesson_refs": [
+        { "lesson_id": "KO-A1-L03", "role": "core", "coverage_score": 0.8, "evidence": ["grammar_notes:L03-G2"] },
+        { "lesson_id": "KO-A1-L05", "role": "review", "coverage_score": 0.4, "evidence": ["exercise:particle_choice"] }
+      ],
+      "pattern_refs": ["ko-A1-survival-006", "ko-A1-survival-010"],
+      "function_refs": ["F-ASK-DIRECTION", "F-ASK-PRICE"],
+      "prerequisite_grammar_ids": [],
+      "related_grammar_ids": ["G-KO-COPULA-IEYO-YEYO"],
+      "teaching_hint": {
+        "zh_tw": "先用最常見高頻句練語感，不在 A1 過度講解主題/主語對比。",
+        "en": "Prioritize high-frequency sentence practice before deep contrast rules."
+      },
+      "common_confusions": [
+        { "confusion_id": "CF-IGA-01", "description_zh_tw": "把 이/가 與 은/는 完全互換使用。", "repair_strategy_id": "R-KO-GRAM-001" }
+      ]
+    }
+  ]
+}

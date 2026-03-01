@@ -14,6 +14,11 @@
             "id": "A1-U05",
             "title": "在藥局買藥 (Production-Ready)",
             "path": "data/units/a1_u05_unit_blueprint_v0.json"
+        },
+        {
+            "id": "A1-U04-V1",
+            "title": "A1-U04 v1 Preview (TLG-005/006)",
+            "path": "data/units/a1_u04_unit_blueprint_v1_preview.json"
         }
     ]
 }

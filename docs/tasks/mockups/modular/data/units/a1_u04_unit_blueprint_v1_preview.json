@@ -1,0 +1,1291 @@
+{
+  "version": "unit_blueprint_v0.1",
+  "adapter_contract": {
+    "adapter_version": "frontend_unit_adapter_v0",
+    "stability": "preview_v1_compat",
+    "fallback_locale_order": [
+      "zh_tw",
+      "en"
+    ],
+    "notes": "Converted from unit_blueprint_v1 for modular viewer preview."
+  },
+  "unit": {
+    "unit_id": "A1-U04",
+    "title_zh_tw": "A1-U04 v1 Preview（TLG-005/006）",
+    "target_language": "ko",
+    "learner_locale_source": "zh_tw",
+    "level": "A1",
+    "theme_zh_tw": "v1 量產預覽",
+    "output_ratio_target": 0.5,
+    "can_do_zh_tw": [
+      "能用禮貌體打招呼並開啟對話。",
+      "能詢問是否有某項物品或服務。",
+      "能在店家用禮貌體點單。",
+      "能詢問價格。",
+      "能詢問洗手間或設施位置。",
+      "能請對方說慢一點。"
+    ]
+  },
+  "sequence": [
+    {
+      "id": "A1-U04-L1",
+      "candidate_type": "path_node",
+      "content_form": "dialogue",
+      "learning_role": "immersion_input",
+      "skill_focus": [
+        "listening",
+        "reading"
+      ],
+      "output_mode": "none",
+      "duration_min": 4,
+      "title_zh_tw": "先固定禮貌打招呼作為高頻開場，再練平語/正式語切換，避免一開始就混用語體。",
+      "summary_zh_tw": "先固定禮貌打招呼作為高頻開場，再練平語/正式語切換，避免一開始就混用語體。",
+      "expected_output_zh_tw": "先固定禮貌打招呼作為高頻開場，再練平語/正式語切換，避免一開始就混用語體。",
+      "payload": {
+        "generation_constraints": {
+          "target_lang": "ko",
+          "genre": "dialogue",
+          "register_target": "spoken_polite",
+          "style_requirements": [
+            "use turn-based natural spoken phrasing",
+            "keep utterances concise and context-driven",
+            "maintain register consistency across turns"
+          ],
+          "style_anti_patterns": [
+            "written-essay style in short dialogue turns",
+            "abrupt register shift without context cue"
+          ],
+          "required_markers": [
+            "-요",
+            "주세요"
+          ],
+          "forbidden_markers": [
+            "반말 sentence endings in formal service contexts"
+          ],
+          "length_guidelines": {
+            "min_tokens": 3,
+            "max_tokens": 25
+          },
+          "prompt_policy": {
+            "must_use_target_lang_only": true,
+            "must_follow_genre_style": true,
+            "must_follow_register_constraints": true
+          }
+        },
+        "pattern_meta": {
+          "pattern_id": "ko-A1-survival-001",
+          "can_do": "能用禮貌體打招呼並開啟對話。",
+          "required_elements": [
+            "안녕하세요"
+          ],
+          "acceptable_variants": [
+            "안녕하십니까",
+            "안녕"
+          ],
+          "transform_types": [
+            "speech_level_shift",
+            "context_retarget"
+          ],
+          "repair_links": [
+            "R-KO-HON-001",
+            "R-KO-PRAG-001"
+          ],
+          "transfer_contexts": [
+            "classroom",
+            "office",
+            "service_call"
+          ]
+        },
+        "dialogue_turns": [
+          {
+            "speaker": "A",
+            "text": "안녕하세요.",
+            "zh_tw": "先固定禮貌打招呼作為高頻開場，再練平語/正式語切換，避免一開始就混用語體。"
+          }
+        ]
+      },
+      "adapter_hints": {
+        "content_renderer_key": "dialogue",
+        "interaction_renderer_key": null
+      }
+    },
+    {
+      "id": "A1-U04-L2",
+      "candidate_type": "path_node",
+      "content_form": "comprehension_check",
+      "learning_role": "immersion_input",
+      "skill_focus": [
+        "listening",
+        "reading"
+      ],
+      "output_mode": "response_builder",
+      "duration_min": 4,
+      "title_zh_tw": "有無問句是生存核心，務必以成對輸入訓練 긍정/부정，提升回應速度。",
+      "summary_zh_tw": "有無問句是生存核心，務必以成對輸入訓練 긍정/부정，提升回應速度。",
+      "expected_output_zh_tw": "有無問句是生存核心，務必以成對輸入訓練 긍정/부정，提升回應速度。",
+      "payload": {
+        "rubric": {
+          "completion_policy": "pass_on_threshold",
+          "min_attempts": 2,
+          "pass_threshold": 0.75,
+          "max_hints_for_pass": 2,
+          "required_elements": [
+            "core_intent"
+          ],
+          "acceptable_variants": [],
+          "feedback_policy": "supportive"
+        },
+        "generation_constraints": {
+          "target_lang": "ko",
+          "genre": "dialogue",
+          "register_target": "spoken_polite",
+          "style_requirements": [
+            "use turn-based natural spoken phrasing",
+            "keep utterances concise and context-driven",
+            "maintain register consistency across turns"
+          ],
+          "style_anti_patterns": [
+            "written-essay style in short dialogue turns",
+            "abrupt register shift without context cue"
+          ],
+          "required_markers": [
+            "-요",
+            "주세요"
+          ],
+          "forbidden_markers": [
+            "반말 sentence endings in formal service contexts"
+          ],
+          "length_guidelines": {
+            "min_tokens": 3,
+            "max_tokens": 25
+          },
+          "prompt_policy": {
+            "must_use_target_lang_only": true,
+            "must_follow_genre_style": true,
+            "must_follow_register_constraints": true
+          }
+        },
+        "pattern_meta": {
+          "pattern_id": "ko-A1-survival-007",
+          "can_do": "能詢問是否有某項物品或服務。",
+          "required_elements": [
+            "{item}",
+            "있어요"
+          ],
+          "acceptable_variants": [
+            "{item} 있나요",
+            "{item} 없어요"
+          ],
+          "transform_types": [
+            "negation",
+            "speech_level_shift"
+          ],
+          "repair_links": [
+            "R-KO-FORM-002",
+            "R-KO-HON-002"
+          ],
+          "transfer_contexts": [
+            "convenience_store",
+            "hotel_checkin",
+            "restaurant_order"
+          ]
+        },
+        "items": [
+          {
+            "prompt_ko": "{item} 있어요?",
+            "prompt_zh_tw": "有無問句是生存核心，務必以成對輸入訓練 긍정/부정，提升回應速度。",
+            "response_choices_ko": [
+              "네",
+              "아니요"
+            ],
+            "accepted_responses_ko": [
+              "네"
+            ]
+          }
+        ]
+      },
+      "adapter_hints": {
+        "content_renderer_key": "comprehension_check",
+        "interaction_renderer_key": "response_builder"
+      }
+    },
+    {
+      "id": "A1-U04-L3",
+      "candidate_type": "path_node",
+      "content_form": "notice",
+      "learning_role": "immersion_input",
+      "skill_focus": [
+        "listening",
+        "reading"
+      ],
+      "output_mode": "none",
+      "duration_min": 4,
+      "title_zh_tw": "固定設施問路框架後再替換地點名詞，能快速覆蓋旅遊生存需求。",
+      "summary_zh_tw": "固定設施問路框架後再替換地點名詞，能快速覆蓋旅遊生存需求。",
+      "expected_output_zh_tw": "固定設施問路框架後再替換地點名詞，能快速覆蓋旅遊生存需求。",
+      "payload": {
+        "generation_constraints": {
+          "target_lang": "ko",
+          "genre": "notice",
+          "register_target": "spoken_polite",
+          "style_requirements": [
+            "use compact informational style",
+            "highlight key actionable details",
+            "avoid unnecessary narrative phrasing"
+          ],
+          "style_anti_patterns": [
+            "long conversational storytelling"
+          ],
+          "required_markers": [
+            "-요",
+            "주세요"
+          ],
+          "forbidden_markers": [
+            "반말 sentence endings in formal service contexts"
+          ],
+          "length_guidelines": {
+            "min_tokens": 20,
+            "max_tokens": 120
+          },
+          "prompt_policy": {
+            "must_use_target_lang_only": true,
+            "must_follow_genre_style": true,
+            "must_follow_register_constraints": true
+          }
+        },
+        "pattern_meta": {
+          "pattern_id": "ko-A1-survival-012",
+          "can_do": "能詢問洗手間或設施位置。",
+          "required_elements": [
+            "화장실",
+            "어디예요"
+          ],
+          "acceptable_variants": [
+            "화장실 어디에 있어요",
+            "화장실이 어디죠"
+          ],
+          "transform_types": [
+            "slot_substitution",
+            "speech_level_shift"
+          ],
+          "repair_links": [
+            "R-KO-PART-001",
+            "R-KO-HON-001"
+          ],
+          "transfer_contexts": [
+            "airport",
+            "subway_navigation",
+            "hotel_checkin"
+          ]
+        },
+        "reading_overlay": {
+          "node_id": "A1-U04-L3",
+          "phase": "while_read",
+          "text_profile": {
+            "genre": "notice",
+            "length_words": 60,
+            "lexical_coverage": {
+              "target_level_ratio": 0.9,
+              "next_level_ratio": 0.1
+            },
+            "syntactic_density": {
+              "max_clauses_per_sentence": 2,
+              "max_sentence_length": 20
+            }
+          },
+          "reading_skill_targets": [
+            "skimming",
+            "scanning"
+          ],
+          "question_blueprint": [
+            {
+              "question_id": "Q1",
+              "type": "literal",
+              "prompt": "公告主要在說什麼？",
+              "accepted_answers": [
+                "location information",
+                "where the restroom is"
+              ]
+            }
+          ],
+          "evidence_mapping": [
+            {
+              "question_id": "Q1",
+              "spans": [
+                {
+                  "start": 0,
+                  "end": 18
+                }
+              ]
+            }
+          ],
+          "rubric": {
+            "comprehension_accuracy_weight": 0.8,
+            "evidence_location_weight": 0.2,
+            "inference_validity_weight": 0.0,
+            "pass_threshold": 0.65
+          }
+        },
+        "notice_items": [
+          "화장실이 어디예요?"
+        ],
+        "notice_items_zh_tw": [
+          "固定設施問路框架後再替換地點名詞，能快速覆蓋旅遊生存需求。"
+        ]
+      },
+      "adapter_hints": {
+        "content_renderer_key": "notice",
+        "interaction_renderer_key": null
+      }
+    },
+    {
+      "id": "A1-U04-D1",
+      "candidate_type": "path_node",
+      "content_form": "functional_phrase_pack",
+      "learning_role": "structure_pattern",
+      "skill_focus": [
+        "reading",
+        "writing"
+      ],
+      "output_mode": "chunk_assembly",
+      "duration_min": 4,
+      "title_zh_tw": "有無問句是生存核心，務必以成對輸入訓練 긍정/부정，提升回應速度。",
+      "summary_zh_tw": "有無問句是生存核心，務必以成對輸入訓練 긍정/부정，提升回應速度。",
+      "expected_output_zh_tw": "有無問句是生存核心，務必以成對輸入訓練 긍정/부정，提升回應速度。",
+      "payload": {
+        "rubric": {
+          "completion_policy": "pass_on_threshold",
+          "min_attempts": 2,
+          "pass_threshold": 0.8,
+          "max_hints_for_pass": 2,
+          "required_elements": [
+            "item_slot"
+          ],
+          "acceptable_variants": [],
+          "feedback_policy": "supportive"
+        },
+        "generation_constraints": {
+          "target_lang": "ko",
+          "genre": "dialogue",
+          "register_target": "spoken_polite",
+          "style_requirements": [
+            "use turn-based natural spoken phrasing",
+            "keep utterances concise and context-driven",
+            "maintain register consistency across turns"
+          ],
+          "style_anti_patterns": [
+            "written-essay style in short dialogue turns",
+            "abrupt register shift without context cue"
+          ],
+          "required_markers": [
+            "-요",
+            "주세요"
+          ],
+          "forbidden_markers": [
+            "반말 sentence endings in formal service contexts"
+          ],
+          "length_guidelines": {
+            "min_tokens": 3,
+            "max_tokens": 25
+          },
+          "prompt_policy": {
+            "must_use_target_lang_only": true,
+            "must_follow_genre_style": true,
+            "must_follow_register_constraints": true
+          }
+        },
+        "pattern_meta": {
+          "pattern_id": "ko-A1-survival-007",
+          "can_do": "能詢問是否有某項物品或服務。",
+          "required_elements": [
+            "{item}",
+            "있어요"
+          ],
+          "acceptable_variants": [
+            "{item} 있나요",
+            "{item} 없어요"
+          ],
+          "transform_types": [
+            "negation",
+            "speech_level_shift"
+          ],
+          "repair_links": [
+            "R-KO-FORM-002",
+            "R-KO-HON-002"
+          ],
+          "transfer_contexts": [
+            "convenience_store",
+            "hotel_checkin",
+            "restaurant_order"
+          ]
+        },
+        "tasks": [
+          {
+            "prompt_zh_tw": "有無問句是生存核心，務必以成對輸入訓練 긍정/부정，提升回應速度。",
+            "chunks": [
+              "안녕하세요",
+              "주세요"
+            ],
+            "target_examples": [
+              "{item} 있어요?"
+            ]
+          }
+        ]
+      },
+      "adapter_hints": {
+        "content_renderer_key": "functional_phrase_pack",
+        "interaction_renderer_key": "chunk_assembly"
+      }
+    },
+    {
+      "id": "A1-U04-G1",
+      "candidate_type": "path_node",
+      "content_form": "pattern_card",
+      "learning_role": "structure_pattern",
+      "skill_focus": [
+        "reading",
+        "writing"
+      ],
+      "output_mode": "frame_fill",
+      "duration_min": 4,
+      "title_zh_tw": "有無問句是生存核心，務必以成對輸入訓練 긍정/부정，提升回應速度。",
+      "summary_zh_tw": "有無問句是生存核心，務必以成對輸入訓練 긍정/부정，提升回應速度。",
+      "expected_output_zh_tw": "有無問句是生存核心，務必以成對輸入訓練 긍정/부정，提升回應速度。",
+      "payload": {
+        "frame": "{item} 주세요.",
+        "rubric": {
+          "completion_policy": "pass_on_threshold",
+          "min_attempts": 2,
+          "pass_threshold": 0.82,
+          "max_hints_for_pass": 2,
+          "required_elements": [
+            "item_slot",
+            "주세요"
+          ],
+          "acceptable_variants": [],
+          "feedback_policy": "supportive"
+        },
+        "generation_constraints": {
+          "target_lang": "ko",
+          "genre": "dialogue",
+          "register_target": "spoken_polite",
+          "style_requirements": [
+            "use turn-based natural spoken phrasing",
+            "keep utterances concise and context-driven",
+            "maintain register consistency across turns"
+          ],
+          "style_anti_patterns": [
+            "written-essay style in short dialogue turns",
+            "abrupt register shift without context cue"
+          ],
+          "required_markers": [
+            "-요",
+            "주세요"
+          ],
+          "forbidden_markers": [
+            "반말 sentence endings in formal service contexts"
+          ],
+          "length_guidelines": {
+            "min_tokens": 3,
+            "max_tokens": 25
+          },
+          "prompt_policy": {
+            "must_use_target_lang_only": true,
+            "must_follow_genre_style": true,
+            "must_follow_register_constraints": true
+          }
+        },
+        "pattern_meta": {
+          "pattern_id": "ko-A1-survival-007",
+          "can_do": "能詢問是否有某項物品或服務。",
+          "required_elements": [
+            "{item}",
+            "있어요"
+          ],
+          "acceptable_variants": [
+            "{item} 있나요",
+            "{item} 없어요"
+          ],
+          "transform_types": [
+            "negation",
+            "speech_level_shift"
+          ],
+          "repair_links": [
+            "R-KO-FORM-002",
+            "R-KO-HON-002"
+          ],
+          "transfer_contexts": [
+            "convenience_store",
+            "hotel_checkin",
+            "restaurant_order"
+          ]
+        }
+      },
+      "adapter_hints": {
+        "content_renderer_key": "pattern_card",
+        "interaction_renderer_key": "frame_fill"
+      }
+    },
+    {
+      "id": "A1-U04-G2",
+      "candidate_type": "path_node",
+      "content_form": "grammar_note",
+      "learning_role": "structure_grammar",
+      "skill_focus": [
+        "reading"
+      ],
+      "output_mode": "none",
+      "duration_min": 4,
+      "title_zh_tw": "有無問句是生存核心，務必以成對輸入訓練 긍정/부정，提升回應速度。",
+      "summary_zh_tw": "有無問句是生存核心，務必以成對輸入訓練 긍정/부정，提升回應速度。",
+      "expected_output_zh_tw": "有無問句是生存核心，務必以成對輸入訓練 긍정/부정，提升回應速度。",
+      "payload": {
+        "generation_constraints": {
+          "target_lang": "ko",
+          "genre": "article",
+          "register_target": "spoken_polite",
+          "style_requirements": [
+            "use paragraph-level cohesion",
+            "use explicit discourse connectors",
+            "maintain consistent written style"
+          ],
+          "style_anti_patterns": [
+            "chat-like sentence fragments",
+            "overuse of spoken fillers"
+          ],
+          "required_markers": [
+            "-요",
+            "주세요"
+          ],
+          "forbidden_markers": [
+            "반말 sentence endings in formal service contexts"
+          ],
+          "length_guidelines": {
+            "min_tokens": 80,
+            "max_tokens": 280
+          },
+          "prompt_policy": {
+            "must_use_target_lang_only": true,
+            "must_follow_genre_style": true,
+            "must_follow_register_constraints": true
+          }
+        },
+        "pattern_meta": {
+          "pattern_id": "ko-A1-survival-007",
+          "can_do": "能詢問是否有某項物品或服務。",
+          "required_elements": [
+            "{item}",
+            "있어요"
+          ],
+          "acceptable_variants": [
+            "{item} 있나요",
+            "{item} 없어요"
+          ],
+          "transform_types": [
+            "negation",
+            "speech_level_shift"
+          ],
+          "repair_links": [
+            "R-KO-FORM-002",
+            "R-KO-HON-002"
+          ],
+          "transfer_contexts": [
+            "convenience_store",
+            "hotel_checkin",
+            "restaurant_order"
+          ]
+        }
+      },
+      "adapter_hints": {
+        "content_renderer_key": "grammar_note",
+        "interaction_renderer_key": null
+      }
+    },
+    {
+      "id": "A1-U04-P1",
+      "candidate_type": "path_node",
+      "content_form": "practice_card",
+      "learning_role": "controlled_output",
+      "skill_focus": [
+        "writing",
+        "speaking"
+      ],
+      "output_mode": "chunk_assembly",
+      "duration_min": 4,
+      "title_zh_tw": "把 주세요 當作禮貌請求核心，先固定句尾，再逐步加入數量/溫度等附加資訊。",
+      "summary_zh_tw": "把 주세요 當作禮貌請求核心，先固定句尾，再逐步加入數量/溫度等附加資訊。",
+      "expected_output_zh_tw": "把 주세요 當作禮貌請求核心，先固定句尾，再逐步加入數量/溫度等附加資訊。",
+      "payload": {
+        "rubric": {
+          "completion_policy": "pass_on_threshold",
+          "min_attempts": 2,
+          "pass_threshold": 0.8,
+          "max_hints_for_pass": 2,
+          "required_elements": [
+            "price_question"
+          ],
+          "acceptable_variants": [],
+          "feedback_policy": "supportive"
+        },
+        "generation_constraints": {
+          "target_lang": "ko",
+          "genre": "dialogue",
+          "register_target": "spoken_polite",
+          "style_requirements": [
+            "use turn-based natural spoken phrasing",
+            "keep utterances concise and context-driven",
+            "maintain register consistency across turns"
+          ],
+          "style_anti_patterns": [
+            "written-essay style in short dialogue turns",
+            "abrupt register shift without context cue"
+          ],
+          "required_markers": [
+            "-요",
+            "주세요"
+          ],
+          "forbidden_markers": [
+            "반말 sentence endings in formal service contexts"
+          ],
+          "length_guidelines": {
+            "min_tokens": 3,
+            "max_tokens": 25
+          },
+          "prompt_policy": {
+            "must_use_target_lang_only": true,
+            "must_follow_genre_style": true,
+            "must_follow_register_constraints": true
+          }
+        },
+        "pattern_meta": {
+          "pattern_id": "ko-A1-survival-008",
+          "can_do": "能在店家用禮貌體點單。",
+          "required_elements": [
+            "{item}",
+            "주세요"
+          ],
+          "acceptable_variants": [
+            "{item} 하나 주세요",
+            "{item} 부탁해요"
+          ],
+          "transform_types": [
+            "slot_substitution",
+            "context_retarget"
+          ],
+          "repair_links": [
+            "R-KO-HON-001",
+            "R-KO-PRAG-003"
+          ],
+          "transfer_contexts": [
+            "cafe_order",
+            "restaurant_order",
+            "convenience_store"
+          ]
+        },
+        "tasks": [
+          {
+            "prompt_zh_tw": "把 주세요 當作禮貌請求核心，先固定句尾，再逐步加入數量/溫度等附加資訊。",
+            "chunks": [
+              "안녕하세요",
+              "주세요"
+            ],
+            "target_examples": [
+              "{item} 주세요."
+            ]
+          }
+        ]
+      },
+      "adapter_hints": {
+        "content_renderer_key": "practice_card",
+        "interaction_renderer_key": "chunk_assembly"
+      }
+    },
+    {
+      "id": "A1-U04-P2",
+      "candidate_type": "path_node",
+      "content_form": "practice_card",
+      "learning_role": "controlled_output",
+      "skill_focus": [
+        "writing",
+        "speaking"
+      ],
+      "output_mode": "response_builder",
+      "duration_min": 4,
+      "title_zh_tw": "價格問句高頻且可立即遷移；訓練重點在指示詞與禮貌前綴搭配。",
+      "summary_zh_tw": "價格問句高頻且可立即遷移；訓練重點在指示詞與禮貌前綴搭配。",
+      "expected_output_zh_tw": "價格問句高頻且可立即遷移；訓練重點在指示詞與禮貌前綴搭配。",
+      "payload": {
+        "rubric": {
+          "completion_policy": "pass_on_threshold",
+          "min_attempts": 2,
+          "pass_threshold": 0.75,
+          "max_hints_for_pass": 2,
+          "required_elements": [
+            "price_question"
+          ],
+          "acceptable_variants": [],
+          "feedback_policy": "supportive"
+        },
+        "generation_constraints": {
+          "target_lang": "ko",
+          "genre": "dialogue",
+          "register_target": "spoken_polite",
+          "style_requirements": [
+            "use turn-based natural spoken phrasing",
+            "keep utterances concise and context-driven",
+            "maintain register consistency across turns"
+          ],
+          "style_anti_patterns": [
+            "written-essay style in short dialogue turns",
+            "abrupt register shift without context cue"
+          ],
+          "required_markers": [
+            "-요",
+            "주세요"
+          ],
+          "forbidden_markers": [
+            "반말 sentence endings in formal service contexts"
+          ],
+          "length_guidelines": {
+            "min_tokens": 3,
+            "max_tokens": 25
+          },
+          "prompt_policy": {
+            "must_use_target_lang_only": true,
+            "must_follow_genre_style": true,
+            "must_follow_register_constraints": true
+          }
+        },
+        "pattern_meta": {
+          "pattern_id": "ko-A1-survival-010",
+          "can_do": "能詢問價格。",
+          "required_elements": [
+            "얼마예요"
+          ],
+          "acceptable_variants": [
+            "{item} 얼마예요",
+            "가격이 얼마예요"
+          ],
+          "transform_types": [
+            "slot_substitution",
+            "politeness_shift"
+          ],
+          "repair_links": [
+            "R-KO-PRAG-002",
+            "R-KO-HON-001"
+          ],
+          "transfer_contexts": [
+            "convenience_store",
+            "airport",
+            "market"
+          ]
+        },
+        "items": [
+          {
+            "prompt_ko": "이거 얼마예요?",
+            "prompt_zh_tw": "價格問句高頻且可立即遷移；訓練重點在指示詞與禮貌前綴搭配。",
+            "response_choices_ko": [
+              "네",
+              "아니요"
+            ],
+            "accepted_responses_ko": [
+              "네"
+            ]
+          }
+        ]
+      },
+      "adapter_hints": {
+        "content_renderer_key": "practice_card",
+        "interaction_renderer_key": "response_builder"
+      }
+    },
+    {
+      "id": "A1-U04-P3",
+      "candidate_type": "path_node",
+      "content_form": "practice_card",
+      "learning_role": "controlled_output",
+      "skill_focus": [
+        "writing",
+        "speaking"
+      ],
+      "output_mode": "pattern_transform",
+      "duration_min": 4,
+      "title_zh_tw": "有無問句是生存核心，務必以成對輸入訓練 긍정/부정，提升回應速度。",
+      "summary_zh_tw": "有無問句是生存核心，務必以成對輸入訓練 긍정/부정，提升回應速度。",
+      "expected_output_zh_tw": "有無問句是生存核心，務必以成對輸入訓練 긍정/부정，提升回應速度。",
+      "payload": {
+        "rubric": {
+          "completion_policy": "pass_on_threshold",
+          "min_attempts": 2,
+          "pass_threshold": 0.7,
+          "max_hints_for_pass": 2,
+          "required_elements": [
+            "transform_target"
+          ],
+          "acceptable_variants": [],
+          "feedback_policy": "coach"
+        },
+        "generation_constraints": {
+          "target_lang": "ko",
+          "genre": "dialogue",
+          "register_target": "spoken_polite",
+          "style_requirements": [
+            "use turn-based natural spoken phrasing",
+            "keep utterances concise and context-driven",
+            "maintain register consistency across turns"
+          ],
+          "style_anti_patterns": [
+            "written-essay style in short dialogue turns",
+            "abrupt register shift without context cue"
+          ],
+          "required_markers": [
+            "-요",
+            "주세요"
+          ],
+          "forbidden_markers": [
+            "반말 sentence endings in formal service contexts"
+          ],
+          "length_guidelines": {
+            "min_tokens": 3,
+            "max_tokens": 25
+          },
+          "prompt_policy": {
+            "must_use_target_lang_only": true,
+            "must_follow_genre_style": true,
+            "must_follow_register_constraints": true
+          }
+        },
+        "pattern_meta": {
+          "pattern_id": "ko-A1-survival-007",
+          "can_do": "能詢問是否有某項物品或服務。",
+          "required_elements": [
+            "{item}",
+            "있어요"
+          ],
+          "acceptable_variants": [
+            "{item} 있나요",
+            "{item} 없어요"
+          ],
+          "transform_types": [
+            "negation",
+            "speech_level_shift"
+          ],
+          "repair_links": [
+            "R-KO-FORM-002",
+            "R-KO-HON-002"
+          ],
+          "transfer_contexts": [
+            "convenience_store",
+            "hotel_checkin",
+            "restaurant_order"
+          ]
+        }
+      },
+      "adapter_hints": {
+        "content_renderer_key": "practice_card",
+        "interaction_renderer_key": "pattern_transform"
+      }
+    },
+    {
+      "id": "A1-U04-P4",
+      "candidate_type": "path_node",
+      "content_form": "practice_card",
+      "learning_role": "controlled_output",
+      "skill_focus": [
+        "writing",
+        "speaking"
+      ],
+      "output_mode": "response_builder",
+      "duration_min": 4,
+      "title_zh_tw": "把溝通修復句型列為 survival 必備，降低聽不懂時的中斷成本。",
+      "summary_zh_tw": "把溝通修復句型列為 survival 必備，降低聽不懂時的中斷成本。",
+      "expected_output_zh_tw": "把溝通修復句型列為 survival 必備，降低聽不懂時的中斷成本。",
+      "payload": {
+        "trigger_type": "muffled_audio",
+        "repair_goal": "ask_to_repeat_slowly",
+        "rubric": {
+          "completion_policy": "pass_on_threshold",
+          "min_attempts": 2,
+          "pass_threshold": 0.75,
+          "max_hints_for_pass": 2,
+          "required_elements": [
+            "repair_intent"
+          ],
+          "acceptable_variants": [],
+          "feedback_policy": "coach"
+        },
+        "generation_constraints": {
+          "target_lang": "ko",
+          "genre": "dialogue",
+          "register_target": "spoken_polite",
+          "style_requirements": [
+            "use turn-based natural spoken phrasing",
+            "keep utterances concise and context-driven",
+            "maintain register consistency across turns"
+          ],
+          "style_anti_patterns": [
+            "written-essay style in short dialogue turns",
+            "abrupt register shift without context cue"
+          ],
+          "required_markers": [
+            "-요",
+            "주세요"
+          ],
+          "forbidden_markers": [
+            "반말 sentence endings in formal service contexts"
+          ],
+          "length_guidelines": {
+            "min_tokens": 3,
+            "max_tokens": 25
+          },
+          "prompt_policy": {
+            "must_use_target_lang_only": true,
+            "must_follow_genre_style": true,
+            "must_follow_register_constraints": true
+          }
+        },
+        "pattern_meta": {
+          "pattern_id": "ko-A1-survival-021",
+          "can_do": "能請對方說慢一點。",
+          "required_elements": [
+            "천천히",
+            "말해 주세요"
+          ],
+          "acceptable_variants": [
+            "조금 천천히 말해 주세요",
+            "천천히 말씀해 주세요"
+          ],
+          "transform_types": [
+            "politeness_shift",
+            "context_retarget"
+          ],
+          "repair_links": [
+            "R-KO-HON-003",
+            "R-KO-PRAG-004"
+          ],
+          "transfer_contexts": [
+            "service_call",
+            "office",
+            "classroom"
+          ]
+        },
+        "items": [
+          {
+            "prompt_ko": "천천히 말해 주세요.",
+            "prompt_zh_tw": "把溝通修復句型列為 survival 必備，降低聽不懂時的中斷成本。",
+            "response_choices_ko": [
+              "네",
+              "아니요"
+            ],
+            "accepted_responses_ko": [
+              "네"
+            ]
+          }
+        ]
+      },
+      "adapter_hints": {
+        "content_renderer_key": "practice_card",
+        "interaction_renderer_key": "response_builder"
+      }
+    },
+    {
+      "id": "A1-U04-P5",
+      "candidate_type": "path_node",
+      "content_form": "roleplay_prompt",
+      "learning_role": "immersion_output",
+      "skill_focus": [
+        "speaking",
+        "writing"
+      ],
+      "output_mode": "guided",
+      "duration_min": 4,
+      "title_zh_tw": "有無問句是生存核心，務必以成對輸入訓練 긍정/부정，提升回應速度。",
+      "summary_zh_tw": "有無問句是生存核心，務必以成對輸入訓練 긍정/부정，提升回應速度。",
+      "expected_output_zh_tw": "有無問句是生存核心，務必以成對輸入訓練 긍정/부정，提升回應速度。",
+      "payload": {
+        "rubric": {
+          "completion_policy": "complete_on_attempt",
+          "min_attempts": 1,
+          "pass_threshold": 0.6,
+          "max_hints_for_pass": 3,
+          "required_elements": [
+            "task_completion"
+          ],
+          "acceptable_variants": [],
+          "feedback_policy": "coach",
+          "error_classes": [
+            "missing_element",
+            "semantic_mismatch",
+            "register_mismatch",
+            "form_mismatch"
+          ],
+          "revise_allowed": true
+        },
+        "generation_constraints": {
+          "target_lang": "ko",
+          "genre": "dialogue",
+          "register_target": "spoken_polite",
+          "style_requirements": [
+            "use turn-based natural spoken phrasing",
+            "keep utterances concise and context-driven",
+            "maintain register consistency across turns"
+          ],
+          "style_anti_patterns": [
+            "written-essay style in short dialogue turns",
+            "abrupt register shift without context cue"
+          ],
+          "required_markers": [
+            "-요",
+            "주세요"
+          ],
+          "forbidden_markers": [
+            "반말 sentence endings in formal service contexts"
+          ],
+          "length_guidelines": {
+            "min_tokens": 3,
+            "max_tokens": 25
+          },
+          "prompt_policy": {
+            "must_use_target_lang_only": true,
+            "must_follow_genre_style": true,
+            "must_follow_register_constraints": true
+          }
+        },
+        "pattern_meta": {
+          "pattern_id": "ko-A1-survival-007",
+          "can_do": "能詢問是否有某項物品或服務。",
+          "required_elements": [
+            "{item}",
+            "있어요"
+          ],
+          "acceptable_variants": [
+            "{item} 있나요",
+            "{item} 없어요"
+          ],
+          "transform_types": [
+            "negation",
+            "speech_level_shift"
+          ],
+          "repair_links": [
+            "R-KO-FORM-002",
+            "R-KO-HON-002"
+          ],
+          "transfer_contexts": [
+            "convenience_store",
+            "hotel_checkin",
+            "restaurant_order"
+          ]
+        },
+        "prompt_zh_tw": "有無問句是生存核心，務必以成對輸入訓練 긍정/부정，提升回應速度。"
+      },
+      "adapter_hints": {
+        "content_renderer_key": "roleplay_prompt",
+        "interaction_renderer_key": "guided"
+      }
+    },
+    {
+      "id": "A1-U04-P6",
+      "candidate_type": "path_node",
+      "content_form": "message_prompt",
+      "learning_role": "immersion_output",
+      "skill_focus": [
+        "speaking",
+        "writing"
+      ],
+      "output_mode": "guided",
+      "duration_min": 4,
+      "title_zh_tw": "價格問句高頻且可立即遷移；訓練重點在指示詞與禮貌前綴搭配。",
+      "summary_zh_tw": "價格問句高頻且可立即遷移；訓練重點在指示詞與禮貌前綴搭配。",
+      "expected_output_zh_tw": "價格問句高頻且可立即遷移；訓練重點在指示詞與禮貌前綴搭配。",
+      "payload": {
+        "rubric": {
+          "completion_policy": "complete_on_attempt",
+          "min_attempts": 1,
+          "pass_threshold": 0.6,
+          "max_hints_for_pass": 3,
+          "required_elements": [
+            "task_completion"
+          ],
+          "acceptable_variants": [],
+          "feedback_policy": "coach",
+          "error_classes": [
+            "missing_element",
+            "semantic_mismatch",
+            "register_mismatch",
+            "form_mismatch"
+          ],
+          "revise_allowed": true
+        },
+        "generation_constraints": {
+          "target_lang": "ko",
+          "genre": "message",
+          "register_target": "spoken_polite",
+          "style_requirements": [
+            "use short practical lines",
+            "keep intent explicit",
+            "preserve context-appropriate politeness"
+          ],
+          "style_anti_patterns": [
+            "formal article style for simple messages"
+          ],
+          "required_markers": [
+            "-요",
+            "주세요"
+          ],
+          "forbidden_markers": [
+            "반말 sentence endings in formal service contexts"
+          ],
+          "length_guidelines": {
+            "min_tokens": 6,
+            "max_tokens": 80
+          },
+          "prompt_policy": {
+            "must_use_target_lang_only": true,
+            "must_follow_genre_style": true,
+            "must_follow_register_constraints": true
+          }
+        },
+        "pattern_meta": {
+          "pattern_id": "ko-A1-survival-010",
+          "can_do": "能詢問價格。",
+          "required_elements": [
+            "얼마예요"
+          ],
+          "acceptable_variants": [
+            "{item} 얼마예요",
+            "가격이 얼마예요"
+          ],
+          "transform_types": [
+            "slot_substitution",
+            "politeness_shift"
+          ],
+          "repair_links": [
+            "R-KO-PRAG-002",
+            "R-KO-HON-001"
+          ],
+          "transfer_contexts": [
+            "convenience_store",
+            "airport",
+            "market"
+          ]
+        },
+        "prompt_zh_tw": "價格問句高頻且可立即遷移；訓練重點在指示詞與禮貌前綴搭配。"
+      },
+      "adapter_hints": {
+        "content_renderer_key": "message_prompt",
+        "interaction_renderer_key": "guided"
+      }
+    },
+    {
+      "id": "A1-U04-R1",
+      "candidate_type": "path_node",
+      "content_form": "review_card",
+      "learning_role": "review_retrieval",
+      "skill_focus": [
+        "reading",
+        "writing"
+      ],
+      "output_mode": "review_retrieval",
+      "duration_min": 4,
+      "title_zh_tw": "有無問句是生存核心，務必以成對輸入訓練 긍정/부정，提升回應速度。",
+      "summary_zh_tw": "有無問句是生存核心，務必以成對輸入訓練 긍정/부정，提升回應速度。",
+      "expected_output_zh_tw": "有無問句是生存核心，務必以成對輸入訓練 긍정/부정，提升回應速度。",
+      "payload": {
+        "rubric": {
+          "completion_policy": "pass_on_threshold",
+          "min_attempts": 2,
+          "pass_threshold": 0.65,
+          "max_hints_for_pass": 2,
+          "required_elements": [
+            "retrieval_core"
+          ],
+          "acceptable_variants": [],
+          "feedback_policy": "supportive",
+          "error_classes": [
+            "missing_element",
+            "semantic_mismatch",
+            "register_mismatch",
+            "form_mismatch"
+          ],
+          "revise_allowed": true
+        },
+        "generation_constraints": {
+          "target_lang": "ko",
+          "genre": "notice",
+          "register_target": "spoken_polite",
+          "style_requirements": [
+            "use compact informational style",
+            "highlight key actionable details",
+            "avoid unnecessary narrative phrasing"
+          ],
+          "style_anti_patterns": [
+            "long conversational storytelling"
+          ],
+          "required_markers": [
+            "-요",
+            "주세요"
+          ],
+          "forbidden_markers": [
+            "반말 sentence endings in formal service contexts"
+          ],
+          "length_guidelines": {
+            "min_tokens": 20,
+            "max_tokens": 120
+          },
+          "prompt_policy": {
+            "must_use_target_lang_only": true,
+            "must_follow_genre_style": true,
+            "must_follow_register_constraints": true
+          }
+        },
+        "pattern_meta": {
+          "pattern_id": "ko-A1-survival-007",
+          "can_do": "能詢問是否有某項物品或服務。",
+          "required_elements": [
+            "{item}",
+            "있어요"
+          ],
+          "acceptable_variants": [
+            "{item} 있나요",
+            "{item} 없어요"
+          ],
+          "transform_types": [
+            "negation",
+            "speech_level_shift"
+          ],
+          "repair_links": [
+            "R-KO-FORM-002",
+            "R-KO-HON-002"
+          ],
+          "transfer_contexts": [
+            "convenience_store",
+            "hotel_checkin",
+            "restaurant_order"
+          ]
+        },
+        "prompts_zh_tw": [
+          "有無問句是生存核心，務必以成對輸入訓練 긍정/부정，提升回應速度。"
+        ],
+        "reference_answers_ko": [
+          "{item} 있어요?"
+        ]
+      },
+      "adapter_hints": {
+        "content_renderer_key": "review_card",
+        "interaction_renderer_key": "review_retrieval"
+      }
+    }
+  ],
+  "scheduled_followups": [
+    {
+      "timing": "+1_unit",
+      "transfer_to": "review",
+      "goal_zh_tw": "回想核心句型並正確回應"
+    },
+    {
+      "timing": "+3_units",
+      "transfer_to": "transfer",
+      "goal_zh_tw": "把句型遷移到新情境"
+    }
+  ]
+}

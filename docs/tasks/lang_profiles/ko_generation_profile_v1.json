@@ -1,0 +1,141 @@
+{
+  "profile_id": "ko_generation_profile_v1",
+  "version": "1.0.0",
+  "target_lang": "ko",
+  "script_systems": ["Hangul"],
+  "supported_genres": ["dialogue", "article", "notice", "email", "message"],
+  "register_profiles": [
+    {
+      "register_id": "spoken_polite",
+      "usage_contexts": ["service_interaction", "stranger_interaction", "classroom"],
+      "required_markers": ["-요", "주세요"],
+      "forbidden_markers": ["반말 sentence endings in formal service contexts"],
+      "notes": "Default for A1/A2 survival outputs unless explicitly requested otherwise."
+    },
+    {
+      "register_id": "spoken_casual",
+      "usage_contexts": ["friend_chat", "peer_message"],
+      "required_markers": ["plain style endings allowed"],
+      "forbidden_markers": ["mixed register in same short utterance"],
+      "notes": "Use only when context explicitly marks peer/friend relation."
+    },
+    {
+      "register_id": "neutral_written",
+      "usage_contexts": ["notice", "simple_information_text"],
+      "required_markers": ["clear sentence boundaries", "topic continuity"],
+      "forbidden_markers": ["chat-only fillers"],
+      "notes": "For short reading passages and notices."
+    },
+    {
+      "register_id": "formal_written",
+      "usage_contexts": ["formal_announcement", "report_like_text"],
+      "required_markers": ["consistent formal written tone"],
+      "forbidden_markers": ["casual spoken particles"],
+      "notes": "Mainly for B1+ article/report style outputs."
+    }
+  ],
+  "genre_style_profiles": [
+    {
+      "genre": "dialogue",
+      "default_register": "spoken_polite",
+      "style_requirements": [
+        "use turn-based natural spoken phrasing",
+        "keep utterances concise and context-driven",
+        "maintain register consistency across turns"
+      ],
+      "style_anti_patterns": [
+        "written-essay style in short dialogue turns",
+        "abrupt register shift without context cue"
+      ],
+      "length_guidelines": {
+        "min_tokens": 3,
+        "max_tokens": 25
+      }
+    },
+    {
+      "genre": "article",
+      "default_register": "formal_written",
+      "style_requirements": [
+        "use paragraph-level cohesion",
+        "use explicit discourse connectors",
+        "maintain consistent written style"
+      ],
+      "style_anti_patterns": [
+        "chat-like sentence fragments",
+        "overuse of spoken fillers"
+      ],
+      "length_guidelines": {
+        "min_tokens": 80,
+        "max_tokens": 280
+      }
+    },
+    {
+      "genre": "notice",
+      "default_register": "neutral_written",
+      "style_requirements": [
+        "use compact informational style",
+        "highlight key actionable details",
+        "avoid unnecessary narrative phrasing"
+      ],
+      "style_anti_patterns": [
+        "long conversational storytelling"
+      ],
+      "length_guidelines": {
+        "min_tokens": 20,
+        "max_tokens": 120
+      }
+    },
+    {
+      "genre": "message",
+      "default_register": "spoken_polite",
+      "style_requirements": [
+        "use short practical lines",
+        "keep intent explicit",
+        "preserve context-appropriate politeness"
+      ],
+      "style_anti_patterns": [
+        "formal article style for simple messages"
+      ],
+      "length_guidelines": {
+        "min_tokens": 6,
+        "max_tokens": 80
+      }
+    },
+    {
+      "genre": "email",
+      "default_register": "neutral_written",
+      "style_requirements": [
+        "use clear opening and closing",
+        "state request or information early",
+        "keep written coherence across sentences"
+      ],
+      "style_anti_patterns": [
+        "highly fragmented chat style"
+      ],
+      "length_guidelines": {
+        "min_tokens": 40,
+        "max_tokens": 220
+      }
+    }
+  ],
+  "prompt_policy": {
+    "must_use_target_lang_only": true,
+    "must_follow_genre_style": true,
+    "must_follow_register_constraints": true,
+    "extra_prompt_constraints": [
+      "If genre=dialogue, prioritize spoken naturalness over literal translation style.",
+      "If genre=article/notice, prioritize written cohesion and informational clarity."
+    ]
+  },
+  "gate_policy": {
+    "blockers": [
+      "ERR_LANG_MISMATCH",
+      "ERR_REGISTER_MISMATCH",
+      "ERR_GENRE_STYLE_MISMATCH"
+    ],
+    "warnings": [
+      "WARN_STYLE_WEAK_COHESION",
+      "WARN_STYLE_OVERFORMAL_IN_DIALOGUE"
+    ]
+  }
+}

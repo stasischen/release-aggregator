@@ -1,0 +1,95 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "lang_generation_profile_v1.schema.json",
+  "title": "Language Generation Profile v1",
+  "description": "Language-specific generation and style control profile consumed by TLG-005 generators and TLG-006 gates.",
+  "type": "object",
+  "required": [
+    "profile_id",
+    "version",
+    "target_lang",
+    "supported_genres",
+    "register_profiles",
+    "genre_style_profiles",
+    "prompt_policy",
+    "gate_policy"
+  ],
+  "properties": {
+    "profile_id": { "type": "string", "minLength": 1 },
+    "version": { "type": "string", "minLength": 1 },
+    "target_lang": { "type": "string", "minLength": 2 },
+    "script_systems": {
+      "type": "array",
+      "items": { "type": "string" },
+      "minItems": 1
+    },
+    "supported_genres": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "enum": ["dialogue", "article", "notice", "email", "message", "report", "story"]
+      },
+      "minItems": 1
+    },
+    "register_profiles": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": ["register_id", "usage_contexts", "required_markers", "forbidden_markers"],
+        "properties": {
+          "register_id": { "type": "string", "enum": ["spoken_casual", "spoken_polite", "formal_written", "neutral_written"] },
+          "usage_contexts": { "type": "array", "items": { "type": "string" }, "minItems": 1 },
+          "required_markers": { "type": "array", "items": { "type": "string" } },
+          "forbidden_markers": { "type": "array", "items": { "type": "string" } },
+          "notes": { "type": "string" }
+        },
+        "additionalProperties": false
+      }
+    },
+    "genre_style_profiles": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": ["genre", "default_register", "style_requirements", "style_anti_patterns"],
+        "properties": {
+          "genre": { "type": "string", "enum": ["dialogue", "article", "notice", "email", "message", "report", "story"] },
+          "default_register": { "type": "string", "enum": ["spoken_casual", "spoken_polite", "formal_written", "neutral_written"] },
+          "style_requirements": { "type": "array", "items": { "type": "string" }, "minItems": 1 },
+          "style_anti_patterns": { "type": "array", "items": { "type": "string" } },
+          "length_guidelines": {
+            "type": "object",
+            "properties": {
+              "min_tokens": { "type": "integer", "minimum": 1 },
+              "max_tokens": { "type": "integer", "minimum": 1 }
+            },
+            "additionalProperties": false
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    "prompt_policy": {
+      "type": "object",
+      "required": ["must_use_target_lang_only", "must_follow_genre_style", "must_follow_register_constraints"],
+      "properties": {
+        "must_use_target_lang_only": { "type": "boolean" },
+        "must_follow_genre_style": { "type": "boolean" },
+        "must_follow_register_constraints": { "type": "boolean" },
+        "extra_prompt_constraints": { "type": "array", "items": { "type": "string" } }
+      },
+      "additionalProperties": false
+    },
+    "gate_policy": {
+      "type": "object",
+      "required": ["blockers", "warnings"],
+      "properties": {
+        "blockers": { "type": "array", "items": { "type": "string" }, "minItems": 1 },
+        "warnings": { "type": "array", "items": { "type": "string" } }
+      },
+      "additionalProperties": false
+    }
+  },
+  "additionalProperties": false
+}

@@ -1,0 +1,440 @@
+{
+  "matrix_id": "tlg_generator_routing_matrix_v1",
+  "version": "1.0.0",
+  "status": "draft_for_tlg005_batch",
+  "description": "Routing rules for multi-type content generation (listening/reading/speaking/writing/repair) on top of unit_blueprint_v1 core sequence.",
+  "default_policy": {
+    "retry_max": 2,
+    "retry_strategy": "re_prompt_with_error_codes",
+    "fallback_strategy": "degrade_to_core_safe_mode",
+    "require_gate_pass": true
+  },
+  "generator_catalog": [
+    {
+      "generator_id": "gen_core_structure",
+      "purpose": "fill structural and non-linguistic payload fields",
+      "output_types": [
+        "core"
+      ],
+      "gate_dependencies": [
+        "TLG-006-core",
+        "TLG-006-lang-style"
+      ],
+      "priority": "P0"
+    },
+    {
+      "generator_id": "gen_listening_v1",
+      "purpose": "generate listening prompts/items/audio refs",
+      "output_types": [
+        "listening"
+      ],
+      "gate_dependencies": [
+        "TLG-006-core",
+        "TLG-006-audio",
+        "TLG-006-lang-style"
+      ],
+      "priority": "P1"
+    },
+    {
+      "generator_id": "gen_reading_v1",
+      "purpose": "generate reading passage/questions/evidence mapping",
+      "output_types": [
+        "reading"
+      ],
+      "gate_dependencies": [
+        "TLG-006-core",
+        "TLG-006-reading",
+        "TLG-006-lang-style"
+      ],
+      "priority": "P1"
+    },
+    {
+      "generator_id": "gen_speaking_v1",
+      "purpose": "generate guided speaking tasks and roleplay prompts",
+      "output_types": [
+        "speaking"
+      ],
+      "gate_dependencies": [
+        "TLG-006-core",
+        "TLG-006-lang-style"
+      ],
+      "priority": "P1"
+    },
+    {
+      "generator_id": "gen_writing_v1",
+      "purpose": "generate writing prompts/constraints/model responses",
+      "output_types": [
+        "writing"
+      ],
+      "gate_dependencies": [
+        "TLG-006-core",
+        "TLG-006-writing",
+        "TLG-006-lang-style"
+      ],
+      "priority": "P2"
+    },
+    {
+      "generator_id": "gen_repair_v1",
+      "purpose": "generate repair scenarios and candidate responses",
+      "output_types": [
+        "repair"
+      ],
+      "gate_dependencies": [
+        "TLG-006-core",
+        "TLG-006-pattern",
+        "TLG-006-lang-style"
+      ],
+      "priority": "P1"
+    },
+    {
+      "generator_id": "gen_assessment_v1",
+      "purpose": "generate retrieval/review/assessment checks",
+      "output_types": [
+        "assessment"
+      ],
+      "gate_dependencies": [
+        "TLG-006-core",
+        "TLG-006-assessment",
+        "TLG-006-lang-style"
+      ],
+      "priority": "P2"
+    }
+  ],
+  "node_routing": [
+    {
+      "node_suffix": "L1",
+      "primary_generator": "gen_listening_v1",
+      "secondary_generators": [
+        "gen_core_structure"
+      ],
+      "allowed_layers": [
+        "core",
+        "listening"
+      ],
+      "required_output_tags": [
+        "listening",
+        "dialogue_input"
+      ],
+      "fallback_generator": "gen_core_structure"
+    },
+    {
+      "node_suffix": "L2",
+      "primary_generator": "gen_listening_v1",
+      "secondary_generators": [
+        "gen_assessment_v1"
+      ],
+      "allowed_layers": [
+        "core",
+        "listening"
+      ],
+      "required_output_tags": [
+        "listening_check",
+        "response_builder"
+      ],
+      "fallback_generator": "gen_assessment_v1"
+    },
+    {
+      "node_suffix": "L3",
+      "primary_generator": "gen_reading_v1",
+      "secondary_generators": [
+        "gen_core_structure"
+      ],
+      "allowed_layers": [
+        "core",
+        "reading"
+      ],
+      "required_output_tags": [
+        "reading_text",
+        "evidence_ready"
+      ],
+      "fallback_generator": "gen_core_structure"
+    },
+    {
+      "node_suffix": "D1",
+      "primary_generator": "gen_core_structure",
+      "secondary_generators": [],
+      "allowed_layers": [
+        "core",
+        "vocab_collocation"
+      ],
+      "required_output_tags": [
+        "functional_phrase_pack"
+      ],
+      "fallback_generator": "gen_core_structure"
+    },
+    {
+      "node_suffix": "G1",
+      "primary_generator": "gen_core_structure",
+      "secondary_generators": [],
+      "allowed_layers": [
+        "core",
+        "vocab_collocation"
+      ],
+      "required_output_tags": [
+        "pattern_card",
+        "frame_fill"
+      ],
+      "fallback_generator": "gen_core_structure"
+    },
+    {
+      "node_suffix": "G2",
+      "primary_generator": "gen_core_structure",
+      "secondary_generators": [],
+      "allowed_layers": [
+        "core",
+        "grammar_progression"
+      ],
+      "required_output_tags": [
+        "grammar_note"
+      ],
+      "fallback_generator": "gen_core_structure"
+    },
+    {
+      "node_suffix": "P1",
+      "primary_generator": "gen_core_structure",
+      "secondary_generators": [],
+      "allowed_layers": [
+        "core",
+        "vocab_collocation"
+      ],
+      "required_output_tags": [
+        "chunk_assembly"
+      ],
+      "fallback_generator": "gen_core_structure"
+    },
+    {
+      "node_suffix": "P2",
+      "primary_generator": "gen_speaking_v1",
+      "secondary_generators": [
+        "gen_core_structure"
+      ],
+      "allowed_layers": [
+        "core",
+        "vocab_collocation"
+      ],
+      "required_output_tags": [
+        "response_builder"
+      ],
+      "fallback_generator": "gen_core_structure"
+    },
+    {
+      "node_suffix": "P3",
+      "primary_generator": "gen_core_structure",
+      "secondary_generators": [],
+      "allowed_layers": [
+        "core",
+        "grammar_progression",
+        "vocab_collocation"
+      ],
+      "required_output_tags": [
+        "pattern_transform"
+      ],
+      "fallback_generator": "gen_core_structure"
+    },
+    {
+      "node_suffix": "P4",
+      "primary_generator": "gen_repair_v1",
+      "secondary_generators": [
+        "gen_core_structure"
+      ],
+      "allowed_layers": [
+        "core",
+        "grammar_progression",
+        "vocab_collocation"
+      ],
+      "required_output_tags": [
+        "repair",
+        "response_builder"
+      ],
+      "fallback_generator": "gen_core_structure"
+    },
+    {
+      "node_suffix": "P5",
+      "primary_generator": "gen_speaking_v1",
+      "secondary_generators": [
+        "gen_listening_v1"
+      ],
+      "allowed_layers": [
+        "core",
+        "pronunciation_prosody",
+        "vocab_collocation"
+      ],
+      "required_output_tags": [
+        "guided",
+        "roleplay"
+      ],
+      "fallback_generator": "gen_core_structure"
+    },
+    {
+      "node_suffix": "P6",
+      "primary_generator": "gen_writing_v1",
+      "secondary_generators": [
+        "gen_speaking_v1"
+      ],
+      "allowed_layers": [
+        "core",
+        "writing",
+        "pronunciation_prosody",
+        "vocab_collocation"
+      ],
+      "required_output_tags": [
+        "guided",
+        "message_output"
+      ],
+      "fallback_generator": "gen_speaking_v1"
+    },
+    {
+      "node_suffix": "R1",
+      "primary_generator": "gen_assessment_v1",
+      "secondary_generators": [
+        "gen_reading_v1",
+        "gen_listening_v1"
+      ],
+      "allowed_layers": [
+        "core",
+        "assessment",
+        "reading",
+        "listening",
+        "personalization"
+      ],
+      "required_output_tags": [
+        "review_retrieval"
+      ],
+      "fallback_generator": "gen_core_structure"
+    },
+    {
+      "node_suffix": "X1",
+      "primary_generator": "gen_listening_v1",
+      "secondary_generators": [
+        "gen_assessment_v1"
+      ],
+      "allowed_layers": [
+        "listening",
+        "pronunciation_prosody",
+        "assessment",
+        "personalization"
+      ],
+      "required_output_tags": [
+        "followup_review"
+      ],
+      "fallback_generator": "gen_assessment_v1"
+    },
+    {
+      "node_suffix": "X2",
+      "primary_generator": "gen_reading_v1",
+      "secondary_generators": [
+        "gen_writing_v1",
+        "gen_assessment_v1"
+      ],
+      "allowed_layers": [
+        "reading",
+        "writing",
+        "assessment",
+        "personalization"
+      ],
+      "required_output_tags": [
+        "followup_transfer"
+      ],
+      "fallback_generator": "gen_assessment_v1"
+    }
+  ],
+  "overlay_override_rules": [
+    {
+      "layer_id": "reading",
+      "target_nodes": [
+        "L3",
+        "R1",
+        "X2"
+      ],
+      "must_attach_payload_keys": [
+        "reading_overlay.text_profile",
+        "reading_overlay.question_blueprint",
+        "reading_overlay.evidence_mapping"
+      ]
+    },
+    {
+      "layer_id": "listening",
+      "target_nodes": [
+        "L1",
+        "L2",
+        "R1",
+        "X1"
+      ],
+      "must_attach_payload_keys": [
+        "audio_refs"
+      ]
+    },
+    {
+      "layer_id": "pronunciation_prosody",
+      "target_nodes": [
+        "P5",
+        "P6",
+        "X1"
+      ],
+      "must_attach_payload_keys": [
+        "pronunciation_task"
+      ]
+    },
+    {
+      "layer_id": "repair",
+      "target_nodes": [
+        "P4"
+      ],
+      "must_attach_payload_keys": [
+        "trigger_type",
+        "repair_goal"
+      ]
+    }
+  ],
+  "batch_execution_contract": {
+    "input_manifest_fields": [
+      "unit_id",
+      "level",
+      "target_lang",
+      "theme",
+      "input_path",
+      "reading_overlay_path",
+      "enabled_layers",
+      "content_genre",
+      "register_target"
+    ],
+    "output_artifacts": [
+      "unit_blueprint_v1.json",
+      "validation_report.json"
+    ],
+    "failure_buckets": [
+      "schema_error",
+      "generation_error",
+      "gate_error",
+      "content_quality_warning"
+    ],
+    "retry_policy": {
+      "on_generation_error": "retry_with_same_generator",
+      "on_gate_error": "retry_with_reprompt_and_error_codes",
+      "on_second_failure": "fallback_generator_then_gate",
+      "on_third_failure": "mark_manual_review"
+    }
+  },
+  "language_profile_resolver": {
+    "profile_schema_ref": "docs/tasks/schemas/lang_generation_profile_v1.schema.json",
+    "profile_path_pattern": "docs/tasks/lang_profiles/{target_lang}_generation_profile_v1.json",
+    "required_profile_sections": [
+      "register_profiles",
+      "genre_style_profiles",
+      "prompt_policy",
+      "gate_policy"
+    ],
+    "missing_profile_policy": "block_generation"
+  },
+  "gate_policy": {
+    "lang_style_blockers": [
+      "ERR_LANG_MISMATCH",
+      "ERR_REGISTER_MISMATCH",
+      "ERR_GENRE_STYLE_MISMATCH"
+    ],
+    "lang_style_warnings": [
+      "WARN_STYLE_WEAK_COHESION",
+      "WARN_STYLE_OVERFORMAL_IN_DIALOGUE"
+    ]
+  }
+}

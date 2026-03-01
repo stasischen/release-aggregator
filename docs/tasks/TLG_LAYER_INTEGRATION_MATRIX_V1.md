@@ -37,3 +37,6 @@
 - Reading architecture: `docs/tasks/TLG_013_READING_SKELETON_SPEC.md`
 - Reading rubric: `docs/tasks/TLG_014_READING_RUBRIC_SPEC.md`
 - Reading generator schema: `docs/tasks/schemas/tlg005_reading_generator_input_v1.schema.json`
+- Generator routing matrix: `docs/tasks/schemas/tlg_generator_routing_matrix_v1.json`
+- Lang generation profile schema: `docs/tasks/schemas/lang_generation_profile_v1.schema.json`
+- Lang generation profiles: `docs/tasks/lang_profiles/ko_generation_profile_v1.json`, `docs/tasks/lang_profiles/th_generation_profile_v1.json`

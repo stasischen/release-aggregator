@@ -1,0 +1,140 @@
+{
+  "profile_id": "th_generation_profile_v1",
+  "version": "1.0.0",
+  "target_lang": "th",
+  "script_systems": ["Thai"],
+  "supported_genres": ["dialogue", "article", "notice", "email", "message"],
+  "register_profiles": [
+    {
+      "register_id": "spoken_polite",
+      "usage_contexts": ["service_interaction", "stranger_interaction", "classroom"],
+      "required_markers": ["ครับ", "ค่ะ"],
+      "forbidden_markers": ["abrupt omission of politeness markers in service exchanges"],
+      "notes": "Default polite spoken register for beginner survival Thai tasks."
+    },
+    {
+      "register_id": "spoken_casual",
+      "usage_contexts": ["friend_chat", "peer_message"],
+      "required_markers": ["context-appropriate casual particles"],
+      "forbidden_markers": ["formal written style in casual chat"],
+      "notes": "Use only with explicit peer/friend context."
+    },
+    {
+      "register_id": "neutral_written",
+      "usage_contexts": ["notice", "simple_information_text"],
+      "required_markers": ["clear informational phrasing"],
+      "forbidden_markers": ["chat-only discourse fillers"],
+      "notes": "Preferred for short practical reading passages."
+    },
+    {
+      "register_id": "formal_written",
+      "usage_contexts": ["formal_announcement", "report_like_text"],
+      "required_markers": ["consistent formal written style"],
+      "forbidden_markers": ["casual spoken particles in formal prose"],
+      "notes": "Used for higher-level article/report outputs."
+    }
+  ],
+  "genre_style_profiles": [
+    {
+      "genre": "dialogue",
+      "default_register": "spoken_polite",
+      "style_requirements": [
+        "use natural spoken turn-taking",
+        "reflect practical conversational intent",
+        "keep politeness markers consistent with context"
+      ],
+      "style_anti_patterns": [
+        "essay-like written prose in dialogue turns",
+        "inconsistent politeness level within short exchange"
+      ],
+      "length_guidelines": {
+        "min_tokens": 3,
+        "max_tokens": 25
+      }
+    },
+    {
+      "genre": "article",
+      "default_register": "formal_written",
+      "style_requirements": [
+        "use paragraph-level cohesion",
+        "maintain consistent written tone",
+        "state topic progression explicitly"
+      ],
+      "style_anti_patterns": [
+        "chat-like abrupt sentence breaks"
+      ],
+      "length_guidelines": {
+        "min_tokens": 80,
+        "max_tokens": 280
+      }
+    },
+    {
+      "genre": "notice",
+      "default_register": "neutral_written",
+      "style_requirements": [
+        "use concise informational style",
+        "highlight key details like time/location/action",
+        "avoid unnecessary conversational tone"
+      ],
+      "style_anti_patterns": [
+        "narrative storytelling in notices"
+      ],
+      "length_guidelines": {
+        "min_tokens": 20,
+        "max_tokens": 120
+      }
+    },
+    {
+      "genre": "message",
+      "default_register": "spoken_polite",
+      "style_requirements": [
+        "keep lines practical and direct",
+        "preserve context-appropriate politeness",
+        "avoid over-formal article style"
+      ],
+      "style_anti_patterns": [
+        "formal report-style paragraphing"
+      ],
+      "length_guidelines": {
+        "min_tokens": 6,
+        "max_tokens": 80
+      }
+    },
+    {
+      "genre": "email",
+      "default_register": "neutral_written",
+      "style_requirements": [
+        "clear opening/body/closing structure",
+        "state purpose early",
+        "maintain coherent written flow"
+      ],
+      "style_anti_patterns": [
+        "messaging shorthand in formal email body"
+      ],
+      "length_guidelines": {
+        "min_tokens": 40,
+        "max_tokens": 220
+      }
+    }
+  ],
+  "prompt_policy": {
+    "must_use_target_lang_only": true,
+    "must_follow_genre_style": true,
+    "must_follow_register_constraints": true,
+    "extra_prompt_constraints": [
+      "If genre=dialogue, prioritize spoken Thai naturalness and context-appropriate politeness particles.",
+      "If genre=article/notice, enforce written style cohesion and informational clarity."
+    ]
+  },
+  "gate_policy": {
+    "blockers": [
+      "ERR_LANG_MISMATCH",
+      "ERR_REGISTER_MISMATCH",
+      "ERR_GENRE_STYLE_MISMATCH"
+    ],
+    "warnings": [
+      "WARN_STYLE_WEAK_COHESION",
+      "WARN_STYLE_OVERFORMAL_IN_DIALOGUE"
+    ]
+  }
+}

@@ -146,6 +146,17 @@
         "TLG-020",
         "TLG-021"
       ]
+    },
+    {
+      "id": "TLG-023",
+      "desc": "Define dual-track course map contract (functional lessons + grammar lessons) with cross-track bridge rules and sequencing policy.",
+      "status": "done",
+      "depends_on": [
+        "TLG-019",
+        "TLG-020",
+        "TLG-021",
+        "TLG-022"
+      ]
     }
   ]
 }

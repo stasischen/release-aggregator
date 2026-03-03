@@ -1,0 +1,275 @@
+{
+  "map_id": "KO-A1-DUAL-TRACK-MAP-V1",
+  "version": "v1",
+  "target_lang": "ko",
+  "support_langs": ["zh_tw", "en"],
+  "level": "A1",
+  "generated_at": "2026-03-03",
+  "maintenance_note": {
+    "sync_rule_zh_tw": "修改此 JSON 後，必須重新產生對應 Markdown，避免內容不同步。",
+    "sync_rule_en": "After editing this JSON, regenerate the paired Markdown to keep both artifacts in sync.",
+    "markdown_generator_command": "python3 scripts/tlg023_course_track_codec.py json-to-md --input docs/tasks/indexes/ko_course_track_map_v1.sample.json --output docs/tasks/indexes/ko_course_track_map_v1.sample.md"
+  },
+  "lessons": [
+    {
+      "lesson_id": "KO-A1-L01",
+      "sequence_no": 1,
+      "track_type": "functional",
+      "title_zh_tw": "抵達與打招呼",
+      "title_en": "Arrival and greetings",
+      "primary_objective_id": "F-GREET",
+      "secondary_objective_ids": ["F-INTRODUCE-SELF"],
+      "context_ids": ["CTX-KO-TRAVEL-ARRIVAL-GREETING"],
+      "pattern_ids": ["ko-A1-survival-001", "ko-A1-survival-002", "ko-A1-survival-003"],
+      "grammar_ids": ["G-KO-GREETING-ANNEONGHASEYO", "G-KO-COPULA-IEYO-YEYO"],
+      "function_ids": ["F-GREET", "F-INTRODUCE-SELF"],
+      "prerequisites": [],
+      "bridge_to_track": {
+        "recommended_next_functional_lesson_id": "KO-A1-L03",
+        "recommended_next_grammar_lesson_id": "KO-A1-G01",
+        "bridge_note_zh_tw": "先學會打招呼，再補禮貌語尾可提升穩定度。",
+        "bridge_note_en": "After basic greetings, add polite ending control for stability."
+      },
+      "node_profile": {
+        "required_node_types": ["L1", "P1", "P2", "P5", "R1"],
+        "max_nodes": 12,
+        "min_nodes": 8,
+        "must_include_anchor": true
+      }
+    },
+    {
+      "lesson_id": "KO-A1-G01",
+      "sequence_no": 2,
+      "track_type": "grammar",
+      "title_zh_tw": "文法焦點：해요體與禮貌語尾",
+      "title_en": "Grammar focus: polite endings (haeyo style)",
+      "primary_objective_id": "G-KO-HONORIFIC-POLITE-ENDINGS",
+      "secondary_objective_ids": ["G-KO-GREETING-ANNEONGHASEYO"],
+      "context_ids": ["CTX-KO-TRAVEL-ARRIVAL-GREETING"],
+      "pattern_ids": ["ko-A1-survival-001", "ko-A1-survival-008"],
+      "grammar_ids": ["G-KO-HONORIFIC-POLITE-ENDINGS"],
+      "function_ids": ["F-POLITENESS-BASE", "F-GREET"],
+      "prerequisites": ["KO-A1-L01"],
+      "bridge_to_track": {
+        "recommended_next_functional_lesson_id": "KO-A1-L03",
+        "recommended_next_grammar_lesson_id": "KO-A1-G02",
+        "bridge_note_zh_tw": "把禮貌語尾固定後，再進問路/點餐更不容易失禮。",
+        "bridge_note_en": "Stabilize polite endings before direction/order tasks."
+      },
+      "node_profile": {
+        "required_node_types": ["L1", "P1", "P2", "R1"],
+        "max_nodes": 10,
+        "min_nodes": 7,
+        "must_include_anchor": true
+      }
+    },
+    {
+      "lesson_id": "KO-A1-L03",
+      "sequence_no": 3,
+      "track_type": "functional",
+      "title_zh_tw": "地鐵站問路",
+      "title_en": "Asking direction at subway",
+      "primary_objective_id": "F-ASK-DIRECTION",
+      "secondary_objective_ids": ["F-ASK-BASIC-HELP"],
+      "context_ids": ["CTX-KO-TRAVEL-ASK-DIRECTION-SUBWAY"],
+      "pattern_ids": ["ko-A1-survival-006", "ko-A1-survival-012"],
+      "grammar_ids": ["G-KO-LOCATION-EODIYEYO", "G-KO-PARTICLE-IGA"],
+      "function_ids": ["F-ASK-DIRECTION", "F-ASK-BASIC-HELP"],
+      "prerequisites": ["KO-A1-L01", "KO-A1-G01"],
+      "bridge_to_track": {
+        "recommended_next_functional_lesson_id": "KO-A1-L04",
+        "recommended_next_grammar_lesson_id": "KO-A1-G02",
+        "bridge_note_zh_tw": "問路流程建立後，補主格與 copula 可減少錯句。",
+        "bridge_note_en": "After direction flow, consolidate particles/copula for cleaner output."
+      },
+      "node_profile": {
+        "required_node_types": ["L1", "P1", "P2", "P5", "R1"],
+        "max_nodes": 12,
+        "min_nodes": 8,
+        "must_include_anchor": true
+      }
+    },
+    {
+      "lesson_id": "KO-A1-G02",
+      "sequence_no": 4,
+      "track_type": "grammar",
+      "title_zh_tw": "文法焦點：이에요/예요 + 이/가",
+      "title_en": "Grammar focus: 이에요/예요 + 이/가",
+      "primary_objective_id": "G-KO-COPULA-IEYO-YEYO",
+      "secondary_objective_ids": ["G-KO-PARTICLE-IGA"],
+      "context_ids": ["CTX-KO-TRAVEL-SOCIAL-SMALLTALK", "CTX-KO-TRAVEL-ASK-DIRECTION-SUBWAY"],
+      "pattern_ids": ["ko-A1-survival-002", "ko-A1-survival-006", "ko-A1-survival-010"],
+      "grammar_ids": ["G-KO-COPULA-IEYO-YEYO", "G-KO-PARTICLE-IGA"],
+      "function_ids": ["F-INTRODUCE-SELF", "F-ASK-DIRECTION"],
+      "prerequisites": ["KO-A1-L01", "KO-A1-L03"],
+      "bridge_to_track": {
+        "recommended_next_functional_lesson_id": "KO-A1-L04",
+        "recommended_next_grammar_lesson_id": "KO-A1-G03",
+        "bridge_note_zh_tw": "文法補強後可直接進入商店詢問與點餐任務。",
+        "bridge_note_en": "Use this consolidation before shop inquiry and ordering tasks."
+      },
+      "node_profile": {
+        "required_node_types": ["L1", "P1", "P2", "R1"],
+        "max_nodes": 10,
+        "min_nodes": 7,
+        "must_include_anchor": true
+      }
+    },
+    {
+      "lesson_id": "KO-A1-L04",
+      "sequence_no": 5,
+      "track_type": "functional",
+      "title_zh_tw": "商店有無與基本請求",
+      "title_en": "Shop availability and basic requests",
+      "primary_objective_id": "F-ASK-AVAILABILITY",
+      "secondary_objective_ids": ["F-REQUEST"],
+      "context_ids": ["CTX-KO-TRAVEL-SHOPPING-AVAILABILITY"],
+      "pattern_ids": ["ko-A1-survival-007", "ko-A1-survival-008", "ko-A1-survival-009"],
+      "grammar_ids": ["G-KO-AVAILABILITY-ISSEOYO", "G-KO-REQUEST-JUSEYO"],
+      "function_ids": ["F-ASK-AVAILABILITY", "F-REQUEST"],
+      "prerequisites": ["KO-A1-G01", "KO-A1-G02"],
+      "bridge_to_track": {
+        "recommended_next_functional_lesson_id": "KO-A1-L05",
+        "recommended_next_grammar_lesson_id": "KO-A1-G03",
+        "bridge_note_zh_tw": "點餐前先熟悉 있어요/없어요 與 주세요 的骨架。",
+        "bridge_note_en": "Master availability + 주세요 before full ordering flow."
+      },
+      "node_profile": {
+        "required_node_types": ["L1", "P1", "P2", "P5", "R1"],
+        "max_nodes": 12,
+        "min_nodes": 8,
+        "must_include_anchor": true
+      }
+    },
+    {
+      "lesson_id": "KO-A1-G03",
+      "sequence_no": 6,
+      "track_type": "grammar",
+      "title_zh_tw": "文法焦點：있어요/없어요 + 주세요",
+      "title_en": "Grammar focus: 있어요/없어요 + 주세요",
+      "primary_objective_id": "G-KO-REQUEST-JUSEYO",
+      "secondary_objective_ids": ["G-KO-AVAILABILITY-ISSEOYO"],
+      "context_ids": ["CTX-KO-TRAVEL-ORDERING-CAFE", "CTX-KO-TRAVEL-ORDERING-RESTAURANT"],
+      "pattern_ids": ["ko-A1-survival-007", "ko-A1-survival-008", "ko-A1-survival-011"],
+      "grammar_ids": ["G-KO-REQUEST-JUSEYO", "G-KO-AVAILABILITY-ISSEOYO"],
+      "function_ids": ["F-REQUEST", "F-ASK-AVAILABILITY", "F-REORDER"],
+      "prerequisites": ["KO-A1-L04"],
+      "bridge_to_track": {
+        "recommended_next_functional_lesson_id": "KO-A1-L05",
+        "recommended_next_grammar_lesson_id": "KO-A1-G04",
+        "bridge_note_zh_tw": "文法句框穩定後，點餐情境會更順。",
+        "bridge_note_en": "After stabilizing forms, ordering dialogue becomes smoother."
+      },
+      "node_profile": {
+        "required_node_types": ["L1", "P1", "P2", "R1"],
+        "max_nodes": 10,
+        "min_nodes": 7,
+        "must_include_anchor": true
+      }
+    },
+    {
+      "lesson_id": "KO-A1-L05",
+      "sequence_no": 7,
+      "track_type": "functional",
+      "title_zh_tw": "咖啡店完整點餐流程",
+      "title_en": "Full cafe ordering flow",
+      "primary_objective_id": "F-REQUEST",
+      "secondary_objective_ids": ["F-ASK-PRICE", "F-REORDER"],
+      "context_ids": ["CTX-KO-TRAVEL-ORDERING-CAFE", "CTX-KO-TRAVEL-FOODCOURT-REORDER"],
+      "pattern_ids": ["ko-A1-survival-008", "ko-A1-survival-010", "ko-A1-survival-011"],
+      "grammar_ids": ["G-KO-REQUEST-JUSEYO", "G-KO-PRICE-EOLMAYEYO", "G-KO-MORE-HANBEON-DEO"],
+      "function_ids": ["F-REQUEST", "F-ASK-PRICE", "F-REORDER"],
+      "prerequisites": ["KO-A1-L04", "KO-A1-G03"],
+      "bridge_to_track": {
+        "recommended_next_functional_lesson_id": "KO-A1-L06",
+        "recommended_next_grammar_lesson_id": "KO-A1-G04",
+        "bridge_note_zh_tw": "完成任務後用文法課整理問價與加點變化。",
+        "bridge_note_en": "After flow mastery, use grammar lesson to refine price/reorder variants."
+      },
+      "node_profile": {
+        "required_node_types": ["L1", "P1", "P2", "P5", "R1"],
+        "max_nodes": 13,
+        "min_nodes": 9,
+        "must_include_anchor": true
+      }
+    },
+    {
+      "lesson_id": "KO-A1-G04",
+      "sequence_no": 8,
+      "track_type": "grammar",
+      "title_zh_tw": "文法焦點：얼마예요? 與 한 번 더",
+      "title_en": "Grammar focus: 얼마예요? and 한 번 더",
+      "primary_objective_id": "G-KO-PRICE-EOLMAYEYO",
+      "secondary_objective_ids": ["G-KO-MORE-HANBEON-DEO"],
+      "context_ids": ["CTX-KO-TRAVEL-ORDERING-CAFE", "CTX-KO-TRAVEL-SHOPPING-AVAILABILITY"],
+      "pattern_ids": ["ko-A1-survival-010", "ko-A1-survival-011"],
+      "grammar_ids": ["G-KO-PRICE-EOLMAYEYO", "G-KO-MORE-HANBEON-DEO"],
+      "function_ids": ["F-ASK-PRICE", "F-REORDER"],
+      "prerequisites": ["KO-A1-L05"],
+      "bridge_to_track": {
+        "recommended_next_functional_lesson_id": "KO-A1-L06",
+        "recommended_next_grammar_lesson_id": "KO-A1-G05",
+        "bridge_note_zh_tw": "整理完成後可進入餐廳與住宿等延伸任務。",
+        "bridge_note_en": "This consolidation unlocks restaurant and stay-related tasks."
+      },
+      "node_profile": {
+        "required_node_types": ["L1", "P1", "P2", "R1"],
+        "max_nodes": 10,
+        "min_nodes": 7,
+        "must_include_anchor": true
+      }
+    },
+    {
+      "lesson_id": "KO-A1-L06",
+      "sequence_no": 9,
+      "track_type": "functional",
+      "title_zh_tw": "飯店入住與身份確認",
+      "title_en": "Hotel check-in and identity confirmation",
+      "primary_objective_id": "F-ASK-IDENTITY",
+      "secondary_objective_ids": ["F-INTRODUCE-SELF", "F-GREET"],
+      "context_ids": ["CTX-KO-TRAVEL-HOTEL-CHECKIN"],
+      "pattern_ids": ["ko-A1-survival-001", "ko-A1-survival-003", "ko-A1-survival-004", "ko-A1-survival-005"],
+      "grammar_ids": ["G-KO-WHAT-NAME-MWOYEYO", "G-KO-NATIONALITY-NARA-SARAM", "G-KO-COPULA-IEYO-YEYO"],
+      "function_ids": ["F-ASK-IDENTITY", "F-INTRODUCE-SELF", "F-GREET"],
+      "prerequisites": ["KO-A1-G02", "KO-A1-G04"],
+      "bridge_to_track": {
+        "recommended_next_functional_lesson_id": "KO-A1-L07",
+        "recommended_next_grammar_lesson_id": "KO-A1-G05",
+        "bridge_note_zh_tw": "功能任務完成後，可進入複合問答與回顧文法。",
+        "bridge_note_en": "After completing the task, move to mixed QA and grammar review."
+      },
+      "node_profile": {
+        "required_node_types": ["L1", "P1", "P2", "P5", "R1"],
+        "max_nodes": 12,
+        "min_nodes": 8,
+        "must_include_anchor": true
+      }
+    },
+    {
+      "lesson_id": "KO-A1-G05",
+      "sequence_no": 10,
+      "track_type": "grammar",
+      "title_zh_tw": "文法整合：A1 生存句型回顧",
+      "title_en": "Grammar consolidation: A1 survival forms review",
+      "primary_objective_id": "G-KO-HONORIFIC-POLITE-ENDINGS",
+      "secondary_objective_ids": ["G-KO-COPULA-IEYO-YEYO", "G-KO-REQUEST-JUSEYO"],
+      "context_ids": ["CTX-KO-TRAVEL-SOCIAL-SMALLTALK", "CTX-KO-TRAVEL-ORDERING-CAFE", "CTX-KO-TRAVEL-HOTEL-CHECKIN"],
+      "pattern_ids": ["ko-A1-survival-001", "ko-A1-survival-002", "ko-A1-survival-008", "ko-A1-survival-010"],
+      "grammar_ids": ["G-KO-HONORIFIC-POLITE-ENDINGS", "G-KO-COPULA-IEYO-YEYO", "G-KO-REQUEST-JUSEYO"],
+      "function_ids": ["F-POLITENESS-BASE", "F-REQUEST", "F-INTRODUCE-SELF"],
+      "prerequisites": ["KO-A1-L06"],
+      "bridge_to_track": {
+        "recommended_next_functional_lesson_id": "KO-A1-L07",
+        "recommended_next_grammar_lesson_id": null,
+        "bridge_note_zh_tw": "完成整合後，進入下一批旅遊任務。",
+        "bridge_note_en": "After consolidation, continue to the next functional travel set."
+      },
+      "node_profile": {
+        "required_node_types": ["L1", "P1", "P2", "R1"],
+        "max_nodes": 10,
+        "min_nodes": 7,
+        "must_include_anchor": true
+      }
+    }
+  ]
+}

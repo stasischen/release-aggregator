@@ -24,6 +24,21 @@
             "id": "A1-U01-V1",
             "title": "A1-U01 v1 Preview (Node Contract)",
             "path": "data/units/a1_u01_unit_blueprint_v1_preview.json"
+        },
+        {
+            "id": "A1-GB-L01-V1",
+            "title": "Grammar Book L01 (Dialogue-First)",
+            "path": "data/units/a1_gb_l01_dialogue_first_v1.json"
+        },
+        {
+            "id": "A1-GB-L01-LEGACY",
+            "title": "Grammar Book L01 (Legacy Source)",
+            "path": "data/units/a1_gb_l01_legacy_source_v1.json"
+        },
+        {
+            "id": "A1-GB-L01-IBANK",
+            "title": "Grammar Book L01 (Item Bank Review)",
+            "path": "data/units/a1_gb_l01_item_bank_v1.json"
         }
     ]
 }

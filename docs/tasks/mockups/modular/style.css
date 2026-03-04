@@ -791,6 +791,38 @@ textarea {
   margin-bottom: 10px;
 }
 
+.md-block {
+  display: grid;
+  gap: 10px;
+}
+
+.md-paragraph {
+  margin: 0;
+}
+
+.md-table-wrap {
+  overflow-x: auto;
+}
+
+.md-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 13px;
+  background: #fff;
+}
+
+.md-table th,
+.md-table td {
+  border: 1px solid var(--line);
+  padding: 8px 10px;
+  text-align: left;
+  vertical-align: top;
+}
+
+.md-table th {
+  background: #f7f4ef;
+}
+
 /* Dictionary Pack Form */
 .dict-section {
   margin-bottom: 28px;

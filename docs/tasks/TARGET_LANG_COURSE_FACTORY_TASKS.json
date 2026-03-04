@@ -157,6 +157,15 @@
         "TLG-021",
         "TLG-022"
       ]
+    },
+    {
+      "id": "TLG-024",
+      "desc": "Define Grammar Book Track contract (dialogue-first grammar lessons) and cross-link legacy grammar progression to survival lessons.",
+      "status": "done",
+      "depends_on": [
+        "TLG-021",
+        "TLG-023"
+      ]
     }
   ]
 }

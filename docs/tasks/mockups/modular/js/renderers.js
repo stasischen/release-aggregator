@@ -374,15 +374,116 @@ const renderReviewCard = function (payload) {
   `;
 };
 
+const renderQuizItem = function (payload) {
+  const item = payload.item || {};
+  const choices = Array.isArray(item.choices) ? item.choices : [];
+  const answer = item.answer_key ? item.answer_key.value : '';
+  const answerText = Array.isArray(answer) ? answer.join(' / ') : String(answer || '');
+  return `
+    <div class="content-block">
+      <div class="block-title">題庫題目</div>
+      <div class="summary-box" style="margin-bottom:12px;">
+        <span class="label">題型 / 技能 / 難度</span>
+        ${window.escapeHtml(item.item_type || 'unknown')} / ${window.escapeHtml(item.skill || 'unknown')} / ${window.escapeHtml(item.difficulty_tier || 'L1')}
+      </div>
+      <div style="font-weight:700; margin-bottom:6px;">${window.escapeHtml(item.prompt_zh_tw || '')}</div>
+      ${item.prompt_ko ? `<div style="padding:10px; background:#fff; border:1px solid var(--line); border-radius:8px; margin-bottom:10px;">
+        <div style="font-size:16px; font-weight:700;">${window.escapeHtml(item.prompt_ko)} ${window.renderSpeakButton(item.prompt_ko)}</div>
+      </div>` : ''}
+      ${choices.length ? `
+        <div class="chip-cloud" style="margin-bottom:10px;">
+          ${choices.map((c, idx) => `<span class="word-chip">${idx + 1}. ${window.escapeHtml(c)} ${window.renderSpeakInline(c)}</span>`).join('')}
+        </div>
+      ` : ''}
+      <details>
+        <summary style="cursor:pointer; color:var(--accent2); font-weight:700;">顯示答案與解析</summary>
+        <div class="summary-box" style="margin-top:8px; border-color:var(--ok-soft); background:var(--ok-soft);">
+          <span class="label" style="color:var(--ok);">答案</span>
+          ${window.escapeHtml(answerText)}
+          ${item.explanation_zh_tw ? `<div class="tiny-text muted" style="margin-top:6px;">${window.escapeHtml(item.explanation_zh_tw)}</div>` : ''}
+        </div>
+      </details>
+      ${item.tags?.length ? `<div class="tiny-text muted" style="margin-top:10px;">tags: ${item.tags.map(t => window.escapeHtml(t)).join(', ')}</div>` : ''}
+    </div>
+  `;
+};
+
+const applyInlineMarkdown = function (text) {
+  return window.escapeHtml(text || '')
+    .replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>')
+    .replace(/`([^`]+)`/g, '<code>$1</code>');
+};
+
+const markdownToHtmlLite = function (md) {
+  const src = String(md || '').replace(/\r\n/g, '\n');
+  const lines = src.split('\n');
+  const out = [];
+  let i = 0;
+
+  const isTableSeparator = (line) => /^\s*\|?\s*:?-{3,}:?\s*(\|\s*:?-{3,}:?\s*)+\|?\s*$/.test(line);
+  const isTableRow = (line) => line.includes('|');
+
+  while (i < lines.length) {
+    const line = lines[i];
+    const trimmed = line.trim();
+
+    if (!trimmed) {
+      i += 1;
+      continue;
+    }
+
+    // Table block
+    if (i + 1 < lines.length && isTableRow(lines[i]) && isTableSeparator(lines[i + 1])) {
+      const headerCells = lines[i].split('|').map(c => c.trim()).filter(Boolean);
+      i += 2;
+      const bodyRows = [];
+      while (i < lines.length && isTableRow(lines[i]) && lines[i].trim()) {
+        const rowCells = lines[i].split('|').map(c => c.trim()).filter(Boolean);
+        if (rowCells.length) bodyRows.push(rowCells);
+        i += 1;
+      }
+      out.push(`
+        <div class="md-table-wrap">
+          <table class="md-table">
+            <thead><tr>${headerCells.map(c => `<th>${applyInlineMarkdown(c)}</th>`).join('')}</tr></thead>
+            <tbody>${bodyRows.map(r => `<tr>${r.map(c => `<td>${applyInlineMarkdown(c)}</td>`).join('')}</tr>`).join('')}</tbody>
+          </table>
+        </div>
+      `);
+      continue;
+    }
+
+    // Bullet list
+    if (trimmed.startsWith('- ')) {
+      const items = [];
+      while (i < lines.length && lines[i].trim().startsWith('- ')) {
+        items.push(lines[i].trim().slice(2));
+        i += 1;
+      }
+      out.push(`<ul class="grammar-point-list">${items.map(p => `<li>${applyInlineMarkdown(p)}</li>`).join('')}</ul>`);
+      continue;
+    }
+
+    // Paragraph
+    out.push(`<p class="md-paragraph">${applyInlineMarkdown(trimmed)}</p>`);
+    i += 1;
+  }
+
+  return out.join('');
+};
+
 const renderGrammar = function (payload) {
   const sections = payload.sections || [];
   const html = sections.map(s => `
     <details open>
       <summary>${window.escapeHtml(s.title_zh_tw)}</summary>
       <div class="grammar-body">
-        <ul class="grammar-point-list">
-          ${(s.points_zh_tw || []).map(p => `<li>${window.escapeHtml(p)}</li>`).join('')}
-        </ul>
+        ${s.explanation_md
+      ? `<div class="md-block">${markdownToHtmlLite(s.explanation_md)}</div>`
+      : `<ul class="grammar-point-list">
+              ${(s.points_zh_tw || []).map(p => `<li>${window.escapeHtml(p)}</li>`).join('')}
+            </ul>`
+    }
       </div>
     </details>
   `).join('');
@@ -608,6 +709,7 @@ window.RendererRegistry.registerContent('practice_card', renderPracticeCardHead)
 window.RendererRegistry.registerContent('roleplay_prompt', renderRoleplayPrompt);
 window.RendererRegistry.registerContent('message_prompt', renderMessagePrompt);
 window.RendererRegistry.registerContent('review_card', renderReviewCard);
+window.RendererRegistry.registerContent('quiz_item', renderQuizItem);
 
 window.RendererRegistry.registerInteraction('chunk_assembly', renderChunkAssemblyMode);
 window.RendererRegistry.registerInteraction('response_builder', renderResponseBuilderMode);

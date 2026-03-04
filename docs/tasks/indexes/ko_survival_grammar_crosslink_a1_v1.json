@@ -1,0 +1,18 @@
+{
+  "map_id": "KO-A1-SURVIVAL-GRAMMAR-CROSSLINK-V1",
+  "version": "v1",
+  "target_lang": "ko",
+  "generated_at": "2026-03-03",
+  "links": [
+    {"grammar_book_lesson_id": "KO-A1-GB-L01", "survival_lessons": ["KO-A1-L01"], "link_type": "core"},
+    {"grammar_book_lesson_id": "KO-A1-GB-L02", "survival_lessons": ["KO-A1-L01", "KO-A1-L06"], "link_type": "support"},
+    {"grammar_book_lesson_id": "KO-A1-GB-L03", "survival_lessons": ["KO-A1-L01", "KO-A1-L06"], "link_type": "support"},
+    {"grammar_book_lesson_id": "KO-A1-GB-L04", "survival_lessons": ["KO-A1-L04", "KO-A1-L05"], "link_type": "core"},
+    {"grammar_book_lesson_id": "KO-A1-GB-L05", "survival_lessons": ["KO-A1-L05"], "link_type": "support"},
+    {"grammar_book_lesson_id": "KO-A1-GB-L06", "survival_lessons": ["KO-A1-L03", "KO-A1-L04"], "link_type": "support"},
+    {"grammar_book_lesson_id": "KO-A1-GB-L07", "survival_lessons": ["KO-A1-L05"], "link_type": "support"},
+    {"grammar_book_lesson_id": "KO-A1-GB-L08", "survival_lessons": ["KO-A1-L03", "KO-A1-L04"], "link_type": "review"},
+    {"grammar_book_lesson_id": "KO-A1-GB-L09", "survival_lessons": ["KO-A1-L06"], "link_type": "support"},
+    {"grammar_book_lesson_id": "KO-A1-GB-L10", "survival_lessons": ["KO-A1-L05"], "link_type": "review"}
+  ]
+}

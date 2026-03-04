@@ -1,0 +1,269 @@
+{
+  "track_id": "KO-A1-GRAMMAR-BOOK-TRACK-V1",
+  "version": "v1",
+  "target_lang": "ko",
+  "support_langs": ["zh_tw", "en"],
+  "level": "A1",
+  "generated_at": "2026-03-03",
+  "source_refs": {
+    "lllo_curriculum_map": "/Users/ywchen/Dev/lingo/lllo/data/courses/ko/A1/curriculum_map.md",
+    "content_ko_core_grammar": "/Users/ywchen/Dev/lingo/content-ko/content/core/grammar",
+    "content_ko_core_dialogue": "/Users/ywchen/Dev/lingo/content-ko/content/core/dialogue/A1"
+  },
+  "chapters": [
+    {
+      "chapter_id": "KO-A1-GBOOK-CH01",
+      "title_zh_tw": "身份與存在句",
+      "title_en": "Identity and Existence",
+      "lesson_ids": ["KO-A1-GB-L01", "KO-A1-GB-L02", "KO-A1-GB-L03", "KO-A1-GB-L04", "KO-A1-GB-L05"]
+    },
+    {
+      "chapter_id": "KO-A1-GBOOK-CH02",
+      "title_zh_tw": "動作句與日常互動",
+      "title_en": "Action Sentences and Daily Interaction",
+      "lesson_ids": ["KO-A1-GB-L06", "KO-A1-GB-L07", "KO-A1-GB-L08", "KO-A1-GB-L09", "KO-A1-GB-L10"]
+    }
+  ],
+  "lessons": [
+    {
+      "lesson_id": "KO-A1-GB-L01",
+      "sequence_no": 1,
+      "delivery_mode": "dialogue_first",
+      "legacy_ref": {"lllo_directory_name": "L01-N-ieyo-Identification", "content_ko_lesson_id": "A1-01"},
+      "anchor_dialogue": {"source_segment_id": "A1-01-D1", "line_window": "1-8", "teaching_goal_zh_tw": "用招呼與自我介紹句帶入 N-이에요/예요。"},
+      "content_integration": {
+        "micro_text_theme": "新生報到公告",
+        "communicative_task": "完成姓名與身份交換",
+        "activation_prompt_zh_tw": "請用 3 句完成自我介紹（名字/身份/來自哪裡）。"
+      },
+      "grammar_focus_id": "G-KO-COPULA-IEYO-YEYO",
+      "grammar_subpoints": ["N-이에요/예요", "禮貌結尾 요"],
+      "teaching_structure": {
+        "form": "名詞+이에요/예요（收音規則）",
+        "meaning": "表達「是...」的身份判斷",
+        "use": "初次見面、自我介紹、櫃台互動",
+        "minimal_pair": "학생이에요 vs 의사예요",
+        "common_errors": ["忽略收音規則", "語尾過度口語化"]
+      },
+      "example_sources": ["A1-01-D1", "A1-01-D2"],
+      "practice_blueprint": ["recognize", "fill", "transform", "build"],
+      "bridge_to_survival": ["KO-A1-L01", "KO-A1-G02"]
+    },
+    {
+      "lesson_id": "KO-A1-GB-L02",
+      "sequence_no": 2,
+      "delivery_mode": "dialogue_first",
+      "legacy_ref": {"lllo_directory_name": "L02-N-ieyo-Questions", "content_ko_lesson_id": "A1-02"},
+      "anchor_dialogue": {"source_segment_id": "A1-02-D1", "line_window": "1-6", "teaching_goal_zh_tw": "透過問句語調練習 N-이에요?"},
+      "content_integration": {
+        "micro_text_theme": "社團新人名單",
+        "communicative_task": "詢問對方身份並確認",
+        "activation_prompt_zh_tw": "請用 2 問 2 答完成身份確認。"
+      },
+      "grammar_focus_id": "G-KO-WHAT-NAME-MWOYEYO",
+      "grammar_subpoints": ["N-이에요?", "基本確認問句"],
+      "teaching_structure": {
+        "form": "名詞判斷句問句化",
+        "meaning": "確認對方是否為某身份",
+        "use": "認人、核對資料、確認資訊",
+        "minimal_pair": "학생이에요. vs 학생이에요?",
+        "common_errors": ["問句語調不明確", "把 뭐예요 與 이에요? 混用"]
+      },
+      "example_sources": ["A1-02-D1", "A1-02-D3"],
+      "practice_blueprint": ["recognize", "fill", "build"],
+      "bridge_to_survival": ["KO-A1-L01", "KO-A1-L06"]
+    },
+    {
+      "lesson_id": "KO-A1-GB-L03",
+      "sequence_no": 3,
+      "delivery_mode": "dialogue_first",
+      "legacy_ref": {"lllo_directory_name": "L03-Nationality-Ask", "content_ko_lesson_id": "A1-03"},
+      "anchor_dialogue": {"source_segment_id": "A1-03-D1", "line_window": "1-6", "teaching_goal_zh_tw": "用國籍詢問建立固定問答框。"},
+      "content_integration": {
+        "micro_text_theme": "交換生簡介卡",
+        "communicative_task": "詢問並回答國籍與語言",
+        "activation_prompt_zh_tw": "請和同伴完成 1 輪國籍問答。"
+      },
+      "grammar_focus_id": "G-KO-NATIONALITY-NARA-SARAM",
+      "grammar_subpoints": ["어느 나라 사람이에요?", "저는 {나라} 사람이에요"],
+      "teaching_structure": {
+        "form": "어느 나라 + 사람이에요",
+        "meaning": "詢問與說明出身國家",
+        "use": "初次見面寒暄與背景交換",
+        "minimal_pair": "어느 나라 사람이에요? vs 어디예요?",
+        "common_errors": ["把 나라 與 지내요 類動詞混在一起"]
+      },
+      "example_sources": ["A1-03-D1", "A1-03-D2"],
+      "practice_blueprint": ["recognize", "transform", "build"],
+      "bridge_to_survival": ["KO-A1-L01", "KO-A1-L06"]
+    },
+    {
+      "lesson_id": "KO-A1-GB-L04",
+      "sequence_no": 4,
+      "delivery_mode": "dialogue_first",
+      "legacy_ref": {"lllo_directory_name": "L04-Existence-Be", "content_ko_lesson_id": "A1-04"},
+      "anchor_dialogue": {"source_segment_id": "A1-04-D1", "line_window": "1-7", "teaching_goal_zh_tw": "從教室找物品導入 있어요/없어요。"},
+      "content_integration": {
+        "micro_text_theme": "教室物品清單",
+        "communicative_task": "確認有無並回覆",
+        "activation_prompt_zh_tw": "請以有/沒有完成 5 題快速問答。"
+      },
+      "grammar_focus_id": "G-KO-AVAILABILITY-ISSEOYO",
+      "grammar_subpoints": ["N-이/가 있어요", "N-이/가 없어요"],
+      "teaching_structure": {
+        "form": "名詞+이/가+있어요/없어요",
+        "meaning": "表示存在、有無",
+        "use": "找東西、確認庫存、問物品位置",
+        "minimal_pair": "있어요 vs 없어요",
+        "common_errors": ["把 없다 說成 안 있어요"]
+      },
+      "example_sources": ["A1-04-D1", "A1-04-D2"],
+      "practice_blueprint": ["recognize", "fill", "transform"],
+      "bridge_to_survival": ["KO-A1-L04", "KO-A1-L05"]
+    },
+    {
+      "lesson_id": "KO-A1-GB-L05",
+      "sequence_no": 5,
+      "delivery_mode": "dialogue_first",
+      "legacy_ref": {"lllo_directory_name": "L05-Quantity-AnySome", "content_ko_lesson_id": "A1-05"},
+      "anchor_dialogue": {"source_segment_id": "A1-05-D1", "line_window": "1-6", "teaching_goal_zh_tw": "從數量需求帶出 만/이나 與數量問法。"},
+      "content_integration": {
+        "micro_text_theme": "購物清單備忘錄",
+        "communicative_task": "詢問數量並做限制選擇",
+        "activation_prompt_zh_tw": "請用 만 或 이나 做 3 句選擇/限制句。"
+      },
+      "grammar_focus_id": "G-KO-PRICE-EOLMAYEYO",
+      "grammar_subpoints": ["얼마나/몇", "-만 / -이나"],
+      "teaching_structure": {
+        "form": "數量詞 + 단위명사，限制助詞 만/이나",
+        "meaning": "詢問/限定數量與選擇",
+        "use": "購物、點單、分配物品",
+        "minimal_pair": "5장만 vs 5장이나",
+        "common_errors": ["單位名詞省略", "만/이나 語義混淆"]
+      },
+      "example_sources": ["A1-05-D1", "A1-05-D2"],
+      "practice_blueprint": ["recognize", "fill", "build"],
+      "bridge_to_survival": ["KO-A1-L05", "KO-A1-G04"]
+    },
+    {
+      "lesson_id": "KO-A1-GB-L06",
+      "sequence_no": 6,
+      "delivery_mode": "dialogue_first",
+      "legacy_ref": {"lllo_directory_name": "L06-V-ayo-Present", "content_ko_lesson_id": "A1-06"},
+      "anchor_dialogue": {"source_segment_id": "A1-06-D1", "line_window": "1-6", "teaching_goal_zh_tw": "用日常行為對話導入 V-아요/어요。"},
+      "content_integration": {
+        "micro_text_theme": "今日行程卡",
+        "communicative_task": "描述自己的日常動作",
+        "activation_prompt_zh_tw": "請用 4 句描述你今天的日常。"
+      },
+      "grammar_focus_id": "G-KO-HONORIFIC-POLITE-ENDINGS",
+      "grammar_subpoints": ["V-아요/어요", "해요體穩定輸出"],
+      "teaching_structure": {
+        "form": "動詞詞幹+아요/어요",
+        "meaning": "描述現在習慣與一般事實",
+        "use": "日常對話、服務場景敘述",
+        "minimal_pair": "먹어요 vs 먹어요?",
+        "common_errors": ["活用結尾錯誤", "混用半語終結"]
+      },
+      "example_sources": ["A1-06-D1", "A1-06-D2"],
+      "practice_blueprint": ["recognize", "fill", "transform", "build"],
+      "bridge_to_survival": ["KO-A1-L03", "KO-A1-L04"]
+    },
+    {
+      "lesson_id": "KO-A1-GB-L07",
+      "sequence_no": 7,
+      "delivery_mode": "dialogue_first",
+      "legacy_ref": {"lllo_directory_name": "L07-Likes-Preference", "content_ko_lesson_id": "A1-07"},
+      "anchor_dialogue": {"source_segment_id": "A1-07-D1", "line_window": "1-6", "teaching_goal_zh_tw": "偏好表達句引導受格助詞。"},
+      "content_integration": {
+        "micro_text_theme": "菜單推薦短文",
+        "communicative_task": "表達喜好與不喜好",
+        "activation_prompt_zh_tw": "請用 좋아해요/싫어해요 各造 2 句。"
+      },
+      "grammar_focus_id": "G-KO-OCCUPATION-JOB-INTRO",
+      "grammar_subpoints": ["N-을/를 좋아해요", "偏好對比"],
+      "teaching_structure": {
+        "form": "受格助詞 을/를 + 喜好動詞",
+        "meaning": "表達對人事物偏好",
+        "use": "點餐、推薦、聊天",
+        "minimal_pair": "커피를 좋아해요 vs 커피가 좋아요",
+        "common_errors": ["主格與受格助詞混淆"]
+      },
+      "example_sources": ["A1-07-D1", "A1-07-D3"],
+      "practice_blueprint": ["recognize", "transform", "build"],
+      "bridge_to_survival": ["KO-A1-L05", "KO-A1-L06"]
+    },
+    {
+      "lesson_id": "KO-A1-GB-L08",
+      "sequence_no": 8,
+      "delivery_mode": "dialogue_first",
+      "legacy_ref": {"lllo_directory_name": "L08-V-ayo-Questions", "content_ko_lesson_id": "A1-08"},
+      "anchor_dialogue": {"source_segment_id": "A1-08-D1", "line_window": "1-6", "teaching_goal_zh_tw": "用生活習慣問句建立回合互動。"},
+      "content_integration": {
+        "micro_text_theme": "社群問答貼文",
+        "communicative_task": "提出日常問題並回應",
+        "activation_prompt_zh_tw": "請完成 3 組『你...嗎？』問答。"
+      },
+      "grammar_focus_id": "G-KO-WHAT-NAME-MWOYEYO",
+      "grammar_subpoints": ["V-아요/어요?", "問句語調"],
+      "teaching_structure": {
+        "form": "平敘句轉問句",
+        "meaning": "詢問習慣與行動",
+        "use": "初次聊天、同學互動、櫃台詢問",
+        "minimal_pair": "가요. vs 가요?",
+        "common_errors": ["平敘語調誤用在問句"]
+      },
+      "example_sources": ["A1-08-D1", "A1-08-D2"],
+      "practice_blueprint": ["recognize", "fill", "build"],
+      "bridge_to_survival": ["KO-A1-L03", "KO-A1-L04"]
+    },
+    {
+      "lesson_id": "KO-A1-GB-L09",
+      "sequence_no": 9,
+      "delivery_mode": "dialogue_first",
+      "legacy_ref": {"lllo_directory_name": "L09-Honorifics-Subject", "content_ko_lesson_id": "A1-09"},
+      "anchor_dialogue": {"source_segment_id": "A1-09-D1", "line_window": "1-6", "teaching_goal_zh_tw": "主體尊稱與禮貌問答分層。"},
+      "content_integration": {
+        "micro_text_theme": "老師通知訊息",
+        "communicative_task": "對長輩/老師使用尊稱表達",
+        "activation_prompt_zh_tw": "請把 3 句一般句改成尊稱句。"
+      },
+      "grammar_focus_id": "G-KO-HONORIFIC-POLITE-ENDINGS",
+      "grammar_subpoints": ["-(으)세요", "계세요 vs 있어요"],
+      "teaching_structure": {
+        "form": "尊稱詞幹 + 세요",
+        "meaning": "對被尊重主體表達禮貌",
+        "use": "長輩、老師、服務正式場景",
+        "minimal_pair": "있어요 vs 계세요",
+        "common_errors": ["對長輩使用平語詞形"]
+      },
+      "example_sources": ["A1-09-D1", "A1-09-D2"],
+      "practice_blueprint": ["recognize", "transform", "build"],
+      "bridge_to_survival": ["KO-A1-G01", "KO-A1-L06"]
+    },
+    {
+      "lesson_id": "KO-A1-GB-L10",
+      "sequence_no": 10,
+      "delivery_mode": "dialogue_first",
+      "legacy_ref": {"lllo_directory_name": "L10-Adverbs-Frequency", "content_ko_lesson_id": "A1-10"},
+      "anchor_dialogue": {"source_segment_id": "A1-10-D1", "line_window": "1-6", "teaching_goal_zh_tw": "頻率副詞讓句子更自然可用。"},
+      "content_integration": {
+        "micro_text_theme": "每週生活紀錄",
+        "communicative_task": "描述頻率與習慣",
+        "activation_prompt_zh_tw": "請用 항상/자주/가끔 各造一句。"
+      },
+      "grammar_focus_id": "G-KO-HONORIFIC-POLITE-ENDINGS",
+      "grammar_subpoints": ["항상/자주/가끔", "副詞位置"],
+      "teaching_structure": {
+        "form": "頻率副詞 + 動詞句",
+        "meaning": "描述行為發生頻率",
+        "use": "習慣描述、生活安排、偏好表達",
+        "minimal_pair": "자주 가요 vs 가끔 가요",
+        "common_errors": ["副詞位置僵硬", "頻率詞語義混用"]
+      },
+      "example_sources": ["A1-10-D1", "A1-10-D3"],
+      "practice_blueprint": ["recognize", "fill", "build"],
+      "bridge_to_survival": ["KO-A1-L05", "KO-A1-G05"]
+    }
+  ]
+}

@@ -1,0 +1,1242 @@
+{
+  "version": "unit_blueprint_v0.1",
+  "adapter_contract": {
+    "adapter_version": "frontend_unit_adapter_v0",
+    "stability": "item_bank_preview",
+    "fallback_locale_order": [
+      "zh_tw",
+      "en"
+    ],
+    "notes": "Generated from KO-IBANK-A1-GB-L01-LEGACY-V1 for viewer preview."
+  },
+  "unit": {
+    "unit_id": "A1-GB-L01-LEGACY-IBANK-V1",
+    "title_zh_tw": "題庫複習 A1-GB-L01-LEGACY",
+    "target_language": "ko",
+    "learner_locale_source": "zh_tw",
+    "level": "A1",
+    "theme_zh_tw": "題庫式複習（Item Bank）",
+    "output_ratio_target": 0.8,
+    "can_do_zh_tw": [
+      "完成題庫複習並核對答案",
+      "針對錯題進行重複回想"
+    ]
+  },
+  "sequence": [
+    {
+      "id": "A1-GB-L01-LEGACY-IB-001",
+      "candidate_type": "lesson",
+      "content_form": "quiz_item",
+      "learning_role": "review_retrieval",
+      "skill_focus": [
+        "reading"
+      ],
+      "output_mode": "none",
+      "duration_min": 1,
+      "title_zh_tw": "題目 01 · mcq_meaning",
+      "summary_zh_tw": "選出最接近這句韓文的中文意思。",
+      "expected_output_zh_tw": "先作答再自我核對答案。",
+      "payload": {
+        "item": {
+          "item_id": "A1-GB-L01-LEGACY-IB-001",
+          "item_type": "mcq_meaning",
+          "skill": "reading",
+          "difficulty_tier": "L1",
+          "prompt_zh_tw": "選出最接近這句韓文的中文意思。",
+          "prompt_ko": "안녕하세요",
+          "choices": [
+            "對不起",
+            "謝謝",
+            "很高興見到你",
+            "你好"
+          ],
+          "answer_key": {
+            "type": "single_choice",
+            "value": "你好"
+          },
+          "explanation_zh_tw": "先抓句尾語氣與關鍵名詞，再判斷語意。",
+          "linked_refs": {
+            "lesson_id": "A1-GB-L01-LEGACY",
+            "node_id": "A1-GB-L01-G1",
+            "grammar_ids": [],
+            "pattern_ids": [],
+            "function_ids": []
+          },
+          "tags": [
+            "grammar_note",
+            "meaning_check"
+          ],
+          "review_policy": {
+            "initial_interval_days": 2,
+            "wrong_interval_days": 1,
+            "correct_fast_interval_days": 7
+          }
+        }
+      },
+      "adapter_hints": {
+        "content_renderer_key": "quiz_item",
+        "interaction_renderer_key": null
+      }
+    },
+    {
+      "id": "A1-GB-L01-LEGACY-IB-002",
+      "candidate_type": "lesson",
+      "content_form": "quiz_item",
+      "learning_role": "review_retrieval",
+      "skill_focus": [
+        "reading"
+      ],
+      "output_mode": "none",
+      "duration_min": 1,
+      "title_zh_tw": "題目 02 · mcq_meaning",
+      "summary_zh_tw": "選出最接近這句韓文的中文意思。",
+      "expected_output_zh_tw": "先作答再自我核對答案。",
+      "payload": {
+        "item": {
+          "item_id": "A1-GB-L01-LEGACY-IB-002",
+          "item_type": "mcq_meaning",
+          "skill": "reading",
+          "difficulty_tier": "L1",
+          "prompt_zh_tw": "選出最接近這句韓文的中文意思。",
+          "prompt_ko": "반가워요",
+          "choices": [
+            "你好",
+            "很高興見到你",
+            "對不起",
+            "謝謝"
+          ],
+          "answer_key": {
+            "type": "single_choice",
+            "value": "很高興見到你"
+          },
+          "explanation_zh_tw": "先抓句尾語氣與關鍵名詞，再判斷語意。",
+          "linked_refs": {
+            "lesson_id": "A1-GB-L01-LEGACY",
+            "node_id": "A1-GB-L01-G1",
+            "grammar_ids": [],
+            "pattern_ids": [],
+            "function_ids": []
+          },
+          "tags": [
+            "grammar_note",
+            "meaning_check"
+          ],
+          "review_policy": {
+            "initial_interval_days": 2,
+            "wrong_interval_days": 1,
+            "correct_fast_interval_days": 7
+          }
+        }
+      },
+      "adapter_hints": {
+        "content_renderer_key": "quiz_item",
+        "interaction_renderer_key": null
+      }
+    },
+    {
+      "id": "A1-GB-L01-LEGACY-IB-003",
+      "candidate_type": "lesson",
+      "content_form": "quiz_item",
+      "learning_role": "review_retrieval",
+      "skill_focus": [
+        "reading"
+      ],
+      "output_mode": "none",
+      "duration_min": 1,
+      "title_zh_tw": "題目 03 · mcq_meaning",
+      "summary_zh_tw": "選出最接近這句韓文的中文意思。",
+      "expected_output_zh_tw": "先作答再自我核對答案。",
+      "payload": {
+        "item": {
+          "item_id": "A1-GB-L01-LEGACY-IB-003",
+          "item_type": "mcq_meaning",
+          "skill": "reading",
+          "difficulty_tier": "L1",
+          "prompt_zh_tw": "選出最接近這句韓文的中文意思。",
+          "prompt_ko": "감사합니다",
+          "choices": [
+            "很高興見到你",
+            "你好",
+            "謝謝",
+            "對不起"
+          ],
+          "answer_key": {
+            "type": "single_choice",
+            "value": "謝謝"
+          },
+          "explanation_zh_tw": "先抓句尾語氣與關鍵名詞，再判斷語意。",
+          "linked_refs": {
+            "lesson_id": "A1-GB-L01-LEGACY",
+            "node_id": "A1-GB-L01-G1",
+            "grammar_ids": [],
+            "pattern_ids": [],
+            "function_ids": []
+          },
+          "tags": [
+            "grammar_note",
+            "meaning_check"
+          ],
+          "review_policy": {
+            "initial_interval_days": 2,
+            "wrong_interval_days": 1,
+            "correct_fast_interval_days": 7
+          }
+        }
+      },
+      "adapter_hints": {
+        "content_renderer_key": "quiz_item",
+        "interaction_renderer_key": null
+      }
+    },
+    {
+      "id": "A1-GB-L01-LEGACY-IB-004",
+      "candidate_type": "lesson",
+      "content_form": "quiz_item",
+      "learning_role": "review_retrieval",
+      "skill_focus": [
+        "reading"
+      ],
+      "output_mode": "none",
+      "duration_min": 1,
+      "title_zh_tw": "題目 04 · mcq_meaning",
+      "summary_zh_tw": "選出最接近這句韓文的中文意思。",
+      "expected_output_zh_tw": "先作答再自我核對答案。",
+      "payload": {
+        "item": {
+          "item_id": "A1-GB-L01-LEGACY-IB-004",
+          "item_type": "mcq_meaning",
+          "skill": "reading",
+          "difficulty_tier": "L1",
+          "prompt_zh_tw": "選出最接近這句韓文的中文意思。",
+          "prompt_ko": "죄송합니다",
+          "choices": [
+            "你好",
+            "對不起",
+            "謝謝",
+            "很高興見到你"
+          ],
+          "answer_key": {
+            "type": "single_choice",
+            "value": "對不起"
+          },
+          "explanation_zh_tw": "先抓句尾語氣與關鍵名詞，再判斷語意。",
+          "linked_refs": {
+            "lesson_id": "A1-GB-L01-LEGACY",
+            "node_id": "A1-GB-L01-G1",
+            "grammar_ids": [],
+            "pattern_ids": [],
+            "function_ids": []
+          },
+          "tags": [
+            "grammar_note",
+            "meaning_check"
+          ],
+          "review_policy": {
+            "initial_interval_days": 2,
+            "wrong_interval_days": 1,
+            "correct_fast_interval_days": 7
+          }
+        }
+      },
+      "adapter_hints": {
+        "content_renderer_key": "quiz_item",
+        "interaction_renderer_key": null
+      }
+    },
+    {
+      "id": "A1-GB-L01-LEGACY-IB-005",
+      "candidate_type": "lesson",
+      "content_form": "quiz_item",
+      "learning_role": "review_retrieval",
+      "skill_focus": [
+        "grammar"
+      ],
+      "output_mode": "none",
+      "duration_min": 1,
+      "title_zh_tw": "題目 05 · cloze",
+      "summary_zh_tw": "填入最適合的詞，完成句子。",
+      "expected_output_zh_tw": "先作答再自我核對答案。",
+      "payload": {
+        "item": {
+          "item_id": "A1-GB-L01-LEGACY-IB-005",
+          "item_type": "cloze",
+          "skill": "grammar",
+          "difficulty_tier": "L1",
+          "prompt_zh_tw": "填入最適合的詞，完成句子。",
+          "prompt_ko": "안녕하세요! 혹시 ____",
+          "choices": [
+            "이사를",
+            "민수예요.",
+            "신입생이에요?"
+          ],
+          "answer_key": {
+            "type": "single_choice",
+            "value": "신입생이에요?"
+          },
+          "explanation_zh_tw": "先看句尾語氣，再選符合語境的詞。",
+          "linked_refs": {
+            "lesson_id": "A1-GB-L01-LEGACY",
+            "node_id": "A1-GB-L01-L1",
+            "grammar_ids": [],
+            "pattern_ids": [],
+            "function_ids": []
+          },
+          "tags": [
+            "dialogue",
+            "cloze"
+          ],
+          "review_policy": {
+            "initial_interval_days": 2,
+            "wrong_interval_days": 1,
+            "correct_fast_interval_days": 7
+          }
+        }
+      },
+      "adapter_hints": {
+        "content_renderer_key": "quiz_item",
+        "interaction_renderer_key": null
+      }
+    },
+    {
+      "id": "A1-GB-L01-LEGACY-IB-006",
+      "candidate_type": "lesson",
+      "content_form": "quiz_item",
+      "learning_role": "review_retrieval",
+      "skill_focus": [
+        "grammar"
+      ],
+      "output_mode": "none",
+      "duration_min": 1,
+      "title_zh_tw": "題目 06 · cloze",
+      "summary_zh_tw": "填入最適合的詞，完成句子。",
+      "expected_output_zh_tw": "先作答再自我核對答案。",
+      "payload": {
+        "item": {
+          "item_id": "A1-GB-L01-LEGACY-IB-006",
+          "item_type": "cloze",
+          "skill": "grammar",
+          "difficulty_tier": "L1",
+          "prompt_zh_tw": "填入最適合的詞，完成句子。",
+          "prompt_ko": "네, 맞아요. 오늘이 ____",
+          "choices": [
+            "학교가",
+            "수업들은",
+            "첫날이에요."
+          ],
+          "answer_key": {
+            "type": "single_choice",
+            "value": "첫날이에요."
+          },
+          "explanation_zh_tw": "先看句尾語氣，再選符合語境的詞。",
+          "linked_refs": {
+            "lesson_id": "A1-GB-L01-LEGACY",
+            "node_id": "A1-GB-L01-L1",
+            "grammar_ids": [],
+            "pattern_ids": [],
+            "function_ids": []
+          },
+          "tags": [
+            "dialogue",
+            "cloze"
+          ],
+          "review_policy": {
+            "initial_interval_days": 2,
+            "wrong_interval_days": 1,
+            "correct_fast_interval_days": 7
+          }
+        }
+      },
+      "adapter_hints": {
+        "content_renderer_key": "quiz_item",
+        "interaction_renderer_key": null
+      }
+    },
+    {
+      "id": "A1-GB-L01-LEGACY-IB-007",
+      "candidate_type": "lesson",
+      "content_form": "quiz_item",
+      "learning_role": "review_retrieval",
+      "skill_focus": [
+        "grammar"
+      ],
+      "output_mode": "none",
+      "duration_min": 1,
+      "title_zh_tw": "題目 07 · cloze",
+      "summary_zh_tw": "填入最適合的詞，完成句子。",
+      "expected_output_zh_tw": "先作答再自我核對答案。",
+      "payload": {
+        "item": {
+          "item_id": "A1-GB-L01-LEGACY-IB-007",
+          "item_type": "cloze",
+          "skill": "grammar",
+          "difficulty_tier": "L1",
+          "prompt_zh_tw": "填入最適合的詞，完成句子。",
+          "prompt_ko": "아, ____ 제 이름은 민수예요.",
+          "choices": [
+            "환영해요!",
+            "부산",
+            "친절하세요."
+          ],
+          "answer_key": {
+            "type": "single_choice",
+            "value": "환영해요!"
+          },
+          "explanation_zh_tw": "先看句尾語氣，再選符合語境的詞。",
+          "linked_refs": {
+            "lesson_id": "A1-GB-L01-LEGACY",
+            "node_id": "A1-GB-L01-L1",
+            "grammar_ids": [],
+            "pattern_ids": [],
+            "function_ids": []
+          },
+          "tags": [
+            "dialogue",
+            "cloze"
+          ],
+          "review_policy": {
+            "initial_interval_days": 2,
+            "wrong_interval_days": 1,
+            "correct_fast_interval_days": 7
+          }
+        }
+      },
+      "adapter_hints": {
+        "content_renderer_key": "quiz_item",
+        "interaction_renderer_key": null
+      }
+    },
+    {
+      "id": "A1-GB-L01-LEGACY-IB-008",
+      "candidate_type": "lesson",
+      "content_form": "quiz_item",
+      "learning_role": "review_retrieval",
+      "skill_focus": [
+        "grammar"
+      ],
+      "output_mode": "none",
+      "duration_min": 1,
+      "title_zh_tw": "題目 08 · cloze",
+      "summary_zh_tw": "填入最適合的詞，完成句子。",
+      "expected_output_zh_tw": "先作答再自我核對答案。",
+      "payload": {
+        "item": {
+          "item_id": "A1-GB-L01-LEGACY-IB-008",
+          "item_type": "cloze",
+          "skill": "grammar",
+          "difficulty_tier": "L1",
+          "prompt_zh_tw": "填入最適合的詞，完成句子。",
+          "prompt_ko": "____ 민수 씨. 저는 지수예요.",
+          "choices": [
+            "반가워요,",
+            "부산",
+            "곳이죠."
+          ],
+          "answer_key": {
+            "type": "single_choice",
+            "value": "반가워요,"
+          },
+          "explanation_zh_tw": "先看句尾語氣，再選符合語境的詞。",
+          "linked_refs": {
+            "lesson_id": "A1-GB-L01-LEGACY",
+            "node_id": "A1-GB-L01-L1",
+            "grammar_ids": [],
+            "pattern_ids": [],
+            "function_ids": []
+          },
+          "tags": [
+            "dialogue",
+            "cloze"
+          ],
+          "review_policy": {
+            "initial_interval_days": 2,
+            "wrong_interval_days": 1,
+            "correct_fast_interval_days": 7
+          }
+        }
+      },
+      "adapter_hints": {
+        "content_renderer_key": "quiz_item",
+        "interaction_renderer_key": null
+      }
+    },
+    {
+      "id": "A1-GB-L01-LEGACY-IB-009",
+      "candidate_type": "lesson",
+      "content_form": "quiz_item",
+      "learning_role": "review_retrieval",
+      "skill_focus": [
+        "grammar"
+      ],
+      "output_mode": "none",
+      "duration_min": 1,
+      "title_zh_tw": "題目 09 · cloze",
+      "summary_zh_tw": "填入最適合的詞，完成句子。",
+      "expected_output_zh_tw": "先作答再自我核對答案。",
+      "payload": {
+        "item": {
+          "item_id": "A1-GB-L01-LEGACY-IB-009",
+          "item_type": "cloze",
+          "skill": "grammar",
+          "difficulty_tier": "L1",
+          "prompt_zh_tw": "填入最適合的詞，完成句子。",
+          "prompt_ko": "서울 ____",
+          "choices": [
+            "좋으신",
+            "사람이에요?",
+            "지수예요."
+          ],
+          "answer_key": {
+            "type": "single_choice",
+            "value": "사람이에요?"
+          },
+          "explanation_zh_tw": "先看句尾語氣，再選符合語境的詞。",
+          "linked_refs": {
+            "lesson_id": "A1-GB-L01-LEGACY",
+            "node_id": "A1-GB-L01-L1",
+            "grammar_ids": [],
+            "pattern_ids": [],
+            "function_ids": []
+          },
+          "tags": [
+            "dialogue",
+            "cloze"
+          ],
+          "review_policy": {
+            "initial_interval_days": 2,
+            "wrong_interval_days": 1,
+            "correct_fast_interval_days": 7
+          }
+        }
+      },
+      "adapter_hints": {
+        "content_renderer_key": "quiz_item",
+        "interaction_renderer_key": null
+      }
+    },
+    {
+      "id": "A1-GB-L01-LEGACY-IB-010",
+      "candidate_type": "lesson",
+      "content_form": "quiz_item",
+      "learning_role": "review_retrieval",
+      "skill_focus": [
+        "grammar"
+      ],
+      "output_mode": "none",
+      "duration_min": 1,
+      "title_zh_tw": "題目 10 · cloze",
+      "summary_zh_tw": "填入最適合的詞，完成句子。",
+      "expected_output_zh_tw": "先作答再自我核對答案。",
+      "payload": {
+        "item": {
+          "item_id": "A1-GB-L01-LEGACY-IB-010",
+          "item_type": "cloze",
+          "skill": "grammar",
+          "difficulty_tier": "L1",
+          "prompt_zh_tw": "填入最適合的詞，完成句子。",
+          "prompt_ko": "____ 부산에서 왔어요.",
+          "choices": [
+            "온라인이기도",
+            "아니요,",
+            "정말"
+          ],
+          "answer_key": {
+            "type": "single_choice",
+            "value": "아니요,"
+          },
+          "explanation_zh_tw": "先看句尾語氣，再選符合語境的詞。",
+          "linked_refs": {
+            "lesson_id": "A1-GB-L01-LEGACY",
+            "node_id": "A1-GB-L01-L1",
+            "grammar_ids": [],
+            "pattern_ids": [],
+            "function_ids": []
+          },
+          "tags": [
+            "dialogue",
+            "cloze"
+          ],
+          "review_policy": {
+            "initial_interval_days": 2,
+            "wrong_interval_days": 1,
+            "correct_fast_interval_days": 7
+          }
+        }
+      },
+      "adapter_hints": {
+        "content_renderer_key": "quiz_item",
+        "interaction_renderer_key": null
+      }
+    },
+    {
+      "id": "A1-GB-L01-LEGACY-IB-011",
+      "candidate_type": "lesson",
+      "content_form": "quiz_item",
+      "learning_role": "review_retrieval",
+      "skill_focus": [
+        "grammar"
+      ],
+      "output_mode": "none",
+      "duration_min": 1,
+      "title_zh_tw": "題目 11 · cloze",
+      "summary_zh_tw": "填入最適合的詞，完成句子。",
+      "expected_output_zh_tw": "先作答再自我核對答案。",
+      "payload": {
+        "item": {
+          "item_id": "A1-GB-L01-LEGACY-IB-011",
+          "item_type": "cloze",
+          "skill": "grammar",
+          "difficulty_tier": "L1",
+          "prompt_zh_tw": "填入最適合的詞，完成句子。",
+          "prompt_ko": "와! 부산요? 부산 정말 좋은 곳이죠. 우리 학교 생활이 ____ 좋겠네요.",
+          "choices": [
+            "감사합니다.",
+            "돼서",
+            "즐거웠으면"
+          ],
+          "answer_key": {
+            "type": "single_choice",
+            "value": "즐거웠으면"
+          },
+          "explanation_zh_tw": "先看句尾語氣，再選符合語境的詞。",
+          "linked_refs": {
+            "lesson_id": "A1-GB-L01-LEGACY",
+            "node_id": "A1-GB-L01-L1",
+            "grammar_ids": [],
+            "pattern_ids": [],
+            "function_ids": []
+          },
+          "tags": [
+            "dialogue",
+            "cloze"
+          ],
+          "review_policy": {
+            "initial_interval_days": 2,
+            "wrong_interval_days": 1,
+            "correct_fast_interval_days": 7
+          }
+        }
+      },
+      "adapter_hints": {
+        "content_renderer_key": "quiz_item",
+        "interaction_renderer_key": null
+      }
+    },
+    {
+      "id": "A1-GB-L01-LEGACY-IB-012",
+      "candidate_type": "lesson",
+      "content_form": "quiz_item",
+      "learning_role": "review_retrieval",
+      "skill_focus": [
+        "grammar"
+      ],
+      "output_mode": "none",
+      "duration_min": 1,
+      "title_zh_tw": "題目 12 · cloze",
+      "summary_zh_tw": "填入最適合的詞，完成句子。",
+      "expected_output_zh_tw": "先作答再自我核對答案。",
+      "payload": {
+        "item": {
+          "item_id": "A1-GB-L01-LEGACY-IB-012",
+          "item_type": "cloze",
+          "skill": "grammar",
+          "difficulty_tier": "L1",
+          "prompt_zh_tw": "填入最適合的詞，完成句子。",
+          "prompt_ko": "____ 민수 씨는 여기 사세요?",
+          "choices": [
+            "영어",
+            "감사합니다.",
+            "한데,"
+          ],
+          "answer_key": {
+            "type": "single_choice",
+            "value": "감사합니다."
+          },
+          "explanation_zh_tw": "先看句尾語氣，再選符合語境的詞。",
+          "linked_refs": {
+            "lesson_id": "A1-GB-L01-LEGACY",
+            "node_id": "A1-GB-L01-L1",
+            "grammar_ids": [],
+            "pattern_ids": [],
+            "function_ids": []
+          },
+          "tags": [
+            "dialogue",
+            "cloze"
+          ],
+          "review_policy": {
+            "initial_interval_days": 2,
+            "wrong_interval_days": 1,
+            "correct_fast_interval_days": 7
+          }
+        }
+      },
+      "adapter_hints": {
+        "content_renderer_key": "quiz_item",
+        "interaction_renderer_key": null
+      }
+    },
+    {
+      "id": "A1-GB-L01-LEGACY-IB-013",
+      "candidate_type": "lesson",
+      "content_form": "quiz_item",
+      "learning_role": "review_retrieval",
+      "skill_focus": [
+        "grammar"
+      ],
+      "output_mode": "none",
+      "duration_min": 1,
+      "title_zh_tw": "題目 13 · cloze",
+      "summary_zh_tw": "填入最適合的詞，完成句子。",
+      "expected_output_zh_tw": "先作答再自我核對答案。",
+      "payload": {
+        "item": {
+          "item_id": "A1-GB-L01-LEGACY-IB-013",
+          "item_type": "cloze",
+          "skill": "grammar",
+          "difficulty_tier": "L1",
+          "prompt_zh_tw": "填入最適合的詞，完成句子。",
+          "prompt_ko": "네, 저는 여기 ____",
+          "choices": [
+            "토박이예요.",
+            "선생님들이",
+            "재미있어요!"
+          ],
+          "answer_key": {
+            "type": "single_choice",
+            "value": "토박이예요."
+          },
+          "explanation_zh_tw": "先看句尾語氣，再選符合語境的詞。",
+          "linked_refs": {
+            "lesson_id": "A1-GB-L01-LEGACY",
+            "node_id": "A1-GB-L01-L1",
+            "grammar_ids": [],
+            "pattern_ids": [],
+            "function_ids": []
+          },
+          "tags": [
+            "dialogue",
+            "cloze"
+          ],
+          "review_policy": {
+            "initial_interval_days": 2,
+            "wrong_interval_days": 1,
+            "correct_fast_interval_days": 7
+          }
+        }
+      },
+      "adapter_hints": {
+        "content_renderer_key": "quiz_item",
+        "interaction_renderer_key": null
+      }
+    },
+    {
+      "id": "A1-GB-L01-LEGACY-IB-014",
+      "candidate_type": "lesson",
+      "content_form": "quiz_item",
+      "learning_role": "review_retrieval",
+      "skill_focus": [
+        "grammar"
+      ],
+      "output_mode": "none",
+      "duration_min": 1,
+      "title_zh_tw": "題目 14 · cloze",
+      "summary_zh_tw": "填入最適合的詞，完成句子。",
+      "expected_output_zh_tw": "先作答再自我核對答案。",
+      "payload": {
+        "item": {
+          "item_id": "A1-GB-L01-LEGACY-IB-014",
+          "item_type": "cloze",
+          "skill": "grammar",
+          "difficulty_tier": "L1",
+          "prompt_zh_tw": "填入最適合的詞，完成句子。",
+          "prompt_ko": "지수 씨, 첫날 수업은 ____",
+          "choices": [
+            "첫날이에요.",
+            "지수",
+            "어때요?"
+          ],
+          "answer_key": {
+            "type": "single_choice",
+            "value": "어때요?"
+          },
+          "explanation_zh_tw": "先看句尾語氣，再選符合語境的詞。",
+          "linked_refs": {
+            "lesson_id": "A1-GB-L01-LEGACY",
+            "node_id": "A1-GB-L01-L2",
+            "grammar_ids": [],
+            "pattern_ids": [],
+            "function_ids": []
+          },
+          "tags": [
+            "dialogue",
+            "cloze"
+          ],
+          "review_policy": {
+            "initial_interval_days": 2,
+            "wrong_interval_days": 1,
+            "correct_fast_interval_days": 7
+          }
+        }
+      },
+      "adapter_hints": {
+        "content_renderer_key": "quiz_item",
+        "interaction_renderer_key": null
+      }
+    },
+    {
+      "id": "A1-GB-L01-LEGACY-IB-015",
+      "candidate_type": "lesson",
+      "content_form": "quiz_item",
+      "learning_role": "review_retrieval",
+      "skill_focus": [
+        "grammar"
+      ],
+      "output_mode": "none",
+      "duration_min": 1,
+      "title_zh_tw": "題目 15 · cloze",
+      "summary_zh_tw": "填入最適合的詞，完成句子。",
+      "expected_output_zh_tw": "先作答再自我核對答案。",
+      "payload": {
+        "item": {
+          "item_id": "A1-GB-L01-LEGACY-IB-015",
+          "item_type": "cloze",
+          "skill": "grammar",
+          "difficulty_tier": "L1",
+          "prompt_zh_tw": "填入最適合的詞，完成句子。",
+          "prompt_ko": "정말 좋아요. 학교가 참 ____",
+          "choices": [
+            "예쁘네요!",
+            "네,",
+            "첫날"
+          ],
+          "answer_key": {
+            "type": "single_choice",
+            "value": "예쁘네요!"
+          },
+          "explanation_zh_tw": "先看句尾語氣，再選符合語境的詞。",
+          "linked_refs": {
+            "lesson_id": "A1-GB-L01-LEGACY",
+            "node_id": "A1-GB-L01-L2",
+            "grammar_ids": [],
+            "pattern_ids": [],
+            "function_ids": []
+          },
+          "tags": [
+            "dialogue",
+            "cloze"
+          ],
+          "review_policy": {
+            "initial_interval_days": 2,
+            "wrong_interval_days": 1,
+            "correct_fast_interval_days": 7
+          }
+        }
+      },
+      "adapter_hints": {
+        "content_renderer_key": "quiz_item",
+        "interaction_renderer_key": null
+      }
+    },
+    {
+      "id": "A1-GB-L01-LEGACY-IB-016",
+      "candidate_type": "lesson",
+      "content_form": "quiz_item",
+      "learning_role": "review_retrieval",
+      "skill_focus": [
+        "grammar"
+      ],
+      "output_mode": "none",
+      "duration_min": 1,
+      "title_zh_tw": "題目 16 · cloze",
+      "summary_zh_tw": "填入最適合的詞，完成句子。",
+      "expected_output_zh_tw": "先作答再自我核對答案。",
+      "payload": {
+        "item": {
+          "item_id": "A1-GB-L01-LEGACY-IB-016",
+          "item_type": "cloze",
+          "skill": "grammar",
+          "difficulty_tier": "L1",
+          "prompt_zh_tw": "填入最適合的詞，完成句子。",
+          "prompt_ko": "____ 어때요?",
+          "choices": [
+            "돼서",
+            "우리",
+            "수업들은"
+          ],
+          "answer_key": {
+            "type": "single_choice",
+            "value": "수업들은"
+          },
+          "explanation_zh_tw": "先看句尾語氣，再選符合語境的詞。",
+          "linked_refs": {
+            "lesson_id": "A1-GB-L01-LEGACY",
+            "node_id": "A1-GB-L01-L2",
+            "grammar_ids": [],
+            "pattern_ids": [],
+            "function_ids": []
+          },
+          "tags": [
+            "dialogue",
+            "cloze"
+          ],
+          "review_policy": {
+            "initial_interval_days": 2,
+            "wrong_interval_days": 1,
+            "correct_fast_interval_days": 7
+          }
+        }
+      },
+      "adapter_hints": {
+        "content_renderer_key": "quiz_item",
+        "interaction_renderer_key": null
+      }
+    },
+    {
+      "id": "A1-GB-L01-LEGACY-IB-017",
+      "candidate_type": "lesson",
+      "content_form": "quiz_item",
+      "learning_role": "review_retrieval",
+      "skill_focus": [
+        "speaking"
+      ],
+      "output_mode": "none",
+      "duration_min": 1,
+      "title_zh_tw": "題目 17 · transform",
+      "summary_zh_tw": "把下面韓文改成疑問語氣（句尾上揚）。",
+      "expected_output_zh_tw": "先作答再自我核對答案。",
+      "payload": {
+        "item": {
+          "item_id": "A1-GB-L01-LEGACY-IB-017",
+          "item_type": "transform",
+          "skill": "speaking",
+          "difficulty_tier": "L1",
+          "prompt_zh_tw": "把下面韓文改成疑問語氣（句尾上揚）。",
+          "prompt_ko": "네, 맞아요. 오늘이 첫날이에요.",
+          "choices": [],
+          "answer_key": {
+            "type": "short_text",
+            "value": "네, 맞아요. 오늘이 첫날이에요.?"
+          },
+          "explanation_zh_tw": "初級先掌握語調問句，形態可先維持不變。",
+          "linked_refs": {
+            "lesson_id": "A1-GB-L01-LEGACY",
+            "node_id": "A1-GB-L01-L1",
+            "grammar_ids": [],
+            "pattern_ids": [],
+            "function_ids": []
+          },
+          "tags": [
+            "dialogue",
+            "question_intonation"
+          ],
+          "review_policy": {
+            "initial_interval_days": 2,
+            "wrong_interval_days": 1,
+            "correct_fast_interval_days": 7
+          }
+        }
+      },
+      "adapter_hints": {
+        "content_renderer_key": "quiz_item",
+        "interaction_renderer_key": null
+      }
+    },
+    {
+      "id": "A1-GB-L01-LEGACY-IB-018",
+      "candidate_type": "lesson",
+      "content_form": "quiz_item",
+      "learning_role": "review_retrieval",
+      "skill_focus": [
+        "speaking"
+      ],
+      "output_mode": "none",
+      "duration_min": 1,
+      "title_zh_tw": "題目 18 · transform",
+      "summary_zh_tw": "把下面韓文改成疑問語氣（句尾上揚）。",
+      "expected_output_zh_tw": "先作答再自我核對答案。",
+      "payload": {
+        "item": {
+          "item_id": "A1-GB-L01-LEGACY-IB-018",
+          "item_type": "transform",
+          "skill": "speaking",
+          "difficulty_tier": "L1",
+          "prompt_zh_tw": "把下面韓文改成疑問語氣（句尾上揚）。",
+          "prompt_ko": "아, 환영해요! 제 이름은 민수예요.",
+          "choices": [],
+          "answer_key": {
+            "type": "short_text",
+            "value": "아, 환영해요! 제 이름은 민수예요.?"
+          },
+          "explanation_zh_tw": "初級先掌握語調問句，形態可先維持不變。",
+          "linked_refs": {
+            "lesson_id": "A1-GB-L01-LEGACY",
+            "node_id": "A1-GB-L01-L1",
+            "grammar_ids": [],
+            "pattern_ids": [],
+            "function_ids": []
+          },
+          "tags": [
+            "dialogue",
+            "question_intonation"
+          ],
+          "review_policy": {
+            "initial_interval_days": 2,
+            "wrong_interval_days": 1,
+            "correct_fast_interval_days": 7
+          }
+        }
+      },
+      "adapter_hints": {
+        "content_renderer_key": "quiz_item",
+        "interaction_renderer_key": null
+      }
+    },
+    {
+      "id": "A1-GB-L01-LEGACY-IB-019",
+      "candidate_type": "lesson",
+      "content_form": "quiz_item",
+      "learning_role": "review_retrieval",
+      "skill_focus": [
+        "speaking"
+      ],
+      "output_mode": "none",
+      "duration_min": 1,
+      "title_zh_tw": "題目 19 · transform",
+      "summary_zh_tw": "把下面韓文改成疑問語氣（句尾上揚）。",
+      "expected_output_zh_tw": "先作答再自我核對答案。",
+      "payload": {
+        "item": {
+          "item_id": "A1-GB-L01-LEGACY-IB-019",
+          "item_type": "transform",
+          "skill": "speaking",
+          "difficulty_tier": "L1",
+          "prompt_zh_tw": "把下面韓文改成疑問語氣（句尾上揚）。",
+          "prompt_ko": "반가워요, 민수 씨. 저는 지수예요.",
+          "choices": [],
+          "answer_key": {
+            "type": "short_text",
+            "value": "반가워요, 민수 씨. 저는 지수예요.?"
+          },
+          "explanation_zh_tw": "初級先掌握語調問句，形態可先維持不變。",
+          "linked_refs": {
+            "lesson_id": "A1-GB-L01-LEGACY",
+            "node_id": "A1-GB-L01-L1",
+            "grammar_ids": [],
+            "pattern_ids": [],
+            "function_ids": []
+          },
+          "tags": [
+            "dialogue",
+            "question_intonation"
+          ],
+          "review_policy": {
+            "initial_interval_days": 2,
+            "wrong_interval_days": 1,
+            "correct_fast_interval_days": 7
+          }
+        }
+      },
+      "adapter_hints": {
+        "content_renderer_key": "quiz_item",
+        "interaction_renderer_key": null
+      }
+    },
+    {
+      "id": "A1-GB-L01-LEGACY-IB-020",
+      "candidate_type": "lesson",
+      "content_form": "quiz_item",
+      "learning_role": "review_retrieval",
+      "skill_focus": [
+        "speaking"
+      ],
+      "output_mode": "none",
+      "duration_min": 1,
+      "title_zh_tw": "題目 20 · transform",
+      "summary_zh_tw": "把下面韓文改成疑問語氣（句尾上揚）。",
+      "expected_output_zh_tw": "先作答再自我核對答案。",
+      "payload": {
+        "item": {
+          "item_id": "A1-GB-L01-LEGACY-IB-020",
+          "item_type": "transform",
+          "skill": "speaking",
+          "difficulty_tier": "L1",
+          "prompt_zh_tw": "把下面韓文改成疑問語氣（句尾上揚）。",
+          "prompt_ko": "아니요, 부산에서 왔어요.",
+          "choices": [],
+          "answer_key": {
+            "type": "short_text",
+            "value": "아니요, 부산에서 왔어요.?"
+          },
+          "explanation_zh_tw": "初級先掌握語調問句，形態可先維持不變。",
+          "linked_refs": {
+            "lesson_id": "A1-GB-L01-LEGACY",
+            "node_id": "A1-GB-L01-L1",
+            "grammar_ids": [],
+            "pattern_ids": [],
+            "function_ids": []
+          },
+          "tags": [
+            "dialogue",
+            "question_intonation"
+          ],
+          "review_policy": {
+            "initial_interval_days": 2,
+            "wrong_interval_days": 1,
+            "correct_fast_interval_days": 7
+          }
+        }
+      },
+      "adapter_hints": {
+        "content_renderer_key": "quiz_item",
+        "interaction_renderer_key": null
+      }
+    },
+    {
+      "id": "A1-GB-L01-LEGACY-IB-021",
+      "candidate_type": "lesson",
+      "content_form": "quiz_item",
+      "learning_role": "review_retrieval",
+      "skill_focus": [
+        "grammar"
+      ],
+      "output_mode": "none",
+      "duration_min": 1,
+      "title_zh_tw": "題目 21 · retrieval",
+      "summary_zh_tw": "請口頭說明「形態變化：N-이에요 / 예요 (Status: 是)」的一個重點。",
+      "expected_output_zh_tw": "先作答再自我核對答案。",
+      "payload": {
+        "item": {
+          "item_id": "A1-GB-L01-LEGACY-IB-021",
+          "item_type": "retrieval",
+          "skill": "grammar",
+          "difficulty_tier": "L1",
+          "prompt_zh_tw": "請口頭說明「形態變化：N-이에요 / 예요 (Status: 是)」的一個重點。",
+          "prompt_ko": "",
+          "choices": [],
+          "answer_key": {
+            "type": "short_text",
+            "value": "根據名詞最後一個字是否有收音 Batchim 來決定："
+          },
+          "explanation_zh_tw": "用自己的話重述規則即可，不必逐字背誦。",
+          "linked_refs": {
+            "lesson_id": "A1-GB-L01-LEGACY",
+            "node_id": "A1-GB-L01-G1",
+            "grammar_ids": [],
+            "pattern_ids": [],
+            "function_ids": []
+          },
+          "tags": [
+            "grammar_retrieval"
+          ],
+          "review_policy": {
+            "initial_interval_days": 2,
+            "wrong_interval_days": 1,
+            "correct_fast_interval_days": 7
+          }
+        }
+      },
+      "adapter_hints": {
+        "content_renderer_key": "quiz_item",
+        "interaction_renderer_key": null
+      }
+    },
+    {
+      "id": "A1-GB-L01-LEGACY-IB-022",
+      "candidate_type": "lesson",
+      "content_form": "quiz_item",
+      "learning_role": "review_retrieval",
+      "skill_focus": [
+        "grammar"
+      ],
+      "output_mode": "none",
+      "duration_min": 1,
+      "title_zh_tw": "題目 22 · retrieval",
+      "summary_zh_tw": "請口頭說明「肯定與否定 (Yes/No)」的一個重點。",
+      "expected_output_zh_tw": "先作答再自我核對答案。",
+      "payload": {
+        "item": {
+          "item_id": "A1-GB-L01-LEGACY-IB-022",
+          "item_type": "retrieval",
+          "skill": "grammar",
+          "difficulty_tier": "L1",
+          "prompt_zh_tw": "請口頭說明「肯定與否定 (Yes/No)」的一個重點。",
+          "prompt_ko": "",
+          "choices": [],
+          "answer_key": {
+            "type": "short_text",
+            "value": "韓語的「對/不對」是非常重要的基礎："
+          },
+          "explanation_zh_tw": "用自己的話重述規則即可，不必逐字背誦。",
+          "linked_refs": {
+            "lesson_id": "A1-GB-L01-LEGACY",
+            "node_id": "A1-GB-L01-G1",
+            "grammar_ids": [],
+            "pattern_ids": [],
+            "function_ids": []
+          },
+          "tags": [
+            "grammar_retrieval"
+          ],
+          "review_policy": {
+            "initial_interval_days": 2,
+            "wrong_interval_days": 1,
+            "correct_fast_interval_days": 7
+          }
+        }
+      },
+      "adapter_hints": {
+        "content_renderer_key": "quiz_item",
+        "interaction_renderer_key": null
+      }
+    },
+    {
+      "id": "A1-GB-L01-LEGACY-IB-023",
+      "candidate_type": "lesson",
+      "content_form": "quiz_item",
+      "learning_role": "review_retrieval",
+      "skill_focus": [
+        "grammar"
+      ],
+      "output_mode": "none",
+      "duration_min": 1,
+      "title_zh_tw": "題目 23 · retrieval",
+      "summary_zh_tw": "請口頭說明「基礎問候語 (Basic Greetings)」的一個重點。",
+      "expected_output_zh_tw": "先作答再自我核對答案。",
+      "payload": {
+        "item": {
+          "item_id": "A1-GB-L01-LEGACY-IB-023",
+          "item_type": "retrieval",
+          "skill": "grammar",
+          "difficulty_tier": "L1",
+          "prompt_zh_tw": "請口頭說明「基礎問候語 (Basic Greetings)」的一個重點。",
+          "prompt_ko": "",
+          "choices": [],
+          "answer_key": {
+            "type": "short_text",
+            "value": "在對話中，我們看到以下常用表達："
+          },
+          "explanation_zh_tw": "用自己的話重述規則即可，不必逐字背誦。",
+          "linked_refs": {
+            "lesson_id": "A1-GB-L01-LEGACY",
+            "node_id": "A1-GB-L01-G1",
+            "grammar_ids": [],
+            "pattern_ids": [],
+            "function_ids": []
+          },
+          "tags": [
+            "grammar_retrieval"
+          ],
+          "review_policy": {
+            "initial_interval_days": 2,
+            "wrong_interval_days": 1,
+            "correct_fast_interval_days": 7
+          }
+        }
+      },
+      "adapter_hints": {
+        "content_renderer_key": "quiz_item",
+        "interaction_renderer_key": null
+      }
+    }
+  ]
+}

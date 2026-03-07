@@ -1,0 +1,557 @@
+{
+  "version": "unit_blueprint_v0.1",
+  "adapter_contract": {
+    "adapter_version": "frontend_unit_adapter_v0",
+    "stability": "bg_l01_g1_pattern_preview_v1",
+    "fallback_locale_order": [
+      "zh_tw",
+      "en"
+    ],
+    "notes": "Beginner Grammar Lesson 01 G1 pattern-lab preview with reusable sentence-switch builders."
+  },
+  "unit": {
+    "unit_id": "A1-BG-L01-G1-PATTERN-PREVIEW",
+    "title_zh_tw": "Beginner Grammar Lesson 01 · 句型切換試作",
+    "target_language": "ko",
+    "learner_locale_source": "zh_tw",
+    "level": "A1",
+    "theme_zh_tw": "把同一句切成三種語氣",
+    "output_ratio_target": 0.2,
+    "can_do_zh_tw": [
+      "能把同一句切成正式、日常、朋友三種版本",
+      "能用少量名詞做替換，不只死背單一句子",
+      "能看懂名字後面加 씨 時語氣會比較有禮貌"
+    ]
+  },
+  "sequence": [
+    {
+      "id": "A1-BG-L01-G1-PATTERN-LAB",
+      "candidate_type": "lesson",
+      "content_form": "pattern_lab",
+      "learning_role": "structure_pattern",
+      "skill_focus": [
+        "reading",
+        "speaking"
+      ],
+      "output_mode": "none",
+      "duration_min": 10,
+      "title_zh_tw": "句型切換：同一句怎麼換語氣",
+      "summary_zh_tw": "先不要追求很多新句子，先把幾個最常用的句型切熟。",
+      "expected_output_zh_tw": "能把同一句切成 `합니다체`、`해요체`、`야/이야` 三種版本。",
+      "payload": {
+        "lesson_support_module": {
+          "module_id": "CT-KO-BEG-001",
+          "title_i18n": {
+            "zh_tw": "先抓三種說話口氣",
+            "en": "Start by feeling these three speech styles"
+          },
+          "why_here_i18n": {
+            "zh_tw": "這裡先不要分析太細，你先用耳朵抓感覺就好。有些句子聽起來比較日常，有些一聽就像在跟熟朋友講。後面 G1 再把同一句拆開練。",
+            "en": "You do not need to memorize rules first. Just remember one thing: sentence endings change depending on who you are speaking to. Start with the three most common styles, and when unsure, use `~아요/어요/해요`."
+          },
+          "items": [
+            {
+              "target": "很正式時這樣講：`~습니다 / ~ㅂ니다`",
+              "explain_i18n": {
+                "zh_tw": "像發表、公告、面試，或你想把語氣拉高一點時會用。",
+                "en": "Use this in presentations, notices, interviews, or when you want to sound more formal."
+              }
+            },
+            {
+              "target": "平常先這樣講：`~아요 / ~어요 / ~해요`",
+              "explain_i18n": {
+                "zh_tw": "這個最常用，也最安全。第一次見面、旅行、問路、買東西先用這個通常不會錯。",
+                "en": "This is the most common and safest choice for everyday situations."
+              }
+            },
+            {
+              "target": "熟了再這樣講：`~야 / ~이야`",
+              "explain_i18n": {
+                "zh_tw": "這是跟熟朋友講話時常用的說法。還不熟的時候，先不要急著切過去。",
+                "en": "This is commonly used with close friends. Do not rush into it when you are not close yet."
+              }
+            }
+          ]
+        },
+        "pattern_builder_demos": [
+          {
+            "builder_id": "identity-register-switch",
+            "controls": [
+              {
+                "control_id": "speaker",
+                "options": [
+                  {
+                    "value": "저는",
+                    "gloss_zh_tw": "我",
+                    "label_i18n": {
+                      "zh_tw": "저는",
+                      "en": "저는"
+                    }
+                  },
+                  {
+                    "value": "나는",
+                    "gloss_zh_tw": "我",
+                    "label_i18n": {
+                      "zh_tw": "나는",
+                      "en": "나는"
+                    }
+                  }
+                ],
+                "label_i18n": {
+                  "zh_tw": "주어",
+                  "en": "주어"
+                }
+              },
+              {
+                "control_id": "identity",
+                "options": [
+                  {
+                    "value": "학생",
+                    "gloss_zh_tw": "學生",
+                    "ending_type": "batchim",
+                    "label_i18n": {
+                      "zh_tw": "학생",
+                      "en": "학생"
+                    }
+                  },
+                  {
+                    "value": "의사",
+                    "gloss_zh_tw": "醫生",
+                    "ending_type": "vowel",
+                    "label_i18n": {
+                      "zh_tw": "의사",
+                      "en": "의사"
+                    }
+                  },
+                  {
+                    "value": "여행자",
+                    "gloss_zh_tw": "旅人",
+                    "ending_type": "vowel",
+                    "label_i18n": {
+                      "zh_tw": "여행자",
+                      "en": "여행자"
+                    }
+                  }
+                ],
+                "label_i18n": {
+                  "zh_tw": "명사",
+                  "en": "명사"
+                }
+              },
+              {
+                "control_id": "register",
+                "options": [
+                  {
+                    "value": "formal",
+                    "gloss_zh_tw": "正式",
+                    "label_i18n": {
+                      "zh_tw": "합니다체 · 正式",
+                      "en": "합니다체 · formal"
+                    }
+                  },
+                  {
+                    "value": "polite",
+                    "gloss_zh_tw": "日常",
+                    "label_i18n": {
+                      "zh_tw": "해요체 · 日常",
+                      "en": "해요체 · everyday"
+                    }
+                  },
+                  {
+                    "value": "casual",
+                    "gloss_zh_tw": "朋友",
+                    "label_i18n": {
+                      "zh_tw": "반말 · 朋友",
+                      "en": "반말 · casual"
+                    }
+                  }
+                ],
+                "label_i18n": {
+                  "zh_tw": "문체",
+                  "en": "문체"
+                }
+              }
+            ],
+            "register_templates": {
+              "formal": "{speaker} {identity}{copula}",
+              "polite": "{speaker} {identity}{copula}",
+              "casual": "{speaker} {identity}{copula}"
+            },
+            "translation_templates": {
+              "formal": "我是{identity}（正式）",
+              "polite": "我是{identity}（日常）",
+              "casual": "我是{identity}（朋友）"
+            },
+            "control_rules": {
+              "speaker_by_register": {
+                "formal": "저는",
+                "polite": "저는",
+                "casual": "나는"
+              }
+            },
+            "dynamic_token_rules": [
+              {
+                "token": "copula",
+                "source_control_id": "identity",
+                "map_by_register_and_ending": {
+                  "formal": {
+                    "vowel": "입니다.",
+                    "batchim": "입니다."
+                  },
+                  "polite": {
+                    "vowel": "예요.",
+                    "batchim": "이에요."
+                  },
+                  "casual": {
+                    "vowel": "야.",
+                    "batchim": "이야."
+                  }
+                }
+              }
+            ],
+            "title_i18n": {
+              "zh_tw": "句型 1：同一句先切三種語氣",
+              "en": "Pattern 1: Switch one sentence across three speech levels"
+            },
+            "inline_hint_i18n": {
+              "zh_tw": "先用這一句感受三種句尾差在哪裡；拿不準時，先切到 `해요체`。",
+              "en": "Use this sentence to feel the three ending types; when unsure, start with 해요체."
+            }
+          },
+          {
+            "builder_id": "name-question-switch",
+            "controls": [
+              {
+                "control_id": "name",
+                "options": [
+                  {
+                    "value": "유나",
+                    "gloss_zh_tw": "Yuna",
+                    "ending_type": "vowel",
+                    "label_i18n": {
+                      "zh_tw": "유나",
+                      "en": "유나"
+                    }
+                  },
+                  {
+                    "value": "민수",
+                    "gloss_zh_tw": "敏秀",
+                    "ending_type": "vowel",
+                    "label_i18n": {
+                      "zh_tw": "민수",
+                      "en": "민수"
+                    }
+                  },
+                  {
+                    "value": "지민",
+                    "gloss_zh_tw": "智敏",
+                    "ending_type": "batchim",
+                    "label_i18n": {
+                      "zh_tw": "지민",
+                      "en": "지민"
+                    }
+                  }
+                ],
+                "label_i18n": {
+                  "zh_tw": "이름",
+                  "en": "이름"
+                }
+              },
+              {
+                "control_id": "identity",
+                "options": [
+                  {
+                    "value": "학생",
+                    "gloss_zh_tw": "學生",
+                    "ending_type": "batchim",
+                    "label_i18n": {
+                      "zh_tw": "학생",
+                      "en": "학생"
+                    }
+                  },
+                  {
+                    "value": "의사",
+                    "gloss_zh_tw": "醫生",
+                    "ending_type": "vowel",
+                    "label_i18n": {
+                      "zh_tw": "의사",
+                      "en": "의사"
+                    }
+                  },
+                  {
+                    "value": "여행자",
+                    "gloss_zh_tw": "旅人",
+                    "ending_type": "vowel",
+                    "label_i18n": {
+                      "zh_tw": "여행자",
+                      "en": "여행자"
+                    }
+                  }
+                ],
+                "label_i18n": {
+                  "zh_tw": "명사",
+                  "en": "명사"
+                }
+              },
+              {
+                "control_id": "register",
+                "options": [
+                  {
+                    "value": "formal",
+                    "gloss_zh_tw": "正式",
+                    "label_i18n": {
+                      "zh_tw": "합니다체 · 正式",
+                      "en": "합니다체 · formal"
+                    }
+                  },
+                  {
+                    "value": "polite",
+                    "gloss_zh_tw": "日常",
+                    "label_i18n": {
+                      "zh_tw": "해요체 · 日常",
+                      "en": "해요체 · everyday"
+                    }
+                  },
+                  {
+                    "value": "casual",
+                    "gloss_zh_tw": "朋友",
+                    "label_i18n": {
+                      "zh_tw": "반말 · 朋友",
+                      "en": "반말 · casual"
+                    }
+                  }
+                ],
+                "label_i18n": {
+                  "zh_tw": "문체",
+                  "en": "문체"
+                }
+              }
+            ],
+            "register_templates": {
+              "formal": "{name}{name_suffix} {identity}{copula_question}",
+              "polite": "{name}{name_suffix} {identity}{copula_question}",
+              "casual": "{name}{topic_particle} {identity}{copula_question}"
+            },
+            "translation_templates": {
+              "formal": "{name}是{identity}嗎？（正式）",
+              "polite": "{name}是{identity}嗎？（日常）",
+              "casual": "{name}是{identity}嗎？（朋友）"
+            },
+            "dynamic_token_rules": [
+              {
+                "token": "name_suffix",
+                "source_control_id": "name",
+                "map_by_register_and_ending": {
+                  "formal": {
+                    "vowel": " 씨는",
+                    "batchim": " 씨는"
+                  },
+                  "polite": {
+                    "vowel": " 씨는",
+                    "batchim": " 씨는"
+                  },
+                  "casual": {
+                    "vowel": "",
+                    "batchim": ""
+                  }
+                }
+              },
+              {
+                "token": "topic_particle",
+                "source_control_id": "name",
+                "map_by_ending": {
+                  "vowel": "는",
+                  "batchim": "은"
+                }
+              },
+              {
+                "token": "copula_question",
+                "source_control_id": "identity",
+                "map_by_register_and_ending": {
+                  "formal": {
+                    "vowel": "입니까?",
+                    "batchim": "입니까?"
+                  },
+                  "polite": {
+                    "vowel": "예요?",
+                    "batchim": "이에요?"
+                  },
+                  "casual": {
+                    "vowel": "야?",
+                    "batchim": "이야?"
+                  }
+                }
+              }
+            ],
+            "title_i18n": {
+              "zh_tw": "句型 2：問對方時也要跟著換語氣",
+              "en": "Pattern 2: Switch speech level when asking someone"
+            },
+            "inline_hint_i18n": {
+              "zh_tw": "這句除了換語氣，也順便感受名字後面加 `씨` 會比較有禮貌。",
+              "en": "Besides switching speech levels, notice how adding 씨 after the name sounds more polite."
+            }
+          },
+          {
+            "builder_id": "place-topic-switch",
+            "controls": [
+              {
+                "control_id": "place_demo",
+                "options": [
+                  {
+                    "value": "여기",
+                    "gloss_zh_tw": "這裡",
+                    "ending_type": "vowel",
+                    "label_i18n": {
+                      "zh_tw": "여기",
+                      "en": "여기"
+                    }
+                  },
+                  {
+                    "value": "거기",
+                    "gloss_zh_tw": "那裡",
+                    "ending_type": "vowel",
+                    "label_i18n": {
+                      "zh_tw": "거기",
+                      "en": "거기"
+                    }
+                  },
+                  {
+                    "value": "저기",
+                    "gloss_zh_tw": "那邊",
+                    "ending_type": "vowel",
+                    "label_i18n": {
+                      "zh_tw": "저기",
+                      "en": "저기"
+                    }
+                  }
+                ],
+                "label_i18n": {
+                  "zh_tw": "앞말",
+                  "en": "앞말"
+                }
+              },
+              {
+                "control_id": "place_noun",
+                "options": [
+                  {
+                    "value": "카페",
+                    "gloss_zh_tw": "咖啡廳",
+                    "ending_type": "vowel",
+                    "label_i18n": {
+                      "zh_tw": "카페",
+                      "en": "카페"
+                    }
+                  },
+                  {
+                    "value": "역",
+                    "gloss_zh_tw": "車站",
+                    "ending_type": "batchim",
+                    "label_i18n": {
+                      "zh_tw": "역",
+                      "en": "역"
+                    }
+                  },
+                  {
+                    "value": "숙소",
+                    "gloss_zh_tw": "住宿",
+                    "ending_type": "vowel",
+                    "label_i18n": {
+                      "zh_tw": "숙소",
+                      "en": "숙소"
+                    }
+                  }
+                ],
+                "label_i18n": {
+                  "zh_tw": "뒷말",
+                  "en": "뒷말"
+                }
+              },
+              {
+                "control_id": "register",
+                "options": [
+                  {
+                    "value": "formal",
+                    "gloss_zh_tw": "正式",
+                    "label_i18n": {
+                      "zh_tw": "합니다체 · 正式",
+                      "en": "합니다체 · formal"
+                    }
+                  },
+                  {
+                    "value": "polite",
+                    "gloss_zh_tw": "日常",
+                    "label_i18n": {
+                      "zh_tw": "해요체 · 日常",
+                      "en": "해요체 · everyday"
+                    }
+                  },
+                  {
+                    "value": "casual",
+                    "gloss_zh_tw": "朋友",
+                    "label_i18n": {
+                      "zh_tw": "반말 · 朋友",
+                      "en": "반말 · casual"
+                    }
+                  }
+                ],
+                "label_i18n": {
+                  "zh_tw": "문체",
+                  "en": "문체"
+                }
+              }
+            ],
+            "register_templates": {
+              "formal": "{place_demo}는 {place_noun}{copula}",
+              "polite": "{place_demo}는 {place_noun}{copula}",
+              "casual": "{place_demo}는 {place_noun}{copula}"
+            },
+            "translation_templates": {
+              "formal": "{place_demo}是{place_noun}（{register}）",
+              "polite": "{place_demo}是{place_noun}（{register}）",
+              "casual": "{place_demo}是{place_noun}（{register}）"
+            },
+            "dynamic_token_rules": [
+              {
+                "token": "copula",
+                "source_control_id": "place_noun",
+                "map_by_register_and_ending": {
+                  "formal": {
+                    "vowel": "입니다.",
+                    "batchim": "입니다."
+                  },
+                  "polite": {
+                    "vowel": "예요.",
+                    "batchim": "이에요."
+                  },
+                  "casual": {
+                    "vowel": "야.",
+                    "batchim": "이야."
+                  }
+                }
+              }
+            ],
+            "title_i18n": {
+              "zh_tw": "句型 3：同樣的判斷句，也能跟著換語氣",
+              "en": "Pattern 3: The same statement can also switch speech level"
+            },
+            "inline_hint_i18n": {
+              "zh_tw": "地點句也能同樣切三種句尾，不只有自我介紹才會換。",
+              "en": "Place statements also switch across the same three ending types."
+            }
+          }
+        ],
+        "source_asset_paths": {
+          "lesson_meta": "/Users/ywchen/Dev/lingo/lingo-curriculum-source/source_data/youtube/playlists/beginner_grammar/lessons/lesson_01/lesson_meta.v1.json",
+          "surface": "/Users/ywchen/Dev/lingo/lingo-curriculum-source/source_data/youtube/playlists/beginner_grammar/lessons/lesson_01/l1_dialogue_surface.v1.json",
+          "atoms": "/Users/ywchen/Dev/lingo/lingo-curriculum-source/source_data/youtube/playlists/beginner_grammar/lessons/lesson_01/l1_dialogue_atoms.v1.json",
+          "dict": "/Users/ywchen/Dev/lingo/lingo-curriculum-source/source_data/youtube/playlists/beginner_grammar/lessons/lesson_01/l1_dialogue_dict.v1.json"
+        }
+      },
+      "adapter_hints": {
+        "content_renderer_key": "dialogue",
+        "interaction_renderer_key": null
+      }
+    }
+  ]
+}

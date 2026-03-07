@@ -146,23 +146,285 @@ window.renderDetailSummary = function (node) {
 
 // --- Content Form implementation functions ---
 
-const renderDialogue = function (payload) {
-  const turns = payload.dialogue_turns || [];
-  if (!payload.dialogue_turns) return window.RendererRegistry.renderMalformedPayload('dialogue', 'none', ['dialogue_turns']);
+window.updatePatternBuilder = function (builderId, configJson) {
+  let config;
+  try {
+    config = JSON.parse(configJson);
+  } catch (err) {
+    return;
+  }
 
-  const html = turns.map((t, idx) => {
-    const isRight = idx % 2 !== 0;
-    return `
-      <div class="dialogue-turn ${isRight ? 'turn-right' : 'turn-left'}">
-        <div class="speaker-label">${window.escapeHtml(t.speaker)}</div>
-        <div class="bubble">
-          <div class="bubble-ko">${window.escapeHtml(t.text)} ${window.renderSpeakButton(t.text)}</div>
-          ${window.showBilingual() && t.zh_tw ? `<div class="bubble-zh">${window.escapeHtml(t.zh_tw)}</div>` : ''}
+  const root = document.getElementById(builderId);
+  if (!root) return;
+
+  const outputEl = root.querySelector('[data-builder-output]');
+  const glossEl = root.querySelector('[data-builder-gloss]');
+  if (!outputEl) return;
+
+  const values = {};
+  (config.controls || []).forEach(control => {
+    const select = root.querySelector(`[data-builder-control="${control.control_id}"]`);
+    values[control.control_id] = select ? select.value : '';
+  });
+
+  const registerKey = values.register || 'polite';
+  const computed = window.computePatternBuilderOutput(config, values);
+
+  const speakerSelect = root.querySelector('[data-builder-control="speaker"]');
+  if (speakerSelect && computed.values && computed.values.speaker) {
+    speakerSelect.value = computed.values.speaker;
+  }
+
+  outputEl.textContent = computed.sentence;
+  if (glossEl) glossEl.textContent = computed.gloss;
+};
+
+window.updatePatternBuilderFromRoot = function (builderId) {
+  const root = document.getElementById(builderId);
+  if (!root) return;
+  const configJson = root.getAttribute('data-builder-config');
+  if (!configJson) return;
+  window.updatePatternBuilder(builderId, configJson);
+};
+
+window.applyPatternBuilderPreset = function (builderId, presetJson) {
+  const root = document.getElementById(builderId);
+  if (!root) return;
+  let preset;
+  try {
+    preset = JSON.parse(presetJson);
+  } catch (err) {
+    return;
+  }
+
+  Object.entries(preset).forEach(([controlId, value]) => {
+    const select = root.querySelector(`[data-builder-control="${controlId}"]`);
+    if (select) select.value = value;
+  });
+
+  window.updatePatternBuilderFromRoot(builderId);
+};
+
+window.applyPatternBuilderSlotValue = function (builderId, controlId, value) {
+  const root = document.getElementById(builderId);
+  if (!root) return;
+  const select = root.querySelector(`[data-builder-control="${controlId}"]`);
+  if (!select) return;
+  select.value = value;
+  window.updatePatternBuilderFromRoot(builderId);
+};
+
+window.computePatternBuilderOutput = function (config, rawValues) {
+  const values = { ...rawValues };
+  const registerKey = values.register || 'polite';
+  const selectedMap = {};
+
+  (config.controls || []).forEach(control => {
+    const match = (control.options || []).find(opt => opt.value === values[control.control_id]);
+    selectedMap[control.control_id] = match || null;
+  });
+
+  if (config.control_rules && config.control_rules.speaker_by_register) {
+    const allowedSpeaker = config.control_rules.speaker_by_register[registerKey];
+    if (allowedSpeaker) {
+      values.speaker = allowedSpeaker;
+      selectedMap.speaker = ((config.controls || []).find(c => c.control_id === 'speaker')?.options || []).find(opt => opt.value === allowedSpeaker) || selectedMap.speaker;
+    }
+  }
+
+  let sentence = (config.register_templates && config.register_templates[registerKey]) || '';
+
+  if (config.dynamic_token_rules && config.dynamic_token_rules.length) {
+    config.dynamic_token_rules.forEach(rule => {
+      const sourceOption = selectedMap[rule.source_control_id];
+      const endingType = sourceOption && sourceOption.ending_type ? sourceOption.ending_type : 'batchim';
+      let replacement = '';
+
+      if (rule.map_by_register_and_ending) {
+        replacement = (((rule.map_by_register_and_ending || {})[registerKey] || {})[endingType]) || '';
+      } else if (rule.map_by_ending) {
+        replacement = (rule.map_by_ending || {})[endingType] || '';
+      }
+
+      sentence = sentence.replaceAll(`{${rule.token}}`, replacement);
+    });
+  } else if (config.dynamic_suffix_rules && values.identity) {
+    const identityOption = selectedMap.identity;
+    const endingType = identityOption && identityOption.ending_type ? identityOption.ending_type : 'batchim';
+    const copulaMap = config.dynamic_suffix_rules.copula_by_register_and_ending || {};
+    const copula = copulaMap[registerKey] && copulaMap[registerKey][endingType] ? copulaMap[registerKey][endingType] : '';
+    sentence = sentence.replaceAll('{copula}', copula);
+  }
+
+  Object.entries(values).forEach(([key, value]) => {
+    sentence = sentence.replaceAll(`{${key}}`, value);
+  });
+
+  let gloss = '';
+  if (config.translation_templates && config.translation_templates[registerKey]) {
+    gloss = config.translation_templates[registerKey];
+    Object.entries(values).forEach(([key, value]) => {
+      const match = selectedMap[key];
+      const glossValue = (match && match.gloss_zh_tw) ? match.gloss_zh_tw : value;
+      gloss = gloss.replaceAll(`{${key}}`, glossValue);
+    });
+    if (selectedMap.register && selectedMap.register.gloss_zh_tw) {
+      gloss = gloss.replaceAll('{register}', selectedMap.register.gloss_zh_tw);
+    }
+  }
+
+  return { values, selectedMap, sentence, gloss };
+};
+
+window.renderPatternBuilderBlock = function (builder, nodeId) {
+  const builderId = `builder-${window.escapeJsSingle(nodeId || builder.builder_id || 'x')}-${window.escapeJsSingle(builder.builder_id || 'main')}`;
+  const rawConfigJson = JSON.stringify(builder);
+  const configJsonAttr = window.escapeHtml(rawConfigJson);
+
+  const controlsHtml = (builder.controls || []).map(control => `
+    <label class="tiny-text muted" style="display:block; margin-bottom:10px;">
+      <span style="display:block; margin-bottom:4px; font-weight:700;">${window.escapeHtml((control.label_i18n && control.label_i18n.zh_tw) || control.label_zh_tw || control.control_id)}</span>
+      <select data-builder-control="${window.escapeHtml(control.control_id)}"
+        onchange="window.updatePatternBuilderFromRoot('${builderId}')"
+        style="width:100%; padding:8px; border-radius:8px; border:1px solid var(--line); background:#fff;">
+        ${(control.options || []).map(option => `<option value="${window.escapeHtml(option.value)}">${window.escapeHtml((option.label_i18n && option.label_i18n.zh_tw) || option.label_zh_tw || option.value)}</option>`).join('')}
+      </select>
+    </label>
+  `).join('');
+
+  const initialValues = {};
+  (builder.controls || []).forEach(control => {
+    initialValues[control.control_id] = control.options && control.options[0] ? control.options[0].value : '';
+  });
+  const initialComputed = window.computePatternBuilderOutput(builder, initialValues);
+
+  return `
+    <div class="content-block">
+      <div class="block-title">${window.escapeHtml((builder.title_i18n && builder.title_i18n.zh_tw) || builder.title_zh_tw || '可切換句型')}</div>
+      <div id="${builderId}" class="summary-box" data-builder-config="${configJsonAttr}">
+        ${builder.inline_hint_i18n && builder.inline_hint_i18n.zh_tw ? `<div class="muted-text" style="margin-bottom:12px;">${window.escapeHtml(builder.inline_hint_i18n.zh_tw)}</div>` : ''}
+        <div class="summary-grid" style="grid-template-columns:repeat(3, 1fr);">
+          ${controlsHtml}
+        </div>
+        <div class="pattern-entry" style="margin-top:8px;">
+          <div class="pattern-formula" data-builder-output>${window.escapeHtml(initialComputed.sentence)}</div>
+          <div class="pattern-use-case" data-builder-gloss>${window.escapeHtml(initialComputed.gloss)}</div>
+        </div>
+      </div>
+    </div>
+  `;
+};
+
+window.renderLessonSupportModule = function (module) {
+  if (!module) return '';
+  const items = (module.items || []).map(item => `
+    <div class="pro-item">
+      <strong>${window.escapeHtml(item.target || '')}</strong>
+      ${item.explain_i18n && item.explain_i18n.zh_tw ? `<div class="tiny-text muted" style="margin-top:3px;">${window.escapeHtml(item.explain_i18n.zh_tw)}</div>` : ''}
+    </div>
+  `).join('');
+
+  return `
+    <div class="content-block">
+      <div class="block-title">${window.escapeHtml((module.title_i18n && module.title_i18n.zh_tw) || '語體怎麼選')}</div>
+      ${module.why_here_i18n && module.why_here_i18n.zh_tw ? `<div class="muted-text" style="margin-bottom:12px;">${window.escapeHtml(module.why_here_i18n.zh_tw)}</div>` : ''}
+      <div class="compare-pros">${items}</div>
+    </div>
+  `;
+};
+
+const renderDialogue = function (payload, node) {
+  const turns = payload.dialogue_turns || [];
+  const scenes = payload.dialogue_scenes || [];
+  if (!payload.dialogue_turns && !payload.dialogue_scenes) return window.RendererRegistry.renderMalformedPayload('dialogue', 'none', ['dialogue_turns']);
+
+  let coachIntro = '';
+  if (payload.coach_intro_i18n && payload.coach_intro_i18n.zh_tw) {
+    coachIntro = `
+      <div class="content-block">
+        <div class="block-title">朋友先跟你講重點</div>
+        <div class="summary-box" style="background:var(--accent-soft); border-color:var(--accent-soft);">
+          ${window.escapeHtml(payload.coach_intro_i18n.zh_tw)}
+          ${window.showBilingual() && payload.coach_intro_i18n.en ? `<div class="tiny-text muted" style="margin-top:8px;">${window.escapeHtml(payload.coach_intro_i18n.en)}</div>` : ''}
         </div>
       </div>
     `;
-  }).join('');
-  return `<div class="content-block"><div class="block-title">情境對話</div><div class="dialogue-wrap">${html}</div></div>`;
+  }
+
+  let whatToNotice = '';
+  if (payload.what_to_notice_i18n && payload.what_to_notice_i18n.length) {
+    const items = payload.what_to_notice_i18n.map(item => `
+      <div class="pro-item">
+        ${window.escapeHtml(item.zh_tw || '')}
+        ${window.showBilingual() && item.en ? `<div class="tiny-text muted" style="margin-top:3px;">${window.escapeHtml(item.en)}</div>` : ''}
+      </div>
+    `).join('');
+    whatToNotice = `<div class="content-block"><div class="block-title">這段先注意什麼</div><div class="compare-pros">${items}</div></div>`;
+  }
+
+  const renderTurns = function (sceneTurns) {
+    return sceneTurns.map((t, idx) => {
+      const isRight = idx % 2 !== 0;
+      return `
+        <div class="dialogue-turn ${isRight ? 'turn-right' : 'turn-left'}">
+          <div class="speaker-label">${window.escapeHtml(t.speaker)}</div>
+          <div class="bubble">
+            <div class="bubble-ko">${window.escapeHtml(t.text)} ${window.renderSpeakButton(t.text)}</div>
+            ${window.showBilingual() && t.zh_tw ? `<div class="bubble-zh">${window.escapeHtml(t.zh_tw)}</div>` : ''}
+          </div>
+        </div>
+      `;
+    }).join('');
+  };
+
+  const html = scenes.length
+    ? scenes.map(scene => `
+        <div class="content-block" style="margin:0 0 14px 0;">
+          <div class="block-title">${window.escapeHtml(scene.title_zh_tw || scene.title || '短對話')}</div>
+          ${scene.note_zh_tw ? `<div class="muted-text" style="margin-bottom:10px;">${window.escapeHtml(scene.note_zh_tw)}</div>` : ''}
+          <div class="dialogue-wrap">${renderTurns(scene.turns || [])}</div>
+        </div>
+      `).join('')
+    : renderTurns(turns);
+
+  let registerSwitch = '';
+  if (payload.register_switch_bank && payload.register_switch_bank.length) {
+    const rows = payload.register_switch_bank.map(row => `
+      <div class="pattern-entry">
+        <div class="tiny-text muted" style="margin-bottom:6px; font-weight:700;">${window.escapeHtml(row.meaning_i18n && row.meaning_i18n.zh_tw || '')}</div>
+        <div class="summary-grid">
+          <div class="summary-box"><span class="label">正式</span>${window.escapeHtml(row.formal || '')}</div>
+          <div class="summary-box"><span class="label">日常</span>${window.escapeHtml(row.polite || '')}</div>
+          <div class="summary-box"><span class="label">朋友</span>${window.escapeHtml(row.casual || '')}</div>
+        </div>
+        ${row.note_i18n && row.note_i18n.zh_tw ? `<div class="tiny-text muted" style="margin-top:8px;">${window.escapeHtml(row.note_i18n.zh_tw)}</div>` : ''}
+      </div>
+    `).join('');
+    registerSwitch = `<div class="content-block"><div class="block-title">三種禮貌等級切換</div>${rows}</div>`;
+  }
+
+  let patternBuilder = '';
+  if (payload.pattern_builder_demos && payload.pattern_builder_demos.length) {
+    patternBuilder = payload.pattern_builder_demos.map(builder => window.renderPatternBuilderBlock(builder, node && (node.id || node.node_id))).join('');
+  } else if (payload.pattern_builder_demo) {
+    patternBuilder = window.renderPatternBuilderBlock(payload.pattern_builder_demo, node && (node.id || node.node_id));
+  }
+
+  const lessonSupportModule = window.renderLessonSupportModule(payload.lesson_support_module || null);
+
+  return `${coachIntro}${whatToNotice}<div class="content-block"><div class="block-title">情境對話</div>${scenes.length ? html : `<div class="dialogue-wrap">${html}</div>`}</div>${lessonSupportModule}${registerSwitch}${patternBuilder}`;
+};
+
+const renderPatternLab = function (payload, node) {
+  let patternBuilder = '';
+  if (payload.pattern_builder_demos && payload.pattern_builder_demos.length) {
+    patternBuilder = payload.pattern_builder_demos.map(builder => window.renderPatternBuilderBlock(builder, node && (node.id || node.node_id))).join('');
+  } else if (payload.pattern_builder_demo) {
+    patternBuilder = window.renderPatternBuilderBlock(payload.pattern_builder_demo, node && (node.id || node.node_id));
+  }
+
+  const lessonSupportModule = window.renderLessonSupportModule(payload.lesson_support_module || null);
+  return `${lessonSupportModule}${patternBuilder}`;
 };
 
 const renderNotice = function (payload) {
@@ -698,6 +960,7 @@ window.renderFreeNote = function (node) {
 // --- Registry Initialization ---
 
 window.RendererRegistry.registerContent('dialogue', renderDialogue);
+window.RendererRegistry.registerContent('pattern_lab', renderPatternLab);
 window.RendererRegistry.registerContent('comprehension_check', renderComprehensionCheck);
 window.RendererRegistry.registerContent('notice', renderNotice);
 window.RendererRegistry.registerContent('message_thread', renderMessageThread);

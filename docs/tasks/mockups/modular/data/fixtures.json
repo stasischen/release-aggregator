@@ -1,54 +1,64 @@
 {
-    "units": [
-        {
-            "id": "A1-U01",
-            "title": "新生報到與校園問答 (Migrated v0.1)",
-            "path": "data/units/a1_u01_unit_blueprint_v0.json"
-        },
-        {
-            "id": "A1-U04",
-            "title": "咖啡廳點餐 (Survival)",
-            "path": "data/units/a1_u04_unit_blueprint_v0.json"
-        },
-        {
-            "id": "A1-U05",
-            "title": "在藥局買藥 (Production-Ready)",
-            "path": "data/units/a1_u05_unit_blueprint_v0.json"
-        },
-        {
-            "id": "A1-U04-V1",
-            "title": "A1-U04 v1 Preview (TLG-005/006)",
-            "path": "data/units/a1_u04_unit_blueprint_v1_preview.json"
-        },
-        {
-            "id": "A1-U01-V1",
-            "title": "A1-U01 v1 Preview (Node Contract)",
-            "path": "data/units/a1_u01_unit_blueprint_v1_preview.json"
-        },
-        {
-            "id": "A1-GB-L01-V1",
-            "title": "Grammar Book L01 (Dialogue-First)",
-            "path": "data/units/a1_gb_l01_dialogue_first_v1.json"
-        },
-        {
-            "id": "A1-GB-L01-LEGACY",
-            "title": "Grammar Book L01 (Legacy Source)",
-            "path": "data/units/a1_gb_l01_legacy_source_v1.json"
-        },
-        {
-            "id": "A1-GB-L01-IBANK",
-            "title": "Grammar Book L01 (Item Bank Review)",
-            "path": "data/units/a1_gb_l01_item_bank_v1.json"
-        },
-        {
-            "id": "A1-GRAMMAR-L01-V1",
-            "title": "Grammar Lesson 1 (I18N Preview)",
-            "path": "data/units/a1_grammar_l01_i18n_preview.json"
-        },
-        {
-            "id": "A1-EVENT-L01-V1",
-            "title": "Event Lesson 1 Cafe (I18N Preview)",
-            "path": "data/units/a1_event_l01_i18n_preview.json"
-        }
-    ]
+  "units": [
+    {
+      "id": "A1-U01",
+      "title": "新生報到與校園問答 (Migrated v0.1)",
+      "path": "data/units/a1_u01_unit_blueprint_v0.json"
+    },
+    {
+      "id": "A1-U04",
+      "title": "咖啡廳點餐 (Survival)",
+      "path": "data/units/a1_u04_unit_blueprint_v0.json"
+    },
+    {
+      "id": "A1-U05",
+      "title": "在藥局買藥 (Production-Ready)",
+      "path": "data/units/a1_u05_unit_blueprint_v0.json"
+    },
+    {
+      "id": "A1-U04-V1",
+      "title": "A1-U04 v1 Preview (TLG-005/006)",
+      "path": "data/units/a1_u04_unit_blueprint_v1_preview.json"
+    },
+    {
+      "id": "A1-U01-V1",
+      "title": "A1-U01 v1 Preview (Node Contract)",
+      "path": "data/units/a1_u01_unit_blueprint_v1_preview.json"
+    },
+    {
+      "id": "A1-GB-L01-V1",
+      "title": "Grammar Book L01 (Dialogue-First)",
+      "path": "data/units/a1_gb_l01_dialogue_first_v1.json"
+    },
+    {
+      "id": "A1-GB-L01-LEGACY",
+      "title": "Grammar Book L01 (Legacy Source)",
+      "path": "data/units/a1_gb_l01_legacy_source_v1.json"
+    },
+    {
+      "id": "A1-GB-L01-IBANK",
+      "title": "Grammar Book L01 (Item Bank Review)",
+      "path": "data/units/a1_gb_l01_item_bank_v1.json"
+    },
+    {
+      "id": "A1-GRAMMAR-L01-V1",
+      "title": "Grammar Lesson 1 (I18N Preview)",
+      "path": "data/units/a1_grammar_l01_i18n_preview.json"
+    },
+    {
+      "id": "A1-EVENT-L01-V1",
+      "title": "Event Lesson 1 Cafe (I18N Preview)",
+      "path": "data/units/a1_event_l01_i18n_preview.json"
+    },
+    {
+      "id": "A1-BG-L01-DIALOGUE-PREVIEW",
+      "title": "Beginner Grammar Lesson 01 (L1 Input Preview)",
+      "path": "data/units/a1_bg_l01_l1_atom_preview.json"
+    },
+    {
+      "id": "A1-BG-L01-G1-PATTERN-PREVIEW",
+      "title": "Beginner Grammar Lesson 01 (G1 Pattern Preview)",
+      "path": "data/units/a1_bg_l01_g1_pattern_preview.json"
+    }
+  ]
 }

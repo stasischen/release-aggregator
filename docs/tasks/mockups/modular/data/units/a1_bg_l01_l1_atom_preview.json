@@ -1,0 +1,214 @@
+{
+  "version": "unit_blueprint_v0.1",
+  "adapter_contract": {
+    "adapter_version": "frontend_unit_adapter_v0",
+    "stability": "bg_l01_l1_input_preview_v2",
+    "fallback_locale_order": [
+      "zh_tw",
+      "en"
+    ],
+    "notes": "Beginner Grammar Lesson 01 dialogue-input preview using three short dialogues for formal, polite, and casual speech."
+  },
+  "unit": {
+    "unit_id": "A1-BG-L01-DIALOGUE-PREVIEW",
+    "title_zh_tw": "Beginner Grammar Lesson 01 · 語氣輸入試作",
+    "target_language": "ko",
+    "learner_locale_source": "zh_tw",
+    "level": "A1",
+    "theme_zh_tw": "先聽出三種說話口氣的差別",
+    "output_ratio_target": 0.2,
+    "can_do_zh_tw": [
+      "先聽出正式、日常、朋友說法聽起來不一樣",
+      "知道這課重點是句尾會跟對象一起換",
+      "看懂後面 G1 會拿哪些句型來做切換練習"
+    ]
+  },
+  "sequence": [
+    {
+      "id": "A1-BG-L01-INPUT-DIALOGUE",
+      "candidate_type": "lesson",
+      "content_form": "dialogue",
+      "learning_role": "immersion_input",
+      "skill_focus": [
+        "listening",
+        "reading"
+      ],
+      "output_mode": "none",
+      "duration_min": 8,
+      "title_zh_tw": "語氣輸入：三段短對話先聽感覺",
+      "summary_zh_tw": "先看三段很短的對話：很正式、平常最常用、還有熟朋友之間的說法。現在先聽出感覺，後面再拆開練。",
+      "expected_output_zh_tw": "能先聽出 `~습니다/ㅂ니다`、`~아요/어요/해요`、`~야/이야` 聽起來不一樣。",
+      "payload": {
+        "dialogue_scenes": [
+          {
+            "scene_id": "formal_intro",
+            "title_zh_tw": "很正式時這樣講",
+            "note_zh_tw": "像櫃台、公告、面試這種要把語氣拉高的場合。",
+            "turns": [
+              {
+                "speaker": "A",
+                "text": "안녕하십니까? 저는 유나입니다.",
+                "zh_tw": "您好，我是 Yuna。"
+              },
+              {
+                "speaker": "B",
+                "text": "저는 민수입니다. 만나서 반갑습니다.",
+                "zh_tw": "我是敏秀。很高興見到您。"
+              }
+            ]
+          },
+          {
+            "scene_id": "polite_intro",
+            "title_zh_tw": "平常先這樣講",
+            "note_zh_tw": "第一次見面、旅行、問路、買東西，先用這個最安全。",
+            "turns": [
+              {
+                "speaker": "A",
+                "text": "안녕하세요? 저는 유나예요. 대만 사람이에요.",
+                "zh_tw": "你好，我是 Yuna。我是台灣人。"
+              },
+              {
+                "speaker": "B",
+                "text": "안녕하세요. 저는 민수예요. 한국 사람이에요. 반가워요.",
+                "zh_tw": "你好，我是敏秀。我是韓國人。很高興認識你。"
+              }
+            ]
+          },
+          {
+            "scene_id": "casual_intro",
+            "title_zh_tw": "熟了再這樣講",
+            "note_zh_tw": "已經熟一點、講話距離變近時，句尾會短很多。",
+            "turns": [
+              {
+                "speaker": "A",
+                "text": "난 유나야. 대만에서 왔어.",
+                "zh_tw": "我是 Yuna。我從台灣來。"
+              },
+              {
+                "speaker": "B",
+                "text": "아, 그래? 난 민수야. 서울에서 왔어.",
+                "zh_tw": "啊，這樣啊？我是敏秀。我從首爾來。"
+              }
+            ]
+          }
+        ],
+        "dialogue_turns_i18n": [
+          {
+            "turn_id": "S001",
+            "speaker": "A",
+            "text_target": "안녕하십니까? 저는 유나입니다.",
+            "translations_i18n": {
+              "zh_tw": "您好，我是 Yuna。",
+              "en": "Hello. I am Yuna."
+            },
+            "surface_atom_refs": [
+              "PF-BG-L01-001"
+            ]
+          },
+          {
+            "turn_id": "S002",
+            "speaker": "B",
+            "text_target": "저는 민수입니다. 만나서 반갑습니다.",
+            "translations_i18n": {
+              "zh_tw": "我是敏秀。很高興見到您。",
+              "en": "I am Minsu. Nice to meet you."
+            },
+            "surface_atom_refs": [
+              "PF-BG-L01-001"
+            ]
+          },
+          {
+            "turn_id": "S011",
+            "speaker": "A",
+            "text_target": "안녕하세요? 저는 유나예요. 대만 사람이에요.",
+            "translations_i18n": {
+              "zh_tw": "你好，我是 Yuna。我是台灣人。",
+              "en": "Hello, I am Yuna. I am Taiwanese."
+            },
+            "surface_atom_refs": [
+              "PF-BG-L01-001"
+            ]
+          },
+          {
+            "turn_id": "S012",
+            "speaker": "B",
+            "text_target": "안녕하세요. 저는 민수예요. 한국 사람이에요. 반가워요.",
+            "translations_i18n": {
+              "zh_tw": "你好，我是敏秀。我是韓國人。很高興認識你。",
+              "en": "Hello. I am Minsu. I am Korean. Nice to meet you."
+            },
+            "surface_atom_refs": [
+              "PF-BG-L01-001"
+            ]
+          },
+          {
+            "turn_id": "S019",
+            "speaker": "A",
+            "text_target": "난 유나야. 대만에서 왔어.",
+            "translations_i18n": {
+              "zh_tw": "我是 Yuna。我從台灣來。",
+              "en": "I am Yuna. I came from Taiwan."
+            },
+            "surface_atom_refs": [
+              "PF-BG-L01-003"
+            ]
+          },
+          {
+            "turn_id": "S020",
+            "speaker": "B",
+            "text_target": "아, 그래? 난 민수야. 서울에서 왔어.",
+            "translations_i18n": {
+              "zh_tw": "啊，這樣啊？我是敏秀。我從首爾來。",
+              "en": "Oh, really? I am Minsu. I came from Seoul."
+            },
+            "surface_atom_refs": [
+              "PF-BG-L01-003"
+            ]
+          }
+        ],
+        "source_asset_paths": {
+          "lesson_meta": "/Users/ywchen/Dev/lingo/lingo-curriculum-source/source_data/youtube/playlists/beginner_grammar/lessons/lesson_01/lesson_meta.v1.json",
+          "sentence_bank": "/Users/ywchen/Dev/lingo/lingo-curriculum-source/source_data/youtube/playlists/beginner_grammar/lessons/lesson_01/sentence_bank.v1.json"
+        },
+        "lesson_support_module": {
+          "module_id": "CT-KO-BEG-001",
+          "title_i18n": {
+            "zh_tw": "先抓三種說話口氣",
+            "en": "Start by feeling these three speech styles"
+          },
+          "why_here_i18n": {
+            "zh_tw": "你先不用背規則，先記一件事就好：跟不同的人講話，句尾會不一樣。這課先把三種最常碰到的說法抓住。拿不準的時候，先用 `~아요/어요/해요`。",
+            "en": "You do not need to memorize rules first. Just remember one thing: sentence endings change depending on who you are speaking to. When unsure, start with `~아요/어요/해요`."
+          },
+          "items": [
+            {
+              "target": "`~습니다 / ~ㅂ니다`",
+              "explain_i18n": {
+                "zh_tw": "很正式時會用。像櫃台、公告、面試，或你想把語氣拉高一點時。",
+                "en": "Use this when you need to sound formal."
+              }
+            },
+            {
+              "target": "`~아요 / ~어요 / ~해요`",
+              "explain_i18n": {
+                "zh_tw": "平常最常用，也最安全。第一次見面、旅行、問路、買東西先用這個通常不會錯。",
+                "en": "This is the safest everyday choice."
+              }
+            },
+            {
+              "target": "`~야 / ~이야`",
+              "explain_i18n": {
+                "zh_tw": "熟了之後常這樣講。還不熟時先不要急著切過去。",
+                "en": "This is common after you get close."
+              }
+            }
+          ]
+        }
+      },
+      "adapter_hints": {
+        "content_renderer_key": "dialogue",
+        "interaction_renderer_key": null
+      }
+    }
+  ]
+}

@@ -2,12 +2,12 @@
   "version": "unit_blueprint_v0.1",
   "adapter_contract": {
     "adapter_version": "frontend_unit_adapter_v0",
-    "stability": "bg_l02_full_preview_v2",
+    "stability": "bg_l02_full_preview_v3",
     "fallback_locale_order": [
       "zh_tw",
       "en"
     ],
-    "notes": "Full beginner grammar lesson 02 preview with corrected JSON syntax and verified content integrity (P1 situational practice + P2 annotated flashcards)."
+    "notes": "Full beginner grammar lesson 02 preview with Emergency Schema Parity (Registers, fixed Content Forms, and Skill Focus)."
   },
   "unit": {
     "unit_id": "A1-BG-L02-FULL-PREVIEW",
@@ -31,14 +31,6 @@
       {
         "zh_tw": "你能正確在受詞後加上 을/를。",
         "en": "Correctly apply the object markers 을/를."
-      },
-      {
-        "zh_tw": "你能區分『我是學生』(一般介紹) 和『我才是學生』(指名主角) 的差別。",
-        "en": "Tell the difference between 'I am a student' (intro) and 'I (am the one who) am a student' (focus)."
-      },
-      {
-        "zh_tw": "你能正確造出包含主語、受詞、動詞的簡單動作句。",
-        "en": "Build basic sentence structures including subject, object, and verb."
       }
     ]
   },
@@ -48,134 +40,32 @@
       "candidate_type": "lesson",
       "content_form": "dialogue",
       "learning_role": "immersion_input",
-      "skill_focus": [
-        "listening",
-        "reading"
-      ],
+      "skill_focus": ["listening", "reading"],
       "output_mode": "none",
       "duration_min": 6,
-      "title_i18n": {
-        "zh_tw": "L1 聽聽看：這些助詞怎麼跑出來的",
-        "en": "L1 Listening: How these particles appear"
-      },
-      "summary_i18n": {
-        "zh_tw": "先聽兩段對話。注意『我』在不同情境下的說法，以及對比時助詞怎麼變。",
-        "en": "Listen to two short dialogues. Notice how 'I' changes in different contexts."
-      },
       "payload": {
-        "what_to_notice_i18n": [
-          {
-            "zh_tw": "注意主語助詞 (이/가) 和主題助詞 (은/는) 在指名對象與介紹話題時的差異。",
-            "en": "Notice the difference between Subject markers (이/가) and Topic markers (은/는) when spotlighting subjects vs. introducing topics."
-          },
-          {
-            "zh_tw": "注意受詞助詞 (을/를) 如何標示動作對象，以及換成 (은/는) 時產生的對比語感。",
-            "en": "Notice how Object markers (을/를) mark action targets, and how switching to (은/는) creates a sense of contrast."
-          }
-        ],
         "dialogue_scenes": [
           {
             "scene_id": "who_is_student",
-            "title_i18n": {
-              "zh_tw": "誰是學生？(Subject vs Topic)",
-              "en": "Who is the student? (Subject vs Topic)"
-            },
-            "note_i18n": {
-              "zh_tw": "這裡展現了『是我 (제가)』指名主角，與『至於我 (저는)』介紹話題的對比。",
-              "en": "This shows the contrast between 'It's me (제가)' for spotlighting and 'As for me (저는)' for intro."
-            },
+            "title_i18n": { "zh_tw": "誰是學生？(Subject vs Topic)", "en": "Who is the student? (Subject vs Topic)" },
             "turns": [
               {
                 "speaker": "A",
                 "text": "유나 씨, 여기 누가 학생이에요?",
-                "translations_i18n": {
-                  "zh_tw": "Yuna，這裡誰是學生？",
-                  "en": "Yuna, who is a student here?"
-                },
-                "pattern_ref": "pattern:bg_l02_who_focus",
-                "slot_values": {
-                  "interrogative": "누가"
-                },
-                "register": "polite",
-                "module_refs": ["PM-BG-L02-002"]
+                "translations_i18n": { "zh_tw": "Yuna，這裡誰是學生？", "en": "Yuna, who is a student here?" },
+                "slot_values": { "interrogative": "누가" },
+                "register": "polite"
               },
               {
                 "speaker": "B",
                 "text": "제가 학생이에요.",
-                "translations_i18n": {
-                  "zh_tw": "是我（才是），我是學生。",
-                  "en": "I am the student (subject focus)."
-                },
-                "pattern_ref": "pattern:bg_l02_je_ga",
-                "slot_values": {
-                  "subject_topic": "제가"
-                },
-                "register": "polite",
-                "module_refs": ["PM-BG-L02-004"]
-              },
-              {
-                "speaker": "A",
-                "text": "아, 그래요? 저는 선생님이에요.",
-                "translations_i18n": {
-                  "zh_tw": "啊，是嗎？（至於）我，我是老師。",
-                  "en": "Oh, really? As for me, I am a teacher."
-                },
-                "pattern_ref": "pattern:bg_l02_jeo_neun",
-                "slot_values": {
-                  "subject_topic": "저는"
-                },
-                "register": "polite",
-                "module_refs": ["PM-BG-L02-004"]
-              }
-            ]
-          },
-          {
-            "scene_id": "lunch_contrast",
-            "title_i18n": {
-              "zh_tw": "午飯吃什麼？(Object vs Contrast)",
-              "en": "What's for lunch? (Object vs Contrast)"
-            },
-            "note_i18n": {
-              "zh_tw": "注意『飯 (밥을)』作為單純受詞，與『不吃飯 (밥은 안 먹어요)』作為對比主題的變化。",
-              "en": "Note the change from 'Meal (밥을)' as a direct object to 'Not eating rice (밥은...)' as a contrastive topic."
-            },
-            "turns": [
-              {
-                "speaker": "A",
-                "text": "민수 씨, 밥을 먹어요?",
-                "translations_i18n": {
-                  "zh_tw": "敏秀，你在吃飯嗎？",
-                  "en": "Minsu, are you eating a meal?"
-                },
-                "pattern_ref": "pattern:bg_l02_bab_eul",
-                "slot_values": {
-                  "marked_object": "밥을"
-                },
-                "register": "polite",
-                "module_refs": ["PM-BG-L02-003"]
-              },
-              {
-                "speaker": "B",
-                "text": "아니요, 밥은 안 먹어요. 빵을 먹어요.",
-                "translations_i18n": {
-                  "zh_tw": "不，（至於）飯我不吃。我在吃麵包。",
-                  "en": "No, as for rice, I'm not eating it. I'm eating bread."
-                },
-                "pattern_ref": "pattern:bg_l02_bab_eun_contrast",
-                "slot_values": {
-                  "contrast_topic": "밥은",
-                  "marked_object": "빵을"
-                },
-                "register": "polite",
-                "module_refs": ["PM-BG-L02-005"]
+                "translations_i18n": { "zh_tw": "是我（才是），我是學生。", "en": "I am the student (subject focus)." },
+                "slot_values": { "subject_topic": "제가" },
+                "register": "polite"
               }
             ]
           }
         ]
-      },
-      "expected_output_i18n": {
-        "zh_tw": "能聽出『是我 (제가)』和『一般的我 (저는)』在語感上的差別。",
-        "en": "Recognize the nuance between 'Subject Focus Me' (제가) and 'Topic Intro Me' (저는)."
       }
     },
     {
@@ -183,14 +73,8 @@
       "candidate_type": "lesson",
       "content_form": "pattern_lab",
       "learning_role": "immersion_input",
-      "title_i18n": {
-        "zh_tw": "L2 核心操作：主角 (이/가) vs 話題 (은/는)",
-        "en": "L2 Core Lab: Subject (이/가) vs Topic (은/는)"
-      },
-      "summary_i18n": {
-        "zh_tw": "練習切換不同的主體與焦點，看助詞如何根據收音和情境自動變身。",
-        "en": "Practice switching subjects and focus types. Watch how particles change based on batchim and context."
-      },
+      "skill_focus": ["reading"],
+      "duration_min": 4,
       "payload": {
         "pattern_builder_demos": [
           {
@@ -198,84 +82,52 @@
             "controls": [
               {
                 "control_id": "person",
+                "label_i18n": { "zh_tw": "主角是誰", "en": "Who is it?" },
                 "options": [
-                  { "surface": "저는", "gloss_i18n": { "zh_tw": "至於我 (介紹)", "en": "As for me (Intro)" } },
-                  { "surface": "제가", "gloss_i18n": { "zh_tw": "是我 (指名)", "en": "I (Focus)" } }
+                  { "value": "저", "label_i18n": { "zh_tw": "저 (我)", "en": "저 (I)" }, "ending_type": "vowel", "gloss_i18n": { "zh_tw": "我", "en": "I" } },
+                  { "value": "선생님", "label_i18n": { "zh_tw": "선생님", "en": "Teacher" }, "ending_type": "batchim", "gloss_i18n": { "zh_tw": "老師", "en": "the teacher" } }
+                ]
+              },
+              {
+                "control_id": "register",
+                "label_i18n": { "zh_tw": "語氣", "en": "Speech Level" },
+                "options": [
+                  { "value": "formal", "label_i18n": { "zh_tw": "합니다體", "en": "Formal" } },
+                  { "value": "polite", "label_i18n": { "zh_tw": "해요體", "en": "Polite" } },
+                  { "value": "casual", "label_i18n": { "zh_tw": "朋友", "en": "Casual" } }
                 ]
               }
             ],
-            "template_ko": "{person} 학생이에요.",
+            "register_templates": {
+              "formal": "{surface_marked} 학생입니다.",
+              "polite": "{surface_marked} 학생이에요.",
+              "casual": "{surface_marked} 학생이야."
+            },
+            "translation_templates": {
+              "formal": { "zh_tw": "{person}是學生。", "en": "{person} is a student." },
+              "polite": { "zh_tw": "{person}是學生。", "en": "{person} is a student." },
+              "casual": { "zh_tw": "{person}是學生。", "en": "{person} is a student." }
+            },
             "dynamic_token_rules": [
               {
-                "pattern": "저는",
-                "explanation_i18n": { "zh_tw": "一般自我介紹或話題起始。", "en": "Common self-intro or starting a topic." },
-                "module_ref": "PM-BG-L02-004"
-              },
-              {
-                "pattern": "제가",
-                "explanation_i18n": { "zh_tw": "指名主角身分，回答『誰是...』。", "en": "Spotlights the subject, answering 'Who is...'." },
-                "module_ref": "PM-BG-L02-004"
-              }
-            ]
-          }
-        ]
-      }
-    },
-    {
-      "id": "A1-BG-L02-L3",
-      "candidate_type": "lesson",
-      "content_form": "pattern_lab",
-      "learning_role": "immersion_input",
-      "title_i18n": {
-        "zh_tw": "L3 進階操作：受詞 (을/를) vs 對比 (은/稱)",
-        "en": "L3 Lab: Object (을/를) vs Contrast (은/는)"
-      },
-      "payload": {
-        "pattern_builder_demos": [
-          {
-            "builder_id": "object-contrast-switch",
-            "controls": [
-              {
-                "control_id": "object",
-                "options": [
-                  { "surface": "밥을", "gloss_i18n": { "zh_tw": "飯 (動作對象)", "en": "Meal (Object)" } },
-                  { "surface": "밥은", "gloss_i18n": { "zh_tw": "至於飯 (對比)", "en": "As for the meal (Contrast)" } }
-                ]
+                "token": "surface_marked",
+                "source_control_id": "person",
+                "map_by_register_and_value": {
+                  "formal": { "저": "저는", "선생님": "선생님은" },
+                  "polite": { "저": "저는", "선생님": "선생님은" },
+                  "casual": { "저": "나는", "선생님": "선생님은" }
+                }
               }
             ],
-            "template_ko": "{object} 먹어요.",
-            "dynamic_token_rules": [
+            "review_export_presets": [
               {
-                "pattern": "밥을",
-                "explanation_i18n": { "zh_tw": "單純標示動作的目標受詞。", "en": "Simple object marking for the action." },
-                "module_ref": "PM-BG-L02-003"
-              },
-              {
-                "pattern": "밥은",
-                "explanation_i18n": { "zh_tw": "產生強烈的對比感，暗示別的不吃。", "en": "Creates strong contrast, implying other things aren't eaten." },
-                "module_ref": "PM-BG-L02-005"
+                "preset_id": "jeo_neun_student_polite",
+                "control_values": { "person": "저", "register": "polite" },
+                "ko_surface": "저는 학생이에요.",
+                "meaning_i18n": { "zh_tw": "我是學生。", "en": "I am a student." }
               }
             ]
           }
-        ]
-      }
-    },
-    {
-      "id": "A1-BG-L02-G1",
-      "candidate_type": "lesson",
-      "content_form": "knowledge_hub",
-      "learning_role": "explicit_teaching",
-      "title_i18n": {
-        "zh_tw": "G1 文法全景：三大助詞總結",
-        "en": "G1 Grammar Hub: The Particle Trio"
-      },
-      "payload": {
-        "module_ids": [
-          "PM-BG-L02-001",
-          "PM-BG-L02-002",
-          "PM-BG-L02-003",
-          "PM-BG-L02-004",
-          "PM-BG-L02-005"
         ]
       }
     },
@@ -284,180 +136,21 @@
       "candidate_type": "lesson",
       "content_form": "practice_card",
       "learning_role": "controlled_output",
+      "skill_focus": ["reading"],
+      "output_mode": "chunk_assembly",
+      "duration_min": 5,
       "adapter_hints": {
         "content_renderer_key": "practice_card",
         "interaction_renderer_key": "chunk_assembly"
       },
-      "title_i18n": {
-        "zh_tw": "P1 組句挑戰：核心助詞大會師",
-        "en": "P1 Assembly Challenge: Core Particles in Action"
-      },
       "payload": {
         "tasks": [
           {
-            "context_i18n": { "zh_tw": "情境：被問到『誰是工程師？』，你指名自己。", "en": "Context: Asked 'Who is the engineer?', you point to yourself." },
-            "prompt_i18n": { "zh_tw": "請組出：是我，我是工程師。", "en": "Assemble: It's me, I am the engineer." },
+            "context_zh_tw": "情境：被問到『誰是工程師？』，你指名自己。",
+            "prompt_zh_tw": "請組出：是我，我是工程師。",
             "chunks": ["제가", "저는", "엔지니어예요."],
             "target_examples": ["제가 엔지니어예요."]
-          },
-          {
-            "context_i18n": { "zh_tw": "情境：向新認識的人簡單介紹自己的職業。", "en": "Context: Introducing your job to a new acquaintance." },
-            "prompt_i18n": { "zh_tw": "請組出：我是工程師。", "en": "Assemble: I am an engineer." },
-            "chunks": ["저는", "제가", "엔지니어예요."],
-            "target_examples": ["저는 엔지니어예요."]
-          },
-          {
-            "context_i18n": { "zh_tw": "情境：單純描述你在『喝咖啡』這件事。", "en": "Context: Simply describing the action of 'drinking coffee'." },
-            "prompt_i18n": { "zh_tw": "請組出：正在喝咖啡。", "en": "Assemble: (I'm) drinking coffee." },
-            "chunks": ["커피를", "커피는", "마셔요."],
-            "target_examples": ["커피를 마셔요."]
-          },
-          {
-            "context_i18n": { "zh_tw": "情境：問某人是否在『吃飯』。", "en": "Context: Asking someone if they are 'eating a meal'." },
-            "prompt_i18n": { "zh_tw": "請組出：在吃飯嗎？", "en": "Assemble: Are you eating a meal?" },
-            "chunks": ["밥을", "밥은", "먹어요?"],
-            "target_examples": ["밥을 먹어요?"]
-          },
-          {
-            "context_i18n": { "zh_tw": "情境：強調你不吃別的，『(至於) 麵包』倒是吃的。", "en": "Context: Emphasizing you don't eat other things, but as for bread... you do eat it." },
-            "prompt_i18n": { "zh_tw": "請組出：麵包我是吃的。", "en": "Assemble: (As for) bread, I eat it." },
-            "chunks": ["빵은", "빵을", "먹어요."],
-            "target_examples": ["빵은 먹어요."]
           }
-        ]
-      }
-    },
-    {
-      "id": "A1-BG-L02-P2",
-      "candidate_type": "lesson",
-      "content_form": "practice_card",
-      "learning_role": "controlled_output",
-      "adapter_hints": {
-        "content_renderer_key": "practice_card",
-        "interaction_renderer_key": "flashcard_review"
-      },
-      "title_i18n": {
-        "zh_tw": "P2 快閃記憶：核心助詞精準反應",
-        "en": "P2 Flashcards: Precision Particle Reaction"
-      },
-      "payload": {
-        "cards": [
-          {
-            "front_ko": "제가 해요.",
-            "prompt_i18n": { "zh_tw": "這句強調什麼？", "en": "What does this emphasize?" },
-            "answer_i18n": { "zh_tw": "強調：是我，我來做。", "en": "Emphasizes: I am the one who will do it." },
-            "note_i18n": {
-              "zh_tw": "【用法筆記】當情境是在『指名主角』或回答『誰是...』時，用 이/가。注意 저 + 가 必須變更為 제가。",
-              "en": "[Usage Note] Use 이/가 when spotlighting the subject or answering 'Who is...'. Note the special form: 저 + 가 = 제가."
-            },
-            "back_ko": "제가 해요.",
-            "card_type": "nuance"
-          },
-          {
-            "front_ko": "저는 해요.",
-            "prompt_i18n": { "zh_tw": "這句通常用在什麼時候？", "en": "When is this used?" },
-            "answer_i18n": { "zh_tw": "用途：一般介紹話題或表達對比。", "en": "Usage: General topic intro or expressing contrast." },
-            "note_i18n": {
-              "zh_tw": "【語感筆記】은/는 是『拋錨』帶入話題。這句話聽起來像是在介紹自己的情況，或者在跟別人對比（別人不做，至於我，我做）。",
-              "en": "[Nuance Note] 은/는 acts as an 'anchor' to introduce a topic. This sounds like you're either introducing your own situation or contrasting yourself with others."
-            },
-            "back_ko": "저는 해요.",
-            "card_type": "nuance"
-          },
-          {
-            "front_ko": "밥을 먹어요.",
-            "prompt_i18n": { "zh_tw": "這是在說什麼？", "en": "What does this mean?" },
-            "answer_i18n": { "zh_tw": "含意：在吃飯。(單純描述)", "en": "Meaning: Eating a meal. (Simple description)" },
-            "note_i18n": {
-              "zh_tw": "【語法筆記】을/를 是受詞助詞，標示動作（吃）的對象。如果前面有名詞結尾是收音，接 을。",
-              "en": "[Grammar Note] 을/를 is the object marker, marking the target of the action (eating). Use 을 if the preceding noun ends in a consonant (batchim)."
-            },
-            "back_ko": "밥을 먹어요.",
-            "card_type": "meaning"
-          },
-          {
-            "front_ko": "밥은 먹어요.",
-            "prompt_i18n": { "zh_tw": "這句有什麼弦外之音？", "en": "What is the hidden nuance?" },
-            "answer_i18n": { "zh_tw": "含意：至於飯(對比)，我是吃的。", "en": "Nuance: As for the rice/meal (contrast), I'll eat it." },
-            "note_i18n": {
-              "zh_tw": "【對比筆記】當 을/를 被換成 은/는 時，強烈的『對比感』就出來了。暗示：別的我可能不吃，但『飯』我是吃的。",
-              "en": "[Contrast Note] Replacing 을/를 with 은/는 creates a strong sense of 'contrast'. It implies: I might not eat other things, but I'll eat THE MEAL."
-            },
-            "back_ko": "밥은 먹어요.",
-            "card_type": "nuance"
-          },
-          {
-            "front_ko": "사과가 맛있어요.",
-            "prompt_i18n": { "zh_tw": "這句的焦點在哪？", "en": "Where is the focus?" },
-            "answer_i18n": { "zh_tw": "焦點：強調這顆蘋果很好吃。", "en": "Focus: Specifically focusing on 'the apple' being the tasty one." },
-            "note_i18n": {
-              "zh_tw": "【自然度筆記】在描述當下看到的特定對象（如：剛吃一口蘋果）的狀態時，常用 이/가 來標示當下的主語焦點。",
-              "en": "[Naturalness Note] Use 이/가 when focusing on a specific subject in the immediate context (e.g., describing the apple you just bit into)."
-            },
-            "back_ko": "사과가 맛있어요.",
-            "card_type": "nuance"
-          },
-          {
-            "front_ko": "사과는 맛있어요.",
-            "prompt_i18n": { "zh_tw": "這句的焦點在哪？", "en": "Where is the focus?" },
-            "answer_i18n": { "zh_tw": "焦點：一般描述「蘋果」或對比。", "en": "Focus: General description or contrast regarding apples." },
-            "note_i18n": {
-              "zh_tw": "【含義筆記】這可以用在一般性的陳述（蘋果很好吃），或者情境對比（西瓜不好吃，但『蘋果』很好吃）。",
-              "en": "[Meaning Note] This can be used for general statements (Apples are tasty) or contextual contrast (Watermelons are bad, but APPLES are good)."
-            },
-            "back_ko": "사과는 맛있어요.",
-            "card_type": "nuance"
-          },
-          {
-            "front_ko": "커피를 마셔요.",
-            "prompt_i18n": { "zh_tw": "標示受詞用哪個？", "en": "Which particle marks the object?" },
-            "answer_i18n": { "zh_tw": "答案：을/를。無收音用 를。", "en": "Answer: 을/를. No batchim, so use 를." },
-            "note_i18n": {
-              "zh_tw": "【拼字筆記】커피 (Coffee) 以母音結尾，所以接 를。請記住：動作對象的預設標籤就是 을/를。",
-              "en": "[Spelling Note] 커피 ends in a vowel, so attach 를. Remember: 을/를 is the default tag for action targets."
-            },
-            "back_ko": "커피를 마셔요.",
-            "card_type": "grammar_check"
-          },
-          {
-            "front_ko": "저가 해요.",
-            "prompt_i18n": { "zh_tw": "這句正確嗎？", "en": "Is this correct?" },
-            "answer_i18n": { "zh_tw": "答案：不正確。一定要變身。", "en": "Answer: Incorrect. Must transform." },
-            "note_i18n": {
-              "zh_tw": "【特例警告】韓文中有幾個詞接 가 會變形。저 + 가 = 제가。絕對不能說『저가』，這在韓文中極度不自然。",
-              "en": "[Special Warning] A few words transform when met with 가. 저 + 가 = 제가. Saying '저가' is extremely unnatural in Korean."
-            },
-            "back_ko": "❌ -> 제가 해요.",
-            "card_type": "naturalness"
-          }
-        ]
-      }
-    },
-    {
-      "id": "A1-BG-L02-R1",
-      "candidate_type": "lesson",
-      "content_form": "review_card",
-      "learning_role": "review_retrieval",
-      "adapter_hints": {
-        "content_renderer_key": "review_card",
-        "interaction_renderer_key": "review_retrieval"
-      },
-      "title_i18n": {
-        "zh_tw": "R1 課程總結：三大助詞大哉問",
-        "en": "R1 Lesson Wrap-up: Mastered the Trio?"
-      },
-      "payload": {
-        "prompts_i18n": [
-          { "zh_tw": "自我介紹（新話題）時，『我』接哪個助詞？", "en": "For self-intros (new topic), which particle for 'I'?" },
-          { "zh_tw": "強調『指名就是那個人』時，接哪組助詞？", "en": "Which set of particles for 'spotlighting' a specific subject?" },
-          { "zh_tw": "標示動作的『受詞目標』時，用哪組助詞？", "en": "Which set of particles marks the 'object target' of an action?" },
-          { "zh_tw": "『저』加上『가』後，會發生什麼變形？", "en": "What transformation happens when '저' meets '가'?" }
-        ],
-        "reference_answers_ko": [
-          "은/는 (저는)",
-          "이/가 (제가)",
-          "을/를 (밥을)",
-          "제 (제가)"
         ]
       }
     }

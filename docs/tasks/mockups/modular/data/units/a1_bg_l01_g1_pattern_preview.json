@@ -39,40 +39,6 @@
       "summary_zh_tw": "先不要追求很多新句子，先把幾個最常用的句型切熟。",
       "expected_output_zh_tw": "能把同一句切成 `합니다체`、`해요체`、`야/이야` 三種版本。",
       "payload": {
-        "lesson_support_module": {
-          "module_id": "CT-KO-BEG-001",
-          "title_i18n": {
-            "zh_tw": "先抓三種說話口氣",
-            "en": "Start by feeling these three speech styles"
-          },
-          "why_here_i18n": {
-            "zh_tw": "這裡先不要分析太細，你先用耳朵抓感覺就好。有些句子聽起來比較日常，有些一聽就像在跟熟朋友講。後面 G1 再把同一句拆開練。",
-            "en": "You do not need to memorize rules first. Just remember one thing: sentence endings change depending on who you are speaking to. Start with the three most common styles, and when unsure, use `~아요/어요/해요`."
-          },
-          "items": [
-            {
-              "target": "很正式時這樣講：`~습니다 / ~ㅂ니다`",
-              "explain_i18n": {
-                "zh_tw": "像發表、公告、面試，或你想把語氣拉高一點時會用。",
-                "en": "Use this in presentations, notices, interviews, or when you want to sound more formal."
-              }
-            },
-            {
-              "target": "平常先這樣講：`~아요 / ~어요 / ~해요`",
-              "explain_i18n": {
-                "zh_tw": "這個最常用，也最安全。第一次見面、旅行、問路、買東西先用這個通常不會錯。",
-                "en": "This is the most common and safest choice for everyday situations."
-              }
-            },
-            {
-              "target": "熟了再這樣講：`~야 / ~이야`",
-              "explain_i18n": {
-                "zh_tw": "這是跟熟朋友講話時常用的說法。還不熟的時候，先不要急著切過去。",
-                "en": "This is commonly used with close friends. Do not rush into it when you are not close yet."
-              }
-            }
-          ]
-        },
         "pattern_builder_demos": [
           {
             "builder_id": "identity-register-switch",
@@ -124,12 +90,12 @@
                     }
                   },
                   {
-                    "value": "여행자",
-                    "gloss_zh_tw": "旅人",
+                    "value": "회사원",
+                    "gloss_zh_tw": "上班族",
                     "ending_type": "vowel",
                     "label_i18n": {
-                      "zh_tw": "여행자",
-                      "en": "여행자"
+                      "zh_tw": "회사원",
+                      "en": "회사원"
                     }
                   }
                 ],
@@ -214,8 +180,8 @@
               "en": "Pattern 1: Switch one sentence across three speech levels"
             },
             "inline_hint_i18n": {
-              "zh_tw": "先用這一句感受三種句尾差在哪裡；拿不準時，先切到 `해요체`。",
-              "en": "Use this sentence to feel the three ending types; when unsure, start with 해요체."
+              "zh_tw": "先從這一句開始切；拿不準時先用 해요체。",
+              "en": "Start with this sentence first; when unsure, use 해요체."
             }
           },
           {
@@ -279,12 +245,12 @@
                     }
                   },
                   {
-                    "value": "여행자",
-                    "gloss_zh_tw": "旅人",
+                    "value": "회사원",
+                    "gloss_zh_tw": "上班族",
                     "ending_type": "vowel",
                     "label_i18n": {
-                      "zh_tw": "여행자",
-                      "en": "여행자"
+                      "zh_tw": "회사원",
+                      "en": "회사원"
                     }
                   }
                 ],
@@ -388,8 +354,8 @@
               "en": "Pattern 2: Switch speech level when asking someone"
             },
             "inline_hint_i18n": {
-              "zh_tw": "這句除了換語氣，也順便感受名字後面加 `씨` 會比較有禮貌。",
-              "en": "Besides switching speech levels, notice how adding 씨 after the name sounds more polite."
+              "zh_tw": "問對方時先加 씨，再決定語氣。",
+              "en": "Add 씨 first when asking about someone, then choose the speech level."
             }
           },
           {
@@ -536,8 +502,8 @@
               "en": "Pattern 3: The same statement can also switch speech level"
             },
             "inline_hint_i18n": {
-              "zh_tw": "地點句也能同樣切三種句尾，不只有自我介紹才會換。",
-              "en": "Place statements also switch across the same three ending types."
+              "zh_tw": "同一套切法，地點句也能直接用。",
+              "en": "The same switching logic works for place statements too."
             }
           }
         ],
@@ -546,7 +512,42 @@
           "surface": "/Users/ywchen/Dev/lingo/lingo-curriculum-source/source_data/youtube/playlists/beginner_grammar/lessons/lesson_01/l1_dialogue_surface.v1.json",
           "atoms": "/Users/ywchen/Dev/lingo/lingo-curriculum-source/source_data/youtube/playlists/beginner_grammar/lessons/lesson_01/l1_dialogue_atoms.v1.json",
           "dict": "/Users/ywchen/Dev/lingo/lingo-curriculum-source/source_data/youtube/playlists/beginner_grammar/lessons/lesson_01/l1_dialogue_dict.v1.json"
-        }
+        },
+        "slot_bank_panels": [
+          {
+            "title_i18n": {
+              "zh_tw": "這節先換這些就夠",
+              "en": "These are enough to swap in this section"
+            },
+            "items_i18n": [
+              {
+                "ko": "저는 / 나는",
+                "zh_tw": "我（禮貌）/ 我（朋友）",
+                "en": "I (polite) / I (casual)"
+              },
+              {
+                "ko": "학생 / 의사 / 회사원",
+                "zh_tw": "學生 / 醫生 / 上班族",
+                "en": "student / doctor / office worker"
+              },
+              {
+                "ko": "한국 사람 / 대만 사람",
+                "zh_tw": "韓國人 / 台灣人",
+                "en": "Korean person / Taiwanese person"
+              },
+              {
+                "ko": "유나 씨 / 민수 씨",
+                "zh_tw": "名字後面先加 씨",
+                "en": "Add 씨 after the name first"
+              },
+              {
+                "ko": "여기는 / 거기는",
+                "zh_tw": "地點句也能一起切",
+                "en": "Place sentences switch too"
+              }
+            ]
+          }
+        ]
       },
       "adapter_hints": {
         "content_renderer_key": "dialogue",

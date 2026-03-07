@@ -59,6 +59,11 @@
       "id": "A1-BG-L01-G1-PATTERN-PREVIEW",
       "title": "Beginner Grammar Lesson 01 (G1 Pattern Preview)",
       "path": "data/units/a1_bg_l01_g1_pattern_preview.json"
+    },
+    {
+      "id": "A1-BG-L01-FULL-PREVIEW",
+      "title": "Beginner Grammar Lesson 01 (Full Lesson Preview)",
+      "path": "data/units/a1_bg_l01_full_preview.json"
     }
   ]
 }

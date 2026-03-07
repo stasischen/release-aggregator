@@ -11,7 +11,7 @@ window.state = {
         reviewNodeIds: [],
         notesByNodeId: {},
         interactionStateByNodeId: {},
-        prefs: { showBilingual: true, ttsVoiceName: '' }
+        prefs: { showBilingual: true, teachingLocale: 'zh_tw', ttsVoiceName: '' }
     }
 };
 
@@ -32,6 +32,7 @@ window.loadProgress = function () {
             interactionStateByNodeId: parsed.interactionStateByNodeId || {},
             prefs: {
                 showBilingual: parsed.prefs?.showBilingual !== false,
+                teachingLocale: typeof parsed.prefs?.teachingLocale === 'string' ? parsed.prefs.teachingLocale : 'zh_tw',
                 ttsVoiceName: typeof parsed.prefs?.ttsVoiceName === 'string' ? parsed.prefs.ttsVoiceName : ''
             }
         };

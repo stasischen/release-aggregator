@@ -47,3 +47,24 @@ The Flutter `ContentAdapter` should mirror this registry logic:
 - A `RendererFactory` will map JSON strings to Dart Widget builders.
 - Fallback widgets must be provided for every abstract `BaseContent` class.
 - The `adapter_hints` field in the blueprint should be used to override or steer specific renderer selections if needed.
+
+## 6. Pattern Builder I18n Contract
+
+For `pattern_lab` / pattern-builder style payloads, i18n must be contract-driven rather than locale-by-locale patching.
+
+- `register_templates` define the Korean surface sentence.
+- `translation_templates` define locale-specific gloss output.
+- If a control changes sentence meaning in one locale, the same semantic switch must be reflected in every locale gloss.
+- Locale gloss templates must reuse the same dynamic tokens rather than hard-coding one language's default wording.
+- Example: if Korean switches on `{demo_base}` (`이/그/저`), then `zh_tw` and `en` gloss templates must also include `{demo_base}` or an equivalent semantic token.
+- English glosses must be complete surface strings, including articles where needed (`a book`, `an apple`, `a phone`).
+- Mixed-language labels such as `앞말 / front part / 문체` are not allowed in final mockups; control labels must be fully localized.
+- Unresolved template tokens such as `{translation}` or `{demo_base}` are considered contract failures.
+
+### QA Gate
+
+Before a mockup fixture is considered stable:
+
+- no unresolved `{token}` placeholders may remain in sentence or gloss output
+- `zh_tw` and `en` must both reflect the same control-driven switches
+- gloss text must read as natural learner-facing copy, not raw schema fragments or partial translations

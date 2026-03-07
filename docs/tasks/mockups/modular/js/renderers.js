@@ -1,9 +1,80 @@
 /**
  * Lingourmet Mockup Content Renderers & Registry logic
  */
+if (typeof window.i18nText !== 'function') {
+  window.i18nText = function (obj, locale = 'zh_tw', fallback = '') {
+    if (!obj) return fallback;
+    if (typeof obj === 'string') return obj;
+    if (obj[locale]) return obj[locale];
+    if (obj.zh_tw) return obj.zh_tw;
+    if (obj.en) return obj.en;
+    const first = Object.values(obj).find(v => typeof v === 'string' && v);
+    return first || fallback;
+  };
+}
 
 window.showBilingual = function () {
   return window.state.progress.prefs.showBilingual !== false;
+};
+
+const currentLocale = function () {
+  return window.currentTeachingLocale ? window.currentTeachingLocale() : 'zh_tw';
+};
+
+window.warnUnresolvedTemplate = function (scope, template, context = {}) {
+  if (!template || typeof template !== 'string') return;
+  const matches = template.match(/\{[^}]+\}/g);
+  if (!matches || !matches.length) return;
+  console.warn(`[mockup-template-warning] ${scope} has unresolved token(s): ${matches.join(', ')}`, context);
+};
+
+window.renderOptionLabelWithGloss = function (option, locale) {
+  if (!option) return '';
+  const label = window.i18nText(option.label_i18n, locale, option.label_zh_tw || option.value || '');
+  const gloss = window.i18nText(option.gloss_i18n, locale, option.gloss_zh_tw || '');
+  if (!gloss || gloss === label) return label;
+  if (label.includes(gloss)) return label;
+  return `${label} · ${gloss}`;
+};
+
+window.optionMatchesAvailability = function (option, values) {
+  if (!option || !option.available_when) return true;
+  return Object.entries(option.available_when).every(([controlId, allowed]) => {
+    const allowedValues = Array.isArray(allowed) ? allowed : [allowed];
+    return allowedValues.includes(values[controlId]);
+  });
+};
+
+window.getAvailableControlOptions = function (control, values) {
+  const options = (control.options || []).filter(option => window.optionMatchesAvailability(option, values));
+  return options.length ? options : (control.options || []);
+};
+
+window.resolvePatternBuilderValues = function (config, seedValues = {}) {
+  const values = { ...seedValues };
+  (config.controls || []).forEach(control => {
+    const availableOptions = window.getAvailableControlOptions(control, values);
+    const currentValue = values[control.control_id];
+    const stillValid = availableOptions.some(option => option.value === currentValue);
+    values[control.control_id] = stillValid
+      ? currentValue
+      : (availableOptions[0] ? availableOptions[0].value : '');
+  });
+  return values;
+};
+
+window.syncPatternBuilderControls = function (root, config, seedValues, locale) {
+  const resolvedValues = window.resolvePatternBuilderValues(config, seedValues);
+  (config.controls || []).forEach(control => {
+    const select = root.querySelector(`[data-builder-control="${control.control_id}"]`);
+    if (!select) return;
+    const availableOptions = window.getAvailableControlOptions(control, resolvedValues);
+    select.innerHTML = availableOptions.map(option => (
+      `<option value="${window.escapeHtml(option.value)}">${window.escapeHtml(window.renderOptionLabelWithGloss(option, locale))}</option>`
+    )).join('');
+    select.value = resolvedValues[control.control_id] || '';
+  });
+  return resolvedValues;
 };
 
 // --- Renderer Registry Contract ---
@@ -112,6 +183,7 @@ window.RendererRegistry = {
 // --- Detail Rendering Helpers ---
 
 window.renderDetailHeader = function (node) {
+  const locale = window.currentTeachingLocale();
   const header = document.getElementById('detailHeader');
   header.innerHTML = `
     <div class="content-header animate-in">
@@ -119,21 +191,24 @@ window.renderDetailHeader = function (node) {
         <span class="type-tag">${node.learning_role}</span>
         <span class="type-tag" style="background:var(--accent2-soft); color:var(--accent2);">${node.candidate_type}</span>
       </div>
-      <h1>${node.title_zh_tw}</h1>
+      <h1>${window.escapeHtml(window.i18nText(node.title_i18n, locale, node.title_zh_tw || ''))}</h1>
     </div>
   `;
 };
 
 window.renderDetailSummary = function (node) {
+  const locale = window.currentTeachingLocale();
+  const summaryText = window.i18nText(node.summary_i18n, locale, node.summary_zh_tw || '');
+  const expectedText = window.i18nText(node.expected_output_i18n, locale, node.expected_output_zh_tw || '觀察與理解');
   const summaryBox = document.getElementById('detailSummary');
   summaryBox.innerHTML = `
     <div class="content-summary animate-in">
       <div style="font-weight:700; margin-bottom:8px;">本節目標</div>
-      <div class="muted-text">${node.summary_zh_tw}</div>
+      <div class="muted-text">${window.escapeHtml(summaryText)}</div>
       <div class="summary-grid">
         <div class="summary-box">
           <span class="label">預期輸出</span>
-          ${node.expected_output_zh_tw || '觀察與理解'}
+          ${window.escapeHtml(expectedText)}
         </div>
         <div class="summary-box">
           <span class="label">技能焦查</span>
@@ -159,13 +234,15 @@ window.updatePatternBuilder = function (builderId, configJson) {
 
   const outputEl = root.querySelector('[data-builder-output]');
   const glossEl = root.querySelector('[data-builder-gloss]');
+  const speakEl = root.querySelector('[data-builder-speak]');
   if (!outputEl) return;
 
-  const values = {};
+  const seedValues = {};
   (config.controls || []).forEach(control => {
     const select = root.querySelector(`[data-builder-control="${control.control_id}"]`);
-    values[control.control_id] = select ? select.value : '';
+    seedValues[control.control_id] = select ? select.value : '';
   });
+  const values = window.syncPatternBuilderControls(root, config, seedValues, currentLocale());
 
   const registerKey = values.register || 'polite';
   const computed = window.computePatternBuilderOutput(config, values);
@@ -177,6 +254,16 @@ window.updatePatternBuilder = function (builderId, configJson) {
 
   outputEl.textContent = computed.sentence;
   if (glossEl) glossEl.textContent = computed.gloss;
+  if (speakEl) {
+    if (computed.sentence && window.ttsSupported && window.ttsSupported()) {
+      speakEl.style.display = '';
+      speakEl.setAttribute('data-tts-text', computed.sentence);
+      speakEl.setAttribute('title', '播放目前句子');
+    } else {
+      speakEl.style.display = 'none';
+      speakEl.removeAttribute('data-tts-text');
+    }
+  }
 };
 
 window.updatePatternBuilderFromRoot = function (builderId) {
@@ -215,6 +302,7 @@ window.applyPatternBuilderSlotValue = function (builderId, controlId, value) {
 };
 
 window.computePatternBuilderOutput = function (config, rawValues) {
+  const locale = window.currentTeachingLocale ? window.currentTeachingLocale() : 'zh_tw';
   const values = { ...rawValues };
   const registerKey = values.register || 'polite';
   const selectedMap = {};
@@ -232,6 +320,24 @@ window.computePatternBuilderOutput = function (config, rawValues) {
     }
   }
 
+  if (config.value_derivation_rules && config.value_derivation_rules.length) {
+    config.value_derivation_rules.forEach(rule => {
+      const sourceOption = selectedMap[rule.from_control_id];
+      let derivedValues = null;
+      if (sourceOption && sourceOption.sentence_values_by_register && sourceOption.sentence_values_by_register[registerKey]) {
+        derivedValues = sourceOption.sentence_values_by_register[registerKey];
+      } else if (sourceOption && sourceOption.sentence_values) {
+        derivedValues = sourceOption.sentence_values;
+      }
+      if (!derivedValues) return;
+      (rule.assign || []).forEach(targetKey => {
+        if (Object.prototype.hasOwnProperty.call(derivedValues, targetKey)) {
+          values[targetKey] = derivedValues[targetKey];
+        }
+      });
+    });
+  }
+
   let sentence = (config.register_templates && config.register_templates[registerKey]) || '';
 
   if (config.dynamic_token_rules && config.dynamic_token_rules.length) {
@@ -242,6 +348,9 @@ window.computePatternBuilderOutput = function (config, rawValues) {
 
       if (rule.map_by_register_and_ending) {
         replacement = (((rule.map_by_register_and_ending || {})[registerKey] || {})[endingType]) || '';
+      } else if (rule.map_by_register_and_value) {
+        const sourceValue = values[rule.source_control_id] || '';
+        replacement = (((rule.map_by_register_and_value || {})[registerKey] || {})[sourceValue]) || '';
       } else if (rule.map_by_ending) {
         replacement = (rule.map_by_ending || {})[endingType] || '';
       }
@@ -259,55 +368,75 @@ window.computePatternBuilderOutput = function (config, rawValues) {
   Object.entries(values).forEach(([key, value]) => {
     sentence = sentence.replaceAll(`{${key}}`, value);
   });
+  window.warnUnresolvedTemplate(`sentence:${config.builder_id || 'unknown'}`, sentence, {
+    values,
+    registerKey,
+  });
 
   let gloss = '';
   if (config.translation_templates && config.translation_templates[registerKey]) {
-    gloss = config.translation_templates[registerKey];
+    gloss = window.i18nText(config.translation_templates[registerKey], locale, '');
     Object.entries(values).forEach(([key, value]) => {
       const match = selectedMap[key];
-      const glossValue = (match && match.gloss_zh_tw) ? match.gloss_zh_tw : value;
+      const glossValue = match ? window.i18nText(match.gloss_i18n, locale, match.gloss_zh_tw || value) : value;
       gloss = gloss.replaceAll(`{${key}}`, glossValue);
     });
-    if (selectedMap.register && selectedMap.register.gloss_zh_tw) {
-      gloss = gloss.replaceAll('{register}', selectedMap.register.gloss_zh_tw);
+    Object.entries(selectedMap).forEach(([key, match]) => {
+      if (!match) return;
+      const glossValue = window.i18nText(match.gloss_i18n, locale, match.gloss_zh_tw || match.value || '');
+      gloss = gloss.replaceAll(`{${key}}`, glossValue);
+    });
+    if (selectedMap.register) {
+      const registerGloss = window.i18nText(selectedMap.register.gloss_i18n, locale, selectedMap.register.gloss_zh_tw || '');
+      if (registerGloss) gloss = gloss.replaceAll('{register}', registerGloss);
     }
+    window.warnUnresolvedTemplate(`gloss:${config.builder_id || 'unknown'}:${locale}`, gloss, {
+      values,
+      registerKey,
+      locale,
+    });
   }
 
   return { values, selectedMap, sentence, gloss };
 };
 
 window.renderPatternBuilderBlock = function (builder, nodeId) {
+  const locale = currentLocale();
   const builderId = `builder-${window.escapeJsSingle(nodeId || builder.builder_id || 'x')}-${window.escapeJsSingle(builder.builder_id || 'main')}`;
   const rawConfigJson = JSON.stringify(builder);
   const configJsonAttr = window.escapeHtml(rawConfigJson);
-
-  const controlsHtml = (builder.controls || []).map(control => `
-    <label class="tiny-text muted" style="display:block; margin-bottom:10px;">
-      <span style="display:block; margin-bottom:4px; font-weight:700;">${window.escapeHtml((control.label_i18n && control.label_i18n.zh_tw) || control.label_zh_tw || control.control_id)}</span>
-      <select data-builder-control="${window.escapeHtml(control.control_id)}"
-        onchange="window.updatePatternBuilderFromRoot('${builderId}')"
-        style="width:100%; padding:8px; border-radius:8px; border:1px solid var(--line); background:#fff;">
-        ${(control.options || []).map(option => `<option value="${window.escapeHtml(option.value)}">${window.escapeHtml((option.label_i18n && option.label_i18n.zh_tw) || option.label_zh_tw || option.value)}</option>`).join('')}
-      </select>
-    </label>
-  `).join('');
 
   const initialValues = {};
   (builder.controls || []).forEach(control => {
     initialValues[control.control_id] = control.options && control.options[0] ? control.options[0].value : '';
   });
-  const initialComputed = window.computePatternBuilderOutput(builder, initialValues);
+  const initialResolvedValues = window.resolvePatternBuilderValues(builder, initialValues);
+
+  const controlsHtml = (builder.controls || []).map(control => `
+    <label class="tiny-text muted" style="display:block; margin-bottom:10px;">
+      <span style="display:block; margin-bottom:4px; font-weight:700;">${window.escapeHtml(window.i18nText(control.label_i18n, locale, control.label_zh_tw || control.control_id))}</span>
+      <select data-builder-control="${window.escapeHtml(control.control_id)}"
+        onchange="window.updatePatternBuilderFromRoot('${builderId}')"
+        style="width:100%; padding:8px; border-radius:8px; border:1px solid var(--line); background:#fff;">
+        ${window.getAvailableControlOptions(control, initialResolvedValues).map(option => `<option value="${window.escapeHtml(option.value)}"${option.value === initialResolvedValues[control.control_id] ? ' selected' : ''}>${window.escapeHtml(window.renderOptionLabelWithGloss(option, locale))}</option>`).join('')}
+      </select>
+    </label>
+  `).join('');
+  const initialComputed = window.computePatternBuilderOutput(builder, initialResolvedValues);
 
   return `
     <div class="content-block">
-      <div class="block-title">${window.escapeHtml((builder.title_i18n && builder.title_i18n.zh_tw) || builder.title_zh_tw || '可切換句型')}</div>
+      <div class="block-title">${window.escapeHtml(window.i18nText(builder.title_i18n, locale, builder.title_zh_tw || '可切換句型'))}</div>
       <div id="${builderId}" class="summary-box" data-builder-config="${configJsonAttr}">
-        ${builder.inline_hint_i18n && builder.inline_hint_i18n.zh_tw ? `<div class="muted-text" style="margin-bottom:12px;">${window.escapeHtml(builder.inline_hint_i18n.zh_tw)}</div>` : ''}
+        ${window.i18nText(builder.inline_hint_i18n, locale, '') ? `<div class="muted-text" style="margin-bottom:12px;">${window.escapeHtml(window.i18nText(builder.inline_hint_i18n, locale, ''))}</div>` : ''}
         <div class="summary-grid" style="grid-template-columns:repeat(3, 1fr);">
           ${controlsHtml}
         </div>
         <div class="pattern-entry" style="margin-top:8px;">
-          <div class="pattern-formula" data-builder-output>${window.escapeHtml(initialComputed.sentence)}</div>
+          <div style="display:flex; align-items:center; gap:8px;">
+            <div class="pattern-formula" data-builder-output style="flex:1;">${window.escapeHtml(initialComputed.sentence)}</div>
+            ${window.ttsSupported && window.ttsSupported() ? `<button class="btn tiny-text" data-builder-speak data-tts-text="${window.escapeHtml(initialComputed.sentence)}" onclick="event.stopPropagation(); window.speakKo(this.getAttribute('data-tts-text') || ''); return false;" title="播放目前句子" style="padding:4px 8px;">▶</button>` : ''}
+          </div>
           <div class="pattern-use-case" data-builder-gloss>${window.escapeHtml(initialComputed.gloss)}</div>
         </div>
       </div>
@@ -317,35 +446,36 @@ window.renderPatternBuilderBlock = function (builder, nodeId) {
 
 window.renderLessonSupportModule = function (module) {
   if (!module) return '';
+  const locale = currentLocale();
   const items = (module.items || []).map(item => `
     <div class="pro-item">
       <strong>${window.escapeHtml(item.target || '')}</strong>
-      ${item.explain_i18n && item.explain_i18n.zh_tw ? `<div class="tiny-text muted" style="margin-top:3px;">${window.escapeHtml(item.explain_i18n.zh_tw)}</div>` : ''}
+      ${window.i18nText(item.explain_i18n, locale, '') ? `<div class="tiny-text muted" style="margin-top:3px;">${window.escapeHtml(window.i18nText(item.explain_i18n, locale, ''))}</div>` : ''}
     </div>
   `).join('');
 
   return `
     <div class="content-block">
-      <div class="block-title">${window.escapeHtml((module.title_i18n && module.title_i18n.zh_tw) || '語體怎麼選')}</div>
-      ${module.why_here_i18n && module.why_here_i18n.zh_tw ? `<div class="muted-text" style="margin-bottom:12px;">${window.escapeHtml(module.why_here_i18n.zh_tw)}</div>` : ''}
+      <div class="block-title">${window.escapeHtml(window.i18nText(module.title_i18n, locale, '語體怎麼選'))}</div>
+      ${window.i18nText(module.why_here_i18n, locale, '') ? `<div class="muted-text" style="margin-bottom:12px;">${window.escapeHtml(window.i18nText(module.why_here_i18n, locale, ''))}</div>` : ''}
       <div class="compare-pros">${items}</div>
     </div>
   `;
 };
 
 const renderDialogue = function (payload, node) {
+  const locale = currentLocale();
   const turns = payload.dialogue_turns || [];
   const scenes = payload.dialogue_scenes || [];
   if (!payload.dialogue_turns && !payload.dialogue_scenes) return window.RendererRegistry.renderMalformedPayload('dialogue', 'none', ['dialogue_turns']);
 
   let coachIntro = '';
-  if (payload.coach_intro_i18n && payload.coach_intro_i18n.zh_tw) {
+  if (window.i18nText(payload.coach_intro_i18n, locale, '')) {
     coachIntro = `
       <div class="content-block">
         <div class="block-title">朋友先跟你講重點</div>
         <div class="summary-box" style="background:var(--accent-soft); border-color:var(--accent-soft);">
-          ${window.escapeHtml(payload.coach_intro_i18n.zh_tw)}
-          ${window.showBilingual() && payload.coach_intro_i18n.en ? `<div class="tiny-text muted" style="margin-top:8px;">${window.escapeHtml(payload.coach_intro_i18n.en)}</div>` : ''}
+          ${window.escapeHtml(window.i18nText(payload.coach_intro_i18n, locale, ''))}
         </div>
       </div>
     `;
@@ -355,8 +485,7 @@ const renderDialogue = function (payload, node) {
   if (payload.what_to_notice_i18n && payload.what_to_notice_i18n.length) {
     const items = payload.what_to_notice_i18n.map(item => `
       <div class="pro-item">
-        ${window.escapeHtml(item.zh_tw || '')}
-        ${window.showBilingual() && item.en ? `<div class="tiny-text muted" style="margin-top:3px;">${window.escapeHtml(item.en)}</div>` : ''}
+        ${window.escapeHtml(window.i18nText(item, locale, ''))}
       </div>
     `).join('');
     whatToNotice = `<div class="content-block"><div class="block-title">這段先注意什麼</div><div class="compare-pros">${items}</div></div>`;
@@ -370,7 +499,7 @@ const renderDialogue = function (payload, node) {
           <div class="speaker-label">${window.escapeHtml(t.speaker)}</div>
           <div class="bubble">
             <div class="bubble-ko">${window.escapeHtml(t.text)} ${window.renderSpeakButton(t.text)}</div>
-            ${window.showBilingual() && t.zh_tw ? `<div class="bubble-zh">${window.escapeHtml(t.zh_tw)}</div>` : ''}
+            ${window.showBilingual() && (window.i18nText(t.translations_i18n, locale, '') || t.zh_tw) ? `<div class="bubble-zh">${window.escapeHtml(window.i18nText(t.translations_i18n, locale, t.zh_tw || ''))}</div>` : ''}
           </div>
         </div>
       `;
@@ -380,8 +509,8 @@ const renderDialogue = function (payload, node) {
   const html = scenes.length
     ? scenes.map(scene => `
         <div class="content-block" style="margin:0 0 14px 0;">
-          <div class="block-title">${window.escapeHtml(scene.title_zh_tw || scene.title || '短對話')}</div>
-          ${scene.note_zh_tw ? `<div class="muted-text" style="margin-bottom:10px;">${window.escapeHtml(scene.note_zh_tw)}</div>` : ''}
+          <div class="block-title">${window.escapeHtml(window.i18nText(scene.title_i18n, locale, scene.title_zh_tw || scene.title || '短對話'))}</div>
+          ${window.i18nText(scene.note_i18n, locale, scene.note_zh_tw || '') ? `<div class="muted-text" style="margin-bottom:10px;">${window.escapeHtml(window.i18nText(scene.note_i18n, locale, scene.note_zh_tw || ''))}</div>` : ''}
           <div class="dialogue-wrap">${renderTurns(scene.turns || [])}</div>
         </div>
       `).join('')
@@ -391,13 +520,13 @@ const renderDialogue = function (payload, node) {
   if (payload.register_switch_bank && payload.register_switch_bank.length) {
     const rows = payload.register_switch_bank.map(row => `
       <div class="pattern-entry">
-        <div class="tiny-text muted" style="margin-bottom:6px; font-weight:700;">${window.escapeHtml(row.meaning_i18n && row.meaning_i18n.zh_tw || '')}</div>
+        <div class="tiny-text muted" style="margin-bottom:6px; font-weight:700;">${window.escapeHtml(window.i18nText(row.meaning_i18n, locale, ''))}</div>
         <div class="summary-grid">
           <div class="summary-box"><span class="label">正式</span>${window.escapeHtml(row.formal || '')}</div>
           <div class="summary-box"><span class="label">日常</span>${window.escapeHtml(row.polite || '')}</div>
           <div class="summary-box"><span class="label">朋友</span>${window.escapeHtml(row.casual || '')}</div>
         </div>
-        ${row.note_i18n && row.note_i18n.zh_tw ? `<div class="tiny-text muted" style="margin-top:8px;">${window.escapeHtml(row.note_i18n.zh_tw)}</div>` : ''}
+        ${window.i18nText(row.note_i18n, locale, '') ? `<div class="tiny-text muted" style="margin-top:8px;">${window.escapeHtml(window.i18nText(row.note_i18n, locale, ''))}</div>` : ''}
       </div>
     `).join('');
     registerSwitch = `<div class="content-block"><div class="block-title">三種禮貌等級切換</div>${rows}</div>`;
@@ -416,6 +545,7 @@ const renderDialogue = function (payload, node) {
 };
 
 const renderPatternLab = function (payload, node) {
+  const locale = currentLocale();
   let patternBuilder = '';
   if (payload.pattern_builder_demos && payload.pattern_builder_demos.length) {
     patternBuilder = payload.pattern_builder_demos.map(builder => window.renderPatternBuilderBlock(builder, node && (node.id || node.node_id))).join('');
@@ -424,21 +554,37 @@ const renderPatternLab = function (payload, node) {
   }
 
   const lessonSupportModule = window.renderLessonSupportModule(payload.lesson_support_module || null);
-  return `${lessonSupportModule}${patternBuilder}`;
+  const slotBanks = (payload.slot_bank_panels || []).map(panel => `
+    <div class="content-block">
+      <div class="block-title">${window.escapeHtml(window.i18nText(panel.title_i18n, locale, '可替換材料'))}</div>
+      <div class="compare-pros">
+        ${(panel.items_i18n || []).map(item => `
+          <div class="pro-item">
+            <strong>${window.escapeHtml(item.ko || '')}</strong>
+            <div class="tiny-text muted" style="margin-top:3px;">${window.escapeHtml(window.i18nText(item, locale, item.zh_tw || ''))}</div>
+          </div>
+        `).join('')}
+      </div>
+    </div>
+  `).join('');
+  return `${lessonSupportModule}${slotBanks}${patternBuilder}`;
 };
 
 const renderNotice = function (payload) {
+  const locale = currentLocale();
   const items = payload.notice_items || [];
   const itemZh = payload.notice_items_zh_tw || [];
+  const itemI18n = payload.notice_items_i18n || [];
+  const blockTitle = window.i18nText(payload.block_title_i18n, locale, '告示與看板');
   if (!payload.notice_items) return window.RendererRegistry.renderMalformedPayload('notice', 'none', ['notice_items']);
 
   const html = items.map((ko, idx) => `
     <div class="notice-item">
       <span class="notice-ko">${window.escapeHtml(ko)} ${window.renderSpeakButton(ko)}</span>
-      ${window.showBilingual() && itemZh[idx] ? `<span class="notice-zh">${window.escapeHtml(itemZh[idx])}</span>` : ''}
+      ${window.showBilingual() && (window.i18nText(itemI18n[idx], locale, '') || itemZh[idx]) ? `<span class="notice-zh">${window.escapeHtml(window.i18nText(itemI18n[idx], locale, itemZh[idx] || ''))}</span>` : ''}
     </div>
   `).join('');
-  return `<div class="content-block"><div class="block-title">告示與看板</div><div class="notice-board">${html}</div></div>`;
+  return `<div class="content-block"><div class="block-title">${window.escapeHtml(blockTitle)}</div><div class="notice-board">${html}</div></div>`;
 };
 
 const renderMessageThread = function (payload) {
@@ -496,14 +642,15 @@ const renderComparison = function (payload) {
 };
 
 const renderPatternCard = function (payload) {
+  const locale = currentLocale();
   const frames = payload.frames || [];
   const html = frames.map(f => `
     <div class="pattern-entry">
       <div class="pattern-formula">${window.escapeHtml(f.frame)}</div>
-      <div class="pattern-use-case">${window.escapeHtml(f.use_zh_tw)}</div>
+      <div class="pattern-use-case">${window.escapeHtml(window.i18nText(f.use_i18n, locale, f.use_zh_tw || ''))}</div>
       <div class="slot-tags">
         <span class="slot-label">詞類/插槽:</span>
-        ${(f.slots_zh_tw || []).map(s => `<span class="slot-tag">${window.escapeHtml(s)}</span>`).join('')}
+        ${((f.slots_i18n || []).length ? f.slots_i18n.map(s => window.i18nText(s, locale)) : (f.slots_zh_tw || [])).map(s => `<span class="slot-tag">${window.escapeHtml(s)}</span>`).join('')}
       </div>
     </div>
   `).join('');
@@ -511,6 +658,7 @@ const renderPatternCard = function (payload) {
 };
 
 const renderPracticeCardHead = function (payload, node) {
+  const locale = currentLocale();
   const modeLabel = {
     chunk_assembly: '拼句型練習',
     response_builder: '回應建構',
@@ -525,7 +673,7 @@ const renderPracticeCardHead = function (payload, node) {
     <div class="card-block animate-in">
       <div class="block-title">Practice Card</div>
       <div class="muted-text" style="margin-bottom:10px;">${window.escapeHtml(modeLabel)}</div>
-      ${payload.prompt_zh_tw ? `<div style="margin-bottom:10px;">${window.escapeHtml(payload.prompt_zh_tw)}</div>` : ''}
+      ${window.i18nText(payload.prompt_i18n, locale, payload.prompt_zh_tw || '') ? `<div style="margin-bottom:10px;">${window.escapeHtml(window.i18nText(payload.prompt_i18n, locale, payload.prompt_zh_tw || ''))}</div>` : ''}
       ${total ? `<div class="tiny-text muted">本節練習題數：${total}</div>` : ''}
       <div class="tiny-text muted" style="margin-top:8px;">互動內容請見下方練習區塊。</div>
     </div>
@@ -533,12 +681,13 @@ const renderPracticeCardHead = function (payload, node) {
 };
 
 const renderComprehensionCheck = function (payload) {
+  const locale = currentLocale();
   const items = payload.items || [];
   const qType = payload.question_type || 'unknown';
   const html = items.map((item, idx) => `
     <div class="pattern-entry">
       <div class="tiny-text muted">題目 ${idx + 1}</div>
-      <div style="font-weight:600; margin:4px 0 8px;">${window.escapeHtml(item.prompt_zh_tw || item.prompt_ko || '')}</div>
+      <div style="font-weight:600; margin:4px 0 8px;">${window.escapeHtml(window.i18nText(item.prompt_i18n, locale, item.prompt_zh_tw || item.prompt_ko || ''))}</div>
       ${(item.response_choices_ko || []).length ? `
         <div class="chip-cloud">
           ${(item.response_choices_ko || []).map(c => `
@@ -565,6 +714,7 @@ const renderComprehensionCheck = function (payload) {
 };
 
 const renderRoleplayPrompt = function (payload) {
+  const locale = currentLocale();
   return `
     <div class="card-block animate-in">
       <div class="block-title">Roleplay Prompt</div>
@@ -572,20 +722,20 @@ const renderRoleplayPrompt = function (payload) {
         <div style="margin-bottom:8px;">
           <div class="tiny-text muted">情境（韓文）</div>
           <div>${window.escapeHtml(payload.scenery_ko)}</div>
-          ${window.showBilingual() && payload.scenery_zh_tw ? `<div class="tiny-text muted" style="margin-top:4px;">${window.escapeHtml(payload.scenery_zh_tw)}</div>` : ''}
+          ${window.showBilingual() && window.i18nText(payload.scenery_i18n, locale, payload.scenery_zh_tw || '') ? `<div class="tiny-text muted" style="margin-top:4px;">${window.escapeHtml(window.i18nText(payload.scenery_i18n, locale, payload.scenery_zh_tw || ''))}</div>` : ''}
         </div>` : ''
     }
-      ${Array.isArray(payload.constraints_zh_tw) && payload.constraints_zh_tw.length ? `
+      ${(Array.isArray(payload.constraints_i18n) && payload.constraints_i18n.length) || (Array.isArray(payload.constraints_zh_tw) && payload.constraints_zh_tw.length) ? `
         <div style="margin-bottom:8px;">
           <div class="tiny-text muted">限制條件</div>
-          <ul style="margin:6px 0 0 18px;">${payload.constraints_zh_tw.map(v => `<li>${window.escapeHtml(v)}</li>`).join('')}</ul>
+          <ul style="margin:6px 0 0 18px;">${((payload.constraints_i18n || []).length ? payload.constraints_i18n.map(v => window.i18nText(v, locale)) : payload.constraints_zh_tw).map(v => `<li>${window.escapeHtml(v)}</li>`).join('')}</ul>
         </div>` : ''
     }
-      ${Array.isArray(payload.required_patterns_zh_tw) && payload.required_patterns_zh_tw.length ? `
+      ${(Array.isArray(payload.required_patterns_i18n) && payload.required_patterns_i18n.length) || (Array.isArray(payload.required_patterns_zh_tw) && payload.required_patterns_zh_tw.length) ? `
         <div>
           <div class="tiny-text muted">必用句型</div>
           <div class="chip-cloud" style="margin-top:6px;">
-            ${payload.required_patterns_zh_tw.map(v => `<span class="word-chip">${window.escapeHtml(v)}</span>`).join('')}
+            ${((payload.required_patterns_i18n || []).length ? payload.required_patterns_i18n.map(v => window.i18nText(v, locale)) : payload.required_patterns_zh_tw).map(v => `<span class="word-chip">${window.escapeHtml(v)}</span>`).join('')}
           </div>
         </div>` : ''
     }
@@ -621,7 +771,8 @@ const renderMessagePrompt = function (payload) {
 };
 
 const renderReviewCard = function (payload) {
-  const prompts = payload.prompts_zh_tw || [];
+  const locale = currentLocale();
+  const prompts = (payload.prompts_i18n || []).length ? payload.prompts_i18n.map(v => window.i18nText(v, locale)) : (payload.prompts_zh_tw || []);
   return `
     <div class="card-block animate-in">
       <div class="block-title">Review Card</div>
@@ -735,15 +886,16 @@ const markdownToHtmlLite = function (md) {
 };
 
 const renderGrammar = function (payload) {
+  const locale = currentLocale();
   const sections = payload.sections || [];
   const html = sections.map(s => `
     <details open>
-      <summary>${window.escapeHtml(s.title_zh_tw)}</summary>
+      <summary>${window.escapeHtml(window.i18nText(s.title_i18n, locale, s.title_zh_tw || ''))}</summary>
       <div class="grammar-body">
-        ${s.explanation_md
-      ? `<div class="md-block">${markdownToHtmlLite(s.explanation_md)}</div>`
+        ${window.i18nText(s.explanation_md_i18n, locale, s.explanation_md || '')
+      ? `<div class="md-block">${markdownToHtmlLite(window.i18nText(s.explanation_md_i18n, locale, s.explanation_md || ''))}</div>`
       : `<ul class="grammar-point-list">
-              ${(s.points_zh_tw || []).map(p => `<li>${window.escapeHtml(p)}</li>`).join('')}
+              ${(((s.points_i18n || []).length ? s.points_i18n.map(p => window.i18nText(p, locale)) : (s.points_zh_tw || []))).map(p => `<li>${window.escapeHtml(p)}</li>`).join('')}
             </ul>`
     }
       </div>
@@ -779,8 +931,38 @@ const renderChunkAssemblyMode = function (node) {
   const payload = node.payload;
   const nodeState = window.getNodeInteractionState(node.id);
   const tasks = payload.tasks || [];
-  const taskIdx = nodeState.activeTaskIndex || 0;
-  const task = tasks[taskIdx];
+  if (!tasks.length) {
+    return `
+      <div class="interaction-panel">
+        <div class="interaction-label">ℹ️ 本節無互動題</div>
+        <div class="muted-text">此節點目前是內容瀏覽模式，未提供可操作的 chunk_assembly tasks。</div>
+      </div>
+    `;
+  }
+  const shuffleArray = (arr) => {
+    const next = [...arr];
+    for (let i = next.length - 1; i > 0; i -= 1) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [next[i], next[j]] = [next[j], next[i]];
+    }
+    return next;
+  };
+  if (!Array.isArray(nodeState.taskOrder) || nodeState.taskOrder.length !== tasks.length) {
+    const order = shuffleArray(tasks.map((_, idx) => idx));
+    nodeState.taskOrder = order;
+    nodeState.chunkOrderByTaskIndex = Object.fromEntries(
+      tasks.map((task, idx) => [idx, shuffleArray(task.chunks || [])])
+    );
+    nodeState.activeTaskIndex = 0;
+    window.setNodeInteractionState(node.id, nodeState);
+  }
+  const order = nodeState.taskOrder || tasks.map((_, idx) => idx);
+  const taskIdx = Math.max(0, Math.min(nodeState.activeTaskIndex || 0, tasks.length - 1));
+  if (taskIdx !== (nodeState.activeTaskIndex || 0)) {
+    nodeState.activeTaskIndex = taskIdx;
+    window.setNodeInteractionState(node.id, nodeState);
+  }
+  const task = tasks[order[taskIdx]];
   if (!task) {
     return `
       <div class="interaction-panel">
@@ -791,27 +973,34 @@ const renderChunkAssemblyMode = function (node) {
   }
 
   const currentAnswers = nodeState.answers || [];
-  const gloss = task.chunk_gloss_by_ko || {};
+  const assembled = currentAnswers.join(' ').trim();
+  const chunkOrder = Array.isArray(nodeState.chunkOrderByTaskIndex?.[order[taskIdx]])
+    ? nodeState.chunkOrderByTaskIndex[order[taskIdx]]
+    : shuffleArray(task.chunks || []);
+  const targets = task.target_examples || [];
+  const acceptable = task.acceptable_examples || [];
+  const feedbackState = nodeState.feedbackByTaskIndex?.[order[taskIdx]] || null;
 
   const answerHtml = currentAnswers.map((a, i) => `
     <div class="chip" onclick="removeChunk(${i})">
-      ${window.escapeHtml(a)} ${window.showBilingual() && gloss[a] ? `<span class="tiny-text muted">(${gloss[a]})</span>` : ''} ${window.renderSpeakButton(a)}
+      ${window.escapeHtml(a)} ${window.renderSpeakButton(a)}
     </div>
   `).join('');
 
-  const bankHtml = (task.chunks || []).map((c, i) => {
+  const bankHtml = chunkOrder.map((c) => {
     const usedCount = currentAnswers.filter(x => x === c).length;
     const totalCount = (task.chunks || []).filter(x => x === c).length;
     const isUsed = usedCount >= totalCount;
     return `<div class="chip ${isUsed ? 'used' : ''}" onclick="${isUsed ? '' : `addChunk('${c.replace(/'/g, "\\'")}')`}">
-      ${window.escapeHtml(c)} ${window.showBilingual() && gloss[c] ? `<span class="tiny-text muted">(${gloss[c]})</span>` : ''} ${window.renderSpeakButton(c)}
+      ${window.escapeHtml(c)} ${window.renderSpeakButton(c)}
     </div>`;
   }).join('');
 
   return `
     <div class="interaction-panel animate-in">
       <div class="interaction-label">🧩 詞塊組句練習 (${taskIdx + 1}/${tasks.length})</div>
-      <div class="muted-text" style="margin-bottom:12px;">${window.escapeHtml(task.prompt_zh_tw)}</div>
+      ${task.context_zh_tw ? `<div class="summary-box" style="margin-bottom:10px; background:#fff9ee; border-color:#f1dfb7;"><span class="label">場合</span>${window.escapeHtml(task.context_zh_tw)}</div>` : ''}
+      <div class="muted-text" style="margin-bottom:12px;">${window.escapeHtml(task.prompt_zh_tw || '')}</div>
       
       <div class="assembly-zone">
         <div class="block-title" style="margin-bottom:8px; font-size:11px;">你的組句 (點擊移除)</div>
@@ -823,9 +1012,19 @@ const renderChunkAssemblyMode = function (node) {
 
       <div class="btn-row">
         <button class="btn" onclick="clearAssembly()">清空</button>
+        <button class="btn" onclick="checkAssembly()">檢查</button>
         <button class="btn" onclick="toggleTaskExample()">查看示例</button>
-        <button class="btn primary" ${taskIdx >= tasks.length - 1 ? 'disabled' : ''} onclick="nextTask()">下一題</button>
+        <button class="btn primary" onclick="nextTask()">${taskIdx >= tasks.length - 1 ? '再來一輪' : '下一題'}</button>
       </div>
+      ${feedbackState ? `
+        <div class="summary-box" style="margin-top:12px; border-color:${feedbackState.kind === 'best_fit' ? 'var(--ok-soft)' : feedbackState.kind === 'acceptable_but_less_natural' ? '#f1dfb7' : '#f3d0d0'}; background:${feedbackState.kind === 'best_fit' ? 'var(--ok-soft)' : feedbackState.kind === 'acceptable_but_less_natural' ? '#fff9ee' : '#fff3f3'};">
+          <span class="label" style="color:${feedbackState.kind === 'best_fit' ? 'var(--ok)' : feedbackState.kind === 'acceptable_but_less_natural' ? '#8a6500' : '#b42318'};">
+            ${feedbackState.kind === 'best_fit' ? '最自然' : feedbackState.kind === 'acceptable_but_less_natural' ? '文法可通' : '再調整'}
+          </span>
+          ${window.escapeHtml(feedbackState.message)}
+          ${feedbackState.answer ? `<div class="tiny-text muted" style="margin-top:6px;">你現在組的是：${window.escapeHtml(feedbackState.answer)}</div>` : ''}
+        </div>
+      ` : ''}
       <div id="assemblyExample" class="summary-box" style="display:none; margin-top:16px; border-color:var(--ok-soft); background:var(--ok-soft);">
         <span class="label" style="color:var(--ok);">預期示例</span>
         ${(task.target_examples || []).join(' / ')}
@@ -865,12 +1064,13 @@ const renderResponseBuilderMode = function (node) {
 };
 
 const renderGuidedOutputMode = function (node) {
+  const locale = currentLocale();
   const nodeState = window.getNodeInteractionState(node.id);
   const isSpeaking = (node.skill_focus || []).includes('speaking');
   return `
     <div class="interaction-panel animate-in">
       <div class="interaction-label">${isSpeaking ? '🎤 口說練習' : '✍️ 任務型寫作'}</div>
-      <div class="muted-text" style="margin-bottom:12px;">${node.payload.prompt_zh_tw || node.summary_zh_tw}</div>
+      <div class="muted-text" style="margin-bottom:12px;">${window.escapeHtml(window.i18nText(node.payload.prompt_i18n, locale, node.payload.prompt_zh_tw || window.i18nText(node.summary_i18n, locale, node.summary_zh_tw || '')))}</div>
       <textarea placeholder="點擊此處輸入回答或練習筆記..." oninput="updateDraft(this.value)">${nodeState.draft || ''}</textarea>
       ${node.payload.must_include_zh_tw ? `<div class="tiny-text muted" style="margin-top:8px;">需包含: ${node.payload.must_include_zh_tw.join(' / ')}</div>` : ''}
     </div>
@@ -878,6 +1078,7 @@ const renderGuidedOutputMode = function (node) {
 };
 
 const renderFrameFillMode = function (node) {
+  const locale = currentLocale();
   const frames = node.payload?.frames || [];
   if (!frames.length) {
     return `
@@ -894,7 +1095,7 @@ const renderFrameFillMode = function (node) {
         <div style="margin-top:10px; padding:10px; background:#fff; border:1px solid var(--line); border-radius:8px;">
           <div class="tiny-text muted">Frame ${idx + 1}</div>
           <div style="font-weight:700; margin:4px 0;">${window.escapeHtml(f.frame || '')}</div>
-          ${f.use_zh_tw ? `<div class="tiny-text muted">${window.escapeHtml(f.use_zh_tw)}</div>` : ''}
+          ${window.i18nText(f.use_i18n, locale, f.use_zh_tw || '') ? `<div class="tiny-text muted">${window.escapeHtml(window.i18nText(f.use_i18n, locale, f.use_zh_tw || ''))}</div>` : ''}
         </div>
       `).join('')}
       <div class="tiny-text muted" style="margin-top:10px;">先口頭替換 slot，再到筆記區寫一版完整句子。</div>
@@ -903,12 +1104,13 @@ const renderFrameFillMode = function (node) {
 };
 
 const renderPatternTransformMode = function (node) {
+  const locale = currentLocale();
   const payload = node.payload || {};
   return `
     <div class="interaction-panel animate-in">
       <div class="interaction-label">🔁 句型變換練習</div>
       <div class="tiny-text muted">Transform Type: ${window.escapeHtml(payload.transform_type || 'unspecified')}</div>
-      <div style="margin-top:8px;">${window.escapeHtml(payload.prompt_zh_tw || node.summary_zh_tw || '請根據本節句型完成變換。')}</div>
+      <div style="margin-top:8px;">${window.escapeHtml(window.i18nText(payload.prompt_i18n, locale, payload.prompt_zh_tw || window.i18nText(node.summary_i18n, locale, node.summary_zh_tw || '請根據本節句型完成變換。')))}</div>
       ${(payload.must_include_zh_tw || []).length ? `
         <div style="margin-top:8px;">
           <div class="tiny-text muted">必含元素</div>
@@ -947,6 +1149,87 @@ const renderReviewRetrievalMode = function (node) {
   `;
 };
 
+const renderFlashcardReviewMode = function (node) {
+  const locale = currentLocale();
+  const payload = node.payload || {};
+  const cards = payload.cards || [];
+  if (!cards.length) {
+    return `
+      <div class="interaction-panel">
+        <div class="interaction-label">ℹ️ Flashcard Review</div>
+        <div class="muted-text">此節點未提供 cards，請先檢查 payload.cards。</div>
+      </div>
+    `;
+  }
+  const nodeState = window.getNodeInteractionState(node.id);
+  const cardOrder = Array.isArray(nodeState.cardOrder) && nodeState.cardOrder.length === cards.length
+    ? nodeState.cardOrder
+    : cards.map((_, idx) => idx);
+  if (!Array.isArray(nodeState.cardOrder) || nodeState.cardOrder.length !== cards.length) {
+    const shuffled = [...cardOrder];
+    for (let i = shuffled.length - 1; i > 0; i -= 1) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
+    }
+    nodeState.cardOrder = shuffled;
+    nodeState.activeCardIndex = 0;
+    nodeState.revealedCard = false;
+    window.setNodeInteractionState(node.id, nodeState);
+  }
+  const order = nodeState.cardOrder || cardOrder;
+  const activeCardIndex = Math.min(nodeState.activeCardIndex || 0, order.length - 1);
+  const activeIdx = order[activeCardIndex];
+  const card = cards[activeIdx];
+  const revealed = !!nodeState.revealedCard;
+  const easeByCard = nodeState.easeByCard || {};
+  const ease = easeByCard[activeIdx] || '';
+  const prompt = window.i18nText(card.prompt_i18n, locale, card.prompt_zh_tw || '');
+  const answer = window.i18nText(card.answer_i18n, locale, card.answer_zh_tw || '');
+  const note = window.i18nText(card.note_i18n, locale, card.note_zh_tw || '');
+
+  return `
+    <div class="interaction-panel animate-in">
+      <div class="interaction-label">🗂️ Flashcard Review (${activeCardIndex + 1}/${cards.length})</div>
+      <div class="summary-box" style="background:#fff; border-radius:12px; padding:16px;">
+        <div class="tiny-text muted" style="margin-bottom:6px;">卡片正面</div>
+        <div style="font-size:22px; font-weight:700; line-height:1.5;">
+          ${window.escapeHtml(card.front_ko || '')}
+          ${card.front_ko ? window.renderSpeakButton(card.front_ko) : ''}
+        </div>
+        ${prompt ? `<div class="muted-text" style="margin-top:8px;">${window.escapeHtml(prompt)}</div>` : ''}
+      </div>
+      <div class="btn-row" style="margin-top:12px;">
+        <button class="btn primary" onclick="toggleFlashcardReveal()">${revealed ? '收起答案' : '翻頁看答案'}</button>
+      </div>
+      ${revealed ? `
+        <div class="summary-box" style="margin-top:12px; border-color:var(--ok-soft); background:var(--ok-soft);">
+          <div class="tiny-text muted" style="margin-bottom:6px;">卡片背面</div>
+          ${answer ? `<div style="font-weight:700; margin-bottom:6px;">${window.escapeHtml(answer)}</div>` : ''}
+          ${card.back_ko ? `<div style="font-size:18px; font-weight:700;">${window.escapeHtml(card.back_ko)} ${window.renderSpeakButton(card.back_ko)}</div>` : ''}
+          ${note ? `<div class="tiny-text muted" style="margin-top:8px;">${window.escapeHtml(note)}</div>` : ''}
+        </div>
+      ` : ''}
+      <div style="margin-top:12px;">
+        <div class="tiny-text muted" style="margin-bottom:8px;">熟練度</div>
+        <div class="btn-group" style="flex-wrap:wrap; gap:8px;">
+          ${[
+            ['again', 'Again'],
+            ['hard', 'Hard'],
+            ['good', 'Good'],
+            ['easy', 'Easy'],
+          ].map(([key, label]) => `
+            <button class="btn ${ease === key ? 'success' : ''}" style="font-size:12px; padding:6px 12px;" onclick="rateFlashcard('${key}')">${label}</button>
+          `).join('')}
+        </div>
+      </div>
+      <div class="btn-row" style="margin-top:12px;">
+        <button class="btn" ${activeCardIndex <= 0 ? 'disabled' : ''} onclick="prevFlashcard()">上一張</button>
+        <button class="btn" ${activeCardIndex >= cards.length - 1 ? 'disabled' : ''} onclick="nextFlashcard()">下一張</button>
+      </div>
+    </div>
+  `;
+};
+
 window.renderFreeNote = function (node) {
   const nodeState = window.getNodeInteractionState(node.id);
   return `
@@ -980,6 +1263,7 @@ window.RendererRegistry.registerInteraction('frame_fill', renderFrameFillMode);
 window.RendererRegistry.registerInteraction('pattern_transform', renderPatternTransformMode);
 window.RendererRegistry.registerInteraction('guided', renderGuidedOutputMode);
 window.RendererRegistry.registerInteraction('review_retrieval', renderReviewRetrievalMode);
+window.RendererRegistry.registerInteraction('flashcard_review', renderFlashcardReviewMode);
 
 // --- Global Interaction Wrappers ---
 
@@ -988,20 +1272,61 @@ window.addChunk = (txt) => {
   const s = window.getNodeInteractionState(node.id);
   if (!s.answers) s.answers = [];
   s.answers.push(txt);
+  if (s.feedbackByTaskIndex) {
+    const key = s.taskOrder?.[s.activeTaskIndex || 0];
+    if (typeof key !== 'undefined') delete s.feedbackByTaskIndex[key];
+  }
   window.setNodeInteractionState(node.id, s);
-  window.renderCurrentNode();
+  window.renderCurrentInteractionOnly();
 };
 window.removeChunk = (idx) => {
   const node = window.state.data.sequence[window.state.currentIndex];
   const s = window.getNodeInteractionState(node.id);
   s.answers.splice(idx, 1);
+  if (s.feedbackByTaskIndex) {
+    const key = s.taskOrder?.[s.activeTaskIndex || 0];
+    if (typeof key !== 'undefined') delete s.feedbackByTaskIndex[key];
+  }
   window.setNodeInteractionState(node.id, s);
-  window.renderCurrentNode();
+  window.renderCurrentInteractionOnly();
 };
 window.clearAssembly = () => {
   const node = window.state.data.sequence[window.state.currentIndex];
-  window.setNodeInteractionState(node.id, { answers: [] });
-  window.renderCurrentNode();
+  const s = window.getNodeInteractionState(node.id);
+  s.answers = [];
+  if (s.feedbackByTaskIndex) {
+    const key = s.taskOrder?.[s.activeTaskIndex || 0];
+    if (typeof key !== 'undefined') delete s.feedbackByTaskIndex[key];
+  }
+  window.setNodeInteractionState(node.id, s);
+  window.renderCurrentInteractionOnly();
+};
+window.checkAssembly = () => {
+  const node = window.state.data.sequence[window.state.currentIndex];
+  const s = window.getNodeInteractionState(node.id);
+  const tasks = node.payload.tasks || [];
+  const order = s.taskOrder || tasks.map((_, idx) => idx);
+  const activeTaskIndex = Math.max(0, Math.min(s.activeTaskIndex || 0, tasks.length - 1));
+  const task = tasks[order[activeTaskIndex]];
+  if (!task) return;
+  const answer = (s.answers || []).join(' ').trim();
+  const targets = task.target_examples || [];
+  const acceptable = task.acceptable_examples || [];
+  let kind = 'incorrect';
+  let message = `這句不是這題要練的內容。先看主語、名詞和語尾是不是都選對了。`;
+  if (targets.includes(answer)) {
+    kind = 'best_fit';
+    message = `對，這個場合最自然就是這樣說。`;
+  } else if (acceptable.includes(answer)) {
+    kind = 'acceptable_but_less_natural';
+    message = `這句文法上可以，但這個場合更自然的是 ${targets[0] || '目標句'}。`;
+  } else if (!answer) {
+    message = '先把句子組出來，再檢查。';
+  }
+  if (!s.feedbackByTaskIndex) s.feedbackByTaskIndex = {};
+  s.feedbackByTaskIndex[order[activeTaskIndex]] = { kind, message, answer };
+  window.setNodeInteractionState(node.id, s);
+  window.renderCurrentInteractionOnly();
 };
 window.toggleTaskExample = () => {
   const box = document.getElementById('assemblyExample');
@@ -1012,11 +1337,30 @@ window.toggleTaskExample = () => {
 window.nextTask = () => {
   const node = window.state.data.sequence[window.state.currentIndex];
   const s = window.getNodeInteractionState(node.id);
-  s.activeTaskIndex = (s.activeTaskIndex || 0) + 1;
+  const tasks = node.payload.tasks || [];
+  const shuffleArray = (arr) => {
+    const next = [...arr];
+    for (let i = next.length - 1; i > 0; i -= 1) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [next[i], next[j]] = [next[j], next[i]];
+    }
+    return next;
+  };
+  const currentIdx = s.activeTaskIndex || 0;
+  if (currentIdx >= tasks.length - 1) {
+    s.taskOrder = shuffleArray(tasks.map((_, idx) => idx));
+    s.chunkOrderByTaskIndex = Object.fromEntries(
+      tasks.map((task, idx) => [idx, shuffleArray(task.chunks || [])])
+    );
+    s.activeTaskIndex = 0;
+  } else {
+    s.activeTaskIndex = currentIdx + 1;
+  }
   s.answers = [];
+  if (s.feedbackByTaskIndex) delete s.feedbackByTaskIndex[order[s.activeTaskIndex]];
   window.setNodeInteractionState(node.id, s);
-  window.renderCurrentNode();
-  window.showToast('載入下一題');
+  window.renderCurrentInteractionOnly();
+  window.showToast(currentIdx >= tasks.length - 1 ? '已重新洗題' : '載入下一題');
 };
 window.pickResponse = (idx, choice) => {
   const node = window.state.data.sequence[window.state.currentIndex];
@@ -1030,6 +1374,43 @@ window.pickResponse = (idx, choice) => {
 window.updateDraft = (val) => {
   const node = window.state.data.sequence[window.state.currentIndex];
   window.setNodeInteractionState(node.id, { draft: val });
+};
+window.toggleFlashcardReveal = () => {
+  const node = window.state.data.sequence[window.state.currentIndex];
+  const s = window.getNodeInteractionState(node.id);
+  s.revealedCard = !s.revealedCard;
+  window.setNodeInteractionState(node.id, s);
+  window.renderCurrentInteractionOnly();
+};
+window.rateFlashcard = (rating) => {
+  const node = window.state.data.sequence[window.state.currentIndex];
+  const s = window.getNodeInteractionState(node.id);
+  const cards = node.payload.cards || [];
+  const order = s.cardOrder || cards.map((_, idx) => idx);
+  const activeCardIndex = Math.min(s.activeCardIndex || 0, order.length - 1);
+  const activeIdx = order[activeCardIndex];
+  if (!s.easeByCard) s.easeByCard = {};
+  s.easeByCard[activeIdx] = rating;
+  window.setNodeInteractionState(node.id, s);
+  window.renderCurrentInteractionOnly();
+  window.showToast(`已標記 ${rating}`);
+};
+window.nextFlashcard = () => {
+  const node = window.state.data.sequence[window.state.currentIndex];
+  const s = window.getNodeInteractionState(node.id);
+  const cards = node.payload.cards || [];
+  s.activeCardIndex = Math.min((s.activeCardIndex || 0) + 1, cards.length - 1);
+  s.revealedCard = false;
+  window.setNodeInteractionState(node.id, s);
+  window.renderCurrentInteractionOnly();
+};
+window.prevFlashcard = () => {
+  const node = window.state.data.sequence[window.state.currentIndex];
+  const s = window.getNodeInteractionState(node.id);
+  s.activeCardIndex = Math.max((s.activeCardIndex || 0) - 1, 0);
+  s.revealedCard = false;
+  window.setNodeInteractionState(node.id, s);
+  window.renderCurrentInteractionOnly();
 };
 window.updateRetrievalDraft = (idx, val) => {
   const node = window.state.data.sequence[window.state.currentIndex];

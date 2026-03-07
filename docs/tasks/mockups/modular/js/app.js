@@ -1,6 +1,17 @@
 /**
  * Lingourmet Mockup Main App Logic
  */
+if (typeof window.i18nText !== 'function') {
+    window.i18nText = function (obj, locale = 'zh_tw', fallback = '') {
+        if (!obj) return fallback;
+        if (typeof obj === 'string') return obj;
+        if (obj[locale]) return obj[locale];
+        if (obj.zh_tw) return obj.zh_tw;
+        if (obj.en) return obj.en;
+        const first = Object.values(obj).find(v => typeof v === 'string' && v);
+        return first || fallback;
+    };
+}
 const FIXTURES_INDEX = 'data/fixtures.json';
 // Keep a local default that works when serving from the modular directory.
 let currentBlueprintPath = 'data/units/a1_u04_unit_blueprint_v0.json';
@@ -30,6 +41,7 @@ const elements = {
     jumpFirstOutputBtn: document.getElementById('jumpFirstOutputBtn'),
     jumpReviewSummaryBtn: document.getElementById('jumpReviewSummaryBtn'),
     bilingualToggle: document.getElementById('bilingualToggle'),
+    teachingLocaleSelect: document.getElementById('teachingLocaleSelect'),
     ttsVoiceSelect: document.getElementById('ttsVoiceSelect'),
     ttsTestBtn: document.getElementById('ttsTestBtn'),
     ttsVoiceHint: document.getElementById('ttsVoiceHint')
@@ -61,23 +73,32 @@ python3 -m http.server 8080
 
 window.renderSidebar = function () {
     const unit = window.state.data.unit;
-    elements.unitTitle.textContent = `${unit.unit_id} ${unit.title_zh_tw}`;
+    const locale = window.currentTeachingLocale();
+    const unitTitle = window.i18nText(unit.title_i18n, locale, unit.title_zh_tw || '');
+    const unitTheme = window.i18nText(unit.theme_i18n, locale, unit.theme_zh_tw || '');
+    const canDo = Array.isArray(unit.can_do_i18n)
+        ? unit.can_do_i18n.map(v => window.i18nText(v, locale)).filter(Boolean)
+        : (unit.can_do_zh_tw || []);
+    elements.unitTitle.textContent = `${unit.unit_id} ${unitTitle}`;
     elements.unitSub.textContent = `${unit.target_language.toUpperCase()} · ${unit.learner_locale_source} · ${unit.level}`;
 
     elements.metaGrid.innerHTML = `
-    <div class="meta-box"><span class="k">主題</span><span class="v">${unit.theme_zh_tw}</span></div>
+    <div class="meta-box"><span class="k">主題</span><span class="v">${unitTheme}</span></div>
     <div class="meta-box"><span class="k">預期輸出</span><span class="v">${Math.round(unit.output_ratio_target * 100)}%</span></div>
     <div class="meta-box"><span class="k">節點數</span><span class="v">${window.state.data.sequence.length}</span></div>
     <div class="meta-box"><span class="k">版本</span><span class="v">v1.1 Modular</span></div>
   `;
 
-    elements.canDo.innerHTML = unit.can_do_zh_tw.map(x => `<li>${window.escapeHtml(x)}</li>`).join('');
+    elements.canDo.innerHTML = canDo.map(x => `<li>${window.escapeHtml(x)}</li>`).join('');
 
     const counts = {};
     window.state.data.sequence.forEach(n => counts[n.learning_role] = (counts[n.learning_role] || 0) + 1);
     elements.rolePills.innerHTML = Object.entries(counts).map(([k, v]) => `<span class="pill">${k}: ${v}</span>`).join('');
 
     elements.bilingualToggle.checked = window.showBilingual();
+    if (elements.teachingLocaleSelect) {
+        elements.teachingLocaleSelect.value = locale;
+    }
     if (elements.ttsVoiceSelect && window.state.progress.prefs.ttsVoiceName) {
         elements.ttsVoiceSelect.value = window.state.progress.prefs.ttsVoiceName;
     }
@@ -144,13 +165,14 @@ window.renderProgress = function () {
 };
 
 window.renderNodeList = function () {
+    const locale = window.currentTeachingLocale();
     elements.nodeList.innerHTML = window.state.data.sequence.map((node, idx) => `
     <div class="node-card role-lane-${node.learning_role} ${idx === window.state.currentIndex ? 'active' : ''} ${window.isDone(node.id) ? 'done' : ''} ${window.isReview(node.id) ? 'review-mark' : ''}" onclick="window.setIndex(${idx})">
       <div class="top-row">
-        <span class="title">${idx + 1}. ${node.title_zh_tw}</span>
+        <span class="title">${idx + 1}. ${window.escapeHtml(window.i18nText(node.title_i18n, locale, node.title_zh_tw || ''))}</span>
         <span class="tag tiny-text">${node.duration_min}m</span>
       </div>
-      <div class="summary">${node.summary_zh_tw}</div>
+      <div class="summary">${window.escapeHtml(window.i18nText(node.summary_i18n, locale, node.summary_zh_tw || ''))}</div>
       <div class="meta-tags">
         <span class="tag">${node.content_form}</span>
         <span class="tag">${node.learning_role}</span>
@@ -180,15 +202,26 @@ window.renderCurrentNode = function () {
 
     // --- Dispatch via Renderer Registry ---
     const { contentHtml, interactionHtml } = window.RendererRegistry.dispatch(node);
-    bodyHtml += contentHtml;
-    bodyHtml += interactionHtml;
-
-    bodyHtml += window.renderFreeNote(node);
+    bodyHtml += `<div id="detailNodeContent">${contentHtml}</div>`;
+    bodyHtml += `<div id="detailInteraction">${interactionHtml}</div>`;
+    bodyHtml += `<div id="detailFreeNote">${window.renderFreeNote(node)}</div>`;
 
     elements.detailBody.innerHTML = bodyHtml;
     window.renderFooterButtons();
 
     document.getElementById('detailContent').scrollTop = 0;
+};
+
+window.renderCurrentInteractionOnly = function () {
+    const node = window.state.data.sequence[window.state.currentIndex];
+    if (!node) return;
+    const interactionEl = document.getElementById('detailInteraction');
+    if (!interactionEl) {
+        window.renderCurrentNode();
+        return;
+    }
+    const { interactionHtml } = window.RendererRegistry.dispatch(node);
+    interactionEl.innerHTML = interactionHtml;
 };
 
 window.renderFooterButtons = function () {
@@ -204,9 +237,10 @@ window.renderFooterButtons = function () {
     if (window.isDone(node.id)) {
         const nextNode = window.state.data.sequence[window.state.currentIndex + 1];
         if (nextNode) {
+            const locale = window.currentTeachingLocale();
             const tip = document.createElement('div');
             tip.style = 'position:absolute; bottom:70px; right:24px; background:var(--ok-soft); border:1px solid var(--ok); padding:8px 12px; border-radius:8px; font-size:12px; animation: bounceIn 0.5s; cursor:pointer;';
-            tip.innerHTML = `<strong>完成！</strong> 下一站：${nextNode.title_zh_tw} →`;
+            tip.innerHTML = `<strong>完成！</strong> 下一站：${window.escapeHtml(window.i18nText(nextNode.title_i18n, locale, nextNode.title_zh_tw || ''))} →`;
             tip.onclick = () => { window.state.currentIndex++; window.renderCurrentNode(); };
             elements.detailBody.appendChild(tip);
         }
@@ -223,6 +257,12 @@ function wireEvents() {
     elements.bilingualToggle.onchange = (e) => {
         window.state.progress.prefs.showBilingual = !!e.target.checked;
         window.saveProgress(true);
+        window.renderCurrentNode();
+    };
+    elements.teachingLocaleSelect.onchange = (e) => {
+        window.state.progress.prefs.teachingLocale = e.target.value || 'zh_tw';
+        window.saveProgress(true);
+        window.renderSidebar();
         window.renderCurrentNode();
     };
     elements.ttsVoiceSelect.onchange = (e) => {

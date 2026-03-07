@@ -2,12 +2,12 @@
   "version": "unit_blueprint_v0.1",
   "adapter_contract": {
     "adapter_version": "frontend_unit_adapter_v0",
-    "stability": "bg_l02_full_preview_v3",
+    "stability": "bg_l02_full_preview_v4",
     "fallback_locale_order": [
       "zh_tw",
       "en"
     ],
-    "notes": "Full beginner grammar lesson 02 preview with Emergency Schema Parity (Registers, fixed Content Forms, and Skill Focus)."
+    "notes": "Full beginner grammar lesson 02 preview with Fixed Logic (Person-Predicate, Object-Verb) and Schema Parity."
   },
   "unit": {
     "unit_id": "A1-BG-L02-FULL-PREVIEW",
@@ -16,58 +16,11 @@
     "level": "A1",
     "output_ratio_target": 0.55,
     "title_i18n": {
-      "zh_tw": "Beginner Grammar Lesson 02 · 三大核心助詞 (은/는, 이/가, 을/를)",
+      "zh_tw": "Beginner Grammar Lesson 02 · 三大核心助詞 (은/는, 이/家, 을/를)",
       "en": "Beginner Grammar Lesson 02 · The Three Core Particles (은/는, 이/가, 을/를)"
-    },
-    "theme_i18n": {
-      "zh_tw": "誰在說話、誰在做事、動作的對象",
-      "en": "Who is talking, who is doing, and the object of action"
-    },
-    "can_do_i18n": [
-      {
-        "zh_tw": "你能區分 은/는 和 이/가 的使用場景 (主題 vs 主語)。",
-        "en": "Distinguish between 은/는 and 이/가 (Topic vs Subject)."
-      },
-      {
-        "zh_tw": "你能正確在受詞後加上 을/를。",
-        "en": "Correctly apply the object markers 을/를."
-      }
-    ]
+    }
   },
   "sequence": [
-    {
-      "id": "A1-BG-L02-L1",
-      "candidate_type": "lesson",
-      "content_form": "dialogue",
-      "learning_role": "immersion_input",
-      "skill_focus": ["listening", "reading"],
-      "output_mode": "none",
-      "duration_min": 6,
-      "payload": {
-        "dialogue_scenes": [
-          {
-            "scene_id": "who_is_student",
-            "title_i18n": { "zh_tw": "誰是學生？(Subject vs Topic)", "en": "Who is the student? (Subject vs Topic)" },
-            "turns": [
-              {
-                "speaker": "A",
-                "text": "유나 씨, 여기 누가 학생이에요?",
-                "translations_i18n": { "zh_tw": "Yuna，這裡誰是學生？", "en": "Yuna, who is a student here?" },
-                "slot_values": { "interrogative": "누가" },
-                "register": "polite"
-              },
-              {
-                "speaker": "B",
-                "text": "제가 학생이에요.",
-                "translations_i18n": { "zh_tw": "是我（才是），我是學生。", "en": "I am the student (subject focus)." },
-                "slot_values": { "subject_topic": "제가" },
-                "register": "polite"
-              }
-            ]
-          }
-        ]
-      }
-    },
     {
       "id": "A1-BG-L02-L2",
       "candidate_type": "lesson",
@@ -84,8 +37,8 @@
                 "control_id": "person",
                 "label_i18n": { "zh_tw": "主角是誰", "en": "Who is it?" },
                 "options": [
-                  { "value": "저", "label_i18n": { "zh_tw": "저 (我)", "en": "저 (I)" }, "ending_type": "vowel", "gloss_i18n": { "zh_tw": "我", "en": "I" } },
-                  { "value": "선생님", "label_i18n": { "zh_tw": "선생님", "en": "Teacher" }, "ending_type": "batchim", "gloss_i18n": { "zh_tw": "老師", "en": "the teacher" } }
+                  { "value": "저", "label_i18n": { "zh_tw": "我 (저/나)", "en": "I" } },
+                  { "value": "선생님", "label_i18n": { "zh_tw": "老師 (선생님)", "en": "Teacher" } }
                 ]
               },
               {
@@ -99,32 +52,51 @@
               }
             ],
             "register_templates": {
-              "formal": "{surface_marked} 학생입니다.",
-              "polite": "{surface_marked} 학생이에요.",
-              "casual": "{surface_marked} 학생이야."
+              "formal": "{subject_marked} {predicate}입니다.",
+              "polite": "{subject_marked} {predicate}이에요.",
+              "casual": "{subject_marked} {predicate}이야."
             },
             "translation_templates": {
-              "formal": { "zh_tw": "{person}是學生。", "en": "{person} is a student." },
-              "polite": { "zh_tw": "{person}是學生。", "en": "{person} is a student." },
-              "casual": { "zh_tw": "{person}是學生。", "en": "{person} is a student." }
+              "formal": { "zh_tw": "{person_gloss}是{predicate_gloss}。", "en": "{person_gloss} is a {predicate_gloss}." },
+              "polite": { "zh_tw": "{person_gloss}是{predicate_gloss}。", "en": "{person_gloss} is a {predicate_gloss}." },
+              "casual": { "zh_tw": "{person_gloss}是{predicate_gloss}。", "en": "{person_gloss} is a {predicate_gloss}." }
             },
             "dynamic_token_rules": [
               {
-                "token": "surface_marked",
+                "token": "subject_marked",
                 "source_control_id": "person",
                 "map_by_register_and_value": {
                   "formal": { "저": "저는", "선생님": "선생님은" },
                   "polite": { "저": "저는", "선생님": "선생님은" },
                   "casual": { "저": "나는", "선생님": "선생님은" }
                 }
-              }
-            ],
-            "review_export_presets": [
+              },
               {
-                "preset_id": "jeo_neun_student_polite",
-                "control_values": { "person": "저", "register": "polite" },
-                "ko_surface": "저는 학생이에요.",
-                "meaning_i18n": { "zh_tw": "我是學生。", "en": "I am a student." }
+                "token": "predicate",
+                "source_control_id": "person",
+                "map_by_register_and_value": {
+                  "formal": { "저": "학생", "선생님": "선생님" },
+                  "polite": { "저": "학생", "선생님": "선생님" },
+                  "casual": { "저": "학생", "선생님": "선생님" }
+                }
+              },
+              {
+                "token": "person_gloss",
+                "source_control_id": "person",
+                "map_by_register_and_value": {
+                  "formal": { "저": "我", "선생님": "老師" },
+                  "polite": { "저": "我", "선생님": "老師" },
+                  "casual": { "저": "我", "선생님": "老師" }
+                }
+              },
+              {
+                "token": "predicate_gloss",
+                "source_control_id": "person",
+                "map_by_register_and_value": {
+                  "formal": { "저": "學生", "선생님": "老師" },
+                  "polite": { "저": "學生", "선생님": "老師" },
+                  "casual": { "저": "學生", "선생님": "老師" }
+                }
               }
             ]
           }
@@ -132,24 +104,83 @@
       }
     },
     {
-      "id": "A1-BG-L02-P1",
+      "id": "A1-BG-L02-L3",
       "candidate_type": "lesson",
-      "content_form": "practice_card",
-      "learning_role": "controlled_output",
+      "content_form": "pattern_lab",
+      "learning_role": "immersion_input",
       "skill_focus": ["reading"],
-      "output_mode": "chunk_assembly",
-      "duration_min": 5,
-      "adapter_hints": {
-        "content_renderer_key": "practice_card",
-        "interaction_renderer_key": "chunk_assembly"
-      },
+      "duration_min": 4,
       "payload": {
-        "tasks": [
+        "pattern_builder_demos": [
           {
-            "context_zh_tw": "情境：被問到『誰是工程師？』，你指名自己。",
-            "prompt_zh_tw": "請組出：是我，我是工程師。",
-            "chunks": ["제가", "저는", "엔지니어예요."],
-            "target_examples": ["제가 엔지니어예요."]
+            "builder_id": "object-verb-match",
+            "controls": [
+              {
+                "control_id": "item",
+                "label_i18n": { "zh_tw": "物品", "en": "Item" },
+                "options": [
+                  { "value": "밥", "label_i18n": { "zh_tw": "飯", "en": "Meal" } },
+                  { "value": "물", "label_i18n": { "zh_tw": "水", "en": "Water" } }
+                ]
+              },
+              {
+                "control_id": "register",
+                "label_i18n": { "zh_tw": "語氣", "en": "Speech Level" },
+                "options": [
+                  { "value": "formal", "label_i18n": { "zh_tw": "합니다體", "en": "Formal" } },
+                  { "value": "polite", "label_i18n": { "zh_tw": "해요體", "en": "Polite" } },
+                  { "value": "casual", "label_i18n": { "zh_tw": "朋友", "en": "Casual" } }
+                ]
+              }
+            ],
+            "register_templates": {
+              "formal": "{item_marked} {verb_form}",
+              "polite": "{item_marked} {verb_form}",
+              "casual": "{item_marked} {verb_form}"
+            },
+            "translation_templates": {
+              "formal": { "zh_tw": "{verb_gloss}{item_gloss}。", "en": "{verb_gloss} {item_gloss}." },
+              "polite": { "zh_tw": "{verb_gloss}{item_gloss}。", "en": "{verb_gloss} {item_gloss}." },
+              "casual": { "zh_tw": "{verb_gloss}{item_gloss}。", "en": "{verb_gloss} {item_gloss}." }
+            },
+            "dynamic_token_rules": [
+              {
+                "token": "item_marked",
+                "source_control_id": "item",
+                "map_by_register_and_value": {
+                  "formal": { "밥": "밥을", "물": "물을" },
+                  "polite": { "밥": "밥을", "물": "물을" },
+                  "casual": { "밥": "밥을", "물": "물을" }
+                }
+              },
+              {
+                "token": "verb_form",
+                "source_control_id": "item",
+                "map_by_register_and_value": {
+                  "formal": { "밥": "먹습니다.", "물": "마십니다." },
+                  "polite": { "밥": "먹어요.", "물": "마셔요." },
+                  "casual": { "밥": "먹어.", "물": "마셔." }
+                }
+              },
+              {
+                "token": "item_gloss",
+                "source_control_id": "item",
+                "map_by_register_and_value": {
+                  "formal": { "밥": "飯", "물": "水" },
+                  "polite": { "밥": "飯", "물": "水" },
+                  "casual": { "밥": "飯", "물": "水" }
+                }
+              },
+              {
+                "token": "verb_gloss",
+                "source_control_id": "item",
+                "map_by_register_and_value": {
+                  "formal": { "밥": "吃", "물": "喝" },
+                  "polite": { "밥": "吃", "물": "喝" },
+                  "casual": { "밥": "吃", "물": "喝" }
+                }
+              }
+            ]
           }
         ]
       }

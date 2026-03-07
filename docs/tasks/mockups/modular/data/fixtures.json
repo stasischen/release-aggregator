@@ -64,6 +64,11 @@
       "id": "A1-BG-L01-FULL-PREVIEW",
       "title": "Beginner Grammar Lesson 01 (Full Lesson Preview)",
       "path": "data/units/a1_bg_l01_full_preview.json"
+    },
+    {
+      "id": "A1-BG-L02-FULL-PREVIEW",
+      "title": "Beginner Grammar Lesson 02 (Full Lesson Preview)",
+      "path": "data/units/a1_bg_l02_full_preview.json"
     }
   ]
 }

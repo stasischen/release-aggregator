@@ -1,0 +1,112 @@
+{
+  "version": "unit_blueprint_v0.1",
+  "adapter_contract": {
+    "adapter_version": "frontend_unit_adapter_v0",
+    "stability": "preview_v1_compat",
+    "fallback_locale_order": ["zh_tw", "en"],
+    "notes": "Event lesson 1 cafe preview for modular viewer."
+  },
+  "unit": {
+    "unit_id": "A1-EVENT-L01",
+    "title_zh_tw": "事件 Lesson 1：咖啡店點餐",
+    "target_language": "ko",
+    "learner_locale_source": "zh_tw",
+    "level": "A1",
+    "theme_zh_tw": "咖啡店生存對話",
+    "output_ratio_target": 0.6,
+    "can_do_zh_tw": [
+      "我可以完成品項 + 杯數點餐。",
+      "我可以回答冰熱與內用外帶。",
+      "我可以問價格並完成結帳語句。"
+    ]
+  },
+  "sequence": [
+    {
+      "id": "A1-EL01-L1",
+      "candidate_type": "path_node",
+      "content_form": "dialogue",
+      "learning_role": "immersion_input",
+      "skill_focus": ["listening", "reading"],
+      "output_mode": "none",
+      "duration_min": 5,
+      "title_zh_tw": "L1 輸入：核心點餐對話",
+      "summary_zh_tw": "先建立店員提問與顧客回應節奏。",
+      "expected_output_zh_tw": "能聽懂點單、冰熱、內外帶問題。",
+      "payload": {
+        "dialogue_turns": [
+          {"speaker": "staff", "text": "어서 오세요. 주문하시겠어요?", "zh_tw": "歡迎光臨，要點餐嗎？"},
+          {"speaker": "learner", "text": "아메리카노 한 잔 주세요.", "zh_tw": "請給我一杯美式。"},
+          {"speaker": "staff", "text": "아이스로 드릴까요, 따뜻하게 드릴까요?", "zh_tw": "要冰的還是熱的？"},
+          {"speaker": "learner", "text": "아이스로 주세요.", "zh_tw": "請給我冰的。"},
+          {"speaker": "staff", "text": "매장에서 드세요, 포장이세요?", "zh_tw": "內用還是外帶？"},
+          {"speaker": "learner", "text": "포장이요.", "zh_tw": "外帶。"}
+        ]
+      },
+      "adapter_hints": {"content_renderer_key": "dialogue", "interaction_renderer_key": null}
+    },
+    {
+      "id": "A1-EL01-L2",
+      "candidate_type": "path_node",
+      "content_form": "pattern_card",
+      "learning_role": "structure_pattern",
+      "skill_focus": ["grammar", "speaking"],
+      "output_mode": "none",
+      "duration_min": 4,
+      "title_zh_tw": "L2 結構：可替換句型",
+      "summary_zh_tw": "固定骨架 + 槽位替換。",
+      "expected_output_zh_tw": "能替換品項、杯數、冷熱。",
+      "payload": {
+        "frames": [
+          {"frame": "{item} {quantity} 잔 주세요.", "use_zh_tw": "請給我 {item} {quantity} 杯。", "slots_zh_tw": ["item: 아메리카노/라떼", "quantity: 한/두"]},
+          {"frame": "아이스로 주세요 / 따뜻하게 주세요", "use_zh_tw": "請給我冰的 / 熱的。", "slots_zh_tw": ["temperature"]},
+          {"frame": "매장이요 / 포장이요", "use_zh_tw": "內用 / 外帶。", "slots_zh_tw": ["service mode"]}
+        ]
+      },
+      "adapter_hints": {"content_renderer_key": "pattern_card", "interaction_renderer_key": null}
+    },
+    {
+      "id": "A1-EL01-L3",
+      "candidate_type": "path_node",
+      "content_form": "comprehension_check",
+      "learning_role": "controlled_output",
+      "skill_focus": ["typing", "speaking"],
+      "output_mode": "response_builder",
+      "duration_min": 6,
+      "title_zh_tw": "L3 輸出：組合回應",
+      "summary_zh_tw": "把條件組成完整回應。",
+      "expected_output_zh_tw": "能說出『冰拿鐵兩杯外帶』等組合句。",
+      "payload": {
+        "question_type": "combo_response",
+        "items": [
+          {
+            "prompt_zh_tw": "你要點：冰拿鐵兩杯，外帶。",
+            "response_choices_ko": ["아이스 라떼 두 잔 포장이요.", "따뜻한 라떼 한 잔 매장이요.", "아이스 아메리카노 한 잔 주세요."],
+            "response_gloss_by_ko": {
+              "아이스 라떼 두 잔 포장이요.": "正確組合",
+              "따뜻한 라떼 한 잔 매장이요.": "條件不符",
+              "아이스 아메리카노 한 잔 주세요.": "品項與數量不符"
+            }
+          }
+        ]
+      },
+      "adapter_hints": {"content_renderer_key": "comprehension_check", "interaction_renderer_key": "response_builder"}
+    },
+    {
+      "id": "A1-EL01-L4",
+      "candidate_type": "path_node",
+      "content_form": "notice",
+      "learning_role": "review_retrieval",
+      "skill_focus": ["reading"],
+      "output_mode": "none",
+      "duration_min": 3,
+      "title_zh_tw": "L4 收尾：結帳句回顧",
+      "summary_zh_tw": "收尾高頻句快速回想。",
+      "expected_output_zh_tw": "看中文能回想韓文句。",
+      "payload": {
+        "notice_items": ["총 얼마예요?", "카드로 계산할게요.", "영수증 주세요."],
+        "notice_items_zh_tw": ["總共多少？", "我用卡付款。", "請給我收據。"]
+      },
+      "adapter_hints": {"content_renderer_key": "notice", "interaction_renderer_key": null}
+    }
+  ]
+}

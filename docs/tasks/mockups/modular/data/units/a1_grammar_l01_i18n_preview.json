@@ -1,0 +1,317 @@
+﻿{
+  "version": "unit_blueprint_v0.1",
+  "adapter_contract": {
+    "adapter_version": "frontend_unit_adapter_v0",
+    "stability": "preview_v1_compat",
+    "fallback_locale_order": ["zh_tw", "en"],
+    "notes": "Grammar Lesson 01 in friend-coach tone, high-density content."
+  },
+  "unit": {
+    "unit_id": "A1-GRAMMAR-L01",
+    "title_zh_tw": "文法 Lesson 1：語氣切換（朋友帶學版）",
+    "target_language": "ko",
+    "learner_locale_source": "zh_tw",
+    "level": "A1",
+    "theme_zh_tw": "正式 / 日常 / 朋友語氣",
+    "output_ratio_target": 0.55,
+    "can_do_zh_tw": [
+      "你看到對象就能先選對語氣。",
+      "同一句你可以切兩到三種說法。",
+      "你能用全요完成第一次見面對話。",
+      "你知道哪些句子不能對陌生人說。"
+    ]
+  },
+  "sequence": [
+    {
+      "id": "A1-GL01-L1",
+      "candidate_type": "path_node",
+      "content_form": "grammar_note",
+      "learning_role": "immersion_input",
+      "skill_focus": ["reading", "grammar"],
+      "output_mode": "none",
+      "duration_min": 8,
+      "title_zh_tw": "L1 先抓感覺：습니다/ㅂ니다 是正式模式",
+      "summary_zh_tw": "先理解什麼時候要切正式，不急著死背。",
+      "expected_output_zh_tw": "你能說出正式模式最常見場景。",
+      "payload": {
+        "sections": [
+          {
+            "title_zh_tw": "先把這個想像成正式開關",
+            "explanation_md": "今天這個 `~습니다/ㅂ니다`，你可以先把它想成正式開關。\\n\\n要發表、面試、公告、初次正式自介時，就開這個模式。\\n\\n日常也能用，但聽起來會比 `~요` 更正式。"
+          },
+          {
+            "title_zh_tw": "規則先記這兩條就夠",
+            "points_zh_tw": [
+              "母音結尾 + ㅂ니다：가다 -> 갑니다",
+              "子音結尾 + 습니다：먹다 -> 먹습니다"
+            ]
+          },
+          {
+            "title_zh_tw": "直接拿來唸的例句",
+            "points_zh_tw": [
+              "저는 학생입니다.（我是學生）",
+              "이것은 사과입니다.（這是蘋果）",
+              "학교에 갑니다.（去學校）",
+              "지하철을 탑니다.（搭地鐵）",
+              "책을 읽습니다.（讀書）",
+              "운동을 합니다.（運動）",
+              "영화를 봅니다.（看電影）",
+              "저는 회사원입니다.（我是上班族）",
+              "커피를 마십니다.（喝咖啡）",
+              "노래를 듣습니다.（聽歌）"
+            ]
+          }
+        ]
+      },
+      "adapter_hints": {"content_renderer_key": "grammar_note", "interaction_renderer_key": null}
+    },
+    {
+      "id": "A1-GL01-L2",
+      "candidate_type": "path_node",
+      "content_form": "grammar_note",
+      "learning_role": "immersion_input",
+      "skill_focus": ["reading", "grammar"],
+      "output_mode": "none",
+      "duration_min": 8,
+      "title_zh_tw": "L2 日常最常用：아요/어요/해요",
+      "summary_zh_tw": "這個是你每天最常講的版本，先練熟最有感。",
+      "expected_output_zh_tw": "你能用日常禮貌體快速造句。",
+      "payload": {
+        "sections": [
+          {
+            "title_zh_tw": "先記一句：不確定就先用요",
+            "explanation_md": "`~아요/어요/해요` 是你日常最常用、最安全的語氣。\\n\\n不會太正式，也不會太隨便。\\n\\n跟朋友、同學、老師、陌生人聊天都很常見。"
+          },
+          {
+            "title_zh_tw": "規則先用這三條",
+            "points_zh_tw": [
+              "字幹母音 ㅏ/ㅗ -> 아요",
+              "其他母音 -> 어요",
+              "하다 -> 해요"
+            ]
+          },
+          {
+            "title_zh_tw": "高頻句一口氣帶走",
+            "points_zh_tw": [
+              "집에 가요.（回家）",
+              "밥을 먹어요.（吃飯）",
+              "책을 읽어요.（看書）",
+              "커피 마셔요.（喝咖啡）",
+              "노래 들어요.（聽歌）",
+              "버스를 타요.（搭公車）",
+              "영화 봐요.（看電影）",
+              "운동해요.（運動）",
+              "숙제해요.（做作業）",
+              "친구한테 전화해요.（打電話給朋友）"
+            ]
+          }
+        ]
+      },
+      "adapter_hints": {"content_renderer_key": "grammar_note", "interaction_renderer_key": null}
+    },
+    {
+      "id": "A1-GL01-L3",
+      "candidate_type": "path_node",
+      "content_form": "grammar_note",
+      "learning_role": "structure_grammar",
+      "skill_focus": ["reading", "grammar"],
+      "output_mode": "none",
+      "duration_min": 7,
+      "title_zh_tw": "L3 跟朋友才用：야/이야",
+      "summary_zh_tw": "這個超常用，但重點是對象，不是文法本身。",
+      "expected_output_zh_tw": "你會判斷哪時候可以用，哪時候不能用。",
+      "payload": {
+        "sections": [
+          {
+            "title_zh_tw": "先抓重點：這是關係語氣",
+            "explanation_md": "`~야/이야` 是名詞句的朋友語氣。\\n\\n有收音用 `이야`，沒收音用 `야`。\\n\\n不是錯誤語法，重點是你跟對方的關係。"
+          },
+          {
+            "title_zh_tw": "避免尷尬的使用提醒",
+            "points_zh_tw": [
+              "熟朋友/平輩可以用",
+              "陌生人、正式場合先不要用"
+            ]
+          },
+          {
+            "title_zh_tw": "朋友語氣高頻句",
+            "points_zh_tw": [
+              "김 선생님은 한국 사람이야.（金老師是韓國人）",
+              "저 강아지는 내 동생이야.（那隻小狗是我弟弟/妹妹）",
+              "이건 내가 제일 좋아하는 버블티야.（這是我最喜歡的珍珠奶茶）",
+              "오늘이 내 생일이야.（今天是我生日）",
+              "저 가방은 누구 거야?（那個包包是誰的）",
+              "우리는 제일 친한 친구야.（我們是最要好的朋友）",
+              "이거 최신형 핸드폰이야?（這是最新型手機嗎）",
+              "지금 몇 시야?（現在幾點）",
+              "여기가 우리 집이야.（這裡是我們家）",
+              "우리 형은 경찰이야.（我哥哥是警察）"
+            ]
+          }
+        ]
+      },
+      "adapter_hints": {"content_renderer_key": "grammar_note", "interaction_renderer_key": null}
+    },
+    {
+      "id": "A1-GL01-L4",
+      "candidate_type": "path_node",
+      "content_form": "pattern_card",
+      "learning_role": "structure_pattern",
+      "skill_focus": ["grammar", "speaking"],
+      "output_mode": "frame_fill",
+      "duration_min": 7,
+      "title_zh_tw": "L4 進入核心：同一句三種說法",
+      "summary_zh_tw": "不是背一個版本，是學會切換。",
+      "expected_output_zh_tw": "每句至少能穩定切兩版。",
+      "payload": {
+        "frames": [
+          {"frame": "저는 학생입니다. / 저는 학생이에요. / 나는 학생이야.", "use_zh_tw": "我是學生。", "slots_zh_tw": ["正式", "日常", "朋友"]},
+          {"frame": "저는 회사원입니다. / 저는 회사원이에요. / 나는 회사원이야.", "use_zh_tw": "我是上班族。", "slots_zh_tw": ["名詞", "語氣"]},
+          {"frame": "오늘은 월요일입니다. / 오늘은 월요일이에요. / 오늘은 월요일이야.", "use_zh_tw": "今天是星期一。", "slots_zh_tw": ["時間詞", "語氣"]},
+          {"frame": "여기는 우리 집입니다. / 여기는 우리 집이에요. / 여긴 우리 집이야.", "use_zh_tw": "這裡是我們家。", "slots_zh_tw": ["場所詞", "縮約"]},
+          {"frame": "제 친구는 의사입니다. / 제 친구는 의사예요. / 내 친구는 의사야.", "use_zh_tw": "我朋友是醫生。", "slots_zh_tw": ["제/내", "語氣"]}
+        ]
+      },
+      "adapter_hints": {"content_renderer_key": "pattern_card", "interaction_renderer_key": "frame_fill"}
+    },
+    {
+      "id": "A1-GL01-L5",
+      "candidate_type": "path_node",
+      "content_form": "dialogue",
+      "learning_role": "immersion_input",
+      "skill_focus": ["listening", "reading"],
+      "output_mode": "none",
+      "duration_min": 5,
+      "title_zh_tw": "L5 對話 1：第一次見面（全요）",
+      "summary_zh_tw": "這段先背熟，你馬上能用。",
+      "expected_output_zh_tw": "你能整段跟讀，不混語氣。",
+      "payload": {
+        "dialogue_turns": [
+          {"speaker": "A", "text": "안녕하세요. 저는 유나예요.", "zh_tw": "你好，我是Yuna。"},
+          {"speaker": "B", "text": "안녕하세요. 저는 지민이에요.", "zh_tw": "你好，我是Jimin。"},
+          {"speaker": "A", "text": "만나서 반가워요.", "zh_tw": "很高興見到你。"},
+          {"speaker": "B", "text": "저도 반가워요.", "zh_tw": "我也是，很高興。"}
+        ]
+      },
+      "adapter_hints": {"content_renderer_key": "dialogue", "interaction_renderer_key": null}
+    },
+    {
+      "id": "A1-GL01-L6",
+      "candidate_type": "path_node",
+      "content_form": "dialogue",
+      "learning_role": "immersion_input",
+      "skill_focus": ["listening", "reading"],
+      "output_mode": "none",
+      "duration_min": 4,
+      "title_zh_tw": "L6 對話 2：朋友聊天（banmal）",
+      "summary_zh_tw": "這段用來感受朋友語氣節奏。",
+      "expected_output_zh_tw": "你聽得出來這是朋友模式。",
+      "payload": {
+        "dialogue_turns": [
+          {"speaker": "A", "text": "이거 네 가방이야?", "zh_tw": "這是你的包包嗎？"},
+          {"speaker": "B", "text": "응, 내 가방이야.", "zh_tw": "嗯，這是我的包包。"},
+          {"speaker": "A", "text": "오늘 시간 있어?", "zh_tw": "你今天有空嗎？"},
+          {"speaker": "B", "text": "응, 있어.", "zh_tw": "嗯，有。"}
+        ]
+      },
+      "adapter_hints": {"content_renderer_key": "dialogue", "interaction_renderer_key": null}
+    },
+    {
+      "id": "A1-GL01-L7",
+      "candidate_type": "path_node",
+      "content_form": "comprehension_check",
+      "learning_role": "controlled_output",
+      "skill_focus": ["speaking", "writing"],
+      "output_mode": "response_builder",
+      "duration_min": 7,
+      "title_zh_tw": "L7 場景判斷：這句要怎麼說才自然",
+      "summary_zh_tw": "這關是把語氣選擇練穩的關鍵。",
+      "expected_output_zh_tw": "語氣選擇正確率至少 85%。",
+      "payload": {
+        "question_type": "register_choice",
+        "items": [
+          {
+            "prompt_ko": "第一次跟老師打招呼",
+            "prompt_zh_tw": "選最自然的一句。",
+            "response_choices_ko": ["안녕, 나는 학생이야.", "안녕하세요. 저는 학생이에요.", "안녕하십니까. 나는 학생이야."],
+            "response_gloss_by_ko": {
+              "안녕, 나는 학생이야.": "朋友語氣，這個場景不合適",
+              "안녕하세요. 저는 학생이에요.": "正解：禮貌又自然",
+              "안녕하십니까. 나는 학생이야.": "語氣混搭，聽起來怪"
+            }
+          },
+          {
+            "prompt_ko": "跟熟朋友說『今天是休假日』",
+            "prompt_zh_tw": "選最自然的一句。",
+            "response_choices_ko": ["오늘은 휴일입니다.", "오늘은 휴일이에요.", "오늘은 휴일이야."],
+            "response_gloss_by_ko": {
+              "오늘은 휴일입니다.": "太正式",
+              "오늘은 휴일이에요.": "可用但偏客氣",
+              "오늘은 휴일이야.": "正解：朋友語氣"
+            }
+          }
+        ]
+      },
+      "adapter_hints": {"content_renderer_key": "comprehension_check", "interaction_renderer_key": "response_builder"}
+    },
+    {
+      "id": "A1-GL01-L8",
+      "candidate_type": "path_node",
+      "content_form": "practice_card",
+      "learning_role": "immersion_output",
+      "skill_focus": ["speaking", "writing"],
+      "output_mode": "pattern_transform",
+      "duration_min": 8,
+      "title_zh_tw": "L8 主力輸出：你自己切語氣",
+      "summary_zh_tw": "每題先做 요，再轉正式或朋友版。",
+      "expected_output_zh_tw": "每題至少兩版，熟了做三版。",
+      "payload": {
+        "mode": "guided",
+        "prompt_zh_tw": "把這 8 題翻成韓文：我是新同事 / 我是台灣人 / 今天是休假日 / 這裡是我們教室 / 我現在去學校 / 我喝咖啡 / 這是我的手機 / 我朋友是老師。",
+        "transform_type": "speech_level_shift",
+        "must_include_zh_tw": [
+          "先做 요 版本",
+          "再做正式或朋友版本",
+          "記得代詞也要自然切換（저/제 vs 나/내）"
+        ]
+      },
+      "adapter_hints": {"content_renderer_key": "practice_card", "interaction_renderer_key": "pattern_transform"}
+    },
+    {
+      "id": "A1-GL01-L9",
+      "candidate_type": "path_node",
+      "content_form": "review_card",
+      "learning_role": "review_retrieval",
+      "skill_focus": ["speaking", "reading"],
+      "output_mode": "review_retrieval",
+      "duration_min": 6,
+      "title_zh_tw": "L9 Day4 回測：先回想再看答案",
+      "summary_zh_tw": "這關專門檢查你是不是離開教材也能講。",
+      "expected_output_zh_tw": "完成 8 題回想，錯題收回下一輪。",
+      "payload": {
+        "hint_policy": "先自己回想 5 秒，再決定要不要看提示。",
+        "prompts_zh_tw": [
+          "我是新同事。",
+          "我是台灣人。",
+          "今天是休假日。",
+          "這裡是我們教室。",
+          "我現在去學校。",
+          "我喝咖啡。",
+          "這是我的手機。",
+          "我朋友是老師。"
+        ],
+        "reference_answers_ko": [
+          "저는 신입 동료예요.",
+          "저는 대만 사람이에요.",
+          "오늘은 휴일이에요.",
+          "여기는 우리 교실이에요.",
+          "저는 지금 학교에 가요.",
+          "저는 커피를 마셔요.",
+          "이건 제 핸드폰이에요.",
+          "제 친구는 선생님이에요."
+        ]
+      },
+      "adapter_hints": {"content_renderer_key": "review_card", "interaction_renderer_key": "review_retrieval"}
+    }
+  ]
+}

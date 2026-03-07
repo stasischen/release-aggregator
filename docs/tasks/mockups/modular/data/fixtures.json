@@ -39,6 +39,16 @@
             "id": "A1-GB-L01-IBANK",
             "title": "Grammar Book L01 (Item Bank Review)",
             "path": "data/units/a1_gb_l01_item_bank_v1.json"
+        },
+        {
+            "id": "A1-GRAMMAR-L01-V1",
+            "title": "Grammar Lesson 1 (I18N Preview)",
+            "path": "data/units/a1_grammar_l01_i18n_preview.json"
+        },
+        {
+            "id": "A1-EVENT-L01-V1",
+            "title": "Event Lesson 1 Cafe (I18N Preview)",
+            "path": "data/units/a1_event_l01_i18n_preview.json"
         }
     ]
 }

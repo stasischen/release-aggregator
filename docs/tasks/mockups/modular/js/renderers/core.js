@@ -21,15 +21,16 @@ window.RendererRegistry = {
 
     if (this.renderers[key]) {
       this.renderers[key](node);
-      return;
+      return { contentHtml: '', interactionHtml: '' };
     }
 
     if (this.renderers[contentForm]) {
       this.renderers[contentForm](node);
-      return;
+      return { contentHtml: '', interactionHtml: '' };
     }
 
     this.renderFallback(node);
+    return { contentHtml: '', interactionHtml: '' };
   },
   renderFallback(node) {
     const body = document.getElementById('detailBody');
@@ -165,4 +166,45 @@ window.nodeSkillFocusText = function (node) {
   if (node.id?.includes('-G')) return 'grammar · reading';
   if (node.id?.includes('-P')) return 'speaking · output';
   return 'learning';
+};
+
+window.renderDetailHeader = function (node) {
+  const locale = window.currentLocale();
+  const el = document.getElementById('detailHeader');
+  if (!el) return;
+  el.innerHTML = `
+    <div class="detail-header-card animate-in">
+      <div class="tiny-text muted">${window.escapeHtml(window.nodeStageLabel(node.id) || node.learning_role || 'node')}</div>
+      <h2 style="margin:4px 0 8px;">${window.escapeHtml(window.nodeTitleText(node, locale))}</h2>
+      <div class="meta-tags">
+        <span class="tag">${window.escapeHtml(node.content_form || 'unknown')}</span>
+        <span class="tag">${window.escapeHtml(node.learning_role || 'learning')}</span>
+        <span class="tag">${window.escapeHtml(window.nodeSkillFocusText(node))}</span>
+      </div>
+    </div>
+  `;
+};
+
+window.renderDetailSummary = function (node) {
+  const locale = window.currentLocale();
+  const el = document.getElementById('detailSummary');
+  if (!el) return;
+  const summary = window.nodeSummaryText(node, locale);
+  const expected = window.nodeExpectedText(node, locale);
+  el.innerHTML = `
+    <div class="summary-grid animate-in" style="margin-bottom:12px;">
+      <div class="summary-box">
+        <span class="label">本節目標</span>
+        ${window.escapeHtml(summary)}
+      </div>
+      <div class="summary-box">
+        <span class="label">預期輸出</span>
+        ${window.escapeHtml(expected)}
+      </div>
+    </div>
+  `;
+};
+
+window.renderFreeNote = function () {
+  return '';
 };

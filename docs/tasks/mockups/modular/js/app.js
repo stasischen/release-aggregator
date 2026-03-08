@@ -38,6 +38,120 @@ const elements = {
     ttsVoiceHint: document.getElementById('ttsVoiceHint')
 };
 
+if (typeof window.renderDetailHeader !== 'function') {
+    window.renderDetailHeader = function (node) {
+        const locale = window.currentTeachingLocale ? window.currentTeachingLocale() : 'zh_tw';
+        const title = window.nodeTitleText
+            ? window.nodeTitleText(node, locale)
+            : (((node || {}).displayTitle) || ((node || {}).id) || 'Node');
+        const headerEl = document.getElementById('detailHeader');
+        if (!headerEl) return;
+        headerEl.innerHTML = `
+          <div class="detail-header-card animate-in">
+            <div class="tiny-text muted">${window.escapeHtml(((node || {}).learning_role) || 'learning')}</div>
+            <h2 style="margin:4px 0 8px;">${window.escapeHtml(title)}</h2>
+          </div>
+        `;
+    };
+}
+
+if (typeof window.nodeStageLabel !== 'function') {
+    window.nodeStageLabel = function (nodeId) {
+        const match = String(nodeId || '').match(/-(L1|L2|L3|G1|G2|P1|P2|P5|R1)$/);
+        return match ? match[1] : '';
+    };
+}
+
+if (typeof window.roleDisplayName !== 'function') {
+    window.roleDisplayName = function (role) {
+        const map = {
+            immersion_input: '沉浸輸入',
+            structure_pattern: '句型結構',
+            structure_grammar: '文法解說',
+            explicit_rule: '規則整理',
+            controlled_output: '可控輸出',
+            immersion_output: '任務輸出',
+            review_retrieval: '複習回想'
+        };
+        return map[role] || role || '學習節點';
+    };
+}
+
+if (typeof window.fallbackNodeTitle !== 'function') {
+    window.fallbackNodeTitle = function (node) {
+        const stage = window.nodeStageLabel(node && node.id);
+        const roleName = window.roleDisplayName(node && node.learning_role);
+        return stage ? `${stage} ${roleName}` : roleName;
+    };
+}
+
+if (typeof window.nodeTitleText !== 'function') {
+    window.nodeTitleText = function (node, locale) {
+        if (window.LessonAdapter && typeof window.LessonAdapter.resolveText === 'function') {
+            return node.displayTitle || window.LessonAdapter.resolveText(node && node.title_i18n, locale, (node && node.title_zh_tw) || window.fallbackNodeTitle(node));
+        }
+        return (node && node.displayTitle) || window.fallbackNodeTitle(node);
+    };
+}
+
+if (typeof window.nodeSummaryText !== 'function') {
+    window.nodeSummaryText = function (node, locale) {
+        if (window.LessonAdapter && typeof window.LessonAdapter.resolveText === 'function') {
+            return node.displaySummary || window.LessonAdapter.resolveText(node && node.summary_i18n, locale, (node && node.summary_zh_tw) || '先看這一節的內容。');
+        }
+        return (node && node.displaySummary) || '先看這一節的內容。';
+    };
+}
+
+if (typeof window.nodeExpectedText !== 'function') {
+    window.nodeExpectedText = function (node, locale) {
+        if (window.LessonAdapter && typeof window.LessonAdapter.resolveText === 'function') {
+            return node.displayExpected || window.LessonAdapter.resolveText(node && node.expected_output_i18n, locale, (node && node.expected_output_zh_tw) || '先理解這一節的重點。');
+        }
+        return (node && node.displayExpected) || '先理解這一節的重點。';
+    };
+}
+
+if (typeof window.nodeSkillFocusText !== 'function') {
+    window.nodeSkillFocusText = function (node) {
+        const focus = Array.isArray(node && node.skill_focus) ? node.skill_focus.filter(Boolean) : [];
+        if (focus.length) return focus.join(' / ');
+        return 'reading';
+    };
+}
+
+if (typeof window.renderDetailSummary !== 'function') {
+    window.renderDetailSummary = function (node) {
+        const locale = window.currentTeachingLocale ? window.currentTeachingLocale() : 'zh_tw';
+        const summary = window.nodeSummaryText
+            ? window.nodeSummaryText(node, locale)
+            : '';
+        const expected = window.nodeExpectedText
+            ? window.nodeExpectedText(node, locale)
+            : '';
+        const summaryEl = document.getElementById('detailSummary');
+        if (!summaryEl) return;
+        summaryEl.innerHTML = `
+          <div class="summary-grid animate-in" style="margin-bottom:12px;">
+            <div class="summary-box">
+              <span class="label">本節目標</span>
+              ${window.escapeHtml(summary || '先看這一節的內容。')}
+            </div>
+            <div class="summary-box">
+              <span class="label">預期輸出</span>
+              ${window.escapeHtml(expected || '先理解這一節的重點。')}
+            </div>
+          </div>
+        `;
+    };
+}
+
+if (typeof window.renderFreeNote !== 'function') {
+    window.renderFreeNote = function () {
+        return '';
+    };
+}
+
 function renderLoadError(err) {
     const isFileProtocol = window.location.protocol === 'file:';
     const advice = isFileProtocol
@@ -197,32 +311,27 @@ window.renderCurrentNode = function () {
     window.renderProgress();
     window.renderDetailHeader(node);
     window.renderDetailSummary(node);
-
-    let bodyHtml = '';
-    const p = node.payload || {};
-
-    // --- Dispatch via Renderer Registry ---
-    const { contentHtml, interactionHtml } = window.RendererRegistry.dispatch(node);
-    bodyHtml += `<div id="detailNodeContent">${contentHtml}</div>`;
-    bodyHtml += `<div id="detailInteraction">${interactionHtml}</div>`;
-    bodyHtml += `<div id="detailFreeNote">${window.renderFreeNote(node)}</div>`;
-
-    elements.detailBody.innerHTML = bodyHtml;
+    elements.detailBody.innerHTML = `
+      <div id="detailNodeContent"></div>
+      <div id="detailInteraction"></div>
+      <div id="detailFreeNote">${window.renderFreeNote(node)}</div>
+    `;
+    window.RendererRegistry.dispatch(node);
     window.renderFooterButtons();
 
     document.getElementById('detailContent').scrollTop = 0;
 };
 
 window.renderCurrentInteractionOnly = function () {
-    const node = window.state.data.sequence[window.state.currentIndex];
-    if (!node) return;
+    const rawNode = window.state.data.sequence[window.state.currentIndex];
+    if (!rawNode) return;
+    const node = window.LessonAdapter.normalizeNode(rawNode, window.currentTeachingLocale());
     const interactionEl = document.getElementById('detailInteraction');
     if (!interactionEl) {
         window.renderCurrentNode();
         return;
     }
-    const { interactionHtml } = window.RendererRegistry.dispatch(node);
-    interactionEl.innerHTML = interactionHtml;
+    window.RendererRegistry.dispatch(node);
 };
 
 window.renderFooterButtons = function () {

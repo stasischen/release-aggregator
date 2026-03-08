@@ -74,6 +74,21 @@
       "id": "A1-BG-L03-FULL-PREVIEW",
       "title": "Beginner Grammar Lesson 03 (Full Lesson Preview)",
       "path": "data/units/a1_bg_l03_full_preview.json"
+    },
+    {
+      "id": "A1-BG-L01-SOURCE-BUILD",
+      "title": "Beginner Grammar Lesson 01 (Curriculum Source Build)",
+      "path": "data/curriculum-source/lesson_01/build/lesson_content.v1.json"
+    },
+    {
+      "id": "A1-BG-L02-SOURCE-BUILD",
+      "title": "Beginner Grammar Lesson 02 (Curriculum Source Build)",
+      "path": "data/curriculum-source/lesson_02/build/lesson_content.v1.json"
+    },
+    {
+      "id": "A1-BG-L03-SOURCE-BUILD",
+      "title": "Beginner Grammar Lesson 03 (Curriculum Source Build)",
+      "path": "data/curriculum-source/lesson_03/build/lesson_content.v1.json"
     }
   ]
 }

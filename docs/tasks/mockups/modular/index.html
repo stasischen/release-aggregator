@@ -60,7 +60,8 @@
                     <input id="bilingualToggle" type="checkbox" checked />
                 </div>
                 <div style="margin-top:10px;">
-                    <label for="teachingLocaleSelect" class="tiny-text muted" style="display:block; margin-bottom:4px;"><strong>教學語言 (Teaching Locale)</strong></label>
+                    <label for="teachingLocaleSelect" class="tiny-text muted"
+                        style="display:block; margin-bottom:4px;"><strong>教學語言 (Teaching Locale)</strong></label>
                     <select id="teachingLocaleSelect"
                         style="width:100%; padding:8px; border-radius:8px; border:1px solid var(--line); background:var(--bg); font-weight:600;">
                         <option value="zh_tw">zh_tw</option>
@@ -115,9 +116,14 @@
 
     <!-- Dependencies -->
     <script src="js/utils.js?v=20260227-1"></script>
+    <script src="js/adapter.js?v=20260308-1"></script>
     <script src="js/state.js?v=20260227-1"></script>
     <script src="js/tts.js?v=20260227-1"></script>
-    <script src="js/renderers.js?v=20260307-2"></script>
+    <script src="js/renderers/core.js?v=20260308-1"></script>
+    <script src="js/renderers/dialogue.js?v=20260308-1"></script>
+    <script src="js/renderers/pattern.js?v=20260308-1"></script>
+    <script src="js/renderers/grammar.js?v=20260308-1"></script>
+    <script src="js/renderers/practice.js?v=20260308-1"></script>
     <script src="js/app.js?v=20260227-1"></script>
 </body>
 

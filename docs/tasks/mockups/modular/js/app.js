@@ -1,17 +1,8 @@
 /**
  * Lingourmet Mockup Main App Logic
  */
-if (typeof window.i18nText !== 'function') {
-    window.i18nText = function (obj, locale = 'zh_tw', fallback = '') {
-        if (!obj) return fallback;
-        if (typeof obj === 'string') return obj;
-        if (obj[locale]) return obj[locale];
-        if (obj.zh_tw) return obj.zh_tw;
-        if (obj.en) return obj.en;
-        const first = Object.values(obj).find(v => typeof v === 'string' && v);
-        return first || fallback;
-    };
-}
+// Removed redundant i18nText definition (moved to adapter.js)
+
 const FIXTURES_INDEX = 'data/fixtures.json';
 // Keep a local default that works when serving from the modular directory.
 let currentBlueprintPath = 'data/units/a1_u04_unit_blueprint_v0.json';
@@ -72,29 +63,28 @@ python3 -m http.server 8080
 // --- Sidebar & Progress Rendering ---
 
 window.renderSidebar = function () {
-    const unit = window.state.data.unit;
+    const rawUnit = window.state.data.unit;
     const locale = window.currentTeachingLocale();
-    const unitTitle = window.i18nText(unit.title_i18n, locale, unit.title_zh_tw || '');
-    const unitTheme = window.i18nText(unit.theme_i18n, locale, unit.theme_zh_tw || '');
+    const unit = window.LessonAdapter.normalizeUnit(rawUnit, locale);
+
     const targetLanguage = (unit.target_language || 'ko').toUpperCase();
     const learnerLocale = unit.learner_locale_source || locale || 'zh_tw';
     const outputRatioText = typeof unit.output_ratio_target === 'number'
         ? `${Math.round(unit.output_ratio_target * 100)}%`
         : '—';
-    const canDo = Array.isArray(unit.can_do_i18n)
-        ? unit.can_do_i18n.map(v => window.i18nText(v, locale)).filter(Boolean)
-        : (unit.can_do_zh_tw || []);
-    elements.unitTitle.textContent = `${unit.unit_id} ${unitTitle}`;
+
+    elements.unitTitle.textContent = `${unit.unit_id} ${unit.displayTitle}`;
     elements.unitSub.textContent = `${targetLanguage} · ${learnerLocale} · ${unit.level || 'A1'}`;
 
     elements.metaGrid.innerHTML = `
-    <div class="meta-box"><span class="k">主題</span><span class="v">${unitTheme}</span></div>
+    <div class="meta-box"><span class="k">主題</span><span class="v">${unit.displayTheme}</span></div>
     <div class="meta-box"><span class="k">預期輸出</span><span class="v">${outputRatioText}</span></div>
     <div class="meta-box"><span class="k">節點數</span><span class="v">${window.state.data.sequence.length}</span></div>
     <div class="meta-box"><span class="k">版本</span><span class="v">v1.1 Modular</span></div>
   `;
 
-    elements.canDo.innerHTML = canDo.map(x => `<li>${window.escapeHtml(x)}</li>`).join('');
+    elements.canDo.innerHTML = unit.displayCanDo.map(x => `<li>${window.escapeHtml(x)}</li>`).join('');
+
 
     const counts = {};
     window.state.data.sequence.forEach(n => counts[n.learning_role] = (counts[n.learning_role] || 0) + 1);
@@ -171,19 +161,21 @@ window.renderProgress = function () {
 
 window.renderNodeList = function () {
     const locale = window.currentTeachingLocale();
-    elements.nodeList.innerHTML = window.state.data.sequence.map((node, idx) => `
+    elements.nodeList.innerHTML = window.state.data.sequence.map((rawNode, idx) => {
+        const node = window.LessonAdapter.normalizeNode(rawNode, locale);
+        return `
     <div class="node-card role-lane-${node.learning_role} ${idx === window.state.currentIndex ? 'active' : ''} ${window.isDone(node.id) ? 'done' : ''} ${window.isReview(node.id) ? 'review-mark' : ''}" onclick="window.setIndex(${idx})">
       <div class="top-row">
-        <span class="title">${idx + 1}. ${window.escapeHtml(window.nodeTitleText(node, locale))}</span>
+        <span class="title">${idx + 1}. ${window.escapeHtml(node.displayTitle)}</span>
         <span class="tag tiny-text">${node.duration_min ? `${node.duration_min}m` : '—'}</span>
       </div>
-      <div class="summary">${window.escapeHtml(window.nodeSummaryText(node, locale))}</div>
+      <div class="summary">${window.escapeHtml(node.displaySummary)}</div>
       <div class="meta-tags">
         <span class="tag">${node.content_form}</span>
         <span class="tag">${node.learning_role}</span>
       </div>
     </div>
-  `).join('');
+  `}).join('');
 };
 
 window.setIndex = function (idx) {
@@ -194,8 +186,12 @@ window.setIndex = function (idx) {
 // --- Core Master Render ---
 
 window.renderCurrentNode = function () {
-    const node = window.state.data.sequence[window.state.currentIndex];
-    if (!node) return;
+    const locale = window.currentTeachingLocale();
+    const rawNode = window.state.data.sequence[window.state.currentIndex];
+    if (!rawNode) return;
+
+    const node = window.LessonAdapter.normalizeNode(rawNode, locale);
+
 
     window.renderNodeList();
     window.renderProgress();
@@ -240,12 +236,13 @@ window.renderFooterButtons = function () {
     elements.markReviewBtn.style.color = window.isReview(node.id) ? 'var(--warn)' : '';
 
     if (window.isDone(node.id)) {
-        const nextNode = window.state.data.sequence[window.state.currentIndex + 1];
-        if (nextNode) {
+        const rawNextNode = window.state.data.sequence[window.state.currentIndex + 1];
+        if (rawNextNode) {
             const locale = window.currentTeachingLocale();
+            const nextNode = window.LessonAdapter.normalizeNode(rawNextNode, locale);
             const tip = document.createElement('div');
             tip.style = 'position:absolute; bottom:70px; right:24px; background:var(--ok-soft); border:1px solid var(--ok); padding:8px 12px; border-radius:8px; font-size:12px; animation: bounceIn 0.5s; cursor:pointer;';
-            tip.innerHTML = `<strong>完成！</strong> 下一站：${window.escapeHtml(window.i18nText(nextNode.title_i18n, locale, nextNode.title_zh_tw || ''))} →`;
+            tip.innerHTML = `<strong>完成！</strong> 下一站：${window.escapeHtml(nextNode.displayTitle)} →`;
             tip.onclick = () => { window.state.currentIndex++; window.renderCurrentNode(); };
             elements.detailBody.appendChild(tip);
         }

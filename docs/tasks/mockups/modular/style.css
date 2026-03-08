@@ -80,6 +80,74 @@ textarea {
   overflow-y: auto;
 }
 
+/* --- Modular Refactor Additions --- */
+
+.presets-row {
+  margin-top: 12px;
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.preset-tag {
+  background: var(--bg);
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  padding: 4px 10px;
+  font-size: 12px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s;
+  color: var(--muted);
+}
+
+.preset-tag:hover {
+  border-color: var(--accent2);
+  background: var(--accent2-soft);
+  color: var(--accent2);
+  transform: translateY(-1px);
+}
+
+.feedback-box {
+  margin-top: 16px;
+  padding: 12px 16px;
+  border-radius: var(--radius-md);
+  font-size: 14px;
+  font-weight: 600;
+  animation: slideUp 0.3s ease-out;
+}
+
+.feedback-box.best_fit {
+  background: var(--ok-soft);
+  border: 1px solid var(--ok);
+  color: var(--ok);
+}
+
+.feedback-box.incorrect {
+  background: #fff3f3;
+  border: 1px solid #f3d0d0;
+  color: #b42318;
+}
+
+.mini-speak {
+  background: none;
+  border: none;
+  color: var(--accent);
+  cursor: pointer;
+  padding: 0 4px;
+  font-size: 14px;
+}
+
+@keyframes slideUp {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.animate-in {
+  animation: slideUp 0.4s ease-out;
+}
+
 /* Sidebar Styles */
 .sidebar {
   grid-row: 1 / 2;

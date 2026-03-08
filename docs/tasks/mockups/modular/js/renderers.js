@@ -21,6 +21,85 @@ const currentLocale = function () {
   return window.currentTeachingLocale ? window.currentTeachingLocale() : 'zh_tw';
 };
 
+window.roleDisplayName = function (role) {
+  const map = {
+    immersion_input: '沉浸輸入',
+    structure_pattern: '句型結構',
+    structure_grammar: '文法解說',
+    explicit_rule: '規則整理',
+    controlled_output: '可控輸出',
+    immersion_output: '任務輸出',
+    review_retrieval: '複習回想'
+  };
+  return map[role] || role || '學習節點';
+};
+
+window.nodeStageLabel = function (nodeId) {
+  const match = String(nodeId || '').match(/-(L1|L2|L3|G1|G2|P1|P2|P5|R1)$/);
+  return match ? match[1] : '';
+};
+
+window.fallbackNodeTitle = function (node) {
+  const stage = window.nodeStageLabel(node && node.id);
+  const roleName = window.roleDisplayName(node && node.learning_role);
+  return stage ? `${stage} ${roleName}` : roleName;
+};
+
+window.nodeTitleText = function (node, locale) {
+  return window.i18nText(node && node.title_i18n, locale, (node && node.title_zh_tw) || window.fallbackNodeTitle(node));
+};
+
+window.nodeSummaryText = function (node, locale) {
+  return window.i18nText(node && node.summary_i18n, locale, (node && node.summary_zh_tw) || '先看這一節的內容。');
+};
+
+window.nodeExpectedText = function (node, locale) {
+  return window.i18nText(node && node.expected_output_i18n, locale, (node && node.expected_output_zh_tw) || '先理解這一節的重點。');
+};
+
+window.nodeSkillFocusText = function (node) {
+  const focus = Array.isArray(node && node.skill_focus) ? node.skill_focus.filter(Boolean) : [];
+  if (focus.length) return focus.join(' / ');
+  const fallback = {
+    dialogue: 'listening / reading',
+    pattern_lab: 'reading / speaking',
+    grammar_note: 'reading',
+    grammar_summary: 'reading',
+    practice_card: 'controlled output',
+    review_card: 'retrieval'
+  };
+  return fallback[(node && node.content_form) || ''] || 'reading';
+};
+
+window.taskContextText = function (task, locale) {
+  return window.i18nText(task && task.context_i18n, locale, (task && task.context_zh_tw) || '');
+};
+
+window.taskPromptText = function (task, locale) {
+  return window.i18nText(task && task.prompt_i18n, locale, (task && task.prompt_zh_tw) || '');
+};
+
+window.taskTargetGlossText = function (task, locale) {
+  if (Array.isArray(task && task.target_examples_i18n) && task.target_examples_i18n.length) {
+    return task.target_examples_i18n
+      .map(item => window.i18nText(item, locale))
+      .filter(Boolean)
+      .join(' / ');
+  }
+  if (Array.isArray(task && task.target_examples_zh_tw)) {
+    return task.target_examples_zh_tw.join(' / ');
+  }
+  const meaning = window.i18nText(task && task.meaning_i18n, locale, '');
+  return meaning || '';
+};
+
+window.reviewPromptsText = function (payload, locale) {
+  if (Array.isArray(payload && payload.prompts_i18n) && payload.prompts_i18n.length) {
+    return payload.prompts_i18n.map(v => window.i18nText(v, locale)).filter(Boolean);
+  }
+  return payload && payload.prompts_zh_tw ? payload.prompts_zh_tw : [];
+};
+
 window.warnUnresolvedTemplate = function (scope, template, context = {}) {
   if (!template || typeof template !== 'string') return;
   const matches = template.match(/\{[^}]+\}/g);
@@ -184,22 +263,23 @@ window.RendererRegistry = {
 
 window.renderDetailHeader = function (node) {
   const locale = window.currentTeachingLocale();
+  const candidateType = node.candidate_type || window.nodeStageLabel(node.id) || 'NODE';
   const header = document.getElementById('detailHeader');
   header.innerHTML = `
     <div class="content-header animate-in">
       <div class="type-tags">
         <span class="type-tag">${node.learning_role}</span>
-        <span class="type-tag" style="background:var(--accent2-soft); color:var(--accent2);">${node.candidate_type}</span>
+        <span class="type-tag" style="background:var(--accent2-soft); color:var(--accent2);">${candidateType}</span>
       </div>
-      <h1>${window.escapeHtml(window.i18nText(node.title_i18n, locale, node.title_zh_tw || ''))}</h1>
+      <h1>${window.escapeHtml(window.nodeTitleText(node, locale))}</h1>
     </div>
   `;
 };
 
 window.renderDetailSummary = function (node) {
   const locale = window.currentTeachingLocale();
-  const summaryText = window.i18nText(node.summary_i18n, locale, node.summary_zh_tw || '');
-  const expectedText = window.i18nText(node.expected_output_i18n, locale, node.expected_output_zh_tw || '觀察與理解');
+  const summaryText = window.nodeSummaryText(node, locale);
+  const expectedText = window.nodeExpectedText(node, locale);
   const summaryBox = document.getElementById('detailSummary');
   summaryBox.innerHTML = `
     <div class="content-summary animate-in">
@@ -212,7 +292,7 @@ window.renderDetailSummary = function (node) {
         </div>
         <div class="summary-box">
           <span class="label">技能焦查</span>
-          ${(node.skill_focus || []).join(' / ')}
+          ${window.escapeHtml(window.nodeSkillFocusText(node))}
         </div>
       </div>
     </div>
@@ -694,7 +774,9 @@ const renderComprehensionCheck = function (payload) {
             <span class="word-chip">
               ${window.escapeHtml(c)}
               ${window.renderSpeakInline(c)}
-              ${window.showBilingual() && item.response_gloss_by_ko && item.response_gloss_by_ko[c] ? `
+              ${window.showBilingual() && item.response_gloss_i18n_by_ko && item.response_gloss_i18n_by_ko[c] ? `
+                <span class="tiny-text muted" style="display:block; margin-top:3px;">${window.escapeHtml(window.i18nText(item.response_gloss_i18n_by_ko[c], locale, ''))}</span>
+              ` : window.showBilingual() && item.response_gloss_by_ko && item.response_gloss_by_ko[c] ? `
                 <span class="tiny-text muted" style="display:block; margin-top:3px;">${window.escapeHtml(item.response_gloss_by_ko[c])}</span>
               ` : ''}
             </span>
@@ -744,15 +826,22 @@ const renderRoleplayPrompt = function (payload) {
 };
 
 const renderMessagePrompt = function (payload) {
+  const locale = currentLocale();
+  const mustInclude = Array.isArray(payload.must_include_i18n)
+    ? payload.must_include_i18n.map(v => window.i18nText(v, locale)).filter(Boolean)
+    : (payload.must_include_zh_tw || []);
+  const exampleShapeI18n = Array.isArray(payload.example_shape_i18n)
+    ? payload.example_shape_i18n.map(v => window.i18nText(v, locale)).filter(Boolean)
+    : (payload.example_shape_zh_tw || []);
   return `
     <div class="card-block animate-in">
       <div class="block-title">Message Prompt</div>
       ${payload.prompt_ko ? `<div style="font-weight:700;">${window.escapeHtml(payload.prompt_ko)}</div>` : ''}
-      ${window.showBilingual() && payload.prompt_zh_tw ? `<div class="tiny-text muted" style="margin-top:6px;">${window.escapeHtml(payload.prompt_zh_tw)}</div>` : ''}
-      ${Array.isArray(payload.must_include_zh_tw) && payload.must_include_zh_tw.length ? `
+      ${window.showBilingual() && window.i18nText(payload.prompt_i18n, locale, payload.prompt_zh_tw || '') ? `<div class="tiny-text muted" style="margin-top:6px;">${window.escapeHtml(window.i18nText(payload.prompt_i18n, locale, payload.prompt_zh_tw || ''))}</div>` : ''}
+      ${mustInclude.length ? `
         <div style="margin-top:10px;">
           <div class="tiny-text muted">需包含</div>
-          <ul style="margin:6px 0 0 18px;">${payload.must_include_zh_tw.map(v => `<li>${window.escapeHtml(v)}</li>`).join('')}</ul>
+          <ul style="margin:6px 0 0 18px;">${mustInclude.map(v => `<li>${window.escapeHtml(v)}</li>`).join('')}</ul>
         </div>` : ''
     }
       ${Array.isArray(payload.example_shape_ko) && payload.example_shape_ko.length ? `
@@ -761,7 +850,7 @@ const renderMessagePrompt = function (payload) {
           ${(payload.example_shape_ko || []).map((ko, i) => `
             <div style="padding:8px 10px; background:#faf7f1; border-radius:8px; margin-top:6px;">
               <div>${window.escapeHtml(ko)}</div>
-              ${window.showBilingual() && payload.example_shape_zh_tw && payload.example_shape_zh_tw[i] ? `<div class="tiny-text muted">${window.escapeHtml(payload.example_shape_zh_tw[i])}</div>` : ''}
+              ${window.showBilingual() && exampleShapeI18n[i] ? `<div class="tiny-text muted">${window.escapeHtml(exampleShapeI18n[i])}</div>` : ''}
             </div>
           `).join('')}
         </div>` : ''
@@ -928,6 +1017,7 @@ const renderDictionary = function (payload) {
 // --- Interaction Mode implement functions ---
 
 const renderChunkAssemblyMode = function (node) {
+  const locale = currentLocale();
   const payload = node.payload;
   const nodeState = window.getNodeInteractionState(node.id);
   const tasks = payload.tasks || [];
@@ -999,8 +1089,8 @@ const renderChunkAssemblyMode = function (node) {
   return `
     <div class="interaction-panel animate-in">
       <div class="interaction-label">🧩 詞塊組句練習 (${taskIdx + 1}/${tasks.length})</div>
-      ${task.context_zh_tw ? `<div class="summary-box" style="margin-bottom:10px; background:#fff9ee; border-color:#f1dfb7;"><span class="label">場合</span>${window.escapeHtml(task.context_zh_tw)}</div>` : ''}
-      <div class="muted-text" style="margin-bottom:12px;">${window.escapeHtml(task.prompt_zh_tw || '')}</div>
+      ${window.taskContextText(task, locale) ? `<div class="summary-box" style="margin-bottom:10px; background:#fff9ee; border-color:#f1dfb7;"><span class="label">場合</span>${window.escapeHtml(window.taskContextText(task, locale))}</div>` : ''}
+      <div class="muted-text" style="margin-bottom:12px;">${window.escapeHtml(window.taskPromptText(task, locale))}</div>
       
       <div class="assembly-zone">
         <div class="block-title" style="margin-bottom:8px; font-size:11px;">你的組句 (點擊移除)</div>
@@ -1028,13 +1118,14 @@ const renderChunkAssemblyMode = function (node) {
       <div id="assemblyExample" class="summary-box" style="display:none; margin-top:16px; border-color:var(--ok-soft); background:var(--ok-soft);">
         <span class="label" style="color:var(--ok);">預期示例</span>
         ${(task.target_examples || []).join(' / ')}
-        ${window.showBilingual() && task.target_examples_zh_tw ? `<div class="tiny-text" style="margin-top:4px;">中譯：${task.target_examples_zh_tw.join(' / ')}</div>` : ''}
+        ${window.showBilingual() && window.taskTargetGlossText(task, locale) ? `<div class="tiny-text" style="margin-top:4px;">${window.escapeHtml(window.taskTargetGlossText(task, locale))}</div>` : ''}
       </div>
     </div>
   `;
 };
 
 const renderResponseBuilderMode = function (node) {
+  const locale = currentLocale();
   const items = node.payload.items || [];
   const nodeState = window.getNodeInteractionState(node.id);
   const chosen = nodeState.chosenByIndex || {};
@@ -1043,12 +1134,12 @@ const renderResponseBuilderMode = function (node) {
   const html = items.map((item, idx) => `
       <div style="margin-bottom:24px; border-bottom:1px dashed var(--line); padding-bottom:16px;">
       <div class="muted-text" style="font-weight:700; margin-bottom:8px;">情境 ${idx + 1}: ${window.escapeHtml(item.prompt_ko)} ${window.renderSpeakButton(item.prompt_ko)}</div>
-      ${window.showBilingual() && item.prompt_zh_tw ? `<div class="tiny-text muted" style="margin-bottom:12px;">(${item.prompt_zh_tw})</div>` : ''}
+      ${window.showBilingual() && window.i18nText(item.prompt_i18n, locale, item.prompt_zh_tw || '') ? `<div class="tiny-text muted" style="margin-bottom:12px;">(${window.escapeHtml(window.i18nText(item.prompt_i18n, locale, item.prompt_zh_tw || ''))})</div>` : ''}
       <div class="btn-group" style="flex-wrap:wrap;">
         ${(item.response_choices_ko || []).map(choice => `
           <button class="btn ${chosen[idx] === choice ? 'success' : ''}" style="font-size:12px; padding: 6px 12px;" onclick="pickResponse(${idx}, '${choice.replace(/'/g, "\\'")}')">
             ${window.escapeHtml(choice)} ${window.renderSpeakInline(choice)}
-            ${window.showBilingual() && item.response_gloss_by_ko && item.response_gloss_by_ko[choice] ? `<span class="tiny-text muted" style="display:block; width:100%; margin-top:2px;">${window.escapeHtml(item.response_gloss_by_ko[choice])}</span>` : ''}
+            ${window.showBilingual() && item.response_gloss_i18n_by_ko && item.response_gloss_i18n_by_ko[choice] ? `<span class="tiny-text muted" style="display:block; width:100%; margin-top:2px;">${window.escapeHtml(window.i18nText(item.response_gloss_i18n_by_ko[choice], locale, ''))}</span>` : window.showBilingual() && item.response_gloss_by_ko && item.response_gloss_by_ko[choice] ? `<span class="tiny-text muted" style="display:block; width:100%; margin-top:2px;">${window.escapeHtml(item.response_gloss_by_ko[choice])}</span>` : ''}
           </button>
         `).join('')}
       </div>
@@ -1067,12 +1158,15 @@ const renderGuidedOutputMode = function (node) {
   const locale = currentLocale();
   const nodeState = window.getNodeInteractionState(node.id);
   const isSpeaking = (node.skill_focus || []).includes('speaking');
+  const mustInclude = Array.isArray(node.payload.must_include_i18n)
+    ? node.payload.must_include_i18n.map(v => window.i18nText(v, locale)).filter(Boolean)
+    : (node.payload.must_include_zh_tw || []);
   return `
     <div class="interaction-panel animate-in">
       <div class="interaction-label">${isSpeaking ? '🎤 口說練習' : '✍️ 任務型寫作'}</div>
       <div class="muted-text" style="margin-bottom:12px;">${window.escapeHtml(window.i18nText(node.payload.prompt_i18n, locale, node.payload.prompt_zh_tw || window.i18nText(node.summary_i18n, locale, node.summary_zh_tw || '')))}</div>
       <textarea placeholder="點擊此處輸入回答或練習筆記..." oninput="updateDraft(this.value)">${nodeState.draft || ''}</textarea>
-      ${node.payload.must_include_zh_tw ? `<div class="tiny-text muted" style="margin-top:8px;">需包含: ${node.payload.must_include_zh_tw.join(' / ')}</div>` : ''}
+      ${mustInclude.length ? `<div class="tiny-text muted" style="margin-top:8px;">需包含: ${mustInclude.map(v => window.escapeHtml(v)).join(' / ')}</div>` : ''}
     </div>
   `;
 };
@@ -1106,15 +1200,18 @@ const renderFrameFillMode = function (node) {
 const renderPatternTransformMode = function (node) {
   const locale = currentLocale();
   const payload = node.payload || {};
+  const mustInclude = Array.isArray(payload.must_include_i18n)
+    ? payload.must_include_i18n.map(v => window.i18nText(v, locale)).filter(Boolean)
+    : (payload.must_include_zh_tw || []);
   return `
     <div class="interaction-panel animate-in">
       <div class="interaction-label">🔁 句型變換練習</div>
       <div class="tiny-text muted">Transform Type: ${window.escapeHtml(payload.transform_type || 'unspecified')}</div>
       <div style="margin-top:8px;">${window.escapeHtml(window.i18nText(payload.prompt_i18n, locale, payload.prompt_zh_tw || window.i18nText(node.summary_i18n, locale, node.summary_zh_tw || '請根據本節句型完成變換。')))}</div>
-      ${(payload.must_include_zh_tw || []).length ? `
+      ${mustInclude.length ? `
         <div style="margin-top:8px;">
           <div class="tiny-text muted">必含元素</div>
-          <div class="chip-cloud">${payload.must_include_zh_tw.map(v => `<span class="word-chip">${window.escapeHtml(v)}</span>`).join('')}</div>
+          <div class="chip-cloud">${mustInclude.map(v => `<span class="word-chip">${window.escapeHtml(v)}</span>`).join('')}</div>
         </div>
       ` : ''}
     </div>
@@ -1122,7 +1219,8 @@ const renderPatternTransformMode = function (node) {
 };
 
 const renderReviewRetrievalMode = function (node) {
-  const prompts = node.payload.prompts_zh_tw || [];
+  const locale = currentLocale();
+  const prompts = window.reviewPromptsText(node.payload, locale);
   const answers = node.payload.reference_answers_ko || node.payload.answers_ko || [];
   const nodeState = window.getNodeInteractionState(node.id);
   const retrievalDrafts = nodeState.retrievalDrafts || {};
@@ -1250,6 +1348,7 @@ window.RendererRegistry.registerContent('message_thread', renderMessageThread);
 window.RendererRegistry.registerContent('comparison_card', renderComparison);
 window.RendererRegistry.registerContent('pattern_card', renderPatternCard);
 window.RendererRegistry.registerContent('grammar_note', renderGrammar);
+window.RendererRegistry.registerContent('grammar_summary', renderGrammar);
 window.RendererRegistry.registerContent('functional_phrase_pack', renderDictionary);
 window.RendererRegistry.registerContent('practice_card', renderPracticeCardHead);
 window.RendererRegistry.registerContent('roleplay_prompt', renderRoleplayPrompt);

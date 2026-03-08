@@ -1,0 +1,59 @@
+{
+  "task_id": "MODULAR_VIEWER_REFACTOR",
+  "description": "重構 modular viewer，使其以 curriculum-source build artifacts 為正式輸入，移除 preview-era renderer 假設並收斂 i18n 與 adapter contract。",
+  "status": "in_progress",
+  "tasks": [
+    {
+      "id": "VIEWREF-001",
+      "desc": "Define source-build viewer adapter contract: required unit metadata fallback, node metadata fallback, content_form mapping, and learner-facing field resolution order.",
+      "status": "todo",
+      "depends_on": []
+    },
+    {
+      "id": "VIEWREF-002",
+      "desc": "Split current renderers.js into modular renderer registry files by content_form and interaction mode, while preserving current mockup shell behavior.",
+      "status": "todo",
+      "depends_on": [
+        "VIEWREF-001"
+      ]
+    },
+    {
+      "id": "VIEWREF-003",
+      "desc": "Make viewer fully i18n-first for learner-facing strings: remove direct *_zh_tw reads from renderer paths except explicit fallback layer inside adapter helpers.",
+      "status": "todo",
+      "depends_on": [
+        "VIEWREF-001",
+        "VIEWREF-002"
+      ]
+    },
+    {
+      "id": "VIEWREF-004",
+      "desc": "Implement source-build compatibility for grammar_summary, practice_card, review_card, dialogue, pattern_lab, and other curriculum-source content forms without preview-only assumptions.",
+      "status": "todo",
+      "depends_on": [
+        "VIEWREF-001",
+        "VIEWREF-002",
+        "VIEWREF-003"
+      ]
+    },
+    {
+      "id": "VIEWREF-005",
+      "desc": "Define preview fixture deprecation path: distinguish source-build fixtures from hand-authored previews and stop treating preview JSON as source of truth.",
+      "status": "todo",
+      "depends_on": [
+        "VIEWREF-001",
+        "VIEWREF-004"
+      ]
+    },
+    {
+      "id": "VIEWREF-006",
+      "desc": "Add viewer regression check for source-build lessons (lesson_01~03) and verify zh_tw/en locale switching, missing metadata fallback, and non-crashing renderer coverage.",
+      "status": "todo",
+      "depends_on": [
+        "VIEWREF-003",
+        "VIEWREF-004",
+        "VIEWREF-005"
+      ]
+    }
+  ]
+}

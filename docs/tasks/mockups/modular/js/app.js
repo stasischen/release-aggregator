@@ -76,15 +76,20 @@ window.renderSidebar = function () {
     const locale = window.currentTeachingLocale();
     const unitTitle = window.i18nText(unit.title_i18n, locale, unit.title_zh_tw || '');
     const unitTheme = window.i18nText(unit.theme_i18n, locale, unit.theme_zh_tw || '');
+    const targetLanguage = (unit.target_language || 'ko').toUpperCase();
+    const learnerLocale = unit.learner_locale_source || locale || 'zh_tw';
+    const outputRatioText = typeof unit.output_ratio_target === 'number'
+        ? `${Math.round(unit.output_ratio_target * 100)}%`
+        : '—';
     const canDo = Array.isArray(unit.can_do_i18n)
         ? unit.can_do_i18n.map(v => window.i18nText(v, locale)).filter(Boolean)
         : (unit.can_do_zh_tw || []);
     elements.unitTitle.textContent = `${unit.unit_id} ${unitTitle}`;
-    elements.unitSub.textContent = `${unit.target_language.toUpperCase()} · ${unit.learner_locale_source} · ${unit.level}`;
+    elements.unitSub.textContent = `${targetLanguage} · ${learnerLocale} · ${unit.level || 'A1'}`;
 
     elements.metaGrid.innerHTML = `
     <div class="meta-box"><span class="k">主題</span><span class="v">${unitTheme}</span></div>
-    <div class="meta-box"><span class="k">預期輸出</span><span class="v">${Math.round(unit.output_ratio_target * 100)}%</span></div>
+    <div class="meta-box"><span class="k">預期輸出</span><span class="v">${outputRatioText}</span></div>
     <div class="meta-box"><span class="k">節點數</span><span class="v">${window.state.data.sequence.length}</span></div>
     <div class="meta-box"><span class="k">版本</span><span class="v">v1.1 Modular</span></div>
   `;
@@ -169,10 +174,10 @@ window.renderNodeList = function () {
     elements.nodeList.innerHTML = window.state.data.sequence.map((node, idx) => `
     <div class="node-card role-lane-${node.learning_role} ${idx === window.state.currentIndex ? 'active' : ''} ${window.isDone(node.id) ? 'done' : ''} ${window.isReview(node.id) ? 'review-mark' : ''}" onclick="window.setIndex(${idx})">
       <div class="top-row">
-        <span class="title">${idx + 1}. ${window.escapeHtml(window.i18nText(node.title_i18n, locale, node.title_zh_tw || ''))}</span>
-        <span class="tag tiny-text">${node.duration_min}m</span>
+        <span class="title">${idx + 1}. ${window.escapeHtml(window.nodeTitleText(node, locale))}</span>
+        <span class="tag tiny-text">${node.duration_min ? `${node.duration_min}m` : '—'}</span>
       </div>
-      <div class="summary">${window.escapeHtml(window.i18nText(node.summary_i18n, locale, node.summary_zh_tw || ''))}</div>
+      <div class="summary">${window.escapeHtml(window.nodeSummaryText(node, locale))}</div>
       <div class="meta-tags">
         <span class="tag">${node.content_form}</span>
         <span class="tag">${node.learning_role}</span>

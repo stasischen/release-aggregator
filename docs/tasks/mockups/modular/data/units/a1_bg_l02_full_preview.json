@@ -2,9 +2,9 @@
   "version": "unit_blueprint_v0.1",
   "adapter_contract": {
     "adapter_version": "frontend_unit_adapter_v0",
-    "stability": "bg_l02_full_preview_v6",
+    "stability": "bg_l02_full_preview_v7",
     "fallback_locale_order": ["zh_tw", "en"],
-    "notes": "Full high-density Lesson 02 preview with Authentic Cafe Dialogue, Adjective Pairs (Pos/Neg), and Multi-Object Logic Mappings."
+    "notes": "Full high-density Lesson 02 preview with Authentic Cafe Dialogue, Fixed Adjective Pairs (Pos/Neg), and Corrected Rendering Logic."
   },
   "unit": {
     "unit_id": "A1-BG-L02-FULL-PREVIEW",
@@ -13,8 +13,8 @@
     "level": "A1",
     "output_ratio_target": 0.55,
     "title_i18n": {
-      "zh_tw": "Beginner Grammar Lesson 02 · 核心助詞 (綜合情境擴展)",
-      "en": "Beginner Grammar Lesson 02 · Core Particles (High-Density Context)"
+      "zh_tw": "Beginner Grammar Lesson 02 · 核心助詞 (高密度邏輯與真實對話)",
+      "en": "Beginner Grammar Lesson 02 · Core Particles (High-Density Logic & Natural Conversation)"
     }
   },
   "sequence": [
@@ -50,9 +50,9 @@
               }
             ],
             "register_templates": {
-              "formal": "{target_marked} {predicate}습니다.",
-              "polite": "{target_marked} {predicate}어요.",
-              "casual": "{target_marked} {predicate}어."
+              "formal": "{target_marked} {predicate_stem}습니다.",
+              "polite": "{target_marked} {predicate_stem}어요.",
+              "casual": "{target_marked} {predicate_stem}어."
             },
             "translation_templates": {
               "formal": { "zh_tw": "{target_gloss}{state_gloss}。", "en": "{target_gloss} is {state_gloss_en}." },
@@ -70,13 +70,13 @@
                 }
               },
               {
-                "token": "predicate",
+                "token": "predicate_stem",
                 "source_control_id": "target",
                 "secondary_control_id": "state",
                 "map_by_register_and_value": {
-                  "formal": { "apple:pos": "맛있", "apple:neg": "맛없", "coffee:pos": "쌉", "coffee:neg": "비쌉", "movie:pos": "재미있", "movie:neg": "재미없", "weather:pos": "좋", "weather:neg": "나듭" },
-                  "polite": { "apple:pos": "맛있", "apple:neg": "맛없", "coffee:pos": "싸", "coffee:neg": "비싸", "movie:pos": "재미있", "movie:neg": "재미없", "weather:pos": "좋", "weather:neg": "나드" },
-                  "casual": { "apple:pos": "맛있", "apple:neg": "맛없", "coffee:pos": "싸", "coffee:neg": "비싸", "movie:pos": "재미있", "movie:neg": "재미없", "weather:pos": "좋", "weather:neg": "나드" }
+                  "formal": { "apple:pos": "맛있", "apple:neg": "맛없", "coffee:pos": "쌉", "coffee:neg": "비쌉", "movie:pos": "재미있", "movie:neg": "재미없", "weather:pos": "좋", "weather:neg": "나쁩" },
+                  "polite": { "apple:pos": "맛있", "apple:neg": "맛없", "coffee:pos": "싸", "coffee:neg": "비싸", "movie:pos": "재미있", "movie:neg": "재미없", "weather:pos": "좋", "weather:neg": "나쁘" },
+                  "casual": { "apple:pos": "맛있", "apple:neg": "맛없", "coffee:pos": "싸", "coffee:neg": "비싸", "movie:pos": "재미있", "movie:neg": "재미없", "weather:pos": "좋", "weather:neg": "나쁘" }
                 }
               },
               {
@@ -145,9 +145,9 @@
               }
             ],
             "register_templates": {
-              "formal": "{object_marked} {verb_final}습니다.",
-              "polite": "{object_marked} {verb_final}어요.",
-              "casual": "{object_marked} {verb_final}어."
+              "formal": "{object_marked} {verb_stem}습니다.",
+              "polite": "{object_marked} {verb_stem}어요.",
+              "casual": "{object_marked} {verb_stem}어."
             },
             "translation_templates": {
               "formal": { "zh_tw": "{verb_gloss}{object_gloss}。", "en": "{verb_gloss} the {object_gloss_en}." },
@@ -166,7 +166,7 @@
                 }
               },
               {
-                "token": "verb_final",
+                "token": "verb_stem",
                 "source_control_id": "verb",
                 "map_by_register_and_value": {
                   "formal": { "eat": "먹", "drink": "마십", "see": "봅" },

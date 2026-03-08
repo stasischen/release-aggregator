@@ -49,6 +49,7 @@ window.LessonAdapter = {
             displayTitle: this.resolveText(node.title_i18n, locale, node.title_zh_tw || this.getFallbackNodeTitle(node)),
             displaySummary: this.resolveText(node.summary_i18n, locale, node.summary_zh_tw || '先看這一節的內容。'),
             displayExpected: this.resolveText(node.expected_output_i18n, locale, node.expected_output_zh_tw || '先理解這一節的重點。'),
+
             payload: node.payload || {}
         };
 
@@ -98,3 +99,4 @@ window.LessonAdapter = {
 
 // Global helper for quick access
 window.i18nText = window.LessonAdapter.resolveText;
+window.currentTeachingLocale = () => window.state?.progress?.prefs?.teachingLocale || 'zh_tw';

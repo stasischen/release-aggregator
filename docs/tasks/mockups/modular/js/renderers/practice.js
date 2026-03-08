@@ -3,22 +3,21 @@
  */
 
 (function () {
-    function renderPracticeCard(node) {
-        const payload = node.payload || {};
-        const body = document.getElementById('detailBody');
-        const locale = window.currentLocale();
+  function renderPracticeCard(node) {
+    const payload = node.payload || {};
+    const locale = window.currentLocale();
 
-        const modeLabel = {
-            chunk_assembly: '拼句型練習',
-            response_builder: '回應建構',
-            guided: '引導式練習',
-            flashcard_review: '閃卡複習',
-            review_retrieval: '回想練習'
-        }[payload.mode || node.output_mode] || '練習卡';
+    const modeLabel = {
+      chunk_assembly: '拼句型練習',
+      response_builder: '回應建構',
+      guided: '引導式練習',
+      flashcard_review: '閃卡複習',
+      review_retrieval: '回想練習'
+    }[payload.mode || node.output_mode] || '練習卡';
 
-        const total = (payload.tasks || payload.items || payload.cards || []).length;
+    const total = (payload.tasks || payload.items || payload.cards || []).length;
 
-        body.innerHTML = `
+    return `
       <div class="practice-container animate-in">
         <div class="card-block">
           <div class="block-title">Practice Card</div>
@@ -32,53 +31,51 @@
         <div id="interactionArea"></div>
       </div>
     `;
+  }
 
-        window.renderCurrentInteractionOnly();
+  function renderReviewCard(node) {
+    renderPracticeCard(node); // Reuse practice card shell for now
+  }
+
+  // --- Interaction Modes ---
+
+  function renderChunkAssemblyMode(node) {
+    const locale = window.currentLocale();
+    const payload = node.payload || {};
+    const tasks = payload.tasks || [];
+    const area = document.getElementById('interactionArea') || document.getElementById('detailBody');
+
+    if (!tasks.length) {
+      area.innerHTML = `<div class="interaction-panel"><div class="muted-text">無可用題目。</div></div>`;
+      return;
     }
 
-    function renderReviewCard(node) {
-        renderPracticeCard(node); // Reuse practice card shell for now
+    const s = window.getNodeInteractionState(node.id);
+    if (!s.taskOrder || s.taskOrder.length !== tasks.length) {
+      s.taskOrder = [...Array(tasks.length).keys()].sort(() => Math.random() - 0.5);
+      s.activeTaskIndex = 0;
+      s.answers = [];
+      window.setNodeInteractionState(node.id, s);
     }
 
-    // --- Interaction Modes ---
+    const taskIdx = s.activeTaskIndex || 0;
+    const task = tasks[s.taskOrder[taskIdx]];
+    const currentAnswers = s.answers || [];
+    const feedback = (s.feedbackByTaskIndex || {})[s.taskOrder[taskIdx]];
 
-    function renderChunkAssemblyMode(node) {
-        const locale = window.currentLocale();
-        const payload = node.payload || {};
-        const tasks = payload.tasks || [];
-        const area = document.getElementById('interactionArea') || document.getElementById('detailBody');
-
-        if (!tasks.length) {
-            area.innerHTML = `<div class="interaction-panel"><div class="muted-text">無可用題目。</div></div>`;
-            return;
-        }
-
-        const s = window.getNodeInteractionState(node.id);
-        if (!s.taskOrder || s.taskOrder.length !== tasks.length) {
-            s.taskOrder = [...Array(tasks.length).keys()].sort(() => Math.random() - 0.5);
-            s.activeTaskIndex = 0;
-            s.answers = [];
-            window.setNodeInteractionState(node.id, s);
-        }
-
-        const taskIdx = s.activeTaskIndex || 0;
-        const task = tasks[s.taskOrder[taskIdx]];
-        const currentAnswers = s.answers || [];
-        const feedback = (s.feedbackByTaskIndex || {})[s.taskOrder[taskIdx]];
-
-        const answerHtml = currentAnswers.map((a, i) => `
+    const answerHtml = currentAnswers.map((a, i) => `
       <div class="chip" onclick="window.removeChunk(${i})">
         ${window.escapeHtml(a)} <button onclick="event.stopPropagation(); window.speakKo('${window.escapeJsSingle(a)}')" class="mini-speak">▶</button>
       </div>
     `).join('');
 
-        const bank = (task.chunks || []).map(c => `
+    const bank = (task.chunks || []).map(c => `
       <div class="chip" onclick="window.addChunk('${window.escapeJsSingle(c)}')">
         ${window.escapeHtml(c)}
       </div>
     `).join('');
 
-        area.innerHTML = `
+    area.innerHTML = `
       <div class="interaction-panel animate-in">
         <div class="interaction-label">🧩 詞塊組句練習 (${taskIdx + 1}/${tasks.length})</div>
         <div class="muted-text" style="margin-bottom:12px;">${window.escapeHtml(window.i18nText(task.prompt_i18n, locale, task.prompt_zh_tw || ''))}</div>
@@ -96,16 +93,16 @@
         ${feedback ? `<div class="feedback-box ${feedback.kind}">${window.escapeHtml(feedback.message)}</div>` : ''}
       </div>
     `;
-    }
+  }
 
-    function renderResponseBuilderMode(node) {
-        const locale = window.currentLocale();
-        const items = node.payload.items || [];
-        const area = document.getElementById('interactionArea') || document.getElementById('detailBody');
-        const s = window.getNodeInteractionState(node.id);
-        const chosen = s.chosenByIndex || {};
+  function renderResponseBuilderMode(node) {
+    const locale = window.currentLocale();
+    const items = node.payload.items || [];
+    const area = document.getElementById('interactionArea') || document.getElementById('detailBody');
+    const s = window.getNodeInteractionState(node.id);
+    const chosen = s.chosenByIndex || {};
 
-        const html = items.map((item, idx) => `
+    const html = items.map((item, idx) => `
       <div class="interaction-panel-item" style="margin-bottom:20px; padding-bottom:16px; border-bottom:1px dashed var(--line);">
         <div class="muted-text" style="font-weight:700; margin-bottom:8px;">情境 ${idx + 1}: ${window.escapeHtml(item.prompt_ko || '')}</div>
         <div class="btn-group" style="flex-wrap:wrap; gap:8px;">
@@ -118,38 +115,38 @@
       </div>
     `).join('');
 
-        area.innerHTML = `
+    area.innerHTML = `
       <div class="interaction-panel animate-in">
         <div class="interaction-label">💬 回應選擇練習</div>
         ${html}
       </div>
     `;
+  }
+
+  function renderFlashcardReviewMode(node) {
+    const locale = window.currentLocale();
+    const payload = node.payload || {};
+    const cards = payload.cards || payload.items || [];
+    const area = document.getElementById('interactionArea') || document.getElementById('detailBody');
+
+    if (!cards.length) {
+      area.innerHTML = `<div class="interaction-panel"><div class="muted-text">無可用閃卡。</div></div>`;
+      return;
     }
 
-    function renderFlashcardReviewMode(node) {
-        const locale = window.currentLocale();
-        const payload = node.payload || {};
-        const cards = payload.cards || payload.items || [];
-        const area = document.getElementById('interactionArea') || document.getElementById('detailBody');
+    const s = window.getNodeInteractionState(node.id);
+    if (!s.cardOrder || s.cardOrder.length !== cards.length) {
+      s.cardOrder = [...Array(cards.length).keys()].sort(() => Math.random() - 0.5);
+      s.activeCardIndex = 0;
+      s.revealedCard = false;
+      window.setNodeInteractionState(node.id, s);
+    }
 
-        if (!cards.length) {
-            area.innerHTML = `<div class="interaction-panel"><div class="muted-text">無可用閃卡。</div></div>`;
-            return;
-        }
+    const activeIdx = s.activeCardIndex || 0;
+    const card = cards[s.cardOrder[activeIdx]];
+    const revealed = !!s.revealedCard;
 
-        const s = window.getNodeInteractionState(node.id);
-        if (!s.cardOrder || s.cardOrder.length !== cards.length) {
-            s.cardOrder = [...Array(cards.length).keys()].sort(() => Math.random() - 0.5);
-            s.activeCardIndex = 0;
-            s.revealedCard = false;
-            window.setNodeInteractionState(node.id, s);
-        }
-
-        const activeIdx = s.activeCardIndex || 0;
-        const card = cards[s.cardOrder[activeIdx]];
-        const revealed = !!s.revealedCard;
-
-        area.innerHTML = `
+    area.innerHTML = `
       <div class="interaction-panel animate-in">
         <div class="interaction-label">🗂️ 閃卡複習 (${activeIdx + 1}/${cards.length})</div>
         <div class="summary-box" style="background:#fff; border-radius:12px; padding:20px; text-align:center;">
@@ -177,121 +174,121 @@
         </div>
       </div>
     `;
+  }
+
+  // Registry
+  window.RendererRegistry.registerContent('practice_card', renderPracticeCard);
+  window.RendererRegistry.registerContent('review_card', renderReviewCard);
+
+  window.RendererRegistry.registerInteraction('chunk_assembly', renderChunkAssemblyMode);
+  window.RendererRegistry.registerInteraction('response_builder', renderResponseBuilderMode);
+  window.RendererRegistry.registerInteraction('flashcard_review', renderFlashcardReviewMode);
+  window.RendererRegistry.registerInteraction('review_retrieval', renderFlashcardReviewMode); // Shared for now
+
+  // --- Global Helpers ---
+
+  window.renderCurrentInteractionOnly = function () {
+    const node = window.state.data.sequence[window.state.currentIndex];
+    const mode = node.payload.mode || node.output_mode || 'none';
+    const renderer = window.RendererRegistry.renderers[mode];
+    if (renderer) renderer(node);
+  };
+
+  window.addChunk = (txt) => {
+    const node = window.state.data.sequence[window.state.currentIndex];
+    const s = window.getNodeInteractionState(node.id);
+    if (!s.answers) s.answers = [];
+    s.answers.push(txt);
+    window.setNodeInteractionState(node.id, s);
+    window.renderCurrentInteractionOnly();
+  };
+
+  window.removeChunk = (idx) => {
+    const node = window.state.data.sequence[window.state.currentIndex];
+    const s = window.getNodeInteractionState(node.id);
+    if (s.answers) s.answers.splice(idx, 1);
+    window.setNodeInteractionState(node.id, s);
+    window.renderCurrentInteractionOnly();
+  };
+
+  window.clearAssembly = () => {
+    const node = window.state.data.sequence[window.state.currentIndex];
+    const s = window.getNodeInteractionState(node.id);
+    s.answers = [];
+    s.feedbackByTaskIndex = {};
+    window.setNodeInteractionState(node.id, s);
+    window.renderCurrentInteractionOnly();
+  };
+
+  window.checkAssembly = () => {
+    const node = window.state.data.sequence[window.state.currentIndex];
+    const s = window.getNodeInteractionState(node.id);
+    const tasks = node.payload.tasks || [];
+    const taskIdx = s.taskOrder[s.activeTaskIndex || 0];
+    const task = tasks[taskIdx];
+    const answer = (s.answers || []).join(' ').trim();
+
+    let kind = 'incorrect';
+    let message = '不完全正確，再試試看！';
+    if ((task.target_examples || []).includes(answer)) {
+      kind = 'best_fit';
+      message = '完全正確！';
     }
 
-    // Registry
-    window.RendererRegistry.registerContent('practice_card', renderPracticeCard);
-    window.RendererRegistry.registerContent('review_card', renderReviewCard);
+    if (!s.feedbackByTaskIndex) s.feedbackByTaskIndex = {};
+    s.feedbackByTaskIndex[taskIdx] = { kind, message };
+    window.setNodeInteractionState(node.id, s);
+    window.renderCurrentInteractionOnly();
+  };
 
-    window.RendererRegistry.registerInteraction('chunk_assembly', renderChunkAssemblyMode);
-    window.RendererRegistry.registerInteraction('response_builder', renderResponseBuilderMode);
-    window.RendererRegistry.registerInteraction('flashcard_review', renderFlashcardReviewMode);
-    window.RendererRegistry.registerInteraction('review_retrieval', renderFlashcardReviewMode); // Shared for now
+  window.nextTask = () => {
+    const node = window.state.data.sequence[window.state.currentIndex];
+    const s = window.getNodeInteractionState(node.id);
+    const tasks = node.payload.tasks || [];
+    s.activeTaskIndex = (s.activeTaskIndex || 0) + 1;
+    if (s.activeTaskIndex >= tasks.length) s.activeTaskIndex = 0;
+    s.answers = [];
+    window.setNodeInteractionState(node.id, s);
+    window.renderCurrentInteractionOnly();
+  };
 
-    // --- Global Helpers ---
+  window.pickResponse = (idx, choice) => {
+    const node = window.state.data.sequence[window.state.currentIndex];
+    const s = window.getNodeInteractionState(node.id);
+    if (!s.chosenByIndex) s.chosenByIndex = {};
+    s.chosenByIndex[idx] = choice;
+    window.setNodeInteractionState(node.id, s);
+    window.renderCurrentInteractionOnly();
+  };
 
-    window.renderCurrentInteractionOnly = function () {
-        const node = window.state.data.sequence[window.state.currentIndex];
-        const mode = node.payload.mode || node.output_mode || 'none';
-        const renderer = window.RendererRegistry.renderers[mode];
-        if (renderer) renderer(node);
-    };
+  window.toggleFlashcardReveal = () => {
+    const node = window.state.data.sequence[window.state.currentIndex];
+    const s = window.getNodeInteractionState(node.id);
+    s.revealedCard = !s.revealedCard;
+    window.setNodeInteractionState(node.id, s);
+    window.renderCurrentInteractionOnly();
+  };
 
-    window.addChunk = (txt) => {
-        const node = window.state.data.sequence[window.state.currentIndex];
-        const s = window.getNodeInteractionState(node.id);
-        if (!s.answers) s.answers = [];
-        s.answers.push(txt);
-        window.setNodeInteractionState(node.id, s);
-        window.renderCurrentInteractionOnly();
-    };
+  window.nextFlashcard = () => {
+    const node = window.state.data.sequence[window.state.currentIndex];
+    const s = window.getNodeInteractionState(node.id);
+    const count = (node.payload.cards || node.payload.items || []).length;
+    s.activeCardIndex = (s.activeCardIndex || 0) + 1;
+    if (s.activeCardIndex >= count) s.activeCardIndex = 0;
+    s.revealedCard = false;
+    window.setNodeInteractionState(node.id, s);
+    window.renderCurrentInteractionOnly();
+  };
 
-    window.removeChunk = (idx) => {
-        const node = window.state.data.sequence[window.state.currentIndex];
-        const s = window.getNodeInteractionState(node.id);
-        if (s.answers) s.answers.splice(idx, 1);
-        window.setNodeInteractionState(node.id, s);
-        window.renderCurrentInteractionOnly();
-    };
-
-    window.clearAssembly = () => {
-        const node = window.state.data.sequence[window.state.currentIndex];
-        const s = window.getNodeInteractionState(node.id);
-        s.answers = [];
-        s.feedbackByTaskIndex = {};
-        window.setNodeInteractionState(node.id, s);
-        window.renderCurrentInteractionOnly();
-    };
-
-    window.checkAssembly = () => {
-        const node = window.state.data.sequence[window.state.currentIndex];
-        const s = window.getNodeInteractionState(node.id);
-        const tasks = node.payload.tasks || [];
-        const taskIdx = s.taskOrder[s.activeTaskIndex || 0];
-        const task = tasks[taskIdx];
-        const answer = (s.answers || []).join(' ').trim();
-
-        let kind = 'incorrect';
-        let message = '不完全正確，再試試看！';
-        if ((task.target_examples || []).includes(answer)) {
-            kind = 'best_fit';
-            message = '完全正確！';
-        }
-
-        if (!s.feedbackByTaskIndex) s.feedbackByTaskIndex = {};
-        s.feedbackByTaskIndex[taskIdx] = { kind, message };
-        window.setNodeInteractionState(node.id, s);
-        window.renderCurrentInteractionOnly();
-    };
-
-    window.nextTask = () => {
-        const node = window.state.data.sequence[window.state.currentIndex];
-        const s = window.getNodeInteractionState(node.id);
-        const tasks = node.payload.tasks || [];
-        s.activeTaskIndex = (s.activeTaskIndex || 0) + 1;
-        if (s.activeTaskIndex >= tasks.length) s.activeTaskIndex = 0;
-        s.answers = [];
-        window.setNodeInteractionState(node.id, s);
-        window.renderCurrentInteractionOnly();
-    };
-
-    window.pickResponse = (idx, choice) => {
-        const node = window.state.data.sequence[window.state.currentIndex];
-        const s = window.getNodeInteractionState(node.id);
-        if (!s.chosenByIndex) s.chosenByIndex = {};
-        s.chosenByIndex[idx] = choice;
-        window.setNodeInteractionState(node.id, s);
-        window.renderCurrentInteractionOnly();
-    };
-
-    window.toggleFlashcardReveal = () => {
-        const node = window.state.data.sequence[window.state.currentIndex];
-        const s = window.getNodeInteractionState(node.id);
-        s.revealedCard = !s.revealedCard;
-        window.setNodeInteractionState(node.id, s);
-        window.renderCurrentInteractionOnly();
-    };
-
-    window.nextFlashcard = () => {
-        const node = window.state.data.sequence[window.state.currentIndex];
-        const s = window.getNodeInteractionState(node.id);
-        const count = (node.payload.cards || node.payload.items || []).length;
-        s.activeCardIndex = (s.activeCardIndex || 0) + 1;
-        if (s.activeCardIndex >= count) s.activeCardIndex = 0;
-        s.revealedCard = false;
-        window.setNodeInteractionState(node.id, s);
-        window.renderCurrentInteractionOnly();
-    };
-
-    window.prevFlashcard = () => {
-        const node = window.state.data.sequence[window.state.currentIndex];
-        const s = window.getNodeInteractionState(node.id);
-        const count = (node.payload.cards || node.payload.items || []).length;
-        s.activeCardIndex = (s.activeCardIndex || 0) - 1;
-        if (s.activeCardIndex < 0) s.activeCardIndex = count - 1;
-        s.revealedCard = false;
-        window.setNodeInteractionState(node.id, s);
-        window.renderCurrentInteractionOnly();
-    };
+  window.prevFlashcard = () => {
+    const node = window.state.data.sequence[window.state.currentIndex];
+    const s = window.getNodeInteractionState(node.id);
+    const count = (node.payload.cards || node.payload.items || []).length;
+    s.activeCardIndex = (s.activeCardIndex || 0) - 1;
+    if (s.activeCardIndex < 0) s.activeCardIndex = count - 1;
+    s.revealedCard = false;
+    window.setNodeInteractionState(node.id, s);
+    window.renderCurrentInteractionOnly();
+  };
 
 })();

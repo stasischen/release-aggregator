@@ -5,7 +5,6 @@
 (function () {
   function renderPatternLab(node) {
     const payload = node.payload || {};
-    const body = document.getElementById('detailBody');
     const locale = window.currentLocale();
 
     const lessonSupportModule = window.renderLessonSupportModule(payload.lesson_support_module);
@@ -30,7 +29,7 @@
     const builders = payload.pattern_builder_demos || (payload.pattern_builder_demo ? [payload.pattern_builder_demo] : []);
     buildersHtml = builders.map(b => window.renderPatternBuilderBlock(b, node.id)).join('');
 
-    body.innerHTML = `
+    return `
       <div class="pattern-lab-container animate-in">
         ${window.renderNotice(payload)}
         ${lessonSupportModule}

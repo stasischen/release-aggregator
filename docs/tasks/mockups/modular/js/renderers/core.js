@@ -19,22 +19,26 @@ window.RendererRegistry = {
     const outputMode = node.output_mode || 'none';
     const key = `${contentForm}:${outputMode}`;
 
+    let contentHtml = '';
+    let interactionHtml = '';
+
     if (this.renderers[key]) {
-      this.renderers[key](node);
-      return { contentHtml: '', interactionHtml: '' };
+      contentHtml = this.renderers[key](node) || '';
+    } else if (this.renderers[contentForm]) {
+      contentHtml = this.renderers[contentForm](node) || '';
+    } else {
+      contentHtml = this.renderFallback(node);
     }
 
-    if (this.renderers[contentForm]) {
-      this.renderers[contentForm](node);
-      return { contentHtml: '', interactionHtml: '' };
+    // Interaction dispatch (if separate)
+    if (this.renderers[outputMode]) {
+      interactionHtml = this.renderers[outputMode](node) || '';
     }
 
-    this.renderFallback(node);
-    return { contentHtml: '', interactionHtml: '' };
+    return { contentHtml, interactionHtml };
   },
   renderFallback(node) {
-    const body = document.getElementById('detailBody');
-    body.innerHTML = `
+    return `
       <div class="empty-state animate-in">
         <div class="icon">❓</div>
         <h3>未知的內容類型: ${node.content_form}</h3>
@@ -44,6 +48,57 @@ window.RendererRegistry = {
     `;
   }
 };
+
+// --- Shell Renderers ---
+
+window.renderDetailHeader = function (node) {
+  const locale = window.currentLocale();
+  const el = document.getElementById('detailHeader');
+  if (!el) return;
+  const stage = window.nodeStageLabel(node.id) || '';
+  const skillFocus = window.nodeSkillFocusText(node);
+
+  el.innerHTML = `
+    <div class="detail-header-card animate-in">
+      <div class="tiny-text muted">${window.escapeHtml(stage || node.learning_role || 'node')}</div>
+      <h2 style="margin:4px 0 8px;">${window.escapeHtml(window.nodeTitleText(node, locale))}</h2>
+      <div class="meta-tags">
+        <span class="tag">${window.escapeHtml(node.content_form || 'unknown')}</span>
+        <span class="tag">${window.escapeHtml(node.learning_role || 'learning')}</span>
+        <span class="tag">${window.escapeHtml(skillFocus)}</span>
+      </div>
+    </div>
+  `;
+};
+
+window.renderDetailSummary = function (node) {
+  const locale = window.currentLocale();
+  const el = document.getElementById('detailSummary');
+  if (!el) return;
+  const summary = window.nodeSummaryText(node, locale);
+  const expected = window.nodeExpectedText(node, locale);
+  el.innerHTML = `
+    <div class="summary-grid animate-in" style="margin-bottom:12px;">
+      <div class="summary-box">
+        <span class="label">本節目標</span>
+        ${window.escapeHtml(summary)}
+      </div>
+      <div class="summary-box">
+        <span class="label">預期輸出</span>
+        ${window.escapeHtml(expected)}
+      </div>
+    </div>
+  `;
+};
+
+window.renderFreeNote = function (node) {
+  return `
+      <div class="free-note-box animate-in">
+        <textarea placeholder="隨手筆記 (Free Note)..."></textarea>
+      </div>
+    `;
+};
+
 
 // --- Markdown & Text Processing ---
 
@@ -127,8 +182,8 @@ window.renderNotice = function (payload) {
 
 window.renderLessonSupportModule = function (module) {
   if (!module) return '';
-  const title = window.i18nText(module.title_i18n, currentLocale(), module.title_zh_tw || '應援小提醒');
-  const why = window.i18nText(module.why_here_i18n, currentLocale(), module.why_here_zh_tw || '');
+  const title = window.i18nText(module.title_i18n, window.currentLocale(), module.title_zh_tw || '應援小提醒');
+  const why = window.i18nText(module.why_here_i18n, window.currentLocale(), module.why_here_zh_tw || '');
 
   return `
     <div class="support-module animate-in">
@@ -139,7 +194,7 @@ window.renderLessonSupportModule = function (module) {
           ${(module.items || []).map(item => `
             <div class="support-item">
               <span class="target">${window.escapeHtml(item.target || item.ko || '')}</span>
-              <span class="explain">${window.escapeHtml(window.i18nText(item.explain_i18n, currentLocale(), item.explain_zh_tw || ''))}</span>
+              <span class="explain">${window.escapeHtml(window.i18nText(item.explain_i18n, window.currentLocale(), item.explain_zh_tw || ''))}</span>
             </div>
           `).join('')}
         </div>
@@ -162,49 +217,14 @@ window.nodeExpectedText = (node, locale) => node.displayExpected || window.Lesso
 
 window.nodeSkillFocusText = function (node) {
   if (node.skill_focus && node.skill_focus.length > 0) return node.skill_focus.join(' · ');
-  if (node.id?.includes('-L')) return 'listening · reading';
-  if (node.id?.includes('-G')) return 'grammar · reading';
-  if (node.id?.includes('-P')) return 'speaking · output';
+  const id = node.id || '';
+  if (id.includes('-L')) return 'listening · reading';
+  if (id.includes('-G')) return 'grammar · reading';
+  if (id.includes('-P')) return 'speaking · output';
   return 'learning';
 };
 
-window.renderDetailHeader = function (node) {
-  const locale = window.currentLocale();
-  const el = document.getElementById('detailHeader');
-  if (!el) return;
-  el.innerHTML = `
-    <div class="detail-header-card animate-in">
-      <div class="tiny-text muted">${window.escapeHtml(window.nodeStageLabel(node.id) || node.learning_role || 'node')}</div>
-      <h2 style="margin:4px 0 8px;">${window.escapeHtml(window.nodeTitleText(node, locale))}</h2>
-      <div class="meta-tags">
-        <span class="tag">${window.escapeHtml(node.content_form || 'unknown')}</span>
-        <span class="tag">${window.escapeHtml(node.learning_role || 'learning')}</span>
-        <span class="tag">${window.escapeHtml(window.nodeSkillFocusText(node))}</span>
-      </div>
-    </div>
-  `;
-};
-
-window.renderDetailSummary = function (node) {
-  const locale = window.currentLocale();
-  const el = document.getElementById('detailSummary');
-  if (!el) return;
-  const summary = window.nodeSummaryText(node, locale);
-  const expected = window.nodeExpectedText(node, locale);
-  el.innerHTML = `
-    <div class="summary-grid animate-in" style="margin-bottom:12px;">
-      <div class="summary-box">
-        <span class="label">本節目標</span>
-        ${window.escapeHtml(summary)}
-      </div>
-      <div class="summary-box">
-        <span class="label">預期輸出</span>
-        ${window.escapeHtml(expected)}
-      </div>
-    </div>
-  `;
-};
-
-window.renderFreeNote = function () {
-  return '';
+window.nodeStageLabel = function (nodeId) {
+  const match = String(nodeId || '').match(/-(L1|L2|L3|G1|G2|P1|P2|P5|R1)$/);
+  return match ? match[1] : '';
 };

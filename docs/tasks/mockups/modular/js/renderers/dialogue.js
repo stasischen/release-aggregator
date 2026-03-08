@@ -3,19 +3,18 @@
  */
 
 (function () {
-    function renderDialogue(node) {
-        const payload = node.payload || {};
-        const body = document.getElementById('detailBody');
-        const locale = currentLocale();
-        const isBilingual = showBilingual();
+  function renderDialogue(node) {
+    const payload = node.payload || {};
+    const locale = currentLocale();
+    const isBilingual = showBilingual();
 
-        // 1. Dialogue Area
-        let dialogueHtml = '';
-        const scenes = payload.dialogue_scenes || [];
-        const legacyTurns = payload.dialogue_turns || [];
+    // 1. Dialogue Area
+    let dialogueHtml = '';
+    const scenes = payload.dialogue_scenes || [];
+    const legacyTurns = payload.dialogue_turns || [];
 
-        if (scenes.length > 0) {
-            dialogueHtml = scenes.map(scene => `
+    if (scenes.length > 0) {
+      dialogueHtml = scenes.map(scene => `
         <div class="dialogue-scene">
           <div class="scene-header">${window.escapeHtml(window.i18nText(scene.title_i18n, locale, scene.title_zh_tw || '對話片段'))}</div>
           ${scene.note_zh_tw ? `<div class="scene-note">${window.escapeHtml(scene.note_zh_tw)}</div>` : ''}
@@ -24,15 +23,15 @@
           </div>
         </div>
       `).join('');
-        } else if (legacyTurns.length > 0) {
-            dialogueHtml = `
+    } else if (legacyTurns.length > 0) {
+      dialogueHtml = `
         <div class="bubble-stream">
           ${legacyTurns.map(t => renderTurn(t, locale, isBilingual)).join('')}
         </div>
       `;
-        }
+    }
 
-        body.innerHTML = `
+    return `
       <div class="dialogue-container animate-in">
         ${window.renderNotice(payload)}
         ${dialogueHtml}
@@ -41,11 +40,11 @@
         ${(payload.pattern_builder_demos || []).map(d => window.renderPatternBuilderBlock(d)).join('')}
       </div>
     `;
-    }
+  }
 
-    function renderTurn(t, locale, isBilingual) {
-        const translation = window.i18nText(t.translations_i18n, locale, t.zh_tw || t.en || '');
-        return `
+  function renderTurn(t, locale, isBilingual) {
+    const translation = window.i18nText(t.translations_i18n, locale, t.zh_tw || t.en || '');
+    return `
       <div class="bubble-row ${t.speaker === 'A' ? 'left' : 'right'} ${t.register || ''}">
         <div class="avatar">${t.speaker}</div>
         <div class="bubble">
@@ -54,7 +53,7 @@
         </div>
       </div>
     `;
-    }
+  }
 
-    window.RendererRegistry.registerContent('dialogue', renderDialogue);
+  window.RendererRegistry.registerContent('dialogue', renderDialogue);
 })();

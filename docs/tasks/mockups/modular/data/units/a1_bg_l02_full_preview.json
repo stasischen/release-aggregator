@@ -2,9 +2,9 @@
   "version": "unit_blueprint_v0.1",
   "adapter_contract": {
     "adapter_version": "frontend_unit_adapter_v0",
-    "stability": "bg_l02_full_preview_v5",
+    "stability": "bg_l02_full_preview_v6",
     "fallback_locale_order": ["zh_tw", "en"],
-    "notes": "Full beginner grammar lesson 02 preview with AUTHENTIC natural sentences and logical person-identity/object-action pairings."
+    "notes": "Full high-density Lesson 02 preview with Authentic Cafe Dialogue, Adjective Pairs (Pos/Neg), and Multi-Object Logic Mappings."
   },
   "unit": {
     "unit_id": "A1-BG-L02-FULL-PREVIEW",
@@ -13,8 +13,8 @@
     "level": "A1",
     "output_ratio_target": 0.55,
     "title_i18n": {
-      "zh_tw": "Beginner Grammar Lesson 02 · 三大核心助詞 (은/는, 이/가, 을/를)",
-      "en": "Beginner Grammar Lesson 02 · The Three Core Particles"
+      "zh_tw": "Beginner Grammar Lesson 02 · 核心助詞 (綜合情境擴展)",
+      "en": "Beginner Grammar Lesson 02 · Core Particles (High-Density Context)"
     }
   },
   "sequence": [
@@ -24,94 +24,88 @@
       "content_form": "pattern_lab",
       "learning_role": "immersion_input",
       "skill_focus": ["reading"],
-      "duration_min": 4,
+      "duration_min": 5,
       "payload": {
         "pattern_builder_demos": [
           {
-            "builder_id": "subject-topic-switch",
+            "builder_id": "subject-description-pairs",
             "controls": [
               {
-                "control_id": "person",
-                "label_i18n": { "zh_tw": "主角是誰", "en": "Who is it?" },
+                "control_id": "target",
+                "label_i18n": { "zh_tw": "描述對象", "en": "Target" },
                 "options": [
-                  { "value": "저", "label_i18n": { "zh_tw": "我 (저/나)", "en": "I" } },
-                  { "value": "선생님", "label_i18n": { "zh_tw": "老師 (선생님)", "en": "Teacher" } },
-                  { "value": "민수", "label_i18n": { "zh_tw": "敏秀 (민수)", "en": "Minsu" } }
+                  { "value": "apple", "label_i18n": { "zh_tw": "蘋果 (사과)", "en": "Apple" } },
+                  { "value": "coffee", "label_i18n": { "zh_tw": "咖啡 (커피)", "en": "Coffee" } },
+                  { "value": "movie", "label_i18n": { "zh_tw": "電影 (영화)", "en": "Movie" } },
+                  { "value": "weather", "label_i18n": { "zh_tw": "天氣 (날씨)", "en": "Weather" } }
                 ]
               },
               {
-                "control_id": "usage",
-                "label_i18n": { "zh_tw": "你想強調...", "en": "You want to emphasize..." },
+                "control_id": "state",
+                "label_i18n": { "zh_tw": "狀態", "en": "State" },
                 "options": [
-                  { "value": "intro", "label_i18n": { "zh_tw": "介紹身分 (은/는)", "en": "Intro" } },
-                  { "value": "spotlight", "label_i18n": { "zh_tw": "指名主角 (이/가)", "en": "Spotlight" } }
-                ]
-              },
-              {
-                "control_id": "register",
-                "label_i18n": { "zh_tw": "語氣", "en": "Speech Level" },
-                "options": [
-                  { "value": "formal", "label_i18n": { "zh_tw": "합니다體", "en": "Formal" } },
-                  { "value": "polite", "label_i18n": { "zh_tw": "해요體", "en": "Polite" } },
-                  { "value": "casual", "label_i18n": { "zh_tw": "朋友", "en": "Casual" } }
+                  { "value": "pos", "label_i18n": { "zh_tw": "正面 (好/吃...)", "en": "Positive" } },
+                  { "value": "neg", "label_i18n": { "zh_tw": "負面 (糟/貴...)", "en": "Negative" } }
                 ]
               }
             ],
             "register_templates": {
-              "formal": "{subject_marked} {predicate}입니다.",
-              "polite": "{subject_marked} {predicate}이에요.",
-              "casual": "{subject_marked} {predicate}이야."
+              "formal": "{target_marked} {predicate}습니다.",
+              "polite": "{target_marked} {predicate}어요.",
+              "casual": "{target_marked} {predicate}어."
             },
             "translation_templates": {
-              "formal": { "zh_tw": "{person_gloss}是{predicate_gloss}。", "en": "{person_gloss} is {a_predicate_gloss}." },
-              "polite": { "zh_tw": "{person_gloss}是{predicate_gloss}。", "en": "{person_gloss} is {a_predicate_gloss}." },
-              "casual": { "zh_tw": "{person_gloss}是{predicate_gloss}。", "en": "{person_gloss} is {a_predicate_gloss}." }
+              "formal": { "zh_tw": "{target_gloss}{state_gloss}。", "en": "{target_gloss} is {state_gloss_en}." },
+              "polite": { "zh_tw": "{target_gloss}{state_gloss}。", "en": "{target_gloss} is {state_gloss_en}." },
+              "casual": { "zh_tw": "{target_gloss}{state_gloss}。", "en": "{target_gloss} is {state_gloss_en}." }
             },
             "dynamic_token_rules": [
               {
-                "token": "subject_marked",
-                "source_control_id": "person",
-                "secondary_control_id": "usage",
+                "token": "target_marked",
+                "source_control_id": "target",
                 "map_by_register_and_value": {
-                  "formal": { "저:intro": "저는", "저:spotlight": "제가", "선생님:intro": "선생님은", "선생님:spotlight": "선생님이", "민수:intro": "민수는", "민수:spotlight": "민수가" },
-                  "polite": { "저:intro": "저는", "저:spotlight": "제가", "선생님:intro": "선생님은", "선생님:spotlight": "선생님이", "민수:intro": "민수는", "민수:spotlight": "민수가" },
-                  "casual": { "저:intro": "나는", "저:spotlight": "내가", "선생님:intro": "선생님은", "선생님:spotlight": "선생님이", "민수:intro": "민수는", "민수:spotlight": "민수가" }
+                  "formal": { "apple": "사과는", "coffee": "커피는", "movie": "영화는", "weather": "날씨는" },
+                  "polite": { "apple": "사과는", "coffee": "커피는", "movie": "영화는", "weather": "날씨는" },
+                  "casual": { "apple": "사과는", "coffee": "커피는", "movie": "영화는", "weather": "날씨는" }
                 }
               },
               {
                 "token": "predicate",
-                "source_control_id": "person",
+                "source_control_id": "target",
+                "secondary_control_id": "state",
                 "map_by_register_and_value": {
-                  "formal": { "저": "의사", "선생님": "한국 사람", "민수": "학생" },
-                  "polite": { "저": "의사", "선생님": "한국 사람", "민수": "학생" },
-                  "casual": { "저": "의사", "선생님": "한국 사람", "민수": "학생" }
+                  "formal": { "apple:pos": "맛있", "apple:neg": "맛없", "coffee:pos": "쌉", "coffee:neg": "비쌉", "movie:pos": "재미있", "movie:neg": "재미없", "weather:pos": "좋", "weather:neg": "나듭" },
+                  "polite": { "apple:pos": "맛있", "apple:neg": "맛없", "coffee:pos": "싸", "coffee:neg": "비싸", "movie:pos": "재미있", "movie:neg": "재미없", "weather:pos": "좋", "weather:neg": "나드" },
+                  "casual": { "apple:pos": "맛있", "apple:neg": "맛없", "coffee:pos": "싸", "coffee:neg": "비싸", "movie:pos": "재미있", "movie:neg": "재미없", "weather:pos": "좋", "weather:neg": "나드" }
                 }
               },
               {
-                "token": "person_gloss",
-                "source_control_id": "person",
+                "token": "target_gloss",
+                "source_control_id": "target",
                 "map_by_register_and_value": {
-                  "formal": { "저": "我", "선생님": "老師", "민수": "敏秀" },
-                  "polite": { "저": "我", "선생님": "老師", "민수": "敏秀" },
-                  "casual": { "저": "我", "선생님": "老師", "민수": "敏秀" }
+                  "formal": { "apple": "蘋果", "coffee": "咖啡", "movie": "電影", "weather": "天氣" },
+                  "polite": { "apple": "蘋果", "coffee": "咖啡", "movie": "電影", "weather": "天氣" },
+                  "casual": { "apple": "蘋果", "coffee": "咖啡", "movie": "電影", "weather": "天氣" }
                 }
               },
               {
-                "token": "a_predicate_gloss",
-                "source_control_id": "person",
+                "token": "state_gloss",
+                "source_control_id": "target",
+                "secondary_control_id": "state",
                 "map_by_register_and_value": {
-                  "formal": { "저": "a doctor", "선생님": "Korean", "민수": "a student" },
-                  "polite": { "저": "a doctor", "선생님": "Korean", "민수": "a student" },
-                  "casual": { "저": "a doctor", "선생님": "Korean", "민수": "a student" }
+                  "formal": { "apple:pos": "好吃", "apple:neg": "難吃", "coffee:pos": "便宜", "coffee:neg": "貴", "movie:pos": "有趣", "movie:neg": "無聊", "weather:pos": "好", "weather:neg": "糟糕" },
+                  "polite": { "apple:pos": "好吃", "apple:neg": "難吃", "coffee:pos": "便宜", "coffee:neg": "貴", "movie:pos": "有趣", "movie:neg": "無聊", "weather:pos": "好", "weather:neg": "糟糕" },
+                  "casual": { "apple:pos": "好吃", "apple:neg": "難吃", "coffee:pos": "便宜", "coffee:neg": "貴", "movie:pos": "有趣", "movie:neg": "無聊", "weather:pos": "好", "weather:neg": "糟糕" }
                 }
               },
               {
-                "token": "predicate_gloss",
-                "source_control_id": "person",
+                "token": "state_gloss_en",
+                "source_control_id": "target",
+                "secondary_control_id": "state",
                 "map_by_register_and_value": {
-                  "formal": { "저": "醫生", "선생님": "韓國人", "민수": "學生" },
-                  "polite": { "저": "醫生", "선생님": "韓國人", "민수": "學生" },
-                  "casual": { "저": "醫生", "선생님": "韓國人", "민수": "學生" }
+                  "formal": { "apple:pos": "delicious", "apple:neg": "not delicious", "coffee:pos": "cheap", "coffee:neg": "expensive", "movie:pos": "interesting", "movie:neg": "boring", "weather:pos": "good", "weather:neg": "bad" },
+                  "polite": { "apple:pos": "delicious", "apple:neg": "not delicious", "coffee:pos": "cheap", "coffee:neg": "expensive", "movie:pos": "interesting", "movie:neg": "boring", "weather:pos": "good", "weather:neg": "bad" },
+                  "casual": { "apple:pos": "delicious", "apple:neg": "not delicious", "coffee:pos": "cheap", "coffee:neg": "expensive", "movie:pos": "interesting", "movie:neg": "boring", "weather:pos": "good", "weather:neg": "bad" }
                 }
               }
             ]
@@ -125,76 +119,88 @@
       "content_form": "pattern_lab",
       "learning_role": "immersion_input",
       "skill_focus": ["reading"],
-      "duration_min": 4,
+      "duration_min": 5,
       "payload": {
         "pattern_builder_demos": [
           {
-            "builder_id": "object-verb-match",
+            "builder_id": "verb-object-logic",
             "controls": [
               {
-                "control_id": "item",
-                "label_i18n": { "zh_tw": "你在做什麼？", "en": "What are you doing?" },
+                "control_id": "verb",
+                "label_i18n": { "zh_tw": "動作", "en": "Action" },
                 "options": [
-                  { "value": "밥", "label_i18n": { "zh_tw": "吃飯 (밥)", "en": "Meal" } },
-                  { "value": "물", "label_i18n": { "zh_tw": "喝水 (물)", "en": "Water" } },
-                  { "value": "커피", "label_i18n": { "zh_tw": "喝咖啡 (커피)", "en": "Coffee" } }
+                  { "value": "eat", "label_i18n": { "zh_tw": "吃 (먹다)", "en": "Eat" } },
+                  { "value": "drink", "label_i18n": { "zh_tw": "喝 (마시다)", "en": "Drink" } },
+                  { "value": "see", "label_i18n": { "zh_tw": "看 (보다)", "en": "See/Watch" } }
                 ]
               },
               {
-                "control_id": "register",
-                "label_i18n": { "zh_tw": "語氣", "en": "Speech Level" },
+                "control_id": "object",
+                "label_i18n": { "zh_tw": "對象", "en": "Object" },
                 "options": [
-                  { "value": "formal", "label_i18n": { "zh_tw": "합니다體", "en": "Formal" } },
-                  { "value": "polite", "label_i18n": { "zh_tw": "해요體", "en": "Polite" } },
-                  { "value": "casual", "label_i18n": { "zh_tw": "朋友", "en": "Casual" } }
+                  { "value": "obj1", "label_i18n": { "zh_tw": "選項 1", "en": "Option 1" } },
+                  { "value": "obj2", "label_i18n": { "zh_tw": "選項 2", "en": "Option 2" } },
+                  { "value": "obj3", "label_i18n": { "zh_tw": "選項 3", "en": "Option 3" } }
                 ]
               }
             ],
             "register_templates": {
-              "formal": "{item_marked} {verb_form}",
-              "polite": "{item_marked} {verb_form}",
-              "casual": "{item_marked} {verb_form}"
+              "formal": "{object_marked} {verb_final}습니다.",
+              "polite": "{object_marked} {verb_final}어요.",
+              "casual": "{object_marked} {verb_final}어."
             },
             "translation_templates": {
-              "formal": { "zh_tw": "{verb_gloss}{item_gloss}。", "en": "{verb_gloss} {item_gloss}." },
-              "polite": { "zh_tw": "{verb_gloss}{item_gloss}。", "en": "{verb_gloss} {item_gloss}." },
-              "casual": { "zh_tw": "{verb_gloss}{item_gloss}。", "en": "{verb_gloss} {item_gloss}." }
+              "formal": { "zh_tw": "{verb_gloss}{object_gloss}。", "en": "{verb_gloss} the {object_gloss_en}." },
+              "polite": { "zh_tw": "{verb_gloss}{object_gloss}。", "en": "{verb_gloss} the {object_gloss_en}." },
+              "casual": { "zh_tw": "{verb_gloss}{object_gloss}。", "en": "{verb_gloss} the {object_gloss_en}." }
             },
             "dynamic_token_rules": [
               {
-                "token": "item_marked",
-                "source_control_id": "item",
+                "token": "object_marked",
+                "source_control_id": "verb",
+                "secondary_control_id": "object",
                 "map_by_register_and_value": {
-                  "formal": { "밥": "밥을", "물": "물을", "커피": "커피를" },
-                  "polite": { "밥": "밥을", "물": "물을", "커피": "커피를" },
-                  "casual": { "밥": "밥을", "물": "물을", "커피": "커피를" }
+                  "formal": { "eat:obj1": "밥을", "eat:obj2": "빵을", "eat:obj3": "사과를", "drink:obj1": "물을", "drink:obj2": "커피를", "drink:obj3": "우유를", "see:obj1": "영화를", "see:obj2": "티비를", "see:obj3": "유튜브를" },
+                  "polite": { "eat:obj1": "밥을", "eat:obj2": "빵을", "eat:obj3": "사과를", "drink:obj1": "물을", "drink:obj2": "커피를", "drink:obj3": "우유를", "see:obj1": "영화를", "see:obj2": "티비를", "see:obj3": "유튜브를" },
+                  "casual": { "eat:obj1": "밥을", "eat:obj2": "빵을", "eat:obj3": "사과를", "drink:obj1": "물을", "drink:obj2": "커피를", "drink:obj3": "우유를", "see:obj1": "영화를", "see:obj2": "티비를", "see:obj3": "유튜브를" }
                 }
               },
               {
-                "token": "verb_form",
-                "source_control_id": "item",
+                "token": "verb_final",
+                "source_control_id": "verb",
                 "map_by_register_and_value": {
-                  "formal": { "밥": "먹습니다.", "물": "마십니다.", "커피": "마십니다." },
-                  "polite": { "밥": "먹어요.", "물": "마셔요.", "커피": "마셔요." },
-                  "casual": { "밥": "먹어.", "물": "마셔.", "커피": "마셔." }
+                  "formal": { "eat": "먹", "drink": "마십", "see": "봅" },
+                  "polite": { "eat": "먹", "drink": "마셔", "see": "봐" },
+                  "casual": { "eat": "먹", "drink": "마셔", "see": "봐" }
                 }
               },
               {
-                "token": "item_gloss",
-                "source_control_id": "item",
+                "token": "object_gloss",
+                "source_control_id": "verb",
+                "secondary_control_id": "object",
                 "map_by_register_and_value": {
-                  "formal": { "밥": "飯", "물": "水", "커피": "咖啡" },
-                  "polite": { "밥": "飯", "물": "水", "커피": "咖啡" },
-                  "casual": { "밥": "飯", "물": "水", "커피": "咖啡" }
+                  "formal": { "eat:obj1": "飯", "eat:obj2": "麵包", "eat:obj3": "蘋果", "drink:obj1": "水", "drink:obj2": "咖啡", "drink:obj3": "牛奶", "see:obj1": "電影", "see:obj2": "電視", "see:obj3": "YouTube" },
+                  "polite": { "eat:obj1": "飯", "eat:obj2": "麵包", "eat:obj3": "蘋果", "drink:obj1": "水", "drink:obj2": "咖啡", "drink:obj3": "牛奶", "see:obj1": "電影", "see:obj2": "電視", "see:obj3": "YouTube" },
+                  "casual": { "eat:obj1": "飯", "eat:obj2": "麵包", "eat:obj3": "蘋果", "drink:obj1": "水", "drink:obj2": "咖啡", "drink:obj3": "牛奶", "see:obj1": "電影", "see:obj2": "電視", "see:obj3": "YouTube" }
+                }
+              },
+              {
+                "token": "object_gloss_en",
+                "source_control_id": "verb",
+                "secondary_control_id": "object",
+                "map_by_register_and_value": {
+                  "formal": { "eat:obj1": "meal", "eat:obj2": "bread", "eat:obj3": "apple", "drink:obj1": "water", "drink:obj2": "coffee", "drink:obj3": "milk", "see:obj1": "movie", "see:obj2": "TV", "see:obj3": "YouTube" },
+                  "polite": { "eat:obj1": "meal", "eat:obj2": "bread", "eat:obj3": "apple", "drink:obj1": "water", "drink:obj2": "coffee", "drink:obj3": "milk", "see:obj1": "movie", "see:obj2": "TV", "see:obj3": "YouTube" },
+                  "casual": { "eat:obj1": "meal", "eat:obj2": "bread", "eat:obj3": "apple", "drink:obj1": "water", "drink:obj2": "coffee", "drink:obj3": "milk", "see:obj1": "movie", "see:obj2": "TV", "see:obj3": "YouTube" }
                 }
               },
               {
                 "token": "verb_gloss",
-                "source_control_id": "item",
+                "source_control_id": "verb",
                 "map_by_register_and_value": {
-                  "formal": { "밥": "吃", "물": "喝", "커피": "喝" },
-                  "polite": { "밥": "吃", "물": "喝", "커피": "喝" },
-                  "casual": { "밥": "吃", "물": "喝", "커피": "喝" }
+                  "formal": { "eat": "吃", "drink": "喝", "see": "看" },
+                  "polite": { "eat": "吃", "drink": "喝", "see": "看" },
+                  "casual": { "eat": "吃", "drink": "喝", "see": "看" }
                 }
               }
             ]

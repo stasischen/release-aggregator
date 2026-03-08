@@ -2,12 +2,9 @@
   "version": "unit_blueprint_v0.1",
   "adapter_contract": {
     "adapter_version": "frontend_unit_adapter_v0",
-    "stability": "bg_l02_full_preview_v4",
-    "fallback_locale_order": [
-      "zh_tw",
-      "en"
-    ],
-    "notes": "Full beginner grammar lesson 02 preview with Fixed Logic (Person-Predicate, Object-Verb) and Schema Parity."
+    "stability": "bg_l02_full_preview_v5",
+    "fallback_locale_order": ["zh_tw", "en"],
+    "notes": "Full beginner grammar lesson 02 preview with AUTHENTIC natural sentences and logical person-identity/object-action pairings."
   },
   "unit": {
     "unit_id": "A1-BG-L02-FULL-PREVIEW",
@@ -16,8 +13,8 @@
     "level": "A1",
     "output_ratio_target": 0.55,
     "title_i18n": {
-      "zh_tw": "Beginner Grammar Lesson 02 · 三大核心助詞 (은/는, 이/家, 을/를)",
-      "en": "Beginner Grammar Lesson 02 · The Three Core Particles (은/는, 이/가, 을/를)"
+      "zh_tw": "Beginner Grammar Lesson 02 · 三大核心助詞 (은/는, 이/가, 을/를)",
+      "en": "Beginner Grammar Lesson 02 · The Three Core Particles"
     }
   },
   "sequence": [
@@ -38,7 +35,16 @@
                 "label_i18n": { "zh_tw": "主角是誰", "en": "Who is it?" },
                 "options": [
                   { "value": "저", "label_i18n": { "zh_tw": "我 (저/나)", "en": "I" } },
-                  { "value": "선생님", "label_i18n": { "zh_tw": "老師 (선생님)", "en": "Teacher" } }
+                  { "value": "선생님", "label_i18n": { "zh_tw": "老師 (선생님)", "en": "Teacher" } },
+                  { "value": "민수", "label_i18n": { "zh_tw": "敏秀 (민수)", "en": "Minsu" } }
+                ]
+              },
+              {
+                "control_id": "usage",
+                "label_i18n": { "zh_tw": "你想強調...", "en": "You want to emphasize..." },
+                "options": [
+                  { "value": "intro", "label_i18n": { "zh_tw": "介紹身分 (은/는)", "en": "Intro" } },
+                  { "value": "spotlight", "label_i18n": { "zh_tw": "指名主角 (이/가)", "en": "Spotlight" } }
                 ]
               },
               {
@@ -57,45 +63,55 @@
               "casual": "{subject_marked} {predicate}이야."
             },
             "translation_templates": {
-              "formal": { "zh_tw": "{person_gloss}是{predicate_gloss}。", "en": "{person_gloss} is a {predicate_gloss}." },
-              "polite": { "zh_tw": "{person_gloss}是{predicate_gloss}。", "en": "{person_gloss} is a {predicate_gloss}." },
-              "casual": { "zh_tw": "{person_gloss}是{predicate_gloss}。", "en": "{person_gloss} is a {predicate_gloss}." }
+              "formal": { "zh_tw": "{person_gloss}是{predicate_gloss}。", "en": "{person_gloss} is {a_predicate_gloss}." },
+              "polite": { "zh_tw": "{person_gloss}是{predicate_gloss}。", "en": "{person_gloss} is {a_predicate_gloss}." },
+              "casual": { "zh_tw": "{person_gloss}是{predicate_gloss}。", "en": "{person_gloss} is {a_predicate_gloss}." }
             },
             "dynamic_token_rules": [
               {
                 "token": "subject_marked",
                 "source_control_id": "person",
+                "secondary_control_id": "usage",
                 "map_by_register_and_value": {
-                  "formal": { "저": "저는", "선생님": "선생님은" },
-                  "polite": { "저": "저는", "선생님": "선생님은" },
-                  "casual": { "저": "나는", "선생님": "선생님은" }
+                  "formal": { "저:intro": "저는", "저:spotlight": "제가", "선생님:intro": "선생님은", "선생님:spotlight": "선생님이", "민수:intro": "민수는", "민수:spotlight": "민수가" },
+                  "polite": { "저:intro": "저는", "저:spotlight": "제가", "선생님:intro": "선생님은", "선생님:spotlight": "선생님이", "민수:intro": "민수는", "민수:spotlight": "민수가" },
+                  "casual": { "저:intro": "나는", "저:spotlight": "내가", "선생님:intro": "선생님은", "선생님:spotlight": "선생님이", "민수:intro": "민수는", "민수:spotlight": "민수가" }
                 }
               },
               {
                 "token": "predicate",
                 "source_control_id": "person",
                 "map_by_register_and_value": {
-                  "formal": { "저": "학생", "선생님": "선생님" },
-                  "polite": { "저": "학생", "선생님": "선생님" },
-                  "casual": { "저": "학생", "선생님": "선생님" }
+                  "formal": { "저": "의사", "선생님": "한국 사람", "민수": "학생" },
+                  "polite": { "저": "의사", "선생님": "한국 사람", "민수": "학생" },
+                  "casual": { "저": "의사", "선생님": "한국 사람", "민수": "학생" }
                 }
               },
               {
                 "token": "person_gloss",
                 "source_control_id": "person",
                 "map_by_register_and_value": {
-                  "formal": { "저": "我", "선생님": "老師" },
-                  "polite": { "저": "我", "선생님": "老師" },
-                  "casual": { "저": "我", "선생님": "老師" }
+                  "formal": { "저": "我", "선생님": "老師", "민수": "敏秀" },
+                  "polite": { "저": "我", "선생님": "老師", "민수": "敏秀" },
+                  "casual": { "저": "我", "선생님": "老師", "민수": "敏秀" }
+                }
+              },
+              {
+                "token": "a_predicate_gloss",
+                "source_control_id": "person",
+                "map_by_register_and_value": {
+                  "formal": { "저": "a doctor", "선생님": "Korean", "민수": "a student" },
+                  "polite": { "저": "a doctor", "선생님": "Korean", "민수": "a student" },
+                  "casual": { "저": "a doctor", "선생님": "Korean", "민수": "a student" }
                 }
               },
               {
                 "token": "predicate_gloss",
                 "source_control_id": "person",
                 "map_by_register_and_value": {
-                  "formal": { "저": "學生", "선생님": "老師" },
-                  "polite": { "저": "學生", "선생님": "老師" },
-                  "casual": { "저": "學生", "선생님": "老師" }
+                  "formal": { "저": "醫生", "선생님": "韓國人", "민수": "學生" },
+                  "polite": { "저": "醫生", "선생님": "韓國人", "민수": "學生" },
+                  "casual": { "저": "醫生", "선생님": "韓國人", "민수": "學生" }
                 }
               }
             ]
@@ -117,10 +133,11 @@
             "controls": [
               {
                 "control_id": "item",
-                "label_i18n": { "zh_tw": "物品", "en": "Item" },
+                "label_i18n": { "zh_tw": "你在做什麼？", "en": "What are you doing?" },
                 "options": [
-                  { "value": "밥", "label_i18n": { "zh_tw": "飯", "en": "Meal" } },
-                  { "value": "물", "label_i18n": { "zh_tw": "水", "en": "Water" } }
+                  { "value": "밥", "label_i18n": { "zh_tw": "吃飯 (밥)", "en": "Meal" } },
+                  { "value": "물", "label_i18n": { "zh_tw": "喝水 (물)", "en": "Water" } },
+                  { "value": "커피", "label_i18n": { "zh_tw": "喝咖啡 (커피)", "en": "Coffee" } }
                 ]
               },
               {
@@ -148,36 +165,36 @@
                 "token": "item_marked",
                 "source_control_id": "item",
                 "map_by_register_and_value": {
-                  "formal": { "밥": "밥을", "물": "물을" },
-                  "polite": { "밥": "밥을", "물": "물을" },
-                  "casual": { "밥": "밥을", "물": "물을" }
+                  "formal": { "밥": "밥을", "물": "물을", "커피": "커피를" },
+                  "polite": { "밥": "밥을", "물": "물을", "커피": "커피를" },
+                  "casual": { "밥": "밥을", "물": "물을", "커피": "커피를" }
                 }
               },
               {
                 "token": "verb_form",
                 "source_control_id": "item",
                 "map_by_register_and_value": {
-                  "formal": { "밥": "먹습니다.", "물": "마십니다." },
-                  "polite": { "밥": "먹어요.", "물": "마셔요." },
-                  "casual": { "밥": "먹어.", "물": "마셔." }
+                  "formal": { "밥": "먹습니다.", "물": "마십니다.", "커피": "마십니다." },
+                  "polite": { "밥": "먹어요.", "물": "마셔요.", "커피": "마셔요." },
+                  "casual": { "밥": "먹어.", "물": "마셔.", "커피": "마셔." }
                 }
               },
               {
                 "token": "item_gloss",
                 "source_control_id": "item",
                 "map_by_register_and_value": {
-                  "formal": { "밥": "飯", "물": "水" },
-                  "polite": { "밥": "飯", "물": "水" },
-                  "casual": { "밥": "飯", "물": "水" }
+                  "formal": { "밥": "飯", "물": "水", "커피": "咖啡" },
+                  "polite": { "밥": "飯", "물": "水", "커피": "咖啡" },
+                  "casual": { "밥": "飯", "물": "水", "커피": "咖啡" }
                 }
               },
               {
                 "token": "verb_gloss",
                 "source_control_id": "item",
                 "map_by_register_and_value": {
-                  "formal": { "밥": "吃", "물": "喝" },
-                  "polite": { "밥": "吃", "물": "喝" },
-                  "casual": { "밥": "吃", "물": "喝" }
+                  "formal": { "밥": "吃", "물": "喝", "커피": "喝" },
+                  "polite": { "밥": "吃", "물": "喝", "커피": "喝" },
+                  "casual": { "밥": "吃", "물": "喝", "커피": "喝" }
                 }
               }
             ]

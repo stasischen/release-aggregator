@@ -10,7 +10,7 @@
 - **格式**: `{lang}_v{level}_{category}_{youtubeId}_{title}.json`
 - **結構解析**:
   - `{lang}`: 來源語言代碼 (如 `ko`, `th`)
-  - `v{level}`: 內容分級 (如 `v0`, `v5`)
+  - `v{level}`: 內容分級 (如 `v1`, `v2`, `v3`... 依據難度分別對應 TOPIK 1-6 / CEFR A1-C2)
   - `{category}`: 分類 (如 `vlog`, `music`, `social`)
   - `{youtubeId}`: YouTube 11 位字元 ID (如 `dpzJkC7hptY`)
   - `{title}`: 網頁友善的標題 (小寫，底線分隔)

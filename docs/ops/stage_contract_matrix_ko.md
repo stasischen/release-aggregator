@@ -74,6 +74,7 @@
   - build_pass == true
   - smoke_pass == true
   - qa_hard_gates_pass == true
+  - filename_pattern_pass == true
 
 ## STAGE-05 (release-aggregator): Aggregate + Manifest
 - owner_repo: release-aggregator

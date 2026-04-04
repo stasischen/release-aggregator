@@ -57,6 +57,7 @@ Welcome to the central documentation hub for the Lingo multi-repo system.
 - [Data Model Contracts](guides/DATA_MODEL_CONTRACTS.md) - 跨 Repo 資料結構定義。
 - [System Asset Strategy](guides/RELEASE_ASSET_STRATEGY.md) - 資產追蹤與發佈模式。
 - [Repo Responsibilities](guides/REPO_RESPONSIBILITIES.md) - 倉庫職責總覽。
+- [Video Content Scalability Roadmap](guides/VIDEO_CONTENT_SCALABILITY_ROADMAP.md) - 影片內容擴展與架構演進規劃。
 
 ## Guides (Legacy / Archived)
 

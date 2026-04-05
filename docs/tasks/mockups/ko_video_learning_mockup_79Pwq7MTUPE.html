@@ -1,0 +1,866 @@
+<!doctype html>
+<html lang="zh-Hant">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>KO Video Learning Mockup · 79Pwq7MTUPE</title>
+  <style>
+    :root {
+      --bg: #f5efe4;
+      --paper: #fffdf8;
+      --ink: #1f1a16;
+      --muted: #6f675f;
+      --line: #e3d6c3;
+      --accent: #b5572f;
+      --accent-soft: #f8e7de;
+      --teal: #245f67;
+      --teal-soft: #dfeff1;
+      --gold: #e5b75b;
+      --gold-soft: #fff4db;
+      --ok: #2a7a4f;
+      --ok-soft: #e9f6ef;
+      --shadow: 0 12px 30px rgba(61, 45, 28, 0.08);
+      --radius-lg: 24px;
+      --radius-md: 16px;
+      --radius-sm: 10px;
+    }
+
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: "Inter", "Noto Sans TC", system-ui, sans-serif;
+      color: var(--ink);
+      background:
+        radial-gradient(circle at top left, #fff8ee 0, transparent 28%),
+        radial-gradient(circle at bottom right, #f7ead8 0, transparent 32%),
+        var(--bg);
+    }
+
+    .page {
+      min-height: 100vh;
+      padding: 20px;
+      display: grid;
+      grid-template-columns: 320px 420px 1fr;
+      gap: 18px;
+    }
+
+    .panel {
+      background: rgba(255,255,255,0.82);
+      backdrop-filter: blur(10px);
+      border: 1px solid var(--line);
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow);
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+      min-height: 0;
+    }
+
+    .panel-header {
+      padding: 18px 20px 16px;
+      border-bottom: 1px solid var(--line);
+      background: rgba(255,255,255,0.72);
+    }
+
+    .panel-body {
+      padding: 18px 20px 20px;
+      overflow: auto;
+      min-height: 0;
+    }
+
+    .video-hero {
+      background: linear-gradient(140deg, #16363c 0%, #235a63 58%, #d7a146 100%);
+      color: white;
+      border-radius: 22px;
+      padding: 20px;
+    }
+
+    .video-hero h1 {
+      margin: 0 0 8px;
+      font-size: 28px;
+      line-height: 1.15;
+    }
+
+    .sub {
+      color: rgba(255,255,255,0.76);
+      font-size: 14px;
+      margin-bottom: 14px;
+    }
+
+    .meta-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 10px;
+      margin-top: 16px;
+    }
+
+    .meta-box {
+      border-radius: 14px;
+      background: rgba(255,255,255,0.12);
+      padding: 10px 12px;
+      border: 1px solid rgba(255,255,255,0.14);
+    }
+
+    .meta-box .k {
+      display: block;
+      font-size: 11px;
+      color: rgba(255,255,255,0.72);
+      text-transform: uppercase;
+      margin-bottom: 2px;
+    }
+
+    .meta-box .v {
+      font-weight: 700;
+    }
+
+    .section-title {
+      margin: 0 0 10px;
+      font-size: 13px;
+      text-transform: uppercase;
+      letter-spacing: .08em;
+      color: var(--muted);
+    }
+
+    .pills, .focus-list, .loop-list, .knowledge-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .pill, .focus-chip, .loop-chip, .tag {
+      border-radius: 999px;
+      padding: 6px 10px;
+      font-size: 12px;
+      border: 1px solid var(--line);
+      background: #faf7f0;
+    }
+
+    .focus-chip {
+      cursor: pointer;
+      background: var(--gold-soft);
+      border-color: #edca7c;
+      font-weight: 700;
+    }
+
+    .focus-chip.active {
+      background: var(--gold);
+      color: #3f2900;
+      border-color: var(--gold);
+    }
+
+    .loop-chip {
+      cursor: pointer;
+      background: var(--teal-soft);
+      border-color: #bdd8dd;
+      font-weight: 600;
+      color: var(--teal);
+    }
+
+    .tiny {
+      font-size: 12px;
+      color: var(--muted);
+    }
+
+    .sentence-list {
+      display: grid;
+      gap: 10px;
+    }
+
+    .sentence-card {
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      padding: 14px;
+      cursor: pointer;
+      transition: .18s ease;
+      background: #fffdfa;
+    }
+
+    .sentence-card:hover {
+      transform: translateY(-1px);
+      border-color: #d3b387;
+    }
+
+    .sentence-card.active {
+      border-color: var(--accent);
+      background: linear-gradient(180deg, #fff7f1, #fffdfa);
+      box-shadow: inset 0 0 0 1px rgba(181,87,47,.08);
+    }
+
+    .sentence-card.highlight {
+      border-color: #ebb957;
+      background: linear-gradient(180deg, #fff8e8, #fffdfa);
+    }
+
+    .sentence-top {
+      display: flex;
+      justify-content: space-between;
+      gap: 10px;
+      margin-bottom: 8px;
+      align-items: start;
+    }
+
+    .sentence-id {
+      font-size: 11px;
+      color: var(--muted);
+      font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+    }
+
+    .sentence-ko {
+      font-size: 19px;
+      font-weight: 800;
+      line-height: 1.35;
+      margin-bottom: 4px;
+    }
+
+    .sentence-zh {
+      color: #655f58;
+      font-size: 14px;
+    }
+
+    .sentence-badges {
+      margin-top: 10px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+    }
+
+    .badge {
+      border-radius: 999px;
+      padding: 4px 8px;
+      font-size: 11px;
+      font-weight: 700;
+    }
+
+    .badge.grammar { background: #f8e7de; color: #9b4e2a; }
+    .badge.pattern { background: #e8f0fb; color: #2d5687; }
+    .badge.connector { background: #e2f1f1; color: #225f63; }
+    .badge.vocab { background: #f3ecd9; color: #7c6122; }
+
+    .detail-hero {
+      padding: 18px;
+      border-radius: 20px;
+      background: linear-gradient(180deg, #fffdf7, #f9f2e6);
+      border: 1px solid #eadbbf;
+      margin-bottom: 16px;
+    }
+
+    .detail-hero .sentence-ko {
+      font-size: 24px;
+    }
+
+    .actions {
+      display: flex;
+      gap: 10px;
+      margin-top: 14px;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      border: 1px solid var(--line);
+      background: white;
+      border-radius: 999px;
+      padding: 9px 14px;
+      font-weight: 700;
+      cursor: pointer;
+    }
+
+    .btn.primary {
+      background: var(--accent);
+      color: white;
+      border-color: var(--accent);
+    }
+
+    .knowledge-group {
+      margin-top: 18px;
+      display: grid;
+      gap: 12px;
+    }
+
+    .knowledge-card {
+      border: 1px solid var(--line);
+      background: #fffdfa;
+      border-radius: 20px;
+      padding: 16px;
+    }
+
+    .knowledge-card.primary {
+      background: linear-gradient(180deg, #fff5dc, #fffdfa);
+      border-color: #efc56f;
+    }
+
+    .knowledge-head {
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+      align-items: start;
+      margin-bottom: 10px;
+    }
+
+    .knowledge-title {
+      font-size: 18px;
+      font-weight: 800;
+      margin: 0;
+    }
+
+    .knowledge-surface {
+      color: var(--muted);
+      font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+      font-size: 12px;
+      margin-top: 3px;
+    }
+
+    .knowledge-summary {
+      margin: 10px 0 12px;
+      color: #4d463f;
+    }
+
+    .example {
+      padding: 12px;
+      border-radius: 14px;
+      background: #faf7f1;
+      border: 1px solid #eee2d2;
+      margin-top: 10px;
+    }
+
+    .example .ko {
+      font-weight: 700;
+      margin-bottom: 3px;
+    }
+
+    .toolbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 14px;
+      flex-wrap: wrap;
+    }
+
+    .shadowing-box {
+      margin-top: 16px;
+      padding: 16px;
+      border-radius: 20px;
+      background: #f5f9f9;
+      border: 1px solid #d8e6e6;
+    }
+
+    @media (max-width: 1180px) {
+      .page {
+        grid-template-columns: 1fr;
+        height: auto;
+      }
+      .panel { min-height: 420px; }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="page">
+    <aside class="panel">
+      <div class="panel-body">
+        <div class="video-hero">
+          <div class="tag" style="display:inline-block; background:rgba(255,255,255,.14); border-color:rgba(255,255,255,.16); color:white;">A1-A2 · Video-first Mockup</div>
+          <h1>Easy Listening Beginner Lesson</h1>
+          <div class="sub">用一支 `content-ko` 現有影片，示範「影片 + 可重用知識庫」整合效果。</div>
+          <div class="pills">
+            <div class="pill" style="background:rgba(255,255,255,.12); border-color:rgba(255,255,255,.14); color:white;">日常生活</div>
+            <div class="pill" style="background:rgba(255,255,255,.12); border-color:rgba(255,255,255,.14); color:white;">週末敘事</div>
+            <div class="pill" style="background:rgba(255,255,255,.12); border-color:rgba(255,255,255,.14); color:white;">口語自述</div>
+          </div>
+          <div class="meta-grid">
+            <div class="meta-box"><span class="k">Video ID</span><span class="v">79Pwq7MTUPE</span></div>
+            <div class="meta-box"><span class="k">Duration</span><span class="v">04:02</span></div>
+            <div class="meta-box"><span class="k">Channel</span><span class="v">Jaerim</span></div>
+            <div class="meta-box"><span class="k">Mockup</span><span class="v">Sentence-first</span></div>
+          </div>
+        </div>
+
+        <h3 class="section-title" style="margin-top:18px;">主要學習內容高亮</h3>
+        <div class="focus-list" id="focusList"></div>
+
+        <h3 class="section-title" style="margin-top:18px;">Shadowing Loops</h3>
+        <div class="loop-list" id="loopList"></div>
+
+        <div class="shadowing-box">
+          <div style="font-weight:800; margin-bottom:8px;">這版先看什麼</div>
+          <div class="tiny">這不是 token/dictionary 版，而是讓你先看到 app 的整體效果：</div>
+          <ul class="tiny" style="padding-left:18px; margin:10px 0 0;">
+            <li>左邊是影片與高亮知識點</li>
+            <li>中間是逐句影片內容</li>
+            <li>右邊是可重用文法 / 句型 / 連接詞卡片</li>
+            <li>同一知識點可反覆掛到不同句子，不綁死單一影片</li>
+          </ul>
+        </div>
+      </div>
+    </aside>
+
+    <section class="panel">
+      <div class="panel-header">
+        <div class="toolbar">
+          <div>
+            <div style="font-weight:800; font-size:18px;">影片句子</div>
+            <div class="tiny">點一句，看右側知識點如何掛載</div>
+          </div>
+          <div class="tiny" id="filterLabel">顯示全部句子</div>
+        </div>
+      </div>
+      <div class="panel-body">
+        <div class="sentence-list" id="sentenceList"></div>
+      </div>
+    </section>
+
+    <section class="panel">
+      <div class="panel-header">
+        <div style="font-weight:800; font-size:18px;">學習面板</div>
+        <div class="tiny">句子級連結到可重用知識庫</div>
+      </div>
+      <div class="panel-body">
+        <div class="detail-hero">
+          <div class="sentence-id" id="detailId"></div>
+          <div class="sentence-ko" id="detailKo"></div>
+          <div class="sentence-zh" id="detailZh"></div>
+          <div class="actions">
+            <button class="btn" id="hideBtn">標記熟悉</button>
+            <button class="btn primary" id="boostBtn">加入加強</button>
+          </div>
+        </div>
+
+        <div id="knowledgeGroups"></div>
+      </div>
+    </section>
+  </div>
+
+  <script>
+    const mockup = {
+      focusIds: [
+        "kg.beginner.past.ateoyo",
+        "kg.beginner.want.go_sipeoyo",
+        "kg.beginner.future.geoyeyo",
+        "kp.daily.sequence.action_chain",
+        "kp.daily.purpose.go_for",
+        "kc.common.geuraeseo"
+      ],
+      loops: [
+        { id: "all", title: "全部句子", sentenceIds: [] },
+        { id: "morning", title: "早晨流程", sentenceIds: ["v_011", "v_012", "v_015"] },
+        { id: "hamburger", title: "想吃漢堡", sentenceIds: ["v_016", "v_017", "v_018", "v_019", "v_020"] },
+        { id: "sleep", title: "睡前動作", sentenceIds: ["v_044", "v_045", "v_046"] }
+      ],
+      knowledge: {
+        "kg.beginner.past.ateoyo": {
+          kind: "grammar",
+          title: "過去式 ~았/었어요",
+          surface: "~았/었어요",
+          summary: "表示過去發生的動作或狀態，是這支影片最核心的敘事文法。",
+          examples: [
+            { ko: "어제 영화를 봤어요.", zh: "昨天看了電影。" },
+            { ko: "오늘은 오전 9시쯤 일어났어요.", zh: "今天大概上午 9 點左右起床。" }
+          ]
+        },
+        "kg.beginner.want.go_sipeoyo": {
+          kind: "grammar",
+          title: "想要做... ~고 싶어요",
+          surface: "~고 싶어요",
+          summary: "表達自己想做某件事。第一版先把它視為最值得重用的 desire pattern。",
+          examples: [
+            { ko: "영화 보고 싶어요.", zh: "我想看電影。" },
+            { ko: "갑자기 햄버거가 먹고 싶었어요.", zh: "突然想吃漢堡。" }
+          ]
+        },
+        "kg.beginner.future.geoyeyo": {
+          kind: "grammar",
+          title: "將要/打算... ~ㄹ/을 거예요",
+          surface: "~ㄹ/을 거예요",
+          summary: "表達接下來要做什麼，也能表示說話者的推測。",
+          examples: [
+            { ko: "오늘 밤에 영화를 볼 거예요.", zh: "今晚我要看電影。" },
+            { ko: "샤워하고 세수하고 양치하고 잘 거예요.", zh: "洗完澡、洗完臉、刷完牙後就要睡了。" }
+          ]
+        },
+        "kg.beginner.reason_sequence.aseo_eoseo": {
+          kind: "grammar",
+          title: "先後/原因連接 ~아서/어서",
+          surface: "~아서/어서",
+          summary: "在這支影片裡很適合先當作『做完 A 後做 B』的生活敘事連接。",
+          examples: [
+            { ko: "일어나서 유튜브를 봤어요.", zh: "起床後看了 YouTube。" },
+            { ko: "집에 와서 드라마를 봤어요.", zh: "回到家後看了韓劇。" }
+          ]
+        },
+        "kg.beginner.reason.iraseo": {
+          kind: "grammar",
+          title: "因為是... ~이라서/라서",
+          surface: "~이라서/라서",
+          summary: "名詞型理由句。很適合和 `그래서` 一起成對出現。",
+          examples: [
+            { ko: "주말 저녁이라서 사람이 정말 많았어요.", zh: "因為是週末晚上，人真的很多。" }
+          ]
+        },
+        "kg.beginner.simultaneous.eumyeonseo": {
+          kind: "grammar",
+          title: "一邊...一邊... ~으면서",
+          surface: "~으면서",
+          summary: "表達同時進行的兩個動作。",
+          examples: [
+            { ko: "요즘은 길모어 걸스를 보면서 자요.", zh: "最近都會聽著吉爾莫女孩睡覺。" }
+          ]
+        },
+        "kp.daily.ask_what_did_you_do": {
+          kind: "pattern",
+          title: "今天做了什麼？",
+          surface: "오늘 뭐 했어요?",
+          summary: "日常回顧最直接的開場句型。",
+          examples: [
+            { ko: "여러분은 오늘 뭐 했어요?", zh: "各位今天做了什麼呢？" }
+          ]
+        },
+        "kp.daily.today_topic_intro": {
+          kind: "pattern",
+          title: "今天要來聊...",
+          surface: "오늘은 제가 __ 이야기해 볼 거예요",
+          summary: "影片/口頭分享常見的主題導入句型。",
+          examples: [
+            { ko: "오늘은 제가 뭐 했는지 이야기해 볼 거예요.", zh: "今天我打算來聊聊我做了些什麼。" }
+          ]
+        },
+        "kp.daily.today_is_noun": {
+          kind: "pattern",
+          title: "今天是...",
+          surface: "오늘은 N이에요",
+          summary: "最基本的時間或主題判斷句。",
+          examples: [
+            { ko: "오늘은 토요일이에요.", zh: "今天是星期六。" }
+          ]
+        },
+        "kp.daily.time_plus_habit": {
+          kind: "pattern",
+          title: "在某時間通常會...",
+          surface: "저는 __에 __ 해요",
+          summary: "講習慣、時間背景與日常 routine 的核心框架。",
+          examples: [
+            { ko: "저는 주말에 늦게 일어나요.", zh: "我在週末會比較晚起。" }
+          ]
+        },
+        "kp.daily.after_doing": {
+          kind: "pattern",
+          title: "做完 A 後做 B",
+          surface: "A-아서/어서 B-았/었어요",
+          summary: "把兩個生活動作放進同一句，很適合影片敘事。",
+          examples: [
+            { ko: "일어나서 유튜브를 봤어요.", zh: "起床後看了 YouTube。" },
+            { ko: "집에 와서 드라마를 봤어요.", zh: "回到家後看了韓劇。" }
+          ]
+        },
+        "kp.daily.sequence.action_chain": {
+          kind: "pattern",
+          title: "動作串接",
+          surface: "A하고 B하고 C했어요 / 할 거예요",
+          summary: "這支影片最有辨識度的句型骨架之一，適合做 shadowing。",
+          examples: [
+            { ko: "세수하고 양치했어요.", zh: "洗了臉、刷了牙。" },
+            { ko: "샤워하고 세수하고 양치하고 잘 거예요.", zh: "洗完澡、洗完臉、刷完牙後就要睡了。" }
+          ]
+        },
+        "kp.daily.purpose.go_for": {
+          kind: "pattern",
+          title: "為了做某事去...",
+          surface: "N을/를 __으러/러 __에 갔어요",
+          summary: "目的移動句型，重用性非常高。",
+          examples: [
+            { ko: "장을 보러 시장에 갔어요.", zh: "為了買菜去了市場。" },
+            { ko: "저녁을 먹으러 식당에 갔어요.", zh: "去了餐廳吃晚餐。" }
+          ]
+        },
+        "kp.daily.like_noun": {
+          kind: "pattern",
+          title: "喜歡...",
+          surface: "N을/를 좋아해요?",
+          summary: "影片和觀眾互動最自然的高頻句型。",
+          examples: [
+            { ko: "여러분은 한국 드라마를 좋아하세요?", zh: "各位喜歡韓劇嗎？" }
+          ]
+        },
+        "kp.daily.which_noun_like": {
+          kind: "pattern",
+          title: "喜歡哪一種...？",
+          surface: "어떤 N을/를 좋아하세요?",
+          summary: "喜好提問的 follow-up 句型。",
+          examples: [
+            { ko: "어떤 드라마를 좋아하세요?", zh: "喜歡哪種劇呢？" }
+          ]
+        },
+        "kp.daily.definition_is_food": {
+          kind: "pattern",
+          title: "...是...的食物/東西",
+          surface: "N은/는 __ 음식이에요",
+          summary: "介紹概念或主題字彙時很適合的教學句型。",
+          examples: [
+            { ko: "샤브샤브는 뜨거운 물에 고기하고 야채를 넣어서 먹는 음식이에요.", zh: "涮涮鍋是在熱水裡放入肉和蔬菜吃的食物。" }
+          ]
+        },
+        "kp.daily.polite_question": {
+          kind: "pattern",
+          title: "敬語提問",
+          surface: "__하세요?",
+          summary: "對觀眾或陌生人問問題時的安全句型。",
+          examples: [
+            { ko: "어떤 드라마를 좋아하세요?", zh: "喜歡哪種劇呢？" }
+          ]
+        },
+        "kp.daily.leave_comment": {
+          kind: "pattern",
+          title: "請在...留下...",
+          surface: "__에 꼭 __ 남겨 주세요",
+          summary: "影片結尾 CTA 句型。",
+          examples: [
+            { ko: "댓글에 꼭 남겨 주세요.", zh: "請一定要在留言區留下評論。" }
+          ]
+        },
+        "kc.common.geurigo": {
+          kind: "connector",
+          title: "그리고",
+          surface: "그리고",
+          summary: "最基本的『然後、並且』連接詞。",
+          examples: [
+            { ko: "그리고 아침을 먹었어요.", zh: "然後吃了早餐。" }
+          ]
+        },
+        "kc.common.geuraeseo": {
+          kind: "connector",
+          title: "그래서",
+          surface: "그래서",
+          summary: "表示『所以、因此』，把原因與結果接起來。",
+          examples: [
+            { ko: "비가 왔어요. 그래서 우산을 썼어요.", zh: "下雨了，所以撐了傘。" },
+            { ko: "그래서 버거킹을 시켰어요.", zh: "所以點了漢堡王。" }
+          ]
+        },
+        "kc.common.geudaeume": {
+          kind: "connector",
+          title: "그다음에",
+          surface: "그다음에",
+          summary: "表示『接下來』，很適合流程型內容。",
+          examples: [
+            { ko: "그다음에 화장을 하고 옷을 갈아입고", zh: "接著畫了妝、換了衣服" }
+          ]
+        },
+        "kc.common.gapjagi": {
+          kind: "connector",
+          title: "갑자기",
+          surface: "갑자기",
+          summary: "表示突然發生、突然想到。",
+          examples: [
+            { ko: "갑자기 햄버거가 먹고 싶었어요.", zh: "突然想吃漢堡。" }
+          ]
+        },
+        "kv.time.saturday": { kind: "vocab", title: "토요일", surface: "토요일", summary: "星期六。", examples: [] },
+        "kv.time.weekend": { kind: "vocab", title: "주말", surface: "주말", summary: "週末。", examples: [] },
+        "kv.verb.wake_up": { kind: "vocab", title: "일어나다", surface: "일어나다", summary: "起床。", examples: [] },
+        "kv.food.breakfast": { kind: "vocab", title: "아침", surface: "아침", summary: "早餐。", examples: [] },
+        "kv.food.hamburger": { kind: "vocab", title: "햄버거", surface: "햄버거", summary: "漢堡。", examples: [] },
+        "kv.place.market": { kind: "vocab", title: "시장", surface: "시장", summary: "市場。", examples: [] },
+        "kv.media.youtube": { kind: "vocab", title: "유튜브", surface: "유튜브", summary: "YouTube。", examples: [] },
+        "kv.media.drama": { kind: "vocab", title: "드라마", surface: "드라마", summary: "戲劇、韓劇。", examples: [] },
+        "kv.food.dinner": { kind: "vocab", title: "저녁", surface: "저녁", summary: "晚餐。", examples: [] },
+        "kv.state.tired": { kind: "vocab", title: "피곤하다", surface: "피곤하다", summary: "累、疲倦。", examples: [] },
+        "kv.action.leave_comment": { kind: "vocab", title: "남기다", surface: "남기다", summary: "留下。", examples: [] }
+      },
+      sentences: [
+        { id: "v_005", ko: "오늘 뭐 했어요?", zh: "今天做了什麼呢？", refs: ["kp.daily.ask_what_did_you_do"] },
+        { id: "v_006", ko: "오늘은 제가 뭐 했는지 이야기해 볼 거예요.", zh: "今天我打算來聊聊我做了些什麼。", refs: ["kg.beginner.future.geoyeyo", "kp.daily.today_topic_intro"] },
+        { id: "v_009", ko: "오늘은 토요일이에요.", zh: "今天是星期六。", refs: ["kp.daily.today_is_noun", "kv.time.saturday"] },
+        { id: "v_010", ko: "저는 주말에 늦게 일어나요.", zh: "我在週末會比較晚起。", refs: ["kp.daily.time_plus_habit", "kv.time.weekend", "kv.verb.wake_up"] },
+        { id: "v_011", ko: "오늘은 오전 9시쯤 일어났어요.", zh: "今天大概上午 9 點左右起床。", refs: ["kg.beginner.past.ateoyo", "kv.verb.wake_up"] },
+        { id: "v_012", ko: "일어나서 유튜브를 봤어요.", zh: "起床後看了 YouTube。", refs: ["kg.beginner.past.ateoyo", "kg.beginner.reason_sequence.aseo_eoseo", "kp.daily.after_doing", "kv.media.youtube"] },
+        { id: "v_015", ko: "그리고 아침을 먹었어요.", zh: "然後吃了早餐。", refs: ["kc.common.geurigo", "kg.beginner.past.ateoyo", "kv.food.breakfast"] },
+        { id: "v_016", ko: "갑자기 햄버거가 먹고 싶었어요.", zh: "突然想吃漢堡。", refs: ["kg.beginner.want.go_sipeoyo", "kc.common.gapjagi", "kv.food.hamburger"] },
+        { id: "v_017", ko: "그래서 버거킹을 시켰어요", zh: "所以點了漢堡王。", refs: ["kc.common.geuraeseo", "kg.beginner.past.ateoyo"] },
+        { id: "v_023", ko: "세수하고 양치했어요.", zh: "洗了臉、刷了牙。", refs: ["kp.daily.sequence.action_chain", "kg.beginner.past.ateoyo"] },
+        { id: "v_025", ko: "그다음에 화장을 하고 옷을 갈아입고", zh: "接著畫了妝、換了衣服", refs: ["kc.common.geudaeume", "kp.daily.sequence.action_chain"] },
+        { id: "v_029", ko: "네일 받고 장을 보러 시장에 갔어요.", zh: "做完美甲後，為了買菜去了市場。", refs: ["kp.daily.purpose.go_for", "kg.beginner.past.ateoyo", "kv.place.market"] },
+        { id: "v_031", ko: "집에 와서 드라마를 봤어요", zh: "回到家後看了韓劇。", refs: ["kg.beginner.reason_sequence.aseo_eoseo", "kg.beginner.past.ateoyo", "kp.daily.after_doing", "kv.media.drama"] },
+        { id: "v_034", ko: "여러분은 한국 드라마를 좋아하세요?", zh: "各位喜歡韓劇嗎？", refs: ["kp.daily.like_noun", "kp.daily.polite_question", "kv.media.drama"] },
+        { id: "v_035", ko: "어떤 드라마를 좋아하세요?", zh: "喜歡哪種劇呢？", refs: ["kp.daily.which_noun_like", "kp.daily.polite_question"] },
+        { id: "v_036", ko: "오후 6시에 저녁을 먹으러 식당에 갔어요.", zh: "下午 6 點去了餐廳吃晚餐。", refs: ["kp.daily.purpose.go_for", "kg.beginner.past.ateoyo", "kv.food.dinner"] },
+        { id: "v_038", ko: "주말 저녁이라서 사람이 정말 많았어요.", zh: "因為是週末晚上，人真的很多。", refs: ["kg.beginner.reason.iraseo", "kg.beginner.past.ateoyo", "kv.time.weekend"] },
+        { id: "v_040", ko: "샤브샤브는 뜨거운 물에 고기하고 야채를 넣어서 먹는 음식이에요.", zh: "涮涮鍋是在熱水裡放入肉和蔬菜吃的食物。", refs: ["kp.daily.definition_is_food", "kg.beginner.reason_sequence.aseo_eoseo"] },
+        { id: "v_041", ko: "샤브샤브를 다 먹고 배가 너무 불러서 집까지 걸어왔어요.", zh: "吃完涮涮鍋後肚子太飽了，所以走路回家。", refs: ["kp.daily.sequence.action_chain", "kg.beginner.reason_sequence.aseo_eoseo", "kg.beginner.past.ateoyo"] },
+        { id: "v_044", ko: "지금 조금 피곤해요.", zh: "現在有點累。", refs: ["kv.state.tired"] },
+        { id: "v_045", ko: "샤워하고 세수하고 양치하고 잘 거예요.", zh: "洗完澡、洗完臉、刷完牙後就要睡了。", refs: ["kg.beginner.future.geoyeyo", "kp.daily.sequence.action_chain"] },
+        { id: "v_046", ko: "요즘은 길모어 걸스를 보면서 자요.", zh: "最近都會聽著吉爾莫女孩睡覺。", refs: ["kg.beginner.simultaneous.eumyeonseo", "kp.daily.time_plus_habit"] },
+        { id: "v_048", ko: "댓글에 꼭 남겨 주세요.", zh: "請一定要在留言區留下評論。", refs: ["kp.daily.leave_comment", "kv.action.leave_comment"] }
+      ]
+    };
+
+    const kindLabel = {
+      grammar: "文法",
+      pattern: "句型",
+      connector: "連接",
+      vocab: "字彙"
+    };
+
+    let activeSentenceId = "v_016";
+    let activeFocusId = null;
+    let activeLoopId = "all";
+
+    const sentenceList = document.getElementById("sentenceList");
+    const focusList = document.getElementById("focusList");
+    const loopList = document.getElementById("loopList");
+    const filterLabel = document.getElementById("filterLabel");
+    const detailId = document.getElementById("detailId");
+    const detailKo = document.getElementById("detailKo");
+    const detailZh = document.getElementById("detailZh");
+    const knowledgeGroups = document.getElementById("knowledgeGroups");
+
+    function getVisibleSentences() {
+      let sentences = mockup.sentences;
+      if (activeLoopId !== "all") {
+        const loop = mockup.loops.find(item => item.id === activeLoopId);
+        sentences = sentences.filter(sentence => loop.sentenceIds.includes(sentence.id));
+      }
+      if (activeFocusId) {
+        sentences = sentences.filter(sentence => sentence.refs.includes(activeFocusId));
+      }
+      return sentences;
+    }
+
+    function renderFocusChips() {
+      focusList.innerHTML = "";
+      mockup.focusIds.forEach(id => {
+        const item = mockup.knowledge[id];
+        const chip = document.createElement("button");
+        chip.className = "focus-chip" + (activeFocusId === id ? " active" : "");
+        chip.textContent = item.title;
+        chip.onclick = () => {
+          activeFocusId = activeFocusId === id ? null : id;
+          const visible = getVisibleSentences();
+          if (!visible.some(sentence => sentence.id === activeSentenceId) && visible[0]) {
+            activeSentenceId = visible[0].id;
+          }
+          render();
+        };
+        focusList.appendChild(chip);
+      });
+    }
+
+    function renderLoops() {
+      loopList.innerHTML = "";
+      mockup.loops.forEach(loop => {
+        const chip = document.createElement("button");
+        chip.className = "loop-chip";
+        if (activeLoopId === loop.id) {
+          chip.style.background = "#245f67";
+          chip.style.color = "white";
+          chip.style.borderColor = "#245f67";
+        }
+        chip.textContent = loop.title;
+        chip.onclick = () => {
+          activeLoopId = loop.id;
+          const visible = getVisibleSentences();
+          if (!visible.some(sentence => sentence.id === activeSentenceId) && visible[0]) {
+            activeSentenceId = visible[0].id;
+          }
+          render();
+        };
+        loopList.appendChild(chip);
+      });
+    }
+
+    function renderSentences() {
+      const visible = getVisibleSentences();
+      filterLabel.textContent = activeFocusId
+        ? `聚焦：${mockup.knowledge[activeFocusId].title}`
+        : activeLoopId !== "all"
+          ? `Loop：${mockup.loops.find(item => item.id === activeLoopId).title}`
+          : "顯示全部句子";
+      sentenceList.innerHTML = "";
+      visible.forEach(sentence => {
+        const card = document.createElement("div");
+        const isPrimary = sentence.refs.some(ref => mockup.focusIds.includes(ref));
+        card.className = "sentence-card" + (sentence.id === activeSentenceId ? " active" : "") + (isPrimary ? " highlight" : "");
+        card.onclick = () => {
+          activeSentenceId = sentence.id;
+          renderDetail();
+          renderSentences();
+        };
+        const badges = sentence.refs.slice(0, 4).map(ref => {
+          const item = mockup.knowledge[ref];
+          return `<span class="badge ${item.kind}">${kindLabel[item.kind]}</span>`;
+        }).join("");
+        card.innerHTML = `
+          <div class="sentence-top">
+            <div class="sentence-id">${sentence.id}</div>
+            <div class="tiny">${sentence.refs.length} linked items</div>
+          </div>
+          <div class="sentence-ko">${sentence.ko}</div>
+          <div class="sentence-zh">${sentence.zh}</div>
+          <div class="sentence-badges">${badges}</div>
+        `;
+        sentenceList.appendChild(card);
+      });
+    }
+
+    function renderDetail() {
+      const sentence = mockup.sentences.find(item => item.id === activeSentenceId) || getVisibleSentences()[0];
+      if (!sentence) return;
+      detailId.textContent = sentence.id;
+      detailKo.textContent = sentence.ko;
+      detailZh.textContent = sentence.zh;
+
+      const groups = { grammar: [], pattern: [], connector: [], vocab: [] };
+      sentence.refs.forEach(ref => groups[mockup.knowledge[ref].kind].push(mockup.knowledge[ref]));
+
+      knowledgeGroups.innerHTML = "";
+      ["grammar", "pattern", "connector", "vocab"].forEach(kind => {
+        const items = groups[kind];
+        if (!items.length) return;
+        const group = document.createElement("div");
+        group.className = "knowledge-group";
+        group.innerHTML = `<div class="section-title">${kindLabel[kind]}</div>`;
+
+        items.forEach(item => {
+          const card = document.createElement("div");
+          const isPrimary = mockup.focusIds.includes(Object.keys(mockup.knowledge).find(key => mockup.knowledge[key] === item));
+          card.className = "knowledge-card" + (isPrimary ? " primary" : "");
+          const tags = `
+            <div class="knowledge-tags">
+              <span class="tag">${kindLabel[item.kind]}</span>
+              ${isPrimary ? '<span class="tag" style="background:var(--gold-soft); border-color:#edca7c;">主要學習內容</span>' : ''}
+            </div>
+          `;
+          const examples = item.examples.slice(0, 2).map(example => `
+            <div class="example">
+              <div class="ko">${example.ko}</div>
+              <div class="tiny">${example.zh}</div>
+            </div>
+          `).join("");
+          card.innerHTML = `
+            <div class="knowledge-head">
+              <div>
+                <h3 class="knowledge-title">${item.title}</h3>
+                <div class="knowledge-surface">${item.surface}</div>
+              </div>
+              ${tags}
+            </div>
+            <div class="knowledge-summary">${item.summary}</div>
+            ${examples}
+          `;
+          group.appendChild(card);
+        });
+        knowledgeGroups.appendChild(group);
+      });
+    }
+
+    function render() {
+      renderFocusChips();
+      renderLoops();
+      renderSentences();
+      renderDetail();
+    }
+
+    render();
+  </script>
+</body>
+
+</html>

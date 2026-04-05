@@ -1,0 +1,1077 @@
+{
+  "mockup_version": "v0.1",
+  "purpose": "Video-first sentence-level learning mockup for app architecture discussion",
+  "source_video": {
+    "repo": "content-ko",
+    "core_path": "/Users/ywchen/Dev/lingo/content-ko/content/core/video/ko_v1_vlog_79Pwq7MTUPE_easy_listening_lesson.json",
+    "i18n_path": "/Users/ywchen/Dev/lingo/content-ko/content/i18n/zh_tw/video/ko_v1_vlog_79Pwq7MTUPE_easy_listening_lesson.json"
+  },
+  "video": {
+    "id": "79Pwq7MTUPE",
+    "slug": "ko_v1_vlog_79Pwq7MTUPE_easy_listening_lesson",
+    "title": "Learn Korean with Easy Listening | Beginner Lesson",
+    "channel": "Daily Korean with Jaerim",
+    "thumbnail_url": "https://img.youtube.com/vi/79Pwq7MTUPE/maxresdefault.jpg",
+    "duration": "04:02",
+    "category": "vlog",
+    "difficulty_level": "v1",
+    "cefr_estimate": "A1-A2",
+    "themes": [
+      "日常生活",
+      "週末敘事",
+      "口語自述",
+      "生活動作",
+      "喜好表達"
+    ],
+    "primary_focus_ids": [
+      "kg.beginner.past.ateoyo",
+      "kg.beginner.want.go_sipeoyo",
+      "kg.beginner.future.geoyeyo",
+      "kp.daily.sequence.action_chain",
+      "kp.daily.purpose.go_for",
+      "kc.common.geuraeseo"
+    ]
+  },
+  "sentences": [
+    {
+      "id": "v_005",
+      "ko": "오늘 뭐 했어요?",
+      "zh_tw": "今天做了什麼呢？",
+      "start_ms": 11799,
+      "end_ms": 14331,
+      "knowledge_refs": [
+        "kp.daily.ask_what_did_you_do"
+      ]
+    },
+    {
+      "id": "v_006",
+      "ko": "오늘은 제가 뭐 했는지 이야기해 볼 거예요.",
+      "zh_tw": "今天我打算來聊聊我做了些什麼。",
+      "start_ms": 14331,
+      "end_ms": 23581,
+      "knowledge_refs": [
+        "kg.beginner.future.geoyeyo",
+        "kp.daily.today_topic_intro"
+      ]
+    },
+    {
+      "id": "v_008",
+      "ko": "그리고 따라 말해 보세요.",
+      "zh_tw": "並且試著跟著說說看。",
+      "start_ms": 34600,
+      "end_ms": 38426,
+      "knowledge_refs": [
+        "kc.common.geurigo"
+      ]
+    },
+    {
+      "id": "v_009",
+      "ko": "오늘은 토요일이에요.",
+      "zh_tw": "今天是星期六。",
+      "start_ms": 38426,
+      "end_ms": 43259,
+      "knowledge_refs": [
+        "kp.daily.today_is_noun",
+        "kv.time.saturday"
+      ]
+    },
+    {
+      "id": "v_010",
+      "ko": "저는 주말에 늦게 일어나요.",
+      "zh_tw": "我在週末會比較晚起。",
+      "start_ms": 43280,
+      "end_ms": 49157,
+      "knowledge_refs": [
+        "kp.daily.time_plus_habit",
+        "kv.time.weekend",
+        "kv.verb.wake_up"
+      ]
+    },
+    {
+      "id": "v_011",
+      "ko": "오늘은 오전 9시쯤 일어났어요.",
+      "zh_tw": "今天大概上午 9 點左右起床。",
+      "start_ms": 49157,
+      "end_ms": 54690,
+      "knowledge_refs": [
+        "kg.beginner.past.ateoyo",
+        "kv.verb.wake_up"
+      ]
+    },
+    {
+      "id": "v_012",
+      "ko": "일어나서 유튜브를 봤어요.",
+      "zh_tw": "起床後看了 YouTube。",
+      "start_ms": 54690,
+      "end_ms": 59489,
+      "knowledge_refs": [
+        "kg.beginner.past.ateoyo",
+        "kg.beginner.reason_sequence.aseo_eoseo",
+        "kp.daily.after_doing",
+        "kv.media.youtube"
+      ]
+    },
+    {
+      "id": "v_015",
+      "ko": "그리고 아침을 먹었어요.",
+      "zh_tw": "然後吃了早餐。",
+      "start_ms": 69759,
+      "end_ms": 73586,
+      "knowledge_refs": [
+        "kc.common.geurigo",
+        "kg.beginner.past.ateoyo",
+        "kv.food.breakfast"
+      ]
+    },
+    {
+      "id": "v_016",
+      "ko": "갑자기 햄버거가 먹고 싶었어요.",
+      "zh_tw": "突然想吃漢堡。",
+      "start_ms": 73586,
+      "end_ms": 81783,
+      "knowledge_refs": [
+        "kg.beginner.want.go_sipeoyo",
+        "kc.common.gapjagi",
+        "kv.food.hamburger"
+      ]
+    },
+    {
+      "id": "v_017",
+      "ko": "그래서 버거킹을 시켰어요",
+      "zh_tw": "所以點了漢堡王。",
+      "start_ms": 81799,
+      "end_ms": 86384,
+      "knowledge_refs": [
+        "kc.common.geuraeseo",
+        "kg.beginner.past.ateoyo"
+      ]
+    },
+    {
+      "id": "v_023",
+      "ko": "세수하고 양치했어요.",
+      "zh_tw": "洗了臉、刷了牙。",
+      "start_ms": 105213,
+      "end_ms": 108879,
+      "knowledge_refs": [
+        "kp.daily.sequence.action_chain",
+        "kg.beginner.past.ateoyo"
+      ]
+    },
+    {
+      "id": "v_025",
+      "ko": "그다음에 화장을 하고 옷을 갈아입고",
+      "zh_tw": "接著畫了妝、換了衣服",
+      "start_ms": 114177,
+      "end_ms": 120126,
+      "knowledge_refs": [
+        "kc.common.geudaeume",
+        "kp.daily.sequence.action_chain"
+      ]
+    },
+    {
+      "id": "v_026",
+      "ko": "네일 샵에 갔어요.",
+      "zh_tw": "去了美甲店。",
+      "start_ms": 120126,
+      "end_ms": 123063,
+      "knowledge_refs": [
+        "kg.beginner.past.ateoyo"
+      ]
+    },
+    {
+      "id": "v_029",
+      "ko": "네일 받고 장을 보러 시장에 갔어요.",
+      "zh_tw": "做完美甲後，為了買菜去了市場。",
+      "start_ms": 132127,
+      "end_ms": 139327,
+      "knowledge_refs": [
+        "kp.daily.purpose.go_for",
+        "kg.beginner.past.ateoyo",
+        "kv.place.market"
+      ]
+    },
+    {
+      "id": "v_031",
+      "ko": "집에 와서 드라마를 봤어요",
+      "zh_tw": "回到家後看了韓劇。",
+      "start_ms": 145328,
+      "end_ms": 149760,
+      "knowledge_refs": [
+        "kg.beginner.reason_sequence.aseo_eoseo",
+        "kg.beginner.past.ateoyo",
+        "kp.daily.after_doing",
+        "kv.media.drama"
+      ]
+    },
+    {
+      "id": "v_032",
+      "ko": "저는 드라마를 정말 좋아해요.",
+      "zh_tw": "我真的很喜歡看劇。",
+      "start_ms": 149760,
+      "end_ms": 154394,
+      "knowledge_refs": [
+        "kp.daily.like_noun",
+        "kv.media.drama"
+      ]
+    },
+    {
+      "id": "v_033",
+      "ko": "그래서 자주  봐요.",
+      "zh_tw": "所以常常看。",
+      "start_ms": 154394,
+      "end_ms": 156593,
+      "knowledge_refs": [
+        "kc.common.geuraeseo"
+      ]
+    },
+    {
+      "id": "v_034",
+      "ko": "여러분은 한국 드라마를 좋아하세요?",
+      "zh_tw": "各位喜歡韓劇嗎？",
+      "start_ms": 156593,
+      "end_ms": 160759,
+      "knowledge_refs": [
+        "kp.daily.like_noun",
+        "kp.daily.polite_question"
+      ]
+    },
+    {
+      "id": "v_035",
+      "ko": "어떤 드라마를 좋아하세요?",
+      "zh_tw": "喜歡哪種劇呢？",
+      "start_ms": 160759,
+      "end_ms": 163159,
+      "knowledge_refs": [
+        "kp.daily.which_noun_like",
+        "kp.daily.polite_question"
+      ]
+    },
+    {
+      "id": "v_036",
+      "ko": "오후 6시에 저녁을 먹으러 식당에 갔어요.",
+      "zh_tw": "下午 6 點去了餐廳吃晚餐。",
+      "start_ms": 163159,
+      "end_ms": 169425,
+      "knowledge_refs": [
+        "kp.daily.purpose.go_for",
+        "kg.beginner.past.ateoyo",
+        "kv.food.dinner"
+      ]
+    },
+    {
+      "id": "v_038",
+      "ko": "주말 저녁이라서 사람이 정말 많았어요.",
+      "zh_tw": "因為是週末晚上，人真的很多。",
+      "start_ms": 172228,
+      "end_ms": 177629,
+      "knowledge_refs": [
+        "kg.beginner.reason.iraseo",
+        "kg.beginner.past.ateoyo",
+        "kv.time.weekend"
+      ]
+    },
+    {
+      "id": "v_040",
+      "ko": "샤브샤브는 뜨거운 물에 고기하고 야채를 넣어서 먹는 음식이에요.",
+      "zh_tw": "涮涮鍋是在熱水裡放入肉和蔬菜吃的食物。",
+      "start_ms": 181293,
+      "end_ms": 190895,
+      "knowledge_refs": [
+        "kp.daily.definition_is_food",
+        "kg.beginner.reason_sequence.aseo_eoseo"
+      ]
+    },
+    {
+      "id": "v_041",
+      "ko": "샤브샤브를 다 먹고 배가 너무 불러서 집까지 걸어왔어요.",
+      "zh_tw": "吃完涮涮鍋後肚子太飽了，所以走路回家。",
+      "start_ms": 190895,
+      "end_ms": 198730,
+      "knowledge_refs": [
+        "kp.daily.sequence.action_chain",
+        "kg.beginner.reason_sequence.aseo_eoseo",
+        "kg.beginner.past.ateoyo"
+      ]
+    },
+    {
+      "id": "v_043",
+      "ko": "집에 와서 세시간 정도 일했어요.",
+      "zh_tw": "回到家後工作了大約三個小時。",
+      "start_ms": 204295,
+      "end_ms": 208661,
+      "knowledge_refs": [
+        "kg.beginner.reason_sequence.aseo_eoseo",
+        "kg.beginner.past.ateoyo"
+      ]
+    },
+    {
+      "id": "v_044",
+      "ko": "지금 조금 피곤해요.",
+      "zh_tw": "現在有點累。",
+      "start_ms": 208661,
+      "end_ms": 211195,
+      "knowledge_refs": [
+        "kv.state.tired"
+      ]
+    },
+    {
+      "id": "v_045",
+      "ko": "샤워하고 세수하고 양치하고 잘 거예요.",
+      "zh_tw": "洗完澡、洗完臉、刷完牙後就要睡了。",
+      "start_ms": 211195,
+      "end_ms": 216597,
+      "knowledge_refs": [
+        "kg.beginner.future.geoyeyo",
+        "kp.daily.sequence.action_chain"
+      ]
+    },
+    {
+      "id": "v_046",
+      "ko": "요즘은 길모어 걸스를 보면서 자요.",
+      "zh_tw": "最近都會聽著「吉爾莫女孩」睡覺。",
+      "start_ms": 216597,
+      "end_ms": 221731,
+      "knowledge_refs": [
+        "kg.beginner.simultaneous.eumyeonseo",
+        "kp.daily.time_plus_habit"
+      ]
+    },
+    {
+      "id": "v_047",
+      "ko": "여러분은 오늘 뭐 했어요?",
+      "zh_tw": "各位今天做了什麼呢？",
+      "start_ms": 221731,
+      "end_ms": 225331,
+      "knowledge_refs": [
+        "kp.daily.ask_what_did_you_do"
+      ]
+    },
+    {
+      "id": "v_048",
+      "ko": "댓글에 꼭 남겨 주세요.",
+      "zh_tw": "請一定要在留言區留下評論。",
+      "start_ms": 225331,
+      "end_ms": 228132,
+      "knowledge_refs": [
+        "kp.daily.leave_comment",
+        "kv.action.leave_comment"
+      ]
+    }
+  ],
+  "knowledge_library": [
+    {
+      "id": "kg.beginner.past.ateoyo",
+      "kind": "grammar_point",
+      "title_zh_tw": "過去式 ~았/었어요",
+      "surface": "~았/었어요",
+      "level": "A1",
+      "tags": ["past", "ending", "daily narrative"],
+      "summary_zh_tw": "表示過去發生的動作或狀態，是最核心的日常敘事文法。",
+      "explanation_zh_tw": "用在已經完成的事情上。這支影片整體就是在用過去式講今天做了哪些事。",
+      "usage_notes_zh_tw": [
+        "ㅏ/ㅗ 母音多接 ~았어요",
+        "其他母音多接 ~었어요",
+        "하다 -> 했어요"
+      ],
+      "source_refs": [
+        {
+          "repo": "lingo-curriculum-source",
+          "path": "/Users/ywchen/Dev/lingo/lingo-curriculum-source/reports/youtube_beginner_grammar/clean_md/027_過去式表現 았었어요.md"
+        }
+      ],
+      "example_bank": [
+        {
+          "ko": "어제 영화를 봤어요.",
+          "zh_tw": "昨天看了電影。",
+          "source_type": "curriculum_report"
+        },
+        {
+          "ko": "오늘은 오전 9시쯤 일어났어요.",
+          "zh_tw": "今天大概上午 9 點左右起床。",
+          "source_type": "video_sentence",
+          "sentence_id": "v_011"
+        }
+      ]
+    },
+    {
+      "id": "kg.beginner.want.go_sipeoyo",
+      "kind": "grammar_point",
+      "title_zh_tw": "想要做... ~고 싶어요",
+      "surface": "~고 싶어요",
+      "level": "A1",
+      "tags": ["desire", "want", "verb ending"],
+      "summary_zh_tw": "表達自己想做某件事，是日常最常用的希望表達。",
+      "explanation_zh_tw": "在動詞詞幹後面接 ~고 싶어요，表達第一人稱的願望與想法。",
+      "usage_notes_zh_tw": [
+        "優先先教第一人稱",
+        "搭配食物、移動、休息類動詞最容易上手"
+      ],
+      "source_refs": [
+        {
+          "repo": "lingo-curriculum-source",
+          "path": "/Users/ywchen/Dev/lingo/lingo-curriculum-source/reports/youtube_beginner_grammar/clean_md/054_想要希望 고 싶어요.md"
+        }
+      ],
+      "example_bank": [
+        {
+          "ko": "영화 보고 싶어요.",
+          "zh_tw": "我想看電影。",
+          "source_type": "curriculum_report"
+        },
+        {
+          "ko": "갑자기 햄버거가 먹고 싶었어요.",
+          "zh_tw": "突然想吃漢堡。",
+          "source_type": "video_sentence",
+          "sentence_id": "v_016"
+        }
+      ]
+    },
+    {
+      "id": "kg.beginner.future.geoyeyo",
+      "kind": "grammar_point",
+      "title_zh_tw": "將要/打算... ~ㄹ/을 거예요",
+      "surface": "~ㄹ/을 거예요",
+      "level": "A1-A2",
+      "tags": ["future", "plan", "prediction"],
+      "summary_zh_tw": "表達未來計畫或說話者的推測。",
+      "explanation_zh_tw": "可用在接下來要做什麼，也能表示「應該會...」的推測。影片裡同時出現了開場預告和睡前計畫。",
+      "usage_notes_zh_tw": [
+        "口語敬語形式，適合初級課先教",
+        "可拆成 plan 與 prediction 兩種子用法"
+      ],
+      "source_refs": [
+        {
+          "repo": "lingo-curriculum-source",
+          "path": "/Users/ywchen/Dev/lingo/lingo-curriculum-source/reports/youtube_beginner_grammar/clean_md/036_將要打算 未來計畫推測 ㄹ을 거예요.md"
+        }
+      ],
+      "example_bank": [
+        {
+          "ko": "오늘 밤에 영화를 볼 거예요.",
+          "zh_tw": "今晚我要看電影。",
+          "source_type": "curriculum_report"
+        },
+        {
+          "ko": "샤워하고 세수하고 양치하고 잘 거예요.",
+          "zh_tw": "洗完澡、洗完臉、刷完牙後就要睡了。",
+          "source_type": "video_sentence",
+          "sentence_id": "v_045"
+        }
+      ]
+    },
+    {
+      "id": "kg.beginner.reason_sequence.aseo_eoseo",
+      "kind": "grammar_point",
+      "title_zh_tw": "先後/原因連接 ~아서/어서",
+      "surface": "~아서/어서",
+      "level": "A1-A2",
+      "tags": ["sequence", "reason", "connection"],
+      "summary_zh_tw": "初級最重要的連接尾語之一，可連接先後動作，也可表達自然原因。",
+      "explanation_zh_tw": "在這支影片裡多半用來接續日常動作，如「起床後看 YouTube」、「回家後看劇」。",
+      "usage_notes_zh_tw": [
+        "第一版 mockup 先不細拆 sequence 與 reason 的理論差異",
+        "先用影片情境帶使用感"
+      ],
+      "source_refs": [
+        {
+          "repo": "lingo-curriculum-source",
+          "path": "/Users/ywchen/Dev/lingo/lingo-curriculum-source/reports/youtube_beginner_grammar/clean_md/082_動作連接①然後 아서어서해서①.md"
+        },
+        {
+          "repo": "lingo-curriculum-source",
+          "path": "/Users/ywchen/Dev/lingo/lingo-curriculum-source/reports/youtube_beginner_grammar/clean_md/083_原因理由因為 아서어서해서②.md"
+        }
+      ],
+      "example_bank": [
+        {
+          "ko": "일어나서 유튜브를 봤어요.",
+          "zh_tw": "起床後看了 YouTube。",
+          "source_type": "video_sentence",
+          "sentence_id": "v_012"
+        },
+        {
+          "ko": "집에 와서 드라마를 봤어요.",
+          "zh_tw": "回到家後看了韓劇。",
+          "source_type": "video_sentence",
+          "sentence_id": "v_031"
+        }
+      ]
+    },
+    {
+      "id": "kg.beginner.reason.iraseo",
+      "kind": "grammar_point",
+      "title_zh_tw": "因為是... 所以... ~이라서/라서",
+      "surface": "~이라서/라서",
+      "level": "A2",
+      "tags": ["reason", "copula", "explanation"],
+      "summary_zh_tw": "名詞判斷句的理由表達。",
+      "explanation_zh_tw": "影片中的 `주말 저녁이라서` 是很典型的生活口語理由句，可以和動詞/形容詞的 ~아서/어서 對照教。",
+      "usage_notes_zh_tw": [
+        "適合放在 reason family 裡面",
+        "能和 `그래서` 搭配成前後句組"
+      ],
+      "source_refs": [],
+      "example_bank": [
+        {
+          "ko": "주말 저녁이라서 사람이 정말 많았어요.",
+          "zh_tw": "因為是週末晚上，人真的很多。",
+          "source_type": "video_sentence",
+          "sentence_id": "v_038"
+        }
+      ]
+    },
+    {
+      "id": "kg.beginner.simultaneous.eumyeonseo",
+      "kind": "grammar_point",
+      "title_zh_tw": "一邊...一邊... ~으면서",
+      "surface": "~으면서",
+      "level": "A2",
+      "tags": ["simultaneous", "action", "habit"],
+      "summary_zh_tw": "表達兩個動作同時進行。",
+      "explanation_zh_tw": "這支影片用 `보면서 자요` 呈現很自然的生活習慣敘述。",
+      "usage_notes_zh_tw": [
+        "適合和動作串接 `-고` 對照"
+      ],
+      "source_refs": [
+        {
+          "repo": "lingo-curriculum-source",
+          "path": "/Users/ywchen/Dev/lingo/lingo-curriculum-source/reports/youtube_beginner_grammar/clean_md/080_一邊一邊 으면서.md"
+        }
+      ],
+      "example_bank": [
+        {
+          "ko": "요즘은 길모어 걸스를 보면서 자요.",
+          "zh_tw": "最近都會聽著「吉爾莫女孩」睡覺。",
+          "source_type": "video_sentence",
+          "sentence_id": "v_046"
+        }
+      ]
+    },
+    {
+      "id": "kp.daily.ask_what_did_you_do",
+      "kind": "pattern_frame",
+      "title_zh_tw": "今天做了什麼？",
+      "surface": "오늘 뭐 했어요?",
+      "level": "A1",
+      "tags": ["daily", "question", "conversation opener"],
+      "summary_zh_tw": "最直接的日常回顧提問句型。",
+      "formula_ko": "오늘 뭐 했어요?",
+      "slot_notes_zh_tw": [
+        "可替換今天 -> 週末 / 昨天 / 最近",
+        "可替換 뭐 -> 누구를 / 어디에서 / 몇 시에"
+      ],
+      "example_bank": [
+        {
+          "ko": "여러분은 오늘 뭐 했어요?",
+          "zh_tw": "各位今天做了什麼呢？",
+          "source_type": "video_sentence",
+          "sentence_id": "v_047"
+        }
+      ]
+    },
+    {
+      "id": "kp.daily.today_topic_intro",
+      "kind": "pattern_frame",
+      "title_zh_tw": "今天要來聊...",
+      "surface": "오늘은 제가 __ 이야기해 볼 거예요.",
+      "level": "A2",
+      "tags": ["intro", "topic framing", "future plan"],
+      "summary_zh_tw": "影片或口頭分享的主題開場句。",
+      "formula_ko": "오늘은 제가 __ 이야기해 볼 거예요.",
+      "slot_notes_zh_tw": [
+        "slot 可放主題、經驗、感想"
+      ],
+      "example_bank": [
+        {
+          "ko": "오늘은 제가 뭐 했는지 이야기해 볼 거예요.",
+          "zh_tw": "今天我打算來聊聊我做了些什麼。",
+          "source_type": "video_sentence",
+          "sentence_id": "v_006"
+        }
+      ]
+    },
+    {
+      "id": "kp.daily.today_is_noun",
+      "kind": "pattern_frame",
+      "title_zh_tw": "今天是...",
+      "surface": "오늘은 N이에요.",
+      "level": "A1",
+      "tags": ["identity", "time", "basic statement"],
+      "summary_zh_tw": "非常基本的名詞判斷句，可用來講日期、身分、主題。",
+      "formula_ko": "오늘은 N이에요.",
+      "slot_notes_zh_tw": [
+        "N 可替換星期、節日、主題"
+      ],
+      "example_bank": [
+        {
+          "ko": "오늘은 토요일이에요.",
+          "zh_tw": "今天是星期六。",
+          "source_type": "video_sentence",
+          "sentence_id": "v_009"
+        }
+      ]
+    },
+    {
+      "id": "kp.daily.time_plus_habit",
+      "kind": "pattern_frame",
+      "title_zh_tw": "在某時間通常會...",
+      "surface": "저는 __에 __ 해요.",
+      "level": "A1",
+      "tags": ["habit", "time", "daily routine"],
+      "summary_zh_tw": "描述習慣與時間背景的基本句框。",
+      "formula_ko": "저는 __에 __ 해요.",
+      "slot_notes_zh_tw": [
+        "前一格放時間背景",
+        "後一格放習慣動作"
+      ],
+      "example_bank": [
+        {
+          "ko": "저는 주말에 늦게 일어나요.",
+          "zh_tw": "我在週末會比較晚起。",
+          "source_type": "video_sentence",
+          "sentence_id": "v_010"
+        }
+      ]
+    },
+    {
+      "id": "kp.daily.after_doing",
+      "kind": "pattern_frame",
+      "title_zh_tw": "做完 A 後做 B",
+      "surface": "__아서/어서 __했어요",
+      "level": "A1-A2",
+      "tags": ["sequence", "narrative", "daily routine"],
+      "summary_zh_tw": "用單句把兩個生活動作接起來。",
+      "formula_ko": "A-아서/어서 B-았/었어요.",
+      "slot_notes_zh_tw": [
+        "適合講晨間、回家後、出門前動作"
+      ],
+      "example_bank": [
+        {
+          "ko": "일어나서 유튜브를 봤어요.",
+          "zh_tw": "起床後看了 YouTube。",
+          "source_type": "video_sentence",
+          "sentence_id": "v_012"
+        },
+        {
+          "ko": "집에 와서 드라마를 봤어요.",
+          "zh_tw": "回到家後看了韓劇。",
+          "source_type": "video_sentence",
+          "sentence_id": "v_031"
+        }
+      ]
+    },
+    {
+      "id": "kp.daily.sequence.action_chain",
+      "kind": "pattern_frame",
+      "title_zh_tw": "動作串接",
+      "surface": "A하고 B하고 C했어요 / 할 거예요",
+      "level": "A1-A2",
+      "tags": ["sequence", "routine", "multi-action"],
+      "summary_zh_tw": "用 `-고/하고` 串多個動作，是這支影片的核心敘事骨架。",
+      "formula_ko": "A하고 B하고 C했어요.",
+      "slot_notes_zh_tw": [
+        "適合做 shadowing",
+        "可和 future/past 混搭"
+      ],
+      "example_bank": [
+        {
+          "ko": "세수하고 양치했어요.",
+          "zh_tw": "洗了臉、刷了牙。",
+          "source_type": "video_sentence",
+          "sentence_id": "v_023"
+        },
+        {
+          "ko": "샤워하고 세수하고 양치하고 잘 거예요.",
+          "zh_tw": "洗完澡、洗完臉、刷完牙後就要睡了。",
+          "source_type": "video_sentence",
+          "sentence_id": "v_045"
+        }
+      ]
+    },
+    {
+      "id": "kp.daily.purpose.go_for",
+      "kind": "pattern_frame",
+      "title_zh_tw": "為了做某事去...",
+      "surface": "N을/를 __으러/러 __에 갔어요",
+      "level": "A2",
+      "tags": ["purpose", "movement", "daily life"],
+      "summary_zh_tw": "非常適合生活情境的目的移動句型。",
+      "formula_ko": "N을/를 먹으러/보러/사러 __에 갔어요.",
+      "slot_notes_zh_tw": [
+        "動詞常見 slot: 먹다 / 보다 / 사다"
+      ],
+      "example_bank": [
+        {
+          "ko": "장을 보러 시장에 갔어요.",
+          "zh_tw": "為了買菜去了市場。",
+          "source_type": "video_sentence",
+          "sentence_id": "v_029"
+        },
+        {
+          "ko": "저녁을 먹으러 식당에 갔어요.",
+          "zh_tw": "去了餐廳吃晚餐。",
+          "source_type": "video_sentence",
+          "sentence_id": "v_036"
+        }
+      ]
+    },
+    {
+      "id": "kp.daily.like_noun",
+      "kind": "pattern_frame",
+      "title_zh_tw": "喜歡...",
+      "surface": "N을/를 좋아해요?",
+      "level": "A1",
+      "tags": ["preference", "question", "conversation"],
+      "summary_zh_tw": "高頻喜好提問，也是影片跟觀眾互動的核心句型。",
+      "formula_ko": "N을/를 좋아해요? / 좋아하세요?",
+      "slot_notes_zh_tw": [
+        "同一框架可切平語 / 敬語"
+      ],
+      "example_bank": [
+        {
+          "ko": "여러분은 버거킹을 좋아해요?",
+          "zh_tw": "各位喜歡漢堡王嗎？",
+          "source_type": "video_sentence",
+          "sentence_id": "v_021"
+        },
+        {
+          "ko": "여러분은 한국 드라마를 좋아하세요?",
+          "zh_tw": "各位喜歡韓劇嗎？",
+          "source_type": "video_sentence",
+          "sentence_id": "v_034"
+        }
+      ]
+    },
+    {
+      "id": "kp.daily.which_noun_like",
+      "kind": "pattern_frame",
+      "title_zh_tw": "喜歡哪一種...？",
+      "surface": "어떤 N을/를 좋아하세요?",
+      "level": "A2",
+      "tags": ["follow-up", "preference", "question"],
+      "summary_zh_tw": "在喜好提問後往下追問種類。",
+      "formula_ko": "어떤 N을/를 좋아하세요?",
+      "slot_notes_zh_tw": [
+        "能和 like_noun 做組合練習"
+      ],
+      "example_bank": [
+        {
+          "ko": "어떤 드라마를 좋아하세요?",
+          "zh_tw": "喜歡哪種劇呢？",
+          "source_type": "video_sentence",
+          "sentence_id": "v_035"
+        }
+      ]
+    },
+    {
+      "id": "kp.daily.definition_is_food",
+      "kind": "pattern_frame",
+      "title_zh_tw": "...是...的食物/東西",
+      "surface": "N은/는 __ 음식이에요",
+      "level": "A2",
+      "tags": ["definition", "explanation", "topic teaching"],
+      "summary_zh_tw": "用於解釋某個概念或主題字詞。",
+      "formula_ko": "N은/는 __ 음식이에요.",
+      "slot_notes_zh_tw": [
+        "適合百科式、影片講解式內容"
+      ],
+      "example_bank": [
+        {
+          "ko": "샤브샤브는 뜨거운 물에 고기하고 야채를 넣어서 먹는 음식이에요.",
+          "zh_tw": "涮涮鍋是在熱水裡放入肉和蔬菜吃的食物。",
+          "source_type": "video_sentence",
+          "sentence_id": "v_040"
+        }
+      ]
+    },
+    {
+      "id": "kp.daily.polite_question",
+      "kind": "pattern_frame",
+      "title_zh_tw": "敬語提問",
+      "surface": "__하세요?",
+      "level": "A1-A2",
+      "tags": ["polite", "question", "audience-facing"],
+      "summary_zh_tw": "和觀眾或陌生人互動時很常見的提問形式。",
+      "formula_ko": "N을/를 좋아하세요? / 어떤 N을 좋아하세요?",
+      "slot_notes_zh_tw": [
+        "可和平語 `좋아해요?` 對比"
+      ],
+      "example_bank": [
+        {
+          "ko": "어떤 드라마를 좋아하세요?",
+          "zh_tw": "喜歡哪種劇呢？",
+          "source_type": "video_sentence",
+          "sentence_id": "v_035"
+        }
+      ]
+    },
+    {
+      "id": "kp.daily.leave_comment",
+      "kind": "pattern_frame",
+      "title_zh_tw": "請在...留下...",
+      "surface": "__에 꼭 __ 남겨 주세요",
+      "level": "A2",
+      "tags": ["request", "call to action"],
+      "summary_zh_tw": "影片結尾很常見的互動請求句型。",
+      "formula_ko": "__에 꼭 __ 남겨 주세요.",
+      "slot_notes_zh_tw": [
+        "可替換留言區 / 訊息 / 姓名"
+      ],
+      "example_bank": [
+        {
+          "ko": "댓글에 꼭 남겨 주세요.",
+          "zh_tw": "請一定要在留言區留下評論。",
+          "source_type": "video_sentence",
+          "sentence_id": "v_048"
+        }
+      ]
+    },
+    {
+      "id": "kc.common.geurigo",
+      "kind": "connector_item",
+      "title_zh_tw": "그리고",
+      "surface": "그리고",
+      "level": "A1",
+      "tags": ["connector", "addition", "sequence"],
+      "summary_zh_tw": "最基本的連接詞，表示「然後、並且」。",
+      "source_refs": [
+        {
+          "repo": "lingo-curriculum-source",
+          "path": "/Users/ywchen/Dev/lingo/lingo-curriculum-source/reports/youtube_connectors/clean_md/113_H8UEuCFDtRQ_韓國人最常用的連接詞-1-그리고-然後-並且.md"
+        }
+      ],
+      "example_bank": [
+        {
+          "ko": "그리고 아침을 먹었어요.",
+          "zh_tw": "然後吃了早餐。",
+          "source_type": "video_sentence",
+          "sentence_id": "v_015"
+        }
+      ]
+    },
+    {
+      "id": "kc.common.geuraeseo",
+      "kind": "connector_item",
+      "title_zh_tw": "그래서",
+      "surface": "그래서",
+      "level": "A1",
+      "tags": ["connector", "result", "reason"],
+      "summary_zh_tw": "表示「所以、因此」，把前一句原因和後一句結果接起來。",
+      "source_refs": [
+        {
+          "repo": "lingo-curriculum-source",
+          "path": "/Users/ywchen/Dev/lingo/lingo-curriculum-source/reports/youtube_connectors/clean_md/112_INSQj_qQLBc_韓國人最常用的連接詞-2-그래서-所以-因此.md"
+        }
+      ],
+      "example_bank": [
+        {
+          "ko": "비가 왔어요. 그래서 우산을 썼어요.",
+          "zh_tw": "下雨了，所以撐了傘。",
+          "source_type": "curriculum_report"
+        },
+        {
+          "ko": "그래서 버거킹을 시켰어요.",
+          "zh_tw": "所以點了漢堡王。",
+          "source_type": "video_sentence",
+          "sentence_id": "v_017"
+        }
+      ]
+    },
+    {
+      "id": "kc.common.geudaeume",
+      "kind": "connector_item",
+      "title_zh_tw": "그다음에",
+      "surface": "그다음에",
+      "level": "A1",
+      "tags": ["connector", "sequence", "next step"],
+      "summary_zh_tw": "表示「接下來」，適合串日常動作。",
+      "source_refs": [
+        {
+          "repo": "lingo-curriculum-source",
+          "path": "/Users/ywchen/Dev/lingo/lingo-curriculum-source/reports/youtube_connectors/clean_md/105_Yb0rFyqpIJ8_韓國人最常用的連接詞-9-그-다음에-接下來-然後.md"
+        }
+      ],
+      "example_bank": [
+        {
+          "ko": "그다음에 화장을 하고 옷을 갈아입고",
+          "zh_tw": "接著畫了妝、換了衣服",
+          "source_type": "video_sentence",
+          "sentence_id": "v_025"
+        }
+      ]
+    },
+    {
+      "id": "kc.common.gapjagi",
+      "kind": "connector_item",
+      "title_zh_tw": "갑자기",
+      "surface": "갑자기",
+      "level": "A1",
+      "tags": ["adverbial connector", "suddenness"],
+      "summary_zh_tw": "表示突然發生、突然想到。",
+      "source_refs": [
+        {
+          "repo": "lingo-curriculum-source",
+          "path": "/Users/ywchen/Dev/lingo/lingo-curriculum-source/reports/youtube_connectors/clean_md/045_EdWJ9uIl-mk_韓國人最常用的連接詞-68-갑자기-突然地---動作狀態.md"
+        }
+      ],
+      "example_bank": [
+        {
+          "ko": "갑자기 햄버거가 먹고 싶었어요.",
+          "zh_tw": "突然想吃漢堡。",
+          "source_type": "video_sentence",
+          "sentence_id": "v_016"
+        }
+      ]
+    },
+    {
+      "id": "kv.time.saturday",
+      "kind": "vocab_item",
+      "title_zh_tw": "토요일",
+      "surface": "토요일",
+      "level": "A1",
+      "tags": ["time", "weekday"],
+      "summary_zh_tw": "星期六。"
+    },
+    {
+      "id": "kv.time.weekend",
+      "kind": "vocab_item",
+      "title_zh_tw": "주말",
+      "surface": "주말",
+      "level": "A1",
+      "tags": ["time", "weekend"],
+      "summary_zh_tw": "週末。"
+    },
+    {
+      "id": "kv.verb.wake_up",
+      "kind": "vocab_item",
+      "title_zh_tw": "일어나다",
+      "surface": "일어나다",
+      "level": "A1",
+      "tags": ["verb", "routine"],
+      "summary_zh_tw": "起床。"
+    },
+    {
+      "id": "kv.food.breakfast",
+      "kind": "vocab_item",
+      "title_zh_tw": "아침",
+      "surface": "아침",
+      "level": "A1",
+      "tags": ["food", "meal"],
+      "summary_zh_tw": "早餐。"
+    },
+    {
+      "id": "kv.food.hamburger",
+      "kind": "vocab_item",
+      "title_zh_tw": "햄버거",
+      "surface": "햄버거",
+      "level": "A1",
+      "tags": ["food"],
+      "summary_zh_tw": "漢堡。"
+    },
+    {
+      "id": "kv.place.market",
+      "kind": "vocab_item",
+      "title_zh_tw": "시장",
+      "surface": "시장",
+      "level": "A1",
+      "tags": ["place", "shopping"],
+      "summary_zh_tw": "市場。"
+    },
+    {
+      "id": "kv.media.youtube",
+      "kind": "vocab_item",
+      "title_zh_tw": "유튜브",
+      "surface": "유튜브",
+      "level": "A1",
+      "tags": ["media"],
+      "summary_zh_tw": "YouTube。"
+    },
+    {
+      "id": "kv.media.drama",
+      "kind": "vocab_item",
+      "title_zh_tw": "드라마",
+      "surface": "드라마",
+      "level": "A1",
+      "tags": ["media", "entertainment"],
+      "summary_zh_tw": "戲劇、韓劇。"
+    },
+    {
+      "id": "kv.food.dinner",
+      "kind": "vocab_item",
+      "title_zh_tw": "저녁",
+      "surface": "저녁",
+      "level": "A1",
+      "tags": ["food", "meal"],
+      "summary_zh_tw": "晚餐。"
+    },
+    {
+      "id": "kv.state.tired",
+      "kind": "vocab_item",
+      "title_zh_tw": "피곤하다",
+      "surface": "피곤하다",
+      "level": "A1",
+      "tags": ["state", "feeling"],
+      "summary_zh_tw": "累、疲倦。"
+    },
+    {
+      "id": "kv.action.leave_comment",
+      "kind": "vocab_item",
+      "title_zh_tw": "남기다",
+      "surface": "남기다",
+      "level": "A2",
+      "tags": ["action", "online interaction"],
+      "summary_zh_tw": "留下、留存。"
+    }
+  ],
+  "shadowing_mockup": {
+    "description": "Sentence-level shadowing; no token layer yet",
+    "default_sentence_ids": [
+      "v_011",
+      "v_012",
+      "v_016",
+      "v_017",
+      "v_029",
+      "v_045"
+    ],
+    "recommended_loops": [
+      {
+        "id": "loop.morning_routine",
+        "title": "早晨流程",
+        "sentence_ids": [
+          "v_011",
+          "v_012",
+          "v_015"
+        ]
+      },
+      {
+        "id": "loop.hamburger_story",
+        "title": "想吃漢堡",
+        "sentence_ids": [
+          "v_016",
+          "v_017",
+          "v_018",
+          "v_019",
+          "v_020"
+        ]
+      },
+      {
+        "id": "loop.before_sleep",
+        "title": "睡前動作",
+        "sentence_ids": [
+          "v_044",
+          "v_045",
+          "v_046"
+        ]
+      }
+    ]
+  },
+  "user_state_mockup": {
+    "hidden_knowledge_ids": [],
+    "boosted_knowledge_ids": [
+      "kg.beginner.past.ateoyo",
+      "kg.beginner.want.go_sipeoyo",
+      "kp.daily.sequence.action_chain"
+    ],
+    "completed_shadowing_loop_ids": []
+  }
+}

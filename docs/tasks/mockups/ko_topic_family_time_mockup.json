@@ -1,0 +1,364 @@
+{
+  "mockup_version": "v0.1",
+  "purpose": "Topic-family mockup for reusable app-side knowledge architecture",
+  "family": {
+    "id": "topic_family.time",
+    "title_zh_tw": "時間",
+    "level": "A1-A2",
+    "summary_zh_tw": "聚合星期、月份、相對日期與時鐘時間，作為 app 的主題層入口。",
+    "children": [
+      "topic.time.weekday",
+      "topic.time.month",
+      "topic.time.relative_day",
+      "topic.time.clock_time"
+    ]
+  },
+  "topics": [
+    {
+      "id": "topic.time.weekday",
+      "title_zh_tw": "星期幾",
+      "category": "time",
+      "level": "A1",
+      "summary_zh_tw": "辨認與使用星期一到星期日，並搭配日常句型說明日期或習慣。",
+      "ui_order": 1,
+      "parent_id": "topic_family.time",
+      "knowledge_refs": [
+        "kp.time.today_is_weekday",
+        "kp.time.on_weekday_do",
+        "kg.time.topic_particle_eunneun"
+      ],
+      "vocab_refs": [
+        "kv.time.weekday.monday",
+        "kv.time.weekday.tuesday",
+        "kv.time.weekday.wednesday",
+        "kv.time.weekday.thursday",
+        "kv.time.weekday.friday",
+        "kv.time.weekday.saturday",
+        "kv.time.weekday.sunday"
+      ],
+      "sentence_refs": [
+        "video:79Pwq7MTUPE:v_009",
+        "dialogue:A1-01:sample_01"
+      ],
+      "video_refs": [
+        "79Pwq7MTUPE"
+      ],
+      "display": {
+        "hero_vocab_ids": [
+          "kv.time.weekday.monday",
+          "kv.time.weekday.saturday",
+          "kv.time.weekday.sunday"
+        ],
+        "hero_knowledge_ids": [
+          "kp.time.today_is_weekday",
+          "kp.time.on_weekday_do"
+        ]
+      }
+    },
+    {
+      "id": "topic.time.month",
+      "title_zh_tw": "月份",
+      "category": "time",
+      "level": "A1",
+      "summary_zh_tw": "辨認一月到十二月，搭配日期、生日、行程與季節情境。",
+      "ui_order": 2,
+      "parent_id": "topic_family.time",
+      "knowledge_refs": [
+        "kp.time.this_month",
+        "kp.time.in_month_do"
+      ],
+      "vocab_refs": [
+        "kv.time.month.january",
+        "kv.time.month.february",
+        "kv.time.month.march",
+        "kv.time.month.april",
+        "kv.time.month.may",
+        "kv.time.month.june",
+        "kv.time.month.july",
+        "kv.time.month.august",
+        "kv.time.month.september",
+        "kv.time.month.october",
+        "kv.time.month.november",
+        "kv.time.month.december"
+      ],
+      "sentence_refs": [],
+      "video_refs": []
+    },
+    {
+      "id": "topic.time.relative_day",
+      "title_zh_tw": "相對日期",
+      "category": "time",
+      "level": "A1",
+      "summary_zh_tw": "處理前天、昨天、今天、明天、後天這類以說話當下為中心的時間詞。",
+      "ui_order": 3,
+      "parent_id": "topic_family.time",
+      "knowledge_refs": [
+        "kp.time.relative_day_do",
+        "kp.time.what_did_you_do_when"
+      ],
+      "vocab_refs": [
+        "kv.time.relative_day.day_before_yesterday",
+        "kv.time.relative_day.yesterday",
+        "kv.time.relative_day.today",
+        "kv.time.relative_day.tomorrow",
+        "kv.time.relative_day.day_after_tomorrow"
+      ],
+      "sentence_refs": [
+        "video:79Pwq7MTUPE:v_005",
+        "video:79Pwq7MTUPE:v_047"
+      ],
+      "video_refs": [
+        "79Pwq7MTUPE"
+      ]
+    },
+    {
+      "id": "topic.time.clock_time",
+      "title_zh_tw": "幾點 / 時刻",
+      "category": "time",
+      "level": "A1-A2",
+      "summary_zh_tw": "辨認幾點、幾分、早上下午晚上，並用於日程敘述。",
+      "ui_order": 4,
+      "parent_id": "topic_family.time",
+      "knowledge_refs": [
+        "kp.time.at_clock_time",
+        "kp.time.about_time_jjeum"
+      ],
+      "vocab_refs": [
+        "kv.time.part_of_day.morning",
+        "kv.time.part_of_day.afternoon",
+        "kv.time.part_of_day.evening",
+        "kv.time.part_of_day.night",
+        "kv.time.clock.one_oclock",
+        "kv.time.clock.six_oclock",
+        "kv.time.clock.nine_oclock"
+      ],
+      "sentence_refs": [
+        "video:79Pwq7MTUPE:v_011",
+        "video:79Pwq7MTUPE:v_036"
+      ],
+      "video_refs": [
+        "79Pwq7MTUPE"
+      ]
+    }
+  ],
+  "knowledge_items": [
+    {
+      "id": "kp.time.today_is_weekday",
+      "kind": "pattern_frame",
+      "title_zh_tw": "今天是星期幾",
+      "surface": "오늘은 N요일이에요",
+      "level": "A1",
+      "summary_zh_tw": "最直接的星期表達句型，適合做主題頁第一個高亮框架。",
+      "topic_refs": [
+        "topic.time.weekday"
+      ],
+      "example_bank": [
+        {
+          "ko": "오늘은 토요일이에요.",
+          "zh_tw": "今天是星期六。",
+          "sentence_ref": "video:79Pwq7MTUPE:v_009"
+        }
+      ]
+    },
+    {
+      "id": "kp.time.on_weekday_do",
+      "kind": "pattern_frame",
+      "title_zh_tw": "在星期幾會做...",
+      "surface": "N요일에 __ 해요",
+      "level": "A1",
+      "summary_zh_tw": "用星期幾搭配習慣或安排，是主題延伸最自然的下一步。",
+      "topic_refs": [
+        "topic.time.weekday"
+      ],
+      "example_bank": [
+        {
+          "ko": "토요일에 늦게 일어나요.",
+          "zh_tw": "星期六會比較晚起。",
+          "source_type": "mock_sentence"
+        }
+      ]
+    },
+    {
+      "id": "kg.time.topic_particle_eunneun",
+      "kind": "grammar_point",
+      "title_zh_tw": "主題助詞 은/는",
+      "surface": "은/는",
+      "level": "A1",
+      "summary_zh_tw": "在星期、月份、今天/昨天這種時間主題中很常作為句首主題標記。",
+      "topic_refs": [
+        "topic.time.weekday",
+        "topic.time.relative_day",
+        "topic.time.month"
+      ]
+    },
+    {
+      "id": "kp.time.this_month",
+      "kind": "pattern_frame",
+      "title_zh_tw": "這個月是...",
+      "surface": "이번 달은 N월이에요",
+      "level": "A1",
+      "summary_zh_tw": "月份主題的基本判斷句。",
+      "topic_refs": [
+        "topic.time.month"
+      ]
+    },
+    {
+      "id": "kp.time.in_month_do",
+      "kind": "pattern_frame",
+      "title_zh_tw": "在某個月份做...",
+      "surface": "N월에 __ 해요",
+      "level": "A1-A2",
+      "summary_zh_tw": "把月份接到活動、生日、旅行等情境。",
+      "topic_refs": [
+        "topic.time.month"
+      ]
+    },
+    {
+      "id": "kp.time.relative_day_do",
+      "kind": "pattern_frame",
+      "title_zh_tw": "昨天/今天/明天做...",
+      "surface": "어제/오늘/내일 __ 했어요/해요/할 거예요",
+      "level": "A1",
+      "summary_zh_tw": "把相對日期和時態一起放進同一個學習框架。",
+      "topic_refs": [
+        "topic.time.relative_day"
+      ],
+      "example_bank": [
+        {
+          "ko": "오늘 뭐 했어요?",
+          "zh_tw": "今天做了什麼呢？",
+          "sentence_ref": "video:79Pwq7MTUPE:v_005"
+        }
+      ]
+    },
+    {
+      "id": "kp.time.what_did_you_do_when",
+      "kind": "pattern_frame",
+      "title_zh_tw": "在某一天做了什麼？",
+      "surface": "__ 뭐 했어요?",
+      "level": "A1",
+      "summary_zh_tw": "可把今天、昨天、前天、週末等時間詞直接替換進去。",
+      "topic_refs": [
+        "topic.time.relative_day",
+        "topic.time.weekday"
+      ]
+    },
+    {
+      "id": "kp.time.at_clock_time",
+      "kind": "pattern_frame",
+      "title_zh_tw": "在幾點做...",
+      "surface": "N시에 __ 했어요",
+      "level": "A1",
+      "summary_zh_tw": "最基礎的時刻句型，可從影片中的 9 點與 6 點直接引入。",
+      "topic_refs": [
+        "topic.time.clock_time"
+      ],
+      "example_bank": [
+        {
+          "ko": "오후 6시에 저녁을 먹으러 식당에 갔어요.",
+          "zh_tw": "下午 6 點去了餐廳吃晚餐。",
+          "sentence_ref": "video:79Pwq7MTUPE:v_036"
+        }
+      ]
+    },
+    {
+      "id": "kp.time.about_time_jjeum",
+      "kind": "pattern_frame",
+      "title_zh_tw": "大約幾點左右",
+      "surface": "N시쯤",
+      "level": "A1-A2",
+      "summary_zh_tw": "時間主題常見的模糊表達，適合從 `9시쯤` 這類真實影片句帶入。",
+      "topic_refs": [
+        "topic.time.clock_time"
+      ],
+      "example_bank": [
+        {
+          "ko": "오늘은 오전 9시쯤 일어났어요.",
+          "zh_tw": "今天大概上午 9 點左右起床。",
+          "sentence_ref": "video:79Pwq7MTUPE:v_011"
+        }
+      ]
+    }
+  ],
+  "vocab_items": [
+    { "id": "kv.time.weekday.monday", "surface": "월요일", "title_zh_tw": "星期一", "topic_refs": ["topic.time.weekday"] },
+    { "id": "kv.time.weekday.tuesday", "surface": "화요일", "title_zh_tw": "星期二", "topic_refs": ["topic.time.weekday"] },
+    { "id": "kv.time.weekday.wednesday", "surface": "수요일", "title_zh_tw": "星期三", "topic_refs": ["topic.time.weekday"] },
+    { "id": "kv.time.weekday.thursday", "surface": "목요일", "title_zh_tw": "星期四", "topic_refs": ["topic.time.weekday"] },
+    { "id": "kv.time.weekday.friday", "surface": "금요일", "title_zh_tw": "星期五", "topic_refs": ["topic.time.weekday"] },
+    { "id": "kv.time.weekday.saturday", "surface": "토요일", "title_zh_tw": "星期六", "topic_refs": ["topic.time.weekday"] },
+    { "id": "kv.time.weekday.sunday", "surface": "일요일", "title_zh_tw": "星期日", "topic_refs": ["topic.time.weekday"] },
+
+    { "id": "kv.time.month.january", "surface": "1월", "title_zh_tw": "一月", "topic_refs": ["topic.time.month"] },
+    { "id": "kv.time.month.february", "surface": "2월", "title_zh_tw": "二月", "topic_refs": ["topic.time.month"] },
+    { "id": "kv.time.month.march", "surface": "3월", "title_zh_tw": "三月", "topic_refs": ["topic.time.month"] },
+    { "id": "kv.time.month.april", "surface": "4월", "title_zh_tw": "四月", "topic_refs": ["topic.time.month"] },
+    { "id": "kv.time.month.may", "surface": "5월", "title_zh_tw": "五月", "topic_refs": ["topic.time.month"] },
+    { "id": "kv.time.month.june", "surface": "6월", "title_zh_tw": "六月", "topic_refs": ["topic.time.month"] },
+    { "id": "kv.time.month.july", "surface": "7월", "title_zh_tw": "七月", "topic_refs": ["topic.time.month"] },
+    { "id": "kv.time.month.august", "surface": "8월", "title_zh_tw": "八月", "topic_refs": ["topic.time.month"] },
+    { "id": "kv.time.month.september", "surface": "9월", "title_zh_tw": "九月", "topic_refs": ["topic.time.month"] },
+    { "id": "kv.time.month.october", "surface": "10월", "title_zh_tw": "十月", "topic_refs": ["topic.time.month"] },
+    { "id": "kv.time.month.november", "surface": "11월", "title_zh_tw": "十一月", "topic_refs": ["topic.time.month"] },
+    { "id": "kv.time.month.december", "surface": "12월", "title_zh_tw": "十二月", "topic_refs": ["topic.time.month"] },
+
+    { "id": "kv.time.relative_day.day_before_yesterday", "surface": "그저께", "title_zh_tw": "前天", "topic_refs": ["topic.time.relative_day"] },
+    { "id": "kv.time.relative_day.yesterday", "surface": "어제", "title_zh_tw": "昨天", "topic_refs": ["topic.time.relative_day"] },
+    { "id": "kv.time.relative_day.today", "surface": "오늘", "title_zh_tw": "今天", "topic_refs": ["topic.time.relative_day"] },
+    { "id": "kv.time.relative_day.tomorrow", "surface": "내일", "title_zh_tw": "明天", "topic_refs": ["topic.time.relative_day"] },
+    { "id": "kv.time.relative_day.day_after_tomorrow", "surface": "모레", "title_zh_tw": "後天", "topic_refs": ["topic.time.relative_day"] },
+
+    { "id": "kv.time.part_of_day.morning", "surface": "오전", "title_zh_tw": "上午", "topic_refs": ["topic.time.clock_time"] },
+    { "id": "kv.time.part_of_day.afternoon", "surface": "오후", "title_zh_tw": "下午", "topic_refs": ["topic.time.clock_time"] },
+    { "id": "kv.time.part_of_day.evening", "surface": "저녁", "title_zh_tw": "傍晚 / 晚餐時段", "topic_refs": ["topic.time.clock_time"] },
+    { "id": "kv.time.part_of_day.night", "surface": "밤", "title_zh_tw": "夜晚", "topic_refs": ["topic.time.clock_time"] },
+    { "id": "kv.time.clock.one_oclock", "surface": "1시", "title_zh_tw": "一點", "topic_refs": ["topic.time.clock_time"] },
+    { "id": "kv.time.clock.six_oclock", "surface": "6시", "title_zh_tw": "六點", "topic_refs": ["topic.time.clock_time"] },
+    { "id": "kv.time.clock.nine_oclock", "surface": "9시", "title_zh_tw": "九點", "topic_refs": ["topic.time.clock_time"] }
+  ],
+  "sentence_link_examples": [
+    {
+      "sentence_ref": "video:79Pwq7MTUPE:v_009",
+      "ko": "오늘은 토요일이에요.",
+      "topic_refs": [
+        "topic.time.weekday"
+      ],
+      "knowledge_refs": [
+        "kp.time.today_is_weekday",
+        "kg.time.topic_particle_eunneun"
+      ],
+      "vocab_refs": [
+        "kv.time.relative_day.today",
+        "kv.time.weekday.saturday"
+      ]
+    },
+    {
+      "sentence_ref": "video:79Pwq7MTUPE:v_011",
+      "ko": "오늘은 오전 9시쯤 일어났어요.",
+      "topic_refs": [
+        "topic.time.relative_day",
+        "topic.time.clock_time"
+      ],
+      "knowledge_refs": [
+        "kp.time.about_time_jjeum"
+      ],
+      "vocab_refs": [
+        "kv.time.relative_day.today",
+        "kv.time.part_of_day.morning",
+        "kv.time.clock.nine_oclock"
+      ]
+    }
+  ],
+  "ui_notes": {
+    "topic_list_page": [
+      "時間 family 是一個大卡片",
+      "卡片內再列 weekday / month / relative_day / clock_time 四個子主題",
+      "每個子主題都顯示對應影片數、核心單字數、核心句型數"
+    ],
+    "topic_detail_page": [
+      "上方顯示主題說明與核心高亮句型",
+      "中段顯示核心單字網格",
+      "下段顯示相關句子與影片"
+    ]
+  }
+}

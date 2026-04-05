@@ -48,7 +48,7 @@
       "desc": "Implement normalization/build pipeline from content-ko overlay to app-facing learning library artifacts.",
       "status": "todo",
       "depends_on": [
-        "LLCM-003",
+        "LLCM-003b",
         "LLCM-004"
       ]
     },

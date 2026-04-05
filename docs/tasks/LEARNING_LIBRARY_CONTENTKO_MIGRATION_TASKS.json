@@ -63,7 +63,7 @@
     },
     {
       "id": "LLCM-005c",
-      "desc": "[Pipeline] Implement links aggregation and referential integrity validation.",
+      "desc": "[Pipeline] Implement links aggregation and referential integrity validation (all types: video, dialogue, article).",
       "status": "todo",
       "depends_on": [
         "LLCM-005a",
@@ -71,11 +71,20 @@
       ]
     },
     {
-      "id": "LLCM-005d",
-      "desc": "[Pipeline] Emit finalized JSON artifacts following Learning Library v0 schema.",
+      "id": "LLCM-005e",
+      "desc": "[Pipeline] Implement sentence payload extraction and normalization (text, translation, refs, timestamps) from video/dialogue/article sources.",
       "status": "todo",
       "depends_on": [
-        "LLCM-005c"
+        "LLCM-005b"
+      ]
+    },
+    {
+      "id": "LLCM-005d",
+      "desc": "[Pipeline] Emit finalized JSON artifacts (6 files) following Learning Library v0 artifact schema.",
+      "status": "todo",
+      "depends_on": [
+        "LLCM-005c",
+        "LLCM-005e"
       ]
     },
     {

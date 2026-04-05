@@ -11,13 +11,13 @@
 ### Sources Index 查詢需求
 
 - 主頁 (Home) 的內容列表顯示。
-- 根據 `type` (video/dialogue), `level`, `topics` 進行過濾與搜尋。
+- 根據 `type` (**video/dialogue/article**), `level`, `topics` 進行過濾與搜尋。
 - 提供基本媒體資訊 (thumbnail, duration) 以便在列表顯示，不需讀取完整 source 內容。
 
 ### Sources Index 為何是 Artifact？
 
-- **效能**: 原始來源分散在 `core/video` 與 `core/dialogue`，App 若在啟動時掃描數百個檔案會過慢。
-- **整合**: 將 `core` 的 metadata 與 `i18n` 的標題合併。
+- **效能**: 原始來源分散在 `core/video`, `core/dialogue`, `core/article`，App 若在啟動時掃描數百個檔案會過慢。
+- **整合**: 將各類 source 的 metadata 與 `i18n` 的標題合併。
 
 ### Sources Index Schema
 
@@ -30,36 +30,51 @@ interface SourcesIndex {
     title: string;       // Localized (zh_tw)
     level: string;       // A1, A2, B1...
     thumbnail_url?: string;
-    duration?: number;   // seconds
+    duration?: number;   // seconds (主要針對 video/podcast)
     topic_refs: string[];
     knowledge_refs: string[];
   }[];
 }
 ```
 
-### Sources Index Sample Shape
+---
 
-```json
-{
-  "sources": [
-    {
-      "id": "src.ko.video.79Pwq7MTUPE",
-      "type": "video",
-      "mediaId": "79Pwq7MTUPE",
-      "title": "Vlog: 輕鬆聽韓文",
-      "level": "A1",
-      "thumbnail_url": "https://img.youtube.com/vi/79Pwq7MTUPE/0.jpg",
-      "duration": 345,
-      "topic_refs": ["topic.time.weekday"],
-      "knowledge_refs": ["kg.beginner.present.copula"]
-    }
-  ]
+## 2. `learning_library_sentences.json` (Decided: Required)
+
+### Sentences 查詢需求
+
+- **學習核心內容**: 當進入 `SourceDetailScreen` 時，App 需要顯示對話或影片的每一行原文、翻譯與時間軸。
+- **知識點掛載**: 每一句對應到的 `knowledge_refs` 與 `vocab_refs`。
+
+### Sentences 為何是 Artifact？
+
+- **避免 Raw File 依賴**: App 在 artifact 模式下不應直讀 `content-ko` 原始 source 檔（如 `core/video/*.json`），以免暴露原始結構變動風險。
+- **正規化輸出**: 將影片、對話、文章三種不同 input 結構，統一轉化為 App 顯示層最易消費的 `Sentence` 陣列。
+
+### Sentences Schema
+
+```typescript
+interface SentencesLibrary {
+  index: {
+    [source_id: string]: {
+      sentences: {
+        id: string;
+        surface_ko: string;
+        translation: string;
+        start_ms?: number;
+        end_ms?: number;
+        knowledge_refs: string[];
+        topic_refs: string[];
+        vocab_refs: string[];
+      }[];
+    };
+  };
 }
 ```
 
 ---
 
-## 2. `learning_library_knowledge.json`
+## 3. `learning_library_knowledge.json`
 
 ### Knowledge 查詢需求
 
@@ -70,7 +85,6 @@ interface SourcesIndex {
 ### Knowledge 為何是 Artifact？
 
 - **本地化合併**: 將 `content/core/learning_library/knowledge` (結構) 與 `content/i18n/zh_tw/learning_library/knowledge` (中文解說) 合併。
-- **分類聚合**: 將所有 kind (grammar, pattern...) 聚合以便 App 一次載入。
 
 ### Knowledge Schema
 
@@ -96,33 +110,9 @@ interface KnowledgeLibrary {
 }
 ```
 
-### Knowledge Sample Shape
-
-```json
-{
-  "knowledge_items": [
-    {
-      "id": "kg.beginner.present.copula",
-      "kind": "grammar",
-      "subcategory": "copula",
-      "level": "A1",
-      "tags": ["identity", "daily_life"],
-      "surface": "~이에요/예요",
-      "title": "是 (肯定句) ~이에요/예요",
-      "summary": "用於名詞後，表示「是某物」或「是某人」。",
-      "explanation": "### 形狀變化\n- 有收音: ~이에요\n- 無收音: ~예요",
-      "usage_notes": ["這是非正式尊重的敬語結尾"],
-      "example_bank": [
-        { "ko": "학생이에요.", "zh_tw": "是學生。", "source_ref": "src.ko.dialogue.a1_01" }
-      ]
-    }
-  ]
-}
-```
-
 ---
 
-## 3. `learning_library_topics.json`
+## 4. `learning_library_topics.json`
 
 ### Topics 查詢需求
 
@@ -154,17 +144,15 @@ interface TopicsLibrary {
 
 ---
 
-## 4. `learning_library_links.json`
+## 5. `learning_library_links.json`
 
 ### Links 查詢需求
 
 - **反查 (Reverse Lookup)**: 哪些影片有用到這個文法？ (Knowledge Detail 頁面顯示)。
-- **精準標記**: 在影片播放時，哪個 `sentence` 對應到哪個 `knowledge_item`。
 
 ### Links 為何是 Artifact？
 
 - **集中管理**: Source Truth (影片本體) 不應頻繁改動，新發現的關聯存放在 links artifact 中。
-- **圖譜轉化**: 將原始 `links/` 目錄的片段檔案，轉化為 App 可快速索引的字典。
 
 ### Links Schema
 
@@ -172,8 +160,8 @@ interface TopicsLibrary {
 interface LinksLibrary {
   links: {
     id: string;
-    source_id: string;   // 起點 (通常是 sentence_id 或 source_id)
-    target_id: string;   // 終點 (通常是 knowledge_id, topic_id)
+    source_id: string;
+    target_id: string;
     relationType: 'teaches' | 'uses' | 'example_of' | 'related_to';
   }[];
 }
@@ -181,14 +169,14 @@ interface LinksLibrary {
 
 ---
 
-## 5. `learning_library_vocab_sets.json` (Decided: Required)
+## 6. `learning_library_vocab_sets.json` (Decided: Required)
 
 ### Vocab Sets 決策說明
 
 **必須單獨存在**。
 
 - **原因**: 它定位為「教學挑選層」。一個主題只需要教 20 個核心單字，而字典可能有 2000 個。
-- **職責**: App 需要快速載入某主題的「字型、翻譯、發音」，而不需要加載龐大的正式字典層。
+- **職責**: App 需要快速載入某主題的「字型、翻譯、發音」。
 
 ### Vocab Sets Schema
 
@@ -208,6 +196,7 @@ interface VocabSetsLibrary {
 
 ## 關鍵決策與落地方案
 
-1. **i18n 策略**: Pipeline 會根據 `TARGET_LANG` (如 `zh_tw`) 產出對應的一組檔案。App 根據使用者語系切換讀取的 artifact 路徑。
-2. **不含 Source Body**: `learning_library_sources_index.json` 只含 metadata。真正的影片/對話內容 (sentences) 仍維持在獨立的原文檔案或大型單檔，本 artifact 僅作為導航入口。
-3. **Link 的威力**: 所有的 `refs` 應在 pipeline 階段進行引用完整性檢查 (Referential Integrity)。
+1. **Intake 隔離原則**: App 在啟動時載入上述 Artifact。**嚴禁在 artifact 模式下跨 Repo 讀取 `content-ko` 的原始私有檔案**。所有的顯示需求必須由 pipeline 打包進 artifact。
+2. **多類型支援**: Pipeline 必須掃描 `core/video`, `core/dialogue`, `core/article` 三大目錄，並將其統一正規化為 `sources_index` 與 `sentences` payload。
+3. **i18n 策略**: Pipeline 會根據 `TARGET_LANG` (如 `zh_tw`) 產出對應的一組檔案。
+4. **Link 的威力**: 所有的 `refs` 應在 pipeline 階段進行引用完整性檢查 (Referential Integrity)。

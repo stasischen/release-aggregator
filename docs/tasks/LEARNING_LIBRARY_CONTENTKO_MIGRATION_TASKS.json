@@ -6,13 +6,13 @@
     {
       "id": "LLCM-001",
       "desc": "Freeze source/sentence/knowledge/topic/vocab_set/links contracts based on the already-validated app prototype.",
-      "status": "todo",
+      "status": "done",
       "depends_on": []
     },
     {
       "id": "LLCM-002",
       "desc": "Define content-ko overlay directory layout under content/core/learning_library and content/i18n/zh_tw/learning_library.",
-      "status": "todo",
+      "status": "done",
       "depends_on": [
         "LLCM-001"
       ]
@@ -20,7 +20,7 @@
     {
       "id": "LLCM-003",
       "desc": "Migrate the first verified source pack into content-ko: video 79Pwq7MTUPE, dialogue A1-01, article A1-01 intro, A1-1 knowledge items, and time topic family.",
-      "status": "todo",
+      "status": "done",
       "depends_on": [
         "LLCM-001",
         "LLCM-002"

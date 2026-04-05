@@ -1,0 +1,49 @@
+{
+  "task_group": "knowledge_ingestion_v0",
+  "owner_repo": "release-aggregator",
+  "status": "planning",
+  "tasks": [
+    {
+      "id": "kg-plan-001",
+      "title": "Freeze knowledge ingestion taxonomy and source roles",
+      "status": "done",
+      "deliverable": "docs/tasks/KNOWLEDGE_INGESTION_PLAN_V0.md"
+    },
+    {
+      "id": "kg-plan-002",
+      "title": "Define first migration pack and exclusion gate",
+      "status": "done",
+      "deliverable": "docs/tasks/KNOWLEDGE_FIRST_MIGRATION_PACK_V0.md"
+    },
+    {
+      "id": "kg-spec-003",
+      "title": "Define canonical knowledge item template for content-ko",
+      "status": "todo",
+      "deliverable": "content-ko knowledge item template and field examples"
+    },
+    {
+      "id": "kg-mig-004",
+      "title": "Manually migrate 8-15 low-risk knowledge items",
+      "status": "todo",
+      "deliverable": "first content-ko knowledge pack"
+    },
+    {
+      "id": "kg-verify-005",
+      "title": "Validate links and artifact compatibility with migrated pack",
+      "status": "todo",
+      "deliverable": "pipeline verification notes"
+    },
+    {
+      "id": "kg-pipeline-006",
+      "title": "Evaluate schema extensions for aliases, source refs, and teaching blocks",
+      "status": "todo",
+      "deliverable": "schema extension proposal"
+    },
+    {
+      "id": "kg-auto-007",
+      "title": "Prototype normalizer script after manual pack proves stable",
+      "status": "todo",
+      "deliverable": "normalizer prototype"
+    }
+  ]
+}

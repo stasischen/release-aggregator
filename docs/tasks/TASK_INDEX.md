@@ -39,7 +39,7 @@ Phase C: 前端整合（lingo-frontend-web）
 | :--- | :--- | :--- | :--- | :--- |
 | CONTENT_V5_MIGRATION_L0 | Legacy L0 Content V5 Standardization | A2 | 0/8 tasks | [JSON](CONTENT_V5_MIGRATION_L0_TASKS.json) · [PLAN](CONTENT_V5_MIGRATION_L0.md) |
 | GOLDEN_STANDARD_RECONCILIATION | Ingest Golden / Surgery into unified build & recovery plan | B1 | 0/3 tasks | [PLAN](GOLDEN_STANDARD_RECONCILIATION_PLAN_V0.md) · [INV](REVIEW_ARTIFACT_INVENTORY_V0.md) |
-| LEARNING_LIBRARY_CONTENTKO_MIGRATION | Learning Library 正式化：content-ko overlay + build artifact + frontend intake | C+/Ops | 0/8 tasks | [JSON](LEARNING_LIBRARY_CONTENTKO_MIGRATION_TASKS.json) · [PLAN](LEARNING_LIBRARY_CONTENTKO_MIGRATION_PLAN.md) |
+| LEARNING_LIBRARY_CONTENTKO_MIGRATION | Learning Library 正式化：content-ko overlay + build artifact + frontend intake | C+/Ops | 10/13 tasks | [JSON](LEARNING_LIBRARY_CONTENTKO_MIGRATION_TASKS.json) · [PLAN](LEARNING_LIBRARY_CONTENTKO_MIGRATION_PLAN.md) |
 | STABLE_TEST_RCA | Root Cause Analysis for Skipped Stable Tests | QA | 0/3 tasks | [PLAN](STABLE_TEST_ROOT_CAUSE_ANALYSIS.md) |
 
 ### Phase C — 前端整合（可立即啟動）

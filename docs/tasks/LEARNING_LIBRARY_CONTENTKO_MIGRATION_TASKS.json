@@ -29,7 +29,7 @@
     {
       "id": "LLCM-003b",
       "desc": "Execute the actual content migration: move verified items into content-ko overlay directories.",
-      "status": "todo",
+      "status": "done",
       "depends_on": [
         "LLCM-003a"
       ]

@@ -28,13 +28,13 @@
     {
       "id": "GRI-03",
       "summary": "Recovery Pack #1",
-      "status": "TODO",
+      "status": "COMPLETED",
       "description": "Execute recovery for target lessons A2-01, A2-06, B1-01, C1-01.",
       "items": [
-        { "id": "GRI-03-01", "summary": "Dump A2-01 from Gold to Surgery", "status": "TODO" },
-        { "id": "GRI-03-02", "summary": "Standardize A2-06 run artifacts (Fix path leakage)", "status": "TODO" },
-        { "id": "GRI-03-03", "summary": "Finalize B1-01 (Surgery to Gold)", "status": "TODO" },
-        { "id": "GRI-03-04", "summary": "Verify C1-01 end-to-end", "status": "TODO" }
+        { "id": "GRI-03-01", "summary": "Dump A2-01 from Gold to Surgery", "status": "COMPLETED" },
+        { "id": "GRI-03-02", "summary": "Standardize A2-06 run artifacts (Fix path leakage)", "status": "COMPLETED" },
+        { "id": "GRI-03-03", "summary": "Finalize B1-01 (Surgery to Gold)", "status": "COMPLETED" },
+        { "id": "GRI-03-04", "summary": "Verify C1-01 end-to-end", "status": "COMPLETED" }
       ]
     },
     {

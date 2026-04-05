@@ -6,23 +6,23 @@
     {
       "id": "GRI-01",
       "summary": "Formalize Integration Documentation",
-      "status": "IN_PROGRESS",
+      "status": "COMPLETED",
       "description": "Create V1 integration plan and update SOPs.",
       "items": [
         { "id": "GRI-01-01", "summary": "Create GOLDEN_REVIEW_INTEGRATION_PLAN_V1.md", "status": "COMPLETED" },
-        { "id": "GRI-01-02", "summary": "Update KO_REVIEW_RUN_ARTIFACT_POLICY.md to clarify roles", "status": "TODO" },
-        { "id": "GRI-01-03", "summary": "Define Mismatch Policy in build.py", "status": "TODO" }
+        { "id": "GRI-01-02", "summary": "Update KO_REVIEW_RUN_ARTIFACT_POLICY.md to clarify roles", "status": "COMPLETED" },
+        { "id": "GRI-01-03", "summary": "Define Mismatch Policy in build.py", "status": "COMPLETED" }
       ]
     },
     {
       "id": "GRI-02",
       "summary": "Pipeline Integration & Gating",
-      "status": "TODO",
+      "status": "COMPLETED",
       "description": "Enhance build.py to support the new contract.",
       "items": [
-        { "id": "GRI-02-01", "summary": "Implement Lexical Drift check (build failure)", "status": "TODO" },
-        { "id": "GRI-02-02", "summary": "Add is_verified flag based on attest.json", "status": "TODO" },
-        { "id": "GRI-02-03", "summary": "Add source_of_decision metadata to token objects", "status": "TODO" }
+        { "id": "GRI-02-01", "summary": "Implement Lexical Drift check (build failure)", "status": "COMPLETED" },
+        { "id": "GRI-02-02", "summary": "Add is_verified flag based on attest.json", "status": "COMPLETED" },
+        { "id": "GRI-02-03", "summary": "Add source_of_decision metadata to token objects", "status": "COMPLETED" }
       ]
     },
     {

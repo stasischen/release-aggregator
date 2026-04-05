@@ -9,7 +9,7 @@ This document formalizes the `golden / surgery / attest` integration for the Lin
 | **Golden Sample** | `content/gold_standards/**/*.jsonl` | **Truth** | **1 (Highest)** |
 | **Surgery** | `data/reviews/runs/**/surgery_*.json` | **Executable Patch** | N/A (Internal) |
 | **Attest** | `data/reviews/runs/**/attest.json` | **Audit Record** | Gate Requirement |
-| **Engine Rules** | `engine/rules/*.json` | **Logic Logic** | **2 (Fallback)** |
+| Engine Rules | `engine/rules/*.json` | **System Rules** | **2 (Fallback)** |
 
 ### Priority Contract (Phased)
 

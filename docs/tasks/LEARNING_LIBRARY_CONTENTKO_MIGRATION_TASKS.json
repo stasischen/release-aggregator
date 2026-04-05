@@ -46,7 +46,7 @@
     {
       "id": "LLCM-005a",
       "desc": "[Pipeline] Implement merge strategy for core structure and i18n content (knowledge/topics/vocab_sets).",
-      "status": "todo",
+      "status": "done",
       "depends_on": [
         "LLCM-003b",
         "LLCM-004"
@@ -55,7 +55,7 @@
     {
       "id": "LLCM-005b",
       "desc": "[Pipeline] Implement sources_index extraction from video/dialogue/article core sources.",
-      "status": "todo",
+      "status": "done",
       "depends_on": [
         "LLCM-003b",
         "LLCM-004"
@@ -64,7 +64,7 @@
     {
       "id": "LLCM-005c",
       "desc": "[Pipeline] Implement links aggregation and referential integrity validation (all types: video, dialogue, article).",
-      "status": "todo",
+      "status": "done",
       "depends_on": [
         "LLCM-005a",
         "LLCM-005b"
@@ -73,7 +73,7 @@
     {
       "id": "LLCM-005e",
       "desc": "[Pipeline] Implement sentence payload extraction and normalization (text, translation, refs, timestamps) from video/dialogue/article sources.",
-      "status": "todo",
+      "status": "done",
       "depends_on": [
         "LLCM-005b"
       ]
@@ -81,7 +81,7 @@
     {
       "id": "LLCM-005d",
       "desc": "[Pipeline] Emit finalized JSON artifacts (6 files) following Learning Library v0 artifact schema.",
-      "status": "todo",
+      "status": "done",
       "depends_on": [
         "LLCM-005c",
         "LLCM-005e"

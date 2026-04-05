@@ -1,8 +1,6 @@
 # Learning Library Schema Freeze v0
 
-
 ## Goal
-
 根據目前 `lingo-frontend-web` prototype 已驗證過的學習流程（video/dialogue/article learning detail），正式凍結第一期資料合約 (v0)。
 
 此 schema 將作為 `content-ko` learning overlay 的輸入規範，以及 `content-pipeline` 的輸出標準。

@@ -9,6 +9,11 @@
 - `topic`、`knowledge`、`vocab` 都是可重用資產
 - 使用者學習狀態獨立於內容本體
 
+補充原則：
+- 資料層維持 `source-first`
+- 體驗層可同時支援 `content-first` 與 `knowledge-first`
+- `content-first` 與 `knowledge-first` 共用同一套 graph，不共用同一個主畫面
+
 ## Layer Model
 1. `source`
 - 學習入口
@@ -202,11 +207,41 @@
 - 可列相關 source
 
 ## UI Implication
+### Product Modes
+此架構支援兩種不同的產品模式：
+
+1. `Content-First Learning`
+- 以內容為主
+- 使用者先進入影片 / dialogue / article / story
+- 主要操作是選句、看片、跟讀、查看對應解說
+
+2. `Knowledge-First Lab`
+- 以知識點為主
+- 使用者先進入文法 / 句型 / 字彙 / 主題
+- 主要操作是查詢、比對、反查相關內容來源
+
+這兩種模式都應共用：
+- `source`
+- `sentence`
+- `topic`
+- `knowledge_item`
+- `vocab_item`
+- `user_learning_state`
+
+但不應共用同一個主入口與主畫面。
+
 ### Source Detail
 - Header
+- Source media / source body
 - Sentence timeline
 - Knowledge panel
 - Shadowing
+
+Source Detail 應優先採 `content-first`：
+- source 是主體
+- sentence 是主要互動層
+- knowledge / topic / vocab 是 contextual layer
+- 不應讓知識庫卡片主導整個畫面
 
 ### Topic Detail
 - Hero summary
@@ -226,7 +261,8 @@
 - 先跑得動 sentence-level app mockup
 
 2. `topic layer`
-- 支援 topic-first browse
+- 支援從內容 drill-down 到主題
+- 保留未來 topic-first browse 能力
 
 3. `vocab layer`
 - 先 sentence-linked vocab
@@ -234,7 +270,19 @@
 4. `dictionary deep integration`
 - 等有穩定 tokenized dialogue/article examples 再接 atom layer
 
+## Experience Recommendation
+目前 prototype 應優先收斂成 `Content-First Learning`：
+- 影片 / 文章 / 對話是主體
+- 點句子後顯示文法 / 句型 / 字彙 / 主題解說
+- topic detail 與 knowledge detail 是次級 drill-down
+
+`Knowledge-First Lab` 應作為另一個獨立 feature：
+- 類似句型書 / 文法書 / 字典 / topic reference
+- 適合查詢、複習、反查內容來源
+- 不應與 source detail 混成同一個主畫面
+
 ## Current Mockups
 - Source-based seed mockup: [docs/tasks/mockups/ko_video_learning_mockup_79Pwq7MTUPE.json](/Users/ywchen/Dev/lingo/release-aggregator/docs/tasks/mockups/ko_video_learning_mockup_79Pwq7MTUPE.json)
 - Source-based visual mockup: [docs/tasks/mockups/ko_video_learning_mockup_79Pwq7MTUPE.html](/Users/ywchen/Dev/lingo/release-aggregator/docs/tasks/mockups/ko_video_learning_mockup_79Pwq7MTUPE.html)
 - Topic family mockup: [docs/tasks/mockups/ko_topic_family_time_mockup.json](/Users/ywchen/Dev/lingo/release-aggregator/docs/tasks/mockups/ko_topic_family_time_mockup.json)
+- Product mode split: [docs/guides/CONTENT_FIRST_AND_KNOWLEDGE_LAB_SPLIT.md](/Users/ywchen/Dev/lingo/release-aggregator/docs/guides/CONTENT_FIRST_AND_KNOWLEDGE_LAB_SPLIT.md)

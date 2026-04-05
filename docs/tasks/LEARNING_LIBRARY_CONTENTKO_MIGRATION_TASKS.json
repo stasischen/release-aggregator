@@ -36,16 +36,16 @@
     },
     {
       "id": "LLCM-004",
-      "desc": "Define artifact outputs and naming: learning_library_sources_index, learning_library_knowledge, learning_library_topics, learning_library_links, and optional learning_library_vocab_sets.",
-      "status": "todo",
+      "desc": "Define artifact outputs and naming: learning_library_sources_index, learning_library_knowledge, learning_library_topics, learning_library_links, and learning_library_vocab_sets.",
+      "status": "done",
       "depends_on": [
         "LLCM-001",
         "LLCM-002"
       ]
     },
     {
-      "id": "LLCM-005",
-      "desc": "Implement normalization/build pipeline from content-ko overlay to app-facing learning library artifacts.",
+      "id": "LLCM-005a",
+      "desc": "[Pipeline] Implement merge strategy for core structure and i18n content (knowledge/topics/vocab_sets).",
       "status": "todo",
       "depends_on": [
         "LLCM-003b",
@@ -53,11 +53,37 @@
       ]
     },
     {
+      "id": "LLCM-005b",
+      "desc": "[Pipeline] Implement sources_index extraction from video/dialogue core sources.",
+      "status": "todo",
+      "depends_on": [
+        "LLCM-003b",
+        "LLCM-004"
+      ]
+    },
+    {
+      "id": "LLCM-005c",
+      "desc": "[Pipeline] Implement links aggregation and referential integrity validation.",
+      "status": "todo",
+      "depends_on": [
+        "LLCM-005a",
+        "LLCM-005b"
+      ]
+    },
+    {
+      "id": "LLCM-005d",
+      "desc": "[Pipeline] Emit finalized JSON artifacts following Learning Library v0 schema.",
+      "status": "todo",
+      "depends_on": [
+        "LLCM-005c"
+      ]
+    },
+    {
       "id": "LLCM-006",
       "desc": "Add frontend artifact intake path in lingo-frontend-web while preserving temporary seed mode for comparison.",
       "status": "todo",
       "depends_on": [
-        "LLCM-005"
+        "LLCM-005d"
       ]
     },
     {

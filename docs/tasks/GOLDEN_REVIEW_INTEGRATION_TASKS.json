@@ -1,0 +1,52 @@
+{
+  "project": "Lingo Content Integration",
+  "version": "1.0",
+  "name": "GOLDEN_REVIEW_INTEGRATION_TASKS",
+  "tasks": [
+    {
+      "id": "GRI-01",
+      "summary": "Formalize Integration Documentation",
+      "status": "IN_PROGRESS",
+      "description": "Create V1 integration plan and update SOPs.",
+      "items": [
+        { "id": "GRI-01-01", "summary": "Create GOLDEN_REVIEW_INTEGRATION_PLAN_V1.md", "status": "COMPLETED" },
+        { "id": "GRI-01-02", "summary": "Update KO_REVIEW_RUN_ARTIFACT_POLICY.md to clarify roles", "status": "TODO" },
+        { "id": "GRI-01-03", "summary": "Define Mismatch Policy in build.py", "status": "TODO" }
+      ]
+    },
+    {
+      "id": "GRI-02",
+      "summary": "Pipeline Integration & Gating",
+      "status": "TODO",
+      "description": "Enhance build.py to support the new contract.",
+      "items": [
+        { "id": "GRI-02-01", "summary": "Implement Lexical Drift check (build failure)", "status": "TODO" },
+        { "id": "GRI-02-02", "summary": "Add is_verified flag based on attest.json", "status": "TODO" },
+        { "id": "GRI-02-03", "summary": "Add source_of_decision metadata to token objects", "status": "TODO" }
+      ]
+    },
+    {
+      "id": "GRI-03",
+      "summary": "Recovery Pack #1",
+      "status": "TODO",
+      "description": "Execute recovery for target lessons A2-01, A2-06, B1-01, C1-01.",
+      "items": [
+        { "id": "GRI-03-01", "summary": "Dump A2-01 from Gold to Surgery", "status": "TODO" },
+        { "id": "GRI-03-02", "summary": "Standardize A2-06 run artifacts (Fix path leakage)", "status": "TODO" },
+        { "id": "GRI-03-03", "summary": "Finalize B1-01 (Surgery to Gold)", "status": "TODO" },
+        { "id": "GRI-03-04", "summary": "Verify C1-01 end-to-end", "status": "TODO" }
+      ]
+    },
+    {
+      "id": "GRI-04",
+      "summary": "Engine Learning Loop Audit",
+      "status": "TODO",
+      "description": "Analyze discrepancies and promote rules.",
+      "items": [
+        { "id": "GRI-04-01", "summary": "Run analyze_gold_vs_engine.py across recovery pack", "status": "TODO" },
+        { "id": "GRI-04-02", "summary": "Propose top 3 engine rule improvements", "status": "TODO" },
+        { "id": "GRI-04-03", "summary": "Implement rule promotions and re-verify", "status": "TODO" }
+      ]
+    }
+  ]
+}

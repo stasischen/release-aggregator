@@ -1,8 +1,12 @@
 # Review Artifact Inventory V0
 
+> [!NOTE]
+> This inventory is used to support [GOLDEN_REVIEW_INTEGRATION_PLAN_V1.md](file:///d:/Githubs/lingo/release-aggregator/docs/tasks/GOLDEN_REVIEW_INTEGRATION_PLAN_V1.md).
+
 ## 1. Summary Metrics
 
 - **Total Lessons Scanned**: 4 (Sampled: A2-01, A2-06, B1-01, C1-01)
+- **Recovery Pack #1**: A2-01, A2-06, B1-01, C1-01.
 - **Repo Status**: Unified Build does NOT ingest any of these assets.
 - **Data Fragmentation**: High. Assets are split across `runs/`, `content/gold_standards/`, and `reports/`.
 

@@ -14,6 +14,9 @@
 | Pattern | `content/core/learning_library/knowledge/pattern/greetings/kp.daily.greeting.bangawoyo.json` |
 | Pattern | `content/core/learning_library/knowledge/pattern/question/kp.daily.polite_question.json` |
 | Pattern | `content/core/learning_library/knowledge/pattern/time/kp.daily.today_is_noun.json` |
+| Pattern | `content/core/learning_library/knowledge/pattern/time/kp.time.today_is_weekday.json` |
+| Pattern | `content/core/learning_library/knowledge/pattern/time/kp.time.on_weekday_do.json` |
+| Grammar | `content/core/learning_library/knowledge/grammar/particles/kg.time.topic_particle_eunneun.json` |
 
 ### 2. Topics (學習主題)
 | 主題家族 | 路徑 (Core / i18n zh_tw) |

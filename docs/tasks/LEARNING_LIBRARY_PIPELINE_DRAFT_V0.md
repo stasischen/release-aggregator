@@ -61,7 +61,7 @@
 
 ### Failure Conditions (Stop Build)
 
-1. **Dangling Refs**: `links` 或 `sentences` 指向不存在的 `kg_id` 或 `source_id`。
+1. **Dangling Refs**: `links` 或 `sentences` 指向不存在的 knowledge_id, topic_id 或引用的 source_id。
 2. **Missing I18n**: 建檔於 `core` 但在 `i18n` 目錄找不到對應的翻譯檔。
 3. **Invalid Kind**: `knowledge_item` 使用了不符合 schema 的 `kind`。
 

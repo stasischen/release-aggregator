@@ -36,7 +36,7 @@
     },
     {
       "id": "LLCM-004",
-      "desc": "Define artifact outputs and naming: learning_library_sources_index, learning_library_knowledge, learning_library_topics, learning_library_links, and learning_library_vocab_sets.",
+      "desc": "Define artifact outputs and naming: learning_library_sources_index, learning_library_knowledge, learning_library_topics, learning_library_links, learning_library_vocab_sets, and learning_library_sentences.",
       "status": "done",
       "depends_on": [
         "LLCM-001",
@@ -54,7 +54,7 @@
     },
     {
       "id": "LLCM-005b",
-      "desc": "[Pipeline] Implement sources_index extraction from video/dialogue core sources.",
+      "desc": "[Pipeline] Implement sources_index extraction from video/dialogue/article core sources.",
       "status": "todo",
       "depends_on": [
         "LLCM-003b",

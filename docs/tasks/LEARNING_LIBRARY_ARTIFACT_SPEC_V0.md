@@ -160,8 +160,8 @@ interface TopicsLibrary {
 interface LinksLibrary {
   links: {
     id: string;
-    source_id: string;
-    target_id: string;
+    origin_id: string;   // 起點 (sentence_id 或 source_id)
+    target_id: string;   // 終點 (通常是 knowledge_id, topic_id)
     relationType: 'teaches' | 'uses' | 'example_of' | 'related_to';
   }[];
 }

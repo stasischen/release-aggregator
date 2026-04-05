@@ -18,12 +18,20 @@
       ]
     },
     {
-      "id": "LLCM-003",
-      "desc": "Migrate the first verified source pack into content-ko: video 79Pwq7MTUPE, dialogue A1-01, article A1-01 intro, A1-1 knowledge items, and time topic family.",
+      "id": "LLCM-003a",
+      "desc": "Define the first migration pack mapping plan: video 79Pwq7MTUPE, dialogue A1-01, article A1-01 intro, A1-1 knowledge items, and time topic family.",
       "status": "done",
       "depends_on": [
         "LLCM-001",
         "LLCM-002"
+      ]
+    },
+    {
+      "id": "LLCM-003b",
+      "desc": "Execute the actual content migration: move verified items into content-ko overlay directories.",
+      "status": "todo",
+      "depends_on": [
+        "LLCM-003a"
       ]
     },
     {

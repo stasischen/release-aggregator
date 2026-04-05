@@ -1,4 +1,8 @@
-# Golden Standard Reconciliation Plan V0
+# Golden Standard Reconciliation Plan V0 (Legacy)
+
+> [!NOTE]
+> This document has been superseded by [GOLDEN_REVIEW_INTEGRATION_PLAN_V1.md](file:///d:/Githubs/lingo/release-aggregator/docs/tasks/GOLDEN_REVIEW_INTEGRATION_PLAN_V1.md). 
+> Please refer to the V1 plan for the formal integration contract and recovery strategy.
 
 ## 1. Overview
 

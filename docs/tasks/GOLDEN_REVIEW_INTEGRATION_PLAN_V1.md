@@ -11,11 +11,19 @@ This document formalizes the `golden / surgery / attest` integration for the Lin
 | **Attest** | `data/reviews/runs/**/attest.json` | **Audit Record** | Gate Requirement |
 | **Engine Rules** | `engine/rules/*.json` | **Logic Logic** | **2 (Fallback)** |
 
-### Priority Contract
+### Priority Contract (Phased)
 
-1. Gold-First: If a Golden Sample exists for a lesson, the build MUST ingest it. The engine logic is bypassed for that lesson.
-2. Attestation Gate: A lesson is only marked as `is_verified: true` in the final build manifest if a valid `attest.json` exists in its run directory.
-3. Fallback: The engine is only used for lessons with no Golden Sample.
+#### Phase 1 (Current)
+
+1. **Best-effort Ingestion**: If a Golden Sample exists, `build.py` attempts to ingest it.
+2. **Line-level Fallback**: If a line-level sync fails (mismatch or missing gold), the build silently falls back to the engine for that line.
+3. **Audit**: `is_gold: true` marks ingested tokens, but no hard gate exists for `is_verified`.
+
+#### Phase 2 (Target)
+
+1. **Gold-Mandatory**: For lessons marked as "Verified", ingestion is mandatory. The engine is bypassed.
+2. **Hard Mismatch Gate**: Lexical drift between source and gold MUST trigger a build failure.
+3. **Attestation Requirement**: `is_verified: true` in the output manifest REQUIRES the presence of a valid `attest.json`.
 
 ---
 
@@ -73,5 +81,5 @@ The gap between `Engine` and `Gold` should decrease over time.
 
 ## 6. Implementation Task Plan
 
-See `GOLDEN_REVIEW_INTEGRATION_TASKS.json` for the executable list.
+See [GOLDEN_REVIEW_INTEGRATION_TASKS.json](GOLDEN_REVIEW_INTEGRATION_TASKS.json) for the executable list.
 Phase 1 focuses on documentation and the primary recovery pack.

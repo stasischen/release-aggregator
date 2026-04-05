@@ -330,6 +330,85 @@ content-ko/content/i18n/zh_tw/learning_library/
 }
 ```
 
+## Teaching Content Richness Strategy
+目前 prototype 只需要：
+- `summary_zh_tw`
+- `example_bank`
+
+但正式化時，建議 i18n 層預留 richer teaching content。
+
+### Short Term
+先支援 markdown explanation：
+- `summary_zh_tw`
+- `explanation_md_zh_tw`
+- `usage_notes_zh_tw`
+
+這樣可以直接承接既有 `.md` 文法 note，包含：
+- 標題
+- 條列
+- 表格
+- 對比說明
+
+### Mid Term
+對重要知識點，允許再加入結構化教學區塊：
+- `teaching_blocks_zh_tw`
+
+這不是取代 markdown，而是作為更高互動 UI 的可選層。
+
+### Minimal Block Schema
+建議最小先支援 5 種 block：
+- `heading`
+- `paragraph`
+- `table`
+- `callout`
+- `example_group`
+
+範例：
+
+```json
+{
+  "teaching_blocks_zh_tw": [
+    {
+      "type": "heading",
+      "text": "形態變化"
+    },
+    {
+      "type": "paragraph",
+      "text": "根據名詞最後一個字是否有收音來選擇 이에요 或 예요。"
+    },
+    {
+      "type": "table",
+      "headers": ["名詞結尾", "文法", "範例"],
+      "rows": [
+        ["有收音", "이에요", "학생이에요"],
+        ["無收音", "예요", "의사예요"]
+      ]
+    },
+    {
+      "type": "callout",
+      "variant": "tip",
+      "title": "記憶方法",
+      "text": "看到尾音收在子音，就偏向用 이에요。"
+    },
+    {
+      "type": "example_group",
+      "title": "例句",
+      "examples": [
+        {
+          "ko": "저는 학생이에요.",
+          "zh_tw": "我是學生。"
+        }
+      ]
+    }
+  ]
+}
+```
+
+### Recommendation
+- 短期：以 markdown-first 為主
+- 中期：block schema 作為 optional rich layer
+- 不要一開始就強迫所有 knowledge item 都改成 block-only
+
 ## Reserved Taxonomy For Future Expansion
 為了避免未來加入新分類時重做 schema，建議現在就先預留以下 taxonomy。
 

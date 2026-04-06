@@ -14,7 +14,7 @@ This document outlines the heuristic evaluation and automated check criteria for
 ## 2. State Transition Checks
 - **Surface Resilience**:
     - Moving from `currentIndex=0` to `currentIndex=1` must correctly re-render the Primary Surface without horizontal scroll ghosts.
-    - If the Support Panel is open at `index=0`, it must display appropriate content for `index=1` within < 200ms of the transition.
+    - If the Support Panel is open at `index=0`, it must display appropriate content for `index=1` without perceptible delay.
 - **Anchor Sync**:
     - Selecting an element (`activePrimaryAnchor`) must not cause a layout shift or unexpected panel closure.
 
@@ -22,7 +22,7 @@ This document outlines the heuristic evaluation and automated check criteria for
 - **Reserved Slots**:
     - When a "Reserved" surface (e.g., `vocab`) is triggered, the UI must show a "Feature in Preview" or "Reserved Slot" message rather than an empty page.
 - **Fatal Error Handling**:
-    - If the `payload` is missing or is an invalid JSON shape, the runtime must invoke the **Data Inspector** component showing the raw error and the problematic node ID.
+    - If the `payload` is missing or is an invalid JSON shape, the runtime must surface a contract-violation alert or diagnostic view showing the raw error and the problematic node ID.
 
 ## 4. Contract Mismatch Reporting
 - **In-Viewer UI**:

@@ -37,12 +37,20 @@
       ]
     },
     {
-      "id": "TLG-005",
-      "desc": "Implement generator pipeline to produce full unit blueprints from skeleton + pattern library + theme input.",
+      "id": "TLG-005a",
+      "desc": "Define the first pilot generator input pack for dialogue/travel/daily-life units, including unit_intent and scenario constraints, without coupling B1+ segmentation repair work.",
       "status": "todo",
       "depends_on": [
         "TLG-002",
         "TLG-004"
+      ]
+    },
+    {
+      "id": "TLG-005b",
+      "desc": "Implement the pilot generator path that emits unit_blueprint_v1 from skeleton + pattern library + unit_intent for dialogue/travel/daily-life units.",
+      "status": "todo",
+      "depends_on": [
+        "TLG-005a"
       ]
     },
     {
@@ -52,7 +60,7 @@
       "depends_on": [
         "TLG-001",
         "TLG-004",
-        "TLG-005"
+        "TLG-005b"
       ]
     },
     {
@@ -60,7 +68,7 @@
       "desc": "Implement bilingual teaching layer pipeline (target -> zh_tw/en) for all learner-facing strings and instructional notes.",
       "status": "todo",
       "depends_on": [
-        "TLG-005"
+        "TLG-005b"
       ]
     },
     {
@@ -81,13 +89,21 @@
       ]
     },
     {
-      "id": "TLG-010",
-      "desc": "Implement blueprint-to-frontend adapter contract and script to emit frontend_unit_flow_v1 fixtures for modular viewer consumption.",
+      "id": "TLG-010a",
+      "desc": "Implement pilot blueprint-to-viewer adaptation so generated unit_blueprint_v1 files can be verified in modular viewer without changing the mainline artifact contract.",
       "status": "todo",
       "depends_on": [
         "TLG-001",
-        "TLG-005",
+        "TLG-005b",
         "TLG-007"
+      ]
+    },
+    {
+      "id": "TLG-010b",
+      "desc": "Document the verification boundary: modular viewer fixtures are for pilot validation only and must not replace the source-build artifact contract.",
+      "status": "todo",
+      "depends_on": [
+        "TLG-010a"
       ]
     },
     {
@@ -97,7 +113,7 @@
       "depends_on": [
         "TLG-006",
         "TLG-008",
-        "TLG-010"
+        "TLG-010b"
       ]
     },
     {
@@ -114,7 +130,7 @@
       "status": "done",
       "depends_on": [
         "TLG-004",
-        "TLG-005"
+        "TLG-005b"
       ]
     },
     {
@@ -123,7 +139,7 @@
       "status": "done",
       "depends_on": [
         "TLG-004",
-        "TLG-005"
+        "TLG-005b"
       ]
     },
     {
@@ -132,7 +148,7 @@
       "status": "done",
       "depends_on": [
         "TLG-004",
-        "TLG-005"
+        "TLG-005b"
       ]
     },
     {
@@ -141,7 +157,7 @@
       "status": "done",
       "depends_on": [
         "TLG-004",
-        "TLG-005",
+        "TLG-005b",
         "TLG-019",
         "TLG-020",
         "TLG-021"

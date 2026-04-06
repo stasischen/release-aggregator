@@ -38,9 +38,15 @@
 release-aggregator docs / mockups
   -> content-ko raw content + learning overlay
   -> pipeline normalization/build
-  -> app artifacts
+  -> target-language core artifacts + support-language i18n artifacts
   -> lingo-frontend-web repositories
 ```
+
+補充決策：
+
+- Learning Library artifact 不再以單一 locale finalized blob 作為長期目標
+- 改為 `target core + support i18n` 分包
+- frontend intake 負責 composition
 
 ## Phase Plan
 ### Phase 1: Freeze Prototype Contracts
@@ -101,22 +107,28 @@ release-aggregator docs / mockups
 
 ### Phase 4: Build Pipeline
 目標：
-從 `content-ko` 產出 app 可直接使用的 artifact。
+從 `content-ko` 產出 app 可組裝使用的 artifact packs。
 
 輸出：
-- `learning_library_sources_index.json`
-- `learning_library_knowledge.json`
-- `learning_library_topics.json`
-- `learning_library_links.json`
-- optional `learning_library_vocab_sets.json`
+- `learning_library_{target}_core_sources_index.json`
+- `learning_library_{target}_core_sentences.json`
+- `learning_library_{target}_core_knowledge.json`
+- `learning_library_{target}_core_topics.json`
+- `learning_library_{target}_core_links.json`
+- `learning_library_{target}_core_vocab_sets.json`
+- `learning_library_{target}_i18n_{support}_sources.json`
+- `learning_library_{target}_i18n_{support}_sentences.json`
+- `learning_library_{target}_i18n_{support}_knowledge.json`
+- `learning_library_{target}_i18n_{support}_topics.json`
+- `learning_library_{target}_i18n_{support}_vocab_sets.json`
 
 ### Phase 5: Frontend Intake
 目標：
-讓 `lingo-frontend-web` repository 能切到 artifact mode。
+讓 `lingo-frontend-web` repository 能切到 `core + selected i18n` composition mode。
 
 建議：
 - 先保留 seed mode
-- 再加入 artifact mode
+- 再加入 core/i18n artifact mode
 - 等驗證一致後移除 seed mode
 
 ## Repo Responsibility
@@ -142,7 +154,7 @@ release-aggregator docs / mockups
 1. source 本體不要長期留在 app seed
 2. `dictionary atoms` 與 `vocab_sets` 分層
 3. `learning_library_sources_index.json` 是 index，不是 source truth
-4. `learning_library_knowledge.json` / `topics.json` / `links.json` 才是 app 的主要 library build artifact
+4. frontend 正式輸入應為 `target core + support i18n`，而不是單語言 finalized blob
 
 ## First Migration Recommendation
 先搬這些 item：
@@ -168,8 +180,9 @@ release-aggregator docs / mockups
 1. schema freeze
 2. content-ko overlay
 3. first pack migration
-4. pipeline artifact build
-5. frontend artifact intake
+4. freeze `target core + support i18n` artifact contract
+5. pipeline artifact pack build
+6. frontend composition intake
 
 之後才做：
 - `Knowledge-First Lab` 主入口

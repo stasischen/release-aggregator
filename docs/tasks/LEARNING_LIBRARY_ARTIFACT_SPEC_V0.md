@@ -1,8 +1,13 @@
 # Learning Library Artifact Spec v0
 
+> [!IMPORTANT]
+> 本文件的「單一 localized artifact」描述已不再作為主線長期方向。
+> 主線已改採 `target-language core + support-language i18n packs`。
+> 舊內容保留作為 v0 歷史參考；新方向見 [LEARNING_LIBRARY_ARTIFACT_VNEXT_CORE_I18N_PACKS.md](LEARNING_LIBRARY_ARTIFACT_VNEXT_CORE_I18N_PACKS.md)。
+
 ## Goal
 
-定義 `content-pipeline` 輸出的正式 artifact 格式。這些文件是 `lingo-frontend-web` 消費的唯一標準，解決了從原始分散檔案到高效 App 查詢之間的落差。
+記錄 Learning Library v0 localized artifact 的歷史格式，供現況對照與遷移參考。
 
 ---
 

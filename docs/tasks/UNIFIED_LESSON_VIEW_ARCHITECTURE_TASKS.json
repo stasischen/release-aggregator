@@ -1,26 +1,26 @@
 {
   "task_id": "UNIFIED_LESSON_VIEW_ARCHITECTURE",
   "description": "定義 unified lesson view 的 mock/runtime information architecture，涵蓋 primary content surfaces、support detail surfaces、navigation/panel contract、mock verification 與 Flutter transfer boundary。",
-  "status": "todo",
+  "status": "in_progress",
   "tasks": [
     {
       "id": "ULV-001",
       "desc": "Define unified lesson view scope and content surface taxonomy, separating primary content surfaces (video/dialogue/article) from support detail surfaces (knowledge lab grammar/pattern/usage/vocab).",
-      "status": "todo",
+      "status": "done",
       "depends_on": []
     },
     {
       "id": "ULV-002",
-      "desc": "Freeze primary content surface contract for video, dialogue, and article, including display states, content switching rules, and the minimum data required for each surface.",
-      "status": "todo",
+      "desc": "Freeze primary content surface contract for video, dialogue, and article, including primary display states, reading/listening emphasis, and bilingual visibility.",
+      "status": "done",
       "depends_on": [
         "ULV-001"
       ]
     },
     {
       "id": "ULV-003",
-      "desc": "Freeze support detail surface contract for knowledge lab grammar, pattern, usage, and vocab panels, including what is inline, what is expandable, and what remains linked out.",
-      "status": "todo",
+      "desc": "Freeze support detail surface contract for knowledge lab grammar, pattern, usage, and vocab panels, including what is inline, what is expandable, and fallback behavior.",
+      "status": "done",
       "depends_on": [
         "ULV-001"
       ]
@@ -28,7 +28,7 @@
     {
       "id": "ULV-004",
       "desc": "Define navigation and panel interaction contract for lesson runtime, including primary/support panel coordination, selection state, and back/forward behavior.",
-      "status": "todo",
+      "status": "done",
       "depends_on": [
         "ULV-002",
         "ULV-003"
@@ -37,10 +37,8 @@
     {
       "id": "ULV-005",
       "desc": "Write mock verification criteria for the unified lesson view contract, covering fixture shape, state transitions, missing-data behavior, and contract mismatch reporting.",
-      "status": "todo",
+      "status": "done",
       "depends_on": [
-        "ULV-002",
-        "ULV-003",
         "ULV-004"
       ]
     },

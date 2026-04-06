@@ -20,9 +20,10 @@
       "status": "TODO",
       "description": "Execute materialization for the initial recovery pack.",
       "items": [
-        { "id": "GRM-02-01", "summary": "A2-01: Finalize and materialize to overrides/", "status": "TODO" },
-        { "id": "GRM-02-02", "summary": "A2-06: Resolve path leakage and materialize", "status": "TODO" },
-        { "id": "GRM-02-03", "summary": "B1-01: Finalize and materialize", "status": "TODO" }
+        { "id": "GRM-02-01", "summary": "A2-01: Finalize and materialize to overrides/", "status": "DONE" },
+        { "id": "GRM-02-02", "summary": "A2-06: Resolve path leakage and materialize", "status": "DONE" },
+        { "id": "GRM-02-03", "summary": "B1-01: Finalize and materialize", "status": "DONE" },
+        { "id": "GRM-02-04", "summary": "C1-01: Finalize and materialize", "status": "TODO" }
       ]
     },
     {

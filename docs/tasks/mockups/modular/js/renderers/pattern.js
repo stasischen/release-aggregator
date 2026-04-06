@@ -6,6 +6,7 @@
   function renderPatternLab(node) {
     const payload = node.payload || {};
     const locale = window.currentLocale();
+    const teachingLocale = window.currentTeachingLocale();
 
     const lessonSupportModule = window.renderLessonSupportModule(payload.lesson_support_module);
 
@@ -50,22 +51,27 @@
     const rawConfigJson = JSON.stringify(builder);
     const configJsonAttr = window.escapeHtml(rawConfigJson);
 
+    const savedState = (window.getNodeInteractionState && window.getNodeInteractionState(builderId)) || {};
+    const savedValues = savedState; // Flatter structure for reliability
+
     const initialValues = {};
     (builder.controls || []).forEach(control => {
-      initialValues[control.control_id] = control.options && control.options[0] ? control.options[0].value : '';
+      const savedVal = savedValues[control.control_id];
+      const defaultVal = (control.options && control.options[0]) ? control.options[0].value : '';
+      initialValues[control.control_id] = (savedVal !== undefined && savedVal !== null) ? savedVal : defaultVal;
     });
     const initialResolvedValues = window.resolvePatternBuilderValues(builder, initialValues);
     const initialComputed = window.computePatternBuilderOutput(builder, initialResolvedValues);
 
     const controlsHtml = (builder.controls || []).map(control => `
       <label class="tiny-text muted" style="display:block; margin-bottom:10px;">
-        <span style="display:block; margin-bottom:4px; font-weight:700;">${window.escapeHtml(window.i18nText(control.label_i18n, locale, control.label_zh_tw || control.control_id))}</span>
+        <span style="display:block; margin-bottom:4px; font-weight:700;">${window.escapeHtml(window.i18nText(control.label_i18n, teachingLocale, control.label_zh_tw || control.control_id))}</span>
         <select data-builder-control="${window.escapeHtml(control.control_id)}"
           onchange="window.updatePatternBuilderFromRoot('${builderId}')"
           style="width:100%; padding:8px; border-radius:8px; border:1px solid var(--line); background:#fff;">
           ${window.getAvailableControlOptions(control, initialResolvedValues).map(option => `
             <option value="${window.escapeHtml(option.value)}"${option.value === initialResolvedValues[control.control_id] ? ' selected' : ''}>
-              ${window.escapeHtml(window.renderOptionLabelWithGloss(option, locale))}
+              ${window.escapeHtml(window.renderOptionLabelWithGloss(option, teachingLocale))}
             </option>
           `).join('')}
         </select>
@@ -80,9 +86,9 @@
 
     return `
       <div class="content-block">
-        <div class="block-title">${window.escapeHtml(window.i18nText(builder.title_i18n, locale, builder.title_zh_tw || '可切換句型'))}</div>
-        <div id="${builderId}" class="summary-box" data-builder-config="${configJsonAttr}">
-          ${window.i18nText(builder.inline_hint_i18n, locale, '') ? `<div class="muted-text" style="margin-bottom:12px;">${window.escapeHtml(window.i18nText(builder.inline_hint_i18n, locale, ''))}</div>` : ''}
+        <div class="block-title">${window.escapeHtml(window.i18nText(builder.title_i18n, teachingLocale, builder.title_zh_tw || '可切換句型'))}</div>
+        <div id="${builderId}" class="summary-box" data-builder-config="${configJsonAttr}" data-node-id="${window.escapeHtml(nodeId)}">
+          ${window.i18nText(builder.inline_hint_i18n, teachingLocale, '') ? `<div class="muted-text" style="margin-bottom:12px;">${window.escapeHtml(window.i18nText(builder.inline_hint_i18n, teachingLocale, ''))}</div>` : ''}
           <div class="summary-grid" style="grid-template-columns:repeat(3, 1fr);">
             ${controlsHtml}
           </div>
@@ -96,6 +102,9 @@
               <button class="btn tiny-text" data-builder-speak data-tts-text="${window.escapeHtml(initialComputed.sentence)}" onclick="window.speakKo(this.getAttribute('data-tts-text'))" style="padding:4px 8px;">▶</button>
             </div>
             <div class="pattern-use-case" data-builder-gloss>${window.escapeHtml(initialComputed.gloss)}</div>
+          </div>
+          <div class="debug-state-indicator tiny-text muted" style="margin-top:8px; font-size:10px; border-top:1px solid #eee; padding-top:4px;">
+            Persisted Key: ${builderId}
           </div>
         </div>
       </div>
@@ -184,6 +193,16 @@
     root.querySelector('[data-builder-gloss]').textContent = result.gloss;
     const speakBtn = root.querySelector('[data-builder-speak]');
     if (speakBtn) speakBtn.setAttribute('data-tts-text', result.sentence);
+
+    // Persist state
+    try {
+        if (window.setNodeInteractionState) {
+            window.setNodeInteractionState(builderId, values);
+            if (window.showToast) window.showToast(`已存儲狀態: ${builderId.split('-').pop()}`);
+        }
+    } catch (e) {
+        console.error('Pattern persistence error', e);
+    }
   };
 
   window.resolvePatternBuilderValues = (config, values) => values; // Pass-through for now

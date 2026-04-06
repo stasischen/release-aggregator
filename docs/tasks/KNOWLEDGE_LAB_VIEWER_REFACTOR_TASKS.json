@@ -6,13 +6,13 @@
     {
       "id": "KLABVIEW-001",
       "desc": "Align grammar/pattern/usage support-detail viewer with ULV runtime contract (sections, markdown rendering, navigation).",
-      "status": "in_progress",
+      "status": "done",
       "depends_on": []
     },
     {
       "id": "KLABVIEW-002",
       "desc": "Implement selection state persistence for Pattern Lab (node-scoped) within the Knowledge Lab viewer context.",
-      "status": "todo",
+      "status": "done",
       "depends_on": [
         "KLABVIEW-001"
       ]

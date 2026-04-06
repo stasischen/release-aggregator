@@ -1,21 +1,22 @@
 # Knowledge Lab Viewer 重構計畫
 
-## 目標
+## 技術對齊 (已完成階段：文法、句型)
 
-將 **Knowledge Lab Viewer** 與 **Unified Lesson View (ULV)** 執行期合約 (runtime contract) 對齊，確保所有課程類型的輔助詳情渲染（文法、句型、用法、單字）具備一致性。
-
-這是一個多階段的重構過程。目前的計畫重點在於 **第一階段：文法支援收斂 (已完成)**。
-
-## 技術對齊 (第一階段：文法 - 已完成)
-
-### 1. 輔助詳情介面覆蓋
+### 1. 輔助詳情介面覆蓋 (文法)
 
 - **文法支援 (Grammar Support)**：採用結構化的 `sections`，支援 Markdown 並具備舊版相容性。
-    - **回退優先順序 (Fallback Precedence)**：
-        1. **優先級 1**：`payload.sections` (若存在)。
-           - 每個 section：先渲染 `explanation_md_i18n` (Markdown)，再渲染 `points_i18n` (清單)。兩者可共存。
-        2. **優先級 2**：`payload.points_i18n` 或 `payload.points_zh_tw` (舊版頂層回退)。
-        3. **優先級 3**：安全失敗 (Fail-soft，見下文)。
+  - **回退優先順序 (Fallback Precedence)**：
+    - **優先級 1**：`payload.sections` (若存在)。
+      - 每個 section：先渲染 `explanation_md_i18n` (Markdown)，再渲染 `points_i18n` (清單)。兩者可共存。
+    - **優先級 2**：`payload.points_i18n` 或 `payload.points_zh_tw` (舊版頂層回退)。
+    - **優先級 3**：安全失敗 (Fail-soft，見下文)。
+
+### 2. 句型支援與狀態持久化 (句型)
+
+- **句型支援 (Pattern Lab Support)**：實作 `builder_id` 範疇的狀態持久化。
+  - **動態合成 (Dynamic Synthesis)**：支援多個切換式句型生成器。
+  - **狀態隔離 (State Scoping)**：使用 `builderId` 作為 key，確保存儲在 `interactionStateByNodeId` 中的選擇在跨節點導覽或頁面重新整理後能正確恢復。
+  - **語系對齊 (Locale Alignment)**：確保切換控制項的使用者介面標籤與註解 (gloss) 均對齊教學語系 (Teaching Locale)。
 
 ### 2. Adapter 範疇與正規化
 

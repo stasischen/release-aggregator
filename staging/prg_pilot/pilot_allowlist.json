@@ -1,0 +1,36 @@
+{
+  "version": "1.0.0",
+  "updated_at": "2026-04-06T22:04:00Z",
+  "entries": [
+    {
+      "unit_id": "bonus_video",
+      "lesson_id": "ko_v1_vlog_79Pwq7MTUPE_easy_listening_lesson",
+      "release_status": "production",
+      "content_type": "video",
+      "course_type": "lesson",
+      "source_refs": [
+        "ko_v1_vlog_79Pwq7MTUPE_easy_listening_lesson"
+      ],
+      "contract_version": "cm-v1.0.0",
+      "viewer_verified": true,
+      "qa_gate_passed": true,
+      "staging_only": false,
+      "notes": "Pilot Slice 1: Exact match video lesson."
+    },
+    {
+      "unit_id": "bonus_video",
+      "lesson_id": "ko_v1_vlog_IGEj-oDKyw8_conv_store",
+      "release_status": "production",
+      "content_type": "video",
+      "course_type": "lesson",
+      "source_refs": [
+        "ko_v1_vlog_IGEj-oDKyw8_conv_store"
+      ],
+      "contract_version": "cm-v1.0.0",
+      "viewer_verified": true,
+      "qa_gate_passed": true,
+      "staging_only": false,
+      "notes": "Pilot Slice 2: Exact match video lesson."
+    }
+  ]
+}

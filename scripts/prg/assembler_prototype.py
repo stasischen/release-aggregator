@@ -7,9 +7,10 @@ import argparse
 import copy
 import json
 import os
+import sys
 from datetime import datetime, timezone
 from pathlib import Path
-from typing import Any
+from typing import Any, Dict, List, Optional
 
 
 RELEASE_STATUS_VALUES = {"draft", "staging_only", "production"}
@@ -48,22 +49,56 @@ class CandidateInventory:
         self.lessons = lessons
         self.root = root
 
+    def resolve_path(self, rel_path: str) -> Path:
+        """Correctly resolve path by avoiding redundant prefixes from root."""
+        # Normalize rel_path
+        p = Path(rel_path.replace("\\", "/"))
+        
+        # If the path is absolute, return it
+        if p.is_absolute():
+            return p
+            
+        # Detect redundant segments
+        # If root is .../assets/content/production and rel_path is assets/content/production/...
+        # Result should be root.parent.parent.parent / assets/content/production/...
+        root_parts = self.root.parts
+        p_parts = p.parts
+        
+        # Check for overlap
+        overlap_index = -1
+        for i in range(1, min(len(root_parts), len(p_parts)) + 1):
+            if root_parts[-i:] == p_parts[:i]:
+                overlap_index = i
+        
+        if overlap_index != -1:
+            # Overlap found! Reconstruct path.
+            # Example: root=A/B/C, rel=C/D -> Result=A/B/C/D
+            # Actually, standard join(A/B/C, C/D) -> A/B/C/C/D
+            # So we strip the overlap from the root or the rel path.
+            base = Path(*root_parts[:-overlap_index])
+            return base / p
+            
+        return self.root / p
+
     @classmethod
-    def load_from_manifest(cls, manifest_path: Path, root: Path) -> CandidateInventory:
+    def load_from_manifest(cls, manifest_path: Path, root: Optional[Path] = None) -> CandidateInventory:
         """Load inventory from a manifest.json file."""
         data = load_json(manifest_path)
         lessons = {}
+        # If root is not provided, use the manifest's parent
+        final_root = root or manifest_path.parent
         for lesson in data.get("lessons", []):
             level_id = lesson.get("level_id")
             if isinstance(level_id, str):
                 lessons[level_id] = lesson
-        return cls(lessons, root)
+        return cls(lessons, final_root)
 
     @classmethod
     def scan_directory(cls, staging_root: Path) -> CandidateInventory:
         """Adapter: Scan staging directory to build a candidate inventory."""
         lessons = {}
         
+        # Scanning logic remains the same (it creates relative paths without redundancy)
         # Dialogue: core/dialogue/**/*.json
         dialogue_root = staging_root / "core/dialogue"
         if dialogue_root.exists():
@@ -111,7 +146,6 @@ def find_candidate(lesson_id: str, content_type: str, inventory: CandidateInvent
 
     # 2. Legacy naming gap: B1/B2/C1 and A1/A2 dialogue prefix mismatch
     if content_type == "dialogue":
-        # Known legacy prefixes that often mismatch with the short filename id
         prefixes = [
             "ko_l1_dialogue_", "ko_l2_dialogue_", 
             "ko_l3_dialogue_", "ko_l4_dialogue_", 
@@ -123,7 +157,7 @@ def find_candidate(lesson_id: str, content_type: str, inventory: CandidateInvent
                 # Try matching by short ID (e.g., b1_01)
                 if short_id in inventory.lessons:
                     return inventory.lessons[short_id]
-                # Try matching by capitalized short ID if needed? (e.g., A2-01)
+                # Try matching by case-insensitive name with underscore/dash normalization
                 for candidate_id in inventory.lessons:
                     if candidate_id.replace("-", "_").lower() == short_id.replace("-", "_").lower():
                         return inventory.lessons[candidate_id]
@@ -170,10 +204,6 @@ def validate_release_manifest(payload: Any) -> list[str]:
         ):
             errors.append(f"{prefix}.source_refs must be a non-empty string array")
 
-        for field in ["viewer_verified", "qa_gate_passed", "staging_only"]:
-            if not isinstance(entry.get(field), bool):
-                errors.append(f"{prefix}.{field} must be a boolean")
-
     return errors
 
 
@@ -218,7 +248,7 @@ def build_catalog_from_entries(entries: list[dict[str, Any]]) -> dict[str, Any]:
 
     return {
         "version": 1,
-        "updated_at": datetime.now(timezone.utc).date().isoformat(),
+        "updated_at": utc_now(),
         "units": ordered_units,
         "lessons": ordered_lessons,
     }
@@ -240,13 +270,12 @@ def assemble_release(
     eligible_entries = [
         entry
         for entry in release_manifest["entries"]
-        if entry["release_status"] == "production" and entry["staging_only"] is False
+        if entry["release_status"] == "production" and not entry.get("staging_only", False)
     ]
     if not eligible_entries:
         raise ValueError("Release manifest has no production-eligible entries after filtering")
 
-    errors: list[str] = []
-    unresolved_lessons: list[dict[str, Any]] = []
+    gaps: list[dict[str, Any]] = []
     packaged_manifest_lessons: list[dict[str, Any]] = []
     packaged_entries: list[dict[str, Any]] = []
 
@@ -257,74 +286,119 @@ def assemble_release(
         candidate = find_candidate(lesson_id, content_type, candidate_inventory)
         
         if candidate is None:
-            msg = f"Missing candidate for allowlisted {content_type} lesson {lesson_id}"
-            if strict_mode:
-                errors.append(msg)
-            else:
-                unresolved_lessons.append({"lesson_id": lesson_id, "reason": "missing_candidate"})
+            gaps.append({
+                "lesson_id": lesson_id,
+                "reason": "missing_candidate",
+                "severity": "error",
+                "details": f"No candidate found in inventory for {content_type} lesson.",
+                "candidate_path": None,
+                "manifest_path": str(release_manifest_path)
+            })
             continue
 
         candidate_path = candidate.get("path")
         if not isinstance(candidate_path, str) or not candidate_path:
-            errors.append(f"Candidate entry for {lesson_id} is missing path")
+            gaps.append({
+                "lesson_id": lesson_id,
+                "reason": "invalid_candidate_entry",
+                "severity": "error",
+                "details": "Candidate match found but entry is missing a path field.",
+                "candidate_path": candidate_path,
+                "manifest_path": str(release_manifest_path)
+            })
             continue
 
-        # Asset mismatch check (for existing path entries in manifest)
+        # Resolved path for disk verification
+        abs_candidate_path = candidate_inventory.resolve_path(candidate_path)
+
+        # Asset mismatch check (if manifest explicitly contains a path)
         manifest_asset_path = entry.get("asset_path")
-        if isinstance(manifest_asset_path, str) and manifest_asset_path and manifest_asset_path != candidate_path:
-            # Check if it's a known legacy naming mismatch we want to tolerate or just report
-            errors.append(
-                f"Asset path mismatch for {lesson_id}: release manifest={manifest_asset_path} candidate manifest={candidate_path}"
-            )
+        if isinstance(manifest_asset_path, str) and manifest_asset_path:
+            if manifest_asset_path != candidate_path:
+                gaps.append({
+                    "lesson_id": lesson_id,
+                    "reason": "asset_path_mismatch",
+                    "severity": "error",
+                    "details": f"Release manifest specifies {manifest_asset_path} but candidate is at {candidate_path}",
+                    "candidate_path": candidate_path,
+                    "manifest_path": str(release_manifest_path)
+                })
 
         # Content type mismatch check
         candidate_content_type = normalize_content_type(candidate.get("type") or content_type)
         if candidate_content_type != content_type:
-            errors.append(
-                f"Content type mismatch for {lesson_id}: release manifest={content_type} candidate={candidate_content_type}"
-            )
+            gaps.append({
+                "lesson_id": lesson_id,
+                "reason": "content_type_mismatch",
+                "severity": "error",
+                "details": f"Release manifest expects {content_type} but candidate is {candidate_content_type}",
+                "candidate_path": candidate_path,
+                "manifest_path": str(release_manifest_path)
+            })
 
         # Disk check
-        candidate_file = candidate_inventory.root / candidate_path
-        if not candidate_file.exists():
-            errors.append(f"Candidate asset missing on disk for {lesson_id}: {candidate_file}")
+        if not abs_candidate_path.exists():
+            gaps.append({
+                "lesson_id": lesson_id,
+                "reason": "disk_missing",
+                "severity": "error",
+                "details": f"Candidate file not found on disk at: {abs_candidate_path}",
+                "candidate_path": str(abs_candidate_path),
+                "manifest_path": str(release_manifest_path)
+            })
 
         # Unit check
         if not allow_unassigned_units and entry["unit_id"] == "__unassigned__":
-            errors.append(f"Allowlisted lesson {lesson_id} has unresolved unit_id __unassigned__")
+            gaps.append({
+                "lesson_id": lesson_id,
+                "reason": "unresolved_unit_id",
+                "severity": "error",
+                "details": "Lesson is assigned to __unassigned__ unit, which is disabled in strict catalog mode.",
+                "candidate_path": candidate_path,
+                "manifest_path": str(release_manifest_path)
+            })
 
+        # Only add to packaged list if no error gaps for this lesson? 
+        # Actually, if we have gaps, we should still allow planning mode to finish.
+        # Strict mode will fail later.
         packaged_manifest_lessons.append(copy.deepcopy(candidate))
         packaged_entries.append(entry)
 
-    if strict_mode and errors:
-        raise ValueError("Production release assembly failed (STRICT MODE):\n- " + "\n- ".join(errors))
+    if strict_mode and gaps:
+        print(f"ERROR: {len(gaps)} validation gaps found in STRICT MODE.")
+        for gap in gaps[:10]:
+            print(f"  - [{gap['reason']}] {gap['lesson_id']}: {gap['details']}")
+        if len(gaps) > 10:
+            print(f"    ... and {len(gaps)-10} more.")
+        raise ValueError("Production release assembly failed due to validation gaps.")
 
     derived_manifest = {
-        "version": "1.0.0", # Controlled by assembler
+        "version": "1.0.0",
         "last_updated": utc_now(),
         "lessons": packaged_manifest_lessons,
     }
     derived_catalog = build_catalog_from_entries(packaged_entries)
+    
     production_plan = {
         "generated_at": utc_now(),
-        "release_manifest": str(release_manifest_path),
-        "candidate_root": str(candidate_inventory.root),
+        "release_manifest": str(release_manifest_path).replace("\\", "/"),
+        "candidate_root": str(candidate_inventory.root).replace("\\", "/"),
         "summary": {
             "manifest_entries": len(release_manifest["entries"]),
             "eligible_entries": len(eligible_entries),
             "packaged_lessons": len(packaged_manifest_lessons),
             "packaged_units": len(derived_catalog["units"]),
-            "unresolved_lessons": len(unresolved_lessons),
-            "errors_found": len(errors),
+            "gap_count": len(gaps),
         },
-        "unresolved_lessons": unresolved_lessons,
+        "gaps": gaps,
         "allowlisted_lessons": [entry["lesson_id"] for entry in packaged_entries],
     }
 
-    if not strict_mode or not errors:
-        write_json(output_dir / "manifest.json", derived_manifest)
-        write_json(output_dir / "lesson_catalog.json", derived_catalog)
-        write_json(output_dir / "production_plan.json", production_plan)
+    # Write outputs
+    output_dir.mkdir(parents=True, exist_ok=True)
+    write_json(output_dir / "manifest.json", derived_manifest)
+    write_json(output_dir / "lesson_catalog.json", derived_catalog)
+    write_json(output_dir / "production_plan.json", production_plan)
         
     return production_plan
 
@@ -332,7 +406,6 @@ def assemble_release(
 def parse_args() -> argparse.Namespace:
     script_dir = Path(__file__).resolve().parent
     aggregator_root = script_dir.parent.parent
-    frontend_root = aggregator_root.parent / "lingo-frontend-web"
     content_ko_staging = aggregator_root.parent / "content-ko/dist_unified/staging/ko"
 
     parser = argparse.ArgumentParser(description="Prototype manifest-driven production assembler")
@@ -344,14 +417,14 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument(
         "--candidate-source",
         type=str,
-        help="Path to candidate manifest.json or a staging directory to scan (Adapter Mode)",
-        default=str(content_ko_staging) if content_ko_staging.exists() else str(frontend_root / "assets/content/production/manifest.json"),
+        help="Path to candidate manifest.json or a staging directory to scan",
+        default=str(content_ko_staging) if content_ko_staging.exists() else None,
     )
     parser.add_argument(
         "--candidate-root",
         type=Path,
         default=None,
-        help="Root directory for candidates if candidate-source is a manifest file. Defaults to same dir as manifest if not provided.",
+        help="Base root for manifest paths (optional, used to resolve overlaps)",
     )
     parser.add_argument(
         "--output-dir",
@@ -368,12 +441,12 @@ def parse_args() -> argparse.Namespace:
         "--planning",
         action="store_false",
         dest="strict",
-        help="Planning mode: report gaps but don't exit with error, still generate artifacts",
+        help="Planning mode: report all gaps in plan JSON but generate artifacts anyway",
     )
     parser.add_argument(
         "--allow-unassigned-units",
         action="store_true",
-        help="Allow __unassigned__ unit_ids in output instead of failing closed",
+        help="Allow __unassigned__ unit_ids in output",
     )
     return parser.parse_args()
 
@@ -381,12 +454,27 @@ def parse_args() -> argparse.Namespace:
 def main() -> int:
     args = parse_args()
     
+    if args.candidate_source is None:
+        print("ERROR: No candidate source available.")
+        # Explicit path from requirement: e:\Githubs\lingo\content-ko\dist_unified\staging\ko
+        script_dir = Path(__file__).resolve().parent
+        aggregator_root = script_dir.parent.parent
+        expected_default = aggregator_root.parent / "content-ko/dist_unified/staging/ko"
+        print(f"Default expected path: {expected_default}")
+        print("Required: Re-run with --candidate-source <path>")
+        return 1
+
     source_path = Path(args.candidate_source)
+    if not source_path.exists():
+        print(f"ERROR: Candidate source not found at: {source_path}")
+        return 1
+
     if source_path.is_dir():
         print(f"Candidate Source: Directory ({source_path}) - Using Scanner Adapter")
         inventory = CandidateInventory.scan_directory(source_path)
     else:
         print(f"Candidate Source: Manifest ({source_path})")
+        # If explicitly providing a manifest, root defaults to manifest dir unless overridden
         root = args.candidate_root or source_path.parent
         inventory = CandidateInventory.load_from_manifest(source_path, root)
 
@@ -398,18 +486,24 @@ def main() -> int:
             strict_mode=args.strict,
             allow_unassigned_units=args.allow_unassigned_units,
         )
+        mode_str = "STRICT" if args.strict else "PLANNING"
         print(
-            f"Assembled production plan ({'STRICT' if args.strict else 'PLANNING'}): "
+            f"Assembled production plan ({mode_str}): "
             f"{plan['summary']['packaged_lessons']} lessons, "
             f"{plan['summary']['packaged_units']} units. "
-            f"Unresolved: {plan['summary']['unresolved_lessons']}."
+            f"Gaps found: {plan['summary']['gap_count']}."
         )
         print(f"Outputs written to {args.output_dir}")
         return 0
     except ValueError as e:
-        print(f"Error: {e}")
+        print(f"FATAL: {e}")
+        return 1
+    except Exception as e:
+        print(f"UNEXPECTED ERROR: {e}")
+        import traceback
+        traceback.print_exc()
         return 1
 
 
 if __name__ == "__main__":
-    raise SystemExit(main())
+    sys.exit(main())

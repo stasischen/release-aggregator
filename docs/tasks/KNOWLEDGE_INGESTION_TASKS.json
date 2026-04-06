@@ -18,14 +18,20 @@
     {
       "id": "kg-spec-003",
       "title": "Define canonical knowledge item template for content-ko",
-      "status": "todo",
-      "deliverable": "content-ko knowledge item template and field examples"
+      "status": "done",
+      "deliverable": "content-ko knowledge item template (Pack 001/002)"
     },
     {
       "id": "kg-mig-004",
-      "title": "Manually migrate 8-15 low-risk knowledge items",
-      "status": "todo",
+      "title": "Manually migrate 8-15 low-risk knowledge items (Pack 001)",
+      "status": "done",
       "deliverable": "first content-ko knowledge pack"
+    },
+    {
+      "id": "kg-mig-004b",
+      "title": "Execute migration pack 002: Core Particles & Connectors",
+      "status": "done",
+      "deliverable": "Pack 002: 10 new items in content-ko"
     },
     {
       "id": "kg-verify-005",

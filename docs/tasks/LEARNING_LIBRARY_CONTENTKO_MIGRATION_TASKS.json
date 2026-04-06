@@ -35,6 +35,14 @@
       ]
     },
     {
+      "id": "kg-mig-003c",
+      "desc": "Execute second migration pack (Pack 002): 10 items including object particle (~을/를), locatives (~에/에서), and basic connectors (그리고, 그래서, 하지만, etc).",
+      "status": "done",
+      "depends_on": [
+        "LLCM-003b"
+      ]
+    },
+    {
       "id": "LLCM-004",
       "desc": "Define artifact outputs and naming: learning_library_sources_index, learning_library_knowledge, learning_library_topics, learning_library_links, learning_library_vocab_sets, and learning_library_sentences.",
       "status": "done",

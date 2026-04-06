@@ -23,6 +23,15 @@ window.LessonAdapter = {
     },
 
     /**
+     * Resolves and normalizes array fields.
+     */
+    resolveArray(arr) {
+        if (!arr) return [];
+        if (Array.isArray(arr)) return arr;
+        return [arr];
+    },
+
+    /**
      * Normalizes the unit metadata.
      */
     normalizeUnit(unit, locale = 'zh_tw') {
@@ -32,9 +41,7 @@ window.LessonAdapter = {
             ...unit,
             displayTitle: this.resolveText(unit.title_i18n, locale, unit.title_zh_tw || unit.unit_id || ''),
             displayTheme: this.resolveText(unit.theme_i18n, locale, unit.theme_zh_tw || ''),
-            displayCanDo: Array.isArray(unit.can_do_i18n)
-                ? unit.can_do_i18n.map(v => this.resolveText(v, locale)).filter(Boolean)
-                : (unit.can_do_zh_tw || [])
+            displayCanDo: this.resolveArray(unit.can_do_i18n || unit.can_do_zh_tw).map(v => this.resolveText(v, locale)).filter(Boolean)
         };
     },
 
@@ -44,13 +51,13 @@ window.LessonAdapter = {
     normalizeNode(node, locale = 'zh_tw') {
         if (!node) return {};
 
+        const payload = node.payload || {};
         const normalized = {
             ...node,
             displayTitle: this.resolveText(node.title_i18n, locale, node.title_zh_tw || this.getFallbackNodeTitle(node)),
             displaySummary: this.resolveText(node.summary_i18n, locale, node.summary_zh_tw || '先看這一節的內容。'),
             displayExpected: this.resolveText(node.expected_output_i18n, locale, node.expected_output_zh_tw || '先理解這一節的重點。'),
-
-            payload: node.payload || {}
+            payload: payload
         };
 
         // Ensure content_form is present

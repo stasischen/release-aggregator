@@ -7,26 +7,83 @@
     const payload = node.payload || {};
     const locale = window.currentLocale();
 
-    // Support both 'grammar_note' and 'grammar_summary'
-    const sections = payload.sections || (payload.points ? [{ title_i18n: { zh_tw: '重點內容' }, points_i18n: payload.points }] : []);
+    // 1. Determine Sections (Priority 1: payload.sections, Priority 2: top-level points)
+    let sections = [];
+    let isLegacy = false;
+    let malformedReason = null;
 
-    const html = sections.map(s => `
-      <details open>
-        <summary>${window.escapeHtml(window.i18nText(s.title_i18n, locale, s.title_zh_tw || '文法重點'))}</summary>
-        <div class="grammar-body">
-          ${window.i18nText(s.explanation_md_i18n, locale, s.explanation_md || '')
-        ? `<div class="md-block">${window.markdownToHtmlLite(window.i18nText(s.explanation_md_i18n, locale, s.explanation_md || ''))}</div>`
-        : `
-              <ul class="grammar-point-list">
-                ${(s.points_i18n || s.points_zh_tw || []).map(p => `
-                  <li>${window.applyInlineMarkdown(window.i18nText(p, locale, p))}</li>
-                `).join('')}
-              </ul>
-            `
+    if (payload.sections) {
+      if (Array.isArray(payload.sections)) {
+        sections = payload.sections;
+      } else {
+        malformedReason = "payload.sections MUST be an array.";
       }
+    } else if (payload.points_i18n || payload.points_zh_tw || payload.points) {
+      // Legacy Fallback
+      isLegacy = true;
+      const pts = payload.points_i18n || payload.points_zh_tw || payload.points;
+      if (Array.isArray(pts)) {
+        sections = [{
+          title_i18n: { zh_tw: '重點內容', en: 'Key Points' },
+          points_i18n: pts
+        }];
+      } else {
+        malformedReason = "Legacy points MUST be an array.";
+      }
+    }
+
+    // 2. Fail-Soft Detection
+    if (sections.length === 0) {
+      if (malformedReason) {
+        return renderDataInspection(payload, malformedReason);
+      }
+      
+      const hasOtherKeys = Object.keys(payload).some(k => !['sections', 'points', 'points_i18n', 'points_zh_tw', 'notice_i18n', 'notice_zh_tw', 'notice_zh_tw', 'what_to_notice_i18n'].includes(k));
+      if (hasOtherKeys) {
+        // Unknown payload but not explicitly marked as malformed array yet
+        return renderDataInspection(payload, 'Unrecognized Grammar Payload Structure');
+      }
+      // Valid but empty
+      return `
+        <div class="grammar-container animate-in">
+          ${window.renderNotice(payload)}
+          <div class="empty-state">No additional details available for this section.</div>
         </div>
-      </details>
-    `).join('');
+      `;
+    }
+
+    // 3. Render Sections
+    const html = sections.map(s => {
+      const title = window.i18nText(s.title_i18n, locale, s.title_zh_tw || (isLegacy ? '重點內容' : '文法重點'));
+      const explanationMd = window.i18nText(s.explanation_md_i18n, locale, s.explanation_md || '');
+      const points = window.LessonAdapter.resolveArray(s.points_i18n || s.points_zh_tw || s.points || []);
+
+      let sectionContent = '';
+      
+      // Coexistence: Render MD first, then points
+      if (explanationMd) {
+        sectionContent += `<div class="md-block">${window.markdownToHtmlLite(explanationMd)}</div>`;
+      }
+      
+      if (points.length > 0) {
+        sectionContent += `
+          <ul class="grammar-point-list">
+            ${points.map(p => `
+              <li>${window.applyInlineMarkdown(window.i18nText(p, locale, p))}</li>
+            `).join('')}
+          </ul>
+        `;
+      }
+
+      return `
+        <details open>
+          <summary>${window.escapeHtml(title)}</summary>
+          <div class="grammar-body">
+            ${sectionContent || '<div class="muted-text tiny-text">內容為空</div>'}
+          </div>
+        </details>
+      `;
+    }).join('');
 
     return `
       <div class="grammar-container animate-in">
@@ -34,8 +91,20 @@
         <div class="content-block">
           <div class="block-title">文法解說</div>
           <div class="grammar-accordion">
-            ${html || '<div class="empty-state">無資料</div>'}
+            ${html}
           </div>
+        </div>
+      </div>
+    `;
+  }
+
+  function renderDataInspection(payload, reason) {
+    return `
+      <div class="grammar-container animate-in">
+        <div class="empty-state">
+          <div><strong>Data Inspection Required</strong></div>
+          <div class="tiny-text muted" style="margin-top:4px;">${reason}</div>
+          <pre style="text-align:left; font-size:10px; margin-top:12px; padding:8px; background:rgba(0,0,0,0.03); border-radius:4px; overflow-x:auto;">${window.escapeHtml(JSON.stringify(payload, null, 2))}</pre>
         </div>
       </div>
     `;

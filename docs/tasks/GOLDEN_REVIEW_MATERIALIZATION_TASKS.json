@@ -1,0 +1,39 @@
+{
+  "project": "Golden Review Materialization",
+  "version": "1.0",
+  "name": "GOLDEN_REVIEW_MATERIALIZATION_TASKS",
+  "tasks": [
+    {
+      "id": "GRM-01",
+      "summary": "Materialization Contract & Scripts",
+      "status": "TODO",
+      "description": "Standardize the materialization logic and integrate into orchestrator.",
+      "items": [
+        { "id": "GRM-01-01", "summary": "Integrate 'finalize' into orchestrator.py", "status": "TODO" },
+        { "id": "GRM-01-02", "summary": "Update finalize_lesson_review.py for contract compliance", "status": "TODO" },
+        { "id": "GRM-01-03", "summary": "Update build.py to consume 'overrides/'", "status": "TODO" }
+      ]
+    },
+    {
+      "id": "GRM-02",
+      "summary": "Recovery Pack #1 Materialization",
+      "status": "TODO",
+      "description": "Execute materialization for the initial recovery pack.",
+      "items": [
+        { "id": "GRM-02-01", "summary": "A2-01: Finalize and materialize to overrides/", "status": "TODO" },
+        { "id": "GRM-02-02", "summary": "A2-06: Resolve path leakage and materialize", "status": "TODO" },
+        { "id": "GRM-02-03", "summary": "B1-01: Finalize and materialize", "status": "TODO" }
+      ]
+    },
+    {
+      "id": "GRM-03",
+      "summary": "Learning Loop & Documentation",
+      "status": "TODO",
+      "description": "Output rule candidates and update walkthrough.",
+      "items": [
+        { "id": "GRM-03-01", "summary": "Run analyze_gold_vs_engine.py across pack", "status": "TODO" },
+        { "id": "GRM-03-02", "summary": "Update Phase 3 walkthrough", "status": "TODO" }
+      ]
+    }
+  ]
+}

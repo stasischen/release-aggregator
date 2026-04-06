@@ -1,0 +1,75 @@
+{
+  "task_id": "PRODUCTION_RELEASE_GATING",
+  "description": "建立 staging candidate 與 production release 的分層 gate：先全量進 staging，再以 lesson/unit allowlist 發佈 production，避免 core dialogue/video 全量直進 production。",
+  "status": "in_progress",
+  "tasks": [
+    {
+      "id": "PRG-001",
+      "desc": "Freeze the release manifest schema, including unit_id, lesson_id, release_status, content_type, course_type, source_refs, contract_version, viewer_verified, qa_gate_passed, and staging_only.",
+      "status": "done",
+      "depends_on": [],
+      "subtasks": [
+        { "id": "PRG-001-1", "desc": "Draft release manifest schema spec (A1-A2 focus)", "status": "done" },
+        { "id": "PRG-001-2", "desc": "Define field governance & status enum values", "status": "done" }
+      ]
+    },
+    {
+      "id": "PRG-002",
+      "desc": "Define the boundary between staging catalog and production manifest so staging can hold all candidates while production only accepts allowlisted lesson/unit entries.",
+      "status": "done",
+      "depends_on": [
+        "PRG-001"
+      ],
+      "subtasks": [
+        { "id": "PRG-002-1", "desc": "Draft Staging vs Production boundary doc", "status": "done" },
+        { "id": "PRG-002-2", "desc": "Establish lesson/unit as the authoritative release unit", "status": "done" }
+      ]
+    },
+    {
+      "id": "PRG-003",
+      "desc": "Change the production assembler contract to read allowlisted lessons only, and stop it from directly scanning all core dialogue/video sources.",
+      "status": "in_progress",
+      "depends_on": [
+        "PRG-001",
+        "PRG-002"
+      ],
+      "subtasks": [
+        { "id": "PRG-003-1", "desc": "Define Production Assembler responsibilities & rules", "status": "done" },
+        { "id": "PRG-003-2", "desc": "Specify fail-safe & inclusion logic", "status": "done" },
+        { "id": "PRG-003-3", "desc": "Implement assembler cutover to read from Release Manifest", "status": "todo" }
+      ]
+    },
+    {
+      "id": "PRG-004",
+      "desc": "Map the migration path from the current manifest/lesson_catalog shape to the new release manifest flow, including compatibility rules and cutover notes.",
+      "status": "in_progress",
+      "depends_on": [
+        "PRG-001",
+        "PRG-003"
+      ],
+      "subtasks": [
+        { "id": "PRG-004-1", "desc": "Document current manifest.json & lesson_catalog roles", "status": "done" },
+        { "id": "PRG-004-2", "desc": "Define transition & backward compatibility strategy", "status": "done" },
+        { "id": "PRG-004-3", "desc": "Execute initial seed by joining manifest.json & lesson_catalog.json", "status": "todo" }
+      ]
+    },
+    {
+      "id": "PRG-005",
+      "desc": "Pilot the release gate with dialogue and video first, using staging-only candidates and a small allowlisted lesson set before broader rollout.",
+      "status": "todo",
+      "depends_on": [
+        "PRG-002",
+        "PRG-003",
+        "PRG-004"
+      ]
+    },
+    {
+      "id": "PRG-006",
+      "desc": "Write verification and rollback notes for the release gate, including how to detect manifest mismatch, fail closed, and revert to the prior production bundle.",
+      "status": "todo",
+      "depends_on": [
+        "PRG-005"
+      ]
+    }
+  ]
+}

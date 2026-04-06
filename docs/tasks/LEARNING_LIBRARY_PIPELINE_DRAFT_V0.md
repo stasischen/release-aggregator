@@ -2,7 +2,7 @@
 
 ## Goal
 
-設計 `content-pipeline` 如何將 `content-ko` 的分散內容轉會為 App 可用的整合 artifact。
+設計 `content-pipeline` 如何將 `content-ko` 的分散內容轉為 App 可用的 `core + i18n packs`。
 
 ---
 
@@ -15,35 +15,42 @@
            |
            v
 [Pipeline: Normalization]
-    ├── Merge core & i18n
+    ├── Emit target-language core pack
+    ├── Emit support-language i18n pack
     ├── Indexing & Graph Linking
     ├── Sentence Extraction & Normalization
     └── Validation (Referential Integrity Check)
            |
            v
 [Output: App Artifacts]
-    └── learning_library_*.json (Index, Knowledge, Topics, Links, Vocab, Sentences)
+    ├── learning_library_{target}_core_*.json
+    └── learning_library_{target}_i18n_{support}_*.json
 ```
 
 ---
 
 ## 2. Input/Output Mapping
 
-### A. Merged Models (Structure + Translation)
+### A. Split Models (Structure vs Teaching Layer)
 
-| Target Artifact | Source Core Paths | Source I18n Paths |
+| Target Artifact Pack | Source Core Paths | Source I18n Paths |
 | --- | --- | --- |
-| `knowledge.json` | `core/learning_library/knowledge/` | `i18n/zh_tw/learning_library/knowledge/` |
-| `topics.json` | `core/learning_library/topics/` | `i18n/zh_tw/learning_library/topics/` |
-| `vocab_sets.json` | `core/learning_library/vocab_sets/` | `i18n/zh_tw/learning_library/vocab_sets/` |
+| `*_core_knowledge.json` | `core/learning_library/knowledge/` | — |
+| `*_i18n_{support}_knowledge.json` | — | `i18n/{support}/learning_library/knowledge/` |
+| `*_core_topics.json` | `core/learning_library/topics/` | — |
+| `*_i18n_{support}_topics.json` | — | `i18n/{support}/learning_library/topics/` |
+| `*_core_vocab_sets.json` | `core/learning_library/vocab_sets/` | — |
+| `*_i18n_{support}_vocab_sets.json` | — | `i18n/{support}/learning_library/vocab_sets/` |
 
 ### B. Payload Normalization
 
 | Target Artifact | Build Logic |
 | --- | --- |
-| `sources_index.json` | 掃描 `core/video`, `core/dialogue`, `core/article` 提取 metadata。 |
-| `sentences.json` | 從各類源檔案提取原文、翻譯、ref、時間軸，統整為 source_id 為鍵的索引庫。 |
-| `links.json` | 聚合 `core/learning_library/links/*.json` 片段。 |
+| `*_core_sources_index.json` | 掃描 `core/video`, `core/dialogue`, `core/article` 提取 canonical metadata。 |
+| `*_i18n_{support}_sources.json` | 從 source i18n/overlay 輸出 support-language title/summary 等 learner-facing 欄位。 |
+| `*_core_sentences.json` | 從各類源檔案提取 target-language surface、ref、時間軸。 |
+| `*_i18n_{support}_sentences.json` | 輸出 sentence translation / learner-facing gloss。 |
+| `*_core_links.json` | 聚合 `core/learning_library/links/*.json` 片段。 |
 
 ---
 
@@ -51,18 +58,19 @@
 
 ### Command
 
-`npm run build:learning-library -- --lang=zh_tw --out=./dist`
+`npm run build:learning-library -- --target=ko --support=zh_tw --out=./dist`
 
 ### Parameters
 
-- `--lang`: 目標語系 (預設 `zh_tw`)。
+- `--target`: 學習語 / canonical content language。
+- `--support`: 教學語 / learner-facing i18n language。
 - `--out`: artifact 輸出目錄。
 - `--validate-only`: 僅執行驗證不輸出檔案。
 
 ### Failure Conditions (Stop Build)
 
 1. **Dangling Refs**: `links` 或 `sentences` 指向不存在的 knowledge_id, topic_id 或引用的 source_id。
-2. **Missing I18n**: 建檔於 `core` 但在 `i18n` 目錄找不到對應的翻譯檔。
+2. **Missing I18n**: 需要支援的 i18n 項目在 `i18n/{support}` 目錄找不到對應檔案。
 3. **Invalid Kind**: `knowledge_item` 使用了不符合 schema 的 `kind`。
 
 ---
@@ -74,9 +82,11 @@
 - 遍歷 `content-ko` 指定目錄，載入所有 JSON 檔案。
 - 納入 `core/video`, `core/dialogue`, `core/article` 的正規掃描路徑。
 
-### Step 2: Knowledge Merging
+### Step 2: Pack Emission Boundary
 
-- 以 `core` 為 base，深度合併 `i18n` 內的欄位 (如 `title_zh_tw` -> `title`, `summary_zh_tw` -> `summary`)。
+- `core` 只保留 canonical structure / graph / target-language surface。
+- `i18n` 只輸出 learner-facing translation / explanation / labels。
+- 不在 pipeline 階段合成單一 finalized blob 作為正式主輸出。
 
 ### Step 3: Source Indexing & Filtering
 
@@ -85,8 +95,9 @@
 
 ### Step 4: Sentence Aggregation
 
-- 遍歷所有 source 檔案，並將其 `sentences` 正規化為 App 內部 `Sentencev2` 模型。
-- 這一步必須確保 `translation` 與 `refs` 已在 pipeline 內合併。
+- 遍歷所有 source 檔案，將 sentence 資料拆為：
+  - core: target-language surface + refs + timing
+  - i18n: translation / learner-facing gloss
 
 ### Step 5: Link Aggregation
 
@@ -95,13 +106,15 @@
 
 ### Step 6: Emit
 
-- 產出 `v0` 規範的 6 個 JSON 檔案。
-- 建議輸出位置：`lingo-frontend-web/assets/content/learning_library/zh_tw/`。
+- 產出 `core + i18n` pack。
+- 建議輸出位置：
+  - `lingo-frontend-web/assets/artifacts/learning_library/{target}/core/`
+  - `lingo-frontend-web/assets/artifacts/learning_library/{target}/i18n/{support}/`
 
 ---
 
 ## 5. Next Phase Implementation Focus
 
-- 實作 `content-pipeline` 中的 `learning-library` 處理器類別。
+- 實作 `content-pipeline` 中的 `learning-library` pack builder。
 - 撰寫 `extractSentences` 與 `validateRefs` 工具函式。
-- 整合至既存的 build script。
+- 撰寫 frontend composition adapter，而非 finalized single-bundle intake。

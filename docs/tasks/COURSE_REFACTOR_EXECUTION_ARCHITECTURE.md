@@ -57,6 +57,7 @@
 - viewer 以 source-build artifact 為正式輸入
 - renderer 不直接依賴 preview-only fields
 - i18n fallback 只允許存在於 adapter 層
+- Learning Library / frontend intake 若仍在早期且尚未全面承接，可先升級為 `target core + support i18n` 分包 contract；此類升級視為降低後續返工的主線架構修正，不視為任意變更 artifact contract
 
 對應 task：
 - `MODULAR_VIEWER_REFACTOR`
@@ -137,6 +138,7 @@
 ```text
 Layer 1 內容回收
   -> LEARNING_LIBRARY_CONTENTKO_MIGRATION
+  -> PRODUCTION_RELEASE_GATING
   -> GOLDEN_STANDARD_RECONCILIATION
   -> STABLE_TEST_RCA
 

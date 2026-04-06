@@ -96,19 +96,60 @@
       ]
     },
     {
-      "id": "LLCM-006",
-      "desc": "Add frontend artifact intake path in lingo-frontend-web while preserving temporary seed mode for comparison.",
-      "status": "todo",
+      "id": "LLCM-005f",
+      "desc": "[Contract] Freeze Learning Library vNext packaging: target-language core artifacts plus support-language i18n artifacts, including field ownership boundaries.",
+      "status": "done",
       "depends_on": [
         "LLCM-005d"
       ]
     },
     {
-      "id": "LLCM-007",
-      "desc": "Run parity verification: confirm artifact mode matches prototype seed behavior for video/dialogue/article source detail flows.",
+      "id": "LLCM-005g",
+      "desc": "[Pipeline] Replace localized single-bundle output with core/i18n pack emission plan and output naming for target/support language pairs.",
+      "status": "done",
+      "depends_on": [
+        "LLCM-005f"
+      ]
+    },
+    {
+      "id": "LLCM-005h",
+      "desc": "[Frontend Contract] Define frontend composition intake contract: load target core + selected support-language i18n without reintroducing single-bundle finalized artifacts.",
+      "status": "done",
+      "depends_on": [
+        "LLCM-005f"
+      ]
+    },
+    {
+      "id": "LLCM-006a",
+      "desc": "Define the staging frontend intake switch in lingo-frontend-web so learning library artifact mode can run alongside temporary seed mode for comparison.",
       "status": "todo",
       "depends_on": [
-        "LLCM-006"
+        "LLCM-005g",
+        "LLCM-005h"
+      ]
+    },
+    {
+      "id": "LLCM-006b",
+      "desc": "Wire dialogue/video artifact loaders for staging recovery and surface staging_only, readiness_flag, and segmentation_status as intake/debug metadata without changing the artifact contract.",
+      "status": "todo",
+      "depends_on": [
+        "LLCM-006a"
+      ]
+    },
+    {
+      "id": "LLCM-007a",
+      "desc": "Run parity verification for dialogue/video source list/detail flows: artifact mode must be visible, intakeable, and sample-verifiable against the prototype seed path.",
+      "status": "todo",
+      "depends_on": [
+        "LLCM-006b"
+      ]
+    },
+    {
+      "id": "LLCM-007b",
+      "desc": "Record the staging recovery mismatch list and acceptance gate, explicitly allowing non-prod/staging_only status while keeping production promotion out of scope.",
+      "status": "todo",
+      "depends_on": [
+        "LLCM-007a"
       ]
     },
     {
@@ -116,7 +157,7 @@
       "desc": "Plan the handoff from content-first prototype to future knowledge-first lab once artifact mode is stable.",
       "status": "todo",
       "depends_on": [
-        "LLCM-007"
+        "LLCM-007b"
       ]
     }
   ]

@@ -1,0 +1,40 @@
+{
+  "task_id": "PRG-006",
+  "document_type": "rollback_checklist",
+  "version": "1.0",
+  "pilot_scope": {
+    "units": ["bonus_video"],
+    "lesson_count": 2
+  },
+  "verification_steps": [
+    {
+      "step": "Check assembler run mode",
+      "expected": "STRICT",
+      "critical": true
+    },
+    {
+      "step": "Verify gap_count in production_plan.json",
+      "expected": 0,
+      "critical": true
+    },
+    {
+      "step": "Confirm derived artifacts presence",
+      "files": ["manifest.json", "lesson_catalog.json"],
+      "critical": true
+    }
+  ],
+  "rollback_triggers": [
+    "gap_count > 0 in STRICT mode",
+    "missing lesson assets in production content",
+    "corrupted manifest.json / lesson_catalog.json"
+  ],
+  "rollback_procedure": {
+    "action": "Restore from previous known-good state",
+    "restore_scope": [
+      "production/manifest.json",
+      "production/lesson_catalog.json",
+      "production/ko/**"
+    ],
+    "prohibition": "DO NOT manually edit derived JSON files"
+  }
+}

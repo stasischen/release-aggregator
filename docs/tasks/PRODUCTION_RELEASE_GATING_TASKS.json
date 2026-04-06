@@ -56,7 +56,7 @@
     {
       "id": "PRG-005",
       "desc": "Pilot the release gate with dialogue and video first, using staging-only candidates and a small allowlisted lesson set before broader rollout.",
-      "status": "todo",
+      "status": "in_progress",
       "depends_on": [
         "PRG-002",
         "PRG-003",

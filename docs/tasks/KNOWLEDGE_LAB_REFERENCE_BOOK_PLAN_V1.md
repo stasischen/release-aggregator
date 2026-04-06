@@ -30,7 +30,7 @@ All ingestion MUST map to the following established fields:
 - **Core (`core.json`)**: `id`, `kind`, `subcategory`, `level`, `surface`, `tags`.
 - **i18n (`i18n/{support}/knowledge.json`)**: `id`, `title_zh_tw`, `summary_zh_tw`, `explanation_md_zh_tw`, `usage_notes_zh_tw`, `example_bank`.
 
-**Provenance Data (media_id, source_order)**: Relegated to `source_refs` or internal mapping notes; NOT added to the JSON schema.
+**Provenance Data (media_id, source_order)**: Relegated to internal mapping notes only; NOT added to the JSON schema.
 
 ## 3. ID Strategy
 

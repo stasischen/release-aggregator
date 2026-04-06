@@ -1,13 +1,26 @@
 {
   "task_id": "UNIFIED_LESSON_VIEW_FLUTTER_TRANSFER",
-  "description": "將已凍結的 unified lesson view contract 搬到 Flutter，聚焦 shell、state、adapters 與 QA/regression。",
+  "description": "將已凍結的 unified lesson view contract 搬到 Flutter。必須先通過 Architecture, Modular Refactor, KLab Refactor, 與 Runtime Mock Verification 四大門檻後方可開始。",
   "status": "todo",
   "tasks": [
+    {
+      "id": "ULVFT-000",
+      "desc": "Confirm transfer gate prerequisites: Architecture frozen, Modular Viewer refactored, Knowledge Lab Viewer refactored, and Runtime Mock Verification completed.",
+      "status": "todo",
+      "depends_on": [
+        "UNIFIED_LESSON_VIEW_ARCHITECTURE",
+        "MODULAR_VIEWER_REFACTOR",
+        "KNOWLEDGE_LAB_VIEWER_REFACTOR",
+        "ULV_RUNTIME_MOCK_VERIFICATION"
+      ]
+    },
     {
       "id": "ULVFT-001",
       "desc": "Freeze the Flutter shell contract for unified lesson view, including screen layout, panel regions, and the minimum runtime entry points needed by the view.",
       "status": "todo",
-      "depends_on": []
+      "depends_on": [
+        "ULVFT-000"
+      ]
     },
     {
       "id": "ULVFT-002",

@@ -17,8 +17,9 @@ Layer 1: 內容回收 / Staging Recovery
 │
 Layer 2: 前端承接 / Frontend Contract Integration
 │  ├── 先讓 viewer / frontend 吃新版 source-build artifact
-│  ├── adapter 收斂 i18n fallback
-│  └── preview fixture 退居比對用途
+│  ├── 驗證 Architecture 與 Modular/KLab Viewer Refactor
+│  ├── 通過 ULV Runtime Mock Verification (真 content 驗收)
+│  └── 最後才轉入 Flutter Transfer
 │
 Layer 3: 單元重構 / Unit-by-Unit Refactor
 │  ├── 先做 dialogue / travel / daily-life
@@ -61,8 +62,10 @@ Layer 5: Legacy Backfill
 | Task ID | 描述 | Phase | 進度 | 檔案 |
 | :--- | :--- | :--- | :--- | :--- |
 | MODULAR_VIEWER_REFACTOR | Modular Viewer 重構（source-build adapter / renderer 拆分 / i18n-first / preview 退場） | C+/Ops | 1/8 tasks | [JSON](MODULAR_VIEWER_REFACTOR_TASKS.json) · [PLAN](MODULAR_VIEWER_REFACTOR_PLAN.md) |
+| KNOWLEDGE_LAB_VIEWER_REFACTOR | Knowledge Lab Viewer 重構（對齊 ULV runtime contract / Pattern Lab 持久化 / 真內容驗證） | C+/Ops | 0/4 tasks | [JSON](KNOWLEDGE_LAB_VIEWER_REFACTOR_TASKS.json) · [PLAN](KNOWLEDGE_LAB_VIEWER_REFACTOR_PLAN.md) |
 | UNIFIED_LESSON_VIEW_ARCHITECTURE | Modular Viewer 下游：統一定義 lesson runtime IA（primary content / support detail / navigation / mock verification / Flutter boundary） | C+/Ops | 7/7 tasks | [JSON](UNIFIED_LESSON_VIEW_ARCHITECTURE_TASKS.json) · [ARCH](UNIFIED_LESSON_VIEW_ARCHITECTURE.md) · [CONTRACT](mockups/modular/UNIFIED_LESSON_RUNTIME_CONTRACT.md) |
-| UNIFIED_LESSON_VIEW_FLUTTER_TRANSFER | Modular Viewer 下游：將凍結的 unified lesson view contract 轉入 Flutter（shell / state / adapters / QA） | C+/Ops | 0/7 tasks | [JSON](UNIFIED_LESSON_VIEW_FLUTTER_TRANSFER_TASKS.json) |
+| ULV_RUNTIME_MOCK_VERIFICATION | **[GATE]** ULV Runtime Mock 驗證（使用真 lesson/KLab content 驗證運作合約穩定性） | C+/Ops | 0/6 tasks | [JSON](ULV_RUNTIME_MOCK_VERIFICATION_TASKS.json) · [PLAN](ULV_RUNTIME_MOCK_VERIFICATION.md) |
+| UNIFIED_LESSON_VIEW_FLUTTER_TRANSFER | Modular Viewer 下游：將凍結的 unified lesson view contract 轉入 Flutter（shell / state / adapters / QA） | C+/Ops | 0/8 tasks | [JSON](UNIFIED_LESSON_VIEW_FLUTTER_TRANSFER_TASKS.json) |
 
 ### Layer 3 — 單元重構 / Unit-by-Unit Refactor
 

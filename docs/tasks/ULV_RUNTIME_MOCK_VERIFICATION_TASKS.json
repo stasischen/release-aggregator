@@ -1,0 +1,58 @@
+{
+  "task_id": "ULV_RUNTIME_MOCK_VERIFICATION",
+  "description": "ULV runtime mock 驗證：整合 modular viewer 與 Knowledge Lab viewer，使用「真實內容」驗證 ULV runtime contract 是否真能被承接，作為 Flutter transfer 的唯一 gate。",
+  "status": "todo",
+  "tasks": [
+    {
+      "id": "ULVVER-001",
+      "desc": "Verify primary surface mapping (dialogue/video/article) with real lesson build artifacts in modular viewer.",
+      "status": "todo",
+      "depends_on": [
+        "MODULAR_VIEWER_REFACTOR",
+        "UNIFIED_LESSON_VIEW_ARCHITECTURE"
+      ]
+    },
+    {
+      "id": "ULVVER-002",
+      "desc": "Verify support detail surface mapping (grammar/pattern/usage/vocab) with real Knowledge Lab build artifacts in modular viewer.",
+      "status": "todo",
+      "depends_on": [
+        "KNOWLEDGE_LAB_VIEWER_REFACTOR",
+        "UNIFIED_LESSON_VIEW_ARCHITECTURE"
+      ]
+    },
+    {
+      "id": "ULVVER-003",
+      "desc": "Verify anchor, support panel, and selection state coordination across real multi-surface content.",
+      "status": "todo",
+      "depends_on": [
+        "ULVVER-001",
+        "ULVVER-002"
+      ]
+    },
+    {
+      "id": "ULVVER-004",
+      "desc": "Verify fail-soft behavior for missing data and reserved-slot (vocab) at the adapter boundary.",
+      "status": "todo",
+      "depends_on": [
+        "ULVVER-003"
+      ]
+    },
+    {
+      "id": "ULVVER-005",
+      "desc": "Verify adapter resolution order for legacy fields (zh_tw/en) vs. i18n-first contract.",
+      "status": "todo",
+      "depends_on": [
+        "ULVVER-003"
+      ]
+    },
+    {
+      "id": "ULVVER-006",
+      "desc": "Verify activity surfaces co-existence (practice_card/review_card) with ULV shell boundary.",
+      "status": "todo",
+      "depends_on": [
+        "ULVVER-003"
+      ]
+    }
+  ]
+}

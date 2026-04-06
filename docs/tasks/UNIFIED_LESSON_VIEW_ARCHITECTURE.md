@@ -70,16 +70,28 @@ The following `content_form` types are considered **Activity Surfaces**. They co
 
 ---
 
-## 5. Metadata Boundaries
+## 5. Implementation Boundary
 
-### 5.1 Primary Metadata
+The ULV defines the *what* and the *why* of the lesson architecture. The transition to the Flutter implementation is governed by the **Flutter Transfer Boundary**.
+
+### 5.1 Flutter Shell vs. Runtime Contract
+- **Runtime Contract (Frozen)**: Core information architecture, state names, and taxonomy that must remain stable.
+- **Flutter Shell (Flexible)**: Implementation-specific details like widget composition, layout regions, and state management choices.
+
+For detailed rules on adapter resolution, acceptance criteria, and remaining gaps, see the [Unified Lesson View: Flutter Transfer Boundary](UNIFIED_LESSON_VIEW_FLUTTER_BOUNDARY.md) document.
+
+---
+
+## 6. Metadata Boundaries
+
+### 6.1 Primary Metadata
 Every node in the ULV runtime must resolve:
 
 - `displayTitle`: Localized title for the current step.
 - `displaySummary`: Localized "goal" of the step.
 - `displayExpected`: Localized "expected output" description.
 
-### 5.2 Missing-Data Behavior
+### 6.2 Missing-Data Behavior
 If a primary surface is requested but the payload is malformed or missing mandatory fields:
 
 - **Fail-Soft**: Render a "Content Not Available" placeholder with a raw data preview for debugging.

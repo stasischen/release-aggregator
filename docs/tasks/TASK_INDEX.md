@@ -61,7 +61,7 @@ Layer 5: Legacy Backfill
 | Task ID | 描述 | Phase | 進度 | 檔案 |
 | :--- | :--- | :--- | :--- | :--- |
 | MODULAR_VIEWER_REFACTOR | Modular Viewer 重構（source-build adapter / renderer 拆分 / i18n-first / preview 退場） | C+/Ops | 1/8 tasks | [JSON](MODULAR_VIEWER_REFACTOR_TASKS.json) · [PLAN](MODULAR_VIEWER_REFACTOR_PLAN.md) |
-| UNIFIED_LESSON_VIEW_ARCHITECTURE | Modular Viewer 下游：統一定義 lesson runtime IA（primary content / support detail / navigation / mock verification / Flutter boundary） | C+/Ops | 5/7 tasks | [JSON](UNIFIED_LESSON_VIEW_ARCHITECTURE_TASKS.json) · [ARCH](UNIFIED_LESSON_VIEW_ARCHITECTURE.md) · [CONTRACT](mockups/modular/UNIFIED_LESSON_RUNTIME_CONTRACT.md) |
+| UNIFIED_LESSON_VIEW_ARCHITECTURE | Modular Viewer 下游：統一定義 lesson runtime IA（primary content / support detail / navigation / mock verification / Flutter boundary） | C+/Ops | 7/7 tasks | [JSON](UNIFIED_LESSON_VIEW_ARCHITECTURE_TASKS.json) · [ARCH](UNIFIED_LESSON_VIEW_ARCHITECTURE.md) · [CONTRACT](mockups/modular/UNIFIED_LESSON_RUNTIME_CONTRACT.md) |
 | UNIFIED_LESSON_VIEW_FLUTTER_TRANSFER | Modular Viewer 下游：將凍結的 unified lesson view contract 轉入 Flutter（shell / state / adapters / QA） | C+/Ops | 0/7 tasks | [JSON](UNIFIED_LESSON_VIEW_FLUTTER_TRANSFER_TASKS.json) |
 
 ### Layer 3 — 單元重構 / Unit-by-Unit Refactor
@@ -69,7 +69,7 @@ Layer 5: Legacy Backfill
 | Task ID | 描述 | Phase | 進度 | 檔案 |
 | :--- | :--- | :--- | :--- | :--- |
 | TARGET_LANG_COURSE_FACTORY | 目標語系課程工廠（目標語內容優先 + 中英文教學層 + 前端轉換） | C+/Ops | 10/20 tasks | [JSON](TARGET_LANG_COURSE_FACTORY_TASKS.json) |
-| COURSE_MODULE_COMPOSITION | 課程模組組裝（Content / Interaction / Review 三層設計與 contract 對齊） | C+/Ops | 0/10 tasks | [JSON](COURSE_MODULE_COMPOSITION_TASKS.json) · [PLAN](COURSE_MODULE_COMPOSITION_PLAN.md) |
+| COURSE_MODULE_COMPOSITION | 課程模組組裝（Content / Interaction / Review 三層設計與 contract 對齊；含 segmentation anchor 與 knowledge link-out） | C+/Ops | 0/11 tasks | [JSON](COURSE_MODULE_COMPOSITION_TASKS.json) · [PLAN](COURSE_MODULE_COMPOSITION_PLAN.md) |
 
 ### Layer 4 — 技能深化 / Skill-Layer Expansion
 

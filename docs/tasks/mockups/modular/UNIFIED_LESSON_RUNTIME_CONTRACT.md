@@ -13,29 +13,29 @@ This document defines the technical contract for the **Unified Lesson View (ULV)
     - `speaker`: `A` or `B`.
     - `text`: Target language string (Korean).
     - `translations_i18n`: I18n object for the learner's language.
-- **Display States**:
+    - **OR** `zh_tw` / `en`: Legacy resolved translation keys (Acceptable for runtime resolution).
+- **Runtime Responsibility**:
+    - The **Adapter** is responsible for resolving either `translations_i18n` or legacy keys into a unified `resolvedTranslation` field for the renderer.
     - `listening_emphasis`: Target text at full opacity; translation at low opacity or hidden.
     - `reading_emphasis`: Target and translation both at full opacity.
     - `bilingual_visibility`: Boolean flag for the entire surface.
 
-### 1.2 Video Surface (Slot)
+### 1.2 Video Surface (Slot Boundary)
 - **Purpose**: Media-based listening and situation immersion.
-- **Minimum Runtime Requirements**:
-    - `media_type`: `video`.
-    - `availability_state`: `ready` | `not_available` | `loading`.
-- **Media Availability State**:
-    - `ready`: Video player visible; source loaded.
-    - `not_available`: Fallback UI (e.g., "Video currently in production").
-- **Optional Slots**:
-    - `subtitle_sync`: Aligned sentence nodes for the current timestamp.
+- **Runtime Responsibility**:
+    - The runtime (Adapter + Renderer boundary) must handle the availability of a media slot.
+    - If `video` is requested, the system must resolve the appropriate playback capability or fallback.
+- **Minimum Requirements**:
+    - Handle `ready` | `not_available` | `loading` states.
+- **Optional**:
+    - Support for subtitle synchronization if provided by the payload.
 
-### 1.3 Article Surface (Slot)
+### 1.3 Article Surface (Slot Boundary)
 - **Purpose**: Narrative text comprehension.
-- **Minimum Runtime Requirements**:
-    - `body_i18n`: Localized markdown/text string.
-- **Display States**:
-    - `standard`: Full body visibility.
-    - `focus_highlight`: Selection-based sentence highlighting.
+- **Runtime Responsibility**:
+    - The runtime must handle the resolution of a structured text body into a scrollable or paginated article view.
+- **Minimum Requirements**:
+    - Handle text emphasis states (e.g., standard vs. focus).
 
 ---
 
@@ -64,8 +64,7 @@ This document defines the technical contract for the **Unified Lesson View (ULV)
 ### 2.4 Vocab Support (Slot)
 - **Reserved Status**: No current upstream schema.
 - **Runtime Requirement**:
-    - Handle `pending` or `missing_data` state gracefully.
-    - Minimum slot for `term_id` and `definition_i18n`.
+    - Handle `pending` or `missing_data` state gracefully at the adapter/renderer boundary.
 
 ---
 

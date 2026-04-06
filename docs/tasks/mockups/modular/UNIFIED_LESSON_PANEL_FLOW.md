@@ -13,8 +13,8 @@ The ULV runtime tracks two distinct levels of navigation:
 
 ### 1.2 `activeSupportType` (The Vertical Depth)
 - Toggling between `grammar`, `pattern`, `usage`, or `vocab`.
-- **Rule**: Selecting a type updates the `activeSupportType` runtime state.
-- **Rule**: Closing the panel clears the `activeSupportType`.
+- **Rule**: Selecting a type updates both `activeSupportType` (current UI) and `lastActiveSupportType` (memory).
+- **Rule**: Closing the panel sets `activeSupportType` to `null` (hiding the UI), but **preserves** `lastActiveSupportType` for the current node session.
 
 ---
 
@@ -48,7 +48,8 @@ We distinguish between temporary UI state and persistent learner input.
 - If the target node has a different `primaryContentSurface` (e.g., Dialogue -> Article), the transition should ensure the primary surface is fully cleared and re-initialized.
 
 ### 4.2 Panel Close / Reopen
-- If the learner closes the Support Panel, then re-opens it on the **same node**, the panel should default to the last `activeSupportType`.
+- If the learner closes the Support Panel, then re-opens it on the **same node**, the panel should default to the `lastActiveSupportType`.
+- If `lastActiveSupportType` is null (e.g., first open), the runtime should default to the first available support type in the payload.
 - Closing the panel does **not** clear the `activePrimaryAnchor` (the primary highlight remains).
 
 ### 4.3 Primary Surface Switch

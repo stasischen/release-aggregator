@@ -1,7 +1,7 @@
 {
   "task_id": "UNIFIED_LESSON_VIEW_ARCHITECTURE",
   "description": "定義 unified lesson view 的 mock/runtime information architecture，涵蓋 primary content surfaces、support detail surfaces、navigation/panel contract、mock verification 與 Flutter transfer boundary。",
-  "status": "in_progress",
+  "status": "done",
   "tasks": [
     {
       "id": "ULV-001",
@@ -45,7 +45,7 @@
     {
       "id": "ULV-006",
       "desc": "Define the Flutter transfer boundary for the frozen unified lesson view contract, including what the frontend may adapt and what must remain contract-stable.",
-      "status": "todo",
+      "status": "done",
       "depends_on": [
         "ULV-004",
         "ULV-005"
@@ -54,7 +54,7 @@
     {
       "id": "ULV-007",
       "desc": "Document acceptance criteria and remaining gaps for downstream Flutter transfer, so runtime mock coverage can be validated before implementation moves to Flutter.",
-      "status": "todo",
+      "status": "done",
       "depends_on": [
         "ULV-005",
         "ULV-006"

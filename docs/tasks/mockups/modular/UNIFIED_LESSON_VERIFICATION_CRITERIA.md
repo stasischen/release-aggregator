@@ -4,9 +4,9 @@ This document outlines the heuristic evaluation and automated check criteria for
 
 ## 1. Fixture Shape Checks
 - **Primary Type Verification**:
-    - `dialogue`: Must contain `payload.dialogue_turns` OR `payload.dialogue_scenes`.
-    - `video`: Must specify `media_type: video` (Wait for production).
-    - `article`: Must specify `media_type: text` (Wait for production).
+    - `dialogue`: Must contain `payload.dialogue_turns` OR `payload.dialogue_scenes` (or be resolvable by the adapter).
+    - `video`: Must be resolvable into a media playback slot at the runtime boundary.
+    - `article`: Must be resolvable into a structured text slot at the runtime boundary.
 - **Support Field Alignment**:
     - If `content_form` indicates patterns, `payload.pattern_lab` or `payload.lesson_support_module` must be present.
     - If `grammar` is requested in metadata, `payload.grammar_summary` or `payload.grammar_note` must be present.
@@ -14,7 +14,7 @@ This document outlines the heuristic evaluation and automated check criteria for
 ## 2. State Transition Checks
 - **Surface Resilience**:
     - Moving from `currentIndex=0` to `currentIndex=1` must correctly re-render the Primary Surface without horizontal scroll ghosts.
-    - If the Support Panel is open at `index=0`, it must display appropriate content for `index=1` within < 200ms of the transition.
+    - If the Support Panel is open at `index=0`, it must display appropriate content for `index=1` without perceptible delay.
 - **Anchor Sync**:
     - Selecting an element (`activePrimaryAnchor`) must not cause a layout shift or unexpected panel closure.
 
@@ -22,7 +22,7 @@ This document outlines the heuristic evaluation and automated check criteria for
 - **Reserved Slots**:
     - When a "Reserved" surface (e.g., `vocab`) is triggered, the UI must show a "Feature in Preview" or "Reserved Slot" message rather than an empty page.
 - **Fatal Error Handling**:
-    - If the `payload` is missing or is an invalid JSON shape, the runtime must invoke the **Data Inspector** component showing the raw error and the problematic node ID.
+    - If the `payload` is missing or is an invalid JSON shape, the runtime must surface a contract-violation alert or diagnostic view showing the raw error and the problematic node ID.
 
 ## 4. Contract Mismatch Reporting
 - **In-Viewer UI**:

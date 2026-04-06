@@ -5,48 +5,45 @@
 Source: `reports/youtube_beginner_grammar/clean_md/*.md`
 Source: `reports/youtube_connective_endings/clean_md/*.md`
 
-| Reference Book Field | Learning Lab `core.json` Field | Learning Lab `i18n/{support}/knowledge.json` Field |
+| Source Field | Learning Lab `core.json` Field | Learning Lab `i18n/{support}/knowledge.json` Field |
 | :--- | :--- | :--- |
-| **# Title** | `knowledge_id` (Slugified) | `title` |
-| **Description** | N/A | `explanation.summary` |
-| **Usage Rules** | N/A | `explanation.details` (Normalized from prose) |
-| **母音/子音 Rules** | `attributes.ending_type` (Ref) | N/A (Keep as notes) |
-| **Examples (KO)** | N/A | `example_bank.target_text` |
-| **Examples (ZH)** | N/A | `example_bank.translation` |
-| **Video ID** | `metadata.media_id` | N/A |
-| **Playlist Index** | `metadata.source_order` | N/A |
+| **# Title** | `id` (Semantic Slug) | `title_zh_tw` |
+| **Description** | N/A | `summary_zh_tw` |
+| **Usage Rules** | N/A | `explanation_md_zh_tw` (Markdown formatted) |
+| **Examples (KO)** | N/A | `example_bank.ko` |
+| **Examples (ZH)** | N/A | `example_bank.zh_tw` |
+| **Other Tags** | `tags` | N/A |
 
 ## 2. Mapping Connector Items
 
 Source: `reports/youtube_connectors/clean_md/*.md`
 
 - **Knowledge Kind**: `connector`.
-- **Mapping**: Same as Grammar items, but emphasis on `contrastive_notes` in `i18n` if present.
+- **Mapping**: Same as Grammar items.
+- **Fields**: Use `title_zh_tw`, `summary_zh_tw`, `explanation_md_zh_tw`.
 
 ## 3. Mapping Survival Patterns
 
 Source: `ko_survival_pattern_library_v1.json`
 
-| Reference Book Field | Learning Lab `core.json` Field | Learning Lab `i18n/{support}/pattern.json` Field |
+| Source Field | Learning Lab `core.json` Field | Learning Lab `i18n/{support}/pattern.json` Field |
 | :--- | :--- | :--- |
-| **`pattern_id`** | `pattern_id` (Normalized) | N/A |
+| **`pattern_id`** | `id` (Normalized) | N/A |
 | **`frame`** | `frame` | N/A |
 | **`slots`** | `slots` | N/A |
-| **`can_do`** | N/A | `summary` |
-| **`acceptable_variants`** | `acceptable_alt_frames` | N/A |
-| **`teaching_notes`** | N/A | `explanation.learner_tips` |
+| **`can_do`** | N/A | `summary_zh_tw` |
+| **`acceptable_variants`** | `tags` (as alt_info) | N/A |
+| **`teaching_notes`** | N/A | `explanation_md_zh_tw` |
 
-## 4. Reference Book Browse Hierarchy (Topics)
+## 4. Reference Metadata (Provenance Layer)
 
-Topics are NOT canonical; they are the browsing layer.
+The following fields from the source are NOT added to the JSON artifacts but are kept in the mapping notes for ingestion scripts:
 
-- **`topic.grammar.particle`**: Grouping for all particles.
-- **`topic.grammar.ending`**: Grouping for all connective endings.
-- **`topic.connector.causal`**: Grouping for `그래서`, `따라서`.
-- **`topic.pattern.survival.greeting`**: Grouping for "Survival: Greetings".
+- **`media_id`**: Relegated to `source_ref` in `example_bank` or mapping database.
+- **`playlist_index`**: Internal sorting hint only.
 
 ## 5. Normalization Rules
 
-1. **Slugification**: Titles like `敬語結尾正式敘述 -습니다/ㅂ니다` should be mapped to `sumndia_formal_ending`.
-2. **Example Cleanup**: Metadata emojis (🗣, 📘) should be removed from pure text fields but can be kept in `summary` if desired.
-3. **Media Link**: Ensure `media_id` is stored so the frontend can retrieve the specific YouTube segment.
+1. **Strict Contract**: No nested objects like `metadata` or `explanation.summary`.
+2. **Semantic Slugs**: Names like `sumndia_formal_ending` instead of `001_...`.
+3. **Markdown Ingestion**: Ensure usage rules from source MD are properly escaped and formatted for `explanation_md_zh_tw`.

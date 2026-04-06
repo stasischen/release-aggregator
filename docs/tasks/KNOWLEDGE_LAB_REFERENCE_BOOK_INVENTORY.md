@@ -46,7 +46,8 @@
 - **`youtube_idioms` (Initial scan)**: Idioms require a different `idiom` schema or `expression` mapping that is currently not the focus of the "Reference Book" structure.
 - **YouTube Playlists (as items)**: Playlists are not knowledge items; their constituents are.
 
-## 3. Data Integrity & Normalization Risks
+## 3. Data Integrity & Mapping Considerations
 
-- **OCR/Translation Flaws**: Some early clean MDs might have mixed-script or minor OCR errors from the video transcriptions.
-- **Mapping Gaps**: Usage rules in MD are prose; mapping them to a structured "Conditions" or "Rules" field in the Lab requires manual normalization during Batch 001.
+- **OCR/Translation Flaws**: Early clean MDs might have mixed-script or minor OCR errors from video transcriptions.
+- **Mapping Gaps**: Usage rules in MD are prose; mapping them to a structured `explanation_md_zh_tw` in the Lab requires careful formatting but stays within the current i18n contract.
+- **Provenance Layer**: Metadata like `media_id` and `source_order` are valuable for debugging but will not be added to the knowledge JSON core at this stage. They remain as internal mapping notes.

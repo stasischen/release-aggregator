@@ -55,14 +55,15 @@ The current validated scope is limited to **exactly-matched video lessons**.
 ### **Step 1: Identify Failure**
 
 If any of the following occur after a release:
+
 - Frontend crashes due to missing `manifest.json` entries.
 - Integrity check failure (checksum mismatch).
 - Production assets (`manifest.json`, `lesson_catalog.json`) are empty or corrupted.
 
 ### **Step 2: Rollback Actions**
 
-1. **Restore Assets**: Revert `manifest.json` and `lesson_catalog.json` to the version from the previous Git commit or deployment backup.
-2. **Restore Bundles**: Revert the entire production content folder (`production/**`) to the previous stable state.
+1. **Restore Assets**: Revert `lingo-frontend-web/assets/content/production/manifest.json` and `lesson_catalog.json` to the version from the previous Git commit or deployment backup.
+2. **Restore Bundles**: Revert the entire production content folder (`lingo-frontend-web/assets/content/production/packages/ko/**`) to the previous stable state.
 
 ### **Step 3: Post-Mortem**
 

@@ -31,9 +31,9 @@
   "rollback_procedure": {
     "action": "Restore from previous known-good state",
     "restore_scope": [
-      "production/manifest.json",
-      "production/lesson_catalog.json",
-      "production/ko/**"
+      "lingo-frontend-web/assets/content/production/manifest.json",
+      "lingo-frontend-web/assets/content/production/lesson_catalog.json",
+      "lingo-frontend-web/assets/content/production/packages/ko/**"
     ],
     "prohibition": "DO NOT manually edit derived JSON files"
   }

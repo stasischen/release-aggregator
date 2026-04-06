@@ -135,6 +135,29 @@ Draft shape:
 }
 ```
 
+### segmentation_anchor_links
+
+Purpose:
+- let course/video sentence chunks expose canonical anchors for dictionary and knowledge lab navigation
+- keep the segmentation result separate from the UI, but preserve enough refs for inline click-through
+
+Draft shape:
+
+```json
+{
+  "segmentation_anchor_links": {
+    "enabled": true,
+    "anchor_types": ["token", "chunk", "sentence"],
+    "link_targets": ["dictionary_atom_ref", "topic_ref", "grammar_ref"],
+    "fallback_policy": "show_surface_only_when_no_canonical_target_exists"
+  }
+}
+```
+
+Scope note:
+- This belongs under `COURSE_MODULE_COMPOSITION`, not `KNOWLEDGE_LAB_ENRICHMENT` alone.
+- Knowledge Lab supplies the canonical refs; course composition decides how the lesson surface exposes them.
+
 ## Node Usage Mapping (Practical)
 
 ### Immersion/Input nodes

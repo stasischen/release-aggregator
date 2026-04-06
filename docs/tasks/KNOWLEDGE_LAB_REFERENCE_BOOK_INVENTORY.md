@@ -9,10 +9,6 @@
 - **Structure**: Title, description, usage rules (e.g., vowel vs consonant endings), example sentences with translations.
 - **Suitability**: **High**. Primary source for core grammar reference book.
 
-1. **Slugification**: Titles like `敬語結尾正式敘述 -습니다/ㅂ니다` should be mapped to `sumndia_formal_ending`.
-2. **Example Cleanup**: Metadata emojis (🗣, 📘) should be removed from pure text fields but can be kept in `summary` if desired.
-3. **Media Link**: Ensure `media_id` is stored so the frontend can retrieve the specific YouTube segment.
-
 ### B. `youtube_connectors` (113 items)
 
 - **Format**: Markdown / YouTube Metadata.
@@ -49,5 +45,6 @@
 ## 3. Data Integrity & Mapping Considerations
 
 - **OCR/Translation Flaws**: Early clean MDs might have mixed-script or minor OCR errors from video transcriptions.
-- **Mapping Gaps**: Usage rules in MD are prose; mapping them to a structured `explanation_md_zh_tw` in the Lab requires careful formatting but stays within the current i18n contract.
-- **Provenance Layer**: Metadata like `media_id` and `source_order` are valuable for debugging but will not be added to the knowledge JSON core at this stage. They remain as internal mapping notes.
+- **Mapping Gaps**: Usage rules in MD are prose; mapping them to a structured `explanation_md_zh_tw` in the Lab requires careful formatting.
+- **`media_id`**: Internal mapping note for source tracking only.
+- **`playlist_index`**: Internal sorting hint only.

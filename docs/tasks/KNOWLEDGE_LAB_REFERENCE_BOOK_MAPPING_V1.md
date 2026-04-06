@@ -35,11 +35,7 @@ Source: `ko_survival_pattern_library_v1.json`
 | **`acceptable_variants`** | `tags` (as alt_info) | N/A |
 | **`teaching_notes`** | N/A | `explanation_md_zh_tw` |
 
-## 4. Reference Metadata (Provenance Layer)
-
-The following fields from the source are NOT added to the JSON artifacts but are kept in the mapping notes for ingestion scripts:
-
-- **`media_id`**: Relegated to `source_ref` in `example_bank` or mapping database.
+- **`media_id`**: Internal mapping note for source tracking only.
 - **`playlist_index`**: Internal sorting hint only.
 
 ## 5. Normalization Rules

@@ -6,6 +6,7 @@ from __future__ import annotations
 import argparse
 import copy
 import json
+import os
 from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any
@@ -38,6 +39,96 @@ def normalize_content_type(raw_value: Any) -> str:
     if raw_value in CONTENT_TYPE_VALUES:
         return raw_value
     return "dialogue"
+
+
+class CandidateInventory:
+    """Inventory of available candidate lessons from staging."""
+
+    def __init__(self, lessons: dict[str, dict[str, Any]], root: Path):
+        self.lessons = lessons
+        self.root = root
+
+    @classmethod
+    def load_from_manifest(cls, manifest_path: Path, root: Path) -> CandidateInventory:
+        """Load inventory from a manifest.json file."""
+        data = load_json(manifest_path)
+        lessons = {}
+        for lesson in data.get("lessons", []):
+            level_id = lesson.get("level_id")
+            if isinstance(level_id, str):
+                lessons[level_id] = lesson
+        return cls(lessons, root)
+
+    @classmethod
+    def scan_directory(cls, staging_root: Path) -> CandidateInventory:
+        """Adapter: Scan staging directory to build a candidate inventory."""
+        lessons = {}
+        
+        # Dialogue: core/dialogue/**/*.json
+        dialogue_root = staging_root / "core/dialogue"
+        if dialogue_root.exists():
+            for f in dialogue_root.rglob("*.json"):
+                rel_path = f.relative_to(staging_root)
+                lesson_id = f.stem
+                lessons[lesson_id] = {
+                    "level_id": lesson_id,
+                    "path": str(rel_path).replace("\\", "/"),
+                    "type": "dialogue"
+                }
+
+        # Video: core/video/*.json
+        video_root = staging_root / "core/video"
+        if video_root.exists():
+            for f in video_root.glob("*.json"):
+                rel_path = f.relative_to(staging_root)
+                lesson_id = f.stem
+                lessons[lesson_id] = {
+                    "level_id": lesson_id,
+                    "path": str(rel_path).replace("\\", "/"),
+                    "type": "video"
+                }
+
+        # Article: core/article/*.json
+        article_root = staging_root / "core/article"
+        if article_root.exists():
+            for f in article_root.glob("*.json"):
+                rel_path = f.relative_to(staging_root)
+                lesson_id = f.stem
+                lessons[lesson_id] = {
+                    "level_id": lesson_id,
+                    "path": str(rel_path).replace("\\", "/"),
+                    "type": "article"
+                }
+
+        return cls(lessons, staging_root)
+
+
+def find_candidate(lesson_id: str, content_type: str, inventory: CandidateInventory) -> dict[str, Any] | None:
+    """Find a candidate lesson with legacy naming gap support."""
+    # 1. Exact match
+    if lesson_id in inventory.lessons:
+        return inventory.lessons[lesson_id]
+
+    # 2. Legacy naming gap: B1/B2/C1 and A1/A2 dialogue prefix mismatch
+    if content_type == "dialogue":
+        # Known legacy prefixes that often mismatch with the short filename id
+        prefixes = [
+            "ko_l1_dialogue_", "ko_l2_dialogue_", 
+            "ko_l3_dialogue_", "ko_l4_dialogue_", 
+            "ko_l5_dialogue_"
+        ]
+        for prefix in prefixes:
+            if lesson_id.startswith(prefix):
+                short_id = lesson_id[len(prefix):]
+                # Try matching by short ID (e.g., b1_01)
+                if short_id in inventory.lessons:
+                    return inventory.lessons[short_id]
+                # Try matching by capitalized short ID if needed? (e.g., A2-01)
+                for candidate_id in inventory.lessons:
+                    if candidate_id.replace("-", "_").lower() == short_id.replace("-", "_").lower():
+                        return inventory.lessons[candidate_id]
+
+    return None
 
 
 def validate_release_manifest(payload: Any) -> list[str]:
@@ -135,24 +226,16 @@ def build_catalog_from_entries(entries: list[dict[str, Any]]) -> dict[str, Any]:
 
 def assemble_release(
     release_manifest_path: Path,
-    candidate_manifest_path: Path,
+    candidate_inventory: CandidateInventory,
     output_dir: Path,
-    candidate_root: Path | None,
-    strict_catalog: bool,
+    strict_mode: bool,
+    allow_unassigned_units: bool,
 ) -> dict[str, Any]:
     release_manifest = load_json(release_manifest_path)
-    candidate_manifest = load_json(candidate_manifest_path)
 
     parse_errors = validate_release_manifest(release_manifest)
     if parse_errors:
         raise ValueError("Release manifest validation failed:\n- " + "\n- ".join(parse_errors))
-
-    candidate_lessons = candidate_manifest.get("lessons", [])
-    candidate_by_lesson_id = {
-        lesson["level_id"]: lesson
-        for lesson in candidate_lessons
-        if isinstance(lesson, dict) and isinstance(lesson.get("level_id"), str)
-    }
 
     eligible_entries = [
         entry
@@ -163,75 +246,86 @@ def assemble_release(
         raise ValueError("Release manifest has no production-eligible entries after filtering")
 
     errors: list[str] = []
+    unresolved_lessons: list[dict[str, Any]] = []
     packaged_manifest_lessons: list[dict[str, Any]] = []
     packaged_entries: list[dict[str, Any]] = []
 
     for entry in eligible_entries:
         lesson_id = entry["lesson_id"]
-        candidate = candidate_by_lesson_id.get(lesson_id)
+        content_type = entry["content_type"]
+        
+        candidate = find_candidate(lesson_id, content_type, candidate_inventory)
+        
         if candidate is None:
-            errors.append(f"Missing candidate manifest entry for allowlisted lesson {lesson_id}")
+            msg = f"Missing candidate for allowlisted {content_type} lesson {lesson_id}"
+            if strict_mode:
+                errors.append(msg)
+            else:
+                unresolved_lessons.append({"lesson_id": lesson_id, "reason": "missing_candidate"})
             continue
 
         candidate_path = candidate.get("path")
         if not isinstance(candidate_path, str) or not candidate_path:
-            errors.append(f"Candidate manifest entry for {lesson_id} is missing path")
+            errors.append(f"Candidate entry for {lesson_id} is missing path")
             continue
 
+        # Asset mismatch check (for existing path entries in manifest)
         manifest_asset_path = entry.get("asset_path")
         if isinstance(manifest_asset_path, str) and manifest_asset_path and manifest_asset_path != candidate_path:
+            # Check if it's a known legacy naming mismatch we want to tolerate or just report
             errors.append(
                 f"Asset path mismatch for {lesson_id}: release manifest={manifest_asset_path} candidate manifest={candidate_path}"
             )
 
-        if Path(candidate_path).stem != lesson_id:
+        # Content type mismatch check
+        candidate_content_type = normalize_content_type(candidate.get("type") or content_type)
+        if candidate_content_type != content_type:
             errors.append(
-                f"Asset filename mismatch for {lesson_id}: candidate path stem={Path(candidate_path).stem}"
+                f"Content type mismatch for {lesson_id}: release manifest={content_type} candidate={candidate_content_type}"
             )
 
-        candidate_content_type = normalize_content_type(candidate.get("type"))
-        if candidate_content_type != entry["content_type"]:
-            errors.append(
-                f"Content type mismatch for {lesson_id}: release manifest={entry['content_type']} candidate manifest={candidate_content_type}"
-            )
+        # Disk check
+        candidate_file = candidate_inventory.root / candidate_path
+        if not candidate_file.exists():
+            errors.append(f"Candidate asset missing on disk for {lesson_id}: {candidate_file}")
 
-        if candidate_root is not None:
-            candidate_file = candidate_root / candidate_path
-            if not candidate_file.exists():
-                errors.append(f"Candidate asset missing on disk for {lesson_id}: {candidate_file}")
-
-        if strict_catalog and entry["unit_id"] == "__unassigned__":
+        # Unit check
+        if not allow_unassigned_units and entry["unit_id"] == "__unassigned__":
             errors.append(f"Allowlisted lesson {lesson_id} has unresolved unit_id __unassigned__")
 
         packaged_manifest_lessons.append(copy.deepcopy(candidate))
         packaged_entries.append(entry)
 
-    if errors:
-        raise ValueError("Production release assembly failed:\n- " + "\n- ".join(errors))
+    if strict_mode and errors:
+        raise ValueError("Production release assembly failed (STRICT MODE):\n- " + "\n- ".join(errors))
 
     derived_manifest = {
-        "version": candidate_manifest.get("version", "1.0.0"),
+        "version": "1.0.0", # Controlled by assembler
         "last_updated": utc_now(),
-        "packages": candidate_manifest.get("packages", {}),
         "lessons": packaged_manifest_lessons,
     }
     derived_catalog = build_catalog_from_entries(packaged_entries)
     production_plan = {
         "generated_at": utc_now(),
         "release_manifest": str(release_manifest_path),
-        "candidate_manifest": str(candidate_manifest_path),
+        "candidate_root": str(candidate_inventory.root),
         "summary": {
             "manifest_entries": len(release_manifest["entries"]),
             "eligible_entries": len(eligible_entries),
             "packaged_lessons": len(packaged_manifest_lessons),
             "packaged_units": len(derived_catalog["units"]),
+            "unresolved_lessons": len(unresolved_lessons),
+            "errors_found": len(errors),
         },
+        "unresolved_lessons": unresolved_lessons,
         "allowlisted_lessons": [entry["lesson_id"] for entry in packaged_entries],
     }
 
-    write_json(output_dir / "manifest.json", derived_manifest)
-    write_json(output_dir / "lesson_catalog.json", derived_catalog)
-    write_json(output_dir / "production_plan.json", production_plan)
+    if not strict_mode or not errors:
+        write_json(output_dir / "manifest.json", derived_manifest)
+        write_json(output_dir / "lesson_catalog.json", derived_catalog)
+        write_json(output_dir / "production_plan.json", production_plan)
+        
     return production_plan
 
 
@@ -239,6 +333,7 @@ def parse_args() -> argparse.Namespace:
     script_dir = Path(__file__).resolve().parent
     aggregator_root = script_dir.parent.parent
     frontend_root = aggregator_root.parent / "lingo-frontend-web"
+    content_ko_staging = aggregator_root.parent / "content-ko/dist_unified/staging/ko"
 
     parser = argparse.ArgumentParser(description="Prototype manifest-driven production assembler")
     parser.add_argument(
@@ -247,14 +342,16 @@ def parse_args() -> argparse.Namespace:
         default=aggregator_root / "staging/prd.release_manifest.seed.json",
     )
     parser.add_argument(
-        "--candidate-manifest",
-        type=Path,
-        default=frontend_root / "assets/content/production/manifest.json",
+        "--candidate-source",
+        type=str,
+        help="Path to candidate manifest.json or a staging directory to scan (Adapter Mode)",
+        default=str(content_ko_staging) if content_ko_staging.exists() else str(frontend_root / "assets/content/production/manifest.json"),
     )
     parser.add_argument(
         "--candidate-root",
         type=Path,
-        default=frontend_root,
+        default=None,
+        help="Root directory for candidates if candidate-source is a manifest file. Defaults to same dir as manifest if not provided.",
     )
     parser.add_argument(
         "--output-dir",
@@ -262,34 +359,56 @@ def parse_args() -> argparse.Namespace:
         default=aggregator_root / "staging/prototype_output",
     )
     parser.add_argument(
-        "--skip-asset-existence-check",
+        "--strict",
         action="store_true",
-        help="Skip on-disk candidate asset existence checks and generate planning artifacts from manifest metadata only",
+        default=True,
+        help="Fail closed on any gap (default: True)",
+    )
+    parser.add_argument(
+        "--planning",
+        action="store_false",
+        dest="strict",
+        help="Planning mode: report gaps but don't exit with error, still generate artifacts",
     )
     parser.add_argument(
         "--allow-unassigned-units",
         action="store_true",
-        help="Allow __unassigned__ unit_ids in planning output instead of failing closed",
+        help="Allow __unassigned__ unit_ids in output instead of failing closed",
     )
     return parser.parse_args()
 
 
 def main() -> int:
     args = parse_args()
-    plan = assemble_release(
-        release_manifest_path=args.release_manifest,
-        candidate_manifest_path=args.candidate_manifest,
-        output_dir=args.output_dir,
-        candidate_root=None if args.skip_asset_existence_check else args.candidate_root,
-        strict_catalog=not args.allow_unassigned_units,
-    )
-    print(
-        "Assembled production plan with "
-        f"{plan['summary']['packaged_lessons']} lessons across "
-        f"{plan['summary']['packaged_units']} units."
-    )
-    print(f"Outputs written to {args.output_dir}")
-    return 0
+    
+    source_path = Path(args.candidate_source)
+    if source_path.is_dir():
+        print(f"Candidate Source: Directory ({source_path}) - Using Scanner Adapter")
+        inventory = CandidateInventory.scan_directory(source_path)
+    else:
+        print(f"Candidate Source: Manifest ({source_path})")
+        root = args.candidate_root or source_path.parent
+        inventory = CandidateInventory.load_from_manifest(source_path, root)
+
+    try:
+        plan = assemble_release(
+            release_manifest_path=args.release_manifest,
+            candidate_inventory=inventory,
+            output_dir=args.output_dir,
+            strict_mode=args.strict,
+            allow_unassigned_units=args.allow_unassigned_units,
+        )
+        print(
+            f"Assembled production plan ({'STRICT' if args.strict else 'PLANNING'}): "
+            f"{plan['summary']['packaged_lessons']} lessons, "
+            f"{plan['summary']['packaged_units']} units. "
+            f"Unresolved: {plan['summary']['unresolved_lessons']}."
+        )
+        print(f"Outputs written to {args.output_dir}")
+        return 0
+    except ValueError as e:
+        print(f"Error: {e}")
+        return 1
 
 
 if __name__ == "__main__":

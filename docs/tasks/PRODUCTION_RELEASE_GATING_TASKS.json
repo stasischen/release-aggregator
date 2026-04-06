@@ -28,7 +28,7 @@
     {
       "id": "PRG-003",
       "desc": "Change the production assembler contract to read allowlisted lessons only, and stop it from directly scanning all core dialogue/video sources.",
-      "status": "in_progress",
+      "status": "done",
       "depends_on": [
         "PRG-001",
         "PRG-002"
@@ -36,7 +36,7 @@
       "subtasks": [
         { "id": "PRG-003-1", "desc": "Define Production Assembler responsibilities & rules", "status": "done" },
         { "id": "PRG-003-2", "desc": "Specify fail-safe & inclusion logic", "status": "done" },
-        { "id": "PRG-003-3", "desc": "Implement assembler cutover to read from Release Manifest", "status": "in_progress" }
+        { "id": "PRG-003-3", "desc": "Implement assembler cutover to read from Release Manifest", "status": "done" }
       ]
     },
     {

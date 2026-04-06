@@ -1,7 +1,7 @@
 {
   "task_id": "UNIFIED_LESSON_VIEW_ARCHITECTURE",
   "description": "定義 unified lesson view 的 mock/runtime information architecture，涵蓋 primary content surfaces、support detail surfaces、navigation/panel contract、mock verification 與 Flutter transfer boundary。",
-  "status": "in_progress",
+  "status": "done",
   "tasks": [
     {
       "id": "ULV-001",

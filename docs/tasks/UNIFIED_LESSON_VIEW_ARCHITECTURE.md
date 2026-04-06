@@ -68,19 +68,29 @@ The following `content_form` types are considered **Activity Surfaces**. They co
 | `payload.lesson_support_module`| **Usage** Support | Maps to a dedicated Support Detail view. |
 | `payload.pattern_builder_demo` | **Pattern** Support | Triggers Pattern Lab renderer in the Support Detail Panel. |
 
----
-
-## 5. Metadata Boundaries
-
-### 5.1 Primary Metadata
-Every node in the ULV runtime must resolve:
-
-- `displayTitle`: Localized title for the current step.
-- `displaySummary`: Localized "goal" of the step.
-- `displayExpected`: Localized "expected output" description.
-
-### 5.2 Missing-Data Behavior
-If a primary surface is requested but the payload is malformed or missing mandatory fields:
-
-- **Fail-Soft**: Render a "Content Not Available" placeholder with a raw data preview for debugging.
-- **Support Fallback**: If a specific support panel (e.g., `vocab`) is triggered but no data is available for the current anchor, display a "No additional details for this selection" message.
+## 6. Implementation Boundary
+83: 
+84: The ULV defines the *what* and the *why* of the lesson architecture. The transition to the Flutter implementation is governed by the **Flutter Transfer Boundary**.
+85: 
+86: ### 6.1 Flutter Shell vs. Runtime Contract
+87: - **Runtime Contract (Frozen)**: Core information architecture, state names, and taxonomy that must remain stable.
+88: - **Flutter Shell (Flexible)**: Implementation-specific details like widget composition, layout regions, and state management choices.
+89: 
+90: For detailed rules on adapter resolution, acceptance criteria, and remaining gaps, see the [Unified Lesson View: Flutter Transfer Boundary](UNIFIED_LESSON_VIEW_FLUTTER_BOUNDARY.md) document.
+91: 
+92: ---
+93: 
+94: ## 7. Metadata Boundaries
+95: 
+96: ### 7.1 Primary Metadata
+97: Every node in the ULV runtime must resolve:
+98: 
+99: - `displayTitle`: Localized title for the current step.
+100: - `displaySummary`: Localized "goal" of the step.
+101: - `displayExpected`: Localized "expected output" description.
+102: 
+103: ### 7.2 Missing-Data Behavior
+104: If a primary surface is requested but the payload is malformed or missing mandatory fields:
+105: 
+106: - **Fail-Soft**: Render a "Content Not Available" placeholder with a raw data preview for debugging.
+107: - **Support Fallback**: If a specific support panel (e.g., `vocab`) is triggered but no data is available for the current anchor, display a "No additional details for this selection" message.

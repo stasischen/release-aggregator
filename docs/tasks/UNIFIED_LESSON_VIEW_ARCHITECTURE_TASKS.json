@@ -45,7 +45,7 @@
     {
       "id": "ULV-006",
       "desc": "Define the Flutter transfer boundary for the frozen unified lesson view contract, including what the frontend may adapt and what must remain contract-stable.",
-      "status": "todo",
+      "status": "done",
       "depends_on": [
         "ULV-004",
         "ULV-005"
@@ -54,7 +54,7 @@
     {
       "id": "ULV-007",
       "desc": "Document acceptance criteria and remaining gaps for downstream Flutter transfer, so runtime mock coverage can be validated before implementation moves to Flutter.",
-      "status": "todo",
+      "status": "done",
       "depends_on": [
         "ULV-005",
         "ULV-006"

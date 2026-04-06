@@ -1,0 +1,66 @@
+{
+  "task_id": "UNIFIED_LESSON_VIEW_ARCHITECTURE",
+  "description": "定義 unified lesson view 的 mock/runtime information architecture，涵蓋 primary content surfaces、support detail surfaces、navigation/panel contract、mock verification 與 Flutter transfer boundary。",
+  "status": "todo",
+  "tasks": [
+    {
+      "id": "ULV-001",
+      "desc": "Define unified lesson view scope and content surface taxonomy, separating primary content surfaces (video/dialogue/article) from support detail surfaces (knowledge lab grammar/pattern/usage/vocab).",
+      "status": "todo",
+      "depends_on": []
+    },
+    {
+      "id": "ULV-002",
+      "desc": "Freeze primary content surface contract for video, dialogue, and article, including display states, content switching rules, and the minimum data required for each surface.",
+      "status": "todo",
+      "depends_on": [
+        "ULV-001"
+      ]
+    },
+    {
+      "id": "ULV-003",
+      "desc": "Freeze support detail surface contract for knowledge lab grammar, pattern, usage, and vocab panels, including what is inline, what is expandable, and what remains linked out.",
+      "status": "todo",
+      "depends_on": [
+        "ULV-001"
+      ]
+    },
+    {
+      "id": "ULV-004",
+      "desc": "Define navigation and panel interaction contract for lesson runtime, including primary/support panel coordination, selection state, and back/forward behavior.",
+      "status": "todo",
+      "depends_on": [
+        "ULV-002",
+        "ULV-003"
+      ]
+    },
+    {
+      "id": "ULV-005",
+      "desc": "Write mock verification criteria for the unified lesson view contract, covering fixture shape, state transitions, missing-data behavior, and contract mismatch reporting.",
+      "status": "todo",
+      "depends_on": [
+        "ULV-002",
+        "ULV-003",
+        "ULV-004"
+      ]
+    },
+    {
+      "id": "ULV-006",
+      "desc": "Define the Flutter transfer boundary for the frozen unified lesson view contract, including what the frontend may adapt and what must remain contract-stable.",
+      "status": "todo",
+      "depends_on": [
+        "ULV-004",
+        "ULV-005"
+      ]
+    },
+    {
+      "id": "ULV-007",
+      "desc": "Document acceptance criteria and remaining gaps for downstream Flutter transfer, so runtime mock coverage can be validated before implementation moves to Flutter.",
+      "status": "todo",
+      "depends_on": [
+        "ULV-005",
+        "ULV-006"
+      ]
+    }
+  ]
+}

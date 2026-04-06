@@ -61,6 +61,8 @@ Layer 5: Legacy Backfill
 | Task ID | 描述 | Phase | 進度 | 檔案 |
 | :--- | :--- | :--- | :--- | :--- |
 | MODULAR_VIEWER_REFACTOR | Modular Viewer 重構（source-build adapter / renderer 拆分 / i18n-first / preview 退場） | C+/Ops | 1/8 tasks | [JSON](MODULAR_VIEWER_REFACTOR_TASKS.json) · [PLAN](MODULAR_VIEWER_REFACTOR_PLAN.md) |
+| UNIFIED_LESSON_VIEW_ARCHITECTURE | Modular Viewer 下游：統一定義 lesson runtime IA（primary content / support detail / navigation / mock verification / Flutter boundary） | C+/Ops | 0/7 tasks | [JSON](UNIFIED_LESSON_VIEW_ARCHITECTURE_TASKS.json) |
+| UNIFIED_LESSON_VIEW_FLUTTER_TRANSFER | Modular Viewer 下游：將凍結的 unified lesson view contract 轉入 Flutter（shell / state / adapters / QA） | C+/Ops | 0/7 tasks | [JSON](UNIFIED_LESSON_VIEW_FLUTTER_TRANSFER_TASKS.json) |
 
 ### Layer 3 — 單元重構 / Unit-by-Unit Refactor
 

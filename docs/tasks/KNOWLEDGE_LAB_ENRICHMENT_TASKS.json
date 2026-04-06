@@ -21,7 +21,7 @@
     {
       "id": "KLAB-003",
       "desc": "Wave 1: Execute Batch 001 small migration (35-40 items) to verify mapping quality.",
-      "status": "todo"
+      "status": "done"
     },
     {
       "id": "KLAB-004",

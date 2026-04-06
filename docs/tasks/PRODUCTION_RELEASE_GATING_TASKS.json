@@ -66,7 +66,7 @@
     {
       "id": "PRG-006",
       "desc": "Write verification and rollback notes for the release gate, including how to detect manifest mismatch, fail closed, and revert to the prior production bundle.",
-      "status": "todo",
+      "status": "done",
       "depends_on": [
         "PRG-005"
       ]

@@ -52,7 +52,7 @@ Layer 5: Legacy Backfill
 | TASK_ID | 描述 | Phase | 進度 | 檔案 |
 | :--- | :--- | :--- | :--- | :--- |
 | LEARNING_LIBRARY_CONTENTKO_MIGRATION | Learning Library 正式化：content-ko overlay + build artifact + frontend intake | C+/Ops | 16/19 tasks | [JSON](LEARNING_LIBRARY_CONTENTKO_MIGRATION_TASKS.json) · [PLAN](LEARNING_LIBRARY_CONTENTKO_MIGRATION_PLAN.md) |
-| PRODUCTION_RELEASE_GATING | Staging candidate / production release gate（全量進 staging、allowlist 才能發佈 production） | C+/Ops | 3/6 tasks | [JSON](PRODUCTION_RELEASE_GATING_TASKS.json) · [ARCH](STAGING_CANDIDATE_VS_PRODUCTION_RELEASE_ARCHITECTURE.md) |
+| PRODUCTION_RELEASE_GATING | Staging candidate / production release gate（全量進 staging、allowlist 才能發佈 production） | C+/Ops | 4/6 tasks | [JSON](PRODUCTION_RELEASE_GATING_TASKS.json) · [ARCH](STAGING_CANDIDATE_VS_PRODUCTION_RELEASE_ARCHITECTURE.md) |
 | GOLDEN_STANDARD_RECONCILIATION | Ingest Golden / Surgery into unified build & recovery plan | B1 | 0/3 tasks | [PLAN](GOLDEN_STANDARD_RECONCILIATION_PLAN_V0.md) · [INV](REVIEW_ARTIFACT_INVENTORY_V0.md) |
 | GOLDEN_REVIEW_MATERIALIZATION | Materialize verified reviews into committed overrides | B1 | 3/4 tasks | [PLAN](GOLDEN_REVIEW_MATERIALIZATION_PLAN_V1.md) · [JSON](GOLDEN_REVIEW_MATERIALIZATION_TASKS.json) |
 | STABLE_TEST_RCA | Root Cause Analysis for Skipped Stable Tests | QA | 0/3 tasks | [PLAN](STABLE_TEST_ROOT_CAUSE_ANALYSIS.md) |

@@ -52,6 +52,16 @@
       "id": "CMOD-010",
       "desc": "Freeze recommendation: define what enters UNITFAC-001 v0.1 contract vs what remains optional.",
       "status": "todo"
+    },
+    {
+      "id": "CMOD-011",
+      "desc": "Add course content segmentation and inline anchor linking: sentence/chunk click targets should open dictionary or knowledge lab refs when canonical knowledge links exist (e.g. weekday -> topic.weekday, numbers -> topic.number, endings -> grammar refs).",
+      "status": "todo",
+      "depends_on": [
+        "CMOD-001",
+        "ULV-003",
+        "KLAB-002"
+      ]
     }
   ]
 }

@@ -1,7 +1,7 @@
 {
   "task_id": "KNOWLEDGE_LAB_ENRICHMENT",
   "description": "Knowledge Lab 內容充實：補強 knowledge items / topics / links / vocab sets / retrieval surfaces，不改主線 artifact contract。",
-  "status": "planning",
+  "status": "in_progress",
   "constraints": [
     "Must not change source-build artifact contract used by frontend intake.",
     "Must not block LEARNING_LIBRARY_CONTENTKO_MIGRATION or MODULAR_VIEWER_REFACTOR.",
@@ -10,27 +10,27 @@
   "tasks": [
     {
       "id": "KLAB-001",
-      "desc": "Inventory current knowledge/topic/link/vocab coverage and identify high-value enrichment gaps from existing staging content.",
-      "status": "todo"
+      "desc": "Source Inventory: Audit reports/libraries in curriculum-source for reference-book suitability.",
+      "status": "done"
     },
     {
       "id": "KLAB-002",
-      "desc": "Define enrichment taxonomy for knowledge items, topic families, retrieval prompts, and vocab-set expansion without changing artifact schema.",
-      "status": "todo"
+      "desc": "Canonical Mapping: Define rules for mapping Markdown/JSON sources to core/i18n packs.",
+      "status": "done"
     },
     {
       "id": "KLAB-003",
-      "desc": "Enrich first content packs with additional knowledge items, links, topic relations, and retrieval-facing learner notes.",
+      "desc": "Wave 1: Execute Batch 001 small migration (35-40 items) to verify mapping quality.",
       "status": "todo"
     },
     {
       "id": "KLAB-004",
-      "desc": "Run QA pass for TODO leakage, broken links, duplicate concepts, and untranslated learner-facing knowledge fields.",
+      "desc": "Wave 2-3: Bulk ingestion of Beginner Grammar and Core Connectors.",
       "status": "todo"
     },
     {
       "id": "KLAB-005",
-      "desc": "Document rollout policy: enrichment can run in parallel, but cannot modify frontend intake contract or block primary course refactor path.",
+      "desc": "Wave 4-5: Ingestion of Survival Patterns and connective endings.",
       "status": "todo"
     }
   ]

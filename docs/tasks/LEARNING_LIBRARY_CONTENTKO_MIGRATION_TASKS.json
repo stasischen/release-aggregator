@@ -122,7 +122,7 @@
     {
       "id": "LLCM-006a",
       "desc": "Define the staging frontend intake switch in lingo-frontend-web so learning library artifact mode can run alongside temporary seed mode for comparison.",
-      "status": "todo",
+      "status": "done",
       "depends_on": [
         "LLCM-005g",
         "LLCM-005h"
@@ -131,7 +131,7 @@
     {
       "id": "LLCM-006b",
       "desc": "Wire dialogue/video artifact loaders for staging recovery and surface staging_only, readiness_flag, and segmentation_status as intake/debug metadata without changing the artifact contract.",
-      "status": "todo",
+      "status": "done",
       "depends_on": [
         "LLCM-006a"
       ]

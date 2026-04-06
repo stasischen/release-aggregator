@@ -9,8 +9,8 @@ Establish a small, production-ready allowlist slice using **exactly-matched** co
 > I have selected **2 Video Lessons** from the `bonus_video` unit.
 > 1. `ko_v1_vlog_IGEj-oDKyw8_conv_store` (Unit: `bonus_video`)
 > 2. `ko_v1_vlog_79Pwq7MTUPE_easy_listening_lesson` (Unit: `bonus_video`)
->
-> **Rationale**: These lessons represent the "perfect match" reality. Both are present in `prd.release_manifest.seed.json` and `dist_unified/staging/ko/core/video/` with matching IDs and types.
+
+> **Rationale**: These lessons represent the "perfect match" reality. Both are present in `prd.release_manifest.seed.json` and `content-pipeline/staging/ko/core/video/` with matching IDs and types.
 >
 > **Exclusions**:
 > - **A1 Dialogues**: Excluded because they are currently missing in staging.
@@ -20,17 +20,20 @@ Establish a small, production-ready allowlist slice using **exactly-matched** co
 
 ### [Release Aggregator]
 
+
 #### [NEW] [pilot_allowlist.json](file:///e:/Githubs/lingo/release-aggregator/staging/prg_pilot/pilot_allowlist.json)
+
 - Machine-readable manifest containing only the 2 selected video lessons.
 
 #### [MODIFY] [PRODUCTION_RELEASE_GATING_TASKS.json](file:///e:/Githubs/lingo/release-aggregator/docs/tasks/PRODUCTION_RELEASE_GATING_TASKS.json)
-- Update `PRG-005` to `in_progress`.
 
+- Update `PRG-005` to `in_progress`.
 ---
 
 ## Verification Plan
 
 ### Automated Tests
+
 - Run `assembler_prototype.py --release-manifest staging/prg_pilot/pilot_allowlist.json --candidate-source ... --planning`.
 - Run in `--strict` mode.
 - **Success Criteria**: `strict mode` passes with 0 gaps for the 2 selected lessons.

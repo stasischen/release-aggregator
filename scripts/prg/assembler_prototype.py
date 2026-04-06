@@ -191,6 +191,14 @@ def validate_release_manifest(payload: Any) -> list[str]:
             if not isinstance(entry.get(field), str) or not entry.get(field):
                 errors.append(f"{prefix}.{field} must be a non-empty string")
 
+        for field in [
+            "viewer_verified",
+            "qa_gate_passed",
+            "staging_only",
+        ]:
+            if not isinstance(entry.get(field), bool):
+                errors.append(f"{prefix}.{field} must be a boolean")
+
         if entry.get("release_status") not in RELEASE_STATUS_VALUES:
             errors.append(f"{prefix}.release_status is invalid: {entry.get('release_status')}")
         if entry.get("content_type") not in CONTENT_TYPE_VALUES:

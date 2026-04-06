@@ -74,7 +74,15 @@ window.getNodeInteractionState = function (id) {
 };
 
 window.setNodeInteractionState = function (id, patch) {
-    const current = window.getNodeInteractionState(id);
-    window.state.progress.interactionStateByNodeId[id] = { ...current, ...patch };
-    window.saveProgress(true);
+    try {
+        const current = window.getNodeInteractionState(id);
+        window.state.progress.interactionStateByNodeId[id] = { ...current, ...patch };
+        window.saveProgress(true);
+    } catch (e) {
+        console.error('setNodeInteractionState failed', e);
+    }
+};
+
+window.debugState = function() {
+    alert(JSON.stringify(window.state.progress.interactionStateByNodeId));
 };

@@ -66,6 +66,12 @@ window.LessonAdapter = {
             normalized.content_form = this.inferContentForm(normalized);
         }
 
+        // Pattern Lab Normalization
+        if (normalized.content_form === 'pattern_lab') {
+            normalized.payload.pattern_builder_demos = this.resolveArray(payload.pattern_builder_demos || payload.pattern_builder_demo);
+            normalized.payload.slot_bank_panels = this.resolveArray(payload.slot_bank_panels);
+        }
+
         return normalized;
     },
 

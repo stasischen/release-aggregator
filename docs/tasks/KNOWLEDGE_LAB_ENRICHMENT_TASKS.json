@@ -1,0 +1,37 @@
+{
+  "task_id": "KNOWLEDGE_LAB_ENRICHMENT",
+  "description": "Knowledge Lab 內容充實：補強 knowledge items / topics / links / vocab sets / retrieval surfaces，不改主線 artifact contract。",
+  "status": "planning",
+  "constraints": [
+    "Must not change source-build artifact contract used by frontend intake.",
+    "Must not block LEARNING_LIBRARY_CONTENTKO_MIGRATION or MODULAR_VIEWER_REFACTOR.",
+    "Schema changes require separate review and must not be bundled into enrichment execution."
+  ],
+  "tasks": [
+    {
+      "id": "KLAB-001",
+      "desc": "Inventory current knowledge/topic/link/vocab coverage and identify high-value enrichment gaps from existing staging content.",
+      "status": "todo"
+    },
+    {
+      "id": "KLAB-002",
+      "desc": "Define enrichment taxonomy for knowledge items, topic families, retrieval prompts, and vocab-set expansion without changing artifact schema.",
+      "status": "todo"
+    },
+    {
+      "id": "KLAB-003",
+      "desc": "Enrich first content packs with additional knowledge items, links, topic relations, and retrieval-facing learner notes.",
+      "status": "todo"
+    },
+    {
+      "id": "KLAB-004",
+      "desc": "Run QA pass for TODO leakage, broken links, duplicate concepts, and untranslated learner-facing knowledge fields.",
+      "status": "todo"
+    },
+    {
+      "id": "KLAB-005",
+      "desc": "Document rollout policy: enrichment can run in parallel, but cannot modify frontend intake contract or block primary course refactor path.",
+      "status": "todo"
+    }
+  ]
+}

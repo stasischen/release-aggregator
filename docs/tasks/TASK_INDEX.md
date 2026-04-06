@@ -10,45 +10,67 @@
 ## 🗺️ Execution Roadmap (執行路線圖)
 
 ```text
-Phase A: Viewer + 辭典（content-ko 內部閉環）
-│  ├── ✅ A1: Viewer 增強 — 辭典彈出、多義詞顯示     [VIEWER-01]
-│  ├── 🔧 A2: 辭典品質驗證 — Viewer 逐課檢查 688 字   [MAPPING_DICTIONARY]
-│  └── ✅ A3: 多義詞標記 — senseIndex 機制 + Yarn 標記 [KO_RESOLUTION_100PCT]
+Layer 1: 內容回收 / Staging Recovery
+│  ├── 先把既有 dialogue / video 拉回 staging
+│  ├── 補 readiness_flag / segmentation_status
+│  └── 不直接推 production
 │
-Phase B: Pipeline Build（content-ko → content-pipeline）
-│  ├── 📅 B1: 確認 build output 格式（JSON schema）    [CONTENT_PIPELINE_SEPARATION]
-│  └── 📅 B2: 跑完整 build，輸出 production assets
+Layer 2: 前端承接 / Frontend Contract Integration
+│  ├── 先讓 viewer / frontend 吃新版 source-build artifact
+│  ├── adapter 收斂 i18n fallback
+│  └── preview fixture 退居比對用途
 │
-Phase C: 前端整合（lingo-frontend-web）
-│  ├── 🔧 C1: Viewer 功能整合 — 預錄音檔 + 句子高亮 + Grammar Notes [FRONTEND_VIEWER_INTEGRATION]
-│  ├── 📅 C2: 對照 build output，確認前端 parser
-│  ├── 📅 C3: 導入新資產，flutter test
-│  └── 📅 C4: 驗證多義詞在 App 內顯示效果
+Layer 3: 單元重構 / Unit-by-Unit Refactor
+│  ├── 先做 dialogue / travel / daily-life
+│  ├── 再做 video
+│  ├── 再做 grammar-heavy
+│  └── 再做 article / reading
+│
+Layer 4: 技能深化 / Skill-Layer Expansion
+│  ├── audio
+│  ├── reading
+│  ├── writing
+│  ├── vocab / collocation
+│  ├── grammar progression
+│  ├── assessment
+│  └── personalization
+│
+Layer 5: Legacy Backfill
+│  └── 最後才回頭做 L0 V4 -> V5 遷移
 ```
 
-**原則：上游先定義格式 → 驗證完畢 → 才往下游推送。**
-**例外：C1 的資料格式已由 Aggregator Viewer 驗證通過，可以立即啟動。**
+**正式架構文件：** [COURSE_REFACTOR_EXECUTION_ARCHITECTURE.md](COURSE_REFACTOR_EXECUTION_ARCHITECTURE.md)
+**原則：先恢復可見與可驗證，再做前端承接，再做課程重構；不要把 segmentation 修復和單元重構綁在一起。**
 
 ---
 
 ## Active Tasks (進行中)
 
-### Phase A — 當前優先
+### Layer 1 — 內容回收 / Staging Recovery
 
 | TASK_ID | 描述 | Phase | 進度 | 檔案 |
 | :--- | :--- | :--- | :--- | :--- |
-| CONTENT_V5_MIGRATION_L0 | Legacy L0 Content V5 Standardization | A2 | 0/8 tasks | [JSON](CONTENT_V5_MIGRATION_L0_TASKS.json) · [PLAN](CONTENT_V5_MIGRATION_L0.md) |
-| GOLDEN_STANDARD_RECONCILIATION | Ingest Golden / Surgery into unified build & recovery plan | B1 | 0/3 tasks | [PLAN](GOLDEN_STANDARD_RECONCILIATION_PLAN_V0.md) · [INV](REVIEW_ARTIFACT_INVENTORY_V0.md) |
 | LEARNING_LIBRARY_CONTENTKO_MIGRATION | Learning Library 正式化：content-ko overlay + build artifact + frontend intake | C+/Ops | 10/13 tasks | [JSON](LEARNING_LIBRARY_CONTENTKO_MIGRATION_TASKS.json) · [PLAN](LEARNING_LIBRARY_CONTENTKO_MIGRATION_PLAN.md) |
+| GOLDEN_STANDARD_RECONCILIATION | Ingest Golden / Surgery into unified build & recovery plan | B1 | 0/3 tasks | [PLAN](GOLDEN_STANDARD_RECONCILIATION_PLAN_V0.md) · [INV](REVIEW_ARTIFACT_INVENTORY_V0.md) |
 | STABLE_TEST_RCA | Root Cause Analysis for Skipped Stable Tests | QA | 0/3 tasks | [PLAN](STABLE_TEST_ROOT_CAUSE_ANALYSIS.md) |
 
-### Phase C — 前端整合（可立即啟動）
+### Layer 2 — 前端承接 / Frontend Contract Integration
 
 | Task ID | 描述 | Phase | 進度 | 檔案 |
 | :--- | :--- | :--- | :--- | :--- |
-| COURSE_PEDAGOGY_OPTIMIZATION | 語言學習效果優化（理解檢查/變體遷移/修復策略/檢索複習/guided rubric/followup 設計） | C+/Ops | 12/12 tasks | [JSON](COURSE_PEDAGOGY_OPTIMIZATION_TASKS.json) · [PLAN](COURSE_PEDAGOGY_OPTIMIZATION_PLAN.md) |
 | MODULAR_VIEWER_REFACTOR | Modular Viewer 重構（source-build adapter / renderer 拆分 / i18n-first / preview 退場） | C+/Ops | 0/6 tasks | [JSON](MODULAR_VIEWER_REFACTOR_TASKS.json) · [PLAN](MODULAR_VIEWER_REFACTOR_PLAN.md) |
+
+### Layer 3 — 單元重構 / Unit-by-Unit Refactor
+
+| Task ID | 描述 | Phase | 進度 | 檔案 |
+| :--- | :--- | :--- | :--- | :--- |
 | TARGET_LANG_COURSE_FACTORY | 目標語系課程工廠（目標語內容優先 + 中英文教學層 + 前端轉換） | C+/Ops | 10/18 tasks | [JSON](TARGET_LANG_COURSE_FACTORY_TASKS.json) |
+| COURSE_MODULE_COMPOSITION | 課程模組組裝（Content / Interaction / Review 三層設計與 contract 對齊） | C+/Ops | 0/10 tasks | [JSON](COURSE_MODULE_COMPOSITION_TASKS.json) · [PLAN](COURSE_MODULE_COMPOSITION_PLAN.md) |
+
+### Layer 4 — 技能深化 / Skill-Layer Expansion
+
+| Task ID | 描述 | Phase | 進度 | 檔案 |
+| :--- | :--- | :--- | :--- | :--- |
 | TARGET_LANG_AUDIO_SKILLS | 目標語系聽力/發音層（手機 App、無真人依賴） | C+/Ops | 0/10 tasks | [JSON](TARGET_LANG_AUDIO_SKILLS_TASKS.json) · [PLAN](TARGET_LANG_AUDIO_SKILLS_PLAN.md) |
 | TARGET_LANG_READING_SKILLS | 目標語系閱讀層（文本理解/證據定位/推論） | C+/Ops | 0/10 tasks | [JSON](TARGET_LANG_READING_SKILLS_TASKS.json) · [PLAN](TARGET_LANG_READING_SKILLS_PLAN.md) |
 | TARGET_LANG_WRITING_SKILLS | 目標語系寫作層（句級到段落級產出） | C+/Ops | 0/6 tasks | [JSON](TARGET_LANG_WRITING_SKILLS_TASKS.json) · [PLAN](TARGET_LANG_WRITING_SKILLS_PLAN.md) |
@@ -57,15 +79,32 @@ Phase C: 前端整合（lingo-frontend-web）
 | TARGET_LANG_ASSESSMENT_LAYER | 目標語系測評層（placement/progress/mastery） | C+/Ops | 0/6 tasks | [JSON](TARGET_LANG_ASSESSMENT_LAYER_TASKS.json) · [PLAN](TARGET_LANG_ASSESSMENT_LAYER_PLAN.md) |
 | TARGET_LANG_PERSONALIZATION_LAYER | 目標語系個人化層（動態派題與補救） | C+/Ops | 0/6 tasks | [JSON](TARGET_LANG_PERSONALIZATION_LAYER_TASKS.json) · [PLAN](TARGET_LANG_PERSONALIZATION_LAYER_PLAN.md) |
 
+### Layer 5 — Legacy Backfill
+
+| Task ID | 描述 | Phase | 進度 | 檔案 |
+| :--- | :--- | :--- | :--- | :--- |
+| CONTENT_V5_MIGRATION_L0 | Legacy L0 Content V5 Standardization | A2 | 0/8 tasks | [JSON](CONTENT_V5_MIGRATION_L0_TASKS.json) · [PLAN](CONTENT_V5_MIGRATION_L0.md) |
+
 ### Future / Automation (未來優化)
 
 | Task ID | 描述 | Phase | 進度 | 檔案 |
 | :--- | :--- | :--- | :--- | :--- |
 | VIDEO_INGESTION_PIPELINE | 影片自動化導入管線 (YouTube Subtitles -> Source/I18N -> Product) | CI/Ops | 0/10 tasks | [PLAN](VIDEO_INGESTION_PIPELINE_PLAN.md) |
-| COURSE_MODULE_COMPOSITION | 課程模組組裝（Content / Interaction / Review 三層設計與 contract 對齊） | C+/Ops | 0/10 tasks | [JSON](COURSE_MODULE_COMPOSITION_TASKS.json) · [PLAN](COURSE_MODULE_COMPOSITION_PLAN.md) |
+
+### Parallel Content Enrichment (可平行但不得阻塞主線)
+
+| Task ID | 描述 | Phase | 進度 | 檔案 |
+| :--- | :--- | :--- | :--- | :--- |
+| KNOWLEDGE_LAB_ENRICHMENT | Knowledge Lab 內容充實（knowledge/topic/link/vocab/retrieval 補強；不得改 frontend intake contract） | Lab/Ops | 0/5 tasks | [JSON](KNOWLEDGE_LAB_ENRICHMENT_TASKS.json) |
 
 
-### Phase B/C — 待 Phase A 完成後啟動
+### Completed Pending Archive (已完成待封存)
+
+| Task ID | 描述 | 進度 | 檔案 |
+| :--- | :--- | :--- | :--- |
+| COURSE_PEDAGOGY_OPTIMIZATION | 語言學習效果優化（理解檢查/變體遷移/修復策略/檢索複習/guided rubric/followup 設計） | 12/12 tasks | [JSON](COURSE_PEDAGOGY_OPTIMIZATION_TASKS.json) · [PLAN](COURSE_PEDAGOGY_OPTIMIZATION_PLAN.md) |
+
+### Deferred / Later
 
 | Task ID | 描述 | Phase | 進度 | 檔案 |
 | :--- | :--- | :--- | :--- | :--- |

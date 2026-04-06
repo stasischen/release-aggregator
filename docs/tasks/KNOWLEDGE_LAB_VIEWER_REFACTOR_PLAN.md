@@ -16,12 +16,12 @@ Align the **Knowledge Lab Viewer** with the **Unified Lesson View (ULV)** runtim
 ### 2. Panel & Interaction Coordination
 
 - Align with the ULV navigation contract: `primary/support panel coordination`.
-- Selection states in the Knowledge Lab MUST sync with the ULV shell's `active_support_node` state.
+- Selection states in the Knowledge Lab MUST sync with the ULV shell's `activePrimaryAnchor` and `activeSupportType` states.
 
 ### 3. Fail-Soft Rules
 
 - **Missing Data**: Show a dedicated "No additional details available" notice for nodes with empty knowledge payloads.
-- **Malformed Payloads**: Render a "Data Inspection" view (raw JSON) if the `knowledge_kind` is unrecognized.
+- **Malformed Payloads**: Render a "Data Inspection" view (raw JSON) if the `content_form` is unrecognized.
 
 ## Verification
 

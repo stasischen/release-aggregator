@@ -12,6 +12,9 @@ Verify that the **Unified Lesson View (ULV)** runtime contract is correctly impl
 - **Video**: Use a lesson with a video slot. Verify the `ready` / `not_available` state handling.
 - **Article**: Verify structured text rendering and emphasis states.
 
+> [!WARNING]
+> During ULV_RUNTIME_MOCK_VERIFICATION, you must ensure that all fixtures for video and article rendering are real source-build artifacts and not just reserved-slot placeholders or hand-authored stubs.
+
 ### 2. Support Detail Verification
 
 - **Knowledge Lab Mapping**: Use actual grammar points linked from `A1-01`.

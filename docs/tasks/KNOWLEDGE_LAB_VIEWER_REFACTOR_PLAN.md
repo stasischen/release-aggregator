@@ -1,6 +1,21 @@
 # Knowledge Lab Viewer 重構計畫
 
-## 技術對齊 (已完成階段：文法、句型)
+## 技術對齊 (已完成階段：文法、句型、視覺優化、自動化導入)
+
+### 0. 自動化數據導入 (Phase KLABVIEW-005) - 已完成
+
+- **動態 Manifest 生成**：編寫 `scripts/generate_library_manifest.py`，全量掃描 `content-ko` 內容。
+- **閱讀器功能強化**：
+  - **分級顯示**：支援 A1/A2/B1 標籤渲染。
+  - **音檔播放**：實作「例句銀行」音檔按鈕，支援實體檔案與 Browser TTS 回退機制。
+- **內容同步**：成功從 `content-ko` 導入超過 60 個真實知識點條目。
+
+### 1. 視覺與體驗優化 (Phase KLABVIEW-004) - 已完成
+
+- **適應性書卷佈局 (Adaptive Book Layout)**：
+  - 轉向**全局目錄模式**，支援「文法」、「句型」、「連接詞」等主題式導航。
+  - **行動端適應**：實作側邊欄抽屜 (Sidebar Drawer) 與手機閱讀器。
+  - **Premium 渲染**：整合 `content-ko` 原始數據，支援 Markdown 詳盡解析與例句銀行。
 
 ### 1. 輔助詳情介面覆蓋 (文法)
 

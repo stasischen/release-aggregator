@@ -22,7 +22,7 @@ These items should **NOT** be extracted until formatting ambiguities or mixed sc
 
 - **Grammar: Verb Endings & Tense (`kg.grammar.ending.*`, `kg.grammar.tense.*`)**:
   - Examples currently heavily rely on instructional focus (often mixing `-아요` highlighting within the string itself).
-  - *Alignment Required*: Must split the unadulterated Korean sentence into the `sentence` field, and move inline highlights or brackets entirely to the `explanation_md_i18n` or an independent presentation layer.
+  - *Alignment Required*: Do not extract. Keep these trapped entirely within the `explanation_md_i18n` or existing teaching blocks. Any future dedicated block for local commentary must be defined in a separate schema review.
 - **Pattern: Social Basic / Nationality (`kp.pattern.social_basic.*`)**:
   - Some snippets serve merely as substitution frames (e.g., `[Name] 입니다`). These are structural templates, not complete sentences.
   - *Alignment Required*: Differentiate full example sentences from purely pedagogical structural frames.
@@ -41,5 +41,5 @@ These must never be extracted to the global example bank. They exist purely as i
 
 For downstream `kg-mig-010` scripts, apply this logic:
 1. Process items mapped in **Section 1**.
-2. Automatically skip items that have `is_local_commentary: true` or lack a structured, full `target_sentence` field.
-3. Treat incomplete instructional frames as metadata (Commentary), failing them out of the global sentence bank injection if they arise during parsing.
+2. Automatically skip items classified as "Item-Local Teaching Commentary" or "Ambiguous" according to the classification policy.
+3. Keep instructional fragments within the original knowledge item's metadata and do not attempt to inject them into the global sentence bank.

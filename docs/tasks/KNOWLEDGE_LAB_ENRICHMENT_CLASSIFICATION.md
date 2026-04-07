@@ -25,7 +25,7 @@ When inspecting an existing knowledge item's `i18n` examples or `core` sentences
 - Highly Contextual: Often contrastive (e.g., "See how this is different from X...").
 - Fragmented: Phrase snippets or incomplete sentences used for structural breakdown (e.g., "학교 + 에서").
 - Mixed Notation: Uses intentional invalid syntax with strikethroughs to show common mistakes.
-**Alignment Action:** Do not extract. Keep these trapped entirely within the `explanation_md_i18n` or a designated `local_commentary` block.
+**Alignment Action:** Do not extract. Keep these trapped entirely within the `explanation_md_i18n` or existing teaching metadata fields. Any future dedicated block for local commentary must be defined in a separate schema review.
 
 ### 3. Ambiguous / Needs Review
 **Definition:** Sentences that look like reusable examples but suffer from formatting issues, unclear canonical meaning, or mixed constraints.

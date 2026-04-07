@@ -20,7 +20,7 @@
     {
       "id": "KLABVIEW-003",
       "desc": "Implement fail-soft and empty-state behavior for Knowledge Lab viewer (reserved-slot for vocab, missing data handling).",
-      "status": "todo",
+      "status": "done",
       "depends_on": [
         "KLABVIEW-001"
       ]

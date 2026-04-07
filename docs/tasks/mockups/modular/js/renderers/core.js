@@ -38,14 +38,9 @@ window.RendererRegistry = {
     return { contentHtml, interactionHtml };
   },
   renderFallback(node) {
-    return `
-      <div class="empty-state animate-in">
-        <div class="icon">❓</div>
-        <h3>未知的內容類型: ${node.content_form}</h3>
-        <p class="muted-text">請檢查渲染器註冊或資料格式。</p>
-        <pre style="text-align:left; background:#f0f0f0; padding:12px; font-size:10px;">${JSON.stringify(node.payload, null, 2)}</pre>
-      </div>
-    `;
+    const payload = node.payload || {};
+    const reason = `未知的內容類型: ${node.content_form}`;
+    return window.renderDataInspection(payload, reason);
   }
 };
 
@@ -160,6 +155,29 @@ window.markdownToHtmlLite = function (md) {
 };
 
 // --- Reusable Content Blocks ---
+
+window.renderDataInspection = function (payload, reason = 'Data Inspection Required') {
+  return `
+      <div class="data-inspection-box animate-in">
+        <div class="empty-state">
+          <div class="icon" style="font-size:24px; margin-bottom:8px;">🧐</div>
+          <div><strong style="color:var(--warn);">${window.escapeHtml(reason)}</strong></div>
+          <p class="muted-text tiny-text" style="margin-top:4px;">此節點資料格式不符或遺漏關鍵欄位，請聯繫內容小組。</p>
+          <pre class="json-viewer">${window.escapeHtml(JSON.stringify(payload, null, 2))}</pre>
+        </div>
+      </div>
+    `;
+};
+
+window.renderEmptyState = function (message = 'No additional details available.') {
+  return `
+    <div class="empty-state animate-in">
+      <div class="icon" style="font-size:24px; margin-bottom:8px;">☕</div>
+      <div class="muted-text">${window.escapeHtml(message)}</div>
+      <p class="tiny-text" style="color:var(--muted); margin-top:4px;">本節點內容較為大綱式，請配合課堂練習進行。</p>
+    </div>
+  `;
+};
 
 window.renderNotice = function (payload) {
   if (!payload) return '';

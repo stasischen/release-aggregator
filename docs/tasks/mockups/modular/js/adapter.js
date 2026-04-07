@@ -57,7 +57,7 @@ window.LessonAdapter = {
             displayTitle: this.resolveText(node.title_i18n, locale, node.title_zh_tw || this.getFallbackNodeTitle(node)),
             displaySummary: this.resolveText(node.summary_i18n, locale, node.summary_zh_tw || '先看這一節的內容。'),
             displayExpected: this.resolveText(node.expected_output_i18n, locale, node.expected_output_zh_tw || '先理解這一節的重點。'),
-            payload: payload
+            payload: payload || {}
         };
 
         // Ensure content_form is present
@@ -70,6 +70,11 @@ window.LessonAdapter = {
         if (normalized.content_form === 'pattern_lab') {
             normalized.payload.pattern_builder_demos = this.resolveArray(payload.pattern_builder_demos || payload.pattern_builder_demo);
             normalized.payload.slot_bank_panels = this.resolveArray(payload.slot_bank_panels);
+        }
+
+        // Vocab Normalization
+        if (normalized.content_form === 'vocab_summary' || normalized.content_form === 'vocab_note') {
+            normalized.payload.items = this.resolveArray(payload.items || payload.vocab_items || []);
         }
 
         return normalized;
@@ -103,9 +108,12 @@ window.LessonAdapter = {
      */
     inferContentForm(node) {
         if (node.content_form) return node.content_form;
+        const id = node.id || '';
         if (node.payload?.dialogue_turns || node.payload?.dialogue_scenes) return 'dialogue';
         if (node.payload?.pattern_builder_demos || node.payload?.pattern_builder_demo) return 'pattern_lab';
+        if (node.payload?.items && (id.includes('-V') || id.includes('-D') || node.content_form === 'functional_phrase_pack')) return 'vocab_summary';
         if (node.learning_role === 'structure_grammar') return 'grammar_summary';
+        if (node.learning_role === 'structure_usage' || id.includes('-U')) return 'usage';
         return 'unknown';
     }
 };

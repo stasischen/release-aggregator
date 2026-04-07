@@ -35,19 +35,19 @@
     // 2. Fail-Soft Detection
     if (sections.length === 0) {
       if (malformedReason) {
-        return renderDataInspection(payload, malformedReason);
+        return window.renderDataInspection(payload, malformedReason);
       }
       
       const hasOtherKeys = Object.keys(payload).some(k => !['sections', 'points', 'points_i18n', 'points_zh_tw', 'notice_i18n', 'notice_zh_tw', 'notice_zh_tw', 'what_to_notice_i18n'].includes(k));
       if (hasOtherKeys) {
         // Unknown payload but not explicitly marked as malformed array yet
-        return renderDataInspection(payload, 'Unrecognized Grammar Payload Structure');
+        return window.renderDataInspection(payload, 'Unrecognized Grammar Payload Structure');
       }
       // Valid but empty
       return `
         <div class="grammar-container animate-in">
           ${window.renderNotice(payload)}
-          <div class="empty-state">No additional details available for this section.</div>
+          ${window.renderEmptyState('本節點無額外的文法詳情。')}
         </div>
       `;
     }
@@ -93,18 +93,6 @@
           <div class="grammar-accordion">
             ${html}
           </div>
-        </div>
-      </div>
-    `;
-  }
-
-  function renderDataInspection(payload, reason) {
-    return `
-      <div class="grammar-container animate-in">
-        <div class="empty-state">
-          <div><strong>Data Inspection Required</strong></div>
-          <div class="tiny-text muted" style="margin-top:4px;">${reason}</div>
-          <pre style="text-align:left; font-size:10px; margin-top:12px; padding:8px; background:rgba(0,0,0,0.03); border-radius:4px; overflow-x:auto;">${window.escapeHtml(JSON.stringify(payload, null, 2))}</pre>
         </div>
       </div>
     `;

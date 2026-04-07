@@ -47,6 +47,28 @@
 
 ---
 
+## Future Waves (待後續階段導入)
+
+為確保 `lingo-curriculum-source/reports` 資料夾內的資料能 100% 完整導入，以下資料夾已排入後續波次計畫：
+
+### Wave 6: 中階文法與語態擴充
+- `youtube_intermediate_grammar`: 中級程度文法。
+- `youtube_passive`: 被動語態與使役動詞專項。
+
+### Wave 7: 功能性詞塊與單位量詞
+- `youtube_adverbs`: 副詞用法與語感區分。
+- `youtube_counters3`: 韓文核心單位量詞（重要基礎知識）。
+
+### Wave 8: 慣用語與生活句型
+- `youtube_idioms`: 韓文四字成語與慣用語。
+- `youtube_common_sentences`: 高頻生活常備句。
+
+### Wave 9: 高階文法與詞彙補強
+- `youtube_advanced_grammar`: 高級程度文法。
+- `youtube_common_words`: 核心高頻核心詞彙補充。
+
+---
+
 ## Current Findings
 
 ### 1. Source Shape by Report Family

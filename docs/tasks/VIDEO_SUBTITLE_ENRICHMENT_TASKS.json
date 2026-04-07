@@ -1,8 +1,8 @@
 {
   "task_id": "VIDEO_SUBTITLE_ENRICHMENT",
   "name": "影片字幕校對與補全 (zh_tw)",
-  "status": "in_progress",
-  "updated_at": "2026-04-07T06:23:00+00:00",
+  "status": "done",
+  "updated_at": "2026-04-07T12:20:00+00:00",
   "tasks": [
     {
       "id": "audit",
@@ -12,9 +12,9 @@
     },
     {
       "id": "reconstruct",
-      "name": "中文補全 (Chinese Enrichment) - 10/11 Videos",
+      "name": "全庫 11 支影片補全 (Full 11-Video Enrichment)",
       "status": "done",
-      "notes": "Completed reconstruction for 10/11 videos (Hobby, Mart, Daily Night, Street Food, Weekend, Informal, Daily Day, Home, Cafe, Hang Out). 100% ID alignment confirmed."
+      "notes": "Completed reconstruction for all 11 videos (including ngOTUxM25gM and goPwS4aL4Lk). 100% ID alignment confirmed."
     },
     {
       "id": "transcode",
@@ -23,8 +23,15 @@
     },
     {
       "id": "verify",
-      "name": "對齊驗證 (Visual Alignment Check)",
-      "status": "done"
+      "name": "全庫對齊稽核驗證 (Audit Verification)",
+      "status": "done",
+      "notes": "zh_tw: 29/29 OK. zh_hans: 11/11 V5 OK."
+    },
+    {
+      "id": "sync",
+      "name": "資產同步 (Asset Sync)",
+      "status": "done",
+      "notes": "Successfully pushed to lingo-frontend-web assets."
     }
   ]
 }

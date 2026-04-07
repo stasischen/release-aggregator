@@ -125,6 +125,7 @@ Layer 5: Legacy Backfill
 
 | Task ID | 描述 | 完成時間 | 檔案 |
 | :--- | :--- | :--- | :--- |
+| VIDEO_SUBTITLE_ENRICHMENT | 影片字幕校對與補全 (zh_tw) | 2026-04-07 | [PLAN](VIDEO_SUBTITLE_ENRICHMENT_PLAN.md) |
 | VIEWER_ENHANCEMENT | Viewer 辭典彈出 + 舊課程顯示 | 2026-02-15 | [ARCHIVE](archive/20260215_VIEWER_ENHANCEMENT_TASKS.json) |
 | KO_RESOLUTION_100PCT | 韓語 Token 解析 100% | 2026-02-15 | [ARCHIVE](archive/20260215_KO_RESOLUTION_100PCT_TASKS.json) |
 | FRONTEND_VIEWER_INTEGRATION | Viewer 整合 (音檔/高亮/文法) | 2026-02-22 | [ARCHIVE](archive/20260222_FRONTEND_VIEWER_INTEGRATION_TASKS.json) |

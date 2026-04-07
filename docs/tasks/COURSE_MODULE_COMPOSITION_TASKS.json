@@ -62,6 +62,26 @@
         "ULV-003",
         "KLAB-002"
       ]
+    },
+    {
+      "id": "CMOD-012",
+      "desc": "Define canonical pattern_frame + slot_bank contract for controlled substitution drills, including semantic slot types, compatibility rules, translation render hints, and alignment with EXAMPLE_SENTENCE_BANK_V0 optional frame_projection/slot_projection rules.",
+      "status": "todo",
+      "depends_on": [
+        "CMOD-001",
+        "CMOD-003",
+        "kg-spec-008"
+      ]
+    },
+    {
+      "id": "CMOD-013",
+      "desc": "Define sentence practice action contract for content-first runtime: listen, repeat, shadow, type, and linked-knowledge drill-down should work across dialogue, video transcript, article sentence, and future custom text.",
+      "status": "todo",
+      "depends_on": [
+        "CMOD-001",
+        "CMOD-011",
+        "ULV-004"
+      ]
     }
   ]
 }

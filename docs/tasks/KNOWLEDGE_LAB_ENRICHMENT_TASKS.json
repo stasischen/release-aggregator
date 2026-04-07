@@ -32,6 +32,16 @@
       "id": "KLAB-005",
       "desc": "Wave 4-5: Ingestion of Survival Patterns and connective endings.",
       "status": "todo"
+    },
+    {
+      "id": "KLAB-006",
+      "desc": "V1 Alignment Pass: Inventory and classify existing enrichment v1 content for example extraction readiness, separating reusable examples from item-local commentary.",
+      "status": "done"
+    },
+    {
+      "id": "KLAB-007",
+      "desc": "Wave 4: Add pronunciation / sound-change knowledge items plus curated external reference metadata by support locale (zh_tw/en/ja), without making external videos the canonical source of truth.",
+      "status": "todo"
     }
   ]
 }

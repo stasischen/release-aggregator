@@ -50,6 +50,24 @@
       "title": "Prototype normalizer script after manual pack proves stable",
       "status": "todo",
       "deliverable": "normalizer prototype"
+    },
+    {
+      "id": "kg-spec-008",
+      "title": "Define canonical example sentence bank schema and link contract (example_sentence, i18n, links) for reuse across knowledge, vocab, and pattern layers",
+      "status": "done",
+      "deliverable": "docs/tasks/EXAMPLE_SENTENCE_BANK_V0.md"
+    },
+    {
+      "id": "kg-mig-009",
+      "title": "Bootstrap example sentence bank from legacy sentence/example sources and mark quality/segmentation readiness before production promotion",
+      "status": "todo",
+      "deliverable": "first staged example sentence bank"
+    },
+    {
+      "id": "kg-mig-010",
+      "title": "Directly extract inline examples from current mixed knowledge items into the canonical example sentence bank and replace them with example_sentence_refs, leaving only item-local commentary in the knowledge item",
+      "status": "todo",
+      "deliverable": "mixed knowledge example extraction pass"
     }
   ]
 }

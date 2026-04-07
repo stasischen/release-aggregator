@@ -159,6 +159,15 @@
       "depends_on": [
         "LLCM-007b"
       ]
+    },
+    {
+      "id": "LLCM-009",
+      "desc": "Define minimal custom-source import/export contract for app-ingested text/article content: sentence split, stable ids, TTS-ready fields, and compatibility with future typing/shadowing actions without requiring full user-owned dictionary truth.",
+      "status": "todo",
+      "depends_on": [
+        "LLCM-005h",
+        "LLCM-008"
+      ]
     }
   ]
 }

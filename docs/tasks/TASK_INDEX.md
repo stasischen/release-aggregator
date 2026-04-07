@@ -112,10 +112,12 @@ Layer 5: Legacy Backfill
 | :--- | :--- | :--- | :--- |
 | COURSE_PEDAGOGY_OPTIMIZATION | 語言學習效果優化（理解檢查/變體遷移/修復策略/檢索複習/guided rubric/followup 設計） | 12/12 tasks | [JSON](COURSE_PEDAGOGY_OPTIMIZATION_TASKS.json) · [PLAN](COURSE_PEDAGOGY_OPTIMIZATION_PLAN.md) |
 
+
 ### Deferred / Later
 
 | Task ID | 描述 | Phase | 進度 | 檔案 |
 | :--- | :--- | :--- | :--- | :--- |
+
 
 ---
 

@@ -36,7 +36,7 @@
     {
       "id": "KLAB-006",
       "desc": "V1 Alignment Pass: Inventory and classify existing enrichment v1 content for example extraction readiness, separating reusable examples from item-local commentary.",
-      "status": "in_progress"
+      "status": "done"
     },
     {
       "id": "KLAB-007",

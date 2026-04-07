@@ -32,17 +32,21 @@ def find_corrupted_chars(text):
     return bad_chars
 
 def run_audit(content_ko_root):
-    base_path = content_ko_root / "content" / "i18n" / "zh_tw" / "learning_library" / "knowledge"
+    # Old knowledge paths
+    base_knowledge_path = content_ko_root / "content" / "i18n" / "zh_tw" / "learning_library" / "knowledge"
+    # New example_sentence bank path
+    ex_bank_path = content_ko_root / "content" / "core" / "learning_library" / "example_sentence"
     
-    if not base_path.exists():
-        print(f"Error: Base path does not exist: {base_path}")
-        return None
+    scopes = []
+    if base_knowledge_path.exists():
+        scopes.extend([
+            (base_knowledge_path / "grammar" / "particle", "*.json"),
+            (base_knowledge_path / "connector", "**/*.json"),
+            (base_knowledge_path / "pattern" / "greetings", "*.json")
+        ])
     
-    scopes = [
-        (base_path / "grammar" / "particle", "*.json"),
-        (base_path / "connector", "**/*.json"),
-        (base_path / "pattern" / "greetings", "*.json")
-    ]
+    if ex_bank_path.exists():
+        scopes.append((ex_bank_path, "*.json"))
     
     all_files = []
     for scope, pattern in scopes:
@@ -63,6 +67,8 @@ def run_audit(content_ko_root):
             with open(path, 'r', encoding='utf-8') as f:
                 data = json.load(f)
                 item_id = data.get("id", "unknown")
+                
+                # Check old Knowledge item format (example_bank)
                 examples = data.get("example_bank", [])
                 for i, ex in enumerate(examples):
                     ko_text = ex.get("ko", "")
@@ -70,10 +76,24 @@ def run_audit(content_ko_root):
                     if bad:
                         audit_results.append({
                             "item_id": item_id,
+                            "type": "knowledge_ex_bank",
                             "example_index": i,
                             "ko_text": ko_text,
                             "corrupted_chars": list(set(bad))
                         })
+                
+                # Check new Example Sentence Bank format (surface_ko)
+                surface_ko = data.get("surface_ko")
+                if surface_ko:
+                    bad = find_corrupted_chars(surface_ko)
+                    if bad:
+                        audit_results.append({
+                            "item_id": item_id,
+                            "type": "example_sentence_bank",
+                            "ko_text": surface_ko,
+                            "corrupted_chars": list(set(bad))
+                        })
+                        
         except Exception as e:
             print(f"Error reading {path}: {e}")
     return audit_results

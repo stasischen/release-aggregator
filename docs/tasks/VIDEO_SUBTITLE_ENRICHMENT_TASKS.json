@@ -1,0 +1,29 @@
+{
+  "task_id": "VIDEO_SUBTITLE_ENRICHMENT",
+  "name": "影片字幕校對與補全 (zh_tw)",
+  "status": "in_progress",
+  "updated_at": "2026-04-07T06:23:00+00:00",
+  "tasks": [
+    {
+      "id": "audit",
+      "name": "執行結構稽核 (Structural Audit)",
+      "status": "done",
+      "notes": "Finished initial audit. 11 files with issues found."
+    },
+    {
+      "id": "reconstruct",
+      "name": "中文補全 (Chinese Enrichment) - ngOTUxM25gM",
+      "status": "todo"
+    },
+    {
+      "id": "transcode",
+      "name": "繁簡轉換與專有名詞修正 (Transcoding)",
+      "status": "todo"
+    },
+    {
+      "id": "verify",
+      "name": "對齊驗證 (Visual Alignment Check)",
+      "status": "todo"
+    }
+  ]
+}

@@ -101,7 +101,8 @@ window.applyInlineMarkdown = function (text) {
   return String(text || '')
     .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')
     .replace(/\*(.*?)\*/g, '<em>$1</em>')
-    .replace(/`(.*?)`/g, '<code>$1</code>');
+    .replace(/`(.*?)`/g, '<code>$1</code>')
+    .replace(/\[(.*?)\]\((.*?)\)/g, '<a href="$2" target="_blank">$1</a>');
 };
 
 window.markdownToHtmlLite = function (md) {
@@ -118,6 +119,16 @@ window.markdownToHtmlLite = function (md) {
     const trimmed = line.trim();
     if (!trimmed) { i++; continue; }
 
+    // Headers
+    const hMatch = trimmed.match(/^(#{1,3})\s+(.*)/);
+    if (hMatch) {
+      const level = hMatch[1].length;
+      const text = hMatch[2];
+      out.push(`<h${level} class="md-h${level}">${window.applyInlineMarkdown(text)}</h${level}>`);
+      i++; continue;
+    }
+
+    // Tables
     if (i + 1 < lines.length && isTableRow(lines[i]) && isTableSeparator(lines[i + 1])) {
       const headerCells = lines[i].split('|').map(c => c.trim()).filter(Boolean);
       i += 2;
@@ -138,13 +149,28 @@ window.markdownToHtmlLite = function (md) {
       continue;
     }
 
-    if (trimmed.startsWith('- ')) {
+    // Unordered Lists
+    if (trimmed.startsWith('- ') || trimmed.startsWith('* ')) {
       const items = [];
-      while (i < lines.length && lines[i].trim().startsWith('- ')) {
+      while (i < lines.length && (lines[i].trim().startsWith('- ') || lines[i].trim().startsWith('* '))) {
         items.push(lines[i].trim().slice(2));
         i++;
       }
       out.push(`<ul class="grammar-point-list">${items.map(p => `<li>${window.applyInlineMarkdown(p)}</li>`).join('')}</ul>`);
+      continue;
+    }
+
+    // Ordered Lists
+    const olMatch = trimmed.match(/^(\d+\.)\s+(.*)/);
+    if (olMatch) {
+      const items = [];
+      while (i < lines.length) {
+        const m = lines[i].trim().match(/^\d+\.\s+(.*)/);
+        if (!m) break;
+        items.push(m[1]);
+        i++;
+      }
+      out.push(`<ol class="grammar-point-list" style="padding-left:24px;">${items.map(p => `<li>${window.applyInlineMarkdown(p)}</li>`).join('')}</ol>`);
       continue;
     }
 

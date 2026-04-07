@@ -40,9 +40,12 @@
         <div class="lib-layout">
             <!-- Sidebar: Table of Contents -->
             <aside class="lib-sidebar" id="libSidebar">
-                <div class="lib-sidebar-header">
-                    <h2>知識目錄</h2>
-                    <p class="tiny-text muted">主題式文法與句型</p>
+                <div class="lib-sidebar-header" style="display:flex; justify-content:space-between; align-items:flex-start;">
+                    <div>
+                        <h2>知識目錄</h2>
+                        <p class="tiny-text muted">主題式文法與句型</p>
+                    </div>
+                    <button class="btn-close-sidebar" onclick="APP.toggleLibSidebar(false)">✕</button>
                 </div>
                 <div class="search-box-wrap" style="padding:0 16px 16px;">
                     <input type="text" class="search-input" placeholder="搜尋語法、句型..." id="libSearch">
@@ -143,20 +146,21 @@
             </div>
         </section>
     </div>
+    <div id="libSidebarOverlay" class="sidebar-overlay" onclick="APP.toggleLibSidebar(false)"></div>
     <div id="toastContainer"></div>
 
     <!-- Dependencies -->
-    <script src="js/utils.js?v=20260407"></script>
-    <script src="js/adapter.js?v=20260407"></script>
-    <script src="js/state.js?v=20260407"></script>
-    <script src="js/tts.js?v=20260407"></script>
-    <script src="js/renderers/core.js?v=20260407"></script>
-    <script src="js/renderers/dialogue.js?v=20260407"></script>
-    <script src="js/renderers/grammar.js"></script>
-    <script src="js/renderers/pattern.js"></script>
-    <script src="js/renderers/practice.js"></script>
-    <script src="js/renderers/vocab.js"></script>
-    <script src="js/renderers/usage.js"></script>
-    <script src="js/app_v2.js?v=20260407-20"></script>
+    <script src="js/utils.js?v=20260408"></script>
+    <script src="js/adapter.js?v=20260408"></script>
+    <script src="js/state.js?v=20260408"></script>
+    <script src="js/tts.js?v=20260408"></script>
+    <script src="js/renderers/core.js?v=20260408"></script>
+    <script src="js/renderers/dialogue.js?v=20260408"></script>
+    <script src="js/renderers/grammar.js?v=20260408"></script>
+    <script src="js/renderers/pattern.js?v=20260408"></script>
+    <script src="js/renderers/practice.js?v=20260408"></script>
+    <script src="js/renderers/vocab.js?v=20260408"></script>
+    <script src="js/renderers/usage.js?v=20260408"></script>
+    <script src="js/app_v2.js?v=20260408"></script>
 </body>
 </html>

@@ -150,13 +150,23 @@ const APP = {
 
     async initLibrary() {
         try {
-            const resp = await fetch('data/library_manifest.json');
-            if (resp.ok) {
-                this.libManifest = await resp.json();
+            // Load Manifest
+            const manifestResp = await fetch('data/library_manifest.json');
+            if (manifestResp.ok) {
+                this.libManifest = await manifestResp.json();
                 this.renderLibToc();
                 this.renderLibFeatured();
             }
-        } catch (e) { console.error("Library init error", e); }
+            
+            // Load Global Sentences (Example Bank)
+            const sentenceResp = await fetch('data/global_sentences.json');
+            if (sentenceResp.ok) {
+                this.libSentences = await sentenceResp.json();
+                console.log("Global Sentence Bank loaded.");
+            }
+        } catch (e) { 
+            console.error("Library init error", e); 
+        }
     },
 
     renderLibToc() {
@@ -176,25 +186,6 @@ const APP = {
             `;
         });
         
-        /*
-        .lib-sidebar {
-            position: fixed !important;
-            top: var(--nav-height) !important;
-            bottom: 0 !important;
-            left: 0 !important;
-            width: 280px !important;
-            transform: translateX(-105%) !important;
-            box-shadow: 10px 0 30px rgba(0,0,0,0.2) !important;
-            visibility: hidden !important;
-            display: flex !important;
-        }
-        
-        .lib-sidebar.open {
-            transform: translateX(0) !important;
-            visibility: visible !important;
-        }
-        */
-        
         this.elements.libToc.innerHTML = html;
     },
 
@@ -207,13 +198,23 @@ const APP = {
         });
     },
 
+    getCategoryTitle(cid) {
+        const mapping = {
+            "grammar": "韓文法",
+            "pattern": "必修句型",
+            "connector": "連接詞",
+            "expression": "慣用語",
+            "vocab": "主題單字"
+        };
+        return mapping[cid] || cid.capitalize();
+    },
+
     async selectLibCategory(catId, subId) {
-        // In a real app, this would query a real metadata DB. 
-        // For mockup, we show the featured item if it matches "particle", or show a list.
-        if (subId === 'particle') {
-            const item = this.libManifest.featured.find(f => f.sub === 'particle');
-            if (item) this.loadLibRule(item.path, item.title);
-        } else {
+        if (!this.libManifest) return;
+        
+        const items = (this.libManifest.items || []).filter(item => item.category === catId && item.sub === subId);
+        
+        if (items.length === 0) {
             this.elements.libReader.innerHTML = `
                 <div class="empty-state">
                     <h3>${subId} 內容準備中</h3>
@@ -222,7 +223,40 @@ const APP = {
             `;
             if (this.elements.libCurrentTitle) this.elements.libCurrentTitle.textContent = subId;
             this.toggleLibSidebar(false);
+            return;
         }
+
+        const listHtml = items.map(f => `
+            <div class="unit-card" style="text-align:left; cursor:pointer; margin-bottom:12px; display:flex; align-items:center; gap:12px;" onclick="APP.loadLibRule('${f.path}', '${f.title}')">
+                <div class="level-badge ${f.level.toLowerCase()}">${f.level}</div>
+                <div style="flex:1">
+                    <h4 style="margin:0">${window.escapeHtml(f.title)}</h4>
+                    <p class="tiny-text muted" style="margin:2px 0 0 0">${f.surface || ''}</p>
+                </div>
+                <div class="icon">→</div>
+            </div>
+        `).join('');
+
+        // UI Optimization: Merge Breadcrumb and Category Title
+        const catTitle = this.getCategoryTitle(catId);
+        const isSame = catId.toLowerCase() === subId.toLowerCase() || subId.toLowerCase() === 'general';
+        const displaySub = subId.charAt(0).toUpperCase() + subId.slice(1);
+
+        this.elements.libReader.innerHTML = `
+            <div class="animate-in" style="padding:20px 0;">
+                <div class="lib-category-header" style="margin-bottom:32px;">
+                    ${isSame ? '' : `<div class="breadcrumb" style="font-size:12px; font-weight:700; color:var(--muted); margin-bottom:4px; text-transform:uppercase;">${catTitle}</div>`}
+                    <h2 style="margin:0; font-size:24px;">${displaySub}</h2>
+                    <div style="height:2px; width:40px; background:var(--accent); margin-top:12px;"></div>
+                </div>
+                <div class="list-grid">
+                    ${listHtml}
+                </div>
+            </div>
+        `;
+        
+        if (this.elements.libCurrentTitle) this.elements.libCurrentTitle.textContent = displaySub;
+        this.toggleLibSidebar(false);
     },
 
     async loadLibRule(path, title) {
@@ -231,43 +265,99 @@ const APP = {
             if (!resp.ok) throw new Error('Rule load failed');
             const data = await resp.json();
             
-            this.renderLibReader(data);
-            if (this.elements.libCurrentTitle) this.elements.libCurrentTitle.textContent = title;
+            const meta = (this.libManifest.items || []).find(it => it.path === path) || {};
+            
+            if (!data.example_bank) data.example_bank = [];
+            const refs = meta.example_sentence_refs || data.example_sentence_refs || [];
+            if (refs.length > 0 && this.libSentences) {
+                refs.forEach(sid => {
+                    const s = this.libSentences[sid];
+                    if (s) {
+                        data.example_bank.push({
+                            id: sid, ko: s.ko, zh_tw: s.zh_tw || "(尚無翻譯)"
+                        });
+                    }
+                });
+            }
+            
+            this.renderLibReader(data, meta);
+            
+            // UI Optimization: Mobile Nav shows breadcrumb context, Card shows Title
+            const catTitle = this.getCategoryTitle(meta.category);
+            if (this.elements.libCurrentTitle) {
+                this.elements.libCurrentTitle.textContent = `${catTitle} > ${meta.sub}`;
+            }
+            
             this.toggleLibSidebar(false);
             if (this.elements.libReader) this.elements.libReader.scrollTop = 0;
         } catch (e) { console.error(e); }
     },
 
-    renderLibReader(data) {
+    renderLibReader(data, meta = {}) {
         if (!this.elements.libReader) return;
         
-        const examplesHtml = (data.example_bank || []).slice(0, 5).map(ex => `
-            <div class="example-card animate-in">
-                <div class="example-ko">${window.escapeHtml(ex.ko)}</div>
-                <div class="example-zh">${window.escapeHtml(ex.zh_tw)}</div>
-            </div>
-        `).join('');
+        const examplesHtml = (data.example_bank || []).map((ex, idx) => {
+            const audioPath = `data/audio/${ex.id}.mp3`;
+            const fallbackKo = window.escapeJsSingle(ex.ko);
+            return `
+                <div class="example-card animate-in">
+                    <div class="example-header" style="display:flex; justify-content:space-between; align-items:center; margin-bottom:8px;">
+                        <div class="example-ko" style="font-weight:700; color:var(--text);">${window.escapeHtml(ex.ko)}</div>
+                        <button class="audio-btn" onclick="APP.playOriginalOrTTS('${fallbackKo}', '${audioPath}')" title="播放音檔">
+                            <span class="icon">🔊</span>
+                        </button>
+                    </div>
+                    <div class="example-zh" style="color:var(--muted); font-size:14px;">${window.escapeHtml(ex.zh_tw)}</div>
+                </div>
+            `;
+        }).join('');
+
+        const levelClass = (meta.level || 'A1').toLowerCase();
 
         this.elements.libReader.innerHTML = `
-            <article class="animate-in">
-                <h1 style="color:var(--accent);">${window.escapeHtml(data.title_zh_tw)}</h1>
-                <p class="lead" style="font-size:18px; font-weight:500;">${window.escapeHtml(data.summary_zh_tw)}</p>
+            <article class="animate-in" style="padding-bottom: 60px;">
+                <header class="rule-header" style="margin-bottom:32px;">
+                    <div class="meta-strip" style="display:flex; align-items:center; gap:8px; margin-bottom:12px;">
+                        <span class="level-badge ${levelClass}">${meta.level || 'A1'}</span>
+                        <span class="tiny-text muted" style="letter-spacing:0.05em;">${data.id || ''}</span>
+                    </div>
+                    <h1 style="font-size:32px; color:var(--text); margin:0 0 16px 0; line-height:1.2;">${window.escapeHtml(data.title_zh_tw)}</h1>
+                    <div style="height:4px; width:60px; background:var(--accent); border-radius:2px; margin-bottom:24px;"></div>
+                    <p class="lead" style="font-size:18px; font-weight:500; color:var(--muted); line-height:1.6; margin:0;">${window.escapeHtml(data.summary_zh_tw)}</p>
+                </header>
                 
                 <div class="rule-body">
-                    ${window.markdownToHtmlLite(data.explanation_md_zh_tw)}
+                    ${window.markdownToHtmlLite(data.explanation_md_zh_tw || data.explanation || '')}
                 </div>
 
                 <h2 style="margin-top:48px;">📌 變化與用法範例</h2>
-                <div class="usage-tips" style="margin-bottom:32px;">
-                    ${(data.usage_notes_zh_tw || []).map(note => `<div class="tag" style="margin-bottom:8px; display:block;">${window.escapeHtml(note)}</div>`).join('')}
+                <div class="usage-tips" style="margin-bottom:32px; display:flex; flex-wrap:wrap; gap:8px;">
+                    ${(data.usage_notes_zh_tw || []).map(note => `<div class="tag">${window.escapeHtml(note)}</div>`).join('')}
                 </div>
 
                 <div class="example-section">
                     <div class="section-subtitle">🔊 精選例句 (Examples)</div>
-                    ${examplesHtml}
+                    <div class="example-grid" style="display:grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap:16px;">
+                        ${examplesHtml}
+                    </div>
                 </div>
             </article>
         `;
+    },
+
+    async playOriginalOrTTS(text, audioPath) {
+        try {
+            // Mechanism: Try to play actual file if it exists, otherwise fallback to web speech
+            const audio = new Audio(audioPath);
+            audio.onerror = () => {
+                console.log("Original audio not found, falling back to TTS:", audioPath);
+                if (window.speakKo) window.speakKo(text);
+            };
+            await audio.play();
+        } catch (e) {
+            console.log("Audio play failed, falling back to TTS:", e);
+            if (window.speakKo) window.speakKo(text);
+        }
     },
 
     toggleLibSidebar(open) {

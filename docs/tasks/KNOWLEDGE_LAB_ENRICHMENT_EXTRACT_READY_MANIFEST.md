@@ -16,7 +16,7 @@ Inventory and classify existing KLab enrichment v1 content for example extractio
 | :--- | :--- | :--- | :---: | :--- | :--- |
 | **kg.grammar.particle.subject** | grammar | READY | 8 | Reusable | subject marker (이/가) |
 | **kg.grammar.particle.object** | grammar | READY | 10 | Reusable | object marker (을/를) |
-| **kg.grammar.particle.topic_eunneun** | grammar | READY | 8 | Reusable | topic marker (은/心的) |
+| **kg.grammar.particle.topic_eunneun** | grammar | READY | 8 | Reusable | topic marker (은/는) |
 | **kg.grammar.particle.at_time_place** | grammar | READY | 5 | Reusable | time/place (에) |
 | **kg.grammar.particle.at_place_action** | grammar | READY | 5 | Reusable | action location (에서) |
 | **kg.grammar.particle.also** | grammar | READY | 5 | Reusable | also (도) |

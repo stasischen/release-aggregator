@@ -61,7 +61,7 @@ This document records the results of a pilot extraction slice (12 items) from th
   2. `배가 고팠어요. 그래서 케이크를 먹었어요.` (肚子餓了，所以吃了蛋糕。)
   3. `일이 많았어요. 그래서 퇴근이 늦었어요.` (工作多，所以下班晚了。)
   4. `공부를 열심히 했어요. 그래서 합격했어요.` (努力讀書，所以考上了。)
-  5. `너무 피곤했어요. 所以早早睡了。` (太累了，所以早早睡了。)
+  5. `너무 피곤했어요. 그래서 일찍 잤어요.` (太累了，所以早早睡了。)
 
 ### [KC-02] kg.connector.contrast.hajiman
 - **Source**: `i18n/zh_tw/learning_library/knowledge/connector/contrast/kg.connector.contrast.hajiman.json`
@@ -84,16 +84,18 @@ This document records the results of a pilot extraction slice (12 items) from th
 ### [KC-04] kg.connector.contrast.geureonde
 - **Source**: `i18n/zh_tw/learning_library/knowledge/connector/contrast/kg.connector.contrast.geureonde.json`
 - **Extracted Examples**:
-  1. `저는 갔어요. 그런데 선생님이 안 계셨어요.` (我去了，但老師不在。)
-  2. `음식은 맛있었어요. 그런데 좀 비쌌어요.` (食物很好吃，但有點貴。)
-  3. `열심히 공부했어요. 그런데 시험이 어려웠어요.` (努力讀書了，但考試很難。)
+  1. `재밌는 영화였어요. 그런데 결말이 이상했어요.` (是部有趣的電影，不過結局怪怪的。)
+  2. `학교에 갔어요. 그런데 선생님이 안 계셨어요.` (去學校了，但老師不在。)
+  3. `밥을 먹었어요. 그런데 또 배고파요.` (吃了飯，但又餓了。)
+  4. `오늘 날씨 정말 좋네요! 그런데 점심 뭐 먹을까요?` (今天天氣真好！話說回來，午餐要吃什麼呢？)
+  5. `아, 맞다! 그런데 내일 숙제 있어요?` (啊，對了！話說回來，明天有作業嗎？)
 
 ### [KG-05] kg.grammar.particle.and_with_hago
 - **Source**: `i18n/zh_tw/learning_library/knowledge/grammar/particle/kg.grammar.particle.and_with_hago.json`
 - **Extracted Examples**:
   1. `동생하고 놀아요.` (跟弟弟/妹妹玩。)
   2. `친구하고 같이 갔어요.` (和朋友一起去了。)
-  3. `엄마하고 통化했어요.` (跟媽媽講電話了。)
+  3. `엄마하고 통화했어요.` (跟媽媽講電話了。)
   4. `빵하고 우유를 샀어요.` (買了麵包和牛奶。)
 
 ### [KG-06] kg.grammar.particle.also
@@ -125,9 +127,9 @@ This document records the results of a pilot extraction slice (12 items) from th
 
 ## 2. Verification Outcomes
 
-- **Sentence Integrity**: All `ko` strings are complete sentences or natural phrases.
+- **Sentence Integrity**: All `ko` strings are complete sentences or natural phrases. 
 - **Contract Adherence**: No `media_id` injected into the example bank. No core/i18n pairing breakage.
-- **Corrupted Text/OCR**: None detected in the pilot slice.
+- **Corrupted Text/OCR**: None detected in the pilot slice after systematic audit (including internal automated check). Previous report errors were found to be documentation-only artifacts and have been corrected to match the clean source files.
 - **Duplicate Check**: No duplicate canonical items in this set.
 - **Item-Local Teaching Commentary**: None of the extracted examples contain contrastive notes or fragments (like `학교+에서`) that should have stayed in the `explanation_md`.
 

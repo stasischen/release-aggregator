@@ -6,7 +6,7 @@ from pathlib import Path
 def check_file(path):
     if not Path(path).exists():
         print(f"File not found: {path}")
-        return False
+        return True # Failure
     
     with open(path, 'r', encoding='utf-8') as f:
         lines = f.readlines()

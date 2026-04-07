@@ -2,19 +2,27 @@ import json
 import os
 import glob
 
-# Define paths
-base_path = r"f:\Githubs\lingo\content-ko\content\i18n\zh_tw\learning_library\knowledge"
+from pathlib import Path
+
+# Define repo root and content-ko path
+# Based on layout: f:\Githubs\lingo\release-aggregator\scripts\ops\audit_mixed_script.py
+current_dir = Path(__file__).resolve().parent
+repo_root = current_dir.parents[1]
+# content-ko is expected to be a sibling of the current repo (release-aggregator)
+content_ko_root = repo_root.parent / "content-ko"
+
+base_path = content_ko_root / "content" / "i18n" / "zh_tw" / "learning_library" / "knowledge"
+
 scopes = [
-    (os.path.join(base_path, "grammar", "particle"), "*.json"),
-    (os.path.join(base_path, "connector"), "**/*.json"),
-    (os.path.join(base_path, "pattern", "greetings"), "*.json")
+    (base_path / "grammar" / "particle", "*.json"),
+    (base_path / "connector", "**/*.json"),
+    (base_path / "pattern" / "greetings", "*.json")
 ]
 
 all_files = []
 for scope, pattern in scopes:
-    search_pattern = os.path.join(scope, pattern).replace('\\', '/')
-    files = glob.glob(search_pattern, recursive=True)
-    all_files.extend(files)
+    files = list(scope.glob(pattern)) if "**" not in pattern else list(scope.rglob(pattern.replace("**/", "")))
+    all_files.extend([str(f) for f in files])
 
 print(f"Total files to check: {len(all_files)}")
 
@@ -64,8 +72,7 @@ if results:
     for res in results[:5]: # Print first 5
         print(f"Item: {res['item_id']}, Index: {res['example_index']}, Text: {res['ko_text']}, Bad: {res['corrupted_chars']}")
 
-# Save to output_path
-output_path = r"/tmp/mixed_script_results.json"
-os.makedirs(os.path.dirname(output_path), exist_ok=True)
+# Save to output_path in the current script directory
+output_path = current_dir / "mixed_script_results.json"
 with open(output_path, 'w', encoding='utf-8') as f:
     json.dump(results, f, ensure_ascii=False, indent=2)

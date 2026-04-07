@@ -97,7 +97,7 @@ Layer 5: Legacy Backfill
 | Task ID | 描述 | Phase | 進度 | 檔案 |
 | :--- | :--- | :--- | :--- | :--- |
 | VIDEO_INGESTION_PIPELINE | 影片自動化導入管線 (YouTube Subtitles -> Source/I18N -> Product) | CI/Ops | 0/10 tasks | [PLAN](VIDEO_INGESTION_PIPELINE_PLAN.md) |
-| VIDEO_SUBTITLE_ENRICHMENT | 影片字幕校對與補全 (zh_tw) | CI/Ops | 0/4 tasks | [PLAN](VIDEO_SUBTITLE_ENRICHMENT_PLAN.md) |
+| VIDEO_SUBTITLE_ENRICHMENT | 影片字幕校對與補全 (zh_tw) | CI/Ops | 4/4 tasks | [PLAN](VIDEO_SUBTITLE_ENRICHMENT_PLAN.md) |
 
 ### Parallel Content Enrichment (可平行但不得阻塞主線)
 

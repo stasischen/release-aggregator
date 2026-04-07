@@ -12,18 +12,19 @@
     },
     {
       "id": "reconstruct",
-      "name": "中文補全 (Chinese Enrichment) - ngOTUxM25gM",
-      "status": "todo"
+      "name": "中文補全 (Chinese Enrichment) - 10/11 Videos",
+      "status": "done",
+      "notes": "Completed reconstruction for 10/11 videos (Hobby, Mart, Daily Night, Street Food, Weekend, Informal, Daily Day, Home, Cafe, Hang Out). 100% ID alignment confirmed."
     },
     {
       "id": "transcode",
       "name": "繁簡轉換與專有名詞修正 (Transcoding)",
-      "status": "todo"
+      "status": "done"
     },
     {
       "id": "verify",
       "name": "對齊驗證 (Visual Alignment Check)",
-      "status": "todo"
+      "status": "done"
     }
   ]
 }

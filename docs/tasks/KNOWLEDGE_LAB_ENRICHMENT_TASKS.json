@@ -37,6 +37,11 @@
       "id": "KLAB-006",
       "desc": "V1 Alignment Pass: Inventory and classify existing enrichment v1 content for example extraction readiness, separating reusable examples from item-local commentary.",
       "status": "in_progress"
+    },
+    {
+      "id": "KLAB-007",
+      "desc": "Wave 4: Add pronunciation / sound-change knowledge items plus curated external reference metadata by support locale (zh_tw/en/ja), without making external videos the canonical source of truth.",
+      "status": "todo"
     }
   ]
 }

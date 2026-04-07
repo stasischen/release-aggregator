@@ -1,0 +1,40 @@
+{
+  "categories": [
+    {
+      "id": "grammar",
+      "title": "韓文法 (Grammar)",
+      "sub": [
+        {"id": "particle", "title": "助詞 (Particles)"},
+        {"id": "tense", "title": "時態 (Tense)"},
+        {"id": "negation", "title": "否定 (Negation)"},
+        {"id": "honorific", "title": "敬語 (Honorifics)"},
+        {"id": "ending", "title": "語尾 (Endings)"}
+      ]
+    },
+    {
+      "id": "pattern",
+      "title": "必修句型 (Patterns)",
+      "sub": [
+        {"id": "greetings", "title": "基本招呼 (Greetings)"},
+        {"id": "question", "title": "詢問與回答 (Q&A)"},
+        {"id": "request", "title": "請求與拜託 (Requests)"}
+      ]
+    },
+    {
+      "id": "connector",
+      "title": "連接詞 (Connectors)",
+      "sub": [
+        {"id": "basic", "title": "基本連接 (Basic)"}
+      ]
+    }
+  ],
+  "featured": [
+    {
+      "id": "kg.grammar.particle.topic_eunneun",
+      "category": "grammar",
+      "sub": "particle",
+      "title": "主題助詞 (은/는)",
+      "path": "data/library/kg.grammar.particle.topic_eunneun.json"
+    }
+  ]
+}

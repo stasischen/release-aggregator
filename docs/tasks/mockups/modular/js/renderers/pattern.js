@@ -42,6 +42,7 @@
 
   // Registry
   window.RendererRegistry.registerContent('pattern_lab', renderPatternLab);
+  window.RendererRegistry.registerContent('pattern_card', renderPatternLab);
 
   // --- Pattern Builder Engine ---
 

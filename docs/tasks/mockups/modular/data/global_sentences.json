@@ -1,267 +1,11 @@
 {
-  "ex.ko.grammar.benefactive.carry_luggage.v1": {
-    "id": "ex.ko.grammar.benefactive.carry_luggage.v1",
-    "ko": "짐을 들어 주세요.",
+  "ex.ko.grammar.ending.contrast.korean_dont_give_up.v1": {
+    "id": "ex.ko.grammar.ending.contrast.korean_dont_give_up.v1",
+    "ko": "한국말은 어렵지만 포기하지 마세요.",
     "knowledge_refs": [
-      "kg.grammar.ending.benefactive"
+      "kg.grammar.ending.contrast"
     ],
-    "zh_tw": "請幫我拿行李。"
-  },
-  "ex.ko.grammar.benefactive.give_water.v1": {
-    "id": "ex.ko.grammar.benefactive.give_water.v1",
-    "ko": "물 좀 주세요.",
-    "knowledge_refs": [
-      "kg.grammar.ending.benefactive"
-    ],
-    "zh_tw": "請給我水。"
-  },
-  "ex.ko.grammar.benefactive.help_me.v1": {
-    "id": "ex.ko.grammar.benefactive.help_me.v1",
-    "ko": "도와 주세요.",
-    "knowledge_refs": [
-      "kg.grammar.ending.benefactive"
-    ],
-    "zh_tw": "請幫我。"
-  },
-  "ex.ko.grammar.benefactive.send_photo.v1": {
-    "id": "ex.ko.grammar.benefactive.send_photo.v1",
-    "ko": "사진 보내 주세요.",
-    "knowledge_refs": [
-      "kg.grammar.ending.benefactive"
-    ],
-    "zh_tw": "請傳照片給我。"
-  },
-  "ex.ko.grammar.benefactive.teach_me.v1": {
-    "id": "ex.ko.grammar.benefactive.teach_me.v1",
-    "ko": "가르쳐 주세요.",
-    "knowledge_refs": [
-      "kg.grammar.ending.benefactive"
-    ],
-    "zh_tw": "請教我。"
-  },
-  "ex.ko.grammar.benefactive.tell_phone_number.v1": {
-    "id": "ex.ko.grammar.benefactive.tell_phone_number.v1",
-    "ko": "전화번호 좀 알려 주세요.",
-    "knowledge_refs": [
-      "kg.grammar.ending.benefactive"
-    ],
-    "zh_tw": "請告訴我電話號碼。"
-  },
-  "ex.ko.grammar.dative.ask_friend.v1": {
-    "id": "ex.ko.grammar.dative.ask_friend.v1",
-    "ko": "언니한테 물어봤어요.",
-    "knowledge_refs": [
-      "kg.grammar.particle.dative"
-    ],
-    "zh_tw": "問了姐姐。"
-  },
-  "ex.ko.grammar.dative.ask_teacher.v1": {
-    "id": "ex.ko.grammar.dative.ask_teacher.v1",
-    "ko": "선생님에게 질문했어요.",
-    "knowledge_refs": [
-      "kg.grammar.particle.dative"
-    ],
-    "zh_tw": "問了老師問題。"
-  },
-  "ex.ko.grammar.dative.call_sibling.v1": {
-    "id": "ex.ko.grammar.dative.call_sibling.v1",
-    "ko": "엄마한테 전화했어요.",
-    "knowledge_refs": [
-      "kg.grammar.particle.dative"
-    ],
-    "zh_tw": "打電話給媽媽。"
-  },
-  "ex.ko.grammar.dative.feed_dog.v1": {
-    "id": "ex.ko.grammar.dative.feed_dog.v1",
-    "ko": "강아지한테 밥을 줬어요.",
-    "knowledge_refs": [
-      "kg.grammar.particle.dative"
-    ],
-    "zh_tw": "給小狗吃的。"
-  },
-  "ex.ko.grammar.dative.give_friend.v1": {
-    "id": "ex.ko.grammar.dative.give_friend.v1",
-    "ko": "친구에게 선물을 줘요.",
-    "knowledge_refs": [
-      "kg.grammar.particle.dative"
-    ],
-    "zh_tw": "給朋友禮物。"
-  },
-  "ex.ko.grammar.dative.write_parents.v1": {
-    "id": "ex.ko.grammar.dative.write_parents.v1",
-    "ko": "엄마에게 편지를 썼어요.",
-    "knowledge_refs": [
-      "kg.grammar.particle.dative"
-    ],
-    "zh_tw": "寫信給媽媽。"
-  },
-  "ex.ko.grammar.modifier.adj_big_school.v1": {
-    "id": "ex.ko.grammar.modifier.adj_big_school.v1",
-    "ko": "큰 학교예요.",
-    "knowledge_refs": [
-      "kg.grammar.modifier.adj"
-    ],
-    "zh_tw": "大的學校。"
-  },
-  "ex.ko.grammar.modifier.adj_cute_dog.v1": {
-    "id": "ex.ko.grammar.modifier.adj_cute_dog.v1",
-    "ko": "귀여운 강아지예요.",
-    "knowledge_refs": [
-      "kg.grammar.modifier.adj"
-    ],
-    "zh_tw": "可愛的小狗。"
-  },
-  "ex.ko.grammar.modifier.adj_kind_friend.v1": {
-    "id": "ex.ko.grammar.modifier.adj_kind_friend.v1",
-    "ko": "착한 친구예요.",
-    "knowledge_refs": [
-      "kg.grammar.modifier.adj"
-    ],
-    "zh_tw": "善良的朋友。"
-  },
-  "ex.ko.grammar.modifier.adj_pretty_flower.v1": {
-    "id": "ex.ko.grammar.modifier.adj_pretty_flower.v1",
-    "ko": "예쁜 꽃이에요.",
-    "knowledge_refs": [
-      "kg.grammar.modifier.adj"
-    ],
-    "zh_tw": "漂亮的花。"
-  },
-  "ex.ko.grammar.modifier.adj_quiet_house.v1": {
-    "id": "ex.ko.grammar.modifier.adj_quiet_house.v1",
-    "ko": "조용한 집이에요.",
-    "knowledge_refs": [
-      "kg.grammar.modifier.adj"
-    ],
-    "zh_tw": "安靜的房子。"
-  },
-  "ex.ko.grammar.modifier.adj_warm_coffee.v1": {
-    "id": "ex.ko.grammar.modifier.adj_warm_coffee.v1",
-    "ko": "따뜻한 커피예요.",
-    "knowledge_refs": [
-      "kg.grammar.modifier.adj"
-    ],
-    "zh_tw": "溫熱的咖啡。"
-  },
-  "ex.ko.grammar.modifier.verb_attending_school.v1": {
-    "id": "ex.ko.grammar.modifier.verb_attending_school.v1",
-    "ko": "다니는 학교가 서울이에요.",
-    "knowledge_refs": [
-      "kg.grammar.modifier.verb_present"
-    ],
-    "zh_tw": "就讀的學校在首爾。"
-  },
-  "ex.ko.grammar.modifier.verb_calling_friend.v1": {
-    "id": "ex.ko.grammar.modifier.verb_calling_friend.v1",
-    "ko": "전화하는 친구는 누구예요?",
-    "knowledge_refs": [
-      "kg.grammar.modifier.verb_present"
-    ],
-    "zh_tw": "正在講電話的朋友是誰？"
-  },
-  "ex.ko.grammar.modifier.verb_cooking_mom.v1": {
-    "id": "ex.ko.grammar.modifier.verb_cooking_mom.v1",
-    "ko": "요리하는 사람이 우리 엄마예요.",
-    "knowledge_refs": [
-      "kg.grammar.modifier.verb_present"
-    ],
-    "zh_tw": "正在做飯的人是我媽媽。"
-  },
-  "ex.ko.grammar.modifier.verb_preparing_students.v1": {
-    "id": "ex.ko.grammar.modifier.verb_preparing_students.v1",
-    "ko": "준비하는 학생들이 많아요.",
-    "knowledge_refs": [
-      "kg.grammar.modifier.verb_present"
-    ],
-    "zh_tw": "準備的學生很多。"
-  },
-  "ex.ko.grammar.modifier.verb_studying_look.v1": {
-    "id": "ex.ko.grammar.modifier.verb_studying_look.v1",
-    "ko": "공부하는 모습이 예뻐요.",
-    "knowledge_refs": [
-      "kg.grammar.modifier.verb_present"
-    ],
-    "zh_tw": "學習的樣子很漂亮。"
-  },
-  "ex.ko.grammar.modifier.verb_watching_tv_child.v1": {
-    "id": "ex.ko.grammar.modifier.verb_watching_tv_child.v1",
-    "ko": "TV 보는 아이가 귀엽네요.",
-    "knowledge_refs": [
-      "kg.grammar.modifier.verb_present"
-    ],
-    "zh_tw": "正在看電視的孩子好可愛。"
-  },
-  "ex.ko.grammar.musun.what_day.v1": {
-    "id": "ex.ko.grammar.musun.what_day.v1",
-    "ko": "오늘은 무슨 요일이에요?",
-    "knowledge_refs": [
-      "kg.grammar.determiner.musun"
-    ],
-    "zh_tw": "今天星期幾？"
-  },
-  "ex.ko.grammar.musun.what_food.v1": {
-    "id": "ex.ko.grammar.musun.what_food.v1",
-    "ko": "무슨 음식을 좋아해요?",
-    "knowledge_refs": [
-      "kg.grammar.determiner.musun"
-    ],
-    "zh_tw": "喜歡什麼食物？"
-  },
-  "ex.ko.grammar.musun.what_job.v1": {
-    "id": "ex.ko.grammar.musun.what_job.v1",
-    "ko": "무슨 회사에 다녀요?",
-    "knowledge_refs": [
-      "kg.grammar.determiner.musun"
-    ],
-    "zh_tw": "在哪家公司上班？"
-  },
-  "ex.ko.grammar.musun.what_movie.v1": {
-    "id": "ex.ko.grammar.musun.what_movie.v1",
-    "ko": "무슨 영화 봤어요?",
-    "knowledge_refs": [
-      "kg.grammar.determiner.musun"
-    ],
-    "zh_tw": "看了什麼電影？"
-  },
-  "ex.ko.grammar.musun.what_sound.v1": {
-    "id": "ex.ko.grammar.musun.what_sound.v1",
-    "ko": "무슨 소리예요?",
-    "knowledge_refs": [
-      "kg.grammar.determiner.musun"
-    ],
-    "zh_tw": "是什麼聲音？"
-  },
-  "ex.ko.grammar.musun.what_worry.v1": {
-    "id": "ex.ko.grammar.musun.what_worry.v1",
-    "ko": "무슨 일 있어요?",
-    "knowledge_refs": [
-      "kg.grammar.determiner.musun"
-    ],
-    "zh_tw": "發生什麼事了嗎？"
-  },
-  "ex.ko.grammar.negative_req.dont_be_late.v1": {
-    "id": "ex.ko.grammar.negative_req.dont_be_late.v1",
-    "ko": "늦지 마세요.",
-    "knowledge_refs": [
-      "kg.grammar.request.negative"
-    ],
-    "zh_tw": "請不要遲到。"
-  },
-  "ex.ko.grammar.negative_req.dont_be_noisy.v1": {
-    "id": "ex.ko.grammar.negative_req.dont_be_noisy.v1",
-    "ko": "떠들지 마세요.",
-    "knowledge_refs": [
-      "kg.grammar.request.negative"
-    ],
-    "zh_tw": "請不要吵。"
-  },
-  "ex.ko.grammar.negative_req.dont_call.v1": {
-    "id": "ex.ko.grammar.negative_req.dont_call.v1",
-    "ko": "전화하지 마세요.",
-    "knowledge_refs": [
-      "kg.grammar.request.negative"
-    ],
-    "zh_tw": "請不要打電話。"
+    "zh_tw": "韓語雖然難，但請不要放棄。"
   },
   "ex.ko.grammar.negative_req.dont_leave_wallet.v1": {
     "id": "ex.ko.grammar.negative_req.dont_leave_wallet.v1",
@@ -271,93 +15,53 @@
     ],
     "zh_tw": "請不要把行李丟下。"
   },
-  "ex.ko.grammar.negative_req.dont_worry.v1": {
-    "id": "ex.ko.grammar.negative_req.dont_worry.v1",
-    "ko": "걱정하지 마세요.",
+  "ex.ko.grammar.particle.euro_tool.with_pencil.v1": {
+    "id": "ex.ko.grammar.particle.euro_tool.with_pencil.v1",
+    "ko": "연필로 써요.",
+    "knowledge_refs": [
+      "kg.grammar.particle.euro_tool"
+    ],
+    "zh_tw": "用鉛筆寫。"
+  },
+  "ex.ko.grammar.suggestion.watch_movie_together.v1": {
+    "id": "ex.ko.grammar.suggestion.watch_movie_together.v1",
+    "ko": "주말에 같이 영화를 볼까요?",
+    "knowledge_refs": [
+      "kg.grammar.ending.suggestion"
+    ],
+    "zh_tw": "週末一起看電影嗎？"
+  },
+  "ex.ko.grammar.negation.short_an.not_yet_sleep.v1": {
+    "id": "ex.ko.grammar.negation.short_an.not_yet_sleep.v1",
+    "ko": "아직 안 잤어요.",
+    "knowledge_refs": [
+      "kg.grammar.negation.short_an"
+    ],
+    "zh_tw": "還沒睡。"
+  },
+  "ex.ko.grammar.copula.present_informal.birthday.v1": {
+    "id": "ex.ko.grammar.copula.present_informal.birthday.v1",
+    "ko": "오늘이 내 생일이야.",
+    "knowledge_refs": [
+      "kg.grammar.copula.present_informal"
+    ],
+    "zh_tw": "今天是我的生日。"
+  },
+  "ex.ko.grammar.ending.choice_geona.bread_or_milk.v1": {
+    "id": "ex.ko.grammar.ending.choice_geona.bread_or_milk.v1",
+    "ko": "아침에는 빵을 먹거나 우유를 마셔요.",
+    "knowledge_refs": [
+      "kg.grammar.ending.choice_geona"
+    ],
+    "zh_tw": "早上吃麵包或是喝牛奶。"
+  },
+  "ex.ko.grammar.negative_req.dont_call.v1": {
+    "id": "ex.ko.grammar.negative_req.dont_call.v1",
+    "ko": "전화하지 마세요.",
     "knowledge_refs": [
       "kg.grammar.request.negative"
     ],
-    "zh_tw": "請不要擔心。"
-  },
-  "ex.ko.grammar.negative_req.no_photo.v1": {
-    "id": "ex.ko.grammar.negative_req.no_photo.v1",
-    "ko": "여기에서 사진 찍지 마세요.",
-    "knowledge_refs": [
-      "kg.grammar.request.negative"
-    ],
-    "zh_tw": "請不要在這裡拍照。"
-  },
-  "ex.ko.grammar.permission.ask_question.v1": {
-    "id": "ex.ko.grammar.permission.ask_question.v1",
-    "ko": "질문을 해도 돼요?",
-    "knowledge_refs": [
-      "kg.grammar.permission.allow"
-    ],
-    "zh_tw": "可以提問嗎？"
-  },
-  "ex.ko.grammar.permission.go_late.v1": {
-    "id": "ex.ko.grammar.permission.go_late.v1",
-    "ko": "조금 늦게 가도 돼요.",
-    "knowledge_refs": [
-      "kg.grammar.permission.allow"
-    ],
-    "zh_tw": "晚一點去也可以。"
-  },
-  "ex.ko.grammar.permission.open_door.v1": {
-    "id": "ex.ko.grammar.permission.open_door.v1",
-    "ko": "문을 열어도 돼요.",
-    "knowledge_refs": [
-      "kg.grammar.permission.allow"
-    ],
-    "zh_tw": "可以開門。"
-  },
-  "ex.ko.grammar.permission.sit_here.v1": {
-    "id": "ex.ko.grammar.permission.sit_here.v1",
-    "ko": "여기 앉아도 돼요?",
-    "knowledge_refs": [
-      "kg.grammar.permission.allow"
-    ],
-    "zh_tw": "這裡可以坐嗎？"
-  },
-  "ex.ko.grammar.permission.take_photo.v1": {
-    "id": "ex.ko.grammar.permission.take_photo.v1",
-    "ko": "여기서 사진을 찍어도 돼요?",
-    "knowledge_refs": [
-      "kg.grammar.permission.allow"
-    ],
-    "zh_tw": "可以在這裡拍照嗎？"
-  },
-  "ex.ko.grammar.permission.try_on_clothes.v1": {
-    "id": "ex.ko.grammar.permission.try_on_clothes.v1",
-    "ko": "이 옷을 입어 봐도 돼요?",
-    "knowledge_refs": [
-      "kg.grammar.permission.allow"
-    ],
-    "zh_tw": "可以試穿這件衣服嗎？"
-  },
-  "ex.ko.grammar.polite_req.be_happy.v1": {
-    "id": "ex.ko.grammar.polite_req.be_happy.v1",
-    "ko": "행복하세요.",
-    "knowledge_refs": [
-      "kg.grammar.request.polite"
-    ],
-    "zh_tw": "祝您幸福。"
-  },
-  "ex.ko.grammar.polite_req.please_clean.v1": {
-    "id": "ex.ko.grammar.polite_req.please_clean.v1",
-    "ko": "청소하세요.",
-    "knowledge_refs": [
-      "kg.grammar.request.polite"
-    ],
-    "zh_tw": "請打掃。"
-  },
-  "ex.ko.grammar.polite_req.please_drink_coffee.v1": {
-    "id": "ex.ko.grammar.polite_req.please_drink_coffee.v1",
-    "ko": "커피 드세요.",
-    "knowledge_refs": [
-      "kg.grammar.request.polite"
-    ],
-    "zh_tw": "請喝咖啡。"
+    "zh_tw": "請不要打電話。"
   },
   "ex.ko.grammar.polite_req.please_eat.v1": {
     "id": "ex.ko.grammar.polite_req.please_eat.v1",
@@ -367,6 +71,350 @@
     ],
     "zh_tw": "請用餐。"
   },
+  "ex.ko.pattern.repair.again_please.v1": {
+    "id": "ex.ko.pattern.repair.again_please.v1",
+    "ko": "다시 말씀해 주세요.",
+    "knowledge_refs": [
+      "kp.pattern.repair.repeat"
+    ],
+    "zh_tw": "請再說一次。"
+  },
+  "ex.ko.grammar.particle.euro_dir.to_school.v1": {
+    "id": "ex.ko.grammar.particle.euro_dir.to_school.v1",
+    "ko": "학교로 가요.",
+    "knowledge_refs": [
+      "kg.grammar.particle.euro_dir"
+    ],
+    "zh_tw": "往學校去。"
+  },
+  "ex.ko.grammar.particle.at_time_place.friend_at_restaurant.v1": {
+    "id": "ex.ko.grammar.particle.at_time_place.friend_at_restaurant.v1",
+    "ko": "식당에 친구가 있어요.",
+    "knowledge_refs": [
+      "kg.grammar.particle.at_time_place"
+    ],
+    "zh_tw": "朋友在餐廳。"
+  },
+  "ex.ko.pattern.transport.destination_query.v1": {
+    "id": "ex.ko.pattern.transport.destination_query.v1",
+    "ko": "서울역에 가요?",
+    "knowledge_refs": [
+      "kp.pattern.transport.destination_query"
+    ],
+    "zh_tw": "去首爾站嗎？"
+  },
+  "ex.ko.grammar.particle.boda.summer_hotter_winter.v1": {
+    "id": "ex.ko.grammar.particle.boda.summer_hotter_winter.v1",
+    "ko": "여름이 겨울보다 더 더워요.",
+    "knowledge_refs": [
+      "kg.grammar.particle.boda"
+    ],
+    "zh_tw": "夏天比冬天更熱。"
+  },
+  "ex.ko.grammar.purpose_path.go_watch_movie.v1": {
+    "id": "ex.ko.grammar.purpose_path.go_watch_movie.v1",
+    "ko": "영화 보러 극장에 가요.",
+    "knowledge_refs": [
+      "kg.grammar.ending.purpose_path"
+    ],
+    "zh_tw": "去電影院看電影。"
+  },
+  "ex.ko.grammar.ability.cannot.buy_no_money.v1": {
+    "id": "ex.ko.grammar.ability.cannot.buy_no_money.v1",
+    "ko": "돈이 없어서 살 수 없어요.",
+    "knowledge_refs": [
+      "kg.grammar.ability.cannot"
+    ],
+    "zh_tw": "因為沒錢，不能買。"
+  },
+  "ex.ko.pattern.social_basic.subway_faster.v1": {
+    "id": "ex.ko.pattern.social_basic.subway_faster.v1",
+    "ko": "버스보다 지하철이 더 빨라요.",
+    "knowledge_refs": [
+      "kp.pattern.social_basic.comparison"
+    ],
+    "zh_tw": "比起公車，地鐵更快。"
+  },
+  "ex.ko.grammar.modifier.adj_warm_coffee.v1": {
+    "id": "ex.ko.grammar.modifier.adj_warm_coffee.v1",
+    "ko": "따뜻한 커피예요.",
+    "knowledge_refs": [
+      "kg.grammar.modifier.adj"
+    ],
+    "zh_tw": "溫熱的咖啡。"
+  },
+  "ex.ko.ending.restriction.alcohol_drunk.v1": {
+    "id": "ex.ko.ending.restriction.alcohol_drunk.v1",
+    "ko": "술은 마시되 취하지 않게 마셔요.",
+    "knowledge_refs": [
+      "kg.grammar.ending.restrictive_concession_doe"
+    ],
+    "zh_tw": "酒可以喝，但不要喝醉。"
+  },
+  "ex.ko.grammar.honorific.suffix_ssi.introduce.v1": {
+    "id": "ex.ko.grammar.honorific.suffix_ssi.introduce.v1",
+    "ko": "이 분은 김지민 씨입니다.",
+    "knowledge_refs": [
+      "kg.grammar.honorific.suffix_ssi"
+    ],
+    "zh_tw": "這位是金智敏小姐/先生。"
+  },
+  "ex.ko.grammar.copula.present_formal.name.v1": {
+    "id": "ex.ko.grammar.copula.present_formal.name.v1",
+    "ko": "제 이름은 김수현입니다.",
+    "knowledge_refs": [
+      "kg.grammar.copula.present_formal"
+    ],
+    "zh_tw": "我的名字是金秀賢。"
+  },
+  "ex.ko.grammar.particle.wagwa.travel_with_family.v1": {
+    "id": "ex.ko.grammar.particle.wagwa.travel_with_family.v1",
+    "ko": "가족과 여행해요.",
+    "knowledge_refs": [
+      "kg.grammar.particle.wagwa"
+    ],
+    "zh_tw": "和家人旅行。"
+  },
+  "ex.ko.grammar.particle.subject.house_big.v1": {
+    "id": "ex.ko.grammar.particle.subject.house_big.v1",
+    "ko": "집이 커요.",
+    "knowledge_refs": [
+      "kg.grammar.particle.subject"
+    ],
+    "zh_tw": "房子很大。"
+  },
+  "ex.ko.grammar.particle.at_time_place.go_korea.v1": {
+    "id": "ex.ko.grammar.particle.at_time_place.go_korea.v1",
+    "ko": "한국에 갔어요.",
+    "knowledge_refs": [
+      "kg.grammar.particle.at_time_place"
+    ],
+    "zh_tw": "去了韓國。"
+  },
+  "ex.ko.grammar.copula.present_polite_informal.student.v1": {
+    "id": "ex.ko.grammar.copula.present_polite_informal.student.v1",
+    "ko": "저는 학생이에요.",
+    "knowledge_refs": [
+      "kg.grammar.copula.present_polite_informal"
+    ],
+    "zh_tw": "我是學生。"
+  },
+  "ex.ko.pattern.connective.ticket_platform.v1": {
+    "id": "ex.ko.pattern.connective.ticket_platform.v1",
+    "ko": "먼저 표를 사고, 그다음에 플랫폼으로 가요.",
+    "knowledge_refs": [
+      "kp.pattern.connective.sequence"
+    ],
+    "zh_tw": "先買票，在那之後去月台。"
+  },
+  "ex.ko.grammar.progressive.sleeping.v1": {
+    "id": "ex.ko.grammar.progressive.sleeping.v1",
+    "ko": "쉬고 있어요.",
+    "knowledge_refs": [
+      "kg.grammar.tense.progressive"
+    ],
+    "zh_tw": "正在休息。"
+  },
+  "ex.ko.grammar.modifier.verb_watching_tv_child.v1": {
+    "id": "ex.ko.grammar.modifier.verb_watching_tv_child.v1",
+    "ko": "TV 보는 아이가 귀엽네요.",
+    "knowledge_refs": [
+      "kg.grammar.modifier.verb_present"
+    ],
+    "zh_tw": "正在看電視的孩子好可愛。"
+  },
+  "ex.ko.grammar.modifier.adj_big_school.v1": {
+    "id": "ex.ko.grammar.modifier.adj_big_school.v1",
+    "ko": "큰 학교예요.",
+    "knowledge_refs": [
+      "kg.grammar.modifier.adj"
+    ],
+    "zh_tw": "大的學校。"
+  },
+  "ex.ko.grammar.progressive.listening_music.v1": {
+    "id": "ex.ko.grammar.progressive.listening_music.v1",
+    "ko": "음악을 듣고 있어요.",
+    "knowledge_refs": [
+      "kg.grammar.tense.progressive"
+    ],
+    "zh_tw": "正在聽音樂。"
+  },
+  "ex.ko.ending.state_change.cold_weather.v1": {
+    "id": "ex.ko.ending.state_change.cold_weather.v1",
+    "ko": "날씨가 갑자기 추워졌어요.",
+    "knowledge_refs": [
+      "kg.grammar.ending.state_change_ajida_eojida"
+    ],
+    "zh_tw": "天氣突然變冷了。"
+  },
+  "ex.ko.grammar.ending.sumndia.i_am_student.v1": {
+    "id": "ex.ko.grammar.ending.sumndia.i_am_student.v1",
+    "ko": "저는 학생입니다.",
+    "knowledge_refs": [
+      "kg.grammar.ending.sumndia"
+    ],
+    "zh_tw": "我是學生。"
+  },
+  "ex.ko.grammar.copula.itda.problem.v1": {
+    "id": "ex.ko.grammar.copula.itda.problem.v1",
+    "ko": "문제가 있어요.",
+    "knowledge_refs": [
+      "kg.grammar.copula.itda"
+    ],
+    "zh_tw": "有問題。"
+  },
+  "ex.ko.grammar.particle.at_place_action.study_library.v1": {
+    "id": "ex.ko.grammar.particle.at_place_action.study_library.v1",
+    "ko": "도서관에서 공부해요.",
+    "knowledge_refs": [
+      "kg.grammar.particle.at_place_action"
+    ],
+    "zh_tw": "在圖書館讀書。"
+  },
+  "ex.ko.grammar.modifier.verb_attending_school.v1": {
+    "id": "ex.ko.grammar.modifier.verb_attending_school.v1",
+    "ko": "다니는 학교가 서울이에요.",
+    "knowledge_refs": [
+      "kg.grammar.modifier.verb_present"
+    ],
+    "zh_tw": "就讀的學校在首爾。"
+  },
+  "ex.ko.grammar.particle.at_time_place.at_library.v1": {
+    "id": "ex.ko.grammar.particle.at_time_place.at_library.v1",
+    "ko": "도서관에 있어요.",
+    "knowledge_refs": [
+      "kg.grammar.particle.at_time_place"
+    ],
+    "zh_tw": "在圖書館。"
+  },
+  "ex.ko.grammar.particle.wagwa.talk_with_teacher.v1": {
+    "id": "ex.ko.grammar.particle.wagwa.talk_with_teacher.v1",
+    "ko": "선생님과 대話해요.",
+    "knowledge_refs": [
+      "kg.grammar.particle.wagwa"
+    ],
+    "zh_tw": "和老師對話。"
+  },
+  "ex.ko.grammar.particle.euro_dir.to_restaurant.v1": {
+    "id": "ex.ko.grammar.particle.euro_dir.to_restaurant.v1",
+    "ko": "식당으로 갑시다.",
+    "knowledge_refs": [
+      "kg.grammar.particle.euro_dir"
+    ],
+    "zh_tw": "去餐廳吧（往餐廳的方向）。"
+  },
+  "ex.ko.grammar.particle.object.do_homework.v1": {
+    "id": "ex.ko.grammar.particle.object.do_homework.v1",
+    "ko": "숙제를 해요.",
+    "knowledge_refs": [
+      "kg.grammar.particle.object"
+    ],
+    "zh_tw": "做作業。"
+  },
+  "ex.ko.grammar.ending.ayoeoyo.eat_meal.v1": {
+    "id": "ex.ko.grammar.ending.ayoeoyo.eat_meal.v1",
+    "ko": "밥을 먹어요.",
+    "knowledge_refs": [
+      "kg.grammar.ending.ayoeoyo"
+    ],
+    "zh_tw": "吃飯。"
+  },
+  "ex.ko.grammar.negative_req.no_photo.v1": {
+    "id": "ex.ko.grammar.negative_req.no_photo.v1",
+    "ko": "여기에서 사진 찍지 마세요.",
+    "knowledge_refs": [
+      "kg.grammar.request.negative"
+    ],
+    "zh_tw": "請不要在這裡拍照。"
+  },
+  "ex.ko.grammar.purpose_path.go_meet_friend.v1": {
+    "id": "ex.ko.grammar.purpose_path.go_meet_friend.v1",
+    "ko": "친구 만나러 서울에 갔어요.",
+    "knowledge_refs": [
+      "kg.grammar.ending.purpose_path"
+    ],
+    "zh_tw": "去首爾見朋友了。"
+  },
+  "ex.ko.grammar.ending.condition.earn_travel.v1": {
+    "id": "ex.ko.grammar.ending.condition.earn_travel.v1",
+    "ko": "돈을 많이 벌면 여행을 갈 거예요.",
+    "knowledge_refs": [
+      "kg.grammar.ending.condition"
+    ],
+    "zh_tw": "如果賺很多錢，我打算去旅行。"
+  },
+  "ex.ko.grammar.ending.reason_sequence.library_borrow.v1": {
+    "id": "ex.ko.grammar.ending.reason_sequence.library_borrow.v1",
+    "ko": "도서관에 가서 책을 빌렸어요.",
+    "knowledge_refs": [
+      "kg.grammar.ending.reason_sequence"
+    ],
+    "zh_tw": "去圖書館然後借了書。"
+  },
+  "ex.ko.grammar.particle.at_time_place.eat_at_12.v1": {
+    "id": "ex.ko.grammar.particle.at_time_place.eat_at_12.v1",
+    "ko": "12시에 밥을 먹어요.",
+    "knowledge_refs": [
+      "kg.grammar.particle.at_time_place"
+    ],
+    "zh_tw": "12點吃飯。"
+  },
+  "ex.ko.ending.emotion.dog_snack.v1": {
+    "id": "ex.ko.ending.emotion.dog_snack.v1",
+    "ko": "강아지가 간식을 좋아해요.",
+    "knowledge_refs": [
+      "kg.grammar.ending.emotion_observer_ahada"
+    ],
+    "zh_tw": "小狗喜歡零食。"
+  },
+  "ex.ko.grammar.negative_req.dont_worry.v1": {
+    "id": "ex.ko.grammar.negative_req.dont_worry.v1",
+    "ko": "걱정하지 마세요.",
+    "knowledge_refs": [
+      "kg.grammar.request.negative"
+    ],
+    "zh_tw": "請不要擔心。"
+  },
+  "ex.ko.grammar.copula.present_formal.seoul.v1": {
+    "id": "ex.ko.grammar.copula.present_formal.seoul.v1",
+    "ko": "여기는 서울입니다.",
+    "knowledge_refs": [
+      "kg.grammar.copula.present_formal"
+    ],
+    "zh_tw": "這裡是首爾。"
+  },
+  "ex.ko.pattern.social_basic.take_medicine.v1": {
+    "id": "ex.ko.pattern.social_basic.take_medicine.v1",
+    "ko": "약을 먹어야 해요.",
+    "knowledge_refs": [
+      "kp.pattern.social_basic.obligation"
+    ],
+    "zh_tw": "必須要吃藥。"
+  },
+  "ex.ko.grammar.dative.call_sibling.v1": {
+    "id": "ex.ko.grammar.dative.call_sibling.v1",
+    "ko": "엄마한테 전화했어요.",
+    "knowledge_refs": [
+      "kg.grammar.particle.dative"
+    ],
+    "zh_tw": "打電話給媽媽。"
+  },
+  "ex.ko.grammar.copula.present_polite_informal.homework.v1": {
+    "id": "ex.ko.grammar.copula.present_polite_informal.homework.v1",
+    "ko": "이거 숙제예요?",
+    "knowledge_refs": [
+      "kg.grammar.copula.present_polite_informal"
+    ],
+    "zh_tw": "這是作業嗎？"
+  },
+  "ex.ko.grammar.ability.cannot.remember.v1": {
+    "id": "ex.ko.grammar.ability.cannot.remember.v1",
+    "ko": "이름을 기억할 수 없어요.",
+    "knowledge_refs": [
+      "kg.grammar.ability.cannot"
+    ],
+    "zh_tw": "記不住名字。"
+  },
   "ex.ko.grammar.polite_req.please_go_home.v1": {
     "id": "ex.ko.grammar.polite_req.please_go_home.v1",
     "ko": "집에 가세요.",
@@ -374,6 +422,1758 @@
       "kg.grammar.request.polite"
     ],
     "zh_tw": "請回家。"
+  },
+  "ex.ko.grammar.particle.man.only_10_min.v1": {
+    "id": "ex.ko.grammar.particle.man.only_10_min.v1",
+    "ko": "10분만 더 자고 싶어요.",
+    "knowledge_refs": [
+      "kg.grammar.particle.man"
+    ],
+    "zh_tw": "想再睡 10 分鐘。"
+  },
+  "ex.ko.grammar.modifier.verb_preparing_students.v1": {
+    "id": "ex.ko.grammar.modifier.verb_preparing_students.v1",
+    "ko": "준비하는 학생들이 많아요.",
+    "knowledge_refs": [
+      "kg.grammar.modifier.verb_present"
+    ],
+    "zh_tw": "準備的學生很多。"
+  },
+  "ex.ko.grammar.progressive.cleaning.v1": {
+    "id": "ex.ko.grammar.progressive.cleaning.v1",
+    "ko": "청소를 하고 있어요.",
+    "knowledge_refs": [
+      "kg.grammar.tense.progressive"
+    ],
+    "zh_tw": "正在打掃。"
+  },
+  "ex.ko.grammar.particle.also.ate_apple.v1": {
+    "id": "ex.ko.grammar.particle.also.ate_apple.v1",
+    "ko": "사과도 먹었어요.",
+    "knowledge_refs": [
+      "kg.grammar.particle.also"
+    ],
+    "zh_tw": "蘋果也吃了。"
+  },
+  "ex.ko.grammar.progressive.eating.v1": {
+    "id": "ex.ko.grammar.progressive.eating.v1",
+    "ko": "밥을 먹고 있어요.",
+    "knowledge_refs": [
+      "kg.grammar.tense.progressive"
+    ],
+    "zh_tw": "正在吃飯。"
+  },
+  "ex.ko.grammar.tense.past_ass_oss.school.v1": {
+    "id": "ex.ko.grammar.tense.past_ass_oss.school.v1",
+    "ko": "어제 학교에 갔어요.",
+    "knowledge_refs": [
+      "kg.grammar.tense.past_ass_oss"
+    ],
+    "zh_tw": "昨天去了學校。"
+  },
+  "ex.ko.grammar.ending.contrast.expensive_good.v1": {
+    "id": "ex.ko.grammar.ending.contrast.expensive_good.v1",
+    "ko": "비싸지만 품질이 좋아요.",
+    "knowledge_refs": [
+      "kg.grammar.ending.contrast"
+    ],
+    "zh_tw": "雖然很貴，但品質很好。"
+  },
+  "ex.ko.grammar.particle.also.bought_clothes.v1": {
+    "id": "ex.ko.grammar.particle.also.bought_clothes.v1",
+    "ko": "옷도 샀어요.",
+    "knowledge_refs": [
+      "kg.grammar.particle.also"
+    ],
+    "zh_tw": "也買了衣服。"
+  },
+  "ex.ko.grammar.ending.sumndia.go_school.v1": {
+    "id": "ex.ko.grammar.ending.sumndia.go_school.v1",
+    "ko": "학교에 갑니다.",
+    "knowledge_refs": [
+      "kg.grammar.ending.sumndia"
+    ],
+    "zh_tw": "去學校。"
+  },
+  "ex.ko.grammar.polite_req.please_clean.v1": {
+    "id": "ex.ko.grammar.polite_req.please_clean.v1",
+    "ko": "청소하세요.",
+    "knowledge_refs": [
+      "kg.grammar.request.polite"
+    ],
+    "zh_tw": "請打掃。"
+  },
+  "ex.ko.grammar.particle.and_with_hago.talk_to_mom.v1": {
+    "id": "ex.ko.grammar.particle.and_with_hago.talk_to_mom.v1",
+    "ko": "엄마하고 통화했어요.",
+    "knowledge_refs": [
+      "kg.grammar.particle.and_with_hago"
+    ],
+    "zh_tw": "跟媽媽講電話了。"
+  },
+  "ex.ko.grammar.source_from.call_from_sibling.v1": {
+    "id": "ex.ko.grammar.source_from.call_from_sibling.v1",
+    "ko": "친구한테서 전화가 왔어요.",
+    "knowledge_refs": [
+      "kg.grammar.particle.source_from"
+    ],
+    "zh_tw": "朋友打電話來了。"
+  },
+  "ex.ko.grammar.copula.itda.time.v1": {
+    "id": "ex.ko.grammar.copula.itda.time.v1",
+    "ko": "시간이 있어요.",
+    "knowledge_refs": [
+      "kg.grammar.copula.itda"
+    ],
+    "zh_tw": "我有時間。"
+  },
+  "ex.ko.grammar.purpose_path.go_eat.v1": {
+    "id": "ex.ko.grammar.purpose_path.go_eat.v1",
+    "ko": "밥 먹으러 식당에 가요.",
+    "knowledge_refs": [
+      "kg.grammar.ending.purpose_path"
+    ],
+    "zh_tw": "去餐廳吃飯。"
+  },
+  "ex.ko.grammar.musun.what_day.v1": {
+    "id": "ex.ko.grammar.musun.what_day.v1",
+    "ko": "오늘은 무슨 요일이에요?",
+    "knowledge_refs": [
+      "kg.grammar.determiner.musun"
+    ],
+    "zh_tw": "今天星期幾？"
+  },
+  "ex.ko.grammar.ability.cannot.go_busy.v1": {
+    "id": "ex.ko.grammar.ability.cannot.go_busy.v1",
+    "ko": "바빠서 갈 수 없어요.",
+    "knowledge_refs": [
+      "kg.grammar.ability.cannot"
+    ],
+    "zh_tw": "因為太忙，不能去。"
+  },
+  "ex.ko.grammar.negation.short_an.dinner.v1": {
+    "id": "ex.ko.grammar.negation.short_an.dinner.v1",
+    "ko": "저녁을 안 먹어요.",
+    "knowledge_refs": [
+      "kg.grammar.negation.short_an"
+    ],
+    "zh_tw": "不吃晚餐。"
+  },
+  "ex.ko.grammar.particle.at_place_action.watch_movie_cinema.v1": {
+    "id": "ex.ko.grammar.particle.at_place_action.watch_movie_cinema.v1",
+    "ko": "영화관에서 영화를 봐요.",
+    "knowledge_refs": [
+      "kg.grammar.particle.at_place_action"
+    ],
+    "zh_tw": "在電影院看電影。"
+  },
+  "ex.ko.pattern.connective.time_together.v1": {
+    "id": "ex.ko.pattern.connective.time_together.v1",
+    "ko": "시간이 있으면 같이 가요.",
+    "knowledge_refs": [
+      "kp.pattern.connective.condition"
+    ],
+    "zh_tw": "如果有時間的話一起去吧。"
+  },
+  "ex.ko.grammar.copula.present_formal.apple.v1": {
+    "id": "ex.ko.grammar.copula.present_formal.apple.v1",
+    "ko": "이것은 사과입니다.",
+    "knowledge_refs": [
+      "kg.grammar.copula.present_formal"
+    ],
+    "zh_tw": "這是蘋果。"
+  },
+  "ex.ko.grammar.particle.also.party_fun.v1": {
+    "id": "ex.ko.grammar.particle.also.party_fun.v1",
+    "ko": "파티도 재미있었어요.",
+    "knowledge_refs": [
+      "kg.grammar.particle.also"
+    ],
+    "zh_tw": "派對也很有趣。"
+  },
+  "ex.ko.grammar.dative.ask_friend.v1": {
+    "id": "ex.ko.grammar.dative.ask_friend.v1",
+    "ko": "언니한테 물어봤어요.",
+    "knowledge_refs": [
+      "kg.grammar.particle.dative"
+    ],
+    "zh_tw": "問了姐姐。"
+  },
+  "ex.ko.grammar.copula.present_formal.student.v1": {
+    "id": "ex.ko.grammar.copula.present_formal.student.v1",
+    "ko": "저는 학생입니다.",
+    "knowledge_refs": [
+      "kg.grammar.copula.present_formal"
+    ],
+    "zh_tw": "我是學生。"
+  },
+  "ex.ko.pattern.repair.expression_meaning.v1": {
+    "id": "ex.ko.pattern.repair.expression_meaning.v1",
+    "ko": "이게 무슨 뜻이에요?",
+    "knowledge_refs": [
+      "kp.pattern.repair.clarification"
+    ],
+    "zh_tw": "這是什麼意思？"
+  },
+  "ex.ko.pattern.repair.wifi_problem.v1": {
+    "id": "ex.ko.pattern.repair.wifi_problem.v1",
+    "ko": "와이파이 문제가 생겼어요. 도와주실 수 있어요?",
+    "knowledge_refs": [
+      "kp.pattern.repair.problem_report"
+    ],
+    "zh_tw": "WiFi 出問題了。能幫幫我嗎？"
+  },
+  "ex.ko.grammar.particle.and_with_hago.go_with_friend.v1": {
+    "id": "ex.ko.grammar.particle.and_with_hago.go_with_friend.v1",
+    "ko": "친구하고 같이 갔어요.",
+    "knowledge_refs": [
+      "kg.grammar.particle.and_with_hago"
+    ],
+    "zh_tw": "和朋友一起去了。"
+  },
+  "ex.ko.grammar.prohibit.no_noise_library.v1": {
+    "id": "ex.ko.grammar.prohibit.no_noise_library.v1",
+    "ko": "도서관에서 떠들면 안 돼요.",
+    "knowledge_refs": [
+      "kg.grammar.permission.prohibit"
+    ],
+    "zh_tw": "圖書館裡不可以吵鬧。"
+  },
+  "ex.ko.grammar.ending.reason_sequence.go_home_eat.v1": {
+    "id": "ex.ko.grammar.ending.reason_sequence.go_home_eat.v1",
+    "ko": "집에 가서 점심을 먹었어요.",
+    "knowledge_refs": [
+      "kg.grammar.ending.reason_sequence"
+    ],
+    "zh_tw": "回家後吃了午餐。"
+  },
+  "ex.ko.grammar.particle.man.only_veg.v1": {
+    "id": "ex.ko.grammar.particle.man.only_veg.v1",
+    "ko": "채소만 먹어요.",
+    "knowledge_refs": [
+      "kg.grammar.particle.man"
+    ],
+    "zh_tw": "只吃蔬菜。"
+  },
+  "ex.ko.grammar.copula.eopda.money.v1": {
+    "id": "ex.ko.grammar.copula.eopda.money.v1",
+    "ko": "지금 돈이 없어요.",
+    "knowledge_refs": [
+      "kg.grammar.copula.eopda"
+    ],
+    "zh_tw": "現在沒錢。"
+  },
+  "ex.ko.grammar.particle.at_time_place.wake_at_7.v1": {
+    "id": "ex.ko.grammar.particle.at_time_place.wake_at_7.v1",
+    "ko": "7시에 일어났어요.",
+    "knowledge_refs": [
+      "kg.grammar.particle.at_time_place"
+    ],
+    "zh_tw": "7點起床了。"
+  },
+  "ex.ko.grammar.negation.long_ji_anta.breakfast.v1": {
+    "id": "ex.ko.grammar.negation.long_ji_anta.breakfast.v1",
+    "ko": "아침을 먹지 않아요.",
+    "knowledge_refs": [
+      "kg.grammar.negation.long_ji_anta"
+    ],
+    "zh_tw": "不吃早餐。"
+  },
+  "ex.ko.grammar.ending.ayoeoyo.drink_coffee.v1": {
+    "id": "ex.ko.grammar.ending.ayoeoyo.drink_coffee.v1",
+    "ko": "커피 마셔요.",
+    "knowledge_refs": [
+      "kg.grammar.ending.ayoeoyo"
+    ],
+    "zh_tw": "喝咖啡。"
+  },
+  "ex.ko.grammar.purpose_path.go_exercise.v1": {
+    "id": "ex.ko.grammar.purpose_path.go_exercise.v1",
+    "ko": "운동하러 헬스장에 가요.",
+    "knowledge_refs": [
+      "kg.grammar.ending.purpose_path"
+    ],
+    "zh_tw": "去健身房運動。"
+  },
+  "ex.ko.pattern.facility.toilet_query.v1": {
+    "id": "ex.ko.pattern.facility.toilet_query.v1",
+    "ko": "화장실이 어디예요?",
+    "knowledge_refs": [
+      "kp.pattern.facility.toilet_query"
+    ],
+    "zh_tw": "洗手間在哪裡？"
+  },
+  "ex.ko.grammar.ending.ayoeoyo.call_friend.v1": {
+    "id": "ex.ko.grammar.ending.ayoeoyo.call_friend.v1",
+    "ko": "친구한테 전화해요.",
+    "knowledge_refs": [
+      "kg.grammar.ending.ayoeoyo"
+    ],
+    "zh_tw": "打電話給朋友。"
+  },
+  "ex.ko.grammar.permission.try_on_clothes.v1": {
+    "id": "ex.ko.grammar.permission.try_on_clothes.v1",
+    "ko": "이 옷을 입어 봐도 돼요?",
+    "knowledge_refs": [
+      "kg.grammar.permission.allow"
+    ],
+    "zh_tw": "可以試穿這件衣服嗎？"
+  },
+  "ex.ko.grammar.want.shopping.v1": {
+    "id": "ex.ko.grammar.want.shopping.v1",
+    "ko": "쇼핑하고 싶어요.",
+    "knowledge_refs": [
+      "kg.grammar.desire.want"
+    ],
+    "zh_tw": "我想去逛街。"
+  },
+  "ex.ko.grammar.particle.topic_eunneun.bus_is_fast.v1": {
+    "id": "ex.ko.grammar.particle.topic_eunneun.bus_is_fast.v1",
+    "ko": "버스는 빨라요.",
+    "knowledge_refs": [
+      "kg.grammar.particle.topic_eunneun"
+    ],
+    "zh_tw": "公車很快。"
+  },
+  "ex.ko.grammar.particle.at_time_place.want_go_sea.v1": {
+    "id": "ex.ko.grammar.particle.at_time_place.want_go_sea.v1",
+    "ko": "바다에 가고 싶어요.",
+    "knowledge_refs": [
+      "kg.grammar.particle.at_time_place"
+    ],
+    "zh_tw": "想去海邊。"
+  },
+  "ex.ko.grammar.ending.contrast.study_fun.v1": {
+    "id": "ex.ko.grammar.ending.contrast.study_fun.v1",
+    "ko": "공부는 힘들지만 재미있어요.",
+    "knowledge_refs": [
+      "kg.grammar.ending.contrast"
+    ],
+    "zh_tw": "讀書雖然辛苦，但很有趣。"
+  },
+  "ex.ko.pattern.social_basic.early_sleep.v1": {
+    "id": "ex.ko.pattern.social_basic.early_sleep.v1",
+    "ko": "저는 보통 일찍 자는 편이에요.",
+    "knowledge_refs": [
+      "kp.pattern.social_basic.habit"
+    ],
+    "zh_tw": "我通常睡得比較早。"
+  },
+  "ex.ko.grammar.honorific.suffix_ssi.greeting.v1": {
+    "id": "ex.ko.grammar.honorific.suffix_ssi.greeting.v1",
+    "ko": "수현 씨, 안녕하세요?",
+    "knowledge_refs": [
+      "kg.grammar.honorific.suffix_ssi"
+    ],
+    "zh_tw": "秀賢小姐/先生，你好嗎？"
+  },
+  "ex.ko.grammar.particle.boda.subway_faster_bus.v1": {
+    "id": "ex.ko.grammar.particle.boda.subway_faster_bus.v1",
+    "ko": "지하철이 버스보다 더 빨라요.",
+    "knowledge_refs": [
+      "kg.grammar.particle.boda"
+    ],
+    "zh_tw": "捷運比公車很快。"
+  },
+  "ex.ko.grammar.particle.subject.apple_tasty.v1": {
+    "id": "ex.ko.grammar.particle.subject.apple_tasty.v1",
+    "ko": "사과가 맛있어요.",
+    "knowledge_refs": [
+      "kg.grammar.particle.subject"
+    ],
+    "zh_tw": "蘋果好吃。"
+  },
+  "ex.ko.grammar.ending.condition.time_movie.v1": {
+    "id": "ex.ko.grammar.ending.condition.time_movie.v1",
+    "ko": "시간이 있으면 같이 영화 봐요.",
+    "knowledge_refs": [
+      "kg.grammar.ending.condition"
+    ],
+    "zh_tw": "如果有時間的話，一起看電影吧。"
+  },
+  "ex.ko.grammar.permission.open_door.v1": {
+    "id": "ex.ko.grammar.permission.open_door.v1",
+    "ko": "문을 열어도 돼요.",
+    "knowledge_refs": [
+      "kg.grammar.permission.allow"
+    ],
+    "zh_tw": "可以開門。"
+  },
+  "ex.ko.grammar.particle.at_place_action.shop_mart.v1": {
+    "id": "ex.ko.grammar.particle.at_place_action.shop_mart.v1",
+    "ko": "마트에서 장을 봐요.",
+    "knowledge_refs": [
+      "kg.grammar.particle.at_place_action"
+    ],
+    "zh_tw": "在超市買菜。"
+  },
+  "ex.ko.grammar.tense.past_ass_oss.lunch.v1": {
+    "id": "ex.ko.grammar.tense.past_ass_oss.lunch.v1",
+    "ko": "점심을 먹었어요.",
+    "knowledge_refs": [
+      "kg.grammar.tense.past_ass_oss"
+    ],
+    "zh_tw": "吃了午餐。"
+  },
+  "ex.ko.grammar.particle.euro_tool.by_taxi.v1": {
+    "id": "ex.ko.grammar.particle.euro_tool.by_taxi.v1",
+    "ko": "택시로 갔어요.",
+    "knowledge_refs": [
+      "kg.grammar.particle.euro_tool"
+    ],
+    "zh_tw": "搭計程車去的。"
+  },
+  "ex.ko.grammar.particle.man.only_you.v1": {
+    "id": "ex.ko.grammar.particle.man.only_you.v1",
+    "ko": "저는 너만 사랑해.",
+    "knowledge_refs": [
+      "kg.grammar.particle.man"
+    ],
+    "zh_tw": "我只愛你。"
+  },
+  "ex.ko.grammar.progressive.waiting_friend.v1": {
+    "id": "ex.ko.grammar.progressive.waiting_friend.v1",
+    "ko": "버스를 기다리고 있어요.",
+    "knowledge_refs": [
+      "kg.grammar.tense.progressive"
+    ],
+    "zh_tw": "正在等公車。"
+  },
+  "ex.ko.grammar.ending.choice_geona.read_or_music.v1": {
+    "id": "ex.ko.grammar.ending.choice_geona.read_or_music.v1",
+    "ko": "책을 읽거나 음악을 들어요.",
+    "knowledge_refs": [
+      "kg.grammar.ending.choice_geona"
+    ],
+    "zh_tw": "看書或是聽音樂。"
+  },
+  "ex.ko.grammar.polite_req.please_drink_coffee.v1": {
+    "id": "ex.ko.grammar.polite_req.please_drink_coffee.v1",
+    "ko": "커피 드세요.",
+    "knowledge_refs": [
+      "kg.grammar.request.polite"
+    ],
+    "zh_tw": "請喝咖啡。"
+  },
+  "ex.ko.grammar.prohibit.no_running_hallway.v1": {
+    "id": "ex.ko.grammar.prohibit.no_running_hallway.v1",
+    "ko": "복도에서 뛰면 안 돼요.",
+    "knowledge_refs": [
+      "kg.grammar.permission.prohibit"
+    ],
+    "zh_tw": "走廊上不可以奔跑。"
+  },
+  "ex.ko.grammar.particle.man.only_wait_5_min.v1": {
+    "id": "ex.ko.grammar.particle.man.only_wait_5_min.v1",
+    "ko": "5분만 기다려 주세요.",
+    "knowledge_refs": [
+      "kg.grammar.particle.man"
+    ],
+    "zh_tw": "請只等我 5 分鐘。"
+  },
+  "ex.ko.grammar.negation.long_ji_anta.sns.v1": {
+    "id": "ex.ko.grammar.negation.long_ji_anta.sns.v1",
+    "ko": "SNS를 사용하지 않아요.",
+    "knowledge_refs": [
+      "kg.grammar.negation.long_ji_anta"
+    ],
+    "zh_tw": "不用社群軟體。"
+  },
+  "ex.ko.grammar.particle.wagwa.meeting_with_colleague.v1": {
+    "id": "ex.ko.grammar.particle.wagwa.meeting_with_colleague.v1",
+    "ko": "동료와 회의해요.",
+    "knowledge_refs": [
+      "kg.grammar.particle.wagwa"
+    ],
+    "zh_tw": "和同事開會。"
+  },
+  "ex.ko.pattern.environment.weather_today.v1": {
+    "id": "ex.ko.pattern.environment.weather_today.v1",
+    "ko": "오늘 날씨가 추워요.",
+    "knowledge_refs": [
+      "kp.pattern.environment.weather_desc"
+    ],
+    "zh_tw": "今天天氣冷。"
+  },
+  "ex.ko.grammar.particle.also.read_book.v1": {
+    "id": "ex.ko.grammar.particle.also.read_book.v1",
+    "ko": "책도 읽었어요.",
+    "knowledge_refs": [
+      "kg.grammar.particle.also"
+    ],
+    "zh_tw": "也讀了書。"
+  },
+  "ex.ko.grammar.suggestion.go_party.v1": {
+    "id": "ex.ko.grammar.suggestion.go_party.v1",
+    "ko": "파티에 갈까요?",
+    "knowledge_refs": [
+      "kg.grammar.ending.suggestion"
+    ],
+    "zh_tw": "要不要去派對？"
+  },
+  "ex.ko.grammar.ability.can.borrow.v1": {
+    "id": "ex.ko.grammar.ability.can.borrow.v1",
+    "ko": "이 책은 도서관에서 빌릴 수 있어요.",
+    "knowledge_refs": [
+      "kg.grammar.ability.can"
+    ],
+    "zh_tw": "這本書可以在圖書館借到。"
+  },
+  "ex.ko.grammar.particle.topic_eunneun.movie_is_long.v1": {
+    "id": "ex.ko.grammar.particle.topic_eunneun.movie_is_long.v1",
+    "ko": "영화는 길어요.",
+    "knowledge_refs": [
+      "kg.grammar.particle.topic_eunneun"
+    ],
+    "zh_tw": "電影很長。"
+  },
+  "ex.ko.grammar.particle.also.watched_movie.v1": {
+    "id": "ex.ko.grammar.particle.also.watched_movie.v1",
+    "ko": "영화도 봤어요.",
+    "knowledge_refs": [
+      "kg.grammar.particle.also"
+    ],
+    "zh_tw": "電影也看了。"
+  },
+  "ex.ko.grammar.ability.can.card.v1": {
+    "id": "ex.ko.grammar.ability.can.card.v1",
+    "ko": "카드로 계산할 수 있어요.",
+    "knowledge_refs": [
+      "kg.grammar.ability.can"
+    ],
+    "zh_tw": "可以用信用卡結帳。"
+  },
+  "ex.ko.grammar.particle.object.read_book.v1": {
+    "id": "ex.ko.grammar.particle.object.read_book.v1",
+    "ko": "책을 읽어요.",
+    "knowledge_refs": [
+      "kg.grammar.particle.object"
+    ],
+    "zh_tw": "讀書。"
+  },
+  "ex.ko.pattern.payment.bag_bargain.v1": {
+    "id": "ex.ko.pattern.payment.bag_bargain.v1",
+    "ko": "이 가방 조금 깎아 주실 수 있어요?",
+    "knowledge_refs": [
+      "kp.pattern.payment.bargaining"
+    ],
+    "zh_tw": "這包包能稍微算便宜一點嗎？"
+  },
+  "ex.ko.grammar.particle.at_place_action.work_office.v1": {
+    "id": "ex.ko.grammar.particle.at_place_action.work_office.v1",
+    "ko": "회사에서 일해요.",
+    "knowledge_refs": [
+      "kg.grammar.particle.at_place_action"
+    ],
+    "zh_tw": "在公司工作。"
+  },
+  "ex.ko.grammar.progressive.working.v1": {
+    "id": "ex.ko.grammar.progressive.working.v1",
+    "ko": "일을 하고 있어요.",
+    "knowledge_refs": [
+      "kg.grammar.tense.progressive"
+    ],
+    "zh_tw": "正在工作。"
+  },
+  "ex.ko.pattern.social_basic.like_coffee.v1": {
+    "id": "ex.ko.pattern.social_basic.like_coffee.v1",
+    "ko": "저는 커피를 좋아해요.",
+    "knowledge_refs": [
+      "kp.pattern.social_basic.preference"
+    ],
+    "zh_tw": "我喜歡咖啡。"
+  },
+  "ex.ko.grammar.particle.euro_tool.in_korean.v1": {
+    "id": "ex.ko.grammar.particle.euro_tool.in_korean.v1",
+    "ko": "한국말로 얘기해 주세요.",
+    "knowledge_refs": [
+      "kg.grammar.particle.euro_tool"
+    ],
+    "zh_tw": "請用韓語說。"
+  },
+  "ex.ko.grammar.ending.sumndia.study_korean.v1": {
+    "id": "ex.ko.grammar.ending.sumndia.study_korean.v1",
+    "ko": "한국어 공부를 합니다.",
+    "knowledge_refs": [
+      "kg.grammar.ending.sumndia"
+    ],
+    "zh_tw": "學習韓語。"
+  },
+  "ex.ko.grammar.particle.and_with_hago.play_with_sibling.v1": {
+    "id": "ex.ko.grammar.particle.and_with_hago.play_with_sibling.v1",
+    "ko": "동생하고 놀아요.",
+    "knowledge_refs": [
+      "kg.grammar.particle.and_with_hago"
+    ],
+    "zh_tw": "跟弟弟/妹妹玩。"
+  },
+  "ex.ko.grammar.ability.can.korean.v1": {
+    "id": "ex.ko.grammar.ability.can.korean.v1",
+    "ko": "저는 한국말을 조금 할 수 있어요.",
+    "knowledge_refs": [
+      "kg.grammar.ability.can"
+    ],
+    "zh_tw": "我會說一點韓文。"
+  },
+  "ex.ko.grammar.particle.wagwa.go_with_friend.v1": {
+    "id": "ex.ko.grammar.particle.wagwa.go_with_friend.v1",
+    "ko": "친구와 같이 가요.",
+    "knowledge_refs": [
+      "kg.grammar.particle.wagwa"
+    ],
+    "zh_tw": "和朋友一起去。"
+  },
+  "ex.ko.grammar.particle.at_time_place.go_school.v1": {
+    "id": "ex.ko.grammar.particle.at_time_place.go_school.v1",
+    "ko": "학교에 가요.",
+    "knowledge_refs": [
+      "kg.grammar.particle.at_time_place"
+    ],
+    "zh_tw": "去學校。"
+  },
+  "ex.ko.grammar.copula.present_formal.office_worker.v1": {
+    "id": "ex.ko.grammar.copula.present_formal.office_worker.v1",
+    "ko": "저는 회사원입니다.",
+    "knowledge_refs": [
+      "kg.grammar.copula.present_formal"
+    ],
+    "zh_tw": "我是上班族。"
+  },
+  "ex.ko.grammar.particle.object.eat_apple.v1": {
+    "id": "ex.ko.grammar.particle.object.eat_apple.v1",
+    "ko": "사과를 먹어요.",
+    "knowledge_refs": [
+      "kg.grammar.particle.object"
+    ],
+    "zh_tw": "吃蘋果。"
+  },
+  "ex.ko.grammar.wish.boyfriend.v1": {
+    "id": "ex.ko.grammar.wish.boyfriend.v1",
+    "ko": "남자 친구가 생겼으면 좋겠어요.",
+    "knowledge_refs": [
+      "kg.grammar.desire.wish"
+    ],
+    "zh_tw": "希望有男朋友。"
+  },
+  "ex.ko.grammar.suggestion.eat_lunch.v1": {
+    "id": "ex.ko.grammar.suggestion.eat_lunch.v1",
+    "ko": "점심 먹을까요?",
+    "knowledge_refs": [
+      "kg.grammar.ending.suggestion"
+    ],
+    "zh_tw": "要不要吃午餐？"
+  },
+  "ex.ko.grammar.particle.object.take_bus.v1": {
+    "id": "ex.ko.grammar.particle.object.take_bus.v1",
+    "ko": "버스를 타요.",
+    "knowledge_refs": [
+      "kg.grammar.particle.object"
+    ],
+    "zh_tw": "搭公車。"
+  },
+  "ex.ko.grammar.particle.euro_dir.to_airport.v1": {
+    "id": "ex.ko.grammar.particle.euro_dir.to_airport.v1",
+    "ko": "공항으로 가요.",
+    "knowledge_refs": [
+      "kg.grammar.particle.euro_dir"
+    ],
+    "zh_tw": "去機場。"
+  },
+  "ex.ko.grammar.negation.long_ji_anta.music.v1": {
+    "id": "ex.ko.grammar.negation.long_ji_anta.music.v1",
+    "ko": "음악을 듣지 않아요.",
+    "knowledge_refs": [
+      "kg.grammar.negation.long_ji_anta"
+    ],
+    "zh_tw": "不聽音樂。"
+  },
+  "ex.ko.grammar.benefactive.give_water.v1": {
+    "id": "ex.ko.grammar.benefactive.give_water.v1",
+    "ko": "물 좀 주세요.",
+    "knowledge_refs": [
+      "kg.grammar.ending.benefactive"
+    ],
+    "zh_tw": "請給我水。"
+  },
+  "ex.ko.grammar.particle.wagwa.shop_with_sister.v1": {
+    "id": "ex.ko.grammar.particle.wagwa.shop_with_sister.v1",
+    "ko": "언니와 쇼핑했어요.",
+    "knowledge_refs": [
+      "kg.grammar.particle.wagwa"
+    ],
+    "zh_tw": "和姐姐去購物了。"
+  },
+  "ex.ko.grammar.particle.subject.song_good.v1": {
+    "id": "ex.ko.grammar.particle.subject.song_good.v1",
+    "ko": "노래가 좋아요.",
+    "knowledge_refs": [
+      "kg.grammar.particle.subject"
+    ],
+    "zh_tw": "歌很好聽。"
+  },
+  "ex.ko.grammar.particle.man.only_cash.v1": {
+    "id": "ex.ko.grammar.particle.man.only_cash.v1",
+    "ko": "현금만 돼요.",
+    "knowledge_refs": [
+      "kg.grammar.particle.man"
+    ],
+    "zh_tw": "只收現金。"
+  },
+  "ex.ko.pattern.time.early_departure.v1": {
+    "id": "ex.ko.pattern.time.early_departure.v1",
+    "ko": "내일 일찍 출발하려고 해요.",
+    "knowledge_refs": [
+      "kp.pattern.time.intent"
+    ],
+    "zh_tw": "打算明天早點出發。"
+  },
+  "ex.ko.pattern.repair.slow_please.v1": {
+    "id": "ex.ko.pattern.repair.slow_please.v1",
+    "ko": "천천히 말해 주세요.",
+    "knowledge_refs": [
+      "kp.pattern.repair.slow_down"
+    ],
+    "zh_tw": "請說慢一點。"
+  },
+  "ex.ko.grammar.particle.man.only_water.v1": {
+    "id": "ex.ko.grammar.particle.man.only_water.v1",
+    "ko": "물만 주세요.",
+    "knowledge_refs": [
+      "kg.grammar.particle.man"
+    ],
+    "zh_tw": "請只給我水。"
+  },
+  "ex.ko.grammar.particle.at_time_place.go_market.v1": {
+    "id": "ex.ko.grammar.particle.at_time_place.go_market.v1",
+    "ko": "시장에 가요.",
+    "knowledge_refs": [
+      "kg.grammar.particle.at_time_place"
+    ],
+    "zh_tw": "去市場。"
+  },
+  "ex.ko.grammar.dative.write_parents.v1": {
+    "id": "ex.ko.grammar.dative.write_parents.v1",
+    "ko": "엄마에게 편지를 썼어요.",
+    "knowledge_refs": [
+      "kg.grammar.particle.dative"
+    ],
+    "zh_tw": "寫信給媽媽。"
+  },
+  "ex.ko.grammar.copula.present_informal.house.v1": {
+    "id": "ex.ko.grammar.copula.present_informal.house.v1",
+    "ko": "여기가 우리 집이야.",
+    "knowledge_refs": [
+      "kg.grammar.copula.present_informal"
+    ],
+    "zh_tw": "這裡是我們家。"
+  },
+  "ex.ko.pattern.time.have_appointment.v1": {
+    "id": "ex.ko.pattern.time.have_appointment.v1",
+    "ko": "내일 약속이 있어요.",
+    "knowledge_refs": [
+      "kp.pattern.time.schedule"
+    ],
+    "zh_tw": "明天有約。"
+  },
+  "ex.ko.grammar.modifier.adj_kind_friend.v1": {
+    "id": "ex.ko.grammar.modifier.adj_kind_friend.v1",
+    "ko": "착한 친구예요.",
+    "knowledge_refs": [
+      "kg.grammar.modifier.adj"
+    ],
+    "zh_tw": "善良的朋友。"
+  },
+  "ex.ko.grammar.negation.short_mot.swim.v1": {
+    "id": "ex.ko.grammar.negation.short_mot.swim.v1",
+    "ko": "수영을 못 했어요.",
+    "knowledge_refs": [
+      "kg.grammar.negation.short_mot"
+    ],
+    "zh_tw": "不會游泳。"
+  },
+  "ex.ko.ending.contrast.trash_regret.v1": {
+    "id": "ex.ko.ending.contrast.trash_regret.v1",
+    "ko": "버리자니 아깝고, 쓰자니 필요 없어요.",
+    "knowledge_refs": [
+      "kg.grammar.ending.contrast_jani"
+    ],
+    "zh_tw": "想丟覺得可惜，想用又不需要。"
+  },
+  "ex.ko.grammar.negative_req.dont_be_noisy.v1": {
+    "id": "ex.ko.grammar.negative_req.dont_be_noisy.v1",
+    "ko": "떠들지 마세요.",
+    "knowledge_refs": [
+      "kg.grammar.request.negative"
+    ],
+    "zh_tw": "請不要吵。"
+  },
+  "ex.ko.grammar.ending.ayoeoyo.go_home.v1": {
+    "id": "ex.ko.grammar.ending.ayoeoyo.go_home.v1",
+    "ko": "집에 가요.",
+    "knowledge_refs": [
+      "kg.grammar.ending.ayoeoyo"
+    ],
+    "zh_tw": "回家。"
+  },
+  "ex.ko.grammar.prohibit.no_photo_museum.v1": {
+    "id": "ex.ko.grammar.prohibit.no_photo_museum.v1",
+    "ko": "박물관에서 사진을 찍으면 안 돼요.",
+    "knowledge_refs": [
+      "kg.grammar.permission.prohibit"
+    ],
+    "zh_tw": "博物館裡不可以拍照。"
+  },
+  "ex.ko.grammar.suggestion.drink_coffee.v1": {
+    "id": "ex.ko.grammar.suggestion.drink_coffee.v1",
+    "ko": "커피 한잔 할까요?",
+    "knowledge_refs": [
+      "kg.grammar.ending.suggestion"
+    ],
+    "zh_tw": "要不要喝杯咖啡？"
+  },
+  "ex.ko.grammar.modifier.verb_studying_look.v1": {
+    "id": "ex.ko.grammar.modifier.verb_studying_look.v1",
+    "ko": "공부하는 모습이 예뻐요.",
+    "knowledge_refs": [
+      "kg.grammar.modifier.verb_present"
+    ],
+    "zh_tw": "學習的樣子很漂亮。"
+  },
+  "ex.ko.grammar.progressive.exercising.v1": {
+    "id": "ex.ko.grammar.progressive.exercising.v1",
+    "ko": "게임을 하고 있어요.",
+    "knowledge_refs": [
+      "kg.grammar.tense.progressive"
+    ],
+    "zh_tw": "正在打遊戲。"
+  },
+  "ex.ko.grammar.particle.boda.health_more_important_money.v1": {
+    "id": "ex.ko.grammar.particle.boda.health_more_important_money.v1",
+    "ko": "건강이 돈보다 더 중요해요.",
+    "knowledge_refs": [
+      "kg.grammar.particle.boda"
+    ],
+    "zh_tw": "健康比金錢更重要。"
+  },
+  "ex.ko.grammar.purpose_path.go_borrow_book.v1": {
+    "id": "ex.ko.grammar.purpose_path.go_borrow_book.v1",
+    "ko": "공부하러 도서관에 가요.",
+    "knowledge_refs": [
+      "kg.grammar.ending.purpose_path"
+    ],
+    "zh_tw": "去圖書館讀書。"
+  },
+  "ex.ko.grammar.tense.future_geoyeyo.shopping.v1": {
+    "id": "ex.ko.grammar.tense.future_geoyeyo.shopping.v1",
+    "ko": "주말에 쇼핑할 거예요.",
+    "knowledge_refs": [
+      "kg.grammar.tense.future_geoyeyo"
+    ],
+    "zh_tw": "週末會去逛街。"
+  },
+  "ex.ko.grammar.particle.topic_eunneun.book_is_interesting.v1": {
+    "id": "ex.ko.grammar.particle.topic_eunneun.book_is_interesting.v1",
+    "ko": "책은 재미있어요.",
+    "knowledge_refs": [
+      "kg.grammar.particle.topic_eunneun"
+    ],
+    "zh_tw": "書很有趣。"
+  },
+  "ex.ko.grammar.ending.condition.rain_rest.v1": {
+    "id": "ex.ko.grammar.ending.condition.rain_rest.v1",
+    "ko": "비가 오면 집에서 쉴 거예요.",
+    "knowledge_refs": [
+      "kg.grammar.ending.condition"
+    ],
+    "zh_tw": "如果下雨的話，我打算在家休息。"
+  },
+  "ex.ko.grammar.particle.topic_eunneun.song_is_good.v1": {
+    "id": "ex.ko.grammar.particle.topic_eunneun.song_is_good.v1",
+    "ko": "노래는 좋아요.",
+    "knowledge_refs": [
+      "kg.grammar.particle.topic_eunneun"
+    ],
+    "zh_tw": "歌曲很好聽。"
+  },
+  "ex.ko.grammar.copula.itda.homework.v1": {
+    "id": "ex.ko.grammar.copula.itda.homework.v1",
+    "ko": "숙제가 있어요.",
+    "knowledge_refs": [
+      "kg.grammar.copula.itda"
+    ],
+    "zh_tw": "有作業。"
+  },
+  "ex.ko.grammar.particle.topic_eunneun.school_is_far.v1": {
+    "id": "ex.ko.grammar.particle.topic_eunneun.school_is_far.v1",
+    "ko": "학교는 멀어요.",
+    "knowledge_refs": [
+      "kg.grammar.particle.topic_eunneun"
+    ],
+    "zh_tw": "學校很遠。"
+  },
+  "ex.ko.grammar.ending.sumndia.read_book.v1": {
+    "id": "ex.ko.grammar.ending.sumndia.read_book.v1",
+    "ko": "책을 읽습니다.",
+    "knowledge_refs": [
+      "kg.grammar.ending.sumndia"
+    ],
+    "zh_tw": "讀書。"
+  },
+  "ex.ko.grammar.particle.at_place_action.eat_restaurant.v1": {
+    "id": "ex.ko.grammar.particle.at_place_action.eat_restaurant.v1",
+    "ko": "식당에서 밥을 먹어요.",
+    "knowledge_refs": [
+      "kg.grammar.particle.at_place_action"
+    ],
+    "zh_tw": "在餐廳吃飯。"
+  },
+  "ex.ko.grammar.negation.short_an.meet_friend.v1": {
+    "id": "ex.ko.grammar.negation.short_an.meet_friend.v1",
+    "ko": "친구 안 만나요.",
+    "knowledge_refs": [
+      "kg.grammar.negation.short_an"
+    ],
+    "zh_tw": "不見朋友。"
+  },
+  "ex.ko.ending.comparison.water_money.v1": {
+    "id": "ex.ko.ending.comparison.water_money.v1",
+    "ko": "물 쓰듯이 돈을 써요.",
+    "knowledge_refs": [
+      "kg.grammar.ending.comparison_deusi"
+    ],
+    "zh_tw": "像用水一樣花錢。"
+  },
+  "ex.ko.pattern.social_basic.sit_here.v1": {
+    "id": "ex.ko.pattern.social_basic.sit_here.v1",
+    "ko": "여기 앉아도 돼요?",
+    "knowledge_refs": [
+      "kp.pattern.social_basic.permission"
+    ],
+    "zh_tw": "可以坐在這裡嗎？"
+  },
+  "ex.ko.grammar.copula.present_informal.korean.v1": {
+    "id": "ex.ko.grammar.copula.present_informal.korean.v1",
+    "ko": "김 선생님은 한국 사람이야.",
+    "knowledge_refs": [
+      "kg.grammar.copula.present_informal"
+    ],
+    "zh_tw": "金老師是韓國人。"
+  },
+  "ex.ko.grammar.particle.also.house_pretty.v1": {
+    "id": "ex.ko.grammar.particle.also.house_pretty.v1",
+    "ko": "집도 예뻐요.",
+    "knowledge_refs": [
+      "kg.grammar.particle.also"
+    ],
+    "zh_tw": "房子也很漂亮。"
+  },
+  "ex.ko.grammar.polite_req.be_happy.v1": {
+    "id": "ex.ko.grammar.polite_req.be_happy.v1",
+    "ko": "행복하세요.",
+    "knowledge_refs": [
+      "kg.grammar.request.polite"
+    ],
+    "zh_tw": "祝您幸福。"
+  },
+  "ex.ko.pattern.experience.hanbok.v1": {
+    "id": "ex.ko.pattern.experience.hanbok.v1",
+    "ko": "한복을 입어 본 적이 있어요.",
+    "knowledge_refs": [
+      "kp.pattern.experience.general"
+    ],
+    "zh_tw": "我有穿過韓服。"
+  },
+  "ex.ko.grammar.purpose_path.go_study.v1": {
+    "id": "ex.ko.grammar.purpose_path.go_study.v1",
+    "ko": "커피 마시러 카페에 갔어요.",
+    "knowledge_refs": [
+      "kg.grammar.ending.purpose_path"
+    ],
+    "zh_tw": "去了咖啡廳喝咖啡。"
+  },
+  "ex.ko.grammar.particle.euro_tool.from_wood.v1": {
+    "id": "ex.ko.grammar.particle.euro_tool.from_wood.v1",
+    "ko": "나무로 만든 의자예요.",
+    "knowledge_refs": [
+      "kg.grammar.particle.euro_tool"
+    ],
+    "zh_tw": "是木製椅子。"
+  },
+  "ex.ko.pattern.social_basic.thank_you.v1": {
+    "id": "ex.ko.pattern.social_basic.thank_you.v1",
+    "ko": "감사합니다.",
+    "knowledge_refs": [
+      "kp.pattern.social_basic.gratitude"
+    ],
+    "zh_tw": "謝謝。"
+  },
+  "ex.ko.grammar.particle.topic_eunneun.apple_is_tasty.v1": {
+    "id": "ex.ko.grammar.particle.topic_eunneun.apple_is_tasty.v1",
+    "ko": "사과는 맛있어요.",
+    "knowledge_refs": [
+      "kg.grammar.particle.topic_eunneun"
+    ],
+    "zh_tw": "蘋果好吃。"
+  },
+  "ex.ko.grammar.negation.short_mot.spicy_food.v1": {
+    "id": "ex.ko.grammar.negation.short_mot.spicy_food.v1",
+    "ko": "매운 음식은 못 먹어요.",
+    "knowledge_refs": [
+      "kg.grammar.negation.short_mot"
+    ],
+    "zh_tw": "不敢吃辣的食物。"
+  },
+  "ex.ko.grammar.particle.boda.prettier_than_flower.v1": {
+    "id": "ex.ko.grammar.particle.boda.prettier_than_flower.v1",
+    "ko": "너는 꽃보다 예뻐.",
+    "knowledge_refs": [
+      "kg.grammar.particle.boda"
+    ],
+    "zh_tw": "你比花還美。"
+  },
+  "ex.ko.grammar.musun.what_movie.v1": {
+    "id": "ex.ko.grammar.musun.what_movie.v1",
+    "ko": "무슨 영화 봤어요?",
+    "knowledge_refs": [
+      "kg.grammar.determiner.musun"
+    ],
+    "zh_tw": "看了什麼電影？"
+  },
+  "ex.ko.grammar.negation.long_ji_anta.movie.v1": {
+    "id": "ex.ko.grammar.negation.long_ji_anta.movie.v1",
+    "ko": "영화를 보지 않았어요.",
+    "knowledge_refs": [
+      "kg.grammar.negation.long_ji_anta"
+    ],
+    "zh_tw": "沒看電影。"
+  },
+  "ex.ko.grammar.particle.object.drink_coffee.v1": {
+    "id": "ex.ko.grammar.particle.object.drink_coffee.v1",
+    "ko": "커피를 마셔요.",
+    "knowledge_refs": [
+      "kg.grammar.particle.object"
+    ],
+    "zh_tw": "喝咖啡。"
+  },
+  "ex.ko.grammar.musun.what_food.v1": {
+    "id": "ex.ko.grammar.musun.what_food.v1",
+    "ko": "무슨 음식을 좋아해요?",
+    "knowledge_refs": [
+      "kg.grammar.determiner.musun"
+    ],
+    "zh_tw": "喜歡什麼食物？"
+  },
+  "ex.ko.grammar.wish.vacation.v1": {
+    "id": "ex.ko.grammar.wish.vacation.v1",
+    "ko": "빨리 방학이 되었으면 좋겠어요.",
+    "knowledge_refs": [
+      "kg.grammar.desire.wish"
+    ],
+    "zh_tw": "希望快點放假。"
+  },
+  "ex.ko.grammar.tense.past_ass_oss.party.v1": {
+    "id": "ex.ko.grammar.tense.past_ass_oss.party.v1",
+    "ko": "친구 생일 파티에 갔어요.",
+    "knowledge_refs": [
+      "kg.grammar.tense.past_ass_oss"
+    ],
+    "zh_tw": "去了朋友的生日派對。"
+  },
+  "ex.ko.grammar.benefactive.teach_me.v1": {
+    "id": "ex.ko.grammar.benefactive.teach_me.v1",
+    "ko": "가르쳐 주세요.",
+    "knowledge_refs": [
+      "kg.grammar.ending.benefactive"
+    ],
+    "zh_tw": "請教我。"
+  },
+  "ex.ko.grammar.particle.topic_eunneun.house_is_big.v1": {
+    "id": "ex.ko.grammar.particle.topic_eunneun.house_is_big.v1",
+    "ko": "집은 커요.",
+    "knowledge_refs": [
+      "kg.grammar.particle.topic_eunneun"
+    ],
+    "zh_tw": "房子很大（至於房子，它是大的）。"
+  },
+  "ex.ko.ending.additive.smart_kind.v1": {
+    "id": "ex.ko.ending.additive.smart_kind.v1",
+    "ko": "그녀는 똑똑할뿐더러 친절해요.",
+    "knowledge_refs": [
+      "kg.grammar.ending.additive_eulppunderseo"
+    ],
+    "zh_tw": "她不但聰明而且親切。"
+  },
+  "ex.ko.grammar.ability.can.swim.v1": {
+    "id": "ex.ko.grammar.ability.can.swim.v1",
+    "ko": "저는 수영을 할 수 있어요.",
+    "knowledge_refs": [
+      "kg.grammar.ability.can"
+    ],
+    "zh_tw": "我會游泳。"
+  },
+  "ex.ko.grammar.wish.easy_exam.v1": {
+    "id": "ex.ko.grammar.wish.easy_exam.v1",
+    "ko": "이번 시험이 쉬웠으면 좋겠어요.",
+    "knowledge_refs": [
+      "kg.grammar.desire.wish"
+    ],
+    "zh_tw": "希望這次考試很簡單。"
+  },
+  "ex.ko.grammar.modifier.adj_pretty_flower.v1": {
+    "id": "ex.ko.grammar.modifier.adj_pretty_flower.v1",
+    "ko": "예쁜 꽃이에요.",
+    "knowledge_refs": [
+      "kg.grammar.modifier.adj"
+    ],
+    "zh_tw": "漂亮的花。"
+  },
+  "ex.ko.grammar.suggestion.rest_at_home.v1": {
+    "id": "ex.ko.grammar.suggestion.rest_at_home.v1",
+    "ko": "오늘은 집에서 쉴까요?",
+    "knowledge_refs": [
+      "kg.grammar.ending.suggestion"
+    ],
+    "zh_tw": "今天在家休息吧？"
+  },
+  "ex.ko.grammar.musun.what_job.v1": {
+    "id": "ex.ko.grammar.musun.what_job.v1",
+    "ko": "무슨 회사에 다녀요?",
+    "knowledge_refs": [
+      "kg.grammar.determiner.musun"
+    ],
+    "zh_tw": "在哪家公司上班？"
+  },
+  "ex.ko.grammar.negation.short_mot.party.v1": {
+    "id": "ex.ko.grammar.negation.short_mot.party.v1",
+    "ko": "바빠서 파티에 못 갔어요.",
+    "knowledge_refs": [
+      "kg.grammar.negation.short_mot"
+    ],
+    "zh_tw": "因為忙，沒能去派對。"
+  },
+  "ex.ko.grammar.copula.eopda.time.v1": {
+    "id": "ex.ko.grammar.copula.eopda.time.v1",
+    "ko": "시간이 없어요.",
+    "knowledge_refs": [
+      "kg.grammar.copula.eopda"
+    ],
+    "zh_tw": "沒時間。"
+  },
+  "ex.ko.grammar.negation.short_mot.sleep.v1": {
+    "id": "ex.ko.grammar.negation.short_mot.sleep.v1",
+    "ko": "잠을 못 잤어요.",
+    "knowledge_refs": [
+      "kg.grammar.negation.short_mot"
+    ],
+    "zh_tw": "沒睡好。"
+  },
+  "ex.ko.grammar.source_from.from_friend.v1": {
+    "id": "ex.ko.grammar.source_from.from_friend.v1",
+    "ko": "친구에게서 선물을 받았어요.",
+    "knowledge_refs": [
+      "kg.grammar.particle.source_from"
+    ],
+    "zh_tw": "從朋友那裡收到了禮物。"
+  },
+  "ex.ko.grammar.ending.choice_geona.meet_or_rest.v1": {
+    "id": "ex.ko.grammar.ending.choice_geona.meet_or_rest.v1",
+    "ko": "주말에는 친구를 만나거나 쉬어요.",
+    "knowledge_refs": [
+      "kg.grammar.ending.choice_geona"
+    ],
+    "zh_tw": "週末會見朋友或是休息。"
+  },
+  "ex.ko.pattern.repair.open_door.v1": {
+    "id": "ex.ko.pattern.repair.open_door.v1",
+    "ko": "문 좀 열어 주실 수 있어요?",
+    "knowledge_refs": [
+      "kp.pattern.repair.request_help"
+    ],
+    "zh_tw": "能幫我開一下門嗎？"
+  },
+  "ex.ko.grammar.modifier.verb_cooking_mom.v1": {
+    "id": "ex.ko.grammar.modifier.verb_cooking_mom.v1",
+    "ko": "요리하는 사람이 우리 엄마예요.",
+    "knowledge_refs": [
+      "kg.grammar.modifier.verb_present"
+    ],
+    "zh_tw": "正在做飯的人是我媽媽。"
+  },
+  "ex.ko.grammar.negation.long_ji_anta.coffee.v1": {
+    "id": "ex.ko.grammar.negation.long_ji_anta.coffee.v1",
+    "ko": "커피를 마시지 않아요.",
+    "knowledge_refs": [
+      "kg.grammar.negation.long_ji_anta"
+    ],
+    "zh_tw": "不喝咖啡。"
+  },
+  "ex.ko.grammar.tense.past_ass_oss.movie.v1": {
+    "id": "ex.ko.grammar.tense.past_ass_oss.movie.v1",
+    "ko": "영화 봤어요.",
+    "knowledge_refs": [
+      "kg.grammar.tense.past_ass_oss"
+    ],
+    "zh_tw": "看了電影。"
+  },
+  "ex.ko.grammar.copula.present_informal.best_friend.v1": {
+    "id": "ex.ko.grammar.copula.present_informal.best_friend.v1",
+    "ko": "우리는 제일 친한 친구야.",
+    "knowledge_refs": [
+      "kg.grammar.copula.present_informal"
+    ],
+    "zh_tw": "我們是最要好的朋友。"
+  },
+  "ex.ko.grammar.prohibit.no_smoking.v1": {
+    "id": "ex.ko.grammar.prohibit.no_smoking.v1",
+    "ko": "실내에서 담배를 피우면 안 돼요.",
+    "knowledge_refs": [
+      "kg.grammar.permission.prohibit"
+    ],
+    "zh_tw": "室內不可以抽菸。"
+  },
+  "ex.ko.grammar.musun.what_sound.v1": {
+    "id": "ex.ko.grammar.musun.what_sound.v1",
+    "ko": "무슨 소리예요?",
+    "knowledge_refs": [
+      "kg.grammar.determiner.musun"
+    ],
+    "zh_tw": "是什麼聲音？"
+  },
+  "ex.ko.grammar.particle.object.sing_song.v1": {
+    "id": "ex.ko.grammar.particle.object.sing_song.v1",
+    "ko": "노래를 불러요.",
+    "knowledge_refs": [
+      "kg.grammar.particle.object"
+    ],
+    "zh_tw": "唱歌。"
+  },
+  "ex.ko.grammar.benefactive.help_me.v1": {
+    "id": "ex.ko.grammar.benefactive.help_me.v1",
+    "ko": "도와 주세요.",
+    "knowledge_refs": [
+      "kg.grammar.ending.benefactive"
+    ],
+    "zh_tw": "請幫我。"
+  },
+  "ex.ko.grammar.dative.give_friend.v1": {
+    "id": "ex.ko.grammar.dative.give_friend.v1",
+    "ko": "친구에게 선물을 줘요.",
+    "knowledge_refs": [
+      "kg.grammar.particle.dative"
+    ],
+    "zh_tw": "給朋友禮物。"
+  },
+  "ex.ko.grammar.particle.object.watch_movie.v1": {
+    "id": "ex.ko.grammar.particle.object.watch_movie.v1",
+    "ko": "영화를 봐요.",
+    "knowledge_refs": [
+      "kg.grammar.particle.object"
+    ],
+    "zh_tw": "看電影。"
+  },
+  "ex.ko.grammar.particle.also.sang_song.v1": {
+    "id": "ex.ko.grammar.particle.also.sang_song.v1",
+    "ko": "노래도 불렀어요.",
+    "knowledge_refs": [
+      "kg.grammar.particle.also"
+    ],
+    "zh_tw": "歌也唱了。"
+  },
+  "ex.ko.grammar.particle.at_place_action.sing_practice_room.v1": {
+    "id": "ex.ko.grammar.particle.at_place_action.sing_practice_room.v1",
+    "ko": "연습실에서 노래해요.",
+    "knowledge_refs": [
+      "kg.grammar.particle.at_place_action"
+    ],
+    "zh_tw": "在練習室唱歌。"
+  },
+  "ex.ko.grammar.dative.ask_teacher.v1": {
+    "id": "ex.ko.grammar.dative.ask_teacher.v1",
+    "ko": "선생님에게 질문했어요.",
+    "knowledge_refs": [
+      "kg.grammar.particle.dative"
+    ],
+    "zh_tw": "問了老師問題。"
+  },
+  "ex.ko.grammar.particle.at_place_action.meet_friend_restaurant.v1": {
+    "id": "ex.ko.grammar.particle.at_place_action.meet_friend_restaurant.v1",
+    "ko": "식당에서 친구를 만나요.",
+    "knowledge_refs": [
+      "kg.grammar.particle.at_place_action"
+    ],
+    "zh_tw": "在餐廳見朋友。"
+  },
+  "ex.ko.grammar.ending.choice_geona.movie_or_exercise.v1": {
+    "id": "ex.ko.grammar.ending.choice_geona.movie_or_exercise.v1",
+    "ko": "영화 보거나 운동을 할 거예요.",
+    "knowledge_refs": [
+      "kg.grammar.ending.choice_geona"
+    ],
+    "zh_tw": "打算看電影或是運動。"
+  },
+  "ex.ko.grammar.particle.object.clean_house.v1": {
+    "id": "ex.ko.grammar.particle.object.clean_house.v1",
+    "ko": "집을 청소해요.",
+    "knowledge_refs": [
+      "kg.grammar.particle.object"
+    ],
+    "zh_tw": "打掃房子。"
+  },
+  "ex.ko.pattern.time.current_date.v1": {
+    "id": "ex.ko.pattern.time.current_date.v1",
+    "ko": "오늘이 몇 월 며칠이에요?",
+    "knowledge_refs": [
+      "kp.pattern.time.current_date"
+    ],
+    "zh_tw": "今天幾月幾號？"
+  },
+  "ex.ko.grammar.copula.present_polite_informal.seoul.v1": {
+    "id": "ex.ko.grammar.copula.present_polite_informal.seoul.v1",
+    "ko": "여기는 서울이에요.",
+    "knowledge_refs": [
+      "kg.grammar.copula.present_polite_informal"
+    ],
+    "zh_tw": "這裡是首爾。"
+  },
+  "ex.ko.grammar.want.eat_ramen.v1": {
+    "id": "ex.ko.grammar.want.eat_ramen.v1",
+    "ko": "라면 먹고 싶어요.",
+    "knowledge_refs": [
+      "kg.grammar.desire.want"
+    ],
+    "zh_tw": "我想吃拉麵。"
+  },
+  "ex.ko.grammar.negation.short_an.exercise.v1": {
+    "id": "ex.ko.grammar.negation.short_an.exercise.v1",
+    "ko": "운동 안 해요.",
+    "knowledge_refs": [
+      "kg.grammar.negation.short_an"
+    ],
+    "zh_tw": "不運動。"
+  },
+  "ex.ko.grammar.copula.eopda.phone.v1": {
+    "id": "ex.ko.grammar.copula.eopda.phone.v1",
+    "ko": "휴대폰이 없어요.",
+    "knowledge_refs": [
+      "kg.grammar.copula.eopda"
+    ],
+    "zh_tw": "我沒有手機。"
+  },
+  "ex.ko.grammar.permission.go_late.v1": {
+    "id": "ex.ko.grammar.permission.go_late.v1",
+    "ko": "조금 늦게 가도 돼요.",
+    "knowledge_refs": [
+      "kg.grammar.permission.allow"
+    ],
+    "zh_tw": "晚一點去也可以。"
+  },
+  "ex.ko.grammar.ability.can.go.v1": {
+    "id": "ex.ko.grammar.ability.can.go.v1",
+    "ko": "내일은 한가하니까 갈 수 있어요.",
+    "knowledge_refs": [
+      "kg.grammar.ability.can"
+    ],
+    "zh_tw": "明天很有空，所以可以去。"
+  },
+  "ex.ko.ending.contrast.weather_gloom.v1": {
+    "id": "ex.ko.ending.contrast.weather_gloom.v1",
+    "ko": "날씨는 좋건만 기분은 우울해요.",
+    "knowledge_refs": [
+      "kg.grammar.ending.contrast_geonman"
+    ],
+    "zh_tw": "天氣雖好，但心情憂鬱。"
+  },
+  "ex.ko.grammar.ending.contrast.busy_not_busy.v1": {
+    "id": "ex.ko.grammar.ending.contrast.busy_not_busy.v1",
+    "ko": "어제는 바빴지만 오늘은 안 바빠요.",
+    "knowledge_refs": [
+      "kg.grammar.ending.contrast"
+    ],
+    "zh_tw": "昨天雖然忙，但今天不忙。"
+  },
+  "ex.ko.grammar.negation.short_an.coffee.v1": {
+    "id": "ex.ko.grammar.negation.short_an.coffee.v1",
+    "ko": "커피 안 마셔요.",
+    "knowledge_refs": [
+      "kg.grammar.negation.short_an"
+    ],
+    "zh_tw": "不喝咖啡。"
+  },
+  "ex.ko.grammar.source_from.get_salary_company.v1": {
+    "id": "ex.ko.grammar.source_from.get_salary_company.v1",
+    "ko": "회사에서 이메일이 왔어요.",
+    "knowledge_refs": [
+      "kg.grammar.particle.source_from"
+    ],
+    "zh_tw": "公司寄來了電子郵件。"
+  },
+  "ex.ko.ending.condition.parent_heart.v1": {
+    "id": "ex.ko.ending.condition.parent_heart.v1",
+    "ko": "부모가 되어서야 그 마음을 이해했어요.",
+    "knowledge_refs": [
+      "kg.grammar.ending.condition_aseoya"
+    ],
+    "zh_tw": "直到為人父母才理解那種心情。"
+  },
+  "ex.ko.grammar.permission.take_photo.v1": {
+    "id": "ex.ko.grammar.permission.take_photo.v1",
+    "ko": "여기서 사진을 찍어도 돼요?",
+    "knowledge_refs": [
+      "kg.grammar.permission.allow"
+    ],
+    "zh_tw": "可以在這裡拍照嗎？"
+  },
+  "ex.ko.grammar.ending.reason_sequence.tired_sleep.v1": {
+    "id": "ex.ko.grammar.ending.reason_sequence.tired_sleep.v1",
+    "ko": "피곤해서 일찍 잤어요.",
+    "knowledge_refs": [
+      "kg.grammar.ending.reason_sequence"
+    ],
+    "zh_tw": "因為累所以早睡了。"
+  },
+  "ex.ko.grammar.benefactive.carry_luggage.v1": {
+    "id": "ex.ko.grammar.benefactive.carry_luggage.v1",
+    "ko": "짐을 들어 주세요.",
+    "knowledge_refs": [
+      "kg.grammar.ending.benefactive"
+    ],
+    "zh_tw": "請幫我拿行李。"
+  },
+  "ex.ko.grammar.particle.boda.ko_harder_en.v1": {
+    "id": "ex.ko.grammar.particle.boda.ko_harder_en.v1",
+    "ko": "한국어가 영어보다 더 어려워요.",
+    "knowledge_refs": [
+      "kg.grammar.particle.boda"
+    ],
+    "zh_tw": "韓語比英語更難。"
+  },
+  "ex.ko.grammar.modifier.adj_quiet_house.v1": {
+    "id": "ex.ko.grammar.modifier.adj_quiet_house.v1",
+    "ko": "조용한 집이에요.",
+    "knowledge_refs": [
+      "kg.grammar.modifier.adj"
+    ],
+    "zh_tw": "安靜的房子。"
+  },
+  "ex.ko.grammar.benefactive.tell_phone_number.v1": {
+    "id": "ex.ko.grammar.benefactive.tell_phone_number.v1",
+    "ko": "전화번호 좀 알려 주세요.",
+    "knowledge_refs": [
+      "kg.grammar.ending.benefactive"
+    ],
+    "zh_tw": "請告訴我電話號碼。"
+  },
+  "ex.ko.grammar.wish.snow_christmas.v1": {
+    "id": "ex.ko.grammar.wish.snow_christmas.v1",
+    "ko": "크리스마스에 눈이 왔으면 좋겠어요.",
+    "knowledge_refs": [
+      "kg.grammar.desire.wish"
+    ],
+    "zh_tw": "希望聖誕節會下雪。"
+  },
+  "ex.ko.grammar.wish.much_money.v1": {
+    "id": "ex.ko.grammar.wish.much_money.v1",
+    "ko": "돈이 많았으면 좋겠어요.",
+    "knowledge_refs": [
+      "kg.grammar.desire.wish"
+    ],
+    "zh_tw": "如果有很多錢就好了。"
+  },
+  "ex.ko.grammar.ability.cannot.eat_more.v1": {
+    "id": "ex.ko.grammar.ability.cannot.eat_more.v1",
+    "ko": "더 먹을 수 없어요.",
+    "knowledge_refs": [
+      "kg.grammar.ability.cannot"
+    ],
+    "zh_tw": "不能再吃了。"
+  },
+  "ex.ko.pattern.social_basic.lunch_together.v1": {
+    "id": "ex.ko.pattern.social_basic.lunch_together.v1",
+    "ko": "같이 점심을 먹을까요?",
+    "knowledge_refs": [
+      "kp.pattern.social_basic.suggestion"
+    ],
+    "zh_tw": "要一起吃午餐嗎？"
+  },
+  "ex.ko.grammar.particle.object.answer_phone.v1": {
+    "id": "ex.ko.grammar.particle.object.answer_phone.v1",
+    "ko": "전화를 받아요.",
+    "knowledge_refs": [
+      "kg.grammar.particle.object"
+    ],
+    "zh_tw": "接電話。"
+  },
+  "ex.ko.grammar.ability.cannot.believe.v1": {
+    "id": "ex.ko.grammar.ability.cannot.believe.v1",
+    "ko": "그 말을 믿을 수 없어요.",
+    "knowledge_refs": [
+      "kg.grammar.ability.cannot"
+    ],
+    "zh_tw": "無法相信那句話。"
+  },
+  "ex.ko.grammar.modifier.verb_calling_friend.v1": {
+    "id": "ex.ko.grammar.modifier.verb_calling_friend.v1",
+    "ko": "전화하는 친구는 누구예요?",
+    "knowledge_refs": [
+      "kg.grammar.modifier.verb_present"
+    ],
+    "zh_tw": "正在講電話的朋友是誰？"
+  },
+  "ex.ko.pattern.social_basic.want_study.v1": {
+    "id": "ex.ko.pattern.social_basic.want_study.v1",
+    "ko": "한국어 공부하고 싶어요.",
+    "knowledge_refs": [
+      "kp.pattern.social_basic.want"
+    ],
+    "zh_tw": "我想學韓文。"
+  },
+  "ex.ko.grammar.negative_req.dont_be_late.v1": {
+    "id": "ex.ko.grammar.negative_req.dont_be_late.v1",
+    "ko": "늦지 마세요.",
+    "knowledge_refs": [
+      "kg.grammar.request.negative"
+    ],
+    "zh_tw": "請不要遲到。"
+  },
+  "ex.ko.grammar.suggestion.go_walk.v1": {
+    "id": "ex.ko.grammar.suggestion.go_walk.v1",
+    "ko": "산책 갈까요?",
+    "knowledge_refs": [
+      "kg.grammar.ending.suggestion"
+    ],
+    "zh_tw": "要不要去散步？"
+  },
+  "ex.ko.grammar.source_from.learn_from_teacher.v1": {
+    "id": "ex.ko.grammar.source_from.learn_from_teacher.v1",
+    "ko": "김선생님한테서 한국어를 배워요.",
+    "knowledge_refs": [
+      "kg.grammar.particle.source_from"
+    ],
+    "zh_tw": "跟金老師學韓文。"
+  },
+  "ex.ko.grammar.copula.eopda.problem.v1": {
+    "id": "ex.ko.grammar.copula.eopda.problem.v1",
+    "ko": "문제가 없어요.",
+    "knowledge_refs": [
+      "kg.grammar.copula.eopda"
+    ],
+    "zh_tw": "沒問題。"
+  },
+  "ex.ko.grammar.particle.at_place_action.drink_coffee_cafe.v1": {
+    "id": "ex.ko.grammar.particle.at_place_action.drink_coffee_cafe.v1",
+    "ko": "카페에서 커피를 마셔요.",
+    "knowledge_refs": [
+      "kg.grammar.particle.at_place_action"
+    ],
+    "zh_tw": "在咖啡廳喝咖啡。"
+  },
+  "ex.ko.grammar.particle.and_with_hago.bread_and_milk.v1": {
+    "id": "ex.ko.grammar.particle.and_with_hago.bread_and_milk.v1",
+    "ko": "빵하고 우유를 샀어요.",
+    "knowledge_refs": [
+      "kg.grammar.particle.and_with_hago"
+    ],
+    "zh_tw": "買了麵包和牛奶。"
+  },
+  "ex.ko.grammar.particle.subject.bus_arrived.v1": {
+    "id": "ex.ko.grammar.particle.subject.bus_arrived.v1",
+    "ko": "버스가 왔어요.",
+    "knowledge_refs": [
+      "kg.grammar.particle.subject"
+    ],
+    "zh_tw": "公車來了。"
+  },
+  "ex.ko.grammar.particle.wagwa.play_with_dog.v1": {
+    "id": "ex.ko.grammar.particle.wagwa.play_with_dog.v1",
+    "ko": "강아지와 놀아요.",
+    "knowledge_refs": [
+      "kg.grammar.particle.wagwa"
+    ],
+    "zh_tw": "和小狗玩。"
+  },
+  "ex.ko.grammar.tense.past_ass_oss.coffee.v1": {
+    "id": "ex.ko.grammar.tense.past_ass_oss.coffee.v1",
+    "ko": "아침에 커피 마셨어요.",
+    "knowledge_refs": [
+      "kg.grammar.tense.past_ass_oss"
+    ],
+    "zh_tw": "早上喝了咖啡。"
+  },
+  "ex.ko.ending.clarification.as_you_know.v1": {
+    "id": "ex.ko.ending.clarification.as_you_know.v1",
+    "ko": "아시다시피 저는 시간이 없어요.",
+    "knowledge_refs": [
+      "kg.grammar.ending.clarification_dasipi"
+    ],
+    "zh_tw": "正如您所知，我沒有時間。"
+  },
+  "ex.ko.grammar.ending.reason_sequence.rain_cant_go.v1": {
+    "id": "ex.ko.grammar.ending.reason_sequence.rain_cant_go.v1",
+    "ko": "비가 와서 못 갔어요.",
+    "knowledge_refs": [
+      "kg.grammar.ending.reason_sequence"
+    ],
+    "zh_tw": "因為下雨所以沒去。"
+  },
+  "ex.ko.grammar.want.sing.v1": {
+    "id": "ex.ko.grammar.want.sing.v1",
+    "ko": "노래 부르고 싶어요.",
+    "knowledge_refs": [
+      "kg.grammar.desire.want"
+    ],
+    "zh_tw": "我想唱歌。"
+  },
+  "ex.ko.grammar.tense.future_geoyeyo.movie.v1": {
+    "id": "ex.ko.grammar.tense.future_geoyeyo.movie.v1",
+    "ko": "그 영화가 재미있을 거예요.",
+    "knowledge_refs": [
+      "kg.grammar.tense.future_geoyeyo"
+    ],
+    "zh_tw": "那部電影應該會很好看。"
+  },
+  "ex.ko.grammar.honorific.suffix_ssi.nice_to_meet.v1": {
+    "id": "ex.ko.grammar.honorific.suffix_ssi.nice_to_meet.v1",
+    "ko": "영희 씨, 반갑습니다.",
+    "knowledge_refs": [
+      "kg.grammar.honorific.suffix_ssi"
+    ],
+    "zh_tw": "英熙小姐，很高興見到你。"
+  },
+  "ex.ko.pattern.social_basic.no_photo.v1": {
+    "id": "ex.ko.pattern.social_basic.no_photo.v1",
+    "ko": "여기서 사진을 찍으면 안 돼요.",
+    "knowledge_refs": [
+      "kp.pattern.social_basic.prohibition"
+    ],
+    "zh_tw": "這裡不可以拍照。"
+  },
+  "ex.ko.grammar.tense.future_geoyeyo.sleep.v1": {
+    "id": "ex.ko.grammar.tense.future_geoyeyo.sleep.v1",
+    "ko": "이제 잘 거예요.",
+    "knowledge_refs": [
+      "kg.grammar.tense.future_geoyeyo"
+    ],
+    "zh_tw": "現在要去睡了。"
+  },
+  "ex.ko.grammar.want.watch_movie.v1": {
+    "id": "ex.ko.grammar.want.watch_movie.v1",
+    "ko": "영화 보고 싶어요.",
+    "knowledge_refs": [
+      "kg.grammar.desire.want"
+    ],
+    "zh_tw": "我想看電影。"
+  },
+  "ex.ko.grammar.copula.present_informal.bubble_tea.v1": {
+    "id": "ex.ko.grammar.copula.present_informal.bubble_tea.v1",
+    "ko": "이건 내가 제일 좋아하는 버블티야.",
+    "knowledge_refs": [
+      "kg.grammar.copula.present_informal"
+    ],
+    "zh_tw": "這是我最喜歡的珍珠奶茶。"
+  },
+  "ex.ko.grammar.particle.at_place_action.rest_home.v1": {
+    "id": "ex.ko.grammar.particle.at_place_action.rest_home.v1",
+    "ko": "집에서 쉬어요.",
+    "knowledge_refs": [
+      "kg.grammar.particle.at_place_action"
+    ],
+    "zh_tw": "在家休息。"
+  },
+  "ex.ko.pattern.social_basic.sorry_late.v1": {
+    "id": "ex.ko.pattern.social_basic.sorry_late.v1",
+    "ko": "죄송합니다. 늦었어요.",
+    "knowledge_refs": [
+      "kp.pattern.social_basic.apology"
+    ],
+    "zh_tw": "抱歉，遲到了。"
+  },
+  "ex.ko.grammar.copula.itda.boyfriend.v1": {
+    "id": "ex.ko.grammar.copula.itda.boyfriend.v1",
+    "ko": "남자친구가 있어요.",
+    "knowledge_refs": [
+      "kg.grammar.copula.itda"
+    ],
+    "zh_tw": "我有男朋友。"
+  },
+  "ex.ko.grammar.prohibit.dont_lie.v1": {
+    "id": "ex.ko.grammar.prohibit.dont_lie.v1",
+    "ko": "거짓말을 하면 안 돼요.",
+    "knowledge_refs": [
+      "kg.grammar.permission.prohibit"
+    ],
+    "zh_tw": "不可以說謊。"
+  },
+  "ex.ko.grammar.particle.topic_eunneun.coffee_is_expensive.v1": {
+    "id": "ex.ko.grammar.particle.topic_eunneun.coffee_is_expensive.v1",
+    "ko": "커피는 비싸요.",
+    "knowledge_refs": [
+      "kg.grammar.particle.topic_eunneun"
+    ],
+    "zh_tw": "咖啡很貴。"
+  },
+  "ex.ko.grammar.want.go_beach.v1": {
+    "id": "ex.ko.grammar.want.go_beach.v1",
+    "ko": "바다에 가고 싶어요.",
+    "knowledge_refs": [
+      "kg.grammar.desire.want"
+    ],
+    "zh_tw": "我想去海邊。"
+  },
+  "ex.ko.ending.cause.rain_umbrella.v1": {
+    "id": "ex.ko.ending.cause.rain_umbrella.v1",
+    "ko": "비가 올까 봐 우산을 가져왔어요.",
+    "knowledge_refs": [
+      "kg.grammar.ending.cause_eulkka_bwa"
+    ],
+    "zh_tw": "擔心下雨所以帶了傘。"
+  },
+  "ex.ko.grammar.dative.feed_dog.v1": {
+    "id": "ex.ko.grammar.dative.feed_dog.v1",
+    "ko": "강아지한테 밥을 줬어요.",
+    "knowledge_refs": [
+      "kg.grammar.particle.dative"
+    ],
+    "zh_tw": "給小狗吃的。"
+  },
+  "ex.ko.grammar.particle.topic_eunneun.i_am_not_student.v1": {
+    "id": "ex.ko.grammar.particle.topic_eunneun.i_am_not_student.v1",
+    "ko": "저는 학생은 아니에요.",
+    "knowledge_refs": [
+      "kg.grammar.particle.topic_eunneun"
+    ],
+    "zh_tw": "我不是學生。"
+  },
+  "ex.ko.grammar.tense.future_geoyeyo.rain.v1": {
+    "id": "ex.ko.grammar.tense.future_geoyeyo.rain.v1",
+    "ko": "내일 비가 올 거예요.",
+    "knowledge_refs": [
+      "kg.grammar.tense.future_geoyeyo"
+    ],
+    "zh_tw": "明天會下雨。"
+  },
+  "ex.ko.grammar.source_from.borrow_from_friend.v1": {
+    "id": "ex.ko.grammar.source_from.borrow_from_friend.v1",
+    "ko": "도서관에서 책을 빌렸어요.",
+    "knowledge_refs": [
+      "kg.grammar.particle.source_from"
+    ],
+    "zh_tw": "從圖書館借了書。"
+  },
+  "ex.ko.grammar.particle.at_place_action.learn_ko_school.v1": {
+    "id": "ex.ko.grammar.particle.at_place_action.learn_ko_school.v1",
+    "ko": "학교에서 한국어를 배워요.",
+    "knowledge_refs": [
+      "kg.grammar.particle.at_place_action"
+    ],
+    "zh_tw": "在學校學韓文。"
+  },
+  "ex.ko.grammar.modifier.adj_cute_dog.v1": {
+    "id": "ex.ko.grammar.modifier.adj_cute_dog.v1",
+    "ko": "귀여운 강아지예요.",
+    "knowledge_refs": [
+      "kg.grammar.modifier.adj"
+    ],
+    "zh_tw": "可愛的小狗。"
   },
   "ex.ko.grammar.polite_req.please_study.v1": {
     "id": "ex.ko.grammar.polite_req.please_study.v1",
@@ -391,45 +2191,37 @@
     ],
     "zh_tw": "正在發訊息。"
   },
-  "ex.ko.grammar.progressive.cleaning.v1": {
-    "id": "ex.ko.grammar.progressive.cleaning.v1",
-    "ko": "청소를 하고 있어요.",
+  "ex.ko.grammar.copula.itda.friend.v1": {
+    "id": "ex.ko.grammar.copula.itda.friend.v1",
+    "ko": "친구가 있어요.",
     "knowledge_refs": [
-      "kg.grammar.tense.progressive"
+      "kg.grammar.copula.itda"
     ],
-    "zh_tw": "正在打掃。"
+    "zh_tw": "有朋友。"
   },
-  "ex.ko.grammar.progressive.eating.v1": {
-    "id": "ex.ko.grammar.progressive.eating.v1",
-    "ko": "밥을 먹고 있어요.",
+  "ex.ko.pattern.connective.rain_taxi.v1": {
+    "id": "ex.ko.pattern.connective.rain_taxi.v1",
+    "ko": "비가 와서 택시를 탔어요.",
     "knowledge_refs": [
-      "kg.grammar.tense.progressive"
+      "kp.pattern.connective.reason"
     ],
-    "zh_tw": "正在吃飯。"
+    "zh_tw": "因為下雨所以搭了計程車。"
   },
-  "ex.ko.grammar.progressive.exercising.v1": {
-    "id": "ex.ko.grammar.progressive.exercising.v1",
-    "ko": "게임을 하고 있어요.",
+  "ex.ko.grammar.particle.boda.today_colder_yesterday.v1": {
+    "id": "ex.ko.grammar.particle.boda.today_colder_yesterday.v1",
+    "ko": "오늘이 어제보다 더 추워요.",
     "knowledge_refs": [
-      "kg.grammar.tense.progressive"
+      "kg.grammar.particle.boda"
     ],
-    "zh_tw": "正在打遊戲。"
+    "zh_tw": "今天比昨天更冷。"
   },
-  "ex.ko.grammar.progressive.listening_music.v1": {
-    "id": "ex.ko.grammar.progressive.listening_music.v1",
-    "ko": "음악을 듣고 있어요.",
+  "ex.ko.grammar.particle.also.took_bus.v1": {
+    "id": "ex.ko.grammar.particle.also.took_bus.v1",
+    "ko": "버스도 탔어요.",
     "knowledge_refs": [
-      "kg.grammar.tense.progressive"
+      "kg.grammar.particle.also"
     ],
-    "zh_tw": "正在聽音樂。"
-  },
-  "ex.ko.grammar.progressive.sleeping.v1": {
-    "id": "ex.ko.grammar.progressive.sleeping.v1",
-    "ko": "쉬고 있어요.",
-    "knowledge_refs": [
-      "kg.grammar.tense.progressive"
-    ],
-    "zh_tw": "正在休息。"
+    "zh_tw": "也搭了公車。"
   },
   "ex.ko.grammar.progressive.studying_ko.v1": {
     "id": "ex.ko.grammar.progressive.studying_ko.v1",
@@ -439,13 +2231,37 @@
     ],
     "zh_tw": "正在學韓文。"
   },
-  "ex.ko.grammar.progressive.waiting_friend.v1": {
-    "id": "ex.ko.grammar.progressive.waiting_friend.v1",
-    "ko": "버스를 기다리고 있어요.",
+  "ex.ko.grammar.ending.sumndia.watch_movie.v1": {
+    "id": "ex.ko.grammar.ending.sumndia.watch_movie.v1",
+    "ko": "영화를 봅니다.",
     "knowledge_refs": [
-      "kg.grammar.tense.progressive"
+      "kg.grammar.ending.sumndia"
     ],
-    "zh_tw": "正在等公車。"
+    "zh_tw": "看電影。"
+  },
+  "ex.ko.grammar.particle.subject.book_interesting.v1": {
+    "id": "ex.ko.grammar.particle.subject.book_interesting.v1",
+    "ko": "책이 재미있어요.",
+    "knowledge_refs": [
+      "kg.grammar.particle.subject"
+    ],
+    "zh_tw": "書很好看。"
+  },
+  "ex.ko.grammar.particle.object.buy_clothes.v1": {
+    "id": "ex.ko.grammar.particle.object.buy_clothes.v1",
+    "ko": "옷을 사요.",
+    "knowledge_refs": [
+      "kg.grammar.particle.object"
+    ],
+    "zh_tw": "買衣服。"
+  },
+  "ex.ko.grammar.particle.subject.dog_cute.v1": {
+    "id": "ex.ko.grammar.particle.subject.dog_cute.v1",
+    "ko": "강아지가 귀越워요.",
+    "knowledge_refs": [
+      "kg.grammar.particle.subject"
+    ],
+    "zh_tw": "小狗很可愛。"
   },
   "ex.ko.grammar.progressive.watching_movie.v1": {
     "id": "ex.ko.grammar.progressive.watching_movie.v1",
@@ -455,213 +2271,77 @@
     ],
     "zh_tw": "正在看韓劇。"
   },
-  "ex.ko.grammar.progressive.working.v1": {
-    "id": "ex.ko.grammar.progressive.working.v1",
-    "ko": "일을 하고 있어요.",
+  "ex.ko.grammar.particle.euro_dir.to_home.v1": {
+    "id": "ex.ko.grammar.particle.euro_dir.to_home.v1",
+    "ko": "집으로 돌아가요.",
     "knowledge_refs": [
-      "kg.grammar.tense.progressive"
+      "kg.grammar.particle.euro_dir"
     ],
-    "zh_tw": "正在工作。"
+    "zh_tw": "回家。"
   },
-  "ex.ko.grammar.prohibit.dont_late.v1": {
-    "id": "ex.ko.grammar.prohibit.dont_late.v1",
-    "ko": "내일은 절대 늦으면 안 돼요.",
+  "ex.ko.pattern.payment.card_request.v1": {
+    "id": "ex.ko.pattern.payment.card_request.v1",
+    "ko": "카드 돼요?",
     "knowledge_refs": [
-      "kg.grammar.permission.prohibit"
+      "kp.pattern.payment.card_request"
     ],
-    "zh_tw": "明天絕對不可以遲到。"
+    "zh_tw": "可以刷卡嗎？"
   },
-  "ex.ko.grammar.prohibit.dont_lie.v1": {
-    "id": "ex.ko.grammar.prohibit.dont_lie.v1",
-    "ko": "거짓말을 하면 안 돼요.",
+  "ex.ko.grammar.permission.sit_here.v1": {
+    "id": "ex.ko.grammar.permission.sit_here.v1",
+    "ko": "여기 앉아도 돼요?",
     "knowledge_refs": [
-      "kg.grammar.permission.prohibit"
+      "kg.grammar.permission.allow"
     ],
-    "zh_tw": "不可以說謊。"
+    "zh_tw": "這裡可以坐嗎？"
   },
-  "ex.ko.grammar.prohibit.no_noise_library.v1": {
-    "id": "ex.ko.grammar.prohibit.no_noise_library.v1",
-    "ko": "도서관에서 떠들면 안 돼요.",
+  "ex.ko.grammar.copula.eopda.girlfriend.v1": {
+    "id": "ex.ko.grammar.copula.eopda.girlfriend.v1",
+    "ko": "여자친구가 없어요.",
     "knowledge_refs": [
-      "kg.grammar.permission.prohibit"
+      "kg.grammar.copula.eopda"
     ],
-    "zh_tw": "圖書館裡不可以吵鬧。"
+    "zh_tw": "沒有女朋友。"
   },
-  "ex.ko.grammar.prohibit.no_photo_museum.v1": {
-    "id": "ex.ko.grammar.prohibit.no_photo_museum.v1",
-    "ko": "박물관에서 사진을 찍으면 안 돼요.",
+  "ex.ko.ending.state_retention.shoe_in.v1": {
+    "id": "ex.ko.ending.state_retention.shoe_in.v1",
+    "ko": "신발을 신은 채로 들어오세요.",
     "knowledge_refs": [
-      "kg.grammar.permission.prohibit"
+      "kg.grammar.ending.state_retention_chae_ro"
     ],
-    "zh_tw": "博物館裡不可以拍照。"
+    "zh_tw": "請穿著鞋子進來。"
   },
-  "ex.ko.grammar.prohibit.no_running_hallway.v1": {
-    "id": "ex.ko.grammar.prohibit.no_running_hallway.v1",
-    "ko": "복도에서 뛰면 안 돼요.",
+  "ex.ko.pattern.time.current_time.v1": {
+    "id": "ex.ko.pattern.time.current_time.v1",
+    "ko": "지금 몇 시예요?",
     "knowledge_refs": [
-      "kg.grammar.permission.prohibit"
+      "kp.pattern.time.current_time"
     ],
-    "zh_tw": "走廊上不可以奔跑。"
+    "zh_tw": "現在幾點？"
   },
-  "ex.ko.grammar.prohibit.no_smoking.v1": {
-    "id": "ex.ko.grammar.prohibit.no_smoking.v1",
-    "ko": "실내에서 담배를 피우면 안 돼요.",
+  "ex.ko.grammar.permission.ask_question.v1": {
+    "id": "ex.ko.grammar.permission.ask_question.v1",
+    "ko": "질문을 해도 돼요?",
     "knowledge_refs": [
-      "kg.grammar.permission.prohibit"
+      "kg.grammar.permission.allow"
     ],
-    "zh_tw": "室內不可以抽菸。"
+    "zh_tw": "可以提問嗎？"
   },
-  "ex.ko.grammar.purpose_path.go_borrow_book.v1": {
-    "id": "ex.ko.grammar.purpose_path.go_borrow_book.v1",
-    "ko": "공부하러 도서관에 가요.",
+  "ex.ko.grammar.ending.condition.late_call.v1": {
+    "id": "ex.ko.grammar.ending.condition.late_call.v1",
+    "ko": "늦으면 전화하세요.",
     "knowledge_refs": [
-      "kg.grammar.ending.purpose_path"
+      "kg.grammar.ending.condition"
     ],
-    "zh_tw": "去圖書館讀書。"
+    "zh_tw": "如果晚了的話，請打電話。"
   },
-  "ex.ko.grammar.purpose_path.go_eat.v1": {
-    "id": "ex.ko.grammar.purpose_path.go_eat.v1",
-    "ko": "밥 먹으러 식당에 가요.",
+  "ex.ko.pattern.social_basic.cant_swim.v1": {
+    "id": "ex.ko.pattern.social_basic.cant_swim.v1",
+    "ko": "저는 수영을 못 해요.",
     "knowledge_refs": [
-      "kg.grammar.ending.purpose_path"
+      "kp.pattern.social_basic.ability_negation"
     ],
-    "zh_tw": "去餐廳吃飯。"
-  },
-  "ex.ko.grammar.purpose_path.go_exercise.v1": {
-    "id": "ex.ko.grammar.purpose_path.go_exercise.v1",
-    "ko": "운동하러 헬스장에 가요.",
-    "knowledge_refs": [
-      "kg.grammar.ending.purpose_path"
-    ],
-    "zh_tw": "去健身房運動。"
-  },
-  "ex.ko.grammar.purpose_path.go_meet_friend.v1": {
-    "id": "ex.ko.grammar.purpose_path.go_meet_friend.v1",
-    "ko": "친구 만나러 서울에 갔어요.",
-    "knowledge_refs": [
-      "kg.grammar.ending.purpose_path"
-    ],
-    "zh_tw": "去首爾見朋友了。"
-  },
-  "ex.ko.grammar.purpose_path.go_study.v1": {
-    "id": "ex.ko.grammar.purpose_path.go_study.v1",
-    "ko": "커피 마시러 카페에 갔어요.",
-    "knowledge_refs": [
-      "kg.grammar.ending.purpose_path"
-    ],
-    "zh_tw": "去了咖啡廳喝咖啡。"
-  },
-  "ex.ko.grammar.purpose_path.go_watch_movie.v1": {
-    "id": "ex.ko.grammar.purpose_path.go_watch_movie.v1",
-    "ko": "영화 보러 극장에 가요.",
-    "knowledge_refs": [
-      "kg.grammar.ending.purpose_path"
-    ],
-    "zh_tw": "去電影院看電影。"
-  },
-  "ex.ko.grammar.source_from.borrow_from_friend.v1": {
-    "id": "ex.ko.grammar.source_from.borrow_from_friend.v1",
-    "ko": "도서관에서 책을 빌렸어요.",
-    "knowledge_refs": [
-      "kg.grammar.particle.source_from"
-    ],
-    "zh_tw": "從圖書館借了書。"
-  },
-  "ex.ko.grammar.source_from.call_from_sibling.v1": {
-    "id": "ex.ko.grammar.source_from.call_from_sibling.v1",
-    "ko": "친구한테서 전화가 왔어요.",
-    "knowledge_refs": [
-      "kg.grammar.particle.source_from"
-    ],
-    "zh_tw": "朋友打電話來了。"
-  },
-  "ex.ko.grammar.source_from.from_friend.v1": {
-    "id": "ex.ko.grammar.source_from.from_friend.v1",
-    "ko": "친구에게서 선물을 받았어요.",
-    "knowledge_refs": [
-      "kg.grammar.particle.source_from"
-    ],
-    "zh_tw": "從朋友那裡收到了禮物。"
-  },
-  "ex.ko.grammar.source_from.get_salary_company.v1": {
-    "id": "ex.ko.grammar.source_from.get_salary_company.v1",
-    "ko": "회사에서 이메일이 왔어요.",
-    "knowledge_refs": [
-      "kg.grammar.particle.source_from"
-    ],
-    "zh_tw": "公司寄來了電子郵件。"
-  },
-  "ex.ko.grammar.source_from.learn_from_teacher.v1": {
-    "id": "ex.ko.grammar.source_from.learn_from_teacher.v1",
-    "ko": "김선생님한테서 한국어를 배워요.",
-    "knowledge_refs": [
-      "kg.grammar.particle.source_from"
-    ],
-    "zh_tw": "跟金老師學韓文。"
-  },
-  "ex.ko.grammar.suggestion.drink_coffee.v1": {
-    "id": "ex.ko.grammar.suggestion.drink_coffee.v1",
-    "ko": "커피 한잔 할까요?",
-    "knowledge_refs": [
-      "kg.grammar.ending.suggestion"
-    ],
-    "zh_tw": "要不要喝杯咖啡？"
-  },
-  "ex.ko.grammar.suggestion.eat_lunch.v1": {
-    "id": "ex.ko.grammar.suggestion.eat_lunch.v1",
-    "ko": "점심 먹을까요?",
-    "knowledge_refs": [
-      "kg.grammar.ending.suggestion"
-    ],
-    "zh_tw": "要不要吃午餐？"
-  },
-  "ex.ko.grammar.suggestion.go_party.v1": {
-    "id": "ex.ko.grammar.suggestion.go_party.v1",
-    "ko": "파티에 갈까요?",
-    "knowledge_refs": [
-      "kg.grammar.ending.suggestion"
-    ],
-    "zh_tw": "要不要去派對？"
-  },
-  "ex.ko.grammar.suggestion.go_walk.v1": {
-    "id": "ex.ko.grammar.suggestion.go_walk.v1",
-    "ko": "산책 갈까요?",
-    "knowledge_refs": [
-      "kg.grammar.ending.suggestion"
-    ],
-    "zh_tw": "要不要去散步？"
-  },
-  "ex.ko.grammar.suggestion.rest_at_home.v1": {
-    "id": "ex.ko.grammar.suggestion.rest_at_home.v1",
-    "ko": "오늘은 집에서 쉴까요?",
-    "knowledge_refs": [
-      "kg.grammar.ending.suggestion"
-    ],
-    "zh_tw": "今天在家休息吧？"
-  },
-  "ex.ko.grammar.suggestion.watch_movie_together.v1": {
-    "id": "ex.ko.grammar.suggestion.watch_movie_together.v1",
-    "ko": "주말에 같이 영화를 볼까요?",
-    "knowledge_refs": [
-      "kg.grammar.ending.suggestion"
-    ],
-    "zh_tw": "週末一起看電影嗎？"
-  },
-  "ex.ko.grammar.want.eat_ramen.v1": {
-    "id": "ex.ko.grammar.want.eat_ramen.v1",
-    "ko": "라면 먹고 싶어요.",
-    "knowledge_refs": [
-      "kg.grammar.desire.want"
-    ],
-    "zh_tw": "我想吃拉麵。"
-  },
-  "ex.ko.grammar.want.go_beach.v1": {
-    "id": "ex.ko.grammar.want.go_beach.v1",
-    "ko": "바다에 가고 싶어요.",
-    "knowledge_refs": [
-      "kg.grammar.desire.want"
-    ],
-    "zh_tw": "我想去海邊。"
+    "zh_tw": "我不會游泳。"
   },
   "ex.ko.grammar.want.go_korea.v1": {
     "id": "ex.ko.grammar.want.go_korea.v1",
@@ -671,45 +2351,125 @@
     ],
     "zh_tw": "我想去韓國。"
   },
-  "ex.ko.grammar.want.shopping.v1": {
-    "id": "ex.ko.grammar.want.shopping.v1",
-    "ko": "쇼핑하고 싶어요.",
+  "ex.ko.grammar.particle.also.drank_coffee.v1": {
+    "id": "ex.ko.grammar.particle.also.drank_coffee.v1",
+    "ko": "커피도 마셨어요.",
     "knowledge_refs": [
-      "kg.grammar.desire.want"
+      "kg.grammar.particle.also"
     ],
-    "zh_tw": "我想去逛街。"
+    "zh_tw": "也喝了咖啡。"
   },
-  "ex.ko.grammar.want.sing.v1": {
-    "id": "ex.ko.grammar.want.sing.v1",
-    "ko": "노래 부르고 싶어요.",
+  "ex.ko.grammar.copula.present_polite_informal.friend.v1": {
+    "id": "ex.ko.grammar.copula.present_polite_informal.friend.v1",
+    "ko": "이 사람이 제 친구예요.",
     "knowledge_refs": [
-      "kg.grammar.desire.want"
+      "kg.grammar.copula.present_polite_informal"
     ],
-    "zh_tw": "我想唱歌。"
+    "zh_tw": "這個人是我的朋友。"
   },
-  "ex.ko.grammar.want.watch_movie.v1": {
-    "id": "ex.ko.grammar.want.watch_movie.v1",
-    "ko": "영화 보고 싶어요.",
+  "ex.ko.grammar.particle.subject.movie_started.v1": {
+    "id": "ex.ko.grammar.particle.subject.movie_started.v1",
+    "ko": "영화가 시작했어요.",
     "knowledge_refs": [
-      "kg.grammar.desire.want"
+      "kg.grammar.particle.subject"
     ],
-    "zh_tw": "我想看電影。"
+    "zh_tw": "電影開始了。"
   },
-  "ex.ko.grammar.wish.boyfriend.v1": {
-    "id": "ex.ko.grammar.wish.boyfriend.v1",
-    "ko": "남자 친구가 생겼으면 좋겠어요.",
+  "ex.ko.grammar.tense.future_geoyeyo.study.v1": {
+    "id": "ex.ko.grammar.tense.future_geoyeyo.study.v1",
+    "ko": "오늘 밤에 공부할 거예요.",
     "knowledge_refs": [
-      "kg.grammar.desire.wish"
+      "kg.grammar.tense.future_geoyeyo"
     ],
-    "zh_tw": "希望有男朋友。"
+    "zh_tw": "今天晚上會讀書。"
   },
-  "ex.ko.grammar.wish.easy_exam.v1": {
-    "id": "ex.ko.grammar.wish.easy_exam.v1",
-    "ko": "이번 시험이 쉬웠으면 좋겠어요.",
+  "ex.ko.grammar.particle.euro_tool.by_cash.v1": {
+    "id": "ex.ko.grammar.particle.euro_tool.by_cash.v1",
+    "ko": "현금으로 계산했어요.",
     "knowledge_refs": [
-      "kg.grammar.desire.wish"
+      "kg.grammar.particle.euro_tool"
     ],
-    "zh_tw": "希望這次考試很簡單。"
+    "zh_tw": "用現金結帳。"
+  },
+  "ex.ko.grammar.ending.ayoeoyo.exercise.v1": {
+    "id": "ex.ko.grammar.ending.ayoeoyo.exercise.v1",
+    "ko": "운동해요.",
+    "knowledge_refs": [
+      "kg.grammar.ending.ayoeoyo"
+    ],
+    "zh_tw": "運動。"
+  },
+  "ex.ko.grammar.benefactive.send_photo.v1": {
+    "id": "ex.ko.grammar.benefactive.send_photo.v1",
+    "ko": "사진 보내 주세요.",
+    "knowledge_refs": [
+      "kg.grammar.ending.benefactive"
+    ],
+    "zh_tw": "請傳照片給我。"
+  },
+  "ex.ko.grammar.ending.reason_sequence.late_sorry.v1": {
+    "id": "ex.ko.grammar.ending.reason_sequence.late_sorry.v1",
+    "ko": "늦어서 미안해요.",
+    "knowledge_refs": [
+      "kg.grammar.ending.reason_sequence"
+    ],
+    "zh_tw": "因為晚了（遲到），對不起。"
+  },
+  "ex.ko.grammar.particle.also.student.v1": {
+    "id": "ex.ko.grammar.particle.also.student.v1",
+    "ko": "저도 학생이에요.",
+    "knowledge_refs": [
+      "kg.grammar.particle.also"
+    ],
+    "zh_tw": "我也是學生。"
+  },
+  "ex.ko.grammar.musun.what_worry.v1": {
+    "id": "ex.ko.grammar.musun.what_worry.v1",
+    "ko": "무슨 일 있어요?",
+    "knowledge_refs": [
+      "kg.grammar.determiner.musun"
+    ],
+    "zh_tw": "發生什麼事了嗎？"
+  },
+  "ex.ko.pattern.repair.yes_right.v1": {
+    "id": "ex.ko.pattern.repair.yes_right.v1",
+    "ko": "네, 맞아요.",
+    "knowledge_refs": [
+      "kp.pattern.repair.confirm"
+    ],
+    "zh_tw": "是的，沒錯。"
+  },
+  "ex.ko.grammar.particle.euro_dir.to_right.v1": {
+    "id": "ex.ko.grammar.particle.euro_dir.to_right.v1",
+    "ko": "오른쪽으로 가세요.",
+    "knowledge_refs": [
+      "kg.grammar.particle.euro_dir"
+    ],
+    "zh_tw": "請往右邊走。"
+  },
+  "ex.ko.grammar.particle.topic_eunneun.dog_is_cute.v1": {
+    "id": "ex.ko.grammar.particle.topic_eunneun.dog_is_cute.v1",
+    "ko": "강아지는 귀여워요.",
+    "knowledge_refs": [
+      "kg.grammar.particle.topic_eunneun"
+    ],
+    "zh_tw": "小狗很可愛。"
+  },
+  "ex.ko.grammar.negation.short_mot.alcohol.v1": {
+    "id": "ex.ko.grammar.negation.short_mot.alcohol.v1",
+    "ko": "술을 못 마셔요.",
+    "knowledge_refs": [
+      "kg.grammar.negation.short_mot"
+    ],
+    "zh_tw": "不會喝酒 / 不能喝酒。"
+  },
+  "ex.ko.grammar.particle.subject.this_person_friend.v1": {
+    "id": "ex.ko.grammar.particle.subject.this_person_friend.v1",
+    "ko": "이 사람이 제 친구예요.",
+    "knowledge_refs": [
+      "kg.grammar.particle.subject"
+    ],
+    "zh_tw": "這個人是我的朋友。"
   },
   "ex.ko.grammar.wish.family_healthy.v1": {
     "id": "ex.ko.grammar.wish.family_healthy.v1",
@@ -719,28 +2479,20 @@
     ],
     "zh_tw": "希望我們家人都很健康。"
   },
-  "ex.ko.grammar.wish.much_money.v1": {
-    "id": "ex.ko.grammar.wish.much_money.v1",
-    "ko": "돈이 많았으면 좋겠어요.",
+  "ex.ko.grammar.prohibit.dont_late.v1": {
+    "id": "ex.ko.grammar.prohibit.dont_late.v1",
+    "ko": "내일은 절대 늦으면 안 돼요.",
     "knowledge_refs": [
-      "kg.grammar.desire.wish"
+      "kg.grammar.permission.prohibit"
     ],
-    "zh_tw": "如果有很多錢就好了。"
+    "zh_tw": "明天絕對不可以遲到。"
   },
-  "ex.ko.grammar.wish.snow_christmas.v1": {
-    "id": "ex.ko.grammar.wish.snow_christmas.v1",
-    "ko": "크리스마스에 눈이 왔으면 좋겠어요.",
+  "ex.ko.grammar.particle.at_time_place.watch_movie_weekend.v1": {
+    "id": "ex.ko.grammar.particle.at_time_place.watch_movie_weekend.v1",
+    "ko": "주말에 영화를 봐요.",
     "knowledge_refs": [
-      "kg.grammar.desire.wish"
+      "kg.grammar.particle.at_time_place"
     ],
-    "zh_tw": "希望聖誕節會下雪。"
-  },
-  "ex.ko.grammar.wish.vacation.v1": {
-    "id": "ex.ko.grammar.wish.vacation.v1",
-    "ko": "빨리 방학이 되었으면 좋겠어요.",
-    "knowledge_refs": [
-      "kg.grammar.desire.wish"
-    ],
-    "zh_tw": "希望快點放假。"
+    "zh_tw": "週末看電影。"
   }
 }

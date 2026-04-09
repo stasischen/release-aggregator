@@ -59,12 +59,36 @@
       "title": "必修句型 (Patterns)",
       "sub": [
         {
+          "id": "connective",
+          "title": "Connective"
+        },
+        {
+          "id": "environment",
+          "title": "Environment"
+        },
+        {
+          "id": "experience",
+          "title": "Experience"
+        },
+        {
+          "id": "facility",
+          "title": "Facility"
+        },
+        {
           "id": "greetings",
           "title": "Greetings"
         },
         {
+          "id": "payment",
+          "title": "Payment"
+        },
+        {
           "id": "question",
           "title": "Question"
+        },
+        {
+          "id": "repair",
+          "title": "Repair"
         },
         {
           "id": "request",
@@ -77,6 +101,10 @@
         {
           "id": "time",
           "title": "Time"
+        },
+        {
+          "id": "transport",
+          "title": "Transport"
         }
       ]
     },
@@ -109,205 +137,569 @@
   ],
   "featured": [
     {
-      "id": "kg.connector.cause.geuraeseo",
-      "category": "connector",
-      "sub": "cause",
-      "title": "所以、因此 (그래서)",
-      "level": "A1",
-      "path": "data/library/kg.connector.cause.geuraeseo.json",
-      "surface": "그래서",
-      "example_sentence_refs": []
-    },
-    {
-      "id": "kg.connector.cause.geureomeuro",
-      "category": "connector",
-      "sub": "cause",
-      "title": "因此、所以 (그러므로)",
+      "id": "kg.grammar.modifier.verb_present",
+      "category": "grammar",
+      "sub": "modifier",
+      "title": "動詞現在式修飾名詞 (~는)",
       "level": "A2",
-      "path": "data/library/kg.connector.cause.geureomeuro.json",
-      "surface": "그러므로",
-      "example_sentence_refs": []
+      "path": "data/library/kg.grammar.modifier.verb_present.json",
+      "surface": "~는",
+      "example_sentence_refs": [
+        "ex.ko.grammar.modifier.verb_cooking_mom.v1",
+        "ex.ko.grammar.modifier.verb_watching_tv_child.v1",
+        "ex.ko.grammar.modifier.verb_calling_friend.v1",
+        "ex.ko.grammar.modifier.verb_studying_look.v1",
+        "ex.ko.grammar.modifier.verb_attending_school.v1",
+        "ex.ko.grammar.modifier.verb_preparing_students.v1"
+      ]
     },
     {
-      "id": "kg.connector.cause.geureonikka",
-      "category": "connector",
-      "sub": "cause",
-      "title": "所以、因此 (그러니까)",
+      "id": "kg.grammar.modifier.adj",
+      "category": "grammar",
+      "sub": "modifier",
+      "title": "形容詞修飾名詞 (~ㄴ/은)",
       "level": "A1",
-      "path": "data/library/kg.connector.cause.geureonikka.json",
-      "surface": "그러니까",
-      "example_sentence_refs": []
+      "path": "data/library/kg.grammar.modifier.adj.json",
+      "surface": "~ㄴ/은",
+      "example_sentence_refs": [
+        "ex.ko.grammar.modifier.adj_pretty_flower.v1",
+        "ex.ko.grammar.modifier.adj_quiet_house.v1",
+        "ex.ko.grammar.modifier.adj_kind_friend.v1",
+        "ex.ko.grammar.modifier.adj_warm_coffee.v1",
+        "ex.ko.grammar.modifier.adj_cute_dog.v1",
+        "ex.ko.grammar.modifier.adj_big_school.v1"
+      ]
     },
     {
-      "id": "kg.connector.cause.ttaraseo",
-      "category": "connector",
-      "sub": "cause",
-      "title": "因此、於是 (따라서)",
-      "level": "A2",
-      "path": "data/library/kg.connector.cause.ttaraseo.json",
-      "surface": "따라서",
-      "example_sentence_refs": []
-    },
-    {
-      "id": "kg.connector.condition.geureomyeon",
-      "category": "connector",
-      "sub": "condition",
-      "title": "那麼、那樣的話 (그러면)",
+      "id": "kg.grammar.negation.long_ji_anta",
+      "category": "grammar",
+      "sub": "negation",
+      "title": "否定句 (~地不/不～)",
       "level": "A1",
-      "path": "data/library/kg.connector.condition.geureomyeon.json",
-      "surface": "그러면",
-      "example_sentence_refs": []
+      "path": "data/library/kg.grammar.negation.long_ji_anta.json",
+      "surface": "~지 않다",
+      "example_sentence_refs": [
+        "ex.ko.grammar.negation.long_ji_anta.breakfast.v1",
+        "ex.ko.grammar.negation.long_ji_anta.sns.v1",
+        "ex.ko.grammar.negation.long_ji_anta.movie.v1",
+        "ex.ko.grammar.negation.long_ji_anta.coffee.v1",
+        "ex.ko.grammar.negation.long_ji_anta.music.v1"
+      ]
+    },
+    {
+      "id": "kg.grammar.negation.short_mot",
+      "category": "grammar",
+      "sub": "negation",
+      "title": "不能、沒理由做 (못)",
+      "level": "A1",
+      "path": "data/library/kg.grammar.negation.short_mot.json",
+      "surface": "못 ~",
+      "example_sentence_refs": [
+        "ex.ko.grammar.negation.short_mot.swim.v1",
+        "ex.ko.grammar.negation.short_mot.sleep.v1",
+        "ex.ko.grammar.negation.short_mot.spicy_food.v1",
+        "ex.ko.grammar.negation.short_mot.party.v1",
+        "ex.ko.grammar.negation.short_mot.alcohol.v1"
+      ]
+    },
+    {
+      "id": "kg.grammar.negation.short_an",
+      "category": "grammar",
+      "sub": "negation",
+      "title": "口語否定 (안)",
+      "level": "A1",
+      "path": "data/library/kg.grammar.negation.short_an.json",
+      "surface": "안 ~",
+      "example_sentence_refs": [
+        "ex.ko.grammar.negation.short_an.dinner.v1",
+        "ex.ko.grammar.negation.short_an.coffee.v1",
+        "ex.ko.grammar.negation.short_an.meet_friend.v1",
+        "ex.ko.grammar.negation.short_an.exercise.v1",
+        "ex.ko.grammar.negation.short_an.not_yet_sleep.v1"
+      ]
     }
   ],
   "items": [
     {
-      "id": "kg.connector.cause.geuraeseo",
-      "category": "connector",
-      "sub": "cause",
-      "title": "所以、因此 (그래서)",
-      "level": "A1",
-      "path": "data/library/kg.connector.cause.geuraeseo.json",
-      "surface": "그래서",
-      "example_sentence_refs": []
-    },
-    {
-      "id": "kg.connector.cause.geureomeuro",
-      "category": "connector",
-      "sub": "cause",
-      "title": "因此、所以 (그러므로)",
-      "level": "A2",
-      "path": "data/library/kg.connector.cause.geureomeuro.json",
-      "surface": "그러므로",
-      "example_sentence_refs": []
-    },
-    {
-      "id": "kg.connector.cause.geureonikka",
-      "category": "connector",
-      "sub": "cause",
-      "title": "所以、因此 (그러니까)",
-      "level": "A1",
-      "path": "data/library/kg.connector.cause.geureonikka.json",
-      "surface": "그러니까",
-      "example_sentence_refs": []
-    },
-    {
-      "id": "kg.connector.cause.ttaraseo",
-      "category": "connector",
-      "sub": "cause",
-      "title": "因此、於是 (따라서)",
-      "level": "A2",
-      "path": "data/library/kg.connector.cause.ttaraseo.json",
-      "surface": "따라서",
-      "example_sentence_refs": []
-    },
-    {
-      "id": "kg.connector.condition.geureomyeon",
-      "category": "connector",
-      "sub": "condition",
-      "title": "那麼、那樣的話 (그러면)",
-      "level": "A1",
-      "path": "data/library/kg.connector.condition.geureomyeon.json",
-      "surface": "그러면",
-      "example_sentence_refs": []
-    },
-    {
-      "id": "kg.connector.contrast.geuraedo",
-      "category": "connector",
-      "sub": "contrast",
-      "title": "儘管如此、還是 (그래도)",
-      "level": "A1",
-      "path": "data/library/kg.connector.contrast.geuraedo.json",
-      "surface": "그래도",
-      "example_sentence_refs": []
-    },
-    {
-      "id": "kg.connector.contrast.geureochiman",
-      "category": "connector",
-      "sub": "contrast",
-      "title": "雖然如此、但是 (그렇지만)",
-      "level": "A1",
-      "path": "data/library/kg.connector.contrast.geureochiman.json",
-      "surface": "그렇지만",
-      "example_sentence_refs": []
-    },
-    {
-      "id": "kg.connector.contrast.geureona",
-      "category": "connector",
-      "sub": "contrast",
-      "title": "然而、但是 (그러나)",
-      "level": "A2",
-      "path": "data/library/kg.connector.contrast.geureona.json",
-      "surface": "그러나",
-      "example_sentence_refs": []
-    },
-    {
-      "id": "kg.connector.contrast.geureonde",
-      "category": "connector",
-      "sub": "contrast",
-      "title": "但是、話說回來 (그런데)",
-      "level": "A1",
-      "path": "data/library/kg.connector.contrast.geureonde.json",
-      "surface": "그런데",
-      "example_sentence_refs": []
-    },
-    {
-      "id": "kg.connector.contrast.hajiman",
-      "category": "connector",
-      "sub": "contrast",
-      "title": "但是、不過 (하지만)",
-      "level": "A1",
-      "path": "data/library/kg.connector.contrast.hajiman.json",
-      "surface": "하지만",
-      "example_sentence_refs": []
-    },
-    {
-      "id": "kg.connector.conversion.geureonde",
-      "category": "connector",
-      "sub": "conversion",
-      "title": "但是、話說回來 (그런데)",
-      "level": "A1",
-      "path": "data/library/kg.connector.conversion.geureonde.json",
-      "surface": "그런데",
-      "example_sentence_refs": []
-    },
-    {
-      "id": "kg.connector.sequence.gedaga",
-      "category": "connector",
-      "sub": "sequence",
-      "title": "再加上、而且 (게다가)",
-      "level": "A2",
-      "path": "data/library/kg.connector.sequence.gedaga.json",
-      "surface": "게다가",
-      "example_sentence_refs": []
-    },
-    {
-      "id": "kg.connector.sequence.geureom",
-      "category": "connector",
-      "sub": "sequence",
-      "title": "那麼 (그럼)",
-      "level": "A1",
-      "path": "data/library/kg.connector.sequence.geureom.json",
-      "surface": "그럼",
-      "example_sentence_refs": []
-    },
-    {
-      "id": "kg.connector.sequence.geurigo",
-      "category": "connector",
-      "sub": "sequence",
-      "title": "然後、並且 (그리고)",
-      "level": "A1",
-      "path": "data/library/kg.connector.sequence.geurigo.json",
-      "surface": "그리고",
-      "example_sentence_refs": []
-    },
-    {
-      "id": "kg.grammar.ability.can",
+      "id": "kg.grammar.modifier.verb_present",
       "category": "grammar",
-      "sub": "ability",
-      "title": "會、可以 (能力/可能性)",
+      "sub": "modifier",
+      "title": "動詞現在式修飾名詞 (~는)",
+      "level": "A2",
+      "path": "data/library/kg.grammar.modifier.verb_present.json",
+      "surface": "~는",
+      "example_sentence_refs": [
+        "ex.ko.grammar.modifier.verb_cooking_mom.v1",
+        "ex.ko.grammar.modifier.verb_watching_tv_child.v1",
+        "ex.ko.grammar.modifier.verb_calling_friend.v1",
+        "ex.ko.grammar.modifier.verb_studying_look.v1",
+        "ex.ko.grammar.modifier.verb_attending_school.v1",
+        "ex.ko.grammar.modifier.verb_preparing_students.v1"
+      ]
+    },
+    {
+      "id": "kg.grammar.modifier.adj",
+      "category": "grammar",
+      "sub": "modifier",
+      "title": "形容詞修飾名詞 (~ㄴ/은)",
       "level": "A1",
-      "path": "data/library/kg.grammar.ability.can.json",
-      "surface": "~ㄹ/을 수 있다",
+      "path": "data/library/kg.grammar.modifier.adj.json",
+      "surface": "~ㄴ/은",
+      "example_sentence_refs": [
+        "ex.ko.grammar.modifier.adj_pretty_flower.v1",
+        "ex.ko.grammar.modifier.adj_quiet_house.v1",
+        "ex.ko.grammar.modifier.adj_kind_friend.v1",
+        "ex.ko.grammar.modifier.adj_warm_coffee.v1",
+        "ex.ko.grammar.modifier.adj_cute_dog.v1",
+        "ex.ko.grammar.modifier.adj_big_school.v1"
+      ]
+    },
+    {
+      "id": "kg.grammar.negation.long_ji_anta",
+      "category": "grammar",
+      "sub": "negation",
+      "title": "否定句 (~地不/不～)",
+      "level": "A1",
+      "path": "data/library/kg.grammar.negation.long_ji_anta.json",
+      "surface": "~지 않다",
+      "example_sentence_refs": [
+        "ex.ko.grammar.negation.long_ji_anta.breakfast.v1",
+        "ex.ko.grammar.negation.long_ji_anta.sns.v1",
+        "ex.ko.grammar.negation.long_ji_anta.movie.v1",
+        "ex.ko.grammar.negation.long_ji_anta.coffee.v1",
+        "ex.ko.grammar.negation.long_ji_anta.music.v1"
+      ]
+    },
+    {
+      "id": "kg.grammar.negation.short_mot",
+      "category": "grammar",
+      "sub": "negation",
+      "title": "不能、沒理由做 (못)",
+      "level": "A1",
+      "path": "data/library/kg.grammar.negation.short_mot.json",
+      "surface": "못 ~",
+      "example_sentence_refs": [
+        "ex.ko.grammar.negation.short_mot.swim.v1",
+        "ex.ko.grammar.negation.short_mot.sleep.v1",
+        "ex.ko.grammar.negation.short_mot.spicy_food.v1",
+        "ex.ko.grammar.negation.short_mot.party.v1",
+        "ex.ko.grammar.negation.short_mot.alcohol.v1"
+      ]
+    },
+    {
+      "id": "kg.grammar.negation.short_an",
+      "category": "grammar",
+      "sub": "negation",
+      "title": "口語否定 (안)",
+      "level": "A1",
+      "path": "data/library/kg.grammar.negation.short_an.json",
+      "surface": "안 ~",
+      "example_sentence_refs": [
+        "ex.ko.grammar.negation.short_an.dinner.v1",
+        "ex.ko.grammar.negation.short_an.coffee.v1",
+        "ex.ko.grammar.negation.short_an.meet_friend.v1",
+        "ex.ko.grammar.negation.short_an.exercise.v1",
+        "ex.ko.grammar.negation.short_an.not_yet_sleep.v1"
+      ]
+    },
+    {
+      "id": "kg.grammar.tense.past_ass_oss",
+      "category": "grammar",
+      "sub": "tense",
+      "title": "過去式 (~았/었/했)",
+      "level": "A1",
+      "path": "data/library/kg.grammar.tense.past_ass_oss.json",
+      "surface": "~았/었/했-",
+      "example_sentence_refs": [
+        "ex.ko.grammar.tense.past_ass_oss.school.v1",
+        "ex.ko.grammar.tense.past_ass_oss.lunch.v1",
+        "ex.ko.grammar.tense.past_ass_oss.coffee.v1",
+        "ex.ko.grammar.tense.past_ass_oss.movie.v1",
+        "ex.ko.grammar.tense.past_ass_oss.party.v1"
+      ]
+    },
+    {
+      "id": "kg.grammar.tense.future_geoyeyo",
+      "category": "grammar",
+      "sub": "tense",
+      "title": "基礎未來式 (~ㄹ/을 거예요)",
+      "level": "A1",
+      "path": "data/library/kg.grammar.tense.future_geoyeyo.json",
+      "surface": "~ㄹ/을 거예요",
+      "example_sentence_refs": [
+        "ex.ko.grammar.tense.future_geoyeyo.rain.v1",
+        "ex.ko.grammar.tense.future_geoyeyo.shopping.v1",
+        "ex.ko.grammar.tense.future_geoyeyo.study.v1",
+        "ex.ko.grammar.tense.future_geoyeyo.movie.v1",
+        "ex.ko.grammar.tense.future_geoyeyo.sleep.v1"
+      ]
+    },
+    {
+      "id": "kg.grammar.tense.progressive",
+      "category": "grammar",
+      "sub": "tense",
+      "title": "正在進行中 (~고 있다)",
+      "level": "A2",
+      "path": "data/library/kg.grammar.tense.progressive.json",
+      "surface": "~고 있다",
+      "example_sentence_refs": [
+        "ex.ko.grammar.progressive.eating.v1",
+        "ex.ko.grammar.progressive.waiting_friend.v1",
+        "ex.ko.grammar.progressive.studying_ko.v1",
+        "ex.ko.grammar.progressive.watching_movie.v1",
+        "ex.ko.grammar.progressive.listening_music.v1",
+        "ex.ko.grammar.progressive.exercising.v1",
+        "ex.ko.grammar.progressive.calling.v1",
+        "ex.ko.grammar.progressive.cleaning.v1",
+        "ex.ko.grammar.progressive.working.v1",
+        "ex.ko.grammar.progressive.sleeping.v1"
+      ]
+    },
+    {
+      "id": "kg.grammar.honorific.suffix_ssi",
+      "category": "grammar",
+      "sub": "honorific",
+      "title": "稱呼接尾辭 (~씨)",
+      "level": "A1",
+      "path": "data/library/kg.grammar.honorific.suffix_ssi.json",
+      "surface": "~씨",
+      "example_sentence_refs": [
+        "ex.ko.grammar.honorific.suffix_ssi.greeting.v1",
+        "ex.ko.grammar.honorific.suffix_ssi.introduce.v1",
+        "ex.ko.grammar.honorific.suffix_ssi.nice_to_meet.v1"
+      ]
+    },
+    {
+      "id": "kg.grammar.copula.present_formal",
+      "category": "grammar",
+      "sub": "copula",
+      "title": "正式禮貌體系詞 (是...)",
+      "level": "A1",
+      "path": "data/library/kg.grammar.copula.present_formal.json",
+      "surface": "~입니다",
+      "example_sentence_refs": [
+        "ex.ko.grammar.copula.present_formal.student.v1",
+        "ex.ko.grammar.copula.present_formal.apple.v1",
+        "ex.ko.grammar.copula.present_formal.office_worker.v1",
+        "ex.ko.grammar.copula.present_formal.seoul.v1",
+        "ex.ko.grammar.copula.present_formal.name.v1"
+      ]
+    },
+    {
+      "id": "kg.grammar.copula.itda",
+      "category": "grammar",
+      "sub": "copula",
+      "title": "存在與擁有助詞 (있다)",
+      "level": "A1",
+      "path": "data/library/kg.grammar.copula.itda.json",
+      "surface": "~이/가 있다",
+      "example_sentence_refs": [
+        "ex.ko.grammar.copula.itda.time.v1",
+        "ex.ko.grammar.copula.itda.friend.v1",
+        "ex.ko.grammar.copula.itda.homework.v1",
+        "ex.ko.grammar.copula.itda.problem.v1",
+        "ex.ko.grammar.copula.itda.boyfriend.v1"
+      ]
+    },
+    {
+      "id": "kg.grammar.copula.present_informal",
+      "category": "grammar",
+      "sub": "copula",
+      "title": "非敬語系詞 (是...)",
+      "level": "A1",
+      "path": "data/library/kg.grammar.copula.present_informal.json",
+      "surface": "~야/이야",
+      "example_sentence_refs": [
+        "ex.ko.grammar.copula.present_informal.korean.v1",
+        "ex.ko.grammar.copula.present_informal.bubble_tea.v1",
+        "ex.ko.grammar.copula.present_informal.birthday.v1",
+        "ex.ko.grammar.copula.present_informal.best_friend.v1",
+        "ex.ko.grammar.copula.present_informal.house.v1"
+      ]
+    },
+    {
+      "id": "kg.grammar.copula.present_polite_informal",
+      "category": "grammar",
+      "sub": "copula",
+      "title": "標準禮貌體系詞 (是...)",
+      "level": "A1",
+      "path": "data/library/kg.grammar.copula.present_polite_informal.json",
+      "surface": "~예요/이에요",
+      "example_sentence_refs": [
+        "ex.ko.grammar.copula.present_polite_informal.student.v1",
+        "ex.ko.grammar.copula.present_polite_informal.friend.v1",
+        "ex.ko.grammar.copula.present_polite_informal.seoul.v1",
+        "ex.ko.grammar.copula.present_polite_informal.homework.v1"
+      ]
+    },
+    {
+      "id": "kg.grammar.copula.eopda",
+      "category": "grammar",
+      "sub": "copula",
+      "title": "否定存在與擁有 (없다)",
+      "level": "A1",
+      "path": "data/library/kg.grammar.copula.eopda.json",
+      "surface": "~이/가 없다",
+      "example_sentence_refs": [
+        "ex.ko.grammar.copula.eopda.money.v1",
+        "ex.ko.grammar.copula.eopda.time.v1",
+        "ex.ko.grammar.copula.eopda.problem.v1",
+        "ex.ko.grammar.copula.eopda.phone.v1",
+        "ex.ko.grammar.copula.eopda.girlfriend.v1"
+      ]
+    },
+    {
+      "id": "kg.grammar.ending.condition_aseoya",
+      "category": "grammar",
+      "sub": "ending",
+      "title": "直到...才 (-아/어서야)",
+      "level": "B2",
+      "path": "data/library/kg.grammar.ending.condition_aseoya.json",
+      "surface": "-아/어서야",
+      "example_sentence_refs": []
+    },
+    {
+      "id": "kg.grammar.ending.comparison_deusi",
+      "category": "grammar",
+      "sub": "ending",
+      "title": "比喻/相似 (-듯이)",
+      "level": "B1",
+      "path": "data/library/kg.grammar.ending.comparison_deusi.json",
+      "surface": "-듯이",
+      "example_sentence_refs": []
+    },
+    {
+      "id": "kg.grammar.ending.sumndia",
+      "category": "grammar",
+      "sub": "ending",
+      "title": "正式敬語結尾 (-(스)ㅂ니다)",
+      "level": "A1",
+      "path": "data/library/kg.grammar.ending.sumndia.json",
+      "surface": "-(스)ㅂ니다",
+      "example_sentence_refs": [
+        "ex.ko.grammar.ending.sumndia.go_school.v1",
+        "ex.ko.grammar.ending.sumndia.read_book.v1",
+        "ex.ko.grammar.ending.sumndia.i_am_student.v1",
+        "ex.ko.grammar.ending.sumndia.study_korean.v1",
+        "ex.ko.grammar.ending.sumndia.watch_movie.v1"
+      ]
+    },
+    {
+      "id": "kg.grammar.ending.benefactive",
+      "category": "grammar",
+      "sub": "ending",
+      "title": "動作的給予 / 請幫我 (아어 주다)",
+      "level": "A2",
+      "path": "data/library/kg.grammar.ending.benefactive.json",
+      "surface": "~아/어 주다",
+      "example_sentence_refs": [
+        "ex.ko.grammar.benefactive.tell_phone_number.v1",
+        "ex.ko.grammar.benefactive.send_photo.v1",
+        "ex.ko.grammar.benefactive.give_water.v1",
+        "ex.ko.grammar.benefactive.carry_luggage.v1",
+        "ex.ko.grammar.benefactive.help_me.v1",
+        "ex.ko.grammar.benefactive.teach_me.v1"
+      ]
+    },
+    {
+      "id": "kg.grammar.ending.state_retention_chae_ro",
+      "category": "grammar",
+      "sub": "ending",
+      "title": "保持狀態 (-(으)ㄴ/는 채로)",
+      "level": "B1",
+      "path": "data/library/kg.grammar.ending.state_retention_chae_ro.json",
+      "surface": "-(으)ㄴ/는 채로",
+      "example_sentence_refs": []
+    },
+    {
+      "id": "kg.grammar.ending.clarification_dasipi",
+      "category": "grammar",
+      "sub": "ending",
+      "title": "正如... (-다시피)",
+      "level": "B2",
+      "path": "data/library/kg.grammar.ending.clarification_dasipi.json",
+      "surface": "-다시피",
+      "example_sentence_refs": []
+    },
+    {
+      "id": "kg.grammar.ending.choice_geona",
+      "category": "grammar",
+      "sub": "ending",
+      "title": "連接語尾 (...或是... / 或者...)",
+      "level": "A1",
+      "path": "data/library/kg.grammar.ending.choice_geona.json",
+      "surface": "-거나",
+      "example_sentence_refs": [
+        "ex.ko.grammar.ending.choice_geona.read_or_music.v1",
+        "ex.ko.grammar.ending.choice_geona.movie_or_exercise.v1",
+        "ex.ko.grammar.ending.choice_geona.bread_or_milk.v1",
+        "ex.ko.grammar.ending.choice_geona.meet_or_rest.v1"
+      ]
+    },
+    {
+      "id": "kg.grammar.ending.restrictive_concession_doe",
+      "category": "grammar",
+      "sub": "ending",
+      "title": "有限制的允許 (-되)",
+      "level": "C1",
+      "path": "data/library/kg.grammar.ending.restrictive_concession_doe.json",
+      "surface": "-되",
+      "example_sentence_refs": []
+    },
+    {
+      "id": "kg.grammar.ending.additive_eulppunderseo",
+      "category": "grammar",
+      "sub": "ending",
+      "title": "不但...而且 (-(으)ㄹ뿐더러)",
+      "level": "B2",
+      "path": "data/library/kg.grammar.ending.additive_eulppunderseo.json",
+      "surface": "-(으)ㄹ뿐더러",
+      "example_sentence_refs": []
+    },
+    {
+      "id": "kg.grammar.ending.ayoeoyo",
+      "category": "grammar",
+      "sub": "ending",
+      "title": "常用禮貌體 (-(아/어)요)",
+      "level": "A1",
+      "path": "data/library/kg.grammar.ending.ayoeoyo.json",
+      "surface": "-아/어요",
+      "example_sentence_refs": [
+        "ex.ko.grammar.ending.ayoeoyo.go_home.v1",
+        "ex.ko.grammar.ending.ayoeoyo.eat_meal.v1",
+        "ex.ko.grammar.ending.ayoeoyo.drink_coffee.v1",
+        "ex.ko.grammar.ending.ayoeoyo.exercise.v1",
+        "ex.ko.grammar.ending.ayoeoyo.call_friend.v1"
+      ]
+    },
+    {
+      "id": "kg.grammar.ending.condition",
+      "category": "grammar",
+      "sub": "ending",
+      "title": "連接語尾 (如果...的話)",
+      "level": "A1",
+      "path": "data/library/kg.grammar.ending.condition.json",
+      "surface": "-(으)면",
+      "example_sentence_refs": [
+        "ex.ko.grammar.ending.condition.time_movie.v1",
+        "ex.ko.grammar.ending.condition.rain_rest.v1",
+        "ex.ko.grammar.ending.condition.late_call.v1",
+        "ex.ko.grammar.ending.condition.earn_travel.v1"
+      ]
+    },
+    {
+      "id": "kg.grammar.ending.contrast",
+      "category": "grammar",
+      "sub": "ending",
+      "title": "連接語尾 (雖然...但是...)",
+      "level": "A1",
+      "path": "data/library/kg.grammar.ending.contrast.json",
+      "surface": "-지만",
+      "example_sentence_refs": [
+        "ex.ko.grammar.ending.contrast.expensive_good.v1",
+        "ex.ko.grammar.ending.contrast.study_fun.v1",
+        "ex.ko.grammar.ending.contrast.busy_not_busy.v1",
+        "ex.ko.grammar.ending.contrast.korean_dont_give_up.v1"
+      ]
+    },
+    {
+      "id": "kg.grammar.ending.purpose_path",
+      "category": "grammar",
+      "sub": "ending",
+      "title": "移動的目的 (으러 가다/오다)",
+      "level": "A1",
+      "path": "data/library/kg.grammar.ending.purpose_path.json",
+      "surface": "~(으)러 가다/오다",
+      "example_sentence_refs": [
+        "ex.ko.grammar.purpose_path.go_eat.v1",
+        "ex.ko.grammar.purpose_path.go_borrow_book.v1",
+        "ex.ko.grammar.purpose_path.go_watch_movie.v1",
+        "ex.ko.grammar.purpose_path.go_study.v1",
+        "ex.ko.grammar.purpose_path.go_meet_friend.v1",
+        "ex.ko.grammar.purpose_path.go_exercise.v1"
+      ]
+    },
+    {
+      "id": "kg.grammar.ending.emotion_observer_ahada",
+      "category": "grammar",
+      "sub": "ending",
+      "title": "感到... (第三人稱情緒 -아/어하다)",
+      "level": "A2",
+      "path": "data/library/kg.grammar.ending.emotion_observer_ahada.json",
+      "surface": "-아/어하다",
+      "example_sentence_refs": []
+    },
+    {
+      "id": "kg.grammar.ending.contrast_geonman",
+      "category": "grammar",
+      "sub": "ending",
+      "title": "期望落空的轉折 (-건만)",
+      "level": "C1",
+      "path": "data/library/kg.grammar.ending.contrast_geonman.json",
+      "surface": "-건만",
+      "example_sentence_refs": []
+    },
+    {
+      "id": "kg.grammar.ending.reason_sequence",
+      "category": "grammar",
+      "sub": "ending",
+      "title": "連接語尾 (因為...所以 / ...然後...)",
+      "level": "A1",
+      "path": "data/library/kg.grammar.ending.reason_sequence.json",
+      "surface": "-아서/어서/해서",
+      "example_sentence_refs": [
+        "ex.ko.grammar.ending.reason_sequence.late_sorry.v1",
+        "ex.ko.grammar.ending.reason_sequence.rain_cant_go.v1",
+        "ex.ko.grammar.ending.reason_sequence.go_home_eat.v1",
+        "ex.ko.grammar.ending.reason_sequence.library_borrow.v1",
+        "ex.ko.grammar.ending.reason_sequence.tired_sleep.v1"
+      ]
+    },
+    {
+      "id": "kg.grammar.ending.suggestion",
+      "category": "grammar",
+      "sub": "ending",
+      "title": "邀請與建議 / 要一起嗎？ (ㄹ까요)",
+      "level": "A2",
+      "path": "data/library/kg.grammar.ending.suggestion.json",
+      "surface": "~(으)ㄹ까요?",
+      "example_sentence_refs": [
+        "ex.ko.grammar.suggestion.watch_movie_together.v1",
+        "ex.ko.grammar.suggestion.eat_lunch.v1",
+        "ex.ko.grammar.suggestion.drink_coffee.v1",
+        "ex.ko.grammar.suggestion.go_walk.v1",
+        "ex.ko.grammar.suggestion.go_party.v1",
+        "ex.ko.grammar.suggestion.rest_at_home.v1"
+      ]
+    },
+    {
+      "id": "kg.grammar.ending.state_change_ajida_eojida",
+      "category": "grammar",
+      "sub": "ending",
+      "title": "變得... (狀態變化 -아/어지다)",
+      "level": "A2",
+      "path": "data/library/kg.grammar.ending.state_change_ajida_eojida.json",
+      "surface": "-아/어지다",
+      "example_sentence_refs": []
+    },
+    {
+      "id": "kg.grammar.ending.contrast_jani",
+      "category": "grammar",
+      "sub": "ending",
+      "title": "想做可是 (-자니)",
+      "level": "B2",
+      "path": "data/library/kg.grammar.ending.contrast_jani.json",
+      "surface": "-자니",
+      "example_sentence_refs": []
+    },
+    {
+      "id": "kg.grammar.ending.cause_eulkka_bwa",
+      "category": "grammar",
+      "sub": "ending",
+      "title": "擔心所以 (-(으)ㄹ까 봐)",
+      "level": "B1",
+      "path": "data/library/kg.grammar.ending.cause_eulkka_bwa.json",
+      "surface": "-(으)ㄹ까 봐",
       "example_sentence_refs": []
     },
     {
@@ -318,57 +710,63 @@
       "level": "A1",
       "path": "data/library/kg.grammar.ability.cannot.json",
       "surface": "~ㄹ/을 수 없다",
-      "example_sentence_refs": []
+      "example_sentence_refs": [
+        "ex.ko.grammar.ability.cannot.eat_more.v1",
+        "ex.ko.grammar.ability.cannot.go_busy.v1",
+        "ex.ko.grammar.ability.cannot.buy_no_money.v1",
+        "ex.ko.grammar.ability.cannot.believe.v1",
+        "ex.ko.grammar.ability.cannot.remember.v1"
+      ]
     },
     {
-      "id": "kg.grammar.copula.eopda",
+      "id": "kg.grammar.ability.can",
       "category": "grammar",
-      "sub": "copula",
-      "title": "否定存在與擁有 (없다)",
+      "sub": "ability",
+      "title": "會、可以 (能力/可能性)",
       "level": "A1",
-      "path": "data/library/kg.grammar.copula.eopda.json",
-      "surface": "~이/가 없다",
-      "example_sentence_refs": []
+      "path": "data/library/kg.grammar.ability.can.json",
+      "surface": "~ㄹ/을 수 있다",
+      "example_sentence_refs": [
+        "ex.ko.grammar.ability.can.korean.v1",
+        "ex.ko.grammar.ability.can.swim.v1",
+        "ex.ko.grammar.ability.can.go.v1",
+        "ex.ko.grammar.ability.can.card.v1",
+        "ex.ko.grammar.ability.can.borrow.v1"
+      ]
     },
     {
-      "id": "kg.grammar.copula.itda",
+      "id": "kg.grammar.request.polite",
       "category": "grammar",
-      "sub": "copula",
-      "title": "存在與擁有助詞 (있다)",
+      "sub": "request",
+      "title": "禮貌命令 / 請 (세요)",
       "level": "A1",
-      "path": "data/library/kg.grammar.copula.itda.json",
-      "surface": "~이/가 있다",
-      "example_sentence_refs": []
+      "path": "data/library/kg.grammar.request.polite.json",
+      "surface": "~(으)세요",
+      "example_sentence_refs": [
+        "ex.ko.grammar.polite_req.please_eat.v1",
+        "ex.ko.grammar.polite_req.please_drink_coffee.v1",
+        "ex.ko.grammar.polite_req.please_go_home.v1",
+        "ex.ko.grammar.polite_req.please_clean.v1",
+        "ex.ko.grammar.polite_req.please_study.v1",
+        "ex.ko.grammar.polite_req.be_happy.v1"
+      ]
     },
     {
-      "id": "kg.grammar.copula.present_formal",
+      "id": "kg.grammar.request.negative",
       "category": "grammar",
-      "sub": "copula",
-      "title": "正式禮貌體系詞 (是...)",
+      "sub": "request",
+      "title": "禮貌禁止 / 請不要 (지 마세요)",
       "level": "A1",
-      "path": "data/library/kg.grammar.copula.present_formal.json",
-      "surface": "~입니다",
-      "example_sentence_refs": []
-    },
-    {
-      "id": "kg.grammar.copula.present_informal",
-      "category": "grammar",
-      "sub": "copula",
-      "title": "非敬語系詞 (是...)",
-      "level": "A1",
-      "path": "data/library/kg.grammar.copula.present_informal.json",
-      "surface": "~야/이야",
-      "example_sentence_refs": []
-    },
-    {
-      "id": "kg.grammar.copula.present_polite_informal",
-      "category": "grammar",
-      "sub": "copula",
-      "title": "標準禮貌體系詞 (是...)",
-      "level": "A1",
-      "path": "data/library/kg.grammar.copula.present_polite_informal.json",
-      "surface": "~이에요/예요",
-      "example_sentence_refs": []
+      "path": "data/library/kg.grammar.request.negative.json",
+      "surface": "~지 마세요",
+      "example_sentence_refs": [
+        "ex.ko.grammar.negative_req.no_photo.v1",
+        "ex.ko.grammar.negative_req.dont_be_late.v1",
+        "ex.ko.grammar.negative_req.dont_be_noisy.v1",
+        "ex.ko.grammar.negative_req.dont_call.v1",
+        "ex.ko.grammar.negative_req.dont_worry.v1",
+        "ex.ko.grammar.negative_req.dont_leave_wallet.v1"
+      ]
     },
     {
       "id": "kg.grammar.desire.want",
@@ -405,362 +803,6 @@
       ]
     },
     {
-      "id": "kg.grammar.determiner.musun",
-      "category": "grammar",
-      "sub": "determiner",
-      "title": "疑問冠詞 (무슨)",
-      "level": "A1",
-      "path": "data/library/kg.grammar.determiner.musun.json",
-      "surface": "무슨",
-      "example_sentence_refs": [
-        "ex.ko.grammar.musun.what_food.v1",
-        "ex.ko.grammar.musun.what_sound.v1",
-        "ex.ko.grammar.musun.what_movie.v1",
-        "ex.ko.grammar.musun.what_job.v1",
-        "ex.ko.grammar.musun.what_day.v1",
-        "ex.ko.grammar.musun.what_worry.v1"
-      ]
-    },
-    {
-      "id": "kg.grammar.ending.ayoeoyo",
-      "category": "grammar",
-      "sub": "ending",
-      "title": "常用禮貌體 (-(아/어)요)",
-      "level": "A1",
-      "path": "data/library/kg.grammar.ending.ayoeoyo.json",
-      "surface": "-아/어요",
-      "example_sentence_refs": []
-    },
-    {
-      "id": "kg.grammar.ending.benefactive",
-      "category": "grammar",
-      "sub": "ending",
-      "title": "動作的給予 / 請幫我 (아어 주다)",
-      "level": "A2",
-      "path": "data/library/kg.grammar.ending.benefactive.json",
-      "surface": "~아/어 주다",
-      "example_sentence_refs": [
-        "ex.ko.grammar.benefactive.tell_phone_number.v1",
-        "ex.ko.grammar.benefactive.send_photo.v1",
-        "ex.ko.grammar.benefactive.give_water.v1",
-        "ex.ko.grammar.benefactive.carry_luggage.v1",
-        "ex.ko.grammar.benefactive.help_me.v1",
-        "ex.ko.grammar.benefactive.teach_me.v1"
-      ]
-    },
-    {
-      "id": "kg.grammar.ending.choice_geona",
-      "category": "grammar",
-      "sub": "ending",
-      "title": "連接語尾 (...或是... / 或者...)",
-      "level": "A1",
-      "path": "data/library/kg.grammar.ending.choice_geona.json",
-      "surface": "-거나",
-      "example_sentence_refs": []
-    },
-    {
-      "id": "kg.grammar.ending.condition",
-      "category": "grammar",
-      "sub": "ending",
-      "title": "連接語尾 (如果...的話)",
-      "level": "A1",
-      "path": "data/library/kg.grammar.ending.condition.json",
-      "surface": "-(으)면",
-      "example_sentence_refs": []
-    },
-    {
-      "id": "kg.grammar.ending.contrast",
-      "category": "grammar",
-      "sub": "ending",
-      "title": "連接語尾 (雖然...但是...)",
-      "level": "A1",
-      "path": "data/library/kg.grammar.ending.contrast.json",
-      "surface": "-지만",
-      "example_sentence_refs": []
-    },
-    {
-      "id": "kg.grammar.ending.purpose_path",
-      "category": "grammar",
-      "sub": "ending",
-      "title": "移動的目的 (으러 가다/오다)",
-      "level": "A1",
-      "path": "data/library/kg.grammar.ending.purpose_path.json",
-      "surface": "~(으)러 가다/오다",
-      "example_sentence_refs": [
-        "ex.ko.grammar.purpose_path.go_eat.v1",
-        "ex.ko.grammar.purpose_path.go_borrow_book.v1",
-        "ex.ko.grammar.purpose_path.go_watch_movie.v1",
-        "ex.ko.grammar.purpose_path.go_study.v1",
-        "ex.ko.grammar.purpose_path.go_meet_friend.v1",
-        "ex.ko.grammar.purpose_path.go_exercise.v1"
-      ]
-    },
-    {
-      "id": "kg.grammar.ending.reason_sequence",
-      "category": "grammar",
-      "sub": "ending",
-      "title": "連接語尾 (因為...所以 / ...然後...)",
-      "level": "A1",
-      "path": "data/library/kg.grammar.ending.reason_sequence.json",
-      "surface": "-아서/어서/해서",
-      "example_sentence_refs": []
-    },
-    {
-      "id": "kg.grammar.ending.suggestion",
-      "category": "grammar",
-      "sub": "ending",
-      "title": "邀請與建議 / 要一起嗎？ (ㄹ까요)",
-      "level": "A2",
-      "path": "data/library/kg.grammar.ending.suggestion.json",
-      "surface": "~(으)ㄹ까요?",
-      "example_sentence_refs": [
-        "ex.ko.grammar.suggestion.watch_movie_together.v1",
-        "ex.ko.grammar.suggestion.eat_lunch.v1",
-        "ex.ko.grammar.suggestion.drink_coffee.v1",
-        "ex.ko.grammar.suggestion.go_walk.v1",
-        "ex.ko.grammar.suggestion.go_party.v1",
-        "ex.ko.grammar.suggestion.rest_at_home.v1"
-      ]
-    },
-    {
-      "id": "kg.grammar.ending.sumndia",
-      "category": "grammar",
-      "sub": "ending",
-      "title": "正式敬語結尾 (-(스)ㅂ니다)",
-      "level": "A1",
-      "path": "data/library/kg.grammar.ending.sumndia.json",
-      "surface": "-(스)ㅂ니다",
-      "example_sentence_refs": []
-    },
-    {
-      "id": "kg.grammar.honorific.suffix_ssi",
-      "category": "grammar",
-      "sub": "honorific",
-      "title": "稱呼接尾辭 (~씨)",
-      "level": "A1",
-      "path": "data/library/kg.grammar.honorific.suffix_ssi.json",
-      "surface": "~씨",
-      "example_sentence_refs": []
-    },
-    {
-      "id": "kg.grammar.modifier.adj",
-      "category": "grammar",
-      "sub": "modifier",
-      "title": "形容詞修飾名詞 (~ㄴ/은)",
-      "level": "A1",
-      "path": "data/library/kg.grammar.modifier.adj.json",
-      "surface": "~ㄴ/은",
-      "example_sentence_refs": [
-        "ex.ko.grammar.modifier.adj_pretty_flower.v1",
-        "ex.ko.grammar.modifier.adj_quiet_house.v1",
-        "ex.ko.grammar.modifier.adj_kind_friend.v1",
-        "ex.ko.grammar.modifier.adj_warm_coffee.v1",
-        "ex.ko.grammar.modifier.adj_cute_dog.v1",
-        "ex.ko.grammar.modifier.adj_big_school.v1"
-      ]
-    },
-    {
-      "id": "kg.grammar.modifier.verb_present",
-      "category": "grammar",
-      "sub": "modifier",
-      "title": "動詞現在式修飾名詞 (~는)",
-      "level": "A2",
-      "path": "data/library/kg.grammar.modifier.verb_present.json",
-      "surface": "~는",
-      "example_sentence_refs": [
-        "ex.ko.grammar.modifier.verb_cooking_mom.v1",
-        "ex.ko.grammar.modifier.verb_watching_tv_child.v1",
-        "ex.ko.grammar.modifier.verb_calling_friend.v1",
-        "ex.ko.grammar.modifier.verb_studying_look.v1",
-        "ex.ko.grammar.modifier.verb_attending_school.v1",
-        "ex.ko.grammar.modifier.verb_preparing_students.v1"
-      ]
-    },
-    {
-      "id": "kg.grammar.negation.long_ji_anta",
-      "category": "grammar",
-      "sub": "negation",
-      "title": "否定句 (~地不/不～)",
-      "level": "A1",
-      "path": "data/library/kg.grammar.negation.long_ji_anta.json",
-      "surface": "~지 않다",
-      "example_sentence_refs": []
-    },
-    {
-      "id": "kg.grammar.negation.short_an",
-      "category": "grammar",
-      "sub": "negation",
-      "title": "口語否定 (안)",
-      "level": "A1",
-      "path": "data/library/kg.grammar.negation.short_an.json",
-      "surface": "안 ~",
-      "example_sentence_refs": []
-    },
-    {
-      "id": "kg.grammar.negation.short_mot",
-      "category": "grammar",
-      "sub": "negation",
-      "title": "不能、沒理由做 (못)",
-      "level": "A1",
-      "path": "data/library/kg.grammar.negation.short_mot.json",
-      "surface": "못 ~",
-      "example_sentence_refs": []
-    },
-    {
-      "id": "kg.grammar.particle.also",
-      "category": "grammar",
-      "sub": "particle",
-      "title": "也、包含 (도)",
-      "level": "A1",
-      "path": "data/library/kg.grammar.particle.also.json",
-      "surface": "도",
-      "example_sentence_refs": []
-    },
-    {
-      "id": "kg.grammar.particle.and_with_hago",
-      "category": "grammar",
-      "sub": "particle",
-      "title": "和、跟 (하고)",
-      "level": "A1",
-      "path": "data/library/kg.grammar.particle.and_with_hago.json",
-      "surface": "하고",
-      "example_sentence_refs": []
-    },
-    {
-      "id": "kg.grammar.particle.at_place_action",
-      "category": "grammar",
-      "sub": "particle",
-      "title": "動作場所助詞 (에서)",
-      "level": "A1",
-      "path": "data/library/kg.grammar.particle.at_place_action.json",
-      "surface": "에서",
-      "example_sentence_refs": []
-    },
-    {
-      "id": "kg.grammar.particle.at_time_place",
-      "category": "grammar",
-      "sub": "particle",
-      "title": "場所與時間助詞 (에)",
-      "level": "A1",
-      "path": "data/library/kg.grammar.particle.at_time_place.json",
-      "surface": "에",
-      "example_sentence_refs": []
-    },
-    {
-      "id": "kg.grammar.particle.boda",
-      "category": "grammar",
-      "sub": "particle",
-      "title": "比較助詞 (보다)",
-      "level": "A1",
-      "path": "data/library/kg.grammar.particle.boda.json",
-      "surface": "~보다",
-      "example_sentence_refs": []
-    },
-    {
-      "id": "kg.grammar.particle.dative",
-      "category": "grammar",
-      "sub": "particle",
-      "title": "對象標記 (에게/한테/께)",
-      "level": "A1",
-      "path": "data/library/kg.grammar.particle.dative.json",
-      "surface": "~에게/한테/께",
-      "example_sentence_refs": [
-        "ex.ko.grammar.dative.give_friend.v1",
-        "ex.ko.grammar.dative.call_sibling.v1",
-        "ex.ko.grammar.dative.ask_teacher.v1",
-        "ex.ko.grammar.dative.feed_dog.v1",
-        "ex.ko.grammar.dative.write_parents.v1",
-        "ex.ko.grammar.dative.ask_friend.v1"
-      ]
-    },
-    {
-      "id": "kg.grammar.particle.euro_dir",
-      "category": "grammar",
-      "sub": "particle",
-      "title": "方向助詞 ((으)로)",
-      "level": "A1",
-      "path": "data/library/kg.grammar.particle.euro_dir.json",
-      "surface": "~(으)로",
-      "example_sentence_refs": []
-    },
-    {
-      "id": "kg.grammar.particle.euro_tool",
-      "category": "grammar",
-      "sub": "particle",
-      "title": "工具/手段助詞 ((으)로)",
-      "level": "A1",
-      "path": "data/library/kg.grammar.particle.euro_tool.json",
-      "surface": "~(으)로",
-      "example_sentence_refs": []
-    },
-    {
-      "id": "kg.grammar.particle.man",
-      "category": "grammar",
-      "sub": "particle",
-      "title": "限定助詞 (만)",
-      "level": "A1",
-      "path": "data/library/kg.grammar.particle.man.json",
-      "surface": "~만",
-      "example_sentence_refs": []
-    },
-    {
-      "id": "kg.grammar.particle.object",
-      "category": "grammar",
-      "sub": "particle",
-      "title": "受格助詞 (을/를)",
-      "level": "A1",
-      "path": "data/library/kg.grammar.particle.object.json",
-      "surface": "~을/를",
-      "example_sentence_refs": []
-    },
-    {
-      "id": "kg.grammar.particle.source_from",
-      "category": "grammar",
-      "sub": "particle",
-      "title": "動作來源 (에게서/한테서/에서)",
-      "level": "A2",
-      "path": "data/library/kg.grammar.particle.source_from.json",
-      "surface": "~에게서/한테서/에서",
-      "example_sentence_refs": [
-        "ex.ko.grammar.source_from.from_friend.v1",
-        "ex.ko.grammar.source_from.learn_from_teacher.v1",
-        "ex.ko.grammar.source_from.call_from_sibling.v1",
-        "ex.ko.grammar.source_from.learn_cook_mom.v1",
-        "ex.ko.grammar.source_from.get_salary_company.v1",
-        "ex.ko.grammar.source_from.borrow_from_friend.v1"
-      ]
-    },
-    {
-      "id": "kg.grammar.particle.subject",
-      "category": "grammar",
-      "sub": "particle",
-      "title": "主格助詞 (이/가)",
-      "level": "A1",
-      "path": "data/library/kg.grammar.particle.subject.json",
-      "surface": "~이/가",
-      "example_sentence_refs": []
-    },
-    {
-      "id": "kg.grammar.particle.topic_eunneun",
-      "category": "grammar",
-      "sub": "particle",
-      "title": "主題助詞 (은/는)",
-      "level": "A1",
-      "path": "data/library/kg.grammar.particle.topic_eunneun.json",
-      "surface": "~은/는",
-      "example_sentence_refs": []
-    },
-    {
-      "id": "kg.grammar.particle.wagwa",
-      "category": "grammar",
-      "sub": "particle",
-      "title": "並列助詞 (와/과)",
-      "level": "A1",
-      "path": "data/library/kg.grammar.particle.wagwa.json",
-      "surface": "~와/과",
-      "example_sentence_refs": []
-    },
-    {
       "id": "kg.grammar.permission.allow",
       "category": "grammar",
       "sub": "permission",
@@ -795,88 +837,454 @@
       ]
     },
     {
-      "id": "kg.grammar.request.negative",
+      "id": "kg.grammar.particle.euro_tool",
       "category": "grammar",
-      "sub": "request",
-      "title": "禮貌禁止 / 請不要 (지 마세요)",
+      "sub": "particle",
+      "title": "工具/手段助詞 ((으)로)",
       "level": "A1",
-      "path": "data/library/kg.grammar.request.negative.json",
-      "surface": "~지 마세요",
+      "path": "data/library/kg.grammar.particle.euro_tool.json",
+      "surface": "~(으)로",
       "example_sentence_refs": [
-        "ex.ko.grammar.negative_req.no_photo.v1",
-        "ex.ko.grammar.negative_req.dont_be_late.v1",
-        "ex.ko.grammar.negative_req.dont_be_noisy.v1",
-        "ex.ko.grammar.negative_req.dont_call.v1",
-        "ex.ko.grammar.negative_req.dont_worry.v1",
-        "ex.ko.grammar.negative_req.dont_leave_wallet.v1"
+        "ex.ko.grammar.particle.euro_tool.with_pencil.v1",
+        "ex.ko.grammar.particle.euro_tool.in_korean.v1",
+        "ex.ko.grammar.particle.euro_tool.by_taxi.v1",
+        "ex.ko.grammar.particle.euro_tool.by_cash.v1",
+        "ex.ko.grammar.particle.euro_tool.from_wood.v1"
       ]
     },
     {
-      "id": "kg.grammar.request.polite",
+      "id": "kg.grammar.particle.at_place_action",
       "category": "grammar",
-      "sub": "request",
-      "title": "禮貌命令 / 請 (세요)",
+      "sub": "particle",
+      "title": "動作場所助詞 (에서)",
       "level": "A1",
-      "path": "data/library/kg.grammar.request.polite.json",
-      "surface": "~(으)세요",
+      "path": "data/library/kg.grammar.particle.at_place_action.json",
+      "surface": "에서",
       "example_sentence_refs": [
-        "ex.ko.grammar.polite_req.please_eat.v1",
-        "ex.ko.grammar.polite_req.please_drink_coffee.v1",
-        "ex.ko.grammar.polite_req.please_go_home.v1",
-        "ex.ko.grammar.polite_req.please_clean.v1",
-        "ex.ko.grammar.polite_req.please_study.v1",
-        "ex.ko.grammar.polite_req.be_happy.v1"
+        "ex.ko.grammar.particle.at_place_action.study_library.v1",
+        "ex.ko.grammar.particle.at_place_action.eat_restaurant.v1",
+        "ex.ko.grammar.particle.at_place_action.rest_home.v1",
+        "ex.ko.grammar.particle.at_place_action.work_office.v1",
+        "ex.ko.grammar.particle.at_place_action.learn_ko_school.v1",
+        "ex.ko.grammar.particle.at_place_action.watch_movie_cinema.v1",
+        "ex.ko.grammar.particle.at_place_action.sing_practice_room.v1",
+        "ex.ko.grammar.particle.at_place_action.shop_mart.v1",
+        "ex.ko.grammar.particle.at_place_action.meet_friend_restaurant.v1",
+        "ex.ko.grammar.particle.at_place_action.drink_coffee_cafe.v1"
       ]
     },
     {
-      "id": "kg.grammar.tense.future_geoyeyo",
+      "id": "kg.grammar.particle.and_with_hago",
       "category": "grammar",
-      "sub": "tense",
-      "title": "基礎未來式 (~ㄹ/을 거예요)",
+      "sub": "particle",
+      "title": "和、跟 (하고)",
       "level": "A1",
-      "path": "data/library/kg.grammar.tense.future_geoyeyo.json",
-      "surface": "~ㄹ/을 거예요",
-      "example_sentence_refs": []
+      "path": "data/library/kg.grammar.particle.and_with_hago.json",
+      "surface": "하고",
+      "example_sentence_refs": [
+        "ex.ko.grammar.particle.and_with_hago.play_with_sibling.v1",
+        "ex.ko.grammar.particle.and_with_hago.go_with_friend.v1",
+        "ex.ko.grammar.particle.and_with_hago.talk_to_mom.v1",
+        "ex.ko.grammar.particle.and_with_hago.bread_and_milk.v1"
+      ]
     },
     {
-      "id": "kg.grammar.tense.past_ass_oss",
+      "id": "kg.grammar.particle.boda",
       "category": "grammar",
-      "sub": "tense",
-      "title": "過去式 (~았/었/했)",
+      "sub": "particle",
+      "title": "比較助詞 (보다)",
       "level": "A1",
-      "path": "data/library/kg.grammar.tense.past_ass_oss.json",
-      "surface": "~았/었/했-",
-      "example_sentence_refs": []
+      "path": "data/library/kg.grammar.particle.boda.json",
+      "surface": "~보다",
+      "example_sentence_refs": [
+        "ex.ko.grammar.particle.boda.subway_faster_bus.v1",
+        "ex.ko.grammar.particle.boda.summer_hotter_winter.v1",
+        "ex.ko.grammar.particle.boda.ko_harder_en.v1",
+        "ex.ko.grammar.particle.boda.prettier_than_flower.v1",
+        "ex.ko.grammar.particle.boda.today_colder_yesterday.v1",
+        "ex.ko.grammar.particle.boda.health_more_important_money.v1"
+      ]
     },
     {
-      "id": "kg.grammar.tense.progressive",
+      "id": "kg.grammar.particle.object",
       "category": "grammar",
-      "sub": "tense",
-      "title": "正在進行中 (~고 있다)",
+      "sub": "particle",
+      "title": "受格助詞 (을/를)",
+      "level": "A1",
+      "path": "data/library/kg.grammar.particle.object.json",
+      "surface": "~을/를",
+      "example_sentence_refs": [
+        "ex.ko.grammar.particle.object.eat_apple.v1",
+        "ex.ko.grammar.particle.object.read_book.v1",
+        "ex.ko.grammar.particle.object.watch_movie.v1",
+        "ex.ko.grammar.particle.object.drink_coffee.v1",
+        "ex.ko.grammar.particle.object.do_homework.v1",
+        "ex.ko.grammar.particle.object.sing_song.v1",
+        "ex.ko.grammar.particle.object.buy_clothes.v1",
+        "ex.ko.grammar.particle.object.answer_phone.v1",
+        "ex.ko.grammar.particle.object.take_bus.v1",
+        "ex.ko.grammar.particle.object.clean_house.v1"
+      ]
+    },
+    {
+      "id": "kg.grammar.particle.at_time_place",
+      "category": "grammar",
+      "sub": "particle",
+      "title": "場所與時間助詞 (에)",
+      "level": "A1",
+      "path": "data/library/kg.grammar.particle.at_time_place.json",
+      "surface": "에",
+      "example_sentence_refs": [
+        "ex.ko.grammar.particle.at_time_place.go_school.v1",
+        "ex.ko.grammar.particle.at_time_place.go_market.v1",
+        "ex.ko.grammar.particle.at_time_place.at_library.v1",
+        "ex.ko.grammar.particle.at_time_place.wake_at_7.v1",
+        "ex.ko.grammar.particle.at_time_place.go_korea.v1",
+        "ex.ko.grammar.particle.at_time_place.want_go_sea.v1",
+        "ex.ko.grammar.particle.at_time_place.friend_at_restaurant.v1",
+        "ex.ko.grammar.particle.at_time_place.watch_movie_weekend.v1",
+        "ex.ko.grammar.particle.at_time_place.eat_at_12.v1"
+      ]
+    },
+    {
+      "id": "kg.grammar.particle.euro_dir",
+      "category": "grammar",
+      "sub": "particle",
+      "title": "方向助詞 ((으)로)",
+      "level": "A1",
+      "path": "data/library/kg.grammar.particle.euro_dir.json",
+      "surface": "~(으)로",
+      "example_sentence_refs": [
+        "ex.ko.grammar.particle.euro_dir.to_restaurant.v1",
+        "ex.ko.grammar.particle.euro_dir.to_school.v1",
+        "ex.ko.grammar.particle.euro_dir.to_home.v1",
+        "ex.ko.grammar.particle.euro_dir.to_airport.v1",
+        "ex.ko.grammar.particle.euro_dir.to_right.v1"
+      ]
+    },
+    {
+      "id": "kg.grammar.particle.also",
+      "category": "grammar",
+      "sub": "particle",
+      "title": "也、包含 (도)",
+      "level": "A1",
+      "path": "data/library/kg.grammar.particle.also.json",
+      "surface": "도",
+      "example_sentence_refs": [
+        "ex.ko.grammar.particle.also.student.v1",
+        "ex.ko.grammar.particle.also.read_book.v1",
+        "ex.ko.grammar.particle.also.bought_clothes.v1",
+        "ex.ko.grammar.particle.also.ate_apple.v1",
+        "ex.ko.grammar.particle.also.took_bus.v1",
+        "ex.ko.grammar.particle.also.watched_movie.v1",
+        "ex.ko.grammar.particle.also.sang_song.v1",
+        "ex.ko.grammar.particle.also.drank_coffee.v1",
+        "ex.ko.grammar.particle.also.house_pretty.v1",
+        "ex.ko.grammar.particle.also.party_fun.v1"
+      ]
+    },
+    {
+      "id": "kg.grammar.particle.subject",
+      "category": "grammar",
+      "sub": "particle",
+      "title": "主格助詞 (이/가)",
+      "level": "A1",
+      "path": "data/library/kg.grammar.particle.subject.json",
+      "surface": "~이/가",
+      "example_sentence_refs": [
+        "ex.ko.grammar.particle.subject.this_person_friend.v1",
+        "ex.ko.grammar.particle.subject.apple_tasty.v1",
+        "ex.ko.grammar.particle.subject.house_big.v1",
+        "ex.ko.grammar.particle.subject.dog_cute.v1",
+        "ex.ko.grammar.particle.subject.book_interesting.v1",
+        "ex.ko.grammar.particle.subject.movie_started.v1",
+        "ex.ko.grammar.particle.subject.song_good.v1",
+        "ex.ko.grammar.particle.subject.bus_arrived.v1"
+      ]
+    },
+    {
+      "id": "kg.grammar.particle.man",
+      "category": "grammar",
+      "sub": "particle",
+      "title": "限定助詞 (만)",
+      "level": "A1",
+      "path": "data/library/kg.grammar.particle.man.json",
+      "surface": "~만",
+      "example_sentence_refs": [
+        "ex.ko.grammar.particle.man.only_10_min.v1",
+        "ex.ko.grammar.particle.man.only_you.v1",
+        "ex.ko.grammar.particle.man.only_veg.v1",
+        "ex.ko.grammar.particle.man.only_water.v1",
+        "ex.ko.grammar.particle.man.only_cash.v1",
+        "ex.ko.grammar.particle.man.only_wait_5_min.v1"
+      ]
+    },
+    {
+      "id": "kg.grammar.particle.topic_eunneun",
+      "category": "grammar",
+      "sub": "particle",
+      "title": "主題助詞 (은/는)",
+      "level": "A1",
+      "path": "data/library/kg.grammar.particle.topic_eunneun.json",
+      "surface": "~은/는",
+      "example_sentence_refs": [
+        "ex.ko.grammar.particle.topic_eunneun.i_am_not_student.v1",
+        "ex.ko.grammar.particle.topic_eunneun.house_is_big.v1",
+        "ex.ko.grammar.particle.topic_eunneun.book_is_interesting.v1",
+        "ex.ko.grammar.particle.topic_eunneun.apple_is_tasty.v1",
+        "ex.ko.grammar.particle.topic_eunneun.dog_is_cute.v1",
+        "ex.ko.grammar.particle.topic_eunneun.movie_is_long.v1",
+        "ex.ko.grammar.particle.topic_eunneun.bus_is_fast.v1",
+        "ex.ko.grammar.particle.topic_eunneun.coffee_is_expensive.v1",
+        "ex.ko.grammar.particle.topic_eunneun.school_is_far.v1",
+        "ex.ko.grammar.particle.topic_eunneun.song_is_good.v1"
+      ]
+    },
+    {
+      "id": "kg.grammar.particle.dative",
+      "category": "grammar",
+      "sub": "particle",
+      "title": "對象標記 (에게/한테/께)",
+      "level": "A1",
+      "path": "data/library/kg.grammar.particle.dative.json",
+      "surface": "~에게/한테/께",
+      "example_sentence_refs": [
+        "ex.ko.grammar.dative.give_friend.v1",
+        "ex.ko.grammar.dative.call_sibling.v1",
+        "ex.ko.grammar.dative.ask_teacher.v1",
+        "ex.ko.grammar.dative.feed_dog.v1",
+        "ex.ko.grammar.dative.write_parents.v1",
+        "ex.ko.grammar.dative.ask_friend.v1"
+      ]
+    },
+    {
+      "id": "kg.grammar.particle.wagwa",
+      "category": "grammar",
+      "sub": "particle",
+      "title": "並列助詞 (와/과)",
+      "level": "A1",
+      "path": "data/library/kg.grammar.particle.wagwa.json",
+      "surface": "~와/과",
+      "example_sentence_refs": [
+        "ex.ko.grammar.particle.wagwa.go_with_friend.v1",
+        "ex.ko.grammar.particle.wagwa.travel_with_family.v1",
+        "ex.ko.grammar.particle.wagwa.talk_with_teacher.v1",
+        "ex.ko.grammar.particle.wagwa.play_with_dog.v1",
+        "ex.ko.grammar.particle.wagwa.meeting_with_colleague.v1",
+        "ex.ko.grammar.particle.wagwa.shop_with_sister.v1"
+      ]
+    },
+    {
+      "id": "kg.grammar.particle.source_from",
+      "category": "grammar",
+      "sub": "particle",
+      "title": "動作來源 (에게서/한테서/에서)",
       "level": "A2",
-      "path": "data/library/kg.grammar.tense.progressive.json",
-      "surface": "~고 있다",
+      "path": "data/library/kg.grammar.particle.source_from.json",
+      "surface": "~에게서/한테서/에서",
       "example_sentence_refs": [
-        "ex.ko.grammar.progressive.eating.v1",
-        "ex.ko.grammar.progressive.waiting_friend.v1",
-        "ex.ko.grammar.progressive.studying_ko.v1",
-        "ex.ko.grammar.progressive.watching_movie.v1",
-        "ex.ko.grammar.progressive.listening_music.v1",
-        "ex.ko.grammar.progressive.exercising.v1",
-        "ex.ko.grammar.progressive.calling.v1",
-        "ex.ko.grammar.progressive.cleaning.v1",
-        "ex.ko.grammar.progressive.working.v1",
-        "ex.ko.grammar.progressive.sleeping.v1"
+        "ex.ko.grammar.source_from.from_friend.v1",
+        "ex.ko.grammar.source_from.learn_from_teacher.v1",
+        "ex.ko.grammar.source_from.call_from_sibling.v1",
+        "ex.ko.grammar.source_from.get_salary_company.v1",
+        "ex.ko.grammar.source_from.borrow_from_friend.v1"
       ]
     },
     {
-      "id": "kp.daily.greeting.annyeong",
-      "category": "pattern",
-      "sub": "greetings",
-      "title": "問候語 (你好 / 您好)",
+      "id": "kg.grammar.determiner.musun",
+      "category": "grammar",
+      "sub": "determiner",
+      "title": "疑問冠詞 (무슨)",
       "level": "A1",
-      "path": "data/library/kp.daily.greeting.annyeong.json",
-      "surface": "안녕하세요",
+      "path": "data/library/kg.grammar.determiner.musun.json",
+      "surface": "무슨",
+      "example_sentence_refs": [
+        "ex.ko.grammar.musun.what_food.v1",
+        "ex.ko.grammar.musun.what_sound.v1",
+        "ex.ko.grammar.musun.what_movie.v1",
+        "ex.ko.grammar.musun.what_job.v1",
+        "ex.ko.grammar.musun.what_day.v1",
+        "ex.ko.grammar.musun.what_worry.v1"
+      ]
+    },
+    {
+      "id": "kg.connector.cause.geureomeuro",
+      "category": "connector",
+      "sub": "cause",
+      "title": "因此、所以 (그러므로)",
+      "level": "A2",
+      "path": "data/library/kg.connector.cause.geureomeuro.json",
+      "surface": "그러므로",
+      "example_sentence_refs": []
+    },
+    {
+      "id": "kg.connector.cause.geuraeseo",
+      "category": "connector",
+      "sub": "cause",
+      "title": "所以、因此 (그래서)",
+      "level": "A1",
+      "path": "data/library/kg.connector.cause.geuraeseo.json",
+      "surface": "그래서",
+      "example_sentence_refs": []
+    },
+    {
+      "id": "kg.connector.cause.ttaraseo",
+      "category": "connector",
+      "sub": "cause",
+      "title": "因此、於是 (따라서)",
+      "level": "A2",
+      "path": "data/library/kg.connector.cause.ttaraseo.json",
+      "surface": "따라서",
+      "example_sentence_refs": []
+    },
+    {
+      "id": "kg.connector.cause.geureonikka",
+      "category": "connector",
+      "sub": "cause",
+      "title": "所以、因此 (그러니까)",
+      "level": "A1",
+      "path": "data/library/kg.connector.cause.geureonikka.json",
+      "surface": "그러니까",
+      "example_sentence_refs": []
+    },
+    {
+      "id": "kg.connector.condition.geureomyeon",
+      "category": "connector",
+      "sub": "condition",
+      "title": "那麼、那樣的話 (그러면)",
+      "level": "A1",
+      "path": "data/library/kg.connector.condition.geureomyeon.json",
+      "surface": "그러면",
+      "example_sentence_refs": []
+    },
+    {
+      "id": "kg.connector.conversion.geureonde",
+      "category": "connector",
+      "sub": "conversion",
+      "title": "但是、話說回來 (그런데)",
+      "level": "A1",
+      "path": "data/library/kg.connector.conversion.geureonde.json",
+      "surface": "그런데",
+      "example_sentence_refs": []
+    },
+    {
+      "id": "kg.connector.contrast.geuraedo",
+      "category": "connector",
+      "sub": "contrast",
+      "title": "儘管如此、還是 (그래도)",
+      "level": "A1",
+      "path": "data/library/kg.connector.contrast.geuraedo.json",
+      "surface": "그래도",
+      "example_sentence_refs": []
+    },
+    {
+      "id": "kg.connector.contrast.geureona",
+      "category": "connector",
+      "sub": "contrast",
+      "title": "然而、但是 (그러나)",
+      "level": "A2",
+      "path": "data/library/kg.connector.contrast.geureona.json",
+      "surface": "그러나",
+      "example_sentence_refs": []
+    },
+    {
+      "id": "kg.connector.contrast.geureochiman",
+      "category": "connector",
+      "sub": "contrast",
+      "title": "雖然如此、但是 (그렇지만)",
+      "level": "A1",
+      "path": "data/library/kg.connector.contrast.geureochiman.json",
+      "surface": "그렇지만",
+      "example_sentence_refs": []
+    },
+    {
+      "id": "kg.connector.contrast.geureonde",
+      "category": "connector",
+      "sub": "contrast",
+      "title": "但是、話說回來 (그런데)",
+      "level": "A1",
+      "path": "data/library/kg.connector.contrast.geureonde.json",
+      "surface": "그런데",
+      "example_sentence_refs": []
+    },
+    {
+      "id": "kg.connector.contrast.hajiman",
+      "category": "connector",
+      "sub": "contrast",
+      "title": "但是、不過 (하지만)",
+      "level": "A1",
+      "path": "data/library/kg.connector.contrast.hajiman.json",
+      "surface": "하지만",
+      "example_sentence_refs": []
+    },
+    {
+      "id": "kg.connector.sequence.gedaga",
+      "category": "connector",
+      "sub": "sequence",
+      "title": "再加上、而且 (게다가)",
+      "level": "A2",
+      "path": "data/library/kg.connector.sequence.gedaga.json",
+      "surface": "게다가",
+      "example_sentence_refs": []
+    },
+    {
+      "id": "kg.connector.sequence.geureom",
+      "category": "connector",
+      "sub": "sequence",
+      "title": "那麼 (그럼)",
+      "level": "A1",
+      "path": "data/library/kg.connector.sequence.geureom.json",
+      "surface": "그럼",
+      "example_sentence_refs": []
+    },
+    {
+      "id": "kg.connector.sequence.geurigo",
+      "category": "connector",
+      "sub": "sequence",
+      "title": "然後、並且 (그리고)",
+      "level": "A1",
+      "path": "data/library/kg.connector.sequence.geurigo.json",
+      "surface": "그리고",
+      "example_sentence_refs": []
+    },
+    {
+      "id": "kp.pattern.experience.general",
+      "category": "pattern",
+      "sub": "experience",
+      "title": "個人經驗 ({experience} + 아/어 본 적이 있어요)",
+      "level": "A2",
+      "path": "data/library/kp.pattern.experience.general.json",
+      "surface": "",
+      "example_sentence_refs": []
+    },
+    {
+      "id": "kp.pattern.transport.destination_query",
+      "category": "pattern",
+      "sub": "transport",
+      "title": "交通目的地移動詢問 ({destination} + 에 가요?)",
+      "level": "A1",
+      "path": "data/library/kp.pattern.transport.destination_query.json",
+      "surface": "",
+      "example_sentence_refs": []
+    },
+    {
+      "id": "kp.pattern.payment.card_request",
+      "category": "pattern",
+      "sub": "payment",
+      "title": "支付方式詢問 (카드 돼요?)",
+      "level": "A1",
+      "path": "data/library/kp.pattern.payment.card_request.json",
+      "surface": "",
+      "example_sentence_refs": []
+    },
+    {
+      "id": "kp.pattern.payment.bargaining",
+      "category": "pattern",
+      "sub": "payment",
+      "title": "議價與折扣請求 ({item} 조금 깎아 주실 수 있어요?)",
+      "level": "A2",
+      "path": "data/library/kp.pattern.payment.bargaining.json",
+      "surface": "",
       "example_sentence_refs": []
     },
     {
@@ -900,6 +1308,116 @@
       "example_sentence_refs": []
     },
     {
+      "id": "kp.daily.greeting.annyeong",
+      "category": "pattern",
+      "sub": "greetings",
+      "title": "問候語 (你好 / 您好)",
+      "level": "A1",
+      "path": "data/library/kp.daily.greeting.annyeong.json",
+      "surface": "안녕하세요",
+      "example_sentence_refs": []
+    },
+    {
+      "id": "kp.pattern.connective.condition",
+      "category": "pattern",
+      "sub": "connective",
+      "title": "條件與結果 ({condition} + 으면 {result})",
+      "level": "A2",
+      "path": "data/library/kp.pattern.connective.condition.json",
+      "surface": "",
+      "example_sentence_refs": []
+    },
+    {
+      "id": "kp.pattern.connective.sequence",
+      "category": "pattern",
+      "sub": "connective",
+      "title": "順序連接 (먼저 {step1} + 고, 그다음에 {step2})",
+      "level": "A2",
+      "path": "data/library/kp.pattern.connective.sequence.json",
+      "surface": "",
+      "example_sentence_refs": []
+    },
+    {
+      "id": "kp.pattern.connective.reason",
+      "category": "pattern",
+      "sub": "connective",
+      "title": "原因連接 ({reason} + 아서/어서 {result})",
+      "level": "A2",
+      "path": "data/library/kp.pattern.connective.reason.json",
+      "surface": "",
+      "example_sentence_refs": []
+    },
+    {
+      "id": "kp.pattern.time.intent",
+      "category": "pattern",
+      "sub": "time",
+      "title": "意圖與計畫 ({plan}려고 해요.)",
+      "level": "A2",
+      "path": "data/library/kp.pattern.time.intent.json",
+      "surface": "",
+      "example_sentence_refs": []
+    },
+    {
+      "id": "kp.pattern.time.current_date",
+      "category": "pattern",
+      "sub": "time",
+      "title": "今天日期詢問 (오늘이 몇 월 며칠이에요?)",
+      "level": "A1",
+      "path": "data/library/kp.pattern.time.current_date.json",
+      "surface": "",
+      "example_sentence_refs": []
+    },
+    {
+      "id": "kp.time.today_is_weekday",
+      "category": "pattern",
+      "sub": "time",
+      "title": "今天是星期幾",
+      "level": "A1",
+      "path": "data/library/kp.time.today_is_weekday.json",
+      "surface": "오늘은 N요일이에요",
+      "example_sentence_refs": []
+    },
+    {
+      "id": "kp.time.on_weekday_do",
+      "category": "pattern",
+      "sub": "time",
+      "title": "在星期幾做某事",
+      "level": "A1",
+      "path": "data/library/kp.time.on_weekday_do.json",
+      "surface": "N요일에 __ 했어요",
+      "example_sentence_refs": []
+    },
+    {
+      "id": "kp.pattern.time.schedule",
+      "category": "pattern",
+      "sub": "time",
+      "title": "行程表述與約定 ({time}에 {plan}이/가 있어요.)",
+      "level": "A1",
+      "path": "data/library/kp.pattern.time.schedule.json",
+      "surface": "",
+      "example_sentence_refs": []
+    },
+    {
+      "id": "kp.daily.today_is_noun",
+      "category": "pattern",
+      "sub": "time",
+      "title": "今天是...",
+      "level": "A1",
+      "path": "data/library/kp.daily.today_is_noun.json",
+      "surface": "오늘은 N이에요.",
+      "example_sentence_refs": []
+    },
+    {
+      "id": "kp.pattern.time.current_time",
+      "category": "pattern",
+      "sub": "time",
+      "title": "現在時間詢問 (지금 몇 시예요?)",
+      "level": "A1",
+      "path": "data/library/kp.pattern.time.current_time.json",
+      "surface": "",
+      "example_sentence_refs": []
+    },
+    {
       "id": "kp.daily.polite_question",
       "category": "pattern",
       "sub": "question",
@@ -910,12 +1428,12 @@
       "example_sentence_refs": []
     },
     {
-      "id": "kp.pattern.question.asking_name",
+      "id": "kp.pattern.question.location_query",
       "category": "pattern",
       "sub": "question",
-      "title": "詢問姓名 (이름이 뭐예요?)",
+      "title": "詢問地點 (어디예요?)",
       "level": "A1",
-      "path": "data/library/kp.pattern.question.asking_name.json",
+      "path": "data/library/kp.pattern.question.location_query.json",
       "surface": "",
       "example_sentence_refs": []
     },
@@ -930,12 +1448,12 @@
       "example_sentence_refs": []
     },
     {
-      "id": "kp.pattern.question.location_query",
+      "id": "kp.pattern.question.asking_name",
       "category": "pattern",
       "sub": "question",
-      "title": "詢問地點 (어디예요?)",
+      "title": "詢問姓名 (이름이 뭐예요?)",
       "level": "A1",
-      "path": "data/library/kp.pattern.question.location_query.json",
+      "path": "data/library/kp.pattern.question.asking_name.json",
       "surface": "",
       "example_sentence_refs": []
     },
@@ -946,6 +1464,26 @@
       "title": "詢問價格 (얼마예요?)",
       "level": "A1",
       "path": "data/library/kp.pattern.question.price_query.json",
+      "surface": "",
+      "example_sentence_refs": []
+    },
+    {
+      "id": "kp.pattern.facility.toilet_query",
+      "category": "pattern",
+      "sub": "facility",
+      "title": "設施位址詢問 (화장실이 어디예요?)",
+      "level": "A1",
+      "path": "data/library/kp.pattern.facility.toilet_query.json",
+      "surface": "",
+      "example_sentence_refs": []
+    },
+    {
+      "id": "kp.pattern.environment.weather_desc",
+      "category": "pattern",
+      "sub": "environment",
+      "title": "基本天氣描述 (오늘 날씨가 {weather_adj}.)",
+      "level": "A1",
+      "path": "data/library/kp.pattern.environment.weather_desc.json",
       "surface": "",
       "example_sentence_refs": []
     },
@@ -970,22 +1508,22 @@
       "example_sentence_refs": []
     },
     {
-      "id": "kp.pattern.social_basic.nationality",
+      "id": "kp.pattern.social_basic.want",
       "category": "pattern",
       "sub": "social_basic",
-      "title": "自我介紹：國籍 (저는 {country} 사람이에요)",
+      "title": "願望/想要表達 ({action} 하고 싶어요.)",
       "level": "A1",
-      "path": "data/library/kp.pattern.social_basic.nationality.json",
+      "path": "data/library/kp.pattern.social_basic.want.json",
       "surface": "",
       "example_sentence_refs": []
     },
     {
-      "id": "kp.pattern.social_basic.occupation",
+      "id": "kp.pattern.social_basic.preference",
       "category": "pattern",
       "sub": "social_basic",
-      "title": "自我介紹：職業 (저는 {job}이에요)",
+      "title": "個人喜好表達 (저는 {item}을/를 좋아해요.)",
       "level": "A1",
-      "path": "data/library/kp.pattern.social_basic.occupation.json",
+      "path": "data/library/kp.pattern.social_basic.preference.json",
       "surface": "",
       "example_sentence_refs": []
     },
@@ -1000,33 +1538,173 @@
       "example_sentence_refs": []
     },
     {
-      "id": "kp.daily.today_is_noun",
+      "id": "kp.pattern.social_basic.gratitude",
       "category": "pattern",
-      "sub": "time",
-      "title": "今天是...",
+      "sub": "social_basic",
+      "title": "禮貌感謝 (감사합니다.)",
       "level": "A1",
-      "path": "data/library/kp.daily.today_is_noun.json",
-      "surface": "오늘은 N이에요.",
+      "path": "data/library/kp.pattern.social_basic.gratitude.json",
+      "surface": "",
       "example_sentence_refs": []
     },
     {
-      "id": "kp.time.on_weekday_do",
+      "id": "kp.pattern.social_basic.nationality",
       "category": "pattern",
-      "sub": "time",
-      "title": "在星期幾做某事",
+      "sub": "social_basic",
+      "title": "自我介紹：國籍 (저는 {country} 사람이에요)",
       "level": "A1",
-      "path": "data/library/kp.time.on_weekday_do.json",
-      "surface": "N요일에 __ 했어요",
+      "path": "data/library/kp.pattern.social_basic.nationality.json",
+      "surface": "",
       "example_sentence_refs": []
     },
     {
-      "id": "kp.time.today_is_weekday",
+      "id": "kp.pattern.social_basic.prohibition",
       "category": "pattern",
-      "sub": "time",
-      "title": "今天是星期幾",
+      "sub": "social_basic",
+      "title": "禁止與限制 ({action}으면 안 돼요.)",
+      "level": "A2",
+      "path": "data/library/kp.pattern.social_basic.prohibition.json",
+      "surface": "",
+      "example_sentence_refs": []
+    },
+    {
+      "id": "kp.pattern.social_basic.occupation",
+      "category": "pattern",
+      "sub": "social_basic",
+      "title": "自我介紹：職業 (저는 {job}이에요)",
       "level": "A1",
-      "path": "data/library/kp.time.today_is_weekday.json",
-      "surface": "오늘은 N요일이에요",
+      "path": "data/library/kp.pattern.social_basic.occupation.json",
+      "surface": "",
+      "example_sentence_refs": []
+    },
+    {
+      "id": "kp.pattern.social_basic.comparison",
+      "category": "pattern",
+      "sub": "social_basic",
+      "title": "比較與偏好 ({item_a}보다 {item_b}가 더 {adj}.)",
+      "level": "A2",
+      "path": "data/library/kp.pattern.social_basic.comparison.json",
+      "surface": "",
+      "example_sentence_refs": []
+    },
+    {
+      "id": "kp.pattern.social_basic.permission",
+      "category": "pattern",
+      "sub": "social_basic",
+      "title": "請求許可 ({action}아/어도 돼요?)",
+      "level": "A2",
+      "path": "data/library/kp.pattern.social_basic.permission.json",
+      "surface": "",
+      "example_sentence_refs": []
+    },
+    {
+      "id": "kp.pattern.social_basic.habit",
+      "category": "pattern",
+      "sub": "social_basic",
+      "title": "習慣與傾向 ({habit}는 편이에요.)",
+      "level": "A2",
+      "path": "data/library/kp.pattern.social_basic.habit.json",
+      "surface": "",
+      "example_sentence_refs": []
+    },
+    {
+      "id": "kp.pattern.social_basic.ability_negation",
+      "category": "pattern",
+      "sub": "social_basic",
+      "title": "能力否定表達 (저는 {action} 못 해요.)",
+      "level": "A1",
+      "path": "data/library/kp.pattern.social_basic.ability_negation.json",
+      "surface": "",
+      "example_sentence_refs": []
+    },
+    {
+      "id": "kp.pattern.social_basic.suggestion",
+      "category": "pattern",
+      "sub": "social_basic",
+      "title": "提議參與 ({action}할까요?)",
+      "level": "A2",
+      "path": "data/library/kp.pattern.social_basic.suggestion.json",
+      "surface": "",
+      "example_sentence_refs": []
+    },
+    {
+      "id": "kp.pattern.social_basic.apology",
+      "category": "pattern",
+      "sub": "social_basic",
+      "title": "禮貌道歉 (죄송합니다. {reason}.)",
+      "level": "A1",
+      "path": "data/library/kp.pattern.social_basic.apology.json",
+      "surface": "",
+      "example_sentence_refs": []
+    },
+    {
+      "id": "kp.pattern.social_basic.obligation",
+      "category": "pattern",
+      "sub": "social_basic",
+      "title": "義務與必要性 ({task}아/어야 해요.)",
+      "level": "A2",
+      "path": "data/library/kp.pattern.social_basic.obligation.json",
+      "surface": "",
+      "example_sentence_refs": []
+    },
+    {
+      "id": "kp.pattern.repair.request_help",
+      "category": "pattern",
+      "sub": "repair",
+      "title": "禮貌請求協助 ({request} + 아/어 주실 수 있어요?)",
+      "level": "A2",
+      "path": "data/library/kp.pattern.repair.request_help.json",
+      "surface": "",
+      "example_sentence_refs": []
+    },
+    {
+      "id": "kp.pattern.repair.clarification",
+      "category": "pattern",
+      "sub": "repair",
+      "title": "語意澄清 ({expression} + 무슨 뜻이에요?)",
+      "level": "A2",
+      "path": "data/library/kp.pattern.repair.clarification.json",
+      "surface": "",
+      "example_sentence_refs": []
+    },
+    {
+      "id": "kp.pattern.repair.slow_down",
+      "category": "pattern",
+      "sub": "repair",
+      "title": "溝通修復：請慢一點 (천천히 + 말해 주세요)",
+      "level": "A1",
+      "path": "data/library/kp.pattern.repair.slow_down.json",
+      "surface": "",
+      "example_sentence_refs": []
+    },
+    {
+      "id": "kp.pattern.repair.problem_report",
+      "category": "pattern",
+      "sub": "repair",
+      "title": "故障與問題報修 ({issue} + 문제가 생겼어요 + 도와주실 수 있어요?)",
+      "level": "A2",
+      "path": "data/library/kp.pattern.repair.problem_report.json",
+      "surface": "",
+      "example_sentence_refs": []
+    },
+    {
+      "id": "kp.pattern.repair.repeat",
+      "category": "pattern",
+      "sub": "repair",
+      "title": "溝通修復：請再說一次 (다시 + 말씀해 주세요)",
+      "level": "A1",
+      "path": "data/library/kp.pattern.repair.repeat.json",
+      "surface": "",
+      "example_sentence_refs": []
+    },
+    {
+      "id": "kp.pattern.repair.confirm",
+      "category": "pattern",
+      "sub": "repair",
+      "title": "確認與回應 (네 / 맞아요)",
+      "level": "A1",
+      "path": "data/library/kp.pattern.repair.confirm.json",
+      "surface": "",
       "example_sentence_refs": []
     }
   ]

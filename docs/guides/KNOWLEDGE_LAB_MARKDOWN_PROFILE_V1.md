@@ -70,6 +70,6 @@
 
 1.  **Explanatory Markdown (說明文本)**：使用上述規範撰寫的文字、列表、表格。
 2.  **Inline Sentence Chips (行內積木)**：嵌入在說明文本中的 `[ko:|zh:]` 積木，供即時點擊。
-3.  **Global Example Refs (全域引用)**：在 JSON 中的 `example_sentence_refs` 引用全域 `example_sentence` 銀行例句。
+3.  **Global Example Refs (全域引用)**：在 JSON 中的 `example_sentence_refs` 引用全域 `example_sentence` 銀行的例句。
 
 ---

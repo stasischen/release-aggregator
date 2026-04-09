@@ -31,6 +31,7 @@ Stored in: `content-ko/content/core/learning_library/example_sentence/`
   - `original_ki_ref` (string): **Required** if `source_type` is `knowledge_item_extraction`. ID of the originating Knowledge Item.
   - `source_sentence_ref` (string): **Required** if `source_type` is `youtube_reference`, `dialogue_reference`, or `article_reference`. Optional otherwise.
   - `extraction_date` (string): **Required**. ISO timestamp of when this record was created/extracted.
+    - *Note for `legacy_bootstrap`*: If the original extraction date is unknown, use the migration batch timestamp or execution date.
 
 #### Recommended:
 - `register` (enum): `polite`, `formal`, `casual`.
@@ -40,6 +41,7 @@ Stored in: `content-ko/content/core/learning_library/example_sentence/`
   - `audio_verified` (boolean)
 - `knowledge_refs` (array of strings): IDs of grammar/pattern items this sentence exemplifies.
 - `topic_refs` (array of strings): IDs of topics.
+- `dictionary_atom_refs` (array of strings): IDs of dictionary atoms / lexical anchors. Supports sentence click targets and drill-down (CMOD-011).
 
 ---
 

@@ -102,6 +102,13 @@ window.applyInlineMarkdown = function (text) {
     .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')
     .replace(/\*(.*?)\*/g, '<em>$1</em>')
     .replace(/`(.*?)`/g, '<code>$1</code>')
+    .replace(/\[ko:(.*?)\|zh:(.*?)(?:\|id:(.*?))?\]/g, (m, ko, zh, id) => {
+      const audioCall = `APP.playOriginalOrTTS('${window.escapeJsSingle(ko)}', 'data/audio/${id || "unknown"}.mp3')`;
+      return `<span class="inline-sentence-chip" onclick="${audioCall}" title="點擊播放音檔">
+                <span class="ko">${window.escapeHtml(ko)}</span>
+                <span class="view-zh">${window.escapeHtml(zh)}</span>
+              </span>`;
+    })
     .replace(/\[(.*?)\]\((.*?)\)/g, '<a href="$2" target="_blank">$1</a>');
 };
 
@@ -110,20 +117,54 @@ window.markdownToHtmlLite = function (md) {
   const lines = src.split('\n');
   const out = [];
   let i = 0;
+  let currentContainerType = null; // 'formula', 'alert', or null
 
   const isTableSeparator = (line) => /^\s*\|?\s*:?-{3,}:?\s*(\|\s*:?-{3,}:?\s*)+\|?\s*$/.test(line);
   const isTableRow = (line) => line.includes('|');
 
+  const closeContainer = () => {
+    if (currentContainerType) {
+      out.push('</div></div>');
+      currentContainerType = null;
+    }
+  };
+
   while (i < lines.length) {
     const line = lines[i];
     const trimmed = line.trim();
-    if (!trimmed) { i++; continue; }
+    
+    if (!trimmed) { 
+      i++; 
+      continue; 
+    }
 
     // Headers
     const hMatch = trimmed.match(/^(#{1,3})\s+(.*)/);
     if (hMatch) {
       const level = hMatch[1].length;
       const text = hMatch[2];
+      
+      // Detection of specialized Bento-style blocks
+      if (level === 3) {
+        if (text.includes('📐')) {
+          closeContainer();
+          currentContainerType = 'formula';
+          out.push(`<div class="formula-box animate-in"><div class="box-header"><span class="icon">📐</span> ${window.applyInlineMarkdown(text.replace('📐', '').trim())}</div><div class="box-body">`);
+          i++; continue;
+        } else if (text.includes('⚠️')) {
+          closeContainer();
+          currentContainerType = 'alert';
+          out.push(`<div class="alert-box animate-in"><div class="box-header"><span class="icon">⚠️</span> ${window.applyInlineMarkdown(text.replace('⚠️', '').trim())}</div><div class="box-body">`);
+          i++; continue;
+        } else {
+          // Normal H3 closes current container
+          closeContainer();
+        }
+      } else if (level < 3) {
+        // H1, H2 close any container
+        closeContainer();
+      }
+
       out.push(`<h${level} class="md-h${level}">${window.applyInlineMarkdown(text)}</h${level}>`);
       i++; continue;
     }
@@ -174,9 +215,11 @@ window.markdownToHtmlLite = function (md) {
       continue;
     }
 
-    out.push(`<p class="md-paragraph">${window.applyInlineMarkdown(trimmed)}</p>`);
+    out.push(`<p class="md-paragraph">${window.applyInlineMarkdown(line)}</p>`);
     i++;
   }
+  
+  closeContainer();
   return out.join('');
 };
 

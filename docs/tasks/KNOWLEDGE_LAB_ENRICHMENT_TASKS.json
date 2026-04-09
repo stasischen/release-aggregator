@@ -5,7 +5,8 @@
   "constraints": [
     "Must not change source-build artifact contract used by frontend intake.",
     "Must not block LEARNING_LIBRARY_CONTENTKO_MIGRATION or MODULAR_VIEWER_REFACTOR.",
-    "Schema changes require separate review and must not be bundled into enrichment execution."
+    "Schema changes require separate review and must not be bundled into enrichment execution.",
+    "Current priority is to align and normalize existing Knowledge Lab content before opening any new curriculum-source ingestion wave."
   ],
   "tasks": [
     {
@@ -39,9 +40,21 @@
       "status": "done"
     },
     {
+      "id": "KLAB-006b",
+      "desc": "Define and review the normalization plan for existing Knowledge Lab markdown/example content so current items can converge on frozen sentence/extraction contracts before new ingestion starts.",
+      "status": "todo",
+      "depends_on": [
+        "KLAB-006"
+      ]
+    },
+    {
       "id": "KLAB-007",
       "desc": "Wave 4: Add pronunciation / sound-change knowledge items plus curated external reference metadata by support locale (zh_tw/en/ja), without making external videos the canonical source of truth.",
-      "status": "todo"
+      "status": "todo",
+      "depends_on": [
+        "KLAB-006b",
+        "kg-mig-010"
+      ]
     }
   ]
 }

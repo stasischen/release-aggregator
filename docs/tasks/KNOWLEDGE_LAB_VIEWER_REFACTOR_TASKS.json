@@ -33,6 +33,20 @@
         "KLABVIEW-002",
         "KLABVIEW-003"
       ]
+    },
+    {
+      "id": "KLABVIEW-005",
+      "desc": "Freeze KLab Markdown Profile V1 and align all manual authoring guides.",
+      "status": "done",
+      "depends_on": []
+    },
+    {
+      "id": "KLABVIEW-006",
+      "desc": "Plan content normalization (split example_bank into inline chips vs global sentence refs).",
+      "status": "todo",
+      "depends_on": [
+        "KLABVIEW-005"
+      ]
     }
   ]
 }

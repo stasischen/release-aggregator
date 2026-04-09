@@ -162,11 +162,12 @@
     },
     {
       "id": "LLCM-009",
-      "desc": "Define minimal custom-source import/export contract for app-ingested text/article content: sentence split, stable ids, TTS-ready fields, and compatibility with future typing/shadowing actions without requiring full user-owned dictionary truth.",
+      "desc": "[Deferred] Define minimal custom-source import/export contract; work is deferred until canonical sentence bank and slot bank schemas are fully stabilized and frozen.",
       "status": "todo",
       "depends_on": [
         "LLCM-005h",
-        "LLCM-008"
+        "LLCM-008",
+        "kg-spec-011"
       ]
     }
   ]

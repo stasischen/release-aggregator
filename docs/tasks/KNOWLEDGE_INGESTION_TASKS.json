@@ -59,6 +59,7 @@
     },
     {
       "id": "kg-spec-011",
+      "title": "Freeze EXAMPLE_SENTENCE_BANK_SCHEMA_V1 defining formal required/recommended fields, provenance, quality flags, and core/i18n boundaries",
       "status": "todo",
       "depends_on": [
         "kg-spec-008"

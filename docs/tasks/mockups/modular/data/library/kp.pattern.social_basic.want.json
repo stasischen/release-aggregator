@@ -1,0 +1,10 @@
+{
+  "id": "kp.pattern.social_basic.want",
+  "title_zh_tw": "願望/想要表達 ({action} 하고 싶어요.)",
+  "summary_zh_tw": "能用標準句型表達自己想做某事。",
+  "explanation_md_zh_tw": "表達「想做...」的基礎句型。包含動詞詞幹與連結語尾 **-고 싶어요**。\n\n### 教學建議\n想要句型適合接續行程規劃任務，建議先固定 하고 싶어요 再換 action slot。",
+  "usage_notes_zh_tw": [
+    "第一、二人稱使用 하고 싶어요。",
+    "第三人稱通常使用 하고 싶어해요。"
+  ]
+}

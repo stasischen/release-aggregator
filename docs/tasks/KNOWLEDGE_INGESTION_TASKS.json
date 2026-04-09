@@ -59,34 +59,74 @@
     },
     {
       "id": "kg-spec-011",
-      "title": "Freeze EXAMPLE_SENTENCE_BANK_SCHEMA_V1 defining formal required/recommended fields, provenance, quality flags, and core/i18n boundaries",
       "status": "todo",
+      "depends_on": [
+        "kg-spec-008"
+      ],
       "deliverable": "docs/tasks/EXAMPLE_SENTENCE_BANK_SCHEMA_V1.md"
     },
     {
       "id": "kg-spec-012",
       "title": "[Umbrella] Define CANONICAL_SENTENCE_GRAPH mapping for source -> example -> knowledge -> topic cross-links",
       "status": "todo",
+      "depends_on": [
+        "kg-spec-011",
+        "kg-spec-013"
+      ],
       "deliverable": "Updated link contract"
     },
     {
       "id": "kg-mig-009",
       "title": "Bootstrap example sentence bank from legacy sources and mark quality/segmentation readiness (initial source bootstrap)",
       "status": "todo",
+      "depends_on": [
+        "kg-spec-011"
+      ],
       "deliverable": "first staged example sentence bank"
     },
     {
       "id": "kg-spec-013",
       "title": "Freeze EXAMPLE_EXTRACTION_POLICY_V1 defining extractable vs in-situ criteria and alignment pass outputs",
       "status": "todo",
+      "depends_on": [
+        "kg-spec-011"
+      ],
       "deliverable": "docs/tasks/EXAMPLE_EXTRACTION_POLICY_V1.md"
     },
     {
       "id": "kg-mig-010",
       "title": "Extract structured example blocks from mixed knowledge items into canonical bank (excluding freeform MD explanations); depends on extraction policy freeze",
       "status": "todo",
-      "depends_on": ["kg-spec-013"],
+      "depends_on": [
+        "kg-spec-011",
+        "kg-spec-013",
+        "KLAB-006"
+      ],
+      "notes": [
+        "Run only after sentence schema freeze, extraction policy freeze, and Knowledge Lab alignment/classification are complete.",
+        "This step is for existing Knowledge Lab mixed content only; do not combine with new curriculum-source ingestion."
+      ],
       "deliverable": "mixed knowledge example extraction pass"
+    },
+    {
+      "id": "kg-plan-014",
+      "title": "Define Knowledge Lab content normalization plan before mixed example extraction",
+      "status": "todo",
+      "depends_on": [
+        "kg-spec-011",
+        "kg-spec-013"
+      ],
+      "deliverable": "normalization plan for existing Knowledge Lab content"
+    },
+    {
+      "id": "kg-mig-015",
+      "title": "Ingest new curriculum-source knowledge content only after existing Knowledge Lab normalization and mixed example extraction stabilize",
+      "status": "todo",
+      "depends_on": [
+        "kg-plan-014",
+        "kg-mig-010"
+      ],
+      "deliverable": "next staged curriculum-source knowledge ingestion wave"
     }
   ]
 }

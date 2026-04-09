@@ -38,5 +38,5 @@ Source: `ko_survival_pattern_library_v1.json`
 
 1.  **Strict Contract**: 禁止在 JSON 頂層發明自訂 metadata 欄位。
 2.  **Semantic Slugs**: 使用具備語義的名稱（如 `copula_polites`）而非無序編號。
-3.  **Markdown Validation**: 確保匯入的 `explanation_md_zh_tw` 符合 [Markdown Profile](./KNOWLEDGE_LAB_MARKDOWN_PROFILE_V1.md)。
+3.  **Markdown Validation**: 確保匯入的 `explanation_md_zh_tw` 符合 [Markdown Profile](../guides/KNOWLEDGE_LAB_MARKDOWN_PROFILE_V1.md)。
 4.  **No Direct Example Text**: 最終狀態下，Knowledge Item JSON 不應直接包含 `surface_ko` 例句文字，應全數透過 `example_sentence_refs` 引用。

@@ -53,20 +53,39 @@
     },
     {
       "id": "kg-spec-008",
-      "title": "Define canonical example sentence bank schema and link contract (example_sentence, i18n, links) for reuse across knowledge, vocab, and pattern layers",
+      "title": "[V0 Draft] Define example sentence bank schema and link contract (initial draft)",
       "status": "done",
       "deliverable": "docs/tasks/EXAMPLE_SENTENCE_BANK_V0.md"
     },
     {
+      "id": "kg-spec-011",
+      "title": "Freeze EXAMPLE_SENTENCE_BANK_SCHEMA_V1 defining formal required/recommended fields, provenance, quality flags, and core/i18n boundaries",
+      "status": "todo",
+      "deliverable": "docs/tasks/EXAMPLE_SENTENCE_BANK_SCHEMA_V1.md"
+    },
+    {
+      "id": "kg-spec-012",
+      "title": "[Umbrella] Define CANONICAL_SENTENCE_GRAPH mapping for source -> example -> knowledge -> topic cross-links",
+      "status": "todo",
+      "deliverable": "Updated link contract"
+    },
+    {
       "id": "kg-mig-009",
-      "title": "Bootstrap example sentence bank from legacy sentence/example sources and mark quality/segmentation readiness before production promotion",
+      "title": "Bootstrap example sentence bank from legacy sources and mark quality/segmentation readiness (initial source bootstrap)",
       "status": "todo",
       "deliverable": "first staged example sentence bank"
     },
     {
-      "id": "kg-mig-010",
-      "title": "Directly extract inline examples from current mixed knowledge items into the canonical example sentence bank and replace them with example_sentence_refs, leaving only item-local commentary in the knowledge item",
+      "id": "kg-spec-013",
+      "title": "Freeze EXAMPLE_EXTRACTION_POLICY_V1 defining extractable vs in-situ criteria and alignment pass outputs",
       "status": "todo",
+      "deliverable": "docs/tasks/EXAMPLE_EXTRACTION_POLICY_V1.md"
+    },
+    {
+      "id": "kg-mig-010",
+      "title": "Extract structured example blocks from mixed knowledge items into canonical bank (excluding freeform MD explanations); depends on extraction policy freeze",
+      "status": "todo",
+      "depends_on": ["kg-spec-013"],
       "deliverable": "mixed knowledge example extraction pass"
     }
   ]

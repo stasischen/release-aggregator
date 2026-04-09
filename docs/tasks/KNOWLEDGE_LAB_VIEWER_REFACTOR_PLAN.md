@@ -63,3 +63,11 @@
 - **句型支援 (Pattern Support)**：實作 `builder_id` 範疇的狀態持久化。
 - **用法支援 (Usage Support)***：與 `notice` / `support-module` 保持一致。
 - **單字支援 (Vocab Support)**：預留位 (Reserved Slot) / 安全失敗處理。
+
+## 內容規約收斂 (Spec Convergence)
+
+為了確保長期維護品質，新增以下規約任務：
+- **Markdown Profile 凍結**：定義全域統一的 [Markdown Profile](./KNOWLEDGE_LAB_MARKDOWN_PROFILE_V1.md)，確保多端渲染一致性。
+- **Content Normalization**：計畫將 `example_bank` 中的碎散內容分流至「行內積木 (Inline Chips)」或「全域例句銀行 (Example Bank)」。
+- **Emoji Marker 定位**：確認 `### 📐` 等符號為 UI 示範樣式，不建議作為內容儲存的唯一語義依據。
+

@@ -1,5 +1,7 @@
 # Example Extraction Policy (V1)
 
+## Status: Frozen
+
 ## Goal
 To prevent "pollution" of the global `example_sentence` bank with instructional fragments, contrastive snippets, or invalid syntax. This policy governs the behavior of `kg-mig-010`.
 

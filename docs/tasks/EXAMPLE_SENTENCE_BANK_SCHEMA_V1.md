@@ -1,6 +1,6 @@
 # Example Sentence Bank Schema (V1)
 
-## Status: Draft / Under Review (Pending freeze via kg-spec-011)
+## Status: Frozen
 
 This document defines the V1 schema for `example_sentence` assets in `content-ko`. All extracted and manually authored example sentences must adhere to this contract to gate development of downstream features.
 

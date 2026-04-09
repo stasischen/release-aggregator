@@ -42,7 +42,7 @@
     {
       "id": "KLAB-006b",
       "desc": "Define and review the normalization plan for existing Knowledge Lab markdown/example content so current items can converge on frozen sentence/extraction contracts before new ingestion starts.",
-      "status": "todo",
+      "status": "done",
       "depends_on": [
         "KLAB-006"
       ]

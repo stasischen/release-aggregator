@@ -4,7 +4,7 @@
 See: `.planning/PROJECT.md` (updated 2026-02-17)
 
 **Core value:** Cross-repo delivery must stay predictable, auditable, and reversible.
-**Current focus:** Phase 3 - Release Script Confidence Pass (blocked)
+**Current focus:** Knowledge Lab Content Normalization Planning (kg-plan-014)
 
 ## Execution Mode
 - mode: gsd_phase
@@ -14,13 +14,15 @@ See: `.planning/PROJECT.md` (updated 2026-02-17)
 - Phase 1: complete
 - Phase 2: complete (execute + verification complete)
 - Phase 3: complete (verification pass on grammar migration build)
+- kg-plan-014: complete (KLab Normalization Plan V1)
 
 ## Recent Actions
-- phase-3 verification pass: assembler portable fix + legacy record fallback implemented + baseline landing.
-- verified core/i18n decoupling integrity across full grammar bank.
+- Created KNOWLEDGE_LAB_CONTENT_NORMALIZATION_PLAN_V1.md with detailed buckets and execution guardrails.
+- Audited content-ko for transitional example_bank and legacy i18n formats.
+- Synchronized Planning-level tasks in KNOWLEDGE_INGESTION_TASKS.json.
 
 ## Next Step
-- Phase 4: Prepare specialized connectors migration plan.
+- kg-mig-010: Execute dry-run for mixed example extraction (Bucket B).
 
 ## Known Risks
 - Root planning files and `.planning/` may drift without sync convention.

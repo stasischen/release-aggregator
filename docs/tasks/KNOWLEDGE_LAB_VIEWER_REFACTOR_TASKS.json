@@ -43,7 +43,7 @@
     {
       "id": "KLABVIEW-006",
       "desc": "Plan content normalization (split example_bank into inline chips vs global sentence refs).",
-      "status": "todo",
+      "status": "done",
       "depends_on": [
         "KLABVIEW-005"
       ]

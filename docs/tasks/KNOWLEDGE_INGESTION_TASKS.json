@@ -112,12 +112,12 @@
     {
       "id": "kg-plan-014",
       "title": "Define Knowledge Lab content normalization plan before mixed example extraction",
-      "status": "todo",
+      "status": "done",
       "depends_on": [
         "kg-spec-011",
         "kg-spec-013"
       ],
-      "deliverable": "normalization plan for existing Knowledge Lab content"
+      "deliverable": "docs/tasks/KNOWLEDGE_LAB_CONTENT_NORMALIZATION_PLAN_V1.md"
     },
     {
       "id": "kg-mig-015",

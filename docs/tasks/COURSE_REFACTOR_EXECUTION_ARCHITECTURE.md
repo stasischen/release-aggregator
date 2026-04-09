@@ -163,6 +163,25 @@ Layer 5 legacy 補回
   -> CONTENT_V5_MIGRATION_L0
 ```
 
+## Knowledge Lab / Sentence Graph Order
+
+Knowledge Lab 與 example sentence 這條線，先處理現有內容，再開新的 curriculum-source ingestion：
+
+```text
+1. Freeze EXAMPLE_SENTENCE_BANK_SCHEMA_V1
+2. Freeze EXAMPLE_EXTRACTION_POLICY_V1
+3. 收斂 Knowledge Lab markdown / content / mapping 規範
+4. 先做 existing Knowledge Lab content normalization plan
+5. 再做 kg-mig-010 dry-run / mixed example extraction
+6. 等現有內容與 extraction 穩定後，才開新的 curriculum-source knowledge ingestion
+```
+
+原則：
+
+- 這條線先收斂現有 Knowledge Lab 內容與 sentence graph 契約，不直接擴張新的導入波次。
+- `example_bank` 視為 migration / transitional source；`example_sentence_refs` 才是 canonical reusable path。
+- 新的 curriculum-source ingestion 不應與現有內容 normalization / mixed example extraction 綁在同一波執行。
+
 ## Immediate Execution Recommendation
 
 當前實際優先順序：

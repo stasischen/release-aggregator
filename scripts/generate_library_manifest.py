@@ -4,14 +4,16 @@ import shutil
 from pathlib import Path
 
 # Configuration
-CONTENT_KO_ROOT = Path(r"d:\Githubs\lingo\content-ko")
-AGGREGATOR_ROOT = Path(r"d:\Githubs\lingo\release-aggregator")
-MOCKUP_DATA_ROOT = AGGREGATOR_ROOT / "docs/tasks/mockups/modular/data"
+SCRIPTS_DIR = Path(__file__).resolve().parent
+AGGREGATOR_ROOT = SCRIPTS_DIR.parent
+CONTENT_KO_ROOT = AGGREGATOR_ROOT.parent / "content-ko"
 
-I18N_KNOWLEDGE_DIR = CONTENT_KO_ROOT / "content/i18n/zh_tw/learning_library/knowledge"
-CORE_KNOWLEDGE_DIR = CONTENT_KO_ROOT / "content/core/learning_library/knowledge"
-I18N_SENTENCE_DIR = CONTENT_KO_ROOT / "content/i18n/zh_tw/learning_library/example_sentence"
-CORE_SENTENCE_DIR = CONTENT_KO_ROOT / "content/core/learning_library/example_sentence"
+MOCKUP_DATA_ROOT = AGGREGATOR_ROOT / "docs" / "tasks" / "mockups" / "modular" / "data"
+
+I18N_KNOWLEDGE_DIR = CONTENT_KO_ROOT / "content" / "i18n" / "zh_tw" / "learning_library" / "knowledge"
+CORE_KNOWLEDGE_DIR = CONTENT_KO_ROOT / "content" / "core" / "learning_library" / "knowledge"
+I18N_SENTENCE_DIR = CONTENT_KO_ROOT / "content" / "i18n" / "zh_tw" / "learning_library" / "example_sentence"
+CORE_SENTENCE_DIR = CONTENT_KO_ROOT / "content" / "core" / "learning_library" / "example_sentence"
 
 OUTPUT_LIBRARY_DIR = MOCKUP_DATA_ROOT / "library"
 OUTPUT_MANIFEST = MOCKUP_DATA_ROOT / "library_manifest.json"
@@ -34,7 +36,7 @@ def generate_global_sentences():
                 if sid:
                     sentences[sid] = {
                         "id": sid,
-                        "ko": data.get("surface_ko", ""),
+                        "ko": data.get("surface_ko") or data.get("ko", ""),
                         "knowledge_refs": data.get("knowledge_refs", [])
                     }
         except Exception as e:
@@ -48,7 +50,7 @@ def generate_global_sentences():
                     data = json.load(f)
                     sid = data.get("id")
                     if sid in sentences:
-                        sentences[sid]["zh_tw"] = data.get("translation_zh_tw", "")
+                        sentences[sid]["zh_tw"] = data.get("translation_zh_tw") or data.get("zh_tw", "")
             except Exception as e:
                 print(f"Error reading sentence i18n {file}: {e}")
 

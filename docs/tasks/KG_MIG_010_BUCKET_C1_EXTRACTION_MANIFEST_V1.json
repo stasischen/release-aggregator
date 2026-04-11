@@ -53,12 +53,9 @@
   {
     "knowledge_item_ref": "kg.grammar.permission.allow",
     "proposed_id": "ex.ko.grammar.permission.sit_here.v1",
-    "status": "ambiguous_existing_duplicate",
-    "candidates": [
-      "ex.ko.grammar.permission.sit_here.v1",
-      "ex.ko.pattern.social_basic.sit_here.v1"
-    ],
-    "collision_note": "Identical surface found in grammar and pattern bank paths. Implementation blocked pending canonical decision."
+    "status": "resolved_redirect",
+    "canonical_target": "ex.ko.grammar.permission.sit_here.v1",
+    "resolution_note": "Consolidated redundant pattern ID into canonical grammar ID as per KG-MIG-010 resolution note."
   },
   {
     "knowledge_item_ref": "kg.grammar.tense.progressive",

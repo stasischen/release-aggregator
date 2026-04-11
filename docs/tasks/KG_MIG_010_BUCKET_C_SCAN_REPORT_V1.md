@@ -44,20 +44,20 @@
 
 | Classification | Count | Suggested Next Action |
 | :--- | :--- | :--- |
-| **Extractable** | 51 | Extract to Global Example Bank |
-| **Inline Chip Candidate** | 152 | Convert to Inline Chips (includes 5 already normalized) |
-| **Context-Bound** | 63 | Keep as local commentary |
+| **Extractable** | 31 | Extract to Global Example Bank |
+| **Inline Chip Candidate** | 163 | Convert to Inline Chips (includes 5 already normalized) |
+| **Context-Bound** | 64 | Keep as local commentary |
 | **Manual Review** | 0 | Human review required |
-| **Total** | **266** | |
+| **Total** | **258** | |
 
 ---
 
 ## 5. Representative Cases
 
 ### Case A: Extractable Sentence
-- **Source**: `kg.connector.sequence.geureom`
-- **Excerpt**: `(例: 그럼 이제 시작합시다!)`
-- **Normalized**: `그럼 이제 시작합시다!`
+- **Source**: `kg.grammar.copula.eopda`
+- **Excerpt**: `(例: 집이 없다)`
+- **Normalized**: `집이 없다`
 - **Verdict**: 語意完整，適合全域化。
 
 ### Case B: Morphology Fragment (Inline Candidate)

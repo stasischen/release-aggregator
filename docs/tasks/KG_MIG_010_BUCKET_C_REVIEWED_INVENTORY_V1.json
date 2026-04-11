@@ -1,84 +1,12 @@
 [
   {
-    "knowledge_item_ref": "kg.connector.conversion.geureonde",
-    "source_field": "explanation_md_zh_tw",
-    "source_excerpt": "1. **轉折/對立 (Contrast)**：引導一個出乎意料或與前文不符的情況。用法類似 `하지만`，但語氣更為自然、口語。例如：`숙제를 다 했어요. 그런데 하나 빠졌어요.` (作業做完了，但漏了一個。)",
-    "normalized_ko_candidate": "숙제를 다 했어요. 그런데 하나 빠졌어요.",
-    "classification": "extractable",
-    "reason": "Standalone sentence candidate found in text",
-    "suggested_next_action": "extract_to_example_sentence"
-  },
-  {
-    "knowledge_item_ref": "kg.connector.conversion.geureonde",
-    "source_field": "explanation_md_zh_tw",
-    "source_excerpt": "2. **轉換話題 (Topic Shift)**：當想要改變談話內容或「話說回來」時使用。例如：`오늘 날씨 좋네요! 그런데 점심 뭐 먹을까요?` (今天天氣真好！話說回來，午餐要吃什麼？)",
-    "normalized_ko_candidate": "오늘 날씨 좋네요! 그런데 점심 뭐 먹을까요?",
-    "classification": "extractable",
-    "reason": "Standalone sentence candidate found in text",
-    "suggested_next_action": "extract_to_example_sentence"
-  },
-  {
-    "knowledge_item_ref": "kg.connector.sequence.gedaga",
-    "source_field": "explanation_md_zh_tw",
-    "source_excerpt": "1. 在優點上加優點 (例: 맛있어요. 게다가 싸요.)",
-    "normalized_ko_candidate": "맛있어요. 게다가 싸요.",
-    "classification": "extractable",
-    "reason": "Structured example sentence with formal prefix",
-    "suggested_next_action": "extract_to_example_sentence"
-  },
-  {
-    "knowledge_item_ref": "kg.connector.sequence.gedaga",
-    "source_field": "explanation_md_zh_tw",
-    "source_excerpt": "2. 在缺點上加缺點 (例: 방이 좁아요. 게다가 시끄러워요.)",
-    "normalized_ko_candidate": "방이 좁아요. 게다가 시끄러워요.",
-    "classification": "extractable",
-    "reason": "Structured example sentence with formal prefix",
-    "suggested_next_action": "extract_to_example_sentence"
-  },
-  {
-    "knowledge_item_ref": "kg.connector.sequence.gedaga",
-    "source_field": "explanation_md_zh_tw",
-    "source_excerpt": "- 常與助詞 **-도** (也) 連用以加強口吻 (例: 게다가 날씨도 좋았어요.)",
-    "normalized_ko_candidate": "게다가 날씨도 좋았어요.",
-    "classification": "extractable",
-    "reason": "Structured example sentence with formal prefix",
-    "suggested_next_action": "extract_to_example_sentence"
-  },
-  {
-    "knowledge_item_ref": "kg.connector.sequence.geureom",
-    "source_field": "explanation_md_zh_tw",
-    "source_excerpt": "1. 決定接下來做什麼 (例: 그럼 이제 시작합시다!)",
-    "normalized_ko_candidate": "그럼 이제 시작합시다!",
-    "classification": "extractable",
-    "reason": "Structured example sentence with formal prefix",
-    "suggested_next_action": "extract_to_example_sentence"
-  },
-  {
-    "knowledge_item_ref": "kg.connector.sequence.geureom",
-    "source_field": "explanation_md_zh_tw",
-    "source_excerpt": "2. 基於對方的話給予承諾或回應 (例: 그럼 내일 전화할게요.)",
-    "normalized_ko_candidate": "그럼 내일 전화할게요.",
-    "classification": "extractable",
-    "reason": "Structured example sentence with formal prefix",
-    "suggested_next_action": "extract_to_example_sentence"
-  },
-  {
-    "knowledge_item_ref": "kg.connector.sequence.geureom",
-    "source_field": "explanation_md_zh_tw",
-    "source_excerpt": "3. 道別或展開新動作 (例: 그럼 먼저 갈게요.)",
-    "normalized_ko_candidate": "그럼 먼저 갈게요.",
-    "classification": "extractable",
-    "reason": "Structured example sentence with formal prefix",
-    "suggested_next_action": "extract_to_example_sentence"
-  },
-  {
     "knowledge_item_ref": "kg.grammar.ability.can",
     "source_field": "explanation_md_zh_tw",
     "source_excerpt": "`~ㄹ/을 수 있다` 用於描述自身具備的技能，或是客觀情況允許下能做的事情。",
     "normalized_ko_candidate": "을 수 있다",
-    "classification": "extractable",
-    "reason": "Standalone sentence candidate found in text",
-    "suggested_next_action": "extract_to_example_sentence"
+    "classification": "inline_chip_candidate",
+    "reason": "Grammatical fragment or lexical list reclassified from extractable",
+    "suggested_next_action": "convert_to_inline_chip"
   },
   {
     "knowledge_item_ref": "kg.grammar.ability.can",
@@ -112,9 +40,9 @@
     "source_field": "explanation_md_zh_tw",
     "source_excerpt": "`~ㄹ/을 수 없다` 是 `~ㄹ/을 수 있다` 的否定形式，常用於說明理由或表明拒絕。",
     "normalized_ko_candidate": "을 수 없다",
-    "classification": "extractable",
-    "reason": "Standalone sentence candidate found in text",
-    "suggested_next_action": "extract_to_example_sentence"
+    "classification": "inline_chip_candidate",
+    "reason": "Grammatical fragment or lexical list reclassified from extractable",
+    "suggested_next_action": "convert_to_inline_chip"
   },
   {
     "knowledge_item_ref": "kg.grammar.ability.cannot",
@@ -1336,9 +1264,9 @@
     "source_field": "explanation_md_zh_tw",
     "source_excerpt": "- **母音或 ㄹ 結尾**：加 **로** (例: 학교로, 서울로)",
     "normalized_ko_candidate": "학교로, 서울로",
-    "classification": "extractable",
-    "reason": "Structured example sentence with formal prefix",
-    "suggested_next_action": "extract_to_example_sentence"
+    "classification": "inline_chip_candidate",
+    "reason": "Grammatical fragment or lexical list reclassified from extractable",
+    "suggested_next_action": "convert_to_inline_chip"
   },
   {
     "knowledge_item_ref": "kg.grammar.particle.euro_tool",
@@ -1354,9 +1282,9 @@
     "source_field": "explanation_md_zh_tw",
     "source_excerpt": "- **母音或 ㄹ 結尾**：加 **로** (例: 버스로, 연필로)",
     "normalized_ko_candidate": "버스로, 연필로",
-    "classification": "extractable",
-    "reason": "Structured example sentence with formal prefix",
-    "suggested_next_action": "extract_to_example_sentence"
+    "classification": "inline_chip_candidate",
+    "reason": "Grammatical fragment or lexical list reclassified from extractable",
+    "suggested_next_action": "convert_to_inline_chip"
   },
   {
     "knowledge_item_ref": "kg.grammar.particle.subject",
@@ -1444,9 +1372,9 @@
     "source_field": "explanation_md_zh_tw",
     "source_excerpt": "「~(으)면 안 되다」用於強烈禁止或說明行為的不當。接在動詞或形容詞詞幹後。",
     "normalized_ko_candidate": "면 안 되다",
-    "classification": "extractable",
-    "reason": "Standalone sentence candidate found in text",
-    "suggested_next_action": "extract_to_example_sentence"
+    "classification": "inline_chip_candidate",
+    "reason": "Grammatical fragment or lexical list reclassified from extractable",
+    "suggested_next_action": "convert_to_inline_chip"
   },
   {
     "knowledge_item_ref": "kg.grammar.permission.prohibit",
@@ -1480,18 +1408,18 @@
     "source_field": "usage_notes_zh_tw",
     "source_excerpt": "詞幹 + 으면 안 되다 (有收音)",
     "normalized_ko_candidate": "으면 안 되다",
-    "classification": "extractable",
-    "reason": "Standalone sentence candidate found in text",
-    "suggested_next_action": "extract_to_example_sentence"
+    "classification": "inline_chip_candidate",
+    "reason": "Grammatical fragment or lexical list reclassified from extractable",
+    "suggested_next_action": "convert_to_inline_chip"
   },
   {
     "knowledge_item_ref": "kg.grammar.permission.prohibit",
     "source_field": "usage_notes_zh_tw",
     "source_excerpt": "詞幹 + 면 안 되다 (無收音)",
     "normalized_ko_candidate": "면 안 되다",
-    "classification": "extractable",
-    "reason": "Standalone sentence candidate found in text",
-    "suggested_next_action": "extract_to_example_sentence"
+    "classification": "inline_chip_candidate",
+    "reason": "Grammatical fragment or lexical list reclassified from extractable",
+    "suggested_next_action": "convert_to_inline_chip"
   },
   {
     "knowledge_item_ref": "kg.grammar.permission.prohibit",
@@ -1804,9 +1732,9 @@
     "source_field": "usage_notes_zh_tw",
     "source_excerpt": "否定形式：{experience} + 본 적이 없어요",
     "normalized_ko_candidate": "본 적이 없어요",
-    "classification": "extractable",
-    "reason": "Standalone sentence candidate found in text",
-    "suggested_next_action": "extract_to_example_sentence"
+    "classification": "inline_chip_candidate",
+    "reason": "Grammatical fragment or lexical list reclassified from extractable",
+    "suggested_next_action": "convert_to_inline_chip"
   },
   {
     "knowledge_item_ref": "kp.pattern.facility.toilet_query",
@@ -1966,9 +1894,9 @@
     "source_field": "explanation_md_zh_tw",
     "source_excerpt": "- **地點名無收音**：加 **가** (例: 지하철역이 어디예요? - wait, 역 has收音, so 역이. Example: 학교**가** 어디예요?)",
     "normalized_ko_candidate": "지하철역이 어디예요? - wait, 역 has收音, so 역이. Example: 학교가 어디예요?",
-    "classification": "extractable",
-    "reason": "Structured example sentence with formal prefix",
-    "suggested_next_action": "extract_to_example_sentence"
+    "classification": "context_bound",
+    "reason": "Contains meta-commentary or clarification notes",
+    "suggested_next_action": "keep_local_only"
   },
   {
     "knowledge_item_ref": "kp.pattern.question.location_query",
@@ -2119,18 +2047,18 @@
     "source_field": "explanation_md_zh_tw",
     "source_excerpt": "- **數詞變換**：與量詞搭配時，固有詞數詞常發生變化 (例: 하나 → 한, 둘 → 두)。",
     "normalized_ko_candidate": "하나 → 한, 둘 → 두",
-    "classification": "extractable",
-    "reason": "Structured example sentence with formal prefix",
-    "suggested_next_action": "extract_to_example_sentence"
+    "classification": "inline_chip_candidate",
+    "reason": "Grammatical fragment or lexical list reclassified from extractable",
+    "suggested_next_action": "convert_to_inline_chip"
   },
   {
     "knowledge_item_ref": "kp.pattern.request.ordering_quantity",
     "source_field": "explanation_md_zh_tw",
     "source_excerpt": "- **量詞選擇**：根據對象選擇適當量詞 (例: 杯-잔, 個-개, 張-장)。",
     "normalized_ko_candidate": "杯-잔, 個-개, 張-장",
-    "classification": "extractable",
-    "reason": "Structured example sentence with formal prefix",
-    "suggested_next_action": "extract_to_example_sentence"
+    "classification": "inline_chip_candidate",
+    "reason": "Grammatical fragment or lexical list reclassified from extractable",
+    "suggested_next_action": "convert_to_inline_chip"
   },
   {
     "knowledge_item_ref": "kp.pattern.request.request_polite",
@@ -2389,8 +2317,8 @@
     "source_field": "usage_notes_zh_tw",
     "source_excerpt": "若是對計程車司機，可進化為「{destination}에 가 주세요」(請去某某地)。",
     "normalized_ko_candidate": "에 가 주세요",
-    "classification": "extractable",
-    "reason": "Standalone sentence candidate found in text",
-    "suggested_next_action": "extract_to_example_sentence"
+    "classification": "inline_chip_candidate",
+    "reason": "Grammatical fragment or lexical list reclassified from extractable",
+    "suggested_next_action": "convert_to_inline_chip"
   }
 ]

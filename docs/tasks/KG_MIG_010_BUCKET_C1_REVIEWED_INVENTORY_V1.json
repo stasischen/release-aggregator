@@ -4,40 +4,36 @@
     "source_field": "explanation_md_zh_tw",
     "source_excerpt": "- **子音結尾**：名詞 + **이 없다** (例: 집이 없다)",
     "normalized_ko_candidate": "집이 없다",
-    "classification": "ready",
-    "reason": "Structured example sentence with formal prefix",
-    "suggested_next_action": "extract_new",
-    "proposed_id": "ex.ko.grammar.copula.eopda.v1"
+    "classification": "context_bound",
+    "reason": "Minimal communicative fragment / Dictionary-style phrase",
+    "suggested_next_action": "skip_keep_local"
   },
   {
     "knowledge_item_ref": "kg.grammar.copula.eopda",
     "source_field": "explanation_md_zh_tw",
     "source_excerpt": "- **母音結尾**：名詞 + **가 없다** (例: 친구가 없다)",
     "normalized_ko_candidate": "친구가 없다",
-    "classification": "ready",
-    "reason": "Structured example sentence with formal prefix",
-    "suggested_next_action": "extract_new",
-    "proposed_id": "ex.ko.grammar.copula.eopda_2.v1"
+    "classification": "context_bound",
+    "reason": "Minimal communicative fragment / Dictionary-style phrase",
+    "suggested_next_action": "skip_keep_local"
   },
   {
     "knowledge_item_ref": "kg.grammar.copula.itda",
     "source_field": "explanation_md_zh_tw",
     "source_excerpt": "- **子音結尾**：名詞 + **이 있다** (例: 책이 있다)",
     "normalized_ko_candidate": "책이 있다",
-    "classification": "ready",
-    "reason": "Structured example sentence with formal prefix",
-    "suggested_next_action": "extract_new",
-    "proposed_id": "ex.ko.grammar.copula.itda.v1"
+    "classification": "context_bound",
+    "reason": "Minimal communicative fragment / Dictionary-style phrase",
+    "suggested_next_action": "skip_keep_local"
   },
   {
     "knowledge_item_ref": "kg.grammar.copula.itda",
     "source_field": "explanation_md_zh_tw",
     "source_excerpt": "- **母音結尾**：名詞 + **가 있다** (例: 친구가 있다)",
     "normalized_ko_candidate": "친구가 있다",
-    "classification": "ready",
-    "reason": "Structured example sentence with formal prefix",
-    "suggested_next_action": "extract_new",
-    "proposed_id": "ex.ko.grammar.copula.itda_2.v1"
+    "classification": "context_bound",
+    "reason": "Minimal communicative fragment / Dictionary-style phrase",
+    "suggested_next_action": "skip_keep_local"
   },
   {
     "knowledge_item_ref": "kg.grammar.copula.itda",
@@ -64,30 +60,27 @@
     "source_field": "usage_notes_zh_tw",
     "source_excerpt": "「비가 올까 봐」：擔心下雨所以...",
     "normalized_ko_candidate": "비가 올까 봐",
-    "classification": "ready",
-    "reason": "Standalone sentence candidate found in text",
-    "suggested_next_action": "extract_new",
-    "proposed_id": "ex.ko.grammar.ending.cause_eulkka_bwa.v1"
+    "classification": "context_bound",
+    "reason": "Clause fragment / Ending half-clause",
+    "suggested_next_action": "skip_keep_local"
   },
   {
     "knowledge_item_ref": "kg.grammar.ending.comparison_deusi",
     "source_field": "usage_notes_zh_tw",
     "source_excerpt": "「밥 먹듯이 하다」：像吃飯一樣常做（指某事發生頻率極高，通常含貶義，如說謊）。",
     "normalized_ko_candidate": "밥 먹듯이 하다",
-    "classification": "ready",
-    "reason": "Standalone sentence candidate found in text",
-    "suggested_next_action": "extract_new",
-    "proposed_id": "ex.ko.grammar.ending.comparison_deusi.v1"
+    "classification": "context_bound",
+    "reason": "Idiomatic phrase template / Incomplete sentence",
+    "suggested_next_action": "skip_keep_local"
   },
   {
     "knowledge_item_ref": "kg.grammar.ending.comparison_deusi",
     "source_field": "usage_notes_zh_tw",
     "source_excerpt": "「물 쓰듯이 쓰다」：像用水一樣花錢（揮金如土）。",
     "normalized_ko_candidate": "물 쓰듯이 쓰다",
-    "classification": "ready",
-    "reason": "Standalone sentence candidate found in text",
-    "suggested_next_action": "extract_new",
-    "proposed_id": "ex.ko.grammar.ending.comparison_deusi_2.v1"
+    "classification": "context_bound",
+    "reason": "Idiomatic phrase template / Incomplete sentence",
+    "suggested_next_action": "skip_keep_local"
   },
   {
     "knowledge_item_ref": "kg.grammar.ending.contrast_geonman",
@@ -114,10 +107,9 @@
     "source_field": "usage_notes_zh_tw",
     "source_excerpt": "「먹자니 배가 부르고」：想吃可是肚子飽了（進退兩難）。",
     "normalized_ko_candidate": "먹자니 배가 부르고",
-    "classification": "ready",
-    "reason": "Standalone sentence candidate found in text",
-    "suggested_next_action": "extract_new",
-    "proposed_id": "ex.ko.grammar.ending.contrast_jani.v1"
+    "classification": "context_bound",
+    "reason": "Half-clause ending with coordinative suffix (-고)",
+    "suggested_next_action": "skip_keep_local"
   },
   {
     "knowledge_item_ref": "kg.grammar.ending.restrictive_concession_doe",

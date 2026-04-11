@@ -66,18 +66,65 @@ window.LessonAdapter = {
             normalized.content_form = this.inferContentForm(normalized);
         }
 
-        // Pattern Lab Normalization
+        // 1. Resolve Examples (Precedence: refs > bank)
+        normalized.payload.resolved_examples = this.resolveExamples(normalized.payload);
+
+        // 2. Pattern Lab Normalization
         if (normalized.content_form === 'pattern_lab') {
             normalized.payload.pattern_builder_demos = this.resolveArray(payload.pattern_builder_demos || payload.pattern_builder_demo);
             normalized.payload.slot_bank_panels = this.resolveArray(payload.slot_bank_panels);
         }
 
-        // Vocab Normalization
+        // 3. Vocab Normalization
         if (normalized.content_form === 'vocab_summary' || normalized.content_form === 'vocab_note') {
             normalized.payload.items = this.resolveArray(payload.items || payload.vocab_items || []);
         }
 
         return normalized;
+    },
+
+    /**
+     * Resolves examples from various sources.
+     * Precedence: 
+     * 1. example_sentence_refs (Global Bank)
+     * 2. example_bank (Local Transitional)
+     */
+    resolveExamples(payload) {
+        if (!payload) return [];
+
+        // Try canonical refs first
+        const refs = payload.example_sentence_refs || [];
+        if (Array.isArray(refs) && refs.length > 0) {
+            // In the modular mockup, APP.libSentences holds the global bank
+            const bank = window.APP?.libSentences || {};
+            const resolved = refs.map(refId => {
+                const s = bank[refId];
+                if (s) {
+                    return {
+                        id: refId,
+                        ko: s.ko || s.surface_ko || "",
+                        zh_tw: s.zh_tw || s.translation_zh_tw || "(尚無翻譯)",
+                        is_canonical: true
+                    };
+                }
+                return null;
+            }).filter(Boolean);
+
+            if (resolved.length > 0) return resolved;
+        }
+
+        // Fallback to transitional bank
+        const bank = payload.example_bank || [];
+        if (Array.isArray(bank) && bank.length > 0) {
+            return bank.map(ex => ({
+                id: ex.id || "transitional",
+                ko: ex.ko || "",
+                zh_tw: ex.zh_tw || "(尚無翻譯)",
+                is_canonical: false
+            }));
+        }
+
+        return [];
     },
 
     /**

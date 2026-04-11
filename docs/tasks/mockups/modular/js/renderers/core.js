@@ -117,7 +117,7 @@ window.markdownToHtmlLite = function (md) {
   const lines = src.split('\n');
   const out = [];
   let i = 0;
-  let currentContainerType = null; // 'formula', 'alert', or null
+  let currentContainerType = null; // 'formula', 'alert', 'context', or null
 
   const isTableSeparator = (line) => /^\s*\|?\s*:?-{3,}:?\s*(\|\s*:?-{3,}:?\s*)+\|?\s*$/.test(line);
   const isTableRow = (line) => line.includes('|');
@@ -155,6 +155,11 @@ window.markdownToHtmlLite = function (md) {
           closeContainer();
           currentContainerType = 'alert';
           out.push(`<div class="alert-box animate-in"><div class="box-header"><span class="icon">⚠️</span> ${window.applyInlineMarkdown(text.replace('⚠️', '').trim())}</div><div class="box-body">`);
+          i++; continue;
+        } else if (text.includes('💬')) {
+          closeContainer();
+          currentContainerType = 'context';
+          out.push(`<div class="context-box animate-in"><div class="box-header"><span class="icon">💬</span> ${window.applyInlineMarkdown(text.replace('💬', '').trim())}</div><div class="box-body">`);
           i++; continue;
         } else {
           // Normal H3 closes current container
@@ -244,6 +249,41 @@ window.renderEmptyState = function (message = 'No additional details available.'
       <div class="icon" style="font-size:24px; margin-bottom:8px;">☕</div>
       <div class="muted-text">${window.escapeHtml(message)}</div>
       <p class="tiny-text" style="color:var(--muted); margin-top:4px;">本節點內容較為大綱式，請配合課堂練習進行。</p>
+    </div>
+  `;
+};
+
+window.renderUnifiedExampleSection = function (examples) {
+  if (!examples || examples.length === 0) return '';
+  
+  const isCanonical = examples[0]?.is_canonical;
+  const title = isCanonical ? '🔊 精選例句 (Examples)' : '⏳ 過渡期例句 (Legacy Bank)';
+  const badgeClass = isCanonical ? 'tag-canonical' : 'tag-transitional';
+  const badgeText = isCanonical ? 'Canonical' : 'Transitional';
+
+  return `
+    <div class="example-section animate-in" style="margin-top:24px;">
+      <div class="section-subtitle" style="display:flex; align-items:center; gap:8px;">
+        ${title}
+        <span class="tiny-tag ${badgeClass}">${badgeText}</span>
+      </div>
+      <div class="example-grid">
+        ${examples.map(ex => {
+          const fallbackKo = window.escapeJsSingle(ex.ko);
+          const audioPath = `data/audio/${ex.id}.mp3`;
+          return `
+            <div class="example-card">
+              <div class="example-header">
+                <div class="example-ko">${window.escapeHtml(ex.ko)}</div>
+                <button class="audio-btn" onclick="APP.playOriginalOrTTS('${fallbackKo}', '${audioPath}')">
+                  <span class="icon">🔊</span>
+                </button>
+              </div>
+              <div class="example-zh">${window.escapeHtml(ex.zh_tw)}</div>
+            </div>
+          `;
+        }).join('')}
+      </div>
     </div>
   `;
 };

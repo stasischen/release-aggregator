@@ -1,7 +1,7 @@
 {
   "task_id": "KNOWLEDGE_LAB_VIEWER_REFACTOR",
   "description": "Knowledge Lab viewer 重構：對齊 ULV runtime contract，涵蓋 grammar / pattern / usage / vocab support-detail surfaces，並驗證 anchor / panel / selection 互動。",
-  "status": "in_progress",
+  "status": "done",
   "tasks": [
     {
       "id": "KLABVIEW-001",
@@ -28,7 +28,7 @@
     {
       "id": "KLABVIEW-004",
       "desc": "Perform runtime validation of the Knowledge Lab viewer using real content (e.g., A1-01 grammar/pattern links).",
-      "status": "todo",
+      "status": "done",
       "depends_on": [
         "KLABVIEW-002",
         "KLABVIEW-003"

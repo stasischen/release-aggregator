@@ -212,7 +212,10 @@ const APP = {
     async selectLibCategory(catId, subId) {
         if (!this.libManifest) return;
         
-        const items = (this.libManifest.items || []).filter(item => item.category === catId && item.sub === subId);
+        const sidLower = (subId || '').toLowerCase();
+        const items = (this.libManifest.items || []).filter(item => 
+            item.category === catId && (item.sub || '').toLowerCase() === sidLower
+        );
         
         if (items.length === 0) {
             this.elements.libReader.innerHTML = `
@@ -244,10 +247,13 @@ const APP = {
 
         this.elements.libReader.innerHTML = `
             <div class="animate-in" style="padding:20px 0;">
-                <div class="lib-category-header" style="margin-bottom:32px;">
-                    ${isSame ? '' : `<div class="breadcrumb" style="font-size:12px; font-weight:700; color:var(--muted); margin-bottom:4px; text-transform:uppercase;">${catTitle}</div>`}
-                    <h2 style="margin:0; font-size:24px;">${displaySub}</h2>
-                    <div style="height:2px; width:40px; background:var(--accent); margin-top:12px;"></div>
+                <div class="lib-category-header" style="margin-bottom:32px; display:flex; justify-content:space-between; align-items:flex-end;">
+                    <div>
+                        ${isSame ? '' : `<div class="breadcrumb" style="font-size:12px; font-weight:700; color:var(--muted); margin-bottom:4px; text-transform:uppercase;">${catTitle}</div>`}
+                        <h2 style="margin:0; font-size:24px;">${displaySub}</h2>
+                        <div style="height:2px; width:40px; background:var(--accent); margin-top:12px;"></div>
+                    </div>
+                    <button class="btn tiny-text" onclick="APP.showLibTOC()" style="padding:4px 8px; border-radius:8px; opacity:0.8;">全部主題</button>
                 </div>
                 <div class="list-grid">
                     ${listHtml}
@@ -346,18 +352,42 @@ const APP = {
     },
 
     async playOriginalOrTTS(text, audioPath) {
-        try {
-            // Mechanism: Try to play actual file if it exists, otherwise fallback to web speech
-            const audio = new Audio(audioPath);
-            audio.onerror = () => {
-                console.log("Original audio not found, falling back to TTS:", audioPath);
-                if (window.speakKo) window.speakKo(text);
-            };
-            await audio.play();
-        } catch (e) {
-            console.log("Audio play failed, falling back to TTS:", e);
-            if (window.speakKo) window.speakKo(text);
+        if (!text) return;
+
+        // On Mac/Browsers, we must trigger speech immediately if we know the audio will fail 
+        // to avoid being blocked by the "non-user-gesture" check in async callbacks.
+        const isPlaceholder = audioPath.includes('unknown') || audioPath.includes('ex.ko');
+
+        if (!isPlaceholder) {
+            try {
+                const audio = new Audio(audioPath);
+                await audio.play();
+                return;
+            } catch (e) {
+                console.warn("Audio file play failed, falling back to TTS:", e);
+                // Fall through to TTS
+            }
         }
+
+        // TTS Fallback
+        if (window.speakKo) {
+            window.speakKo(text);
+        } else {
+            console.error("TTS engine (window.speakKo) not found.");
+        }
+    },
+
+    showLibTOC() {
+        this.elements.libReader.innerHTML = `
+            <div class="empty-state" style="margin-top:100px;">
+                <div class="icon" style="font-size:48px;">📖</div>
+                <h3>歡迎來到 Lingourmet 韓語知識文庫</h3>
+                <p class="muted-text">請從左側目錄選擇一個主題開始學習。</p>
+                <div class="featured-list" id="libFeaturedList" style="margin-top:32px;"></div>
+            </div>
+        `;
+        this.renderLibFeatured();
+        if (this.elements.libCurrentTitle) this.elements.libCurrentTitle.textContent = '請選擇主題';
     },
 
     toggleLibSidebar(open) {

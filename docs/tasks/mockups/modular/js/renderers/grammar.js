@@ -85,6 +85,9 @@
       `;
     }).join('');
 
+    // 4. Examples (Unified via Adapter-resolved property)
+    const examplesHtml = window.renderUnifiedExampleSection(payload.resolved_examples);
+
     return `
       <div class="grammar-container animate-in">
         ${window.renderNotice(payload)}
@@ -94,6 +97,7 @@
             ${html}
           </div>
         </div>
+        ${examplesHtml}
       </div>
     `;
   }

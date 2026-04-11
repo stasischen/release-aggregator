@@ -26,6 +26,7 @@ const APP = {
         
         this.currentLibraryFilter = 'all';
         this.wireEvents();
+        this.primeAudioEngine(); 
         this.bootstrap();
         this.initLibrary();
     },
@@ -72,6 +73,38 @@ const APP = {
         if (this.elements.libSearch) {
             this.elements.libSearch.oninput = (e) => this.filterLibToc(e.target.value);
         }
+
+        // Global Event Delegation for Audio Buttons (Safari Gesture Preservation)
+        document.body.addEventListener('click', (e) => {
+            const btn = e.target.closest('.audio-btn');
+            if (btn) {
+                e.preventDefault();
+                e.stopPropagation();
+                const text = btn.dataset.text;
+                const audio = btn.dataset.audio;
+                this.playOriginalOrTTS(text, audio);
+            }
+        });
+    },
+
+    primeAudioEngine() {
+        const handler = () => {
+            console.log("[Audio Engine] Priming for Safari/macOS...");
+
+            // 1. Prime TTS
+            if (window.speakKo) {
+                // Speak a silent space to "unlock" the engine
+                const utter = new SpeechSynthesisUtterance(" ");
+                utter.volume = 0;
+                window.speechSynthesis.speak(utter);
+            }
+
+            window.audioEngineIsPrimed = true;
+            document.removeEventListener('click', handler);
+            document.removeEventListener('touchstart', handler);
+        };
+        document.addEventListener('click', handler);
+        document.addEventListener('touchstart', handler);
     },
 
     async bootstrap() {
@@ -253,7 +286,10 @@ const APP = {
                         <h2 style="margin:0; font-size:24px;">${displaySub}</h2>
                         <div style="height:2px; width:40px; background:var(--accent); margin-top:12px;"></div>
                     </div>
-                    <button class="btn tiny-text" onclick="APP.showLibTOC()" style="padding:4px 8px; border-radius:8px; opacity:0.8;">全部主題</button>
+                    <div style="display:flex; gap:8px;">
+                        <button class="btn tiny-text" onclick="window.resetAudioEngine()" style="padding:4px 8px; border-radius:8px; opacity:0.8; color:var(--warn); border-color:var(--warn-soft);">🔊 重設語音</button>
+                        <button class="btn tiny-text" onclick="APP.showLibTOC()" style="padding:4px 8px; border-radius:8px; opacity:0.8;">全部主題</button>
+                    </div>
                 </div>
                 <div class="list-grid">
                     ${listHtml}
@@ -303,13 +339,12 @@ const APP = {
         if (!this.elements.libReader) return;
         
         const examplesHtml = (data.example_bank || []).map((ex, idx) => {
-            const audioPath = `data/audio/${ex.id}.mp3`;
             const fallbackKo = window.escapeJsSingle(ex.ko);
             return `
                 <div class="example-card animate-in">
                     <div class="example-header" style="display:flex; justify-content:space-between; align-items:center; margin-bottom:8px;">
                         <div class="example-ko" style="font-weight:700; color:var(--text);">${window.escapeHtml(ex.ko)}</div>
-                        <button class="audio-btn" onclick="APP.playOriginalOrTTS('${fallbackKo}', '${audioPath}')" title="播放音檔">
+                        <button type="button" class="audio-btn" onclick="event.stopPropagation(); APP.playOriginalOrTTS('${fallbackKo}'); return false;" title="播放 TTS">
                             <span class="icon">🔊</span>
                         </button>
                     </div>
@@ -351,30 +386,10 @@ const APP = {
         `;
     },
 
-    async playOriginalOrTTS(text, audioPath) {
+    playOriginalOrTTS(text) {
         if (!text) return;
-
-        // On Mac/Browsers, we must trigger speech immediately if we know the audio will fail 
-        // to avoid being blocked by the "non-user-gesture" check in async callbacks.
-        const isPlaceholder = audioPath.includes('unknown') || audioPath.includes('ex.ko');
-
-        if (!isPlaceholder) {
-            try {
-                const audio = new Audio(audioPath);
-                await audio.play();
-                return;
-            } catch (e) {
-                console.warn("Audio file play failed, falling back to TTS:", e);
-                // Fall through to TTS
-            }
-        }
-
-        // TTS Fallback
-        if (window.speakKo) {
-            window.speakKo(text);
-        } else {
-            console.error("TTS engine (window.speakKo) not found.");
-        }
+        console.log("TTS-only test mode: speaking via Web Speech API.");
+        if (window.speakKo) window.speakKo(text);
     },
 
     showLibTOC() {

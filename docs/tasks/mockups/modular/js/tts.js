@@ -12,7 +12,9 @@ window.getKoreanVoices = function () {
 
 window.pickPreferredKoreanVoice = function (voices) {
     const list = Array.isArray(voices) ? voices : [];
-    return list.find(v => /yuna/i.test(v.name || '')) ||
+    // Prioritize high-quality/premium versions of Yuna first
+    return list.find(v => /yuna.*(premium|enhanced|高音質)/i.test(v.name || '')) ||
+        list.find(v => /yuna/i.test(v.name || '')) ||
         list.find(v => (v.lang || '').toLowerCase() === 'ko-kr' && v.localService) ||
         list.find(v => (v.lang || '').toLowerCase() === 'ko-kr') ||
         list[0] ||
@@ -27,14 +29,64 @@ window.getSelectedKoreanVoice = function () {
         null;
 };
 
+window.ttsUtterances = []; // Safari GC Bug safeguard
+
 window.speakKo = function (text) {
     if (!text || !window.ttsSupported()) return;
+    
+    // Check if we already have this exact request in flight to prevent double-firing
+    if (window.lastTtsText === text && window.speechSynthesis.speaking) {
+        return;
+    }
+    window.lastTtsText = text;
+
+    console.log("[TTS Request]:", text);
+    
+    // Only cancel if needed - Safari sends 'canceled' error to the NEW item 
+    // if we cancel and speak in the same event loop in some versions.
+    if (window.speechSynthesis.speaking) {
+        window.speechSynthesis.cancel();
+    }
+
     const utter = new SpeechSynthesisUtterance(String(text));
+    
+    // GC protection - keep the object alive in a global array
+    window.ttsUtterances = window.ttsUtterances || [];
+    window.ttsUtterances.push(utter);
+    if (window.ttsUtterances.length > 20) {
+        // Only shift if they are actually finished to avoid canceling them midway
+        window.ttsUtterances.shift(); 
+    }
+    
     utter.lang = 'ko-KR';
     const voice = window.getSelectedKoreanVoice();
-    if (voice) utter.voice = voice;
-    window.speechSynthesis.cancel();
+    if (voice) {
+        utter.voice = voice;
+    }
+
+    utter.onstart = () => console.log("TTS Engine: Started Speaking");
+    utter.onend = () => {
+        console.log("TTS Engine: Finished Speaking");
+        window.lastTtsText = null;
+    };
+    utter.onerror = (e) => {
+        // If it's a 'canceled' error, it's often common and expected during user interaction
+        if (e.error === 'interrupted' || e.error === 'canceled') {
+            console.log("TTS Engine: Request superseded");
+        } else {
+            console.error("TTS Engine: Error Event", e);
+        }
+    };
+    
     window.speechSynthesis.speak(utter);
+};
+
+window.resetAudioEngine = function () {
+    window.speechSynthesis.cancel();
+    window.speechSynthesis.resume();
+    if (window.refreshTtsVoices) window.refreshTtsVoices();
+    console.log("Audio Engine Forcefully Reset.");
+    alert("語音引擎已重置，請再次嘗試播放。");
 };
 
 window.renderSpeakButton = function (text) {
@@ -81,3 +133,10 @@ window.refreshTtsVoices = function () {
         ? `找到 ${voices.length} 個韓文語音，可選你安裝的高品質語音。`
         : '未找到韓文語音，將嘗試用系統預設語音。';
 };
+
+if (typeof window !== 'undefined' && 'speechSynthesis' in window) {
+    window.speechSynthesis.onvoiceschanged = () => {
+        console.log("TTS Voices changed/updated.");
+        if (window.refreshTtsVoices) window.refreshTtsVoices();
+    };
+}

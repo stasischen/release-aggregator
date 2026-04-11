@@ -103,7 +103,7 @@ window.applyInlineMarkdown = function (text) {
     .replace(/\*(.*?)\*/g, '<em>$1</em>')
     .replace(/`(.*?)`/g, '<code>$1</code>')
     .replace(/\[ko:(.*?)\|zh:(.*?)(?:\|id:(.*?))?\]/g, (m, ko, zh, id) => {
-      const audioCall = `APP.playOriginalOrTTS('${window.escapeJsSingle(ko)}', 'data/audio/${id || "unknown"}.mp3')`;
+      const audioCall = `APP.playOriginalOrTTS('${window.escapeJsSingle(ko)}')`;
       return `<span class="inline-sentence-chip" onclick="${audioCall}" title="點擊播放音檔">
                 <span class="ko">${window.escapeHtml(ko)}</span>
                 <span class="view-zh">${window.escapeHtml(zh)}</span>
@@ -270,12 +270,11 @@ window.renderUnifiedExampleSection = function (examples) {
       <div class="example-grid">
         ${examples.map(ex => {
           const fallbackKo = window.escapeJsSingle(ex.ko);
-          const audioPath = `data/audio/${ex.id}.mp3`;
           return `
             <div class="example-card">
               <div class="example-header">
                 <div class="example-ko">${window.escapeHtml(ex.ko)}</div>
-                <button class="audio-btn" onclick="APP.playOriginalOrTTS('${fallbackKo}', '${audioPath}')">
+                <button type="button" class="audio-btn" data-text="${fallbackKo}">
                   <span class="icon">🔊</span>
                 </button>
               </div>

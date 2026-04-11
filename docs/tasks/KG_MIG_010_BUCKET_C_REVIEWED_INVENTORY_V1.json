@@ -1,0 +1,2396 @@
+[
+  {
+    "knowledge_item_ref": "kg.connector.conversion.geureonde",
+    "source_field": "explanation_md_zh_tw",
+    "source_excerpt": "1. **轉折/對立 (Contrast)**：引導一個出乎意料或與前文不符的情況。用法類似 `하지만`，但語氣更為自然、口語。例如：`숙제를 다 했어요. 그런데 하나 빠졌어요.` (作業做完了，但漏了一個。)",
+    "normalized_ko_candidate": "숙제를 다 했어요. 그런데 하나 빠졌어요.",
+    "classification": "extractable",
+    "reason": "Standalone sentence candidate found in text",
+    "suggested_next_action": "extract_to_example_sentence"
+  },
+  {
+    "knowledge_item_ref": "kg.connector.conversion.geureonde",
+    "source_field": "explanation_md_zh_tw",
+    "source_excerpt": "2. **轉換話題 (Topic Shift)**：當想要改變談話內容或「話說回來」時使用。例如：`오늘 날씨 좋네요! 그런데 점심 뭐 먹을까요?` (今天天氣真好！話說回來，午餐要吃什麼？)",
+    "normalized_ko_candidate": "오늘 날씨 좋네요! 그런데 점심 뭐 먹을까요?",
+    "classification": "extractable",
+    "reason": "Standalone sentence candidate found in text",
+    "suggested_next_action": "extract_to_example_sentence"
+  },
+  {
+    "knowledge_item_ref": "kg.connector.sequence.gedaga",
+    "source_field": "explanation_md_zh_tw",
+    "source_excerpt": "1. 在優點上加優點 (例: 맛있어요. 게다가 싸요.)",
+    "normalized_ko_candidate": "맛있어요. 게다가 싸요.",
+    "classification": "extractable",
+    "reason": "Structured example sentence with formal prefix",
+    "suggested_next_action": "extract_to_example_sentence"
+  },
+  {
+    "knowledge_item_ref": "kg.connector.sequence.gedaga",
+    "source_field": "explanation_md_zh_tw",
+    "source_excerpt": "2. 在缺點上加缺點 (例: 방이 좁아요. 게다가 시끄러워요.)",
+    "normalized_ko_candidate": "방이 좁아요. 게다가 시끄러워요.",
+    "classification": "extractable",
+    "reason": "Structured example sentence with formal prefix",
+    "suggested_next_action": "extract_to_example_sentence"
+  },
+  {
+    "knowledge_item_ref": "kg.connector.sequence.gedaga",
+    "source_field": "explanation_md_zh_tw",
+    "source_excerpt": "- 常與助詞 **-도** (也) 連用以加強口吻 (例: 게다가 날씨도 좋았어요.)",
+    "normalized_ko_candidate": "게다가 날씨도 좋았어요.",
+    "classification": "extractable",
+    "reason": "Structured example sentence with formal prefix",
+    "suggested_next_action": "extract_to_example_sentence"
+  },
+  {
+    "knowledge_item_ref": "kg.connector.sequence.geureom",
+    "source_field": "explanation_md_zh_tw",
+    "source_excerpt": "1. 決定接下來做什麼 (例: 그럼 이제 시작합시다!)",
+    "normalized_ko_candidate": "그럼 이제 시작합시다!",
+    "classification": "extractable",
+    "reason": "Structured example sentence with formal prefix",
+    "suggested_next_action": "extract_to_example_sentence"
+  },
+  {
+    "knowledge_item_ref": "kg.connector.sequence.geureom",
+    "source_field": "explanation_md_zh_tw",
+    "source_excerpt": "2. 基於對方的話給予承諾或回應 (例: 그럼 내일 전화할게요.)",
+    "normalized_ko_candidate": "그럼 내일 전화할게요.",
+    "classification": "extractable",
+    "reason": "Structured example sentence with formal prefix",
+    "suggested_next_action": "extract_to_example_sentence"
+  },
+  {
+    "knowledge_item_ref": "kg.connector.sequence.geureom",
+    "source_field": "explanation_md_zh_tw",
+    "source_excerpt": "3. 道別或展開新動作 (例: 그럼 먼저 갈게요.)",
+    "normalized_ko_candidate": "그럼 먼저 갈게요.",
+    "classification": "extractable",
+    "reason": "Structured example sentence with formal prefix",
+    "suggested_next_action": "extract_to_example_sentence"
+  },
+  {
+    "knowledge_item_ref": "kg.grammar.ability.can",
+    "source_field": "explanation_md_zh_tw",
+    "source_excerpt": "`~ㄹ/을 수 있다` 用於描述自身具備的技能，或是客觀情況允許下能做的事情。",
+    "normalized_ko_candidate": "을 수 있다",
+    "classification": "extractable",
+    "reason": "Standalone sentence candidate found in text",
+    "suggested_next_action": "extract_to_example_sentence"
+  },
+  {
+    "knowledge_item_ref": "kg.grammar.ability.can",
+    "source_field": "explanation_md_zh_tw",
+    "source_excerpt": "- **語幹無收音（母音結尾）**：加上 `~ㄹ 수 있다` (例如：`하다 -> 할 수 있다`)",
+    "normalized_ko_candidate": "하다 -> 할",
+    "classification": "inline_chip_candidate",
+    "reason": "Morphology change pattern detected (A -> B)",
+    "suggested_next_action": "convert_to_inline_chip"
+  },
+  {
+    "knowledge_item_ref": "kg.grammar.ability.can",
+    "source_field": "explanation_md_zh_tw",
+    "source_excerpt": "- **語幹有收音（子音結尾）**：加上 `~을 수 있다` (例如：`먹다 -> 먹을 수 있다`)",
+    "normalized_ko_candidate": "먹다 -> 먹을",
+    "classification": "inline_chip_candidate",
+    "reason": "Morphology change pattern detected (A -> B)",
+    "suggested_next_action": "convert_to_inline_chip"
+  },
+  {
+    "knowledge_item_ref": "kg.grammar.ability.can",
+    "source_field": "explanation_md_zh_tw",
+    "source_excerpt": "- **以 ㄹ 結尾的語幹**：直接加 `수 있다` (例如：`만들다 -> 만들 수 있다`)",
+    "normalized_ko_candidate": "만들다 -> 만들",
+    "classification": "inline_chip_candidate",
+    "reason": "Morphology change pattern detected (A -> B)",
+    "suggested_next_action": "convert_to_inline_chip"
+  },
+  {
+    "knowledge_item_ref": "kg.grammar.ability.cannot",
+    "source_field": "explanation_md_zh_tw",
+    "source_excerpt": "`~ㄹ/을 수 없다` 是 `~ㄹ/을 수 있다` 的否定形式，常用於說明理由或表明拒絕。",
+    "normalized_ko_candidate": "을 수 없다",
+    "classification": "extractable",
+    "reason": "Standalone sentence candidate found in text",
+    "suggested_next_action": "extract_to_example_sentence"
+  },
+  {
+    "knowledge_item_ref": "kg.grammar.ability.cannot",
+    "source_field": "explanation_md_zh_tw",
+    "source_excerpt": "- **語幹無收音**：加上 `~ㄹ 수 없다` (例如：`加다 -> 갈 수 없다`)",
+    "normalized_ko_candidate": "다 -> 갈",
+    "classification": "inline_chip_candidate",
+    "reason": "Morphology change pattern detected (A -> B)",
+    "suggested_next_action": "convert_to_inline_chip"
+  },
+  {
+    "knowledge_item_ref": "kg.grammar.ability.cannot",
+    "source_field": "explanation_md_zh_tw",
+    "source_excerpt": "- **語幹有收音**：加上 `~을 수 없다` (例如：`먹다 -> 먹을 수 없다`)",
+    "normalized_ko_candidate": "먹다 -> 먹을",
+    "classification": "inline_chip_candidate",
+    "reason": "Morphology change pattern detected (A -> B)",
+    "suggested_next_action": "convert_to_inline_chip"
+  },
+  {
+    "knowledge_item_ref": "kg.grammar.ability.cannot",
+    "source_field": "explanation_md_zh_tw",
+    "source_excerpt": "- **以 ㄹ 結尾的語幹**：直接加 `수 없다` (例如：`살다 -> 살 수 없다`)",
+    "normalized_ko_candidate": "살다 -> 살",
+    "classification": "inline_chip_candidate",
+    "reason": "Morphology change pattern detected (A -> B)",
+    "suggested_next_action": "convert_to_inline_chip"
+  },
+  {
+    "knowledge_item_ref": "kg.grammar.copula.eopda",
+    "source_field": "explanation_md_zh_tw",
+    "source_excerpt": "- **子音結尾**：名詞 + **이 없다** (例: 집이 없다)",
+    "normalized_ko_candidate": "집이 없다",
+    "classification": "extractable",
+    "reason": "Structured example sentence with formal prefix",
+    "suggested_next_action": "extract_to_example_sentence"
+  },
+  {
+    "knowledge_item_ref": "kg.grammar.copula.eopda",
+    "source_field": "explanation_md_zh_tw",
+    "source_excerpt": "- **母音結尾**：名詞 + **가 없다** (例: 친구가 없다)",
+    "normalized_ko_candidate": "친구가 없다",
+    "classification": "extractable",
+    "reason": "Structured example sentence with formal prefix",
+    "suggested_next_action": "extract_to_example_sentence"
+  },
+  {
+    "knowledge_item_ref": "kg.grammar.copula.eopda",
+    "source_field": "explanation_md_zh_tw",
+    "source_excerpt": "- **禮貌體變換**：없다 → **없어요** / **없습니다**",
+    "normalized_ko_candidate": "없습니다",
+    "classification": "inline_chip_candidate",
+    "reason": "Short fragment candidate",
+    "suggested_next_action": "convert_to_inline_chip"
+  },
+  {
+    "knowledge_item_ref": "kg.grammar.copula.eopda",
+    "source_field": "usage_notes_zh_tw",
+    "source_excerpt": "名詞 + 이/가 없다",
+    "normalized_ko_candidate": "가 없다",
+    "classification": "context_bound",
+    "reason": "Localized usage note fragment",
+    "suggested_next_action": "keep_local_only"
+  },
+  {
+    "knowledge_item_ref": "kg.grammar.copula.itda",
+    "source_field": "explanation_md_zh_tw",
+    "source_excerpt": "- **子音結尾**：名詞 + **이 있다** (例: 책이 있다)",
+    "normalized_ko_candidate": "책이 있다",
+    "classification": "extractable",
+    "reason": "Structured example sentence with formal prefix",
+    "suggested_next_action": "extract_to_example_sentence"
+  },
+  {
+    "knowledge_item_ref": "kg.grammar.copula.itda",
+    "source_field": "explanation_md_zh_tw",
+    "source_excerpt": "- **母音結尾**：名詞 + **가 있다** (例: 친구가 있다)",
+    "normalized_ko_candidate": "친구가 있다",
+    "classification": "extractable",
+    "reason": "Structured example sentence with formal prefix",
+    "suggested_next_action": "extract_to_example_sentence"
+  },
+  {
+    "knowledge_item_ref": "kg.grammar.copula.itda",
+    "source_field": "explanation_md_zh_tw",
+    "source_excerpt": "- **禮貌體變換**：있다 → **있어요** / **있습니다**",
+    "normalized_ko_candidate": "있습니다",
+    "classification": "inline_chip_candidate",
+    "reason": "Short fragment candidate",
+    "suggested_next_action": "convert_to_inline_chip"
+  },
+  {
+    "knowledge_item_ref": "kg.grammar.copula.itda",
+    "source_field": "usage_notes_zh_tw",
+    "source_excerpt": "名詞 + 이/가 있다",
+    "normalized_ko_candidate": "가 있다",
+    "classification": "context_bound",
+    "reason": "Localized usage note fragment",
+    "suggested_next_action": "keep_local_only"
+  },
+  {
+    "knowledge_item_ref": "kg.grammar.copula.itda",
+    "source_field": "usage_notes_zh_tw",
+    "source_excerpt": "表示地點時搭配 에 있다 (例: 집에 있어요)",
+    "normalized_ko_candidate": "집에 있어요",
+    "classification": "extractable",
+    "reason": "Structured example sentence with formal prefix",
+    "suggested_next_action": "extract_to_example_sentence"
+  },
+  {
+    "knowledge_item_ref": "kg.grammar.copula.present_formal",
+    "source_field": "usage_notes_zh_tw",
+    "source_excerpt": "疑問句形式為「~입니까?」",
+    "normalized_ko_candidate": "입니까?",
+    "classification": "context_bound",
+    "reason": "Localized usage note fragment",
+    "suggested_next_action": "keep_local_only"
+  },
+  {
+    "knowledge_item_ref": "kg.grammar.copula.present_informal",
+    "source_field": "explanation_md_zh_tw",
+    "source_excerpt": "- **名詞結尾有收音**：加 **이야** (例：학생이야)",
+    "normalized_ko_candidate": "학생이야",
+    "classification": "inline_chip_candidate",
+    "reason": "Short fragment candidate",
+    "suggested_next_action": "convert_to_inline_chip"
+  },
+  {
+    "knowledge_item_ref": "kg.grammar.copula.present_informal",
+    "source_field": "usage_notes_zh_tw",
+    "source_excerpt": "名詞(有收音) + 이야 (例：경찰이야)",
+    "normalized_ko_candidate": "경찰이야",
+    "classification": "context_bound",
+    "reason": "Localized usage note fragment",
+    "suggested_next_action": "keep_local_only"
+  },
+  {
+    "knowledge_item_ref": "kg.grammar.copula.present_informal",
+    "source_field": "usage_notes_zh_tw",
+    "source_excerpt": "疑問句只需將語調上揚即可 (例：친구야?)",
+    "normalized_ko_candidate": "친구야?",
+    "classification": "context_bound",
+    "reason": "Localized usage note fragment",
+    "suggested_next_action": "keep_local_only"
+  },
+  {
+    "knowledge_item_ref": "kg.grammar.copula.present_polite_informal",
+    "source_field": "explanation_md_zh_tw",
+    "source_excerpt": "- **名詞結尾有收音**：加 **이에요** (例：선생님이에요)",
+    "normalized_ko_candidate": "선생님이에요",
+    "classification": "inline_chip_candidate",
+    "reason": "Short fragment candidate",
+    "suggested_next_action": "convert_to_inline_chip"
+  },
+  {
+    "knowledge_item_ref": "kg.grammar.copula.present_polite_informal",
+    "source_field": "explanation_md_zh_tw",
+    "source_excerpt": "- **名詞結尾無收音**：加 **예요** (例：친구예요)",
+    "normalized_ko_candidate": "친구예요",
+    "classification": "inline_chip_candidate",
+    "reason": "Short fragment candidate",
+    "suggested_next_action": "convert_to_inline_chip"
+  },
+  {
+    "knowledge_item_ref": "kg.grammar.desire.want",
+    "source_field": "explanation_md_zh_tw",
+    "source_excerpt": "「~고 싶다」是韓文中表示「想要～」最基礎且常用的句型。",
+    "normalized_ko_candidate": "고 싶다",
+    "classification": "inline_chip_candidate",
+    "reason": "Short fragment candidate",
+    "suggested_next_action": "convert_to_inline_chip"
+  },
+  {
+    "knowledge_item_ref": "kg.grammar.desire.want",
+    "source_field": "explanation_md_zh_tw",
+    "source_excerpt": "- 不受收音影響，一律加 **~고 싶다**。",
+    "normalized_ko_candidate": "고 싶다",
+    "classification": "inline_chip_candidate",
+    "reason": "Short fragment candidate",
+    "suggested_next_action": "convert_to_inline_chip"
+  },
+  {
+    "knowledge_item_ref": "kg.grammar.desire.want",
+    "source_field": "explanation_md_zh_tw",
+    "source_excerpt": "- 먹다 -> **먹고 싶어요** (想吃)",
+    "normalized_ko_candidate": "먹고 싶어요",
+    "classification": "inline_chip_candidate",
+    "reason": "Short fragment candidate",
+    "suggested_next_action": "convert_to_inline_chip"
+  },
+  {
+    "knowledge_item_ref": "kg.grammar.desire.want",
+    "source_field": "explanation_md_zh_tw",
+    "source_excerpt": "- 가다 -> **가고 싶어요** (想去)",
+    "normalized_ko_candidate": "가고 싶어요",
+    "classification": "inline_chip_candidate",
+    "reason": "Short fragment candidate",
+    "suggested_next_action": "convert_to_inline_chip"
+  },
+  {
+    "knowledge_item_ref": "kg.grammar.desire.want",
+    "source_field": "explanation_md_zh_tw",
+    "source_excerpt": "- 사다 -> **사고 싶어요** (想買)",
+    "normalized_ko_candidate": "사고 싶어요",
+    "classification": "inline_chip_candidate",
+    "reason": "Short fragment candidate",
+    "suggested_next_action": "convert_to_inline_chip"
+  },
+  {
+    "knowledge_item_ref": "kg.grammar.desire.want",
+    "source_field": "explanation_md_zh_tw",
+    "source_excerpt": "通常用於**第一人稱** (我) 或**第二人稱** (你，問句中)。描述第三人稱則需使用 **~고 싶어하다**。",
+    "normalized_ko_candidate": "고 싶어하다",
+    "classification": "inline_chip_candidate",
+    "reason": "Short fragment candidate",
+    "suggested_next_action": "convert_to_inline_chip"
+  },
+  {
+    "knowledge_item_ref": "kg.grammar.desire.want",
+    "source_field": "usage_notes_zh_tw",
+    "source_excerpt": "詞幹 + 고 싶다",
+    "normalized_ko_candidate": "고 싶다",
+    "classification": "context_bound",
+    "reason": "Localized usage note fragment",
+    "suggested_next_action": "keep_local_only"
+  },
+  {
+    "knowledge_item_ref": "kg.grammar.desire.wish",
+    "source_field": "explanation_md_zh_tw",
+    "source_excerpt": "「~았/었으면 좋겠다」用於表示對未來或現狀的期望或願望。",
+    "normalized_ko_candidate": "었으면 좋겠다",
+    "classification": "inline_chip_candidate",
+    "reason": "Short fragment candidate",
+    "suggested_next_action": "convert_to_inline_chip"
+  },
+  {
+    "knowledge_item_ref": "kg.grammar.desire.wish",
+    "source_field": "explanation_md_zh_tw",
+    "source_excerpt": "- 基於**過去式**形式 (**았/었/했**) 加上 **~으면 좋겠다**。",
+    "normalized_ko_candidate": "으면 좋겠다",
+    "classification": "inline_chip_candidate",
+    "reason": "Short fragment candidate",
+    "suggested_next_action": "convert_to_inline_chip"
+  },
+  {
+    "knowledge_item_ref": "kg.grammar.desire.wish",
+    "source_field": "explanation_md_zh_tw",
+    "source_excerpt": "- 오다 -> **왔으면 좋겠어요** (希望來)",
+    "normalized_ko_candidate": "왔으면 좋겠어요",
+    "classification": "inline_chip_candidate",
+    "reason": "Short fragment candidate",
+    "suggested_next_action": "convert_to_inline_chip"
+  },
+  {
+    "knowledge_item_ref": "kg.grammar.desire.wish",
+    "source_field": "explanation_md_zh_tw",
+    "source_excerpt": "- 있다 -> **있었으면 좋겠어요** (希望有)",
+    "normalized_ko_candidate": "있었으면 좋겠어요",
+    "classification": "inline_chip_candidate",
+    "reason": "Short fragment candidate",
+    "suggested_next_action": "convert_to_inline_chip"
+  },
+  {
+    "knowledge_item_ref": "kg.grammar.desire.wish",
+    "source_field": "explanation_md_zh_tw",
+    "source_excerpt": "- 하다 -> **했으면 좋겠어요** (希望做)",
+    "normalized_ko_candidate": "했으면 좋겠어요",
+    "classification": "inline_chip_candidate",
+    "reason": "Short fragment candidate",
+    "suggested_next_action": "convert_to_inline_chip"
+  },
+  {
+    "knowledge_item_ref": "kg.grammar.desire.wish",
+    "source_field": "explanation_md_zh_tw",
+    "source_excerpt": "### 與「~고 싶다」的區別",
+    "normalized_ko_candidate": "고 싶다",
+    "classification": "inline_chip_candidate",
+    "reason": "Short fragment candidate",
+    "suggested_next_action": "convert_to_inline_chip"
+  },
+  {
+    "knowledge_item_ref": "kg.grammar.desire.wish",
+    "source_field": "explanation_md_zh_tw",
+    "source_excerpt": "1. **~고 싶다**：主要是具體的「想做」某個動作。",
+    "normalized_ko_candidate": "고 싶다",
+    "classification": "inline_chip_candidate",
+    "reason": "Short fragment candidate",
+    "suggested_next_action": "convert_to_inline_chip"
+  },
+  {
+    "knowledge_item_ref": "kg.grammar.desire.wish",
+    "source_field": "explanation_md_zh_tw",
+    "source_excerpt": "2. **~았으면 좋겠다**：語氣更具「願望」色彩，常指事態的發生（如：天氣、運氣、他人的狀態）。",
+    "normalized_ko_candidate": "았으면 좋겠다",
+    "classification": "inline_chip_candidate",
+    "reason": "Short fragment candidate",
+    "suggested_next_action": "convert_to_inline_chip"
+  },
+  {
+    "knowledge_item_ref": "kg.grammar.desire.wish",
+    "source_field": "usage_notes_zh_tw",
+    "source_excerpt": "詞幹 + 았/었으면 좋겠다",
+    "normalized_ko_candidate": "었으면 좋겠다",
+    "classification": "context_bound",
+    "reason": "Localized usage note fragment",
+    "suggested_next_action": "keep_local_only"
+  },
+  {
+    "knowledge_item_ref": "kg.grammar.determiner.musun",
+    "source_field": "explanation_md_zh_tw",
+    "source_excerpt": "1. **뭐 / 무엇**：獨立作為名詞使用 (例如：뭐예요? 這是什麼？)",
+    "normalized_ko_candidate": "뭐예요?",
+    "classification": "inline_chip_candidate",
+    "reason": "Short fragment candidate",
+    "suggested_next_action": "convert_to_inline_chip"
+  },
+  {
+    "knowledge_item_ref": "kg.grammar.determiner.musun",
+    "source_field": "explanation_md_zh_tw",
+    "source_excerpt": "2. **무슨**：必須放在名詞前作為定語 (例如：무슨 일? 什麼事？)",
+    "normalized_ko_candidate": "무슨 일?",
+    "classification": "inline_chip_candidate",
+    "reason": "Short fragment candidate",
+    "suggested_next_action": "convert_to_inline_chip"
+  },
+  {
+    "knowledge_item_ref": "kg.grammar.ending.additive_eulppunderseo",
+    "source_field": "explanation_md_zh_tw",
+    "source_excerpt": "- 詞幹末尾有收音：**-을뿐더러**",
+    "normalized_ko_candidate": "을뿐더러",
+    "classification": "inline_chip_candidate",
+    "reason": "Short fragment candidate",
+    "suggested_next_action": "convert_to_inline_chip"
+  },
+  {
+    "knowledge_item_ref": "kg.grammar.ending.additive_eulppunderseo",
+    "source_field": "explanation_md_zh_tw",
+    "source_excerpt": "2. 比起「-ㄴ/는데다가」，語感更正式且語氣更重。",
+    "normalized_ko_candidate": "는데다가",
+    "classification": "inline_chip_candidate",
+    "reason": "Short fragment candidate",
+    "suggested_next_action": "convert_to_inline_chip"
+  },
+  {
+    "knowledge_item_ref": "kg.grammar.ending.additive_eulppunderseo",
+    "source_field": "usage_notes_zh_tw",
+    "source_excerpt": "「재미있을뿐더러 유익해요」：不但有趣而且有益。",
+    "normalized_ko_candidate": "재미있을뿐더러 유익해요",
+    "classification": "context_bound",
+    "reason": "Localized usage note fragment",
+    "suggested_next_action": "keep_local_only"
+  },
+  {
+    "knowledge_item_ref": "kg.grammar.ending.additive_eulppunderseo",
+    "source_field": "usage_notes_zh_tw",
+    "source_excerpt": "「넓을뿐더러 위치도 좋아요」：不但寬敞且位置也好。",
+    "normalized_ko_candidate": "넓을뿐더러 위치도 좋아요",
+    "classification": "extractable",
+    "reason": "Standalone sentence candidate found in text",
+    "suggested_next_action": "extract_to_example_sentence"
+  },
+  {
+    "knowledge_item_ref": "kg.grammar.ending.ayoeoyo",
+    "source_field": "explanation_md_zh_tw",
+    "source_excerpt": "- 가다 → 가요",
+    "normalized_ko_candidate": "가다 -> 가요",
+    "classification": "inline_chip_candidate",
+    "reason": "Morphology change pattern detected (A -> B)",
+    "suggested_next_action": "convert_to_inline_chip"
+  },
+  {
+    "knowledge_item_ref": "kg.grammar.ending.ayoeoyo",
+    "source_field": "explanation_md_zh_tw",
+    "source_excerpt": "- 보다 → 봐요",
+    "normalized_ko_candidate": "보다 -> 봐요",
+    "classification": "inline_chip_candidate",
+    "reason": "Morphology change pattern detected (A -> B)",
+    "suggested_next_action": "convert_to_inline_chip"
+  },
+  {
+    "knowledge_item_ref": "kg.grammar.ending.ayoeoyo",
+    "source_field": "explanation_md_zh_tw",
+    "source_excerpt": "- 먹다 → 먹어요",
+    "normalized_ko_candidate": "먹다 -> 먹어요",
+    "classification": "inline_chip_candidate",
+    "reason": "Morphology change pattern detected (A -> B)",
+    "suggested_next_action": "convert_to_inline_chip"
+  },
+  {
+    "knowledge_item_ref": "kg.grammar.ending.ayoeoyo",
+    "source_field": "explanation_md_zh_tw",
+    "source_excerpt": "- 읽다 → 읽어요",
+    "normalized_ko_candidate": "읽다 -> 읽어요",
+    "classification": "inline_chip_candidate",
+    "reason": "Morphology change pattern detected (A -> B)",
+    "suggested_next_action": "convert_to_inline_chip"
+  },
+  {
+    "knowledge_item_ref": "kg.grammar.ending.ayoeoyo",
+    "source_field": "explanation_md_zh_tw",
+    "source_excerpt": "- 마시다 → 마셔요 (ㅣ + 어 → ㅕ)",
+    "normalized_ko_candidate": "마시다 -> 마셔요",
+    "classification": "inline_chip_candidate",
+    "reason": "Morphology change pattern detected (A -> B)",
+    "suggested_next_action": "convert_to_inline_chip"
+  },
+  {
+    "knowledge_item_ref": "kg.grammar.ending.ayoeoyo",
+    "source_field": "explanation_md_zh_tw",
+    "source_excerpt": "- 공부하다 → 공부해요",
+    "normalized_ko_candidate": "공부하다 -> 공부해요",
+    "classification": "inline_chip_candidate",
+    "reason": "Morphology change pattern detected (A -> B)",
+    "suggested_next_action": "convert_to_inline_chip"
+  },
+  {
+    "knowledge_item_ref": "kg.grammar.ending.benefactive",
+    "source_field": "explanation_md_zh_tw",
+    "source_excerpt": "「~아/어 주다」是表示服務或請求的重要語法。它源於「給予」。",
+    "normalized_ko_candidate": "어 주다",
+    "classification": "inline_chip_candidate",
+    "reason": "Short fragment candidate",
+    "suggested_next_action": "convert_to_inline_chip"
+  },
+  {
+    "knowledge_item_ref": "kg.grammar.ending.benefactive",
+    "source_field": "explanation_md_zh_tw",
+    "source_excerpt": "1. **ㅏ, ㅗ**：加 **~아 주다** (例：알리다 -> 알려 주다)",
+    "normalized_ko_candidate": "알리다 -> 알려",
+    "classification": "inline_chip_candidate",
+    "reason": "Morphology change pattern detected (A -> B)",
+    "suggested_next_action": "convert_to_inline_chip"
+  },
+  {
+    "knowledge_item_ref": "kg.grammar.ending.benefactive",
+    "source_field": "explanation_md_zh_tw",
+    "source_excerpt": "2. **其他母音**：加 **~어 주다** (例：도와 주다)",
+    "normalized_ko_candidate": "도와 주다",
+    "classification": "inline_chip_candidate",
+    "reason": "Short fragment candidate",
+    "suggested_next_action": "convert_to_inline_chip"
+  },
+  {
+    "knowledge_item_ref": "kg.grammar.ending.benefactive",
+    "source_field": "explanation_md_zh_tw",
+    "source_excerpt": "3. **하다**：變為 **~해 주다** (例：설명해 주다)",
+    "normalized_ko_candidate": "설명해 주다",
+    "classification": "inline_chip_candidate",
+    "reason": "Short fragment candidate",
+    "suggested_next_action": "convert_to_inline_chip"
+  },
+  {
+    "knowledge_item_ref": "kg.grammar.ending.benefactive",
+    "source_field": "explanation_md_zh_tw",
+    "source_excerpt": "當請求對方幫忙，或為長輩服務時，使用 **~아/어 드리다** 或 **~아/어 주세요**。",
+    "normalized_ko_candidate": "어 드리다",
+    "classification": "inline_chip_candidate",
+    "reason": "Short fragment candidate",
+    "suggested_next_action": "convert_to_inline_chip"
+  },
+  {
+    "knowledge_item_ref": "kg.grammar.ending.benefactive",
+    "source_field": "usage_notes_zh_tw",
+    "source_excerpt": "動詞 + 아/어 주다",
+    "normalized_ko_candidate": "어 주다",
+    "classification": "context_bound",
+    "reason": "Localized usage note fragment",
+    "suggested_next_action": "keep_local_only"
+  },
+  {
+    "knowledge_item_ref": "kg.grammar.ending.benefactive",
+    "source_field": "usage_notes_zh_tw",
+    "source_excerpt": "「~아/어 주세요」是最常用的請求公式",
+    "normalized_ko_candidate": "어 주세요",
+    "classification": "context_bound",
+    "reason": "Localized usage note fragment",
+    "suggested_next_action": "keep_local_only"
+  },
+  {
+    "knowledge_item_ref": "kg.grammar.ending.cause_eulkka_bwa",
+    "source_field": "explanation_md_zh_tw",
+    "source_excerpt": "- 詞幹末尾無收音：**-ㄹ까 봐** (예: 올까 봐)",
+    "normalized_ko_candidate": "올까 봐",
+    "classification": "inline_chip_candidate",
+    "reason": "Short fragment candidate",
+    "suggested_next_action": "convert_to_inline_chip"
+  },
+  {
+    "knowledge_item_ref": "kg.grammar.ending.cause_eulkka_bwa",
+    "source_field": "explanation_md_zh_tw",
+    "source_excerpt": "- 詞幹末尾有收音：**-을까 봐** (예: 늦을까 봐)",
+    "normalized_ko_candidate": "늦을까 봐",
+    "classification": "inline_chip_candidate",
+    "reason": "Short fragment candidate",
+    "suggested_next_action": "convert_to_inline_chip"
+  },
+  {
+    "knowledge_item_ref": "kg.grammar.ending.cause_eulkka_bwa",
+    "source_field": "usage_notes_zh_tw",
+    "source_excerpt": "「비가 올까 봐」：擔心下雨所以...",
+    "normalized_ko_candidate": "비가 올까 봐",
+    "classification": "extractable",
+    "reason": "Standalone sentence candidate found in text",
+    "suggested_next_action": "extract_to_example_sentence"
+  },
+  {
+    "knowledge_item_ref": "kg.grammar.ending.cause_eulkka_bwa",
+    "source_field": "usage_notes_zh_tw",
+    "source_excerpt": "「늦을까 봐」：擔心遲到所以...",
+    "normalized_ko_candidate": "늦을까 봐",
+    "classification": "context_bound",
+    "reason": "Localized usage note fragment",
+    "suggested_next_action": "keep_local_only"
+  },
+  {
+    "knowledge_item_ref": "kg.grammar.ending.choice_geona",
+    "source_field": "usage_notes_zh_tw",
+    "source_excerpt": "詞幹 + 거나 (例：보거나, 먹거나)",
+    "normalized_ko_candidate": "보거나, 먹거나",
+    "classification": "context_bound",
+    "reason": "Localized usage note fragment",
+    "suggested_next_action": "keep_local_only"
+  },
+  {
+    "knowledge_item_ref": "kg.grammar.ending.choice_geona",
+    "source_field": "usage_notes_zh_tw",
+    "source_excerpt": "常與 `~거나 ~거나` 連用，表示無論 A 還是 B。",
+    "normalized_ko_candidate": "거나 ~거나",
+    "classification": "context_bound",
+    "reason": "Localized usage note fragment",
+    "suggested_next_action": "keep_local_only"
+  },
+  {
+    "knowledge_item_ref": "kg.grammar.ending.clarification_dasipi",
+    "source_field": "explanation_md_zh_tw",
+    "source_excerpt": "2. **程度比喻**：表示動作或狀態幾乎到了前面所述的地步，常縮略為「-다시피 하다」。",
+    "normalized_ko_candidate": "다시피 하다",
+    "classification": "inline_chip_candidate",
+    "reason": "Short fragment candidate",
+    "suggested_next_action": "convert_to_inline_chip"
+  },
+  {
+    "knowledge_item_ref": "kg.grammar.ending.clarification_dasipi",
+    "source_field": "explanation_md_zh_tw",
+    "source_excerpt": "- 表示過去已說過、看過的事實：**-았/었다시피**",
+    "normalized_ko_candidate": "었다시피",
+    "classification": "inline_chip_candidate",
+    "reason": "Short fragment candidate",
+    "suggested_next_action": "convert_to_inline_chip"
+  },
+  {
+    "knowledge_item_ref": "kg.grammar.ending.clarification_dasipi",
+    "source_field": "explanation_md_zh_tw",
+    "source_excerpt": "「보시다시피」(正如您所見) 是極其常見的口語與正式場合表現。",
+    "normalized_ko_candidate": "보시다시피",
+    "classification": "inline_chip_candidate",
+    "reason": "Short fragment candidate",
+    "suggested_next_action": "convert_to_inline_chip"
+  },
+  {
+    "knowledge_item_ref": "kg.grammar.ending.clarification_dasipi",
+    "source_field": "usage_notes_zh_tw",
+    "source_excerpt": "「보시다시피」：正如您所見。",
+    "normalized_ko_candidate": "보시다시피",
+    "classification": "context_bound",
+    "reason": "Localized usage note fragment",
+    "suggested_next_action": "keep_local_only"
+  },
+  {
+    "knowledge_item_ref": "kg.grammar.ending.clarification_dasipi",
+    "source_field": "usage_notes_zh_tw",
+    "source_excerpt": "「아시다시피」：正如您所知。",
+    "normalized_ko_candidate": "아시다시피",
+    "classification": "context_bound",
+    "reason": "Localized usage note fragment",
+    "suggested_next_action": "keep_local_only"
+  },
+  {
+    "knowledge_item_ref": "kg.grammar.ending.clarification_dasipi",
+    "source_field": "usage_notes_zh_tw",
+    "source_excerpt": "「살다시피 하다」：幾乎像是住在某處一般（形容待在某處的時間極長）。",
+    "normalized_ko_candidate": "살다시피 하다",
+    "classification": "context_bound",
+    "reason": "Localized usage note fragment",
+    "suggested_next_action": "keep_local_only"
+  },
+  {
+    "knowledge_item_ref": "kg.grammar.ending.comparison_deusi",
+    "source_field": "explanation_md_zh_tw",
+    "source_excerpt": "此語尾用於比喻，表示行為或狀態彷彿前面的內容一般。常與比喻性的慣用表達搭配，如「밥 먹듯이」(像吃飯一樣方便/經常)。",
+    "normalized_ko_candidate": "밥 먹듯이",
+    "classification": "inline_chip_candidate",
+    "reason": "Short fragment candidate",
+    "suggested_next_action": "convert_to_inline_chip"
+  },
+  {
+    "knowledge_item_ref": "kg.grammar.ending.comparison_deusi",
+    "source_field": "usage_notes_zh_tw",
+    "source_excerpt": "「밥 먹듯이 하다」：像吃飯一樣常做（指某事發生頻率極高，通常含貶義，如說謊）。",
+    "normalized_ko_candidate": "밥 먹듯이 하다",
+    "classification": "extractable",
+    "reason": "Standalone sentence candidate found in text",
+    "suggested_next_action": "extract_to_example_sentence"
+  },
+  {
+    "knowledge_item_ref": "kg.grammar.ending.comparison_deusi",
+    "source_field": "usage_notes_zh_tw",
+    "source_excerpt": "「물 쓰듯이 쓰다」：像用水一樣花錢（揮金如土）。",
+    "normalized_ko_candidate": "물 쓰듯이 쓰다",
+    "classification": "extractable",
+    "reason": "Standalone sentence candidate found in text",
+    "suggested_next_action": "extract_to_example_sentence"
+  },
+  {
+    "knowledge_item_ref": "kg.grammar.ending.condition",
+    "source_field": "explanation_md_zh_tw",
+    "source_excerpt": "- **詞幹以母音(無收音)結尾或 ㄹ 結尾**：加 **-면** (例：가면, 살면)",
+    "normalized_ko_candidate": "가면, 살면",
+    "classification": "inline_chip_candidate",
+    "reason": "Short fragment candidate",
+    "suggested_next_action": "convert_to_inline_chip"
+  },
+  {
+    "knowledge_item_ref": "kg.grammar.ending.condition_aseoya",
+    "source_field": "usage_notes_zh_tw",
+    "source_excerpt": "「부모가 되어서야」：直到成為父母才（理解）。",
+    "normalized_ko_candidate": "부모가 되어서야",
+    "classification": "context_bound",
+    "reason": "Localized usage note fragment",
+    "suggested_next_action": "keep_local_only"
+  },
+  {
+    "knowledge_item_ref": "kg.grammar.ending.condition_aseoya",
+    "source_field": "usage_notes_zh_tw",
+    "source_excerpt": "「밤이 깊어서야」：直到深夜才（結束）。",
+    "normalized_ko_candidate": "밤이 깊어서야",
+    "classification": "context_bound",
+    "reason": "Localized usage note fragment",
+    "suggested_next_action": "keep_local_only"
+  },
+  {
+    "knowledge_item_ref": "kg.grammar.ending.contrast",
+    "source_field": "usage_notes_zh_tw",
+    "source_excerpt": "詞幹 + 지만 (例：작지만, 먹지만)",
+    "normalized_ko_candidate": "작지만, 먹지만",
+    "classification": "context_bound",
+    "reason": "Localized usage note fragment",
+    "suggested_next_action": "keep_local_only"
+  },
+  {
+    "knowledge_item_ref": "kg.grammar.ending.contrast_geonman",
+    "source_field": "usage_notes_zh_tw",
+    "source_excerpt": "「노력했건만 결과가 안 좋아요」：雖然努力了，結果卻不好。",
+    "normalized_ko_candidate": "노력했건만 결과가 안 좋아요",
+    "classification": "extractable",
+    "reason": "Standalone sentence candidate found in text",
+    "suggested_next_action": "extract_to_example_sentence"
+  },
+  {
+    "knowledge_item_ref": "kg.grammar.ending.contrast_geonman",
+    "source_field": "usage_notes_zh_tw",
+    "source_excerpt": "「답장을 기다리건만 소식이 없어요」：雖然在等回信，但完全沒消息。",
+    "normalized_ko_candidate": "답장을 기다리건만 소식이 없어요",
+    "classification": "extractable",
+    "reason": "Standalone sentence candidate found in text",
+    "suggested_next_action": "extract_to_example_sentence"
+  },
+  {
+    "knowledge_item_ref": "kg.grammar.ending.contrast_jani",
+    "source_field": "explanation_md_zh_tw",
+    "source_excerpt": "此語尾是「-자고 하니」的縮略形式。常用於表達「想做 A（意圖），但因為 B（原因/限制）而猶豫」，或者是「做 A 的話覺得...，不做的話又覺得...」的對照結構，展現說話者的心理掙扎。",
+    "normalized_ko_candidate": "자고 하니",
+    "classification": "inline_chip_candidate",
+    "reason": "Short fragment candidate",
+    "suggested_next_action": "convert_to_inline_chip"
+  },
+  {
+    "knowledge_item_ref": "kg.grammar.ending.contrast_jani",
+    "source_field": "usage_notes_zh_tw",
+    "source_excerpt": "「먹자니 배가 부르고」：想吃可是肚子飽了（進退兩難）。",
+    "normalized_ko_candidate": "먹자니 배가 부르고",
+    "classification": "extractable",
+    "reason": "Standalone sentence candidate found in text",
+    "suggested_next_action": "extract_to_example_sentence"
+  },
+  {
+    "knowledge_item_ref": "kg.grammar.ending.contrast_jani",
+    "source_field": "usage_notes_zh_tw",
+    "source_excerpt": "「버리자니 아깝고」：想丟掉可是覺得可惜。",
+    "normalized_ko_candidate": "버리자니 아깝고",
+    "classification": "context_bound",
+    "reason": "Localized usage note fragment",
+    "suggested_next_action": "keep_local_only"
+  },
+  {
+    "knowledge_item_ref": "kg.grammar.ending.emotion_observer_ahada",
+    "source_field": "explanation_md_zh_tw",
+    "source_excerpt": "- 詞幹最後一個母音為ㅏ、ㅗ：**-아하다** (예: 좋아하다)",
+    "normalized_ko_candidate": "좋아하다",
+    "classification": "inline_chip_candidate",
+    "reason": "Short fragment candidate",
+    "suggested_next_action": "convert_to_inline_chip"
+  },
+  {
+    "knowledge_item_ref": "kg.grammar.ending.emotion_observer_ahada",
+    "source_field": "explanation_md_zh_tw",
+    "source_excerpt": "- 詞幹最後一個母音為其他：**-어하다** (예: 슬퍼하다)",
+    "normalized_ko_candidate": "슬퍼하다",
+    "classification": "inline_chip_candidate",
+    "reason": "Short fragment candidate",
+    "suggested_next_action": "convert_to_inline_chip"
+  },
+  {
+    "knowledge_item_ref": "kg.grammar.ending.emotion_observer_ahada",
+    "source_field": "explanation_md_zh_tw",
+    "source_excerpt": "- 詞幹為하다：**-해하다** (예: 미안해하다)",
+    "normalized_ko_candidate": "미안해하다",
+    "classification": "inline_chip_candidate",
+    "reason": "Short fragment candidate",
+    "suggested_next_action": "convert_to_inline_chip"
+  },
+  {
+    "knowledge_item_ref": "kg.grammar.ending.emotion_observer_ahada",
+    "source_field": "explanation_md_zh_tw",
+    "source_excerpt": "2. 若用於第一人稱，則帶有「客觀描述自己表現出的樣子」或「客觀化情緒」的語感，或者用於某些特定的動詞（如：싫어하다）。",
+    "normalized_ko_candidate": "싫어하다",
+    "classification": "inline_chip_candidate",
+    "reason": "Short fragment candidate",
+    "suggested_next_action": "convert_to_inline_chip"
+  },
+  {
+    "knowledge_item_ref": "kg.grammar.ending.emotion_observer_ahada",
+    "source_field": "usage_notes_zh_tw",
+    "source_excerpt": "「슬프다」(我悲傷) → 「슬퍼하다」(他感到悲傷)。",
+    "normalized_ko_candidate": "슬퍼하다",
+    "classification": "context_bound",
+    "reason": "Localized usage note fragment",
+    "suggested_next_action": "keep_local_only"
+  },
+  {
+    "knowledge_item_ref": "kg.grammar.ending.emotion_observer_ahada",
+    "source_field": "usage_notes_zh_tw",
+    "source_excerpt": "「좋다」(好/對我好) → 「좋아하다」(他喜歡)。",
+    "normalized_ko_candidate": "좋아하다",
+    "classification": "context_bound",
+    "reason": "Localized usage note fragment",
+    "suggested_next_action": "keep_local_only"
+  },
+  {
+    "knowledge_item_ref": "kg.grammar.ending.purpose_path",
+    "source_field": "explanation_md_zh_tw",
+    "source_excerpt": "1. **詞幹母音結尾 (無收音)**：加上 **~러** (例：가다 -> 가러, 공부하다 -> 공부하러)",
+    "normalized_ko_candidate": "가다 -> 가러",
+    "classification": "inline_chip_candidate",
+    "reason": "Morphology change pattern detected (A -> B)",
+    "suggested_next_action": "convert_to_inline_chip"
+  },
+  {
+    "knowledge_item_ref": "kg.grammar.ending.purpose_path",
+    "source_field": "explanation_md_zh_tw",
+    "source_excerpt": "2. **詞幹子音結尾 (有收音)**：加上 **~으러** (例：먹다 -> 먹으러, 읽다 -> 읽으러)",
+    "normalized_ko_candidate": "먹다 -> 먹으러",
+    "classification": "inline_chip_candidate",
+    "reason": "Morphology change pattern detected (A -> B)",
+    "suggested_next_action": "convert_to_inline_chip"
+  },
+  {
+    "knowledge_item_ref": "kg.grammar.ending.purpose_path",
+    "source_field": "explanation_md_zh_tw",
+    "source_excerpt": "3. **詞幹以 ㄹ 結尾**：直接加 **~러** (例：만들다 -> 만들러)",
+    "normalized_ko_candidate": "만들다 -> 만들러",
+    "classification": "inline_chip_candidate",
+    "reason": "Morphology change pattern detected (A -> B)",
+    "suggested_next_action": "convert_to_inline_chip"
+  },
+  {
+    "knowledge_item_ref": "kg.grammar.ending.reason_sequence",
+    "source_field": "usage_notes_zh_tw",
+    "source_excerpt": "母音為 ㅏ, ㅗ 時: + 아서 (例：가서, 와서)",
+    "normalized_ko_candidate": "가서, 와서",
+    "classification": "context_bound",
+    "reason": "Localized usage note fragment",
+    "suggested_next_action": "keep_local_only"
+  },
+  {
+    "knowledge_item_ref": "kg.grammar.ending.reason_sequence",
+    "source_field": "usage_notes_zh_tw",
+    "source_excerpt": "其他母音時: + 어서 (例：먹어서, 읽어서)",
+    "normalized_ko_candidate": "먹어서, 읽어서",
+    "classification": "context_bound",
+    "reason": "Localized usage note fragment",
+    "suggested_next_action": "keep_local_only"
+  },
+  {
+    "knowledge_item_ref": "kg.grammar.ending.reason_sequence",
+    "source_field": "usage_notes_zh_tw",
+    "source_excerpt": "以 하다 結尾時: + 해서 (例：공부해서, 운동해서)",
+    "normalized_ko_candidate": "공부해서, 운동해서",
+    "classification": "context_bound",
+    "reason": "Localized usage note fragment",
+    "suggested_next_action": "keep_local_only"
+  },
+  {
+    "knowledge_item_ref": "kg.grammar.ending.restrictive_concession_doe",
+    "source_field": "explanation_md_zh_tw",
+    "source_excerpt": "3. 後項常接「-지 마라」(禁止)、「-라/으라」(命令)。",
+    "normalized_ko_candidate": "지 마라",
+    "classification": "inline_chip_candidate",
+    "reason": "Short fragment candidate",
+    "suggested_next_action": "convert_to_inline_chip"
+  },
+  {
+    "knowledge_item_ref": "kg.grammar.ending.restrictive_concession_doe",
+    "source_field": "usage_notes_zh_tw",
+    "source_excerpt": "「술은 마시되 취하지 마라」：酒可以喝，但不可喝醉。",
+    "normalized_ko_candidate": "술은 마시되 취하지 마라",
+    "classification": "extractable",
+    "reason": "Standalone sentence candidate found in text",
+    "suggested_next_action": "extract_to_example_sentence"
+  },
+  {
+    "knowledge_item_ref": "kg.grammar.ending.restrictive_concession_doe",
+    "source_field": "usage_notes_zh_tw",
+    "source_excerpt": "「가되 쓰레기는 버리지 마세요」：去是可以去，但請不要亂丟垃圾。",
+    "normalized_ko_candidate": "가되 쓰레기는 버리지 마세요",
+    "classification": "extractable",
+    "reason": "Standalone sentence candidate found in text",
+    "suggested_next_action": "extract_to_example_sentence"
+  },
+  {
+    "knowledge_item_ref": "kg.grammar.ending.state_change_ajida_eojida",
+    "source_field": "explanation_md_zh_tw",
+    "source_excerpt": "- 詞幹最後一個母音為ㅏ、ㅗ：**-아지다** (예: 좋아지다)",
+    "normalized_ko_candidate": "좋아지다",
+    "classification": "inline_chip_candidate",
+    "reason": "Short fragment candidate",
+    "suggested_next_action": "convert_to_inline_chip"
+  },
+  {
+    "knowledge_item_ref": "kg.grammar.ending.state_change_ajida_eojida",
+    "source_field": "explanation_md_zh_tw",
+    "source_excerpt": "- 詞幹最後一個母音為其他：**-어지다** (예: 추워지다)",
+    "normalized_ko_candidate": "추워지다",
+    "classification": "inline_chip_candidate",
+    "reason": "Short fragment candidate",
+    "suggested_next_action": "convert_to_inline_chip"
+  },
+  {
+    "knowledge_item_ref": "kg.grammar.ending.state_change_ajida_eojida",
+    "source_field": "explanation_md_zh_tw",
+    "source_excerpt": "- 詞幹為하다：**-해지다** (예: 깨끗해지다)",
+    "normalized_ko_candidate": "깨끗해지다",
+    "classification": "inline_chip_candidate",
+    "reason": "Short fragment candidate",
+    "suggested_next_action": "convert_to_inline_chip"
+  },
+  {
+    "knowledge_item_ref": "kg.grammar.ending.state_change_ajida_eojida",
+    "source_field": "explanation_md_zh_tw",
+    "source_excerpt": "2. 可接過去式「-아/어졌어요」表示變化已經完成。",
+    "normalized_ko_candidate": "어졌어요",
+    "classification": "inline_chip_candidate",
+    "reason": "Short fragment candidate",
+    "suggested_next_action": "convert_to_inline_chip"
+  },
+  {
+    "knowledge_item_ref": "kg.grammar.ending.state_change_ajida_eojida",
+    "source_field": "usage_notes_zh_tw",
+    "source_excerpt": "「날씨가 추워졌어요」：天氣變冷了。",
+    "normalized_ko_candidate": "날씨가 추워졌어요",
+    "classification": "context_bound",
+    "reason": "Localized usage note fragment",
+    "suggested_next_action": "keep_local_only"
+  },
+  {
+    "knowledge_item_ref": "kg.grammar.ending.state_change_ajida_eojida",
+    "source_field": "usage_notes_zh_tw",
+    "source_excerpt": "「공부해서 똑똑해졌어요」：因為讀書變聰明了。",
+    "normalized_ko_candidate": "공부해서 똑똑해졌어요",
+    "classification": "context_bound",
+    "reason": "Localized usage note fragment",
+    "suggested_next_action": "keep_local_only"
+  },
+  {
+    "knowledge_item_ref": "kg.grammar.ending.state_retention_chae_ro",
+    "source_field": "explanation_md_zh_tw",
+    "source_excerpt": "- 動詞詞幹末尾有收音：**-은 채로** (예: 입은 채로)",
+    "normalized_ko_candidate": "입은 채로",
+    "classification": "inline_chip_candidate",
+    "reason": "Short fragment candidate",
+    "suggested_next_action": "convert_to_inline_chip"
+  },
+  {
+    "knowledge_item_ref": "kg.grammar.ending.state_retention_chae_ro",
+    "source_field": "explanation_md_zh_tw",
+    "source_excerpt": "- 動詞詞幹末尾無收音：**-ㄴ 채로** (예: 켠 채로)",
+    "normalized_ko_candidate": "켠 채로",
+    "classification": "inline_chip_candidate",
+    "reason": "Short fragment candidate",
+    "suggested_next_action": "convert_to_inline_chip"
+  },
+  {
+    "knowledge_item_ref": "kg.grammar.ending.suggestion",
+    "source_field": "explanation_md_zh_tw",
+    "source_excerpt": "1. **詞幹母音結尾 (無收音)**：加上 **~ㄹ까요?** (例：가다 -> 갈까요?)",
+    "normalized_ko_candidate": "가다 -> 갈까요",
+    "classification": "inline_chip_candidate",
+    "reason": "Morphology change pattern detected (A -> B)",
+    "suggested_next_action": "convert_to_inline_chip"
+  },
+  {
+    "knowledge_item_ref": "kg.grammar.ending.suggestion",
+    "source_field": "explanation_md_zh_tw",
+    "source_excerpt": "2. **詞幹子音結尾 (有收音)**：加上 **~을까요?** (例：먹다 -> 먹을까요?)",
+    "normalized_ko_candidate": "먹다 -> 먹을까요",
+    "classification": "inline_chip_candidate",
+    "reason": "Morphology change pattern detected (A -> B)",
+    "suggested_next_action": "convert_to_inline_chip"
+  },
+  {
+    "knowledge_item_ref": "kg.grammar.ending.suggestion",
+    "source_field": "explanation_md_zh_tw",
+    "source_excerpt": "3. **ㄹ 結尾的詞幹**：直接加 **~까요?** (例：만들다 -> 만들까요?)",
+    "normalized_ko_candidate": "만들다 -> 만들까요",
+    "classification": "inline_chip_candidate",
+    "reason": "Morphology change pattern detected (A -> B)",
+    "suggested_next_action": "convert_to_inline_chip"
+  },
+  {
+    "knowledge_item_ref": "kg.grammar.ending.suggestion",
+    "source_field": "usage_notes_zh_tw",
+    "source_excerpt": "詞幹 + ㄹ/을까요?",
+    "normalized_ko_candidate": "을까요?",
+    "classification": "context_bound",
+    "reason": "Localized usage note fragment",
+    "suggested_next_action": "keep_local_only"
+  },
+  {
+    "knowledge_item_ref": "kg.grammar.ending.sumndia",
+    "source_field": "explanation_md_zh_tw",
+    "source_excerpt": "- **母音結尾 (無收音)**：加 **-ㅂ니다** (例: 가다 → 갑니다)",
+    "normalized_ko_candidate": "가다 → 갑니다",
+    "classification": "extractable",
+    "reason": "Structured example sentence with formal prefix",
+    "suggested_next_action": "extract_to_example_sentence"
+  },
+  {
+    "knowledge_item_ref": "kg.grammar.ending.sumndia",
+    "source_field": "explanation_md_zh_tw",
+    "source_excerpt": "- **子音結尾 (有收音)**：加 **-습니다** (例: 먹다 → 먹습니다)",
+    "normalized_ko_candidate": "먹다 → 먹습니다",
+    "classification": "extractable",
+    "reason": "Structured example sentence with formal prefix",
+    "suggested_next_action": "extract_to_example_sentence"
+  },
+  {
+    "knowledge_item_ref": "kg.grammar.ending.sumndia",
+    "source_field": "explanation_md_zh_tw",
+    "source_excerpt": "- **名詞結尾**：加 **입니다** (例: 학생 → 학생입니다)",
+    "normalized_ko_candidate": "학생 → 학생입니다",
+    "classification": "extractable",
+    "reason": "Structured example sentence with formal prefix",
+    "suggested_next_action": "extract_to_example_sentence"
+  },
+  {
+    "knowledge_item_ref": "kg.grammar.honorific.suffix_ssi",
+    "source_field": "usage_notes_zh_tw",
+    "source_excerpt": "正確：[全名] + 씨 (例：김수현 씨)",
+    "normalized_ko_candidate": "김수현 씨",
+    "classification": "context_bound",
+    "reason": "Localized usage note fragment",
+    "suggested_next_action": "keep_local_only"
+  },
+  {
+    "knowledge_item_ref": "kg.grammar.honorific.suffix_ssi",
+    "source_field": "usage_notes_zh_tw",
+    "source_excerpt": "正確：[名字] + 씨 (例：수현 씨)",
+    "normalized_ko_candidate": "수현 씨",
+    "classification": "context_bound",
+    "reason": "Localized usage note fragment",
+    "suggested_next_action": "keep_local_only"
+  },
+  {
+    "knowledge_item_ref": "kg.grammar.modifier.adj",
+    "source_field": "explanation_md_zh_tw",
+    "source_excerpt": "1. **詞幹母音結尾 (無收音)**：加上 **~ㄴ** (例：예쁘다 -> 예쁜)",
+    "normalized_ko_candidate": "예쁘다 -> 예쁜",
+    "classification": "inline_chip_candidate",
+    "reason": "Morphology change pattern detected (A -> B)",
+    "suggested_next_action": "convert_to_inline_chip"
+  },
+  {
+    "knowledge_item_ref": "kg.grammar.modifier.adj",
+    "source_field": "explanation_md_zh_tw",
+    "source_excerpt": "2. **詞幹子音結尾 (有收音)**：加上 **~은** (例：작다 -> 작은)",
+    "normalized_ko_candidate": "작다 -> 작은",
+    "classification": "inline_chip_candidate",
+    "reason": "Morphology change pattern detected (A -> B)",
+    "suggested_next_action": "convert_to_inline_chip"
+  },
+  {
+    "knowledge_item_ref": "kg.grammar.modifier.adj",
+    "source_field": "explanation_md_zh_tw",
+    "source_excerpt": "3. **詞幹以 ㅂ 結尾**：通常變為 **~운** (例：춥다 -> 추운)",
+    "normalized_ko_candidate": "춥다 -> 추운",
+    "classification": "inline_chip_candidate",
+    "reason": "Morphology change pattern detected (A -> B)",
+    "suggested_next_action": "convert_to_inline_chip"
+  },
+  {
+    "knowledge_item_ref": "kg.grammar.modifier.adj",
+    "source_field": "explanation_md_zh_tw",
+    "source_excerpt": "4. **詞幹以 ㄹ 結尾**：ㄹ 脫落後加 **~ㄴ** (例：길다 -> 긴)",
+    "normalized_ko_candidate": "길다 -> 긴",
+    "classification": "inline_chip_candidate",
+    "reason": "Morphology change pattern detected (A -> B)",
+    "suggested_next_action": "convert_to_inline_chip"
+  },
+  {
+    "knowledge_item_ref": "kg.grammar.modifier.adj",
+    "source_field": "explanation_md_zh_tw",
+    "source_excerpt": "5. **있다 / 없다 結尾**：一律加 **~는** (例：맛있다 -> 맛있는)",
+    "normalized_ko_candidate": "맛있다 -> 맛있는",
+    "classification": "inline_chip_candidate",
+    "reason": "Morphology change pattern detected (A -> B)",
+    "suggested_next_action": "convert_to_inline_chip"
+  },
+  {
+    "knowledge_item_ref": "kg.grammar.modifier.verb_present",
+    "source_field": "explanation_md_zh_tw",
+    "source_excerpt": "- 不受收音影響，直接在**動詞詞幹**後加 **~는** (例：가다 -> 가는, 먹다 -> 먹는)。",
+    "normalized_ko_candidate": "가다 -> 가는",
+    "classification": "inline_chip_candidate",
+    "reason": "Morphology change pattern detected (A -> B)",
+    "suggested_next_action": "convert_to_inline_chip"
+  },
+  {
+    "knowledge_item_ref": "kg.grammar.modifier.verb_present",
+    "source_field": "explanation_md_zh_tw",
+    "source_excerpt": "- **ㄹ 結尾的詞幹**：ㄹ 脫落後加 **~는** (例：만들다 -> 만드는)。",
+    "normalized_ko_candidate": "만들다 -> 만드는",
+    "classification": "inline_chip_candidate",
+    "reason": "Morphology change pattern detected (A -> B)",
+    "suggested_next_action": "convert_to_inline_chip"
+  },
+  {
+    "knowledge_item_ref": "kg.grammar.negation.long_ji_anta",
+    "source_field": "explanation_md_zh_tw",
+    "source_excerpt": "`~지 않다` 是韓文中處理否定句的另一種常用方式。雖然功能與 `안` 類似，但在語感上有所不同。",
+    "normalized_ko_candidate": "지 않다",
+    "classification": "inline_chip_candidate",
+    "reason": "Short fragment candidate",
+    "suggested_next_action": "convert_to_inline_chip"
+  },
+  {
+    "knowledge_item_ref": "kg.grammar.negation.long_ji_anta",
+    "source_field": "explanation_md_zh_tw",
+    "source_excerpt": "- `詞幹 + 지 않다` (例如：`먹다 -> 먹지 않다`, `피곤하다 -> 피곤하지 않다`)。",
+    "normalized_ko_candidate": "먹다 -> 먹지",
+    "classification": "inline_chip_candidate",
+    "reason": "Morphology change pattern detected (A -> B)",
+    "suggested_next_action": "convert_to_inline_chip"
+  },
+  {
+    "knowledge_item_ref": "kg.grammar.negation.long_ji_anta",
+    "source_field": "usage_notes_zh_tw",
+    "source_excerpt": "詞幹 + 지 않아요 (口語)",
+    "normalized_ko_candidate": "지 않아요",
+    "classification": "context_bound",
+    "reason": "Localized usage note fragment",
+    "suggested_next_action": "keep_local_only"
+  },
+  {
+    "knowledge_item_ref": "kg.grammar.negation.short_an",
+    "source_field": "explanation_md_zh_tw",
+    "source_excerpt": "2. **口語化**：在日常對話中比 `~지 않다` 使用頻率更高，聽起來更柔和自然。",
+    "normalized_ko_candidate": "지 않다",
+    "classification": "inline_chip_candidate",
+    "reason": "Short fragment candidate",
+    "suggested_next_action": "convert_to_inline_chip"
+  },
+  {
+    "knowledge_item_ref": "kg.grammar.negation.short_an",
+    "source_field": "explanation_md_zh_tw",
+    "source_excerpt": "- 對於 `名詞 + 하다` 形式的動詞（如 `공부하다`），`안` 通常放在 `하다` 之前（例如：`공부 안 해요`）。",
+    "normalized_ko_candidate": "공부 안 해요",
+    "classification": "extractable",
+    "reason": "Standalone sentence candidate found in text",
+    "suggested_next_action": "extract_to_example_sentence"
+  },
+  {
+    "knowledge_item_ref": "kg.grammar.negation.short_an",
+    "source_field": "usage_notes_zh_tw",
+    "source_excerpt": "比 ~지 않다 更自然且口語化",
+    "normalized_ko_candidate": "지 않다",
+    "classification": "context_bound",
+    "reason": "Localized usage note fragment",
+    "suggested_next_action": "keep_local_only"
+  },
+  {
+    "knowledge_item_ref": "kg.grammar.negation.short_mot",
+    "source_field": "explanation_md_zh_tw",
+    "source_excerpt": "- 對於 `名詞 + 하다` 形式的動詞，`못` 放在 `하다` 之前（例如：`공부 못 해요`）。",
+    "normalized_ko_candidate": "공부 못 해요",
+    "classification": "extractable",
+    "reason": "Standalone sentence candidate found in text",
+    "suggested_next_action": "extract_to_example_sentence"
+  },
+  {
+    "knowledge_item_ref": "kg.grammar.particle.and_with_hago",
+    "source_field": "explanation_md_zh_tw",
+    "source_excerpt": "1. **伴隨 (Comitative)**：表示「和某人一起」。常搭配 `같이` (一起) 使用。例如：`친구하고 같이 밥을 먹어요.` (和朋友一起吃飯。)",
+    "normalized_ko_candidate": "친구하고 같이 밥을 먹어요.",
+    "classification": "extractable",
+    "reason": "Standalone sentence candidate found in text",
+    "suggested_next_action": "extract_to_example_sentence"
+  },
+  {
+    "knowledge_item_ref": "kg.grammar.particle.and_with_hago",
+    "source_field": "explanation_md_zh_tw",
+    "source_excerpt": "2. **並列 (Conjunction)**：用來連結兩個或多個名詞。例如：`빵하고 우유를 샀어요.` (買了麵包和牛奶。)",
+    "normalized_ko_candidate": "빵하고 우유를 샀어요.",
+    "classification": "extractable",
+    "reason": "Standalone sentence candidate found in text",
+    "suggested_next_action": "extract_to_example_sentence"
+  },
+  {
+    "knowledge_item_ref": "kg.grammar.particle.at_place_action",
+    "source_field": "explanation_md_zh_tw",
+    "source_excerpt": "1. **動作場所**：在哪裡做某事 (例：집에서 쉬어요)。",
+    "normalized_ko_candidate": "집에서 쉬어요",
+    "classification": "inline_chip_candidate",
+    "reason": "Short fragment candidate",
+    "suggested_next_action": "convert_to_inline_chip"
+  },
+  {
+    "knowledge_item_ref": "kg.grammar.particle.at_place_action",
+    "source_field": "explanation_md_zh_tw",
+    "source_excerpt": "2. **出發點**：從某地出發或來自某地 (例：공항에서 왔어요)。",
+    "normalized_ko_candidate": "공항에서 왔어요",
+    "classification": "inline_chip_candidate",
+    "reason": "Short fragment candidate",
+    "suggested_next_action": "convert_to_inline_chip"
+  },
+  {
+    "knowledge_item_ref": "kg.grammar.particle.at_time_place",
+    "source_field": "explanation_md_zh_tw",
+    "source_excerpt": "1. **場所 (Location)**：表示人或物存在的地點，常用於 `~에 있다/없다`。",
+    "normalized_ko_candidate": "에 있다",
+    "classification": "inline_chip_candidate",
+    "reason": "Short fragment candidate",
+    "suggested_next_action": "convert_to_inline_chip"
+  },
+  {
+    "knowledge_item_ref": "kg.grammar.particle.at_time_place",
+    "source_field": "explanation_md_zh_tw",
+    "source_excerpt": "2. **時間 (Time)**：表示動作發議的時間點 (例：아침에, 10시에)。",
+    "normalized_ko_candidate": "아침에,",
+    "classification": "inline_chip_candidate",
+    "reason": "Short fragment candidate",
+    "suggested_next_action": "convert_to_inline_chip"
+  },
+  {
+    "knowledge_item_ref": "kg.grammar.particle.at_time_place",
+    "source_field": "explanation_md_zh_tw",
+    "source_excerpt": "3. **方向 (Direction)**：表示移動的目的地，常用於 `~에 가다/오다`。",
+    "normalized_ko_candidate": "에 가다",
+    "classification": "inline_chip_candidate",
+    "reason": "Short fragment candidate",
+    "suggested_next_action": "convert_to_inline_chip"
+  },
+  {
+    "knowledge_item_ref": "kg.grammar.particle.boda",
+    "source_field": "usage_notes_zh_tw",
+    "source_excerpt": "常用於 A가 B보다 더 [形容詞] 句型。",
+    "normalized_ko_candidate": "보다 더",
+    "classification": "context_bound",
+    "reason": "Localized usage note fragment",
+    "suggested_next_action": "keep_local_only"
+  },
+  {
+    "knowledge_item_ref": "kg.grammar.particle.dative",
+    "source_field": "explanation_md_zh_tw",
+    "source_excerpt": "- **전화하다** (打電話)",
+    "normalized_ko_candidate": "전화하다",
+    "classification": "inline_chip_candidate",
+    "reason": "Short fragment candidate",
+    "suggested_next_action": "convert_to_inline_chip"
+  },
+  {
+    "knowledge_item_ref": "kg.grammar.particle.dative",
+    "source_field": "explanation_md_zh_tw",
+    "source_excerpt": "- **편지를 쓰다** (寫信)",
+    "normalized_ko_candidate": "편지를 쓰다",
+    "classification": "inline_chip_candidate",
+    "reason": "Short fragment candidate",
+    "suggested_next_action": "convert_to_inline_chip"
+  },
+  {
+    "knowledge_item_ref": "kg.grammar.particle.dative",
+    "source_field": "explanation_md_zh_tw",
+    "source_excerpt": "- **질문하다** (提問)",
+    "normalized_ko_candidate": "질문하다",
+    "classification": "inline_chip_candidate",
+    "reason": "Short fragment candidate",
+    "suggested_next_action": "convert_to_inline_chip"
+  },
+  {
+    "knowledge_item_ref": "kg.grammar.particle.euro_dir",
+    "source_field": "explanation_md_zh_tw",
+    "source_excerpt": "- **子音結尾 (有收音)**：加 **으로** (例: 집으로)",
+    "normalized_ko_candidate": "집으로",
+    "classification": "inline_chip_candidate",
+    "reason": "Short example fragment",
+    "suggested_next_action": "convert_to_inline_chip"
+  },
+  {
+    "knowledge_item_ref": "kg.grammar.particle.euro_dir",
+    "source_field": "explanation_md_zh_tw",
+    "source_excerpt": "- **母音或 ㄹ 結尾**：加 **로** (例: 학교로, 서울로)",
+    "normalized_ko_candidate": "학교로, 서울로",
+    "classification": "extractable",
+    "reason": "Structured example sentence with formal prefix",
+    "suggested_next_action": "extract_to_example_sentence"
+  },
+  {
+    "knowledge_item_ref": "kg.grammar.particle.euro_tool",
+    "source_field": "explanation_md_zh_tw",
+    "source_excerpt": "- **子音結尾 (有收音)**：加 **으로** (例: 현금으로)",
+    "normalized_ko_candidate": "현금으로",
+    "classification": "inline_chip_candidate",
+    "reason": "Short example fragment",
+    "suggested_next_action": "convert_to_inline_chip"
+  },
+  {
+    "knowledge_item_ref": "kg.grammar.particle.euro_tool",
+    "source_field": "explanation_md_zh_tw",
+    "source_excerpt": "- **母音或 ㄹ 結尾**：加 **로** (例: 버스로, 연필로)",
+    "normalized_ko_candidate": "버스로, 연필로",
+    "classification": "extractable",
+    "reason": "Structured example sentence with formal prefix",
+    "suggested_next_action": "extract_to_example_sentence"
+  },
+  {
+    "knowledge_item_ref": "kg.grammar.particle.subject",
+    "source_field": "explanation_md_zh_tw",
+    "source_excerpt": "3. 在問句中標示疑問代名詞 (例如：누가, 무엇이)。",
+    "normalized_ko_candidate": "누가, 무엇이",
+    "classification": "inline_chip_candidate",
+    "reason": "Short fragment candidate",
+    "suggested_next_action": "convert_to_inline_chip"
+  },
+  {
+    "knowledge_item_ref": "kg.grammar.particle.subject",
+    "source_field": "usage_notes_zh_tw",
+    "source_excerpt": "子音(例如: 집, 책) + 이",
+    "normalized_ko_candidate": "집, 책",
+    "classification": "context_bound",
+    "reason": "Localized usage note fragment",
+    "suggested_next_action": "keep_local_only"
+  },
+  {
+    "knowledge_item_ref": "kg.grammar.particle.subject",
+    "source_field": "usage_notes_zh_tw",
+    "source_excerpt": "母音(例如: 학교, 사과) + 가",
+    "normalized_ko_candidate": "학교, 사과",
+    "classification": "context_bound",
+    "reason": "Localized usage note fragment",
+    "suggested_next_action": "keep_local_only"
+  },
+  {
+    "knowledge_item_ref": "kg.grammar.permission.allow",
+    "source_field": "explanation_md_zh_tw",
+    "source_excerpt": "「~아/어도 되다」接在動詞或形容詞詞幹後，用於尋求許可或表示對方可以做某事。",
+    "normalized_ko_candidate": "어도 되다",
+    "classification": "inline_chip_candidate",
+    "reason": "Short fragment candidate",
+    "suggested_next_action": "convert_to_inline_chip"
+  },
+  {
+    "knowledge_item_ref": "kg.grammar.permission.allow",
+    "source_field": "explanation_md_zh_tw",
+    "source_excerpt": "1. **詞幹母音為 ㅏ, ㅗ**：加 **~아도 되다** (例：加다 -> 가도 되다)",
+    "normalized_ko_candidate": "다 -> 가도",
+    "classification": "inline_chip_candidate",
+    "reason": "Morphology change pattern detected (A -> B)",
+    "suggested_next_action": "convert_to_inline_chip"
+  },
+  {
+    "knowledge_item_ref": "kg.grammar.permission.allow",
+    "source_field": "explanation_md_zh_tw",
+    "source_excerpt": "2. **詞幹母音為其他**：加 **~어도 되다** (例：먹다 -> 먹어도 되다)",
+    "normalized_ko_candidate": "먹다 -> 먹어도",
+    "classification": "inline_chip_candidate",
+    "reason": "Morphology change pattern detected (A -> B)",
+    "suggested_next_action": "convert_to_inline_chip"
+  },
+  {
+    "knowledge_item_ref": "kg.grammar.permission.allow",
+    "source_field": "explanation_md_zh_tw",
+    "source_excerpt": "3. **以 하다 結尾**：變為 **~해도 되다** (例：공부하다 -> 공부해도 되다)",
+    "normalized_ko_candidate": "공부하다 -> 공부해도",
+    "classification": "inline_chip_candidate",
+    "reason": "Morphology change pattern detected (A -> B)",
+    "suggested_next_action": "convert_to_inline_chip"
+  },
+  {
+    "knowledge_item_ref": "kg.grammar.permission.allow",
+    "source_field": "explanation_md_zh_tw",
+    "source_excerpt": "常用於問句來徵求對方同意 (例如：여기 앉아도 돼요? 這裡可以坐嗎？)。",
+    "normalized_ko_candidate": "여기 앉아도 돼요?",
+    "classification": "extractable",
+    "reason": "Standalone sentence candidate found in text",
+    "suggested_next_action": "extract_to_example_sentence"
+  },
+  {
+    "knowledge_item_ref": "kg.grammar.permission.allow",
+    "source_field": "usage_notes_zh_tw",
+    "source_excerpt": "詞幹 + 아/어도 되다",
+    "normalized_ko_candidate": "어도 되다",
+    "classification": "context_bound",
+    "reason": "Localized usage note fragment",
+    "suggested_next_action": "keep_local_only"
+  },
+  {
+    "knowledge_item_ref": "kg.grammar.permission.prohibit",
+    "source_field": "explanation_md_zh_tw",
+    "source_excerpt": "「~(으)면 안 되다」用於強烈禁止或說明行為的不當。接在動詞或形容詞詞幹後。",
+    "normalized_ko_candidate": "면 안 되다",
+    "classification": "extractable",
+    "reason": "Standalone sentence candidate found in text",
+    "suggested_next_action": "extract_to_example_sentence"
+  },
+  {
+    "knowledge_item_ref": "kg.grammar.permission.prohibit",
+    "source_field": "explanation_md_zh_tw",
+    "source_excerpt": "1. **詞幹母音結尾 (無收音)**：加上 **~면 안 되다** (例：하다 -> 하면 안 되다)",
+    "normalized_ko_candidate": "하다 -> 하면",
+    "classification": "inline_chip_candidate",
+    "reason": "Morphology change pattern detected (A -> B)",
+    "suggested_next_action": "convert_to_inline_chip"
+  },
+  {
+    "knowledge_item_ref": "kg.grammar.permission.prohibit",
+    "source_field": "explanation_md_zh_tw",
+    "source_excerpt": "2. **詞幹子音結尾 (有收音)**：加上 **~으면 안 되다** (例：먹다 -> 먹으면 안 되다)",
+    "normalized_ko_candidate": "먹다 -> 먹으면",
+    "classification": "inline_chip_candidate",
+    "reason": "Morphology change pattern detected (A -> B)",
+    "suggested_next_action": "convert_to_inline_chip"
+  },
+  {
+    "knowledge_item_ref": "kg.grammar.permission.prohibit",
+    "source_field": "explanation_md_zh_tw",
+    "source_excerpt": "3. **詞幹以 ㄹ 結尾**：直接加 **~면 안 되다** (例：만들다 -> 만들면 안 되다)",
+    "normalized_ko_candidate": "만들다 -> 만들면",
+    "classification": "inline_chip_candidate",
+    "reason": "Morphology change pattern detected (A -> B)",
+    "suggested_next_action": "convert_to_inline_chip"
+  },
+  {
+    "knowledge_item_ref": "kg.grammar.permission.prohibit",
+    "source_field": "usage_notes_zh_tw",
+    "source_excerpt": "詞幹 + 으면 안 되다 (有收音)",
+    "normalized_ko_candidate": "으면 안 되다",
+    "classification": "extractable",
+    "reason": "Standalone sentence candidate found in text",
+    "suggested_next_action": "extract_to_example_sentence"
+  },
+  {
+    "knowledge_item_ref": "kg.grammar.permission.prohibit",
+    "source_field": "usage_notes_zh_tw",
+    "source_excerpt": "詞幹 + 면 안 되다 (無收音)",
+    "normalized_ko_candidate": "면 안 되다",
+    "classification": "extractable",
+    "reason": "Standalone sentence candidate found in text",
+    "suggested_next_action": "extract_to_example_sentence"
+  },
+  {
+    "knowledge_item_ref": "kg.grammar.permission.prohibit",
+    "source_field": "usage_notes_zh_tw",
+    "source_excerpt": "是 ~(으)면 (如果) 與 안 되다 (不行) 的結合",
+    "normalized_ko_candidate": "안 되다",
+    "classification": "context_bound",
+    "reason": "Localized usage note fragment",
+    "suggested_next_action": "keep_local_only"
+  },
+  {
+    "knowledge_item_ref": "kg.grammar.request.negative",
+    "source_field": "explanation_md_zh_tw",
+    "source_excerpt": "「~지 마세요」是韓文中表示「請不要～」的常用禮貌禁止形式。它是「말다」與敬語語尾「~세요」結合而成的。",
+    "normalized_ko_candidate": "지 마세요",
+    "classification": "inline_chip_candidate",
+    "reason": "Short fragment candidate",
+    "suggested_next_action": "convert_to_inline_chip"
+  },
+  {
+    "knowledge_item_ref": "kg.grammar.request.negative",
+    "source_field": "explanation_md_zh_tw",
+    "source_excerpt": "- 不受收音影響，一律加 **~지 마세요**。",
+    "normalized_ko_candidate": "지 마세요",
+    "classification": "inline_chip_candidate",
+    "reason": "Short fragment candidate",
+    "suggested_next_action": "convert_to_inline_chip"
+  },
+  {
+    "knowledge_item_ref": "kg.grammar.request.negative",
+    "source_field": "explanation_md_zh_tw",
+    "source_excerpt": "- 가다 -> **가지 마세요** (請不要去)",
+    "normalized_ko_candidate": "가지 마세요",
+    "classification": "inline_chip_candidate",
+    "reason": "Short fragment candidate",
+    "suggested_next_action": "convert_to_inline_chip"
+  },
+  {
+    "knowledge_item_ref": "kg.grammar.request.negative",
+    "source_field": "explanation_md_zh_tw",
+    "source_excerpt": "- 찍다 -> **찍지 마세요** (請不要拍照)",
+    "normalized_ko_candidate": "찍지 마세요",
+    "classification": "inline_chip_candidate",
+    "reason": "Short fragment candidate",
+    "suggested_next_action": "convert_to_inline_chip"
+  },
+  {
+    "knowledge_item_ref": "kg.grammar.request.negative",
+    "source_field": "usage_notes_zh_tw",
+    "source_excerpt": "詞幹 + 지 마세요",
+    "normalized_ko_candidate": "지 마세요",
+    "classification": "context_bound",
+    "reason": "Localized usage note fragment",
+    "suggested_next_action": "keep_local_only"
+  },
+  {
+    "knowledge_item_ref": "kg.grammar.request.polite",
+    "source_field": "explanation_md_zh_tw",
+    "source_excerpt": "1. **詞幹母音結尾 (無收音)**：加上 **~세요** (例：가다 -> 가세요, 하다 -> 하세요)",
+    "normalized_ko_candidate": "가다 -> 가세요",
+    "classification": "inline_chip_candidate",
+    "reason": "Morphology change pattern detected (A -> B)",
+    "suggested_next_action": "convert_to_inline_chip"
+  },
+  {
+    "knowledge_item_ref": "kg.grammar.request.polite",
+    "source_field": "explanation_md_zh_tw",
+    "source_excerpt": "2. **詞幹子音結尾 (有收音)**：加上 **~으세요** (例：읽다 -> 읽으세요, 앉다 -> 앉으세요)",
+    "normalized_ko_candidate": "읽다 -> 읽으세요",
+    "classification": "inline_chip_candidate",
+    "reason": "Morphology change pattern detected (A -> B)",
+    "suggested_next_action": "convert_to_inline_chip"
+  },
+  {
+    "knowledge_item_ref": "kg.grammar.request.polite",
+    "source_field": "explanation_md_zh_tw",
+    "source_excerpt": "3. **ㄹ 結尾的詞幹**：ㄹ 脫落後加 **~세요** (例：살다 -> 사세요)",
+    "normalized_ko_candidate": "살다 -> 사세요",
+    "classification": "inline_chip_candidate",
+    "reason": "Morphology change pattern detected (A -> B)",
+    "suggested_next_action": "convert_to_inline_chip"
+  },
+  {
+    "knowledge_item_ref": "kg.grammar.request.polite",
+    "source_field": "usage_notes_zh_tw",
+    "source_excerpt": "也可用於與對方打招呼（例：안녕하세요)",
+    "normalized_ko_candidate": "안녕하세요",
+    "classification": "context_bound",
+    "reason": "Localized usage note fragment",
+    "suggested_next_action": "keep_local_only"
+  },
+  {
+    "knowledge_item_ref": "kg.grammar.tense.future_geoyeyo",
+    "source_field": "explanation_md_zh_tw",
+    "source_excerpt": "`~ㄹ/을 거예요` 是最基礎且通用的未來表達文法，在口語中非常高頻。",
+    "normalized_ko_candidate": "을 거예요",
+    "classification": "inline_chip_candidate",
+    "reason": "Short fragment candidate",
+    "suggested_next_action": "convert_to_inline_chip"
+  },
+  {
+    "knowledge_item_ref": "kg.grammar.tense.future_geoyeyo",
+    "source_field": "explanation_md_zh_tw",
+    "source_excerpt": "- 例如：`가다` -> [ko:갈 거예요|zh:會去|id:ex.ko.grammar.tense.future_geoyeyo.study.v1]",
+    "normalized_ko_candidate": "갈 거예요",
+    "classification": "inline_chip_candidate",
+    "reason": "Already normalized as inline chip (Keep Inline)",
+    "suggested_next_action": "keep_inline"
+  },
+  {
+    "knowledge_item_ref": "kg.grammar.tense.future_geoyeyo",
+    "source_field": "explanation_md_zh_tw",
+    "source_excerpt": "- **動詞語幹有收音（子音結尾）**：加上 `~을 거예요`",
+    "normalized_ko_candidate": "을 거예요",
+    "classification": "inline_chip_candidate",
+    "reason": "Short fragment candidate",
+    "suggested_next_action": "convert_to_inline_chip"
+  },
+  {
+    "knowledge_item_ref": "kg.grammar.tense.future_geoyeyo",
+    "source_field": "explanation_md_zh_tw",
+    "source_excerpt": "- 例如：`먹다` -> [ko:먹을 거예요|zh:會吃|id:ex.ko.grammar.tense.future_geoyeyo.shopping.v1]",
+    "normalized_ko_candidate": "먹을 거예요",
+    "classification": "inline_chip_candidate",
+    "reason": "Already normalized as inline chip (Keep Inline)",
+    "suggested_next_action": "keep_inline"
+  },
+  {
+    "knowledge_item_ref": "kg.grammar.tense.future_geoyeyo",
+    "source_field": "explanation_md_zh_tw",
+    "source_excerpt": "- 例如：`만들다` -> [ko:만들 거예요|zh:會做|id:ex.ko.grammar.tense.future_geoyeyo.rain.v1]",
+    "normalized_ko_candidate": "만들 거예요",
+    "classification": "inline_chip_candidate",
+    "reason": "Already normalized as inline chip (Keep Inline)",
+    "suggested_next_action": "keep_inline"
+  },
+  {
+    "knowledge_item_ref": "kg.grammar.tense.future_geoyeyo",
+    "source_field": "explanation_md_zh_tw",
+    "source_excerpt": "1. **計畫/意圖**：主詞通常是第一人稱，如 [ko:저는 내일 공부할 거예요.|zh:我明天會唸書。]",
+    "normalized_ko_candidate": "저는 내일 공부할 거예요.",
+    "classification": "inline_chip_candidate",
+    "reason": "Already normalized as inline chip (Keep Inline)",
+    "suggested_next_action": "keep_inline"
+  },
+  {
+    "knowledge_item_ref": "kg.grammar.tense.future_geoyeyo",
+    "source_field": "explanation_md_zh_tw",
+    "source_excerpt": "2. **推測**：可用於第三人稱或天氣，如 [ko:내일 비가 올 거예요.|zh:明天會下雨。]",
+    "normalized_ko_candidate": "내일 비가 올 거예요.",
+    "classification": "inline_chip_candidate",
+    "reason": "Already normalized as inline chip (Keep Inline)",
+    "suggested_next_action": "keep_inline"
+  },
+  {
+    "knowledge_item_ref": "kg.grammar.tense.future_geoyeyo",
+    "source_field": "usage_notes_zh_tw",
+    "source_excerpt": "根據動詞語幹是否有收音選擇 ㄹ/을 거예요",
+    "normalized_ko_candidate": "을 거예요",
+    "classification": "context_bound",
+    "reason": "Localized usage note fragment",
+    "suggested_next_action": "keep_local_only"
+  },
+  {
+    "knowledge_item_ref": "kg.grammar.tense.past_ass_oss",
+    "source_field": "explanation_md_zh_tw",
+    "source_excerpt": "1. **陽母音 (ㅏ, ㅗ)**：加上 `~았어요` (例如：가다 -> 갔어요, 오다 -> 왔어요)",
+    "normalized_ko_candidate": "가다 -> 갔어요",
+    "classification": "inline_chip_candidate",
+    "reason": "Morphology change pattern detected (A -> B)",
+    "suggested_next_action": "convert_to_inline_chip"
+  },
+  {
+    "knowledge_item_ref": "kg.grammar.tense.past_ass_oss",
+    "source_field": "explanation_md_zh_tw",
+    "source_excerpt": "2. **陰母音或其他**：加上 `~었어요` (例如：먹다 -> 먹었어요, 읽다 -> 읽었어요)",
+    "normalized_ko_candidate": "먹다 -> 먹었어요",
+    "classification": "inline_chip_candidate",
+    "reason": "Morphology change pattern detected (A -> B)",
+    "suggested_next_action": "convert_to_inline_chip"
+  },
+  {
+    "knowledge_item_ref": "kg.grammar.tense.past_ass_oss",
+    "source_field": "explanation_md_zh_tw",
+    "source_excerpt": "3. **하다 結尾**：演變為 `~했어요` (例如：공부하다 -> 공부했어요)",
+    "normalized_ko_candidate": "공부하다 -> 공부했어요",
+    "classification": "inline_chip_candidate",
+    "reason": "Morphology change pattern detected (A -> B)",
+    "suggested_next_action": "convert_to_inline_chip"
+  },
+  {
+    "knowledge_item_ref": "kg.grammar.tense.progressive",
+    "source_field": "explanation_md_zh_tw",
+    "source_excerpt": "「~고 있다」接在**動詞詞幹**後，表示說話當下正在進行的動作或持續的狀態。",
+    "normalized_ko_candidate": "고 있다",
+    "classification": "inline_chip_candidate",
+    "reason": "Short fragment candidate",
+    "suggested_next_action": "convert_to_inline_chip"
+  },
+  {
+    "knowledge_item_ref": "kg.grammar.tense.progressive",
+    "source_field": "explanation_md_zh_tw",
+    "source_excerpt": "- 無論是否有收音，一律在詞幹後加 **~고 있다**。",
+    "normalized_ko_candidate": "고 있다",
+    "classification": "inline_chip_candidate",
+    "reason": "Short fragment candidate",
+    "suggested_next_action": "convert_to_inline_chip"
+  },
+  {
+    "knowledge_item_ref": "kg.grammar.tense.progressive",
+    "source_field": "explanation_md_zh_tw",
+    "source_excerpt": "- 먹다 -> **먹고 있어요**",
+    "normalized_ko_candidate": "먹고 있어요",
+    "classification": "inline_chip_candidate",
+    "reason": "Short fragment candidate",
+    "suggested_next_action": "convert_to_inline_chip"
+  },
+  {
+    "knowledge_item_ref": "kg.grammar.tense.progressive",
+    "source_field": "explanation_md_zh_tw",
+    "source_excerpt": "- 가다 -> **가고 있어요**",
+    "normalized_ko_candidate": "가고 있어요",
+    "classification": "inline_chip_candidate",
+    "reason": "Short fragment candidate",
+    "suggested_next_action": "convert_to_inline_chip"
+  },
+  {
+    "knowledge_item_ref": "kg.grammar.tense.progressive",
+    "source_field": "explanation_md_zh_tw",
+    "source_excerpt": "- 공부하다 -> **공부하고 있어요**",
+    "normalized_ko_candidate": "공부하고 있어요",
+    "classification": "inline_chip_candidate",
+    "reason": "Short fragment candidate",
+    "suggested_next_action": "convert_to_inline_chip"
+  },
+  {
+    "knowledge_item_ref": "kg.grammar.tense.progressive",
+    "source_field": "explanation_md_zh_tw",
+    "source_excerpt": "若要表示「那時正在做...」，則將「있다」變為過去式：**~고 있었어요**。",
+    "normalized_ko_candidate": "고 있었어요",
+    "classification": "inline_chip_candidate",
+    "reason": "Short fragment candidate",
+    "suggested_next_action": "convert_to_inline_chip"
+  },
+  {
+    "knowledge_item_ref": "kg.grammar.tense.progressive",
+    "source_field": "usage_notes_zh_tw",
+    "source_excerpt": "動詞詞幹 + 고 있다",
+    "normalized_ko_candidate": "고 있다",
+    "classification": "context_bound",
+    "reason": "Localized usage note fragment",
+    "suggested_next_action": "keep_local_only"
+  },
+  {
+    "knowledge_item_ref": "kg.grammar.tense.progressive",
+    "source_field": "usage_notes_zh_tw",
+    "source_excerpt": "可用於回答「正在幹嘛？」(지금 뭐 하고 있어요?)",
+    "normalized_ko_candidate": "지금 뭐 하고 있어요?",
+    "classification": "extractable",
+    "reason": "Standalone sentence candidate found in text",
+    "suggested_next_action": "extract_to_example_sentence"
+  },
+  {
+    "knowledge_item_ref": "kp.pattern.connective.sequence",
+    "source_field": "explanation_md_zh_tw",
+    "source_excerpt": "任務導向溝通的核心句型。結合了列舉連接語尾 **-고** 與順序副詞 **먼저** (首先)、**그다음에** (在那之後)。",
+    "normalized_ko_candidate": "그다음에",
+    "classification": "inline_chip_candidate",
+    "reason": "Short fragment candidate",
+    "suggested_next_action": "convert_to_inline_chip"
+  },
+  {
+    "knowledge_item_ref": "kp.pattern.connective.sequence",
+    "source_field": "usage_notes_zh_tw",
+    "source_excerpt": "「-고」本身即可表示順序，加入 먼저 與 그다음에 則能強化邏輯層次。",
+    "normalized_ko_candidate": "그다음에",
+    "classification": "context_bound",
+    "reason": "Localized usage note fragment",
+    "suggested_next_action": "keep_local_only"
+  },
+  {
+    "knowledge_item_ref": "kp.pattern.environment.weather_desc",
+    "source_field": "usage_notes_zh_tw",
+    "source_excerpt": "主題助詞可用 은/는 強調對比（如：오늘은 추워요 - 今天（的話）很冷）。",
+    "normalized_ko_candidate": "오늘은 추워요",
+    "classification": "context_bound",
+    "reason": "Localized usage note fragment",
+    "suggested_next_action": "keep_local_only"
+  },
+  {
+    "knowledge_item_ref": "kp.pattern.experience.general",
+    "source_field": "explanation_md_zh_tw",
+    "source_excerpt": "描述過去經歷的核心 A2 級別句型。結合了動詞語尾 **-아/어 보다** (嘗試) 與存在句語法 **-ㄴ 적이 있다** (有...的時候)。",
+    "normalized_ko_candidate": "적이 있다",
+    "classification": "inline_chip_candidate",
+    "reason": "Short fragment candidate",
+    "suggested_next_action": "convert_to_inline_chip"
+  },
+  {
+    "knowledge_item_ref": "kp.pattern.experience.general",
+    "source_field": "explanation_md_zh_tw",
+    "source_excerpt": "經驗句型是 A2 的核心任務之一。需強化「**본 적이**」這一固定搭配，並同時進行肯定與否定的轉換訓練（敘述有或沒有某種經驗）。",
+    "normalized_ko_candidate": "본 적이",
+    "classification": "inline_chip_candidate",
+    "reason": "Short fragment candidate",
+    "suggested_next_action": "convert_to_inline_chip"
+  },
+  {
+    "knowledge_item_ref": "kp.pattern.experience.general",
+    "source_field": "usage_notes_zh_tw",
+    "source_excerpt": "否定形式：{experience} + 본 적이 없어요",
+    "normalized_ko_candidate": "본 적이 없어요",
+    "classification": "extractable",
+    "reason": "Standalone sentence candidate found in text",
+    "suggested_next_action": "extract_to_example_sentence"
+  },
+  {
+    "knowledge_item_ref": "kp.pattern.facility.toilet_query",
+    "source_field": "usage_notes_zh_tw",
+    "source_excerpt": "「設施名 + 이/가 어디예요?」是標準的詢問位置方式。",
+    "normalized_ko_candidate": "가 어디예요?",
+    "classification": "context_bound",
+    "reason": "Localized usage note fragment",
+    "suggested_next_action": "keep_local_only"
+  },
+  {
+    "knowledge_item_ref": "kp.daily.greeting.annyeong",
+    "source_field": "explanation_md_zh_tw",
+    "source_excerpt": "「안녕하세요」是韓文中最具代表性的打招呼方式。其語源來自於「안녕」（安寧/平安），字面意義是「您平安嗎？」。",
+    "normalized_ko_candidate": "안녕하세요",
+    "classification": "inline_chip_candidate",
+    "reason": "Short fragment candidate",
+    "suggested_next_action": "convert_to_inline_chip"
+  },
+  {
+    "knowledge_item_ref": "kp.daily.greeting.annyeong",
+    "source_field": "explanation_md_zh_tw",
+    "source_excerpt": "- **對應法**：對方說「안녕하세요」時，同樣回以「안녕하세요」即可。",
+    "normalized_ko_candidate": "안녕하세요",
+    "classification": "inline_chip_candidate",
+    "reason": "Short fragment candidate",
+    "suggested_next_action": "convert_to_inline_chip"
+  },
+  {
+    "knowledge_item_ref": "kp.pattern.greetings.greeting_polite",
+    "source_field": "explanation_md_zh_tw",
+    "source_excerpt": "「안녕하세요」是韓語中最通用的禮貌打招呼方式，不論早晚皆可使用。它源自於「안녕 (安寧)」加上敬語語尾。",
+    "normalized_ko_candidate": "안녕하세요",
+    "classification": "inline_chip_candidate",
+    "reason": "Short fragment candidate",
+    "suggested_next_action": "convert_to_inline_chip"
+  },
+  {
+    "knowledge_item_ref": "kp.pattern.greetings.greeting_polite",
+    "source_field": "explanation_md_zh_tw",
+    "source_excerpt": "- 正式場合可提升為「안녕하십니까」。",
+    "normalized_ko_candidate": "안녕하십니까",
+    "classification": "inline_chip_candidate",
+    "reason": "Short fragment candidate",
+    "suggested_next_action": "convert_to_inline_chip"
+  },
+  {
+    "knowledge_item_ref": "kp.pattern.greetings.greeting_polite",
+    "source_field": "usage_notes_zh_tw",
+    "source_excerpt": "回答時通常也以 안녕하세요 回應。",
+    "normalized_ko_candidate": "안녕하세요",
+    "classification": "context_bound",
+    "reason": "Localized usage note fragment",
+    "suggested_next_action": "keep_local_only"
+  },
+  {
+    "knowledge_item_ref": "kp.pattern.payment.bargaining",
+    "source_field": "usage_notes_zh_tw",
+    "source_excerpt": "也可使用變體「할인 가능해요?」(可以打折嗎？) 在較現代的商店嘗試詢問。",
+    "normalized_ko_candidate": "할인 가능해요?",
+    "classification": "context_bound",
+    "reason": "Localized usage note fragment",
+    "suggested_next_action": "keep_local_only"
+  },
+  {
+    "knowledge_item_ref": "kp.pattern.payment.card_request",
+    "source_field": "explanation_md_zh_tw",
+    "source_excerpt": "- **삼성페이 (Samsung Pay)**",
+    "normalized_ko_candidate": "삼성페이",
+    "classification": "inline_chip_candidate",
+    "reason": "Short fragment candidate",
+    "suggested_next_action": "convert_to_inline_chip"
+  },
+  {
+    "knowledge_item_ref": "kp.pattern.question.asking_name",
+    "source_field": "explanation_md_zh_tw",
+    "source_excerpt": "- **對長輩或尊者**：建議使用更尊敬的「성함이 어떻게 되세요?」。",
+    "normalized_ko_candidate": "성함이 어떻게 되세요?",
+    "classification": "extractable",
+    "reason": "Standalone sentence candidate found in text",
+    "suggested_next_action": "extract_to_example_sentence"
+  },
+  {
+    "knowledge_item_ref": "kp.pattern.question.asking_name",
+    "source_field": "explanation_md_zh_tw",
+    "source_excerpt": "- **對同輩或後輩**：使用「이름이 뭐예요?」非常自然且禮貌。",
+    "normalized_ko_candidate": "이름이 뭐예요?",
+    "classification": "inline_chip_candidate",
+    "reason": "Short fragment candidate",
+    "suggested_next_action": "convert_to_inline_chip"
+  },
+  {
+    "knowledge_item_ref": "kp.pattern.question.asking_name",
+    "source_field": "explanation_md_zh_tw",
+    "source_excerpt": "- **朋友之間 (平語)**：可用「이름이 뭐야?」。",
+    "normalized_ko_candidate": "이름이 뭐야?",
+    "classification": "inline_chip_candidate",
+    "reason": "Short fragment candidate",
+    "suggested_next_action": "convert_to_inline_chip"
+  },
+  {
+    "knowledge_item_ref": "kp.pattern.question.existence_query",
+    "source_field": "explanation_md_zh_tw",
+    "source_excerpt": "用於詢問某物是否存在或可供購買。由「名詞 (與助詞) + 있어요?」組成。",
+    "normalized_ko_candidate": "있어요?",
+    "classification": "inline_chip_candidate",
+    "reason": "Short fragment candidate",
+    "suggested_next_action": "convert_to_inline_chip"
+  },
+  {
+    "knowledge_item_ref": "kp.pattern.question.existence_query",
+    "source_field": "explanation_md_zh_tw",
+    "source_excerpt": "- **搭配否定**：若要詢問「沒有嗎？」則用「없어요?」。",
+    "normalized_ko_candidate": "없어요?",
+    "classification": "inline_chip_candidate",
+    "reason": "Short fragment candidate",
+    "suggested_next_action": "convert_to_inline_chip"
+  },
+  {
+    "knowledge_item_ref": "kp.pattern.question.existence_query",
+    "source_field": "explanation_md_zh_tw",
+    "source_excerpt": "- **正式場合**：可使用更客氣的「있나요?」。",
+    "normalized_ko_candidate": "있나요?",
+    "classification": "inline_chip_candidate",
+    "reason": "Short fragment candidate",
+    "suggested_next_action": "convert_to_inline_chip"
+  },
+  {
+    "knowledge_item_ref": "kp.pattern.question.existence_query",
+    "source_field": "explanation_md_zh_tw",
+    "source_excerpt": "- 無論名詞是否有助詞 (이/가)，單純說出「名詞 + 있어요?」在口語中也完全能被理解。",
+    "normalized_ko_candidate": "있어요?",
+    "classification": "inline_chip_candidate",
+    "reason": "Short fragment candidate",
+    "suggested_next_action": "convert_to_inline_chip"
+  },
+  {
+    "knowledge_item_ref": "kp.pattern.question.location_query",
+    "source_field": "explanation_md_zh_tw",
+    "source_excerpt": "詢問地點位置的標準句型。結構為「地點名詞 + 이/가 (主語助詞) + 어디예요? (在哪裡/是什麼地方)」。",
+    "normalized_ko_candidate": "어디예요?",
+    "classification": "inline_chip_candidate",
+    "reason": "Short fragment candidate",
+    "suggested_next_action": "convert_to_inline_chip"
+  },
+  {
+    "knowledge_item_ref": "kp.pattern.question.location_query",
+    "source_field": "explanation_md_zh_tw",
+    "source_excerpt": "- **地點名有收音**：加 **이** (例: 화장실이 어디예요?)",
+    "normalized_ko_candidate": "화장실이 어디예요?",
+    "classification": "extractable",
+    "reason": "Structured example sentence with formal prefix",
+    "suggested_next_action": "extract_to_example_sentence"
+  },
+  {
+    "knowledge_item_ref": "kp.pattern.question.location_query",
+    "source_field": "explanation_md_zh_tw",
+    "source_excerpt": "- **地點名無收音**：加 **가** (例: 지하철역이 어디예요? - wait, 역 has收音, so 역이. Example: 학교**가** 어디예요?)",
+    "normalized_ko_candidate": "지하철역이 어디예요? - wait, 역 has收音, so 역이. Example: 학교가 어디예요?",
+    "classification": "extractable",
+    "reason": "Structured example sentence with formal prefix",
+    "suggested_next_action": "extract_to_example_sentence"
+  },
+  {
+    "knowledge_item_ref": "kp.pattern.question.location_query",
+    "source_field": "explanation_md_zh_tw",
+    "source_excerpt": "- 回答時通常會搭配方向詞 (如：오른쪽으로 가세요)。",
+    "normalized_ko_candidate": "오른쪽으로 가세요",
+    "classification": "inline_chip_candidate",
+    "reason": "Short fragment candidate",
+    "suggested_next_action": "convert_to_inline_chip"
+  },
+  {
+    "knowledge_item_ref": "kp.pattern.question.price_query",
+    "source_field": "explanation_md_zh_tw",
+    "source_excerpt": "購物的核心問句。使用指示代名詞「이거 (這個)」加上疑問詞「얼마예요 (多少錢)」。",
+    "normalized_ko_candidate": "얼마예요",
+    "classification": "inline_chip_candidate",
+    "reason": "Short fragment candidate",
+    "suggested_next_action": "convert_to_inline_chip"
+  },
+  {
+    "knowledge_item_ref": "kp.pattern.question.price_query",
+    "source_field": "explanation_md_zh_tw",
+    "source_excerpt": "- **替換指示詞**：如果要問「那部手機」則說「저 휴대폰 얼마예요?」。",
+    "normalized_ko_candidate": "저 휴대폰 얼마예요?",
+    "classification": "extractable",
+    "reason": "Standalone sentence candidate found in text",
+    "suggested_next_action": "extract_to_example_sentence"
+  },
+  {
+    "knowledge_item_ref": "kp.pattern.question.price_query",
+    "source_field": "explanation_md_zh_tw",
+    "source_excerpt": "- **商務/正式場合**：可改用「가격이 어떻게 돼요?」。",
+    "normalized_ko_candidate": "가격이 어떻게 돼요?",
+    "classification": "extractable",
+    "reason": "Standalone sentence candidate found in text",
+    "suggested_next_action": "extract_to_example_sentence"
+  },
+  {
+    "knowledge_item_ref": "kp.pattern.repair.clarification",
+    "source_field": "usage_notes_zh_tw",
+    "source_excerpt": "專業或職場場景可提升為「무슨 의미인지 설명해 주세요」(請說明是什麼意思)。",
+    "normalized_ko_candidate": "무슨 의미인지 설명해 주세요",
+    "classification": "extractable",
+    "reason": "Standalone sentence candidate found in text",
+    "suggested_next_action": "extract_to_example_sentence"
+  },
+  {
+    "knowledge_item_ref": "kp.pattern.repair.confirm",
+    "source_field": "explanation_md_zh_tw",
+    "source_excerpt": "確認語是互動節奏的關鍵，應搭配上升語調問句（맞아요?）與陳述句（맞아요.）雙向轉換練習。",
+    "normalized_ko_candidate": "맞아요?",
+    "classification": "inline_chip_candidate",
+    "reason": "Short fragment candidate",
+    "suggested_next_action": "convert_to_inline_chip"
+  },
+  {
+    "knowledge_item_ref": "kp.pattern.repair.problem_report",
+    "source_field": "explanation_md_zh_tw",
+    "source_excerpt": "服務互動中的關鍵對應句型。包含問題陳述 **문제가 생겼어요** (出了問題) 與禮貌請求協助。",
+    "normalized_ko_candidate": "문제가 생겼어요",
+    "classification": "inline_chip_candidate",
+    "reason": "Short fragment candidate",
+    "suggested_next_action": "convert_to_inline_chip"
+  },
+  {
+    "knowledge_item_ref": "kp.pattern.repair.problem_report",
+    "source_field": "usage_notes_zh_tw",
+    "source_excerpt": "「문제가 생겼어요」比「문제가 있어요」口語上更具動態感，暗示問題是剛發生的。",
+    "normalized_ko_candidate": "문제가 생겼어요",
+    "classification": "context_bound",
+    "reason": "Localized usage note fragment",
+    "suggested_next_action": "keep_local_only"
+  },
+  {
+    "knowledge_item_ref": "kp.pattern.repair.problem_report",
+    "source_field": "usage_notes_zh_tw",
+    "source_excerpt": "常見問題類別（issue）：결제 (結帳)、예약 (預約)、와이파이 (WiFi)。",
+    "normalized_ko_candidate": "와이파이",
+    "classification": "context_bound",
+    "reason": "Localized usage note fragment",
+    "suggested_next_action": "keep_local_only"
+  },
+  {
+    "knowledge_item_ref": "kp.pattern.repair.repeat",
+    "source_field": "explanation_md_zh_tw",
+    "source_excerpt": "與「請說慢點」對應的修復句型。包含副詞 **다시** (再次) 與動詞的尊敬形式 **말씀하다** (說) 的請求型。",
+    "normalized_ko_candidate": "말씀하다",
+    "classification": "inline_chip_candidate",
+    "reason": "Short fragment candidate",
+    "suggested_next_action": "convert_to_inline_chip"
+  },
+  {
+    "knowledge_item_ref": "kp.pattern.repair.repeat",
+    "source_field": "usage_notes_zh_tw",
+    "source_excerpt": "對於陌生人、長輩或服務人員，建議使用尊敬形式「말씀해 주세요」。",
+    "normalized_ko_candidate": "말씀해 주세요",
+    "classification": "context_bound",
+    "reason": "Localized usage note fragment",
+    "suggested_next_action": "keep_local_only"
+  },
+  {
+    "knowledge_item_ref": "kp.pattern.repair.repeat",
+    "source_field": "usage_notes_zh_tw",
+    "source_excerpt": "同儕或親近朋友間可降格為「말해 줘요」或「말해 줘」。",
+    "normalized_ko_candidate": "말해 줘요",
+    "classification": "context_bound",
+    "reason": "Localized usage note fragment",
+    "suggested_next_action": "keep_local_only"
+  },
+  {
+    "knowledge_item_ref": "kp.pattern.repair.request_help",
+    "source_field": "explanation_md_zh_tw",
+    "source_excerpt": "A2 級別的高階請求句。結合了動詞連結語尾 **-아/어 주다** (幫忙) 與能力詢問 **-(으)ㄹ 수 있어요?** (能...嗎？)。",
+    "normalized_ko_candidate": "수 있어요?",
+    "classification": "inline_chip_candidate",
+    "reason": "Short fragment candidate",
+    "suggested_next_action": "convert_to_inline_chip"
+  },
+  {
+    "knowledge_item_ref": "kp.pattern.repair.request_help",
+    "source_field": "explanation_md_zh_tw",
+    "source_excerpt": "A2 請求句要練「委婉度階梯」，讓學習者體會從 **주세요** (請給予) 到 **주실 수 있어요?** (能請您幫忙...嗎？) 在語用上的禮貌度差異。",
+    "normalized_ko_candidate": "주실 수 있어요?",
+    "classification": "extractable",
+    "reason": "Standalone sentence candidate found in text",
+    "suggested_next_action": "extract_to_example_sentence"
+  },
+  {
+    "knowledge_item_ref": "kp.pattern.repair.request_help",
+    "source_field": "usage_notes_zh_tw",
+    "source_excerpt": "常與「죄송하지만」(雖然很抱歉...) 搭配使用，以進一步緩和語氣。",
+    "normalized_ko_candidate": "죄송하지만",
+    "classification": "context_bound",
+    "reason": "Localized usage note fragment",
+    "suggested_next_action": "keep_local_only"
+  },
+  {
+    "knowledge_item_ref": "kp.pattern.repair.slow_down",
+    "source_field": "explanation_md_zh_tw",
+    "source_excerpt": "在韓國生存必備的修復句型。包含副詞 **천천히** (慢慢地) 與請求終結語尾 **-아/어 주세요** (請...)。",
+    "normalized_ko_candidate": "어 주세요",
+    "classification": "inline_chip_candidate",
+    "reason": "Short fragment candidate",
+    "suggested_next_action": "convert_to_inline_chip"
+  },
+  {
+    "knowledge_item_ref": "kp.pattern.request.ordering_quantity",
+    "source_field": "explanation_md_zh_tw",
+    "source_excerpt": "- **數詞變換**：與量詞搭配時，固有詞數詞常發生變化 (例: 하나 → 한, 둘 → 두)。",
+    "normalized_ko_candidate": "하나 → 한, 둘 → 두",
+    "classification": "extractable",
+    "reason": "Structured example sentence with formal prefix",
+    "suggested_next_action": "extract_to_example_sentence"
+  },
+  {
+    "knowledge_item_ref": "kp.pattern.request.ordering_quantity",
+    "source_field": "explanation_md_zh_tw",
+    "source_excerpt": "- **量詞選擇**：根據對象選擇適當量詞 (例: 杯-잔, 個-개, 張-장)。",
+    "normalized_ko_candidate": "杯-잔, 個-개, 張-장",
+    "classification": "extractable",
+    "reason": "Structured example sentence with formal prefix",
+    "suggested_next_action": "extract_to_example_sentence"
+  },
+  {
+    "knowledge_item_ref": "kp.pattern.request.request_polite",
+    "source_field": "explanation_md_zh_tw",
+    "source_excerpt": "- **加強口吻**：若要更具禮貌，可在前面加上「죄송하지만... (不好意思)」。",
+    "normalized_ko_candidate": "죄송하지만...",
+    "classification": "inline_chip_candidate",
+    "reason": "Short fragment candidate",
+    "suggested_next_action": "convert_to_inline_chip"
+  },
+  {
+    "knowledge_item_ref": "kp.pattern.social_basic.ability_negation",
+    "source_field": "usage_notes_zh_tw",
+    "source_excerpt": "「Action (名詞形式) + 못 해요」是最直觀的用法。",
+    "normalized_ko_candidate": "못 해요",
+    "classification": "context_bound",
+    "reason": "Localized usage note fragment",
+    "suggested_next_action": "keep_local_only"
+  },
+  {
+    "knowledge_item_ref": "kp.pattern.social_basic.ability_negation",
+    "source_field": "usage_notes_zh_tw",
+    "source_excerpt": "動詞原形則需使用「詞幹 + 지 못하다」的形式。",
+    "normalized_ko_candidate": "지 못하다",
+    "classification": "context_bound",
+    "reason": "Localized usage note fragment",
+    "suggested_next_action": "keep_local_only"
+  },
+  {
+    "knowledge_item_ref": "kp.pattern.social_basic.apology",
+    "source_field": "explanation_md_zh_tw",
+    "source_excerpt": "韓語中最高級別的禮貌道歉語。包含動詞 **죄송하다** (抱歉) 的正式尊敬語尾。",
+    "normalized_ko_candidate": "죄송하다",
+    "classification": "inline_chip_candidate",
+    "reason": "Short fragment candidate",
+    "suggested_next_action": "convert_to_inline_chip"
+  },
+  {
+    "knowledge_item_ref": "kp.pattern.social_basic.apology",
+    "source_field": "explanation_md_zh_tw",
+    "source_excerpt": "- **잘 못 들었어요 (沒聽清楚)**",
+    "normalized_ko_candidate": "잘 못 들었어요",
+    "classification": "extractable",
+    "reason": "Standalone sentence candidate found in text",
+    "suggested_next_action": "extract_to_example_sentence"
+  },
+  {
+    "knowledge_item_ref": "kp.pattern.social_basic.apology",
+    "source_field": "explanation_md_zh_tw",
+    "source_excerpt": "道歉語要明確分層：正式場合與對初次見面的人必須用 **죄송합니다**，僅限熟人或長輩對晚輩才建議用 미안해요。",
+    "normalized_ko_candidate": "죄송합니다",
+    "classification": "inline_chip_candidate",
+    "reason": "Short fragment candidate",
+    "suggested_next_action": "convert_to_inline_chip"
+  },
+  {
+    "knowledge_item_ref": "kp.pattern.social_basic.apology",
+    "source_field": "usage_notes_zh_tw",
+    "source_excerpt": "「罪名 + 죄송합니다」結構也非常常見。",
+    "normalized_ko_candidate": "죄송합니다",
+    "classification": "context_bound",
+    "reason": "Localized usage note fragment",
+    "suggested_next_action": "keep_local_only"
+  },
+  {
+    "knowledge_item_ref": "kp.pattern.social_basic.gratitude",
+    "source_field": "explanation_md_zh_tw",
+    "source_excerpt": "- **고맙습니다 (謝謝)**：更具本土感的尊敬表達。",
+    "normalized_ko_candidate": "고맙습니다",
+    "classification": "inline_chip_candidate",
+    "reason": "Short fragment candidate",
+    "suggested_next_action": "convert_to_inline_chip"
+  },
+  {
+    "knowledge_item_ref": "kp.pattern.social_basic.gratitude",
+    "source_field": "usage_notes_zh_tw",
+    "source_excerpt": "在陌生人、服務人員或職場情境中，優先使用 감사합니다 或 고맙습니다。",
+    "normalized_ko_candidate": "감사합니다",
+    "classification": "context_bound",
+    "reason": "Localized usage note fragment",
+    "suggested_next_action": "keep_local_only"
+  },
+  {
+    "knowledge_item_ref": "kp.pattern.social_basic.habit",
+    "source_field": "explanation_md_zh_tw",
+    "source_excerpt": "描述個人特質的核心句型。包含動詞定語語尾 **-는** 與表示傾向的 **편이에요**。",
+    "normalized_ko_candidate": "편이에요",
+    "classification": "inline_chip_candidate",
+    "reason": "Short fragment candidate",
+    "suggested_next_action": "convert_to_inline_chip"
+  },
+  {
+    "knowledge_item_ref": "kp.pattern.social_basic.habit",
+    "source_field": "explanation_md_zh_tw",
+    "source_excerpt": "「-는 편이에요」可用於提升描述的準確度，讓學習者學會避免使用過於絕對（例如：我不睡覺 vs 我通常睡得比較晚）的表達方式，使韓語輸出更貼近母語者的謙遜語氣。",
+    "normalized_ko_candidate": "는 편이에요",
+    "classification": "inline_chip_candidate",
+    "reason": "Short fragment candidate",
+    "suggested_next_action": "convert_to_inline_chip"
+  },
+  {
+    "knowledge_item_ref": "kp.pattern.social_basic.nationality",
+    "source_field": "explanation_md_zh_tw",
+    "source_excerpt": "- 也可以使用「{country}에서 왔어요 (從{國家}來的)」作為變體。",
+    "normalized_ko_candidate": "에서 왔어요",
+    "classification": "inline_chip_candidate",
+    "reason": "Short fragment candidate",
+    "suggested_next_action": "convert_to_inline_chip"
+  },
+  {
+    "knowledge_item_ref": "kp.pattern.social_basic.obligation",
+    "source_field": "explanation_md_zh_tw",
+    "source_excerpt": "表述責任與必要性的核心句型。由動詞連結語尾 **-아/어** 與義務標記 **야 해요** 組成。",
+    "normalized_ko_candidate": "야 해요",
+    "classification": "inline_chip_candidate",
+    "reason": "Short fragment candidate",
+    "suggested_next_action": "convert_to_inline_chip"
+  },
+  {
+    "knowledge_item_ref": "kp.pattern.social_basic.obligation",
+    "source_field": "usage_notes_zh_tw",
+    "source_excerpt": "在非常正式或官方的語境中，常改用「아/어야 합니다」。",
+    "normalized_ko_candidate": "어야 합니다",
+    "classification": "context_bound",
+    "reason": "Localized usage note fragment",
+    "suggested_next_action": "keep_local_only"
+  },
+  {
+    "knowledge_item_ref": "kp.pattern.social_basic.obligation",
+    "source_field": "usage_notes_zh_tw",
+    "source_excerpt": "口語中亦常用變體「아/어야 돼요」。",
+    "normalized_ko_candidate": "어야 돼요",
+    "classification": "context_bound",
+    "reason": "Localized usage note fragment",
+    "suggested_next_action": "keep_local_only"
+  },
+  {
+    "knowledge_item_ref": "kp.pattern.social_basic.permission",
+    "source_field": "explanation_md_zh_tw",
+    "source_excerpt": "高頻社交策略句型。結合了動詞語尾 **-아/어** 與允許標記 **도 돼요?**。",
+    "normalized_ko_candidate": "도 돼요?",
+    "classification": "inline_chip_candidate",
+    "reason": "Short fragment candidate",
+    "suggested_next_action": "convert_to_inline_chip"
+  },
+  {
+    "knowledge_item_ref": "kp.pattern.social_basic.preference",
+    "source_field": "explanation_md_zh_tw",
+    "source_excerpt": "表達喜好最常用的句型。包含 **저** (我) 的謙稱形式、受詞助詞以及動詞 **좋아해요** (喜歡)。",
+    "normalized_ko_candidate": "좋아해요",
+    "classification": "inline_chip_candidate",
+    "reason": "Short fragment candidate",
+    "suggested_next_action": "convert_to_inline_chip"
+  },
+  {
+    "knowledge_item_ref": "kp.pattern.social_basic.preference",
+    "source_field": "explanation_md_zh_tw",
+    "source_excerpt": "喜好句型可與否定對照練習（좋아해요/안 좋아해요），同時鞏固受詞助詞。",
+    "normalized_ko_candidate": "안 좋아해요",
+    "classification": "inline_chip_candidate",
+    "reason": "Short fragment candidate",
+    "suggested_next_action": "convert_to_inline_chip"
+  },
+  {
+    "knowledge_item_ref": "kp.pattern.social_basic.preference",
+    "source_field": "usage_notes_zh_tw",
+    "source_excerpt": "正式場合可切換為 좋아합니다。",
+    "normalized_ko_candidate": "좋아합니다",
+    "classification": "context_bound",
+    "reason": "Localized usage note fragment",
+    "suggested_next_action": "keep_local_only"
+  },
+  {
+    "knowledge_item_ref": "kp.pattern.social_basic.prohibition",
+    "source_field": "explanation_md_zh_tw",
+    "source_excerpt": "規則說明與行為限制的核心句型。由條件語尾 **-(으)면** 與否定語 **안 돼요** 組成。",
+    "normalized_ko_candidate": "안 돼요",
+    "classification": "inline_chip_candidate",
+    "reason": "Short fragment candidate",
+    "suggested_next_action": "convert_to_inline_chip"
+  },
+  {
+    "knowledge_item_ref": "kp.pattern.social_basic.prohibition",
+    "source_field": "usage_notes_zh_tw",
+    "source_excerpt": "在公共場所（如地鐵、機場）的公告中，語尾通常會變換為正式的「안 됩니다」。",
+    "normalized_ko_candidate": "안 됩니다",
+    "classification": "context_bound",
+    "reason": "Localized usage note fragment",
+    "suggested_next_action": "keep_local_only"
+  },
+  {
+    "knowledge_item_ref": "kp.pattern.social_basic.want",
+    "source_field": "explanation_md_zh_tw",
+    "source_excerpt": "表達「想做...」的基礎句型。包含動詞詞幹與連結語尾 **-고 싶어요**。",
+    "normalized_ko_candidate": "고 싶어요",
+    "classification": "inline_chip_candidate",
+    "reason": "Short fragment candidate",
+    "suggested_next_action": "convert_to_inline_chip"
+  },
+  {
+    "knowledge_item_ref": "kp.pattern.social_basic.want",
+    "source_field": "explanation_md_zh_tw",
+    "source_excerpt": "想要句型適合接續行程規劃任務，建議先固定 하고 싶어요 再換 action slot。",
+    "normalized_ko_candidate": "하고 싶어요",
+    "classification": "inline_chip_candidate",
+    "reason": "Short fragment candidate",
+    "suggested_next_action": "convert_to_inline_chip"
+  },
+  {
+    "knowledge_item_ref": "kp.pattern.social_basic.want",
+    "source_field": "usage_notes_zh_tw",
+    "source_excerpt": "第一、二人稱使用 하고 싶어요。",
+    "normalized_ko_candidate": "하고 싶어요",
+    "classification": "context_bound",
+    "reason": "Localized usage note fragment",
+    "suggested_next_action": "keep_local_only"
+  },
+  {
+    "knowledge_item_ref": "kp.pattern.social_basic.want",
+    "source_field": "usage_notes_zh_tw",
+    "source_excerpt": "第三人稱通常使用 하고 싶어해요。",
+    "normalized_ko_candidate": "하고 싶어해요",
+    "classification": "context_bound",
+    "reason": "Localized usage note fragment",
+    "suggested_next_action": "keep_local_only"
+  },
+  {
+    "knowledge_item_ref": "kp.pattern.time.current_date",
+    "source_field": "usage_notes_zh_tw",
+    "source_excerpt": "可省略助詞 이，說成「오늘 몇 월 며칠이에요?」也完全正確。",
+    "normalized_ko_candidate": "오늘 몇 월 며칠이에요?",
+    "classification": "extractable",
+    "reason": "Standalone sentence candidate found in text",
+    "suggested_next_action": "extract_to_example_sentence"
+  },
+  {
+    "knowledge_item_ref": "kp.pattern.time.intent",
+    "source_field": "usage_notes_zh_tw",
+    "source_excerpt": "若計畫相對正式或在職場情境，句尾可切換為「려고 합니다」。",
+    "normalized_ko_candidate": "려고 합니다",
+    "classification": "context_bound",
+    "reason": "Localized usage note fragment",
+    "suggested_next_action": "keep_local_only"
+  },
+  {
+    "knowledge_item_ref": "kp.pattern.time.schedule",
+    "source_field": "usage_notes_zh_tw",
+    "source_excerpt": "此句型也非常適合用於詢問他人「你有空嗎？」(시간 있어요?)",
+    "normalized_ko_candidate": "시간 있어요?",
+    "classification": "context_bound",
+    "reason": "Localized usage note fragment",
+    "suggested_next_action": "keep_local_only"
+  },
+  {
+    "knowledge_item_ref": "kp.pattern.transport.destination_query",
+    "source_field": "usage_notes_zh_tw",
+    "source_excerpt": "若是對計程車司機，可進化為「{destination}에 가 주세요」(請去某某地)。",
+    "normalized_ko_candidate": "에 가 주세요",
+    "classification": "extractable",
+    "reason": "Standalone sentence candidate found in text",
+    "suggested_next_action": "extract_to_example_sentence"
+  }
+]

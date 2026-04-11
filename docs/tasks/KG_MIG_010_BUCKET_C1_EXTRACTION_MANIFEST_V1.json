@@ -47,14 +47,18 @@
   {
     "knowledge_item_ref": "kg.grammar.particle.and_with_hago",
     "proposed_id": "ex.ko.grammar.particle.and_with_hago.bread_and_milk.v1",
-    "status": "merged",
+    "status": "verified_unique",
     "canonical_target": "ex.ko.grammar.particle.and_with_hago.bread_and_milk.v1"
   },
   {
     "knowledge_item_ref": "kg.grammar.permission.allow",
     "proposed_id": "ex.ko.grammar.permission.sit_here.v1",
-    "status": "merged",
-    "canonical_target": "ex.ko.grammar.permission.sit_here.v1"
+    "status": "ambiguous_existing_duplicate",
+    "candidates": [
+      "ex.ko.grammar.permission.sit_here.v1",
+      "ex.ko.pattern.social_basic.sit_here.v1"
+    ],
+    "collision_note": "Identical surface found in grammar and pattern bank paths. Implementation blocked pending canonical decision."
   },
   {
     "knowledge_item_ref": "kg.grammar.tense.progressive",
@@ -69,7 +73,7 @@
   {
     "knowledge_item_ref": "kp.pattern.question.location_query",
     "proposed_id": "ex.ko.pattern.facility.toilet_query.v1",
-    "status": "merged",
+    "status": "verified_unique",
     "canonical_target": "ex.ko.pattern.facility.toilet_query.v1"
   },
   {

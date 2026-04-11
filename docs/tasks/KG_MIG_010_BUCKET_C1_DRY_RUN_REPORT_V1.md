@@ -1,7 +1,7 @@
 # Dry-Run Report: KG-MIG-010 Bucket C1 Extraction (V1) - Refined
 
 ## 1. Overview
-本報告為 `kg-mig-010` 任務中針對 Bucket C 第一批次 (C1) 「高信心完整例句」的二次精煉預演成果。本輪修正重點在於排除非獨立句 (Standalone Sentences) 的片段與短語，並將重複項對齊至既存銀行之正規 ID。
+本報告為 `kg-mig-010` 任務中針對 Bucket C 第一批次 (C1) 「高信心完整例句」的二次精煉預演成果。本輪修正重點在於排除非獨立句 (Standalone Sentences) 的片段與短語，並完成對 3 個 `duplicate_existing` 項目之 merge target 唯一性驗證。
 
 ## 2. Summary Statistics
 
@@ -9,55 +9,48 @@
 | :--- | :--- | :--- |
 | **Total Candidates processed** | 31 | Candidates from 13:16 reviewed inventory |
 | **Ready for Extraction** | 17 | Verified standalone, unique sentences |
-| **Merged (Existing Bank)** | 3 | Duplicates mapped to internal `example_sentence` IDs |
+| **Merged (Verified Unique)** | 2 | Confirmed single canonical target in existing bank |
+| **Merged (Ambiguous Collision)** | 1 | Multiple canonical candidates found - **BLOCKER** |
 | **Downgraded (Context-Bound)** | 11 | Morphology patterns, clause fragments, and minimal phrases |
 
-## 3. Duplicate Analysis (ID-Based)
+## 3. Duplicate Analysis (Verified)
 
 ### 3.1 Existing Bank Collisions
-以下項目與全域銀行中的現有句子重複，已對齊至正規 ID 映射。執行時應僅更新 Knowledge Item 的引用連結：
-- `빵하고 우유를 샀어요.` -> `ex.ko.grammar.particle.and_with_hago.bread_and_milk.v1`
-- `여기 앉아도 돼요?` -> `ex.ko.grammar.permission.sit_here.v1`
-- `화장실이 어디예요?` -> `ex.ko.pattern.facility.toilet_query.v1`
+以下項目與全域銀行中的現有句子重複，經驗證狀態如下：
+- `빵하고 우유를 샀어요.` -> `verified_unique` (`ex.ko.grammar.particle.and_with_hago.bread_and_milk.v1`)
+- `화장실이 어디예요?` -> `verified_unique` (`ex.ko.pattern.facility.toilet_query.v1`)
+- `여기 앉아도 돼요?` -> **`ambiguous_existing_duplicate`**
+  - Found candidates in: `grammar.permission` vs `pattern.social_basic`.
+  - **Note**: This item blocks C1 implementation for `kg.grammar.permission.allow`.
 
 ## 4. Policy Alignment & Downgrades
 
 根據 `EXAMPLE_EXTRACTION_POLICY_V1.md` 與二次審核標準，以下項目暫不提取至全域銀行，保留在 KI 本地 Markdown 中：
 
 ### 4.1 Morphology Patterns (A -> B)
-- `가다 → 갑니다`
-- `먹다 → 먹습니다`
-- `학생 → 학생입니다`
+- `가다 → 갑니다`, `먹다 → 먹습니다`, `학생 → 학생입니다`
 
 ### 4.2 Clause Fragments & Half-Clauses
-- `비가 올까 봐` (原因小句片段)
-- `먹자니 배가 부르고` (-고 結尾之半句)
+- `비가 올까 봐`, `먹자니 배가 부르고`
 
 ### 4.3 Idiomatic Phrase Templates
-- `밥 먹듯이 하다` (習慣用語模板)
-- `물 쓰듯이 쓰다` (習慣用語模板)
+- `밥 먹듯이 하다`, `물 쓰듯이 쓰다`
 
 ### 4.4 Minimal Dictionary-Style Phrases
-- `집이 없다`
-- `친구가 없다`
-- `책이 있다`
-- `친구가 있다`
+- `집이 없다`, `친구가 없다`, `책이 있다`, `친구가 있다`
 
 ## 5. Representative Case Studies (Refined)
 
 ### Case A: Standalone Sentence (Ready)
-- **Surface**: `넓을뿐더러 위치도 좋아요`
+- **Surface**: `寬敞且位置也好 (넓을뿐더러 위치도 좋아요)`
 - **Verdict**: 語法典型且語意完整。
-
-### Case B: Communicative Question (Ready)
-- **Surface**: `지금 뭐 하고 있어요?`
-- **Verdict**: 具備完整的語用功能與終止形結尾。
 
 ## 6. Verdict & Next Steps
 
-### Verdict: [PASS WITH REFINEMENT]
-C1 批次經精煉後，剩餘 **17 筆** 高質量獨立句可啟動正式 Decoupling。
+### Verdict: [PASS WITH BLOCKERS]
+C1 批次中 17 筆高質量獨立句與 2 筆唯一重複項已通過驗證。**剩餘 1 筆 `這裡可以坐嗎？` 因現有銀行內容冗餘 (Ambiguity) 處於阻塞狀態。**
 
 ### Recommended Next Actions:
-1. **Implementation**: 依據 `KG_MIG_010_BUCKET_C1_EXTRACTION_MANIFEST_V1.json` 建立 17 筆新 JSON 並引用 3 筆既存 ID。
-2. **Markdown Cleanup**: 針對降級為 `context_bound` 的 11 項目，確保其保留在 Markdown 內。
+1. **Implementation**: 執行 17 筆提取與 2 筆指向性合併。
+2. **Deduplication**: 在執行 `這裡可以坐嗎？` 的 Decoupling 前，需先完成 `content-ko` 既存銀行的重複項清理。
+3. **Verification**: 詳見 `KG_MIG_010_BUCKET_C1_VERIFICATION_NOTE_V1.md`.

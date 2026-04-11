@@ -129,11 +129,11 @@ Date: 2026-04-11 11:26:06
 
 ### kg.connector.conversion.geureonde (4/4 Ready)
 - ✅ [Ready] 재밌는 영화였어요. 그런데 결말이 이상했어요.
-  - Proposed ID: `ex.ko.connector.conversion.geureonde_1.v1`
+  - Proposed ID: `ex.ko.connector.contrast.geureonde_1.v1` (Merged to canonical)
 - ✅ [Ready] 숙제를 다 했어요. 그런데 하나 빠졌어요.
   - Proposed ID: `ex.ko.connector.conversion.geureonde_2.v1`
 - ✅ [Ready] 오늘 날씨 정말 좋네요! 그런데 점심 뭐 먹을까요?
-  - Proposed ID: `ex.ko.connector.conversion.geureonde_3.v1`
+  - Proposed ID: `ex.ko.connector.contrast.geureonde_4.v1` (Merged to canonical)
 - ✅ [Ready] 내일 숙제 있어요? 그런데 지금 몇 시예요?
   - Proposed ID: `ex.ko.connector.conversion.geureonde_4.v1`
 

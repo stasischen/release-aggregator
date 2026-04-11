@@ -3,10 +3,10 @@
 Date: 2026-04-11 11:26:06
 
 ## Summary Statistics
-- **Ready**: 68
-- **Ambiguous**: 0
-- **Context-Bound**: 0
-- **Skip**: 0
+- **Total Candidates**: 68
+- **Duplicate Records**: 2 (merged)
+- **Canonical Items**: 66
+- **Ready for Extraction**: 100%
 
 ## Classification Breakdown
 ### kg.connector.cause.geuraeseo (5/5 Ready)
@@ -173,8 +173,25 @@ Date: 2026-04-11 11:26:06
 - ✅ [Ready] 옷을 샀어요. 그리고 선물로 포장했어요.
   - Proposed ID: `ex.ko.connector.sequence.geurigo_5.v1`
 
+## Batch-Internal Collision Check (Duplicate Analysis)
+The following sentences were found in multiple Knowledge Items within this batch and have been merged into canonical entries to ensure referential integrity in the `example_sentence` bank.
+
+1. **오늘 날씨 정말 좋네요! 그런데 점심 뭐 먹을까요?**
+   - Source KI 1: `kg.connector.contrast.geureonde`
+   - Source KI 2: `kg.connector.conversion.geureonde`
+   - Resolution: Merged as `ex.ko.connector.contrast.geureonde_4.v1` (both items will point here).
+
+2. **재밌는 영화였어요. 그런데 결말이 이상했어요.**
+   - Source KI 1: `kg.connector.contrast.geureonde`
+   - Source KI 2: `kg.connector.conversion.geureonde`
+   - Resolution: Merged as `ex.ko.connector.contrast.geureonde_1.v1` (both items will point here).
+
 ## Integrity Analysis
-- **Content Collisions**: 0 items found already in bank.
+- **Global Content Collisions**: 0 items found already in existing bank.
+- **Batch-Internal Collisions**: 2 items (resolved via merge).
+- **Schema Compliance**: Verified against `EXAMPLE_SENTENCE_BANK_SCHEMA_V1.md`.
 
 ## Verdict
-The batch is **Ready for Implementation (Batch 1)**. 68 items can be safely decoupled.
+The batch is **Verified and Ready for Implementation (Batch 1)**. 
+66 canonical items can be safely decoupled and written to `content-ko`.
+All internal duplicates have been resolved with stable Knowledge Item references.

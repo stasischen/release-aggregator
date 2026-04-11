@@ -61,18 +61,18 @@
     "ex.ko.connector.contrast.geureonde_4.v1",
     "ex.ko.connector.contrast.geureonde_5.v1"
   ],
+  "kg.connector.conversion.geureonde": [
+    "ex.ko.connector.contrast.geureonde_1.v1",
+    "ex.ko.connector.contrast.geureonde_4.v1",
+    "ex.ko.connector.conversion.geureonde_2.v1",
+    "ex.ko.connector.conversion.geureonde_4.v1"
+  ],
   "kg.connector.contrast.hajiman": [
     "ex.ko.connector.contrast.hajiman_1.v1",
     "ex.ko.connector.contrast.hajiman_2.v1",
     "ex.ko.connector.contrast.hajiman_3.v1",
     "ex.ko.connector.contrast.hajiman_4.v1",
     "ex.ko.connector.contrast.hajiman_5.v1"
-  ],
-  "kg.connector.conversion.geureonde": [
-    "ex.ko.connector.conversion.geureonde_1.v1",
-    "ex.ko.connector.conversion.geureonde_2.v1",
-    "ex.ko.connector.conversion.geureonde_3.v1",
-    "ex.ko.connector.conversion.geureonde_4.v1"
   ],
   "kg.connector.sequence.gedaga": [
     "ex.ko.connector.sequence.gedaga_1.v1",

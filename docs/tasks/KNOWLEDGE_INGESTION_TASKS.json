@@ -107,7 +107,7 @@
         "Run only after sentence schema freeze, extraction policy freeze, and Knowledge Lab alignment/classification are complete.",
         "This step is for existing Knowledge Lab mixed content only; do not combine with new curriculum-source ingestion."
       ],
-      "deliverable": "mixed knowledge example extraction pass"
+      "deliverable": "mixed knowledge example extraction pass (dry-run verified with internal duplicate resolution)"
     },
     {
       "id": "kg-plan-014",

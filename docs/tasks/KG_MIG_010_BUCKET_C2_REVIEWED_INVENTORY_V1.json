@@ -135,9 +135,9 @@
     "source_excerpt": "(例如：하다 -> 할 수 있다)",
     "normalized_ko_candidate": "할 수 있다",
     "proposed_id": null,
-    "classification": "duplicate_existing",
-    "reason": "Found duplicate in existing bank: 할 수 있다 (ex.ko.grammar.ability.can.v1)",
-    "suggested_next_action": "merge_with_existing"
+    "classification": "context_bound",
+    "reason": "Grammatical fragment (Dictionary-style). Should remain local as instructional commentary.",
+    "suggested_next_action": "skip_keep_local"
   },
   {
     "knowledge_item_ref": "kg.grammar.ability.cannot",
@@ -145,8 +145,8 @@
     "source_excerpt": "(例如：먹다 -> 먹을 수 없다)",
     "normalized_ko_candidate": "먹을 수 없다",
     "proposed_id": null,
-    "classification": "duplicate_existing",
-    "reason": "Found duplicate in existing bank: 먹을 수 없다 (ex.ko.grammar.ability.cannot.v1)",
-    "suggested_next_action": "merge_with_existing"
+    "classification": "context_bound",
+    "reason": "Grammatical fragment (Dictionary-style). Should remain local as instructional commentary.",
+    "suggested_next_action": "skip_keep_local"
   }
 ]

@@ -1,0 +1,145 @@
+[
+  {
+    "knowledge_item_ref": "kg.grammar.copula.eopda",
+    "proposed_id": "ex.ko.grammar.copula.eopda.v1",
+    "status": "ready"
+  },
+  {
+    "knowledge_item_ref": "kg.grammar.copula.eopda",
+    "proposed_id": "ex.ko.grammar.copula.eopda_2.v1",
+    "status": "ready"
+  },
+  {
+    "knowledge_item_ref": "kg.grammar.copula.itda",
+    "proposed_id": "ex.ko.grammar.copula.itda.v1",
+    "status": "ready"
+  },
+  {
+    "knowledge_item_ref": "kg.grammar.copula.itda",
+    "proposed_id": "ex.ko.grammar.copula.itda_2.v1",
+    "status": "ready"
+  },
+  {
+    "knowledge_item_ref": "kg.grammar.copula.itda",
+    "proposed_id": "ex.ko.grammar.copula.itda_3.v1",
+    "status": "ready"
+  },
+  {
+    "knowledge_item_ref": "kg.grammar.ending.additive_eulppunderseo",
+    "proposed_id": "ex.ko.grammar.ending.additive_eulppunderseo.v1",
+    "status": "ready"
+  },
+  {
+    "knowledge_item_ref": "kg.grammar.ending.cause_eulkka_bwa",
+    "proposed_id": "ex.ko.grammar.ending.cause_eulkka_bwa.v1",
+    "status": "ready"
+  },
+  {
+    "knowledge_item_ref": "kg.grammar.ending.comparison_deusi",
+    "proposed_id": "ex.ko.grammar.ending.comparison_deusi.v1",
+    "status": "ready"
+  },
+  {
+    "knowledge_item_ref": "kg.grammar.ending.comparison_deusi",
+    "proposed_id": "ex.ko.grammar.ending.comparison_deusi_2.v1",
+    "status": "ready"
+  },
+  {
+    "knowledge_item_ref": "kg.grammar.ending.contrast_geonman",
+    "proposed_id": "ex.ko.grammar.ending.contrast_geonman.v1",
+    "status": "ready"
+  },
+  {
+    "knowledge_item_ref": "kg.grammar.ending.contrast_geonman",
+    "proposed_id": "ex.ko.grammar.ending.contrast_geonman_2.v1",
+    "status": "ready"
+  },
+  {
+    "knowledge_item_ref": "kg.grammar.ending.contrast_jani",
+    "proposed_id": "ex.ko.grammar.ending.contrast_jani.v1",
+    "status": "ready"
+  },
+  {
+    "knowledge_item_ref": "kg.grammar.ending.restrictive_concession_doe",
+    "proposed_id": "ex.ko.grammar.ending.restrictive_concession_doe.v1",
+    "status": "ready"
+  },
+  {
+    "knowledge_item_ref": "kg.grammar.ending.restrictive_concession_doe",
+    "proposed_id": "ex.ko.grammar.ending.restrictive_concession_doe_2.v1",
+    "status": "ready"
+  },
+  {
+    "knowledge_item_ref": "kg.grammar.negation.short_an",
+    "proposed_id": "ex.ko.grammar.negation.short_an.v1",
+    "status": "ready"
+  },
+  {
+    "knowledge_item_ref": "kg.grammar.negation.short_mot",
+    "proposed_id": "ex.ko.grammar.negation.short_mot.v1",
+    "status": "ready"
+  },
+  {
+    "knowledge_item_ref": "kg.grammar.particle.and_with_hago",
+    "proposed_id": "ex.ko.grammar.particle.and_with_hago.v1",
+    "status": "ready"
+  },
+  {
+    "knowledge_item_ref": "kg.grammar.particle.and_with_hago",
+    "proposed_id": "ex.ko.connector.conjunction.hago_3.v1",
+    "status": "merged",
+    "canonical_target": "빵하고 우유를 샀어요."
+  },
+  {
+    "knowledge_item_ref": "kg.grammar.permission.allow",
+    "proposed_id": "ex.ko.grammar.permission.allow.v1",
+    "status": "merged",
+    "canonical_target": "여기 앉아도 돼요?"
+  },
+  {
+    "knowledge_item_ref": "kg.grammar.tense.progressive",
+    "proposed_id": "ex.ko.grammar.tense.progressive.v1",
+    "status": "ready"
+  },
+  {
+    "knowledge_item_ref": "kp.pattern.question.asking_name",
+    "proposed_id": "ex.ko.pattern.question.asking_name.v1",
+    "status": "ready"
+  },
+  {
+    "knowledge_item_ref": "kp.pattern.question.location_query",
+    "proposed_id": "ex.ko.pattern.question.location_query.v1",
+    "status": "merged",
+    "canonical_target": "화장실이 어디예요?"
+  },
+  {
+    "knowledge_item_ref": "kp.pattern.question.price_query",
+    "proposed_id": "ex.ko.pattern.question.price_query.v1",
+    "status": "ready"
+  },
+  {
+    "knowledge_item_ref": "kp.pattern.question.price_query",
+    "proposed_id": "ex.ko.pattern.question.price_query_2.v1",
+    "status": "ready"
+  },
+  {
+    "knowledge_item_ref": "kp.pattern.repair.clarification",
+    "proposed_id": "ex.ko.pattern.repair.clarification.v1",
+    "status": "ready"
+  },
+  {
+    "knowledge_item_ref": "kp.pattern.repair.request_help",
+    "proposed_id": "ex.ko.pattern.repair.request_help.v1",
+    "status": "ready"
+  },
+  {
+    "knowledge_item_ref": "kp.pattern.social_basic.apology",
+    "proposed_id": "ex.ko.pattern.social_basic.apology.v1",
+    "status": "ready"
+  },
+  {
+    "knowledge_item_ref": "kp.pattern.time.current_date",
+    "proposed_id": "ex.ko.pattern.time.current_date.v1",
+    "status": "ready"
+  }
+]

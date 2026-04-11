@@ -1,0 +1,306 @@
+[
+  {
+    "knowledge_item_ref": "kg.grammar.copula.eopda",
+    "source_field": "explanation_md_zh_tw",
+    "source_excerpt": "- **子音結尾**：名詞 + **이 없다** (例: 집이 없다)",
+    "normalized_ko_candidate": "집이 없다",
+    "classification": "ready",
+    "reason": "Structured example sentence with formal prefix",
+    "suggested_next_action": "extract_new",
+    "proposed_id": "ex.ko.grammar.copula.eopda.v1"
+  },
+  {
+    "knowledge_item_ref": "kg.grammar.copula.eopda",
+    "source_field": "explanation_md_zh_tw",
+    "source_excerpt": "- **母音結尾**：名詞 + **가 없다** (例: 친구가 없다)",
+    "normalized_ko_candidate": "친구가 없다",
+    "classification": "ready",
+    "reason": "Structured example sentence with formal prefix",
+    "suggested_next_action": "extract_new",
+    "proposed_id": "ex.ko.grammar.copula.eopda_2.v1"
+  },
+  {
+    "knowledge_item_ref": "kg.grammar.copula.itda",
+    "source_field": "explanation_md_zh_tw",
+    "source_excerpt": "- **子音結尾**：名詞 + **이 있다** (例: 책이 있다)",
+    "normalized_ko_candidate": "책이 있다",
+    "classification": "ready",
+    "reason": "Structured example sentence with formal prefix",
+    "suggested_next_action": "extract_new",
+    "proposed_id": "ex.ko.grammar.copula.itda.v1"
+  },
+  {
+    "knowledge_item_ref": "kg.grammar.copula.itda",
+    "source_field": "explanation_md_zh_tw",
+    "source_excerpt": "- **母音結尾**：名詞 + **가 있다** (例: 친구가 있다)",
+    "normalized_ko_candidate": "친구가 있다",
+    "classification": "ready",
+    "reason": "Structured example sentence with formal prefix",
+    "suggested_next_action": "extract_new",
+    "proposed_id": "ex.ko.grammar.copula.itda_2.v1"
+  },
+  {
+    "knowledge_item_ref": "kg.grammar.copula.itda",
+    "source_field": "usage_notes_zh_tw",
+    "source_excerpt": "表示地點時搭配 에 있다 (例: 집에 있어요)",
+    "normalized_ko_candidate": "집에 있어요",
+    "classification": "ready",
+    "reason": "Structured example sentence with formal prefix",
+    "suggested_next_action": "extract_new",
+    "proposed_id": "ex.ko.grammar.copula.itda_3.v1"
+  },
+  {
+    "knowledge_item_ref": "kg.grammar.ending.additive_eulppunderseo",
+    "source_field": "usage_notes_zh_tw",
+    "source_excerpt": "「넓을뿐더러 위치도 좋아요」：不但寬敞且位置也好。",
+    "normalized_ko_candidate": "넓을뿐더러 위치도 좋아요",
+    "classification": "ready",
+    "reason": "Standalone sentence candidate found in text",
+    "suggested_next_action": "extract_new",
+    "proposed_id": "ex.ko.grammar.ending.additive_eulppunderseo.v1"
+  },
+  {
+    "knowledge_item_ref": "kg.grammar.ending.cause_eulkka_bwa",
+    "source_field": "usage_notes_zh_tw",
+    "source_excerpt": "「비가 올까 봐」：擔心下雨所以...",
+    "normalized_ko_candidate": "비가 올까 봐",
+    "classification": "ready",
+    "reason": "Standalone sentence candidate found in text",
+    "suggested_next_action": "extract_new",
+    "proposed_id": "ex.ko.grammar.ending.cause_eulkka_bwa.v1"
+  },
+  {
+    "knowledge_item_ref": "kg.grammar.ending.comparison_deusi",
+    "source_field": "usage_notes_zh_tw",
+    "source_excerpt": "「밥 먹듯이 하다」：像吃飯一樣常做（指某事發生頻率極高，通常含貶義，如說謊）。",
+    "normalized_ko_candidate": "밥 먹듯이 하다",
+    "classification": "ready",
+    "reason": "Standalone sentence candidate found in text",
+    "suggested_next_action": "extract_new",
+    "proposed_id": "ex.ko.grammar.ending.comparison_deusi.v1"
+  },
+  {
+    "knowledge_item_ref": "kg.grammar.ending.comparison_deusi",
+    "source_field": "usage_notes_zh_tw",
+    "source_excerpt": "「물 쓰듯이 쓰다」：像用水一樣花錢（揮金如土）。",
+    "normalized_ko_candidate": "물 쓰듯이 쓰다",
+    "classification": "ready",
+    "reason": "Standalone sentence candidate found in text",
+    "suggested_next_action": "extract_new",
+    "proposed_id": "ex.ko.grammar.ending.comparison_deusi_2.v1"
+  },
+  {
+    "knowledge_item_ref": "kg.grammar.ending.contrast_geonman",
+    "source_field": "usage_notes_zh_tw",
+    "source_excerpt": "「노力했건만 結果가 안 좋아요」：雖然努力了，結果卻不好。",
+    "normalized_ko_candidate": "노력했건만 결과가 안 좋아요",
+    "classification": "ready",
+    "reason": "Standalone sentence candidate found in text",
+    "suggested_next_action": "extract_new",
+    "proposed_id": "ex.ko.grammar.ending.contrast_geonman.v1"
+  },
+  {
+    "knowledge_item_ref": "kg.grammar.ending.contrast_geonman",
+    "source_field": "usage_notes_zh_tw",
+    "source_excerpt": "「答帳을 奇待리건만 消息이 없어요」：雖然在等回信，但完全沒消息。",
+    "normalized_ko_candidate": "답장을 기다리건만 소식이 없어요",
+    "classification": "ready",
+    "reason": "Standalone sentence candidate found in text",
+    "suggested_next_action": "extract_new",
+    "proposed_id": "ex.ko.grammar.ending.contrast_geonman_2.v1"
+  },
+  {
+    "knowledge_item_ref": "kg.grammar.ending.contrast_jani",
+    "source_field": "usage_notes_zh_tw",
+    "source_excerpt": "「먹자니 배가 부르고」：想吃可是肚子飽了（進退兩難）。",
+    "normalized_ko_candidate": "먹자니 배가 부르고",
+    "classification": "ready",
+    "reason": "Standalone sentence candidate found in text",
+    "suggested_next_action": "extract_new",
+    "proposed_id": "ex.ko.grammar.ending.contrast_jani.v1"
+  },
+  {
+    "knowledge_item_ref": "kg.grammar.ending.restrictive_concession_doe",
+    "source_field": "usage_notes_zh_tw",
+    "source_excerpt": "「술은 마시되 취하지 마라」：酒可以喝，但不可喝醉。",
+    "normalized_ko_candidate": "술은 마시되 취하지 마라",
+    "classification": "ready",
+    "reason": "Standalone sentence candidate found in text",
+    "suggested_next_action": "extract_new",
+    "proposed_id": "ex.ko.grammar.ending.restrictive_concession_doe.v1"
+  },
+  {
+    "knowledge_item_ref": "kg.grammar.ending.restrictive_concession_doe",
+    "source_field": "usage_notes_zh_tw",
+    "source_excerpt": "「가되 쓰레기는 버리지 마세요」：去是可以去，但請不要亂丟垃圾。",
+    "normalized_ko_candidate": "가되 쓰레기는 버리지 마세요",
+    "classification": "ready",
+    "reason": "Standalone sentence candidate found in text",
+    "suggested_next_action": "extract_new",
+    "proposed_id": "ex.ko.grammar.ending.restrictive_concession_doe_2.v1"
+  },
+  {
+    "knowledge_item_ref": "kg.grammar.ending.sumndia",
+    "source_field": "explanation_md_zh_tw",
+    "source_excerpt": "- **母音結尾 (無收音)**：加 **-ㅂ니다** (例: 가다 → 갑니다)",
+    "normalized_ko_candidate": "가다 → 갑니다",
+    "classification": "context_bound",
+    "reason": "Morphology change pattern detected (A -> B) - stay in local",
+    "suggested_next_action": "skip_keep_local"
+  },
+  {
+    "knowledge_item_ref": "kg.grammar.ending.sumndia",
+    "source_field": "explanation_md_zh_tw",
+    "source_excerpt": "- **子音結尾 (有收音)**：加 **-습니다** (例: 먹다 → 먹습니다)",
+    "normalized_ko_candidate": "먹다 → 먹습니다",
+    "classification": "context_bound",
+    "reason": "Morphology change pattern detected (A -> B) - stay in local",
+    "suggested_next_action": "skip_keep_local"
+  },
+  {
+    "knowledge_item_ref": "kg.grammar.ending.sumndia",
+    "source_field": "explanation_md_zh_tw",
+    "source_excerpt": "- **名詞結尾**：加 **입니다** (例: 학생 → 학생입니다)",
+    "normalized_ko_candidate": "학생 → 학생입니다",
+    "classification": "context_bound",
+    "reason": "Morphology change pattern detected (A -> B) - stay in local",
+    "suggested_next_action": "skip_keep_local"
+  },
+  {
+    "knowledge_item_ref": "kg.grammar.negation.short_an",
+    "source_field": "explanation_md_zh_tw",
+    "source_excerpt": "- 對於 `名詞 + 하다` 形式的動詞（如 `공부하다`），`안` 通常放在 `하다` 之前（例如：`공부 안 해요`）。",
+    "normalized_ko_candidate": "공부 안 해요",
+    "classification": "ready",
+    "reason": "Standalone sentence candidate found in text",
+    "suggested_next_action": "extract_new",
+    "proposed_id": "ex.ko.grammar.negation.short_an.v1"
+  },
+  {
+    "knowledge_item_ref": "kg.grammar.negation.short_mot",
+    "source_field": "explanation_md_zh_tw",
+    "source_excerpt": "- 對於 `名詞 + 하다` 形式的動詞，`못` 放在 `하다` 之前（例如：`공부 못 해요`）。",
+    "normalized_ko_candidate": "공부 못 해요",
+    "classification": "ready",
+    "reason": "Standalone sentence candidate found in text",
+    "suggested_next_action": "extract_new",
+    "proposed_id": "ex.ko.grammar.negation.short_mot.v1"
+  },
+  {
+    "knowledge_item_ref": "kg.grammar.particle.and_with_hago",
+    "source_field": "explanation_md_zh_tw",
+    "source_excerpt": "1. **伴隨 (Comitative)**：表示「和某人一起」。常搭配 `같이` (一起) 使用。例如：`친구하고 같이 밥을 먹어요.` (和朋友一起吃飯。)",
+    "normalized_ko_candidate": "친구하고 같이 밥을 먹어요.",
+    "classification": "ready",
+    "reason": "Standalone sentence candidate found in text",
+    "suggested_next_action": "extract_new",
+    "proposed_id": "ex.ko.grammar.particle.and_with_hago.v1"
+  },
+  {
+    "knowledge_item_ref": "kg.grammar.particle.and_with_hago",
+    "source_field": "explanation_md_zh_tw",
+    "source_excerpt": "2. **並列 (Conjunction)**：用來連結兩個或多個名詞。例如：`빵하고 우유를 샀어요.` (買了麵包和牛奶。)",
+    "normalized_ko_candidate": "빵하고 우유를 샀어요.",
+    "classification": "duplicate_existing",
+    "reason": "Found duplicate in existing bank: 빵하고 우유를 샀어요.",
+    "suggested_next_action": "merge_with_existing"
+  },
+  {
+    "knowledge_item_ref": "kg.grammar.permission.allow",
+    "source_field": "explanation_md_zh_tw",
+    "source_excerpt": "常用於問句來徵求對方同意 (例如：這裡可以坐嗎？)。",
+    "normalized_ko_candidate": "여기 앉아도 돼요?",
+    "classification": "duplicate_existing",
+    "reason": "Found duplicate in existing bank: 여기 앉아도 돼요?",
+    "suggested_next_action": "merge_with_existing"
+  },
+  {
+    "knowledge_item_ref": "kg.grammar.tense.progressive",
+    "source_field": "usage_notes_zh_tw",
+    "source_excerpt": "可用於回答「正在幹嘛？」(지금 뭐 하고 있어요?)",
+    "normalized_ko_candidate": "지금 뭐 하고 있어요?",
+    "classification": "ready",
+    "reason": "Standalone sentence candidate found in text",
+    "suggested_next_action": "extract_new",
+    "proposed_id": "ex.ko.grammar.tense.progressive.v1"
+  },
+  {
+    "knowledge_item_ref": "kp.pattern.question.asking_name",
+    "source_field": "explanation_md_zh_tw",
+    "source_excerpt": "- **對長輩或尊者**：建議使用更尊敬的「성함이 어떻게 되세요?」。",
+    "normalized_ko_candidate": "성함이 어떻게 되세요?",
+    "classification": "ready",
+    "reason": "Standalone sentence candidate found in text",
+    "suggested_next_action": "extract_new",
+    "proposed_id": "ex.ko.pattern.question.asking_name.v1"
+  },
+  {
+    "knowledge_item_ref": "kp.pattern.question.location_query",
+    "source_field": "explanation_md_zh_tw",
+    "source_excerpt": "- **地點名有收音**：加 **이** (例: 化粧室이 어디예요?)",
+    "normalized_ko_candidate": "화장실이 어디예요?",
+    "classification": "duplicate_existing",
+    "reason": "Found duplicate in existing bank: 화장실이 어디예요?",
+    "suggested_next_action": "merge_with_existing"
+  },
+  {
+    "knowledge_item_ref": "kp.pattern.question.price_query",
+    "source_field": "explanation_md_zh_tw",
+    "source_excerpt": "- **替換指示詞**：如果要問「那部手機」則說「저 휴대폰 얼마예요?」。",
+    "normalized_ko_candidate": "저 휴대폰 얼마예요?",
+    "classification": "ready",
+    "reason": "Standalone sentence candidate found in text",
+    "suggested_next_action": "extract_new",
+    "proposed_id": "ex.ko.pattern.question.price_query.v1"
+  },
+  {
+    "knowledge_item_ref": "kp.pattern.question.price_query",
+    "source_field": "explanation_md_zh_tw",
+    "source_excerpt": "- **商務/正式場合**：可改用「價格이 어떻게 돼요?」。",
+    "normalized_ko_candidate": "가격이 어떻게 돼요?",
+    "classification": "ready",
+    "reason": "Standalone sentence candidate found in text",
+    "suggested_next_action": "extract_new",
+    "proposed_id": "ex.ko.pattern.question.price_query_2.v1"
+  },
+  {
+    "knowledge_item_ref": "kp.pattern.repair.clarification",
+    "source_field": "usage_notes_zh_tw",
+    "source_excerpt": "專業或職場場景可提升為「무슨 의味인지 설명해 주세요」(請說明是什麼意思)。",
+    "normalized_ko_candidate": "무슨 의미인지 설명해 주세요",
+    "classification": "ready",
+    "reason": "Standalone sentence candidate found in text",
+    "suggested_next_action": "extract_new",
+    "proposed_id": "ex.ko.pattern.repair.clarification.v1"
+  },
+  {
+    "knowledge_item_ref": "kp.pattern.repair.request_help",
+    "source_field": "explanation_md_zh_tw",
+    "source_excerpt": "A2 請求句要練「委婉度階梯」，讓學習者體會從 **주세요** (請給予) 到 **주실 수 있어요?** (能請您幫忙...嗎？) 在語用上的禮貌度差異。",
+    "normalized_ko_candidate": "주실 수 있어요?",
+    "classification": "ready",
+    "reason": "Standalone sentence candidate found in text",
+    "suggested_next_action": "extract_new",
+    "proposed_id": "ex.ko.pattern.repair.request_help.v1"
+  },
+  {
+    "knowledge_item_ref": "kp.pattern.social_basic.apology",
+    "source_field": "explanation_md_zh_tw",
+    "source_excerpt": "- **잘 못 들었어요 (沒聽清楚)**",
+    "normalized_ko_candidate": "잘 못 들었어요",
+    "classification": "ready",
+    "reason": "Standalone sentence candidate found in text",
+    "suggested_next_action": "extract_new",
+    "proposed_id": "ex.ko.pattern.social_basic.apology.v1"
+  },
+  {
+    "knowledge_item_ref": "kp.pattern.time.current_date",
+    "source_field": "usage_notes_zh_tw",
+    "source_excerpt": "可省略助詞 이，說成「오늘 몇 월 며칠이에요?」也完全正確。",
+    "normalized_ko_candidate": "오늘 몇 월 며칠이에요?",
+    "classification": "ready",
+    "reason": "Standalone sentence candidate found in text",
+    "suggested_next_action": "extract_new",
+    "proposed_id": "ex.ko.pattern.time.current_date.v1"
+  }
+]

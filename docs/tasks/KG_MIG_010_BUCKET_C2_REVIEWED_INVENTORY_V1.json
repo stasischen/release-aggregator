@@ -35,9 +35,9 @@
     "source_excerpt": "- **집에서 쉬어요** (在休息)",
     "normalized_ko_candidate": "집에서 쉬어요",
     "proposed_id": "ex.ko.grammar.particle.at_place_action.rest_home.v1",
-    "classification": "ready",
-    "reason": "Standalone sentence candidate found in text",
-    "suggested_next_action": "extract_new"
+    "classification": "duplicate",
+    "reason": "Duplicate of existing bank sentence (ignoring trailing period)",
+    "suggested_next_action": "use_existing"
   },
   {
     "knowledge_item_ref": "kg.grammar.particle.at_place_action",
@@ -65,9 +65,9 @@
     "source_excerpt": "- **내일 비가 올 거예요.** (明天會下雨。)",
     "normalized_ko_candidate": "내일 비가 올 거예요.",
     "proposed_id": "ex.ko.grammar.tense.future_geoyeyo.rain_tomorrow.v1",
-    "classification": "ready",
-    "reason": "Standalone sentence candidate found in text",
-    "suggested_next_action": "extract_new"
+    "classification": "duplicate",
+    "reason": "Exact match found in existing bank",
+    "suggested_next_action": "use_existing"
   },
   {
     "knowledge_item_ref": "kp.pattern.payment.bargaining",
@@ -95,9 +95,9 @@
     "source_excerpt": "- **오른쪽으로 가세요** (請往右走)",
     "normalized_ko_candidate": "오른쪽으로 가세요",
     "proposed_id": "ex.ko.pattern.direction.go_right.v1",
-    "classification": "ready",
-    "reason": "Standalone sentence candidate found in text",
-    "suggested_next_action": "extract_new"
+    "classification": "duplicate",
+    "reason": "Duplicate of existing bank sentence (ignoring trailing period)",
+    "suggested_next_action": "use_existing"
   },
   {
     "knowledge_item_ref": "kp.pattern.repair.problem_report",

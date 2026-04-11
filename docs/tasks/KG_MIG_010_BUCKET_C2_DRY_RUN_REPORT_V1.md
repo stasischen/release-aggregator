@@ -8,20 +8,23 @@
 
 ## 2. Statistics
 - **Total Candidates Reviewed**: 15
-- **Ready for Extraction**: 13
-- **Duplicate (Existing Bank)**: 0
+- **Ready for Extraction**: 10
+- **Duplicate (Existing Bank)**: 3
 - **Context-Bound / Fragment**: 2 (Previously misclassified, re-evaluated as local fragments)
 - **Manual Review Required**: 0
 
 ## 3. Collision Analysis
 
 ### 3.1. Existing Bank Collisions
-The following items were found to be grammatical fragments or dictionary-style phrases. Per `EXAMPLE_EXTRACTION_POLICY_V1.md`, these will remain local as instructional commentary rather than being extracted into the bank.
+The following items were found to be duplicates of existing canonical sentences in the bank or grammatical fragments. These will either use the existing record or remain local.
 
 | Surface KO | Knowledge Item Ref | Reason | Action |
 | :--- | :--- | :--- | :--- |
-| `할 수 있다` | `kg.grammar.ability.can` | Grammatical fragment (Dictionary-style) | Skip (Local Commentary) |
-| `먹을 수 없다` | `kg.grammar.ability.cannot` | Grammatical fragment (Dictionary-style) | Skip (Local Commentary) |
+| `집에서 쉬어요` | `kg.grammar.particle.at_place_action` | Duplicate of `ex.ko.grammar.particle.at_place_action.rest_home.v1` | Use Existing |
+| `내일 비가 올 거예요.` | `kg.grammar.tense.future_geoyeyo` | Duplicate of `ex.ko.grammar.tense.future_geoyeyo.rain.v1` | Use Existing |
+| `오른쪽으로 가세요` | `kp.pattern.question.location_query` | Duplicate of `ex.ko.grammar.particle.euro_dir.to_right.v1` | Use Existing |
+| `할 수 있다` | `kg.grammar.ability.can` | Grammatical fragment (Dictionary-style) | Skip (Local) |
+| `먹을 수 없다` | `kg.grammar.ability.cannot` | Grammatical fragment (Dictionary-style) | Skip (Local) |
 
 ### 3.2. Internal Batch Collisions
 - No internal duplicates within the C2 batch were detected.

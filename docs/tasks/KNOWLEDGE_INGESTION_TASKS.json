@@ -106,7 +106,7 @@
       "notes": [
         "Run only after sentence schema freeze, extraction policy freeze, and Knowledge Lab alignment/classification are complete.",
         "This step is for existing Knowledge Lab mixed content only; do not combine with new curriculum-source ingestion.",
-        "2026-04-11: Bucket C1 extraction completed. Bucket C2 dry-run completed (13 ready, 2 duplicates)."
+        "2026-04-11: Bucket C1 extraction completed. Bucket C2 dry-run/manifest hardened (10 ready, 3 duplicates resolved, 2 skips)."
       ],
       "deliverable": "mixed knowledge example extraction pass (dry-run verified with internal duplicate resolution)"
     },

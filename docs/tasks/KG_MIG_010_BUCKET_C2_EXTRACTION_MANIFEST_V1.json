@@ -6,6 +6,7 @@
     "action": "extract_new",
     "proposed_id": "ex.ko.grammar.ending.additive_eulppunderseo.interesting_useful.v1",
     "existing_example_id": null,
+    "merge_target": null,
     "reason": "Standalone sentence candidate found in text"
   },
   {
@@ -15,6 +16,7 @@
     "action": "extract_new",
     "proposed_id": "ex.ko.grammar.ending.state_change_ajida_eojida.cold_weather.v1",
     "existing_example_id": null,
+    "merge_target": null,
     "reason": "Standalone sentence candidate found in text"
   },
   {
@@ -24,16 +26,18 @@
     "action": "extract_new",
     "proposed_id": "ex.ko.grammar.ending.state_change_ajida_eojida.study_smart.v1",
     "existing_example_id": null,
+    "merge_target": null,
     "reason": "Standalone sentence candidate found in text"
   },
   {
     "knowledge_item_ref": "kg.grammar.particle.at_place_action",
     "surface_ko": "집에서 쉬어요",
-    "status": "ready",
-    "action": "extract_new",
-    "proposed_id": "ex.ko.grammar.particle.at_place_action.rest_home.v1",
-    "existing_example_id": null,
-    "reason": "Standalone sentence candidate found in text"
+    "status": "duplicate",
+    "action": "use_existing",
+    "proposed_id": null,
+    "existing_example_id": "ex.ko.grammar.particle.at_place_action.rest_home.v1",
+    "merge_target": "ex.ko.grammar.particle.at_place_action.rest_home.v1",
+    "reason": "Duplicate of existing bank sentence (ignoring trailing period)"
   },
   {
     "knowledge_item_ref": "kg.grammar.particle.at_place_action",
@@ -42,6 +46,7 @@
     "action": "extract_new",
     "proposed_id": "ex.ko.grammar.particle.at_place_action.come_from_airport.v1",
     "existing_example_id": null,
+    "merge_target": null,
     "reason": "Standalone sentence candidate found in text"
   },
   {
@@ -51,16 +56,18 @@
     "action": "extract_new",
     "proposed_id": "ex.ko.grammar.tense.future_geoyeyo.study_tomorrow.v1",
     "existing_example_id": null,
+    "merge_target": null,
     "reason": "Standalone sentence candidate found in text"
   },
   {
     "knowledge_item_ref": "kg.grammar.tense.future_geoyeyo",
     "surface_ko": "내일 비가 올 거예요.",
-    "status": "ready",
-    "action": "extract_new",
-    "proposed_id": "ex.ko.grammar.tense.future_geoyeyo.rain_tomorrow.v1",
-    "existing_example_id": null,
-    "reason": "Standalone sentence candidate found in text"
+    "status": "duplicate",
+    "action": "use_existing",
+    "proposed_id": null,
+    "existing_example_id": "ex.ko.grammar.tense.future_geoyeyo.rain.v1",
+    "merge_target": "ex.ko.grammar.tense.future_geoyeyo.rain.v1",
+    "reason": "Exact match found in existing bank"
   },
   {
     "knowledge_item_ref": "kp.pattern.payment.bargaining",
@@ -69,6 +76,7 @@
     "action": "extract_new",
     "proposed_id": "ex.ko.pattern.payment.bargaining.v1",
     "existing_example_id": null,
+    "merge_target": null,
     "reason": "Standalone sentence candidate found in text"
   },
   {
@@ -78,16 +86,18 @@
     "action": "extract_new",
     "proposed_id": "ex.ko.pattern.question.asking_name.informal_polite.v1",
     "existing_example_id": null,
+    "merge_target": null,
     "reason": "Standalone sentence candidate (Informal Polite register)"
   },
   {
     "knowledge_item_ref": "kp.pattern.question.location_query",
     "surface_ko": "오른쪽으로 가세요",
-    "status": "ready",
-    "action": "extract_new",
-    "proposed_id": "ex.ko.pattern.direction.go_right.v1",
-    "existing_example_id": null,
-    "reason": "Standalone sentence candidate found in text"
+    "status": "duplicate",
+    "action": "use_existing",
+    "proposed_id": null,
+    "existing_example_id": "ex.ko.grammar.particle.euro_dir.to_right.v1",
+    "merge_target": "ex.ko.grammar.particle.euro_dir.to_right.v1",
+    "reason": "Duplicate of existing bank sentence (ignoring trailing period)"
   },
   {
     "knowledge_item_ref": "kp.pattern.repair.problem_report",
@@ -96,6 +106,7 @@
     "action": "extract_new",
     "proposed_id": "ex.ko.pattern.repair.problem_report.v1",
     "existing_example_id": null,
+    "merge_target": null,
     "reason": "Standalone sentence candidate found in text"
   },
   {
@@ -105,6 +116,7 @@
     "action": "extract_new",
     "proposed_id": "ex.ko.pattern.transport.subway_query.v1",
     "existing_example_id": null,
+    "merge_target": null,
     "reason": "Standalone sentence candidate found in text"
   },
   {
@@ -114,6 +126,7 @@
     "action": "extract_new",
     "proposed_id": "ex.ko.pattern.repair.say_it_again.v1",
     "existing_example_id": null,
+    "merge_target": null,
     "reason": "Standalone sentence candidate found in text"
   },
   {
@@ -123,6 +136,7 @@
     "action": "skip_local",
     "proposed_id": null,
     "existing_example_id": null,
+    "merge_target": null,
     "reason": "Grammatical fragment (Dictionary-style). Should remain local as instructional commentary."
   },
   {
@@ -132,6 +146,7 @@
     "action": "skip_local",
     "proposed_id": null,
     "existing_example_id": null,
+    "merge_target": null,
     "reason": "Grammatical fragment (Dictionary-style). Should remain local as instructional commentary."
   }
 ]

@@ -1,0 +1,77 @@
+[
+  {
+    "knowledge_item_ref": "kg.grammar.ending.additive_eulppunderseo",
+    "proposed_id": "ex.ko.grammar.ending.additive_eulppunderseo.interesting_useful.v1",
+    "status": "ready"
+  },
+  {
+    "knowledge_item_ref": "kg.grammar.ending.state_change_ajida_eojida",
+    "proposed_id": "ex.ko.grammar.ending.state_change_ajida_eojida.cold_weather.v1",
+    "status": "ready"
+  },
+  {
+    "knowledge_item_ref": "kg.grammar.ending.state_change_ajida_eojida",
+    "proposed_id": "ex.ko.grammar.ending.state_change_ajida_eojida.study_smart.v1",
+    "status": "ready"
+  },
+  {
+    "knowledge_item_ref": "kg.grammar.particle.at_place_action",
+    "proposed_id": "ex.ko.grammar.particle.at_place_action.rest_home.v1",
+    "status": "ready"
+  },
+  {
+    "knowledge_item_ref": "kg.grammar.particle.at_place_action",
+    "proposed_id": "ex.ko.grammar.particle.at_place_action.come_from_airport.v1",
+    "status": "ready"
+  },
+  {
+    "knowledge_item_ref": "kg.grammar.tense.future_geoyeyo",
+    "proposed_id": "ex.ko.grammar.tense.future_geoyeyo.study_tomorrow.v1",
+    "status": "ready"
+  },
+  {
+    "knowledge_item_ref": "kg.grammar.tense.future_geoyeyo",
+    "proposed_id": "ex.ko.grammar.tense.future_geoyeyo.rain_tomorrow.v1",
+    "status": "ready"
+  },
+  {
+    "knowledge_item_ref": "kp.pattern.payment.bargaining",
+    "proposed_id": "ex.ko.pattern.payment.bargaining.v1",
+    "status": "ready"
+  },
+  {
+    "knowledge_item_ref": "kp.pattern.question.asking_name",
+    "proposed_id": "ex.ko.pattern.question.asking_name.informal_polite.v1",
+    "status": "ready"
+  },
+  {
+    "knowledge_item_ref": "kp.pattern.question.location_query",
+    "proposed_id": "ex.ko.pattern.direction.go_right.v1",
+    "status": "ready"
+  },
+  {
+    "knowledge_item_ref": "kp.pattern.repair.problem_report",
+    "proposed_id": "ex.ko.pattern.repair.problem_report.v1",
+    "status": "ready"
+  },
+  {
+    "knowledge_item_ref": "kp.pattern.question.location_query",
+    "proposed_id": "ex.ko.pattern.transport.subway_query.v1",
+    "status": "ready"
+  },
+  {
+    "knowledge_item_ref": "kp.pattern.repair.repeat",
+    "proposed_id": "ex.ko.pattern.repair.say_it_again.v1",
+    "status": "ready"
+  },
+  {
+    "knowledge_item_ref": "kg.grammar.ability.can",
+    "status": "duplicate_existing",
+    "reason": "Found duplicate in existing bank: 할 수 있다 (ex.ko.grammar.ability.can.v1)"
+  },
+  {
+    "knowledge_item_ref": "kg.grammar.ability.cannot",
+    "status": "duplicate_existing",
+    "reason": "Found duplicate in existing bank: 먹을 수 없다 (ex.ko.grammar.ability.cannot.v1)"
+  }
+]

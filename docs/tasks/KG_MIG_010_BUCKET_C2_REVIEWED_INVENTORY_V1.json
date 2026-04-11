@@ -1,0 +1,152 @@
+[
+  {
+    "knowledge_item_ref": "kg.grammar.ending.additive_eulppunderseo",
+    "source_field": "usage_notes_zh_tw",
+    "source_excerpt": "「재미있을뿐더러 유익해요」：不但有趣而且有益。",
+    "normalized_ko_candidate": "재미있을뿐더러 유익해요",
+    "proposed_id": "ex.ko.grammar.ending.additive_eulppunderseo.interesting_useful.v1",
+    "classification": "ready",
+    "reason": "Standalone sentence candidate found in text",
+    "suggested_next_action": "extract_new"
+  },
+  {
+    "knowledge_item_ref": "kg.grammar.ending.state_change_ajida_eojida",
+    "source_field": "explanation_md_zh_tw",
+    "source_excerpt": "- **날씨가 추워졌어요** (天氣變冷了)",
+    "normalized_ko_candidate": "날씨가 추워졌어요",
+    "proposed_id": "ex.ko.grammar.ending.state_change_ajida_eojida.cold_weather.v1",
+    "classification": "ready",
+    "reason": "Standalone sentence candidate found in text",
+    "suggested_next_action": "extract_new"
+  },
+  {
+    "knowledge_item_ref": "kg.grammar.ending.state_change_ajida_eojida",
+    "source_field": "explanation_md_zh_tw",
+    "source_excerpt": "- **공부해서 똑똑해졌어요** (因為學習而變聰明了)",
+    "normalized_ko_candidate": "공부해서 똑똑해졌어요",
+    "proposed_id": "ex.ko.grammar.ending.state_change_ajida_eojida.study_smart.v1",
+    "classification": "ready",
+    "reason": "Standalone sentence candidate found in text",
+    "suggested_next_action": "extract_new"
+  },
+  {
+    "knowledge_item_ref": "kg.grammar.particle.at_place_action",
+    "source_field": "explanation_md_zh_tw",
+    "source_excerpt": "- **집에서 쉬어요** (在休息)",
+    "normalized_ko_candidate": "집에서 쉬어요",
+    "proposed_id": "ex.ko.grammar.particle.at_place_action.rest_home.v1",
+    "classification": "ready",
+    "reason": "Standalone sentence candidate found in text",
+    "suggested_next_action": "extract_new"
+  },
+  {
+    "knowledge_item_ref": "kg.grammar.particle.at_place_action",
+    "source_field": "explanation_md_zh_tw",
+    "source_excerpt": "- **공항에서 왔어요** (從機場來的)",
+    "normalized_ko_candidate": "공항에서 왔어요",
+    "proposed_id": "ex.ko.grammar.particle.at_place_action.come_from_airport.v1",
+    "classification": "ready",
+    "reason": "Standalone sentence candidate found in text",
+    "suggested_next_action": "extract_new"
+  },
+  {
+    "knowledge_item_ref": "kg.grammar.tense.future_geoyeyo",
+    "source_field": "explanation_md_zh_tw",
+    "source_excerpt": "- **저는 내일 공부할 거예요.** (我明天要學習。)",
+    "normalized_ko_candidate": "저는 내일 공부할 거예요.",
+    "proposed_id": "ex.ko.grammar.tense.future_geoyeyo.study_tomorrow.v1",
+    "classification": "ready",
+    "reason": "Standalone sentence candidate found in text",
+    "suggested_next_action": "extract_new"
+  },
+  {
+    "knowledge_item_ref": "kg.grammar.tense.future_geoyeyo",
+    "source_field": "explanation_md_zh_tw",
+    "source_excerpt": "- **내일 비가 올 거예요.** (明天會下雨。)",
+    "normalized_ko_candidate": "내일 비가 올 거예요.",
+    "proposed_id": "ex.ko.grammar.tense.future_geoyeyo.rain_tomorrow.v1",
+    "classification": "ready",
+    "reason": "Standalone sentence candidate found in text",
+    "suggested_next_action": "extract_new"
+  },
+  {
+    "knowledge_item_ref": "kp.pattern.payment.bargaining",
+    "source_field": "explanation_md_zh_tw",
+    "source_excerpt": "- **할인 가능해요?** (可以打折嗎？)",
+    "normalized_ko_candidate": "할인 가능해요?",
+    "proposed_id": "ex.ko.pattern.payment.bargaining.v1",
+    "classification": "ready",
+    "reason": "Standalone sentence candidate found in text",
+    "suggested_next_action": "extract_new"
+  },
+  {
+    "knowledge_item_ref": "kp.pattern.question.asking_name",
+    "source_field": "explanation_md_zh_tw",
+    "source_excerpt": "- **이름이 뭐예요?** (名字是什麼？)",
+    "normalized_ko_candidate": "이름이 뭐예요?",
+    "proposed_id": "ex.ko.pattern.question.asking_name.informal_polite.v1",
+    "classification": "ready",
+    "reason": "Standalone sentence candidate (Informal Polite register)",
+    "suggested_next_action": "extract_new"
+  },
+  {
+    "knowledge_item_ref": "kp.pattern.question.location_query",
+    "source_field": "explanation_md_zh_tw",
+    "source_excerpt": "- **오른쪽으로 가세요** (請往右走)",
+    "normalized_ko_candidate": "오른쪽으로 가세요",
+    "proposed_id": "ex.ko.pattern.direction.go_right.v1",
+    "classification": "ready",
+    "reason": "Standalone sentence candidate found in text",
+    "suggested_next_action": "extract_new"
+  },
+  {
+    "knowledge_item_ref": "kp.pattern.repair.problem_report",
+    "source_field": "explanation_md_zh_tw",
+    "source_excerpt": "- **문제가 생겼어요** (出問題了)",
+    "normalized_ko_candidate": "문제가 생겼어요",
+    "proposed_id": "ex.ko.pattern.repair.problem_report.v1",
+    "classification": "ready",
+    "reason": "Standalone sentence candidate found in text",
+    "suggested_next_action": "extract_new"
+  },
+  {
+    "knowledge_item_ref": "kp.pattern.question.location_query",
+    "source_field": "usage_notes_zh_tw",
+    "source_excerpt": "「지하철역이 어디예요?」：地下鐵站在哪裡？",
+    "normalized_ko_candidate": "지하철역이 어디예요?",
+    "proposed_id": "ex.ko.pattern.transport.subway_query.v1",
+    "classification": "ready",
+    "reason": "Standalone sentence candidate found in text",
+    "suggested_next_action": "extract_new"
+  },
+  {
+    "knowledge_item_ref": "kp.pattern.repair.repeat",
+    "source_field": "usage_notes_zh_tw",
+    "source_excerpt": "「말씀해 주세요」：請說。",
+    "normalized_ko_candidate": "말씀해 주세요",
+    "proposed_id": "ex.ko.pattern.repair.say_it_again.v1",
+    "classification": "ready",
+    "reason": "Standalone sentence candidate found in text",
+    "suggested_next_action": "extract_new"
+  },
+  {
+    "knowledge_item_ref": "kg.grammar.ability.can",
+    "source_field": "explanation_md_zh_tw",
+    "source_excerpt": "(例如：하다 -> 할 수 있다)",
+    "normalized_ko_candidate": "할 수 있다",
+    "proposed_id": null,
+    "classification": "duplicate_existing",
+    "reason": "Found duplicate in existing bank: 할 수 있다 (ex.ko.grammar.ability.can.v1)",
+    "suggested_next_action": "merge_with_existing"
+  },
+  {
+    "knowledge_item_ref": "kg.grammar.ability.cannot",
+    "source_field": "explanation_md_zh_tw",
+    "source_excerpt": "(例如：먹다 -> 먹을 수 없다)",
+    "normalized_ko_candidate": "먹을 수 없다",
+    "proposed_id": null,
+    "classification": "duplicate_existing",
+    "reason": "Found duplicate in existing bank: 먹을 수 없다 (ex.ko.grammar.ability.cannot.v1)",
+    "suggested_next_action": "merge_with_existing"
+  }
+]

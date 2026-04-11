@@ -97,7 +97,7 @@
     {
       "id": "kg-mig-010",
       "title": "Extract structured example blocks from mixed knowledge items into canonical bank (excluding freeform MD explanations); depends on extraction policy freeze",
-      "status": "todo",
+      "status": "in-progress",
       "depends_on": [
         "kg-spec-011",
         "kg-spec-013",

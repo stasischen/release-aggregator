@@ -1,0 +1,98 @@
+{
+  "kg.connector.cause.geuraeseo": [
+    "ex.ko.connector.cause.geuraeseo_1.v1",
+    "ex.ko.connector.cause.geuraeseo_2.v1",
+    "ex.ko.connector.cause.geuraeseo_3.v1",
+    "ex.ko.connector.cause.geuraeseo_4.v1",
+    "ex.ko.connector.cause.geuraeseo_5.v1"
+  ],
+  "kg.connector.cause.geureomeuro": [
+    "ex.ko.connector.cause.geureomeuro_1.v1",
+    "ex.ko.connector.cause.geureomeuro_2.v1",
+    "ex.ko.connector.cause.geureomeuro_3.v1",
+    "ex.ko.connector.cause.geureomeuro_4.v1",
+    "ex.ko.connector.cause.geureomeuro_5.v1"
+  ],
+  "kg.connector.cause.geureonikka": [
+    "ex.ko.connector.cause.geureonikka_1.v1",
+    "ex.ko.connector.cause.geureonikka_2.v1",
+    "ex.ko.connector.cause.geureonikka_3.v1",
+    "ex.ko.connector.cause.geureonikka_4.v1",
+    "ex.ko.connector.cause.geureonikka_5.v1"
+  ],
+  "kg.connector.cause.ttaraseo": [
+    "ex.ko.connector.cause.ttaraseo_1.v1",
+    "ex.ko.connector.cause.ttaraseo_2.v1",
+    "ex.ko.connector.cause.ttaraseo_3.v1",
+    "ex.ko.connector.cause.ttaraseo_4.v1",
+    "ex.ko.connector.cause.ttaraseo_5.v1"
+  ],
+  "kg.connector.condition.geureomyeon": [
+    "ex.ko.connector.condition.geureomyeon_1.v1",
+    "ex.ko.connector.condition.geureomyeon_2.v1",
+    "ex.ko.connector.condition.geureomyeon_3.v1",
+    "ex.ko.connector.condition.geureomyeon_4.v1"
+  ],
+  "kg.connector.contrast.geuraedo": [
+    "ex.ko.connector.contrast.geuraedo_1.v1",
+    "ex.ko.connector.contrast.geuraedo_2.v1",
+    "ex.ko.connector.contrast.geuraedo_3.v1",
+    "ex.ko.connector.contrast.geuraedo_4.v1",
+    "ex.ko.connector.contrast.geuraedo_5.v1"
+  ],
+  "kg.connector.contrast.geureochiman": [
+    "ex.ko.connector.contrast.geureochiman_1.v1",
+    "ex.ko.connector.contrast.geureochiman_2.v1",
+    "ex.ko.connector.contrast.geureochiman_3.v1",
+    "ex.ko.connector.contrast.geureochiman_4.v1",
+    "ex.ko.connector.contrast.geureochiman_5.v1"
+  ],
+  "kg.connector.contrast.geureona": [
+    "ex.ko.connector.contrast.geureona_1.v1",
+    "ex.ko.connector.contrast.geureona_2.v1",
+    "ex.ko.connector.contrast.geureona_3.v1",
+    "ex.ko.connector.contrast.geureona_4.v1",
+    "ex.ko.connector.contrast.geureona_5.v1"
+  ],
+  "kg.connector.contrast.geureonde": [
+    "ex.ko.connector.contrast.geureonde_1.v1",
+    "ex.ko.connector.contrast.geureonde_2.v1",
+    "ex.ko.connector.contrast.geureonde_3.v1",
+    "ex.ko.connector.contrast.geureonde_4.v1",
+    "ex.ko.connector.contrast.geureonde_5.v1"
+  ],
+  "kg.connector.contrast.hajiman": [
+    "ex.ko.connector.contrast.hajiman_1.v1",
+    "ex.ko.connector.contrast.hajiman_2.v1",
+    "ex.ko.connector.contrast.hajiman_3.v1",
+    "ex.ko.connector.contrast.hajiman_4.v1",
+    "ex.ko.connector.contrast.hajiman_5.v1"
+  ],
+  "kg.connector.conversion.geureonde": [
+    "ex.ko.connector.conversion.geureonde_1.v1",
+    "ex.ko.connector.conversion.geureonde_2.v1",
+    "ex.ko.connector.conversion.geureonde_3.v1",
+    "ex.ko.connector.conversion.geureonde_4.v1"
+  ],
+  "kg.connector.sequence.gedaga": [
+    "ex.ko.connector.sequence.gedaga_1.v1",
+    "ex.ko.connector.sequence.gedaga_2.v1",
+    "ex.ko.connector.sequence.gedaga_3.v1",
+    "ex.ko.connector.sequence.gedaga_4.v1",
+    "ex.ko.connector.sequence.gedaga_5.v1"
+  ],
+  "kg.connector.sequence.geureom": [
+    "ex.ko.connector.sequence.geureom_1.v1",
+    "ex.ko.connector.sequence.geureom_2.v1",
+    "ex.ko.connector.sequence.geureom_3.v1",
+    "ex.ko.connector.sequence.geureom_4.v1",
+    "ex.ko.connector.sequence.geureom_5.v1"
+  ],
+  "kg.connector.sequence.geurigo": [
+    "ex.ko.connector.sequence.geurigo_1.v1",
+    "ex.ko.connector.sequence.geurigo_2.v1",
+    "ex.ko.connector.sequence.geurigo_3.v1",
+    "ex.ko.connector.sequence.geurigo_4.v1",
+    "ex.ko.connector.sequence.geurigo_5.v1"
+  ]
+}

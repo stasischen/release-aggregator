@@ -1,0 +1,682 @@
+[
+  {
+    "original_ki_ref": "kg.connector.cause.geuraeseo",
+    "ko_raw": "비가 왔어요. 그래서 우산을 썼어요.",
+    "ko_clean": "비가 왔어요. 그래서 우산을 썼어요.",
+    "zh_tw": "下雨了，所以撐了傘。",
+    "classification": "Ready",
+    "reason": null,
+    "proposed_id": "ex.ko.connector.cause.geuraeseo_1.v1",
+    "collision_type": null
+  },
+  {
+    "original_ki_ref": "kg.connector.cause.geuraeseo",
+    "ko_raw": "배가 고팠어요. 그래서 케이크를 먹었어요.",
+    "ko_clean": "배가 고팠어요. 그래서 케이크를 먹었어요.",
+    "zh_tw": "肚子餓了，所以吃了蛋糕。",
+    "classification": "Ready",
+    "reason": null,
+    "proposed_id": "ex.ko.connector.cause.geuraeseo_2.v1",
+    "collision_type": null
+  },
+  {
+    "original_ki_ref": "kg.connector.cause.geuraeseo",
+    "ko_raw": "일이 많았어요. 그래서 퇴근이 늦었어요.",
+    "ko_clean": "일이 많았어요. 그래서 퇴근이 늦었어요.",
+    "zh_tw": "工作多，所以下班晚了。",
+    "classification": "Ready",
+    "reason": null,
+    "proposed_id": "ex.ko.connector.cause.geuraeseo_3.v1",
+    "collision_type": null
+  },
+  {
+    "original_ki_ref": "kg.connector.cause.geuraeseo",
+    "ko_raw": "공부를 열심히 했어요. 그래서 합격했어요.",
+    "ko_clean": "공부를 열심히 했어요. 그래서 합격했어요.",
+    "zh_tw": "努力讀書，所以考上了。",
+    "classification": "Ready",
+    "reason": null,
+    "proposed_id": "ex.ko.connector.cause.geuraeseo_4.v1",
+    "collision_type": null
+  },
+  {
+    "original_ki_ref": "kg.connector.cause.geuraeseo",
+    "ko_raw": "너무 피곤했어요. 그래서 일찍 잤어요.",
+    "ko_clean": "너무 피곤했어요. 그래서 일찍 잤어요.",
+    "zh_tw": "太累了，所以早早睡了。",
+    "classification": "Ready",
+    "reason": null,
+    "proposed_id": "ex.ko.connector.cause.geuraeseo_5.v1",
+    "collision_type": null
+  },
+  {
+    "original_ki_ref": "kg.connector.cause.geureomeuro",
+    "ko_raw": "학생은 열심히 공부해야 한다. 그러므로 시간을 잘 써야 한다.",
+    "ko_clean": "학생은 열심히 공부해야 한다. 그러므로 시간을 잘 써야 한다.",
+    "zh_tw": "學生應該努力讀書，因此要好好利用時間。",
+    "classification": "Ready",
+    "reason": null,
+    "proposed_id": "ex.ko.connector.cause.geureomeuro_1.v1",
+    "collision_type": null
+  },
+  {
+    "original_ki_ref": "kg.connector.cause.geureomeuro",
+    "ko_raw": "지구는 우리가 함께 지켜야 한다. 그러므로 환경 보호가 중요하다.",
+    "ko_clean": "지구는 우리가 함께 지켜야 한다. 그러므로 환경 보호가 중요하다.",
+    "zh_tw": "地球要大家一起守護，因此環保很重要。",
+    "classification": "Ready",
+    "reason": null,
+    "proposed_id": "ex.ko.connector.cause.geureomeuro_2.v1",
+    "collision_type": null
+  },
+  {
+    "original_ki_ref": "kg.connector.cause.geureomeuro",
+    "ko_raw": "그는 책임감이 있다. 그러므로 믿을 수 있다.",
+    "ko_clean": "그는 책임감이 있다. 그러므로 믿을 수 있다.",
+    "zh_tw": "他很有責任感，因此值得信任。",
+    "classification": "Ready",
+    "reason": null,
+    "proposed_id": "ex.ko.connector.cause.geureomeuro_3.v1",
+    "collision_type": null
+  },
+  {
+    "original_ki_ref": "kg.connector.cause.geureomeuro",
+    "ko_raw": "배운 것을 실천해야 한다. 그러므로 진짜 실력이 된다.",
+    "ko_clean": "배운 것을 실천해야 한다. 그러므로 진짜 실력이 된다.",
+    "zh_tw": "應該要實踐所學。因此才能成為真正的實力。",
+    "classification": "Ready",
+    "reason": null,
+    "proposed_id": "ex.ko.connector.cause.geureomeuro_4.v1",
+    "collision_type": null
+  },
+  {
+    "original_ki_ref": "kg.connector.cause.geureomeuro",
+    "ko_raw": "경제가 성장했다. 그러므로 생활 수준도 높아졌다.",
+    "ko_clean": "경제가 성장했다. 그러므로 생활 수준도 높아졌다.",
+    "zh_tw": "經濟成長了，因此生活水準也提高了。",
+    "classification": "Ready",
+    "reason": null,
+    "proposed_id": "ex.ko.connector.cause.geureomeuro_5.v1",
+    "collision_type": null
+  },
+  {
+    "original_ki_ref": "kg.connector.cause.geureonikka",
+    "ko_raw": "오늘은 금요일이에요. 그러니까 내일 쉬어요.",
+    "ko_clean": "오늘은 금요일이에요. 그러니까 내일 쉬어요.",
+    "zh_tw": "今天是星期五，所以明天休息。",
+    "classification": "Ready",
+    "reason": null,
+    "proposed_id": "ex.ko.connector.cause.geureonikka_1.v1",
+    "collision_type": null
+  },
+  {
+    "original_ki_ref": "kg.connector.cause.geureonikka",
+    "ko_raw": "선생님이 아프세요. 그러니까 수업이 없어요.",
+    "ko_clean": "선생님이 아프세요. 그러니까 수업이 없어요.",
+    "zh_tw": "老師生病了，所以今天沒課。",
+    "classification": "Ready",
+    "reason": null,
+    "proposed_id": "ex.ko.connector.cause.geureonikka_2.v1",
+    "collision_type": null
+  },
+  {
+    "original_ki_ref": "kg.connector.cause.geureonikka",
+    "ko_raw": "늦었어요. 그러니까 빨리 갑시다!",
+    "ko_clean": "늦었어요. 그러니까 빨리 갑시다!",
+    "zh_tw": "遲到了，所以快走吧！",
+    "classification": "Ready",
+    "reason": null,
+    "proposed_id": "ex.ko.connector.cause.geureonikka_3.v1",
+    "collision_type": null
+  },
+  {
+    "original_ki_ref": "kg.connector.cause.geureonikka",
+    "ko_raw": "빵이 식었어요. 그러니까 다시 데워요.",
+    "ko_clean": "빵이 식었어요. 그러니까 다시 데워요.",
+    "zh_tw": "麵包冷了，所以再加熱吧。",
+    "classification": "Ready",
+    "reason": null,
+    "proposed_id": "ex.ko.connector.cause.geureonikka_4.v1",
+    "collision_type": null
+  },
+  {
+    "original_ki_ref": "kg.connector.cause.geureonikka",
+    "ko_raw": "돈이 없어요. 그러니까 다음에 사요.",
+    "ko_clean": "돈이 없어요. 그러니까 다음에 사요.",
+    "zh_tw": "沒錢，所以下次再買。",
+    "classification": "Ready",
+    "reason": null,
+    "proposed_id": "ex.ko.connector.cause.geureonikka_5.v1",
+    "collision_type": null
+  },
+  {
+    "original_ki_ref": "kg.connector.cause.ttaraseo",
+    "ko_raw": "공부를 열심히 했다. 따라서 좋은 성적을 받았다.",
+    "ko_clean": "공부를 열심히 했다. 따라서 좋은 성적을 받았다.",
+    "zh_tw": "努力讀書，因此得到了好成績。",
+    "classification": "Ready",
+    "reason": null,
+    "proposed_id": "ex.ko.connector.cause.ttaraseo_1.v1",
+    "collision_type": null
+  },
+  {
+    "original_ki_ref": "kg.connector.cause.ttaraseo",
+    "ko_raw": "규칙을 지켜야 한다. 따라서 벌을 받지 않는다.",
+    "ko_clean": "규칙을 지켜야 한다. 따라서 벌을 받지 않는다.",
+    "zh_tw": "要遵守規則，因此不會被罰。",
+    "classification": "Ready",
+    "reason": null,
+    "proposed_id": "ex.ko.connector.cause.ttaraseo_2.v1",
+    "collision_type": null
+  },
+  {
+    "original_ki_ref": "kg.connector.cause.ttaraseo",
+    "ko_raw": "몸이 아팠다. 따라서 병원에 갔다.",
+    "ko_clean": "몸이 아팠다. 따라서 병원에 갔다.",
+    "zh_tw": "身體不舒服，因此去了醫院。",
+    "classification": "Ready",
+    "reason": null,
+    "proposed_id": "ex.ko.connector.cause.ttaraseo_3.v1",
+    "collision_type": null
+  },
+  {
+    "original_ki_ref": "kg.connector.cause.ttaraseo",
+    "ko_raw": "계획이 순조로웠다. 따라서 프로젝트가 성공했다.",
+    "ko_clean": "계획이 순조로웠다. 따라서 프로젝트가 성공했다.",
+    "zh_tw": "計畫很順利。因此專案成功了。",
+    "classification": "Ready",
+    "reason": null,
+    "proposed_id": "ex.ko.connector.cause.ttaraseo_4.v1",
+    "collision_type": null
+  },
+  {
+    "original_ki_ref": "kg.connector.cause.ttaraseo",
+    "ko_raw": "준비가 철저했다. 따라서 문제가 없었다.",
+    "ko_clean": "준비가 철저했다. 따라서 문제가 없었다.",
+    "zh_tw": "準備充分，因此沒有問題。",
+    "classification": "Ready",
+    "reason": null,
+    "proposed_id": "ex.ko.connector.cause.ttaraseo_5.v1",
+    "collision_type": null
+  },
+  {
+    "original_ki_ref": "kg.connector.condition.geureomyeon",
+    "ko_raw": "그러면 어떻게 해야 돼요?",
+    "ko_clean": "그러면 어떻게 해야 돼요?",
+    "zh_tw": "那樣的話該怎麼辦？",
+    "classification": "Ready",
+    "reason": null,
+    "proposed_id": "ex.ko.connector.condition.geureomyeon_1.v1",
+    "collision_type": null
+  },
+  {
+    "original_ki_ref": "kg.connector.condition.geureomyeon",
+    "ko_raw": "그러면 내일 봬요.",
+    "ko_clean": "그러면 내일 봬요.",
+    "zh_tw": "那麼明天見。",
+    "classification": "Ready",
+    "reason": null,
+    "proposed_id": "ex.ko.connector.condition.geureomyeon_2.v1",
+    "collision_type": null
+  },
+  {
+    "original_ki_ref": "kg.connector.condition.geureomyeon",
+    "ko_raw": "그러면 다시 공부합시다.",
+    "ko_clean": "그러면 다시 공부합시다.",
+    "zh_tw": "那麼我們再學一次吧。",
+    "classification": "Ready",
+    "reason": null,
+    "proposed_id": "ex.ko.connector.condition.geureomyeon_3.v1",
+    "collision_type": null
+  },
+  {
+    "original_ki_ref": "kg.connector.condition.geureomyeon",
+    "ko_raw": "그러면 제가 연락드릴게요.",
+    "ko_clean": "그러면 제가 연락드릴게요.",
+    "zh_tw": "那樣的話我會聯絡您。",
+    "classification": "Ready",
+    "reason": null,
+    "proposed_id": "ex.ko.connector.condition.geureomyeon_4.v1",
+    "collision_type": null
+  },
+  {
+    "original_ki_ref": "kg.connector.contrast.geuraedo",
+    "ko_raw": "비가 와요. 그래도 나가고 싶어요.",
+    "ko_clean": "비가 와요. 그래도 나가고 싶어요.",
+    "zh_tw": "下雨了，但還是想出去。",
+    "classification": "Ready",
+    "reason": null,
+    "proposed_id": "ex.ko.connector.contrast.geuraedo_1.v1",
+    "collision_type": null
+  },
+  {
+    "original_ki_ref": "kg.connector.contrast.geuraedo",
+    "ko_raw": "힘들어요. 그래도 포기하지 않을 거예요.",
+    "ko_clean": "힘들어요. 그래도 포기하지 않을 거예요.",
+    "zh_tw": "雖然辛苦，但我不會放棄。",
+    "classification": "Ready",
+    "reason": null,
+    "proposed_id": "ex.ko.connector.contrast.geuraedo_2.v1",
+    "collision_type": null
+  },
+  {
+    "original_ki_ref": "kg.connector.contrast.geuraedo",
+    "ko_raw": "시험이 어려웠어요. 그래도 열심히 했어요.",
+    "ko_clean": "시험이 어려웠어요. 그래도 열심히 했어요.",
+    "zh_tw": "考試很難，但我還是努力了。",
+    "classification": "Ready",
+    "reason": null,
+    "proposed_id": "ex.ko.connector.contrast.geuraedo_3.v1",
+    "collision_type": null
+  },
+  {
+    "original_ki_ref": "kg.connector.contrast.geuraedo",
+    "ko_raw": "배불러요. 그래도 디저트는 먹을래요.",
+    "ko_clean": "배불러요. 그래도 디저트는 먹을래요.",
+    "zh_tw": "很飽，但甜點還是要吃。",
+    "classification": "Ready",
+    "reason": null,
+    "proposed_id": "ex.ko.connector.contrast.geuraedo_4.v1",
+    "collision_type": null
+  },
+  {
+    "original_ki_ref": "kg.connector.contrast.geuraedo",
+    "ko_raw": "늦었어요. 그래도 가야 해요.",
+    "ko_clean": "늦었어요. 그래도 가야 해요.",
+    "zh_tw": "雖然遲到了，但還是得去。",
+    "classification": "Ready",
+    "reason": null,
+    "proposed_id": "ex.ko.connector.contrast.geuraedo_5.v1",
+    "collision_type": null
+  },
+  {
+    "original_ki_ref": "kg.connector.contrast.geureochiman",
+    "ko_raw": "케이크는 맛있어요. 그렇지만 너무 달아요.",
+    "ko_clean": "케이크는 맛있어요. 그렇지만 너무 달아요.",
+    "zh_tw": "蛋糕很好吃，但太甜了。",
+    "classification": "Ready",
+    "reason": null,
+    "proposed_id": "ex.ko.connector.contrast.geureochiman_1.v1",
+    "collision_type": null
+  },
+  {
+    "original_ki_ref": "kg.connector.contrast.geureochiman",
+    "ko_raw": "학교는 멀어요. 그렇지만 버스로 금방 가요.",
+    "ko_clean": "학교는 멀어요. 그렇지만 버스로 금방 가요.",
+    "zh_tw": "學校很遠，但坐公車很快就到。",
+    "classification": "Ready",
+    "reason": null,
+    "proposed_id": "ex.ko.connector.contrast.geureochiman_2.v1",
+    "collision_type": null
+  },
+  {
+    "original_ki_ref": "kg.connector.contrast.geureochiman",
+    "ko_raw": "새 폰이에요. 그렇지만 자꾸 오류가 나요.",
+    "ko_clean": "새 폰이에요. 그렇지만 자꾸 오류가 나요.",
+    "zh_tw": "是新手機，但一直出錯。",
+    "classification": "Ready",
+    "reason": null,
+    "proposed_id": "ex.ko.connector.contrast.geureochiman_3.v1",
+    "collision_type": null
+  },
+  {
+    "original_ki_ref": "kg.connector.contrast.geureochiman",
+    "ko_raw": "친구가 커피를 사줬어요. 그렇지만 아직 졸려요.",
+    "ko_clean": "친구가 커피를 사줬어요. 그렇지만 아직 졸려요.",
+    "zh_tw": "朋友請我喝咖啡，但還是想睡。",
+    "classification": "Ready",
+    "reason": null,
+    "proposed_id": "ex.ko.connector.contrast.geureochiman_4.v1",
+    "collision_type": null
+  },
+  {
+    "original_ki_ref": "kg.connector.contrast.geureochiman",
+    "ko_raw": "여행은 즐거웠어요. 그렇지만 좀 피곤했어요.",
+    "ko_clean": "여행은 즐거웠어요. 그렇지만 좀 피곤했어요.",
+    "zh_tw": "旅行很開心，但有點累。",
+    "classification": "Ready",
+    "reason": null,
+    "proposed_id": "ex.ko.connector.contrast.geureochiman_5.v1",
+    "collision_type": null
+  },
+  {
+    "original_ki_ref": "kg.connector.contrast.geureona",
+    "ko_raw": "그는 노력했다. 그러나 결과는 좋지 않았다.",
+    "ko_clean": "그는 노력했다. 그러나 결과는 좋지 않았다.",
+    "zh_tw": "他很努力，然而結果不好。",
+    "classification": "Ready",
+    "reason": null,
+    "proposed_id": "ex.ko.connector.contrast.geureona_1.v1",
+    "collision_type": null
+  },
+  {
+    "original_ki_ref": "kg.connector.contrast.geureona",
+    "ko_raw": "비가 왔다. 그러나 우리는 계속 걸었다.",
+    "ko_clean": "비가 왔다. 그러나 우리는 계속 걸었다.",
+    "zh_tw": "下雨了，然而我們仍然走著。",
+    "classification": "Ready",
+    "reason": null,
+    "proposed_id": "ex.ko.connector.contrast.geureona_2.v1",
+    "collision_type": null
+  },
+  {
+    "original_ki_ref": "kg.connector.contrast.geureona",
+    "ko_raw": "말은 쉽다. 그러나 행동은 어렵다.",
+    "ko_clean": "말은 쉽다. 그러나 행동은 어렵다.",
+    "zh_tw": "說起來容易，做起來難。",
+    "classification": "Ready",
+    "reason": null,
+    "proposed_id": "ex.ko.connector.contrast.geureona_3.v1",
+    "collision_type": null
+  },
+  {
+    "original_ki_ref": "kg.connector.contrast.geureona",
+    "ko_raw": "학교는 가깝다. 그러나 버스가 없다.",
+    "ko_clean": "학교는 가깝다. 그러나 버스가 없다.",
+    "zh_tw": "學校近，但沒有公車。",
+    "classification": "Ready",
+    "reason": null,
+    "proposed_id": "ex.ko.connector.contrast.geureona_4.v1",
+    "collision_type": null
+  },
+  {
+    "original_ki_ref": "kg.connector.contrast.geureona",
+    "ko_raw": "일은 힘들다. 그러나 보람이 있다.",
+    "ko_clean": "일은 힘들다. 그러나 보람이 있다.",
+    "zh_tw": "工作辛苦，但有成就感。",
+    "classification": "Ready",
+    "reason": null,
+    "proposed_id": "ex.ko.connector.contrast.geureona_5.v1",
+    "collision_type": null
+  },
+  {
+    "original_ki_ref": "kg.connector.contrast.geureonde",
+    "ko_raw": "재밌는 영화였어요. 그런데 결말이 이상했어요.",
+    "ko_clean": "재밌는 영화였어요. 그런데 결말이 이상했어요.",
+    "zh_tw": "是部有趣的電影，不過結局怪怪的。",
+    "classification": "Ready",
+    "reason": null,
+    "proposed_id": "ex.ko.connector.contrast.geureonde_1.v1",
+    "collision_type": null
+  },
+  {
+    "original_ki_ref": "kg.connector.contrast.geureonde",
+    "ko_raw": "학교에 갔어요. 그런데 선생님이 안 계셨어요.",
+    "ko_clean": "학교에 갔어요. 그런데 선생님이 안 계셨어요.",
+    "zh_tw": "去學校了，但老師不在。",
+    "classification": "Ready",
+    "reason": null,
+    "proposed_id": "ex.ko.connector.contrast.geureonde_2.v1",
+    "collision_type": null
+  },
+  {
+    "original_ki_ref": "kg.connector.contrast.geureonde",
+    "ko_raw": "밥을 먹었어요. 그런데 또 배고파요.",
+    "ko_clean": "밥을 먹었어요. 그런데 또 배고파요.",
+    "zh_tw": "吃了飯，但又餓了。",
+    "classification": "Ready",
+    "reason": null,
+    "proposed_id": "ex.ko.connector.contrast.geureonde_3.v1",
+    "collision_type": null
+  },
+  {
+    "original_ki_ref": "kg.connector.contrast.geureonde",
+    "ko_raw": "오늘 날씨 정말 좋네요! 그런데 점심 뭐 먹을까요?",
+    "ko_clean": "오늘 날씨 정말 좋네요! 그런데 점심 뭐 먹을까요?",
+    "zh_tw": "今天天氣真好！話說回來，午餐要吃什麼呢？",
+    "classification": "Ready",
+    "reason": null,
+    "proposed_id": "ex.ko.connector.contrast.geureonde_4.v1",
+    "collision_type": null
+  },
+  {
+    "original_ki_ref": "kg.connector.contrast.geureonde",
+    "ko_raw": "아, 맞다! 그런데 내일 숙제 있어요?",
+    "ko_clean": "아, 맞다! 그런데 내일 숙제 있어요?",
+    "zh_tw": "啊，對了！話說回來，明天有作業嗎？",
+    "classification": "Ready",
+    "reason": null,
+    "proposed_id": "ex.ko.connector.contrast.geureonde_5.v1",
+    "collision_type": null
+  },
+  {
+    "original_ki_ref": "kg.connector.contrast.hajiman",
+    "ko_raw": "가고 싶었어요. 하지만 시간이 없었어요.",
+    "ko_clean": "가고 싶었어요. 하지만 시간이 없었어요.",
+    "zh_tw": "我想去，但沒有時間。",
+    "classification": "Ready",
+    "reason": null,
+    "proposed_id": "ex.ko.connector.contrast.hajiman_1.v1",
+    "collision_type": null
+  },
+  {
+    "original_ki_ref": "kg.connector.contrast.hajiman",
+    "ko_raw": "영화가 재미있었어요. 하지만 너무 길었어요.",
+    "ko_clean": "영화가 재미있었어요. 하지만 너무 길었어요.",
+    "zh_tw": "電影很好看，但太長了。",
+    "classification": "Ready",
+    "reason": null,
+    "proposed_id": "ex.ko.connector.contrast.hajiman_2.v1",
+    "collision_type": null
+  },
+  {
+    "original_ki_ref": "kg.connector.contrast.hajiman",
+    "ko_raw": "음식이 맛있어요. 하지만 양이 많아요.",
+    "ko_clean": "음식이 맛있어요. 하지만 양이 많아요.",
+    "zh_tw": "食物很好吃，但份量太多。",
+    "classification": "Ready",
+    "reason": null,
+    "proposed_id": "ex.ko.connector.contrast.hajiman_3.v1",
+    "collision_type": null
+  },
+  {
+    "original_ki_ref": "kg.connector.contrast.hajiman",
+    "ko_raw": "한국어가 재밌어요. 하지만 어렵기도 해요.",
+    "ko_clean": "한국어가 재밌어요. 하지만 어렵기도 해요.",
+    "zh_tw": "韓文很有趣，但也有點難。",
+    "classification": "Ready",
+    "reason": null,
+    "proposed_id": "ex.ko.connector.contrast.hajiman_4.v1",
+    "collision_type": null
+  },
+  {
+    "original_ki_ref": "kg.connector.contrast.hajiman",
+    "ko_raw": "사고 싶어요. 하지만 비싸요.",
+    "ko_clean": "사고 싶어요. 하지만 비싸요.",
+    "zh_tw": "想買，但太貴了。",
+    "classification": "Ready",
+    "reason": null,
+    "proposed_id": "ex.ko.connector.contrast.hajiman_5.v1",
+    "collision_type": null
+  },
+  {
+    "original_ki_ref": "kg.connector.conversion.geureonde",
+    "ko_raw": "재밌는 영화였어요. 그런데 결말이 이상했어요.",
+    "ko_clean": "재밌는 영화였어요. 그런데 결말이 이상했어요.",
+    "zh_tw": "是部有趣的電影，不過結局怪怪的。",
+    "classification": "Ready",
+    "reason": null,
+    "proposed_id": "ex.ko.connector.conversion.geureonde_1.v1",
+    "collision_type": null
+  },
+  {
+    "original_ki_ref": "kg.connector.conversion.geureonde",
+    "ko_raw": "숙제를 다 했어요. 그런데 하나 빠졌어요.",
+    "ko_clean": "숙제를 다 했어요. 그런데 하나 빠졌어요.",
+    "zh_tw": "作業都做完了，但漏了一個。",
+    "classification": "Ready",
+    "reason": null,
+    "proposed_id": "ex.ko.connector.conversion.geureonde_2.v1",
+    "collision_type": null
+  },
+  {
+    "original_ki_ref": "kg.connector.conversion.geureonde",
+    "ko_raw": "오늘 날씨 정말 좋네요! 그런데 점심 뭐 먹을까요?",
+    "ko_clean": "오늘 날씨 정말 좋네요! 그런데 점심 뭐 먹을까요?",
+    "zh_tw": "今天天氣真好！ 話說回來，午餐要吃什麼呢？",
+    "classification": "Ready",
+    "reason": null,
+    "proposed_id": "ex.ko.connector.conversion.geureonde_3.v1",
+    "collision_type": null
+  },
+  {
+    "original_ki_ref": "kg.connector.conversion.geureonde",
+    "ko_raw": "내일 숙제 있어요? 그런데 지금 몇 시예요?",
+    "ko_clean": "내일 숙제 있어요? 그런데 지금 몇 시예요?",
+    "zh_tw": "明天有作業嗎？話說回來，現在幾點了？",
+    "classification": "Ready",
+    "reason": null,
+    "proposed_id": "ex.ko.connector.conversion.geureonde_4.v1",
+    "collision_type": null
+  },
+  {
+    "original_ki_ref": "kg.connector.sequence.gedaga",
+    "ko_raw": "이 집은 맛있어요. 게다가 싸요.",
+    "ko_clean": "이 집은 맛있어요. 게다가 싸요.",
+    "zh_tw": "這家餐廳很好吃，而且便宜。",
+    "classification": "Ready",
+    "reason": null,
+    "proposed_id": "ex.ko.connector.sequence.gedaga_1.v1",
+    "collision_type": null
+  },
+  {
+    "original_ki_ref": "kg.connector.sequence.gedaga",
+    "ko_raw": "영화가 재밌었어요. 게다가 배우도 멋있었어요.",
+    "ko_clean": "영화가 재밌었어요. 게다가 배우도 멋있었어요.",
+    "zh_tw": "電影很好看，而且演員也很帥。",
+    "classification": "Ready",
+    "reason": null,
+    "proposed_id": "ex.ko.connector.sequence.gedaga_2.v1",
+    "collision_type": null
+  },
+  {
+    "original_ki_ref": "kg.connector.sequence.gedaga",
+    "ko_raw": "방이 넓어요. 게다가 조용해요.",
+    "ko_clean": "방이 넓어요. 게다가 조용해요.",
+    "zh_tw": "房間很大，而且很安靜。",
+    "classification": "Ready",
+    "reason": null,
+    "proposed_id": "ex.ko.connector.sequence.gedaga_3.v1",
+    "collision_type": null
+  },
+  {
+    "original_ki_ref": "kg.connector.sequence.gedaga",
+    "ko_raw": "여행이 즐거웠어요. 게다가 날씨도 좋았어요.",
+    "ko_clean": "여행이 즐거웠어요. 게다가 날씨도 좋았어요.",
+    "zh_tw": "旅行很開心，而且天氣很好。",
+    "classification": "Ready",
+    "reason": null,
+    "proposed_id": "ex.ko.connector.sequence.gedaga_4.v1",
+    "collision_type": null
+  },
+  {
+    "original_ki_ref": "kg.connector.sequence.gedaga",
+    "ko_raw": "월급이 올랐어요. 게다가 휴가도 생겼어요.",
+    "ko_clean": "월급이 올랐어요. 게다가 휴가도 생겼어요.",
+    "zh_tw": "薪水漲了，而且還多了假期。",
+    "classification": "Ready",
+    "reason": null,
+    "proposed_id": "ex.ko.connector.sequence.gedaga_5.v1",
+    "collision_type": null
+  },
+  {
+    "original_ki_ref": "kg.connector.sequence.geureom",
+    "ko_raw": "그럼 이제 시작합시다!",
+    "ko_clean": "그럼 이제 시작합시다!",
+    "zh_tw": "那麼，現在開始吧！",
+    "classification": "Ready",
+    "reason": null,
+    "proposed_id": "ex.ko.connector.sequence.geureom_1.v1",
+    "collision_type": null
+  },
+  {
+    "original_ki_ref": "kg.connector.sequence.geureom",
+    "ko_raw": "그럼 내일 전화할게요.",
+    "ko_clean": "그럼 내일 전화할게요.",
+    "zh_tw": "那我明天打電話給你。",
+    "classification": "Ready",
+    "reason": null,
+    "proposed_id": "ex.ko.connector.sequence.geureom_2.v1",
+    "collision_type": null
+  },
+  {
+    "original_ki_ref": "kg.connector.sequence.geureom",
+    "ko_raw": "그럼 먼저 갈게요.",
+    "ko_clean": "그럼 먼저 갈게요.",
+    "zh_tw": "那我先走了。",
+    "classification": "Ready",
+    "reason": null,
+    "proposed_id": "ex.ko.connector.sequence.geureom_3.v1",
+    "collision_type": null
+  },
+  {
+    "original_ki_ref": "kg.connector.sequence.geureom",
+    "ko_raw": "그럼 점심 먹으러 갈래요?",
+    "ko_clean": "그럼 점심 먹으러 갈래요?",
+    "zh_tw": "那要不要去吃午餐？",
+    "classification": "Ready",
+    "reason": null,
+    "proposed_id": "ex.ko.connector.sequence.geureom_4.v1",
+    "collision_type": null
+  },
+  {
+    "original_ki_ref": "kg.connector.sequence.geureom",
+    "ko_raw": "그럼 다음에 또 봐요!",
+    "ko_clean": "그럼 다음에 또 봐요!",
+    "zh_tw": "那下次再見！",
+    "classification": "Ready",
+    "reason": null,
+    "proposed_id": "ex.ko.connector.sequence.geureom_5.v1",
+    "collision_type": null
+  },
+  {
+    "original_ki_ref": "kg.connector.sequence.geurigo",
+    "ko_raw": "점심을 먹었어요. 그리고 커피를 마셨어요.",
+    "ko_clean": "점심을 먹었어요. 그리고 커피를 마셨어요.",
+    "zh_tw": "吃了午餐，然後喝了咖啡。",
+    "classification": "Ready",
+    "reason": null,
+    "proposed_id": "ex.ko.connector.sequence.geurigo_1.v1",
+    "collision_type": null
+  },
+  {
+    "original_ki_ref": "kg.connector.sequence.geurigo",
+    "ko_raw": "책을 읽었어요. 그리고 메모를 했어요.",
+    "ko_clean": "책을 읽었어요. 그리고 메모를 했어요.",
+    "zh_tw": "讀了書，並且做了筆記。",
+    "classification": "Ready",
+    "reason": null,
+    "proposed_id": "ex.ko.connector.sequence.geurigo_2.v1",
+    "collision_type": null
+  },
+  {
+    "original_ki_ref": "kg.connector.sequence.geurigo",
+    "ko_raw": "운동했어요. 그리고 샤워했어요.",
+    "ko_clean": "운동했어요. 그리고 샤워했어요.",
+    "zh_tw": "運動了，然後洗了澡。",
+    "classification": "Ready",
+    "reason": null,
+    "proposed_id": "ex.ko.connector.sequence.geurigo_3.v1",
+    "collision_type": null
+  },
+  {
+    "original_ki_ref": "kg.connector.sequence.geurigo",
+    "ko_raw": "영화를 봤어요. 그리고 친구랑 이야기했어요.",
+    "ko_clean": "영화를 봤어요. 그리고 친구랑 이야기했어요.",
+    "zh_tw": "看了電影，然後和朋友聊天。",
+    "classification": "Ready",
+    "reason": null,
+    "proposed_id": "ex.ko.connector.sequence.geurigo_4.v1",
+    "collision_type": null
+  },
+  {
+    "original_ki_ref": "kg.connector.sequence.geurigo",
+    "ko_raw": "옷을 샀어요. 그리고 선물로 포장했어요.",
+    "ko_clean": "옷을 샀어요. 그리고 선물로 포장했어요.",
+    "zh_tw": "買了衣服，然後包成禮物。",
+    "classification": "Ready",
+    "reason": null,
+    "proposed_id": "ex.ko.connector.sequence.geurigo_5.v1",
+    "collision_type": null
+  }
+]

@@ -122,12 +122,22 @@
       "deliverable": "docs/tasks/KNOWLEDGE_LAB_CONTENT_NORMALIZATION_PLAN_V1.md"
     },
     {
+      "id": "kg-verify-015",
+      "title": "Audit current content-ko example bank for obvious duplicate canonical examples before curriculum-source ingestion",
+      "status": "todo",
+      "depends_on": [
+        "kg-mig-010"
+      ],
+      "deliverable": "pre-ingestion example bank hygiene notes"
+    },
+    {
       "id": "kg-mig-015",
       "title": "Ingest new curriculum-source knowledge content only after existing Knowledge Lab normalization and mixed example extraction stabilize",
       "status": "todo",
       "depends_on": [
         "kg-plan-014",
-        "kg-mig-010"
+        "kg-mig-010",
+        "kg-verify-015"
       ],
       "deliverable": "next staged curriculum-source knowledge ingestion wave"
     }

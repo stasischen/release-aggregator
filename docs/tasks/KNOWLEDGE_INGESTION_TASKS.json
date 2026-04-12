@@ -124,7 +124,7 @@
     {
       "id": "kg-verify-015",
       "title": "Audit current content-ko example bank for obvious duplicate canonical examples before curriculum-source ingestion",
-      "status": "todo",
+      "status": "done",
       "depends_on": [
         "kg-mig-010"
       ],

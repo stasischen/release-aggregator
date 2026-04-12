@@ -263,16 +263,15 @@ const APP = {
                                 );
                                 
                                 if (entry && entry.atoms) {
-                                    // Sanity Check: If atoms say [music] but script says real words, discard atoms for THIS turn
-                                    const atomsText = entry.atoms.map(a => a.text).join('').trim();
-                                    const sourceText = (turn.text?.ko || turn.ko || '').trim();
+                                    // DEEP SANITY CHECK: Compare the actual text content
+                                    const atomsText = entry.atoms.map(a => a.text).join('').replace(/\s/g, '').replace(/[.,?!~]/g, '');
+                                    const sourceText = (turn.text?.ko || turn.ko || '').replace(/\s/g, '').replace(/[.,?!~]/g, '');
                                     
-                                    const atomsIsMeta = atomsText.startsWith('[') && atomsText.endsWith(']');
-                                    const sourceIsMeta = sourceText.startsWith('[') && sourceText.endsWith(']');
-
-                                    if (atomsIsMeta && !sourceIsMeta) {
-                                        console.warn(`[ENRICH] Alignment Mismatch for ${tid}: Atoms show ${atomsText} but source says ${sourceText}. Falling back to source.`);
-                                        turn.atoms = []; // Discarding misaligned atoms
+                                    // If text is significantly different, the assets are misaligned
+                                    if (atomsText !== sourceText && sourceText.length > 0) {
+                                        console.warn(`[ENRICH] Content Mismatch for ${tid}: Atoms text ("${atomsText}") != Source text ("${sourceText}"). Discarding atoms for alignment.`);
+                                        turn.atoms = []; 
+                                        turn.alignment_failed = true; // MARK AS BAD
                                     } else {
                                         turn.atoms = entry.atoms;
                                     }
@@ -335,9 +334,13 @@ const APP = {
     },
 
     renderKoreanSegmentation(seg) {
-        if (!seg.atoms || seg.atoms.length === 0) return window.escapeHtml(seg.ko);
-
-        return seg.atoms.map(a => {
+        if (!seg.atoms || seg.atoms.length === 0) {
+            const raw = window.escapeHtml(seg.ko || '');
+            if (seg.alignment_failed) {
+                return `<span class="alignment-warning" title="資料對齊異常：單字分割已停用">${raw} <i class="fas fa-info-circle" style="font-size:0.7em;"></i></span>`;
+            }
+            return raw;
+        }
             if (a.pos === 'space' || a.id?.includes(':space:')) {
                 return ' ';
             }

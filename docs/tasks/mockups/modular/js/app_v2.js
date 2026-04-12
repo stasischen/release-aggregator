@@ -109,7 +109,8 @@ const APP = {
 
     async bootstrap() {
         try {
-            const fResp = await fetch(FIXTURES_INDEX);
+            // Add cache busting to fixtures fetching
+            const fResp = await fetch(`${FIXTURES_INDEX}?v=${Date.now()}`);
             let fixtures = { units: [] };
             if (fResp.ok) fixtures = await fResp.json();
             this.renderCourseMap(fixtures);
@@ -122,19 +123,227 @@ const APP = {
 
     async loadUnit(path, autoSwitch = true) {
         try {
-            const resp = await fetch(path);
+            console.log(`[LOADER] Loading path: ${path}`);
+            // Force state clearing to prevent leftovers
+            window.state.data = null;
+            window.state.currentNode = null;
+            window.state.currentIndex = 0;
+
+            const resp = await fetch(path + '?v=' + Date.now());
             if (!resp.ok) throw new Error('Load failed');
-            window.state.data = await resp.json();
+            let data = await resp.json();
+            
+            // Auto-Wrap raw V5 content from content-ko/core into a valid unit structure
+            if (data.nodes && !data.sequence) {
+                console.log("Wrapping raw V5 content for rendering...");
+                data = {
+                    unit: { 
+                        unit_id: data.id || 'REAL-DATA', 
+                        title_zh_tw: (data.id && data.id.includes('vlog')) ? '實體影片測試' : '實體對話測試',
+                        level: 'A1',
+                        theme_zh_tw: '生產環境資料鏈路'
+                    },
+                    sequence: [
+                        {
+                            id: data.id || 'node-0',
+                            title_zh_tw: '內容預覽 (Real Content)',
+                            summary_zh_tw: '正在直接從 content-ko 加載實體 JSON 檔案。',
+                            content_form: (data.content_form) || (data.nodes?.Start?.turns ? 'video' : 'dialogue'),
+                            payload: data
+                        }
+                    ]
+                };
+            }
+
+            window.state.data = data;
             window.state.currentIndex = 0;
             localStorage.setItem('agg_gen_last_unit_path', path);
+
+            // Enrichment Step (Atoms) - Pass unit ID explicitly if available
+            const unitId = data.unit?.unit_id || data.id;
+            await this.enrichAtoms(window.state.data, unitId);
 
             window.loadProgress();
             window.renderSidebar();
             window.renderCurrentNode();
             this.renderLibraryBook();
             if (autoSwitch) this.switchView('lessonView');
-            if (window.showToast) window.showToast(`已載入: ${window.state.data.unit.unit_id}`);
-        } catch (e) { console.error(e); }
+            if (window.showToast) window.showToast(`已載入: ${window.state.data.unit?.unit_id || '實體內容'}`);
+        } catch (e) { 
+            console.error("LoadUnit Error:", e);
+            if (window.showToast) window.showToast("載入失敗: " + e.message, "error");
+        }
+    },
+
+    async enrichAtoms(data, providedId) {
+        if (!data) return;
+        
+        // FIND THE REAL CONTENT ID (e.g. BWINkN8QbkU or goPwS4aL4Lk)
+        const rawPayload = data.sequence?.[0]?.payload || data;
+        const cid = rawPayload.id || data.id || data.unit?.unit_id || providedId;
+        
+        if (!cid || cid === 'REAL-DATA') { 
+            console.warn('enrichAtoms: no valid content ID found, skips.'); 
+            return; 
+        }
+        
+        console.log(`[ENRICH] Loading assets for Content ID: ${cid}`);
+
+        try {
+            let atomsData = null;
+            let i18nData = null;
+            const locale = window.state.progress.prefs.locale || 'zh_tw';
+            const isVideo = rawPayload.nodes?.Start?.turns || rawPayload.turns;
+            const isDialogueLesson = rawPayload.dialogue_scenes || rawPayload.dialogue_turns || rawPayload.content;
+
+            // 1. Load Assets with explicit cid
+            if (isVideo) {
+                const i18nPath = `data/real_content/i18n/${locale}/video/${cid}.json`;
+                const iResp = await fetch(`${i18nPath}?v=${Date.now()}`);
+                if (iResp.ok) i18nData = await iResp.json();
+
+                // Atom discovery: try _atoms.json pattern first as confirmed in list_dir
+                const atomPaths = [`data/real_content/atoms/${cid}_atoms.json`, `data/real_content/atoms/${cid}.json` ];
+                for (const p of atomPaths) {
+                    const r = await fetch(`${p}?v=${Date.now()}`);
+                    if (r.ok) { atomsData = await r.json(); break; }
+                }
+            } else if (isDialogueLesson) {
+                // Dialogue
+                const i18nPath = `data/real_content/i18n/${locale}/dialogue/${cid}.json`;
+                const iResp = await fetch(`${i18nPath}?v=${Date.now()}`);
+                if (iResp.ok) i18nData = await iResp.json();
+                
+                const aResp = await fetch(`data/real_content/atoms/dialogue_atoms.json?v=${Date.now()}`);
+                if (aResp.ok) atomsData = await aResp.json();
+            }
+            console.log(`[ENRICH] Assets Loaded? Atoms: ${!!atomsData}, I18N: ${!!i18nData}`);
+
+            // 2. Apply enrichment – handle auto-wrapped structure
+            const sequence = data.sequence?.length ? data.sequence : [{ payload: rawPayload }];
+            
+            sequence.forEach(node => {
+                // IMPORTANT: The actual content lives in node.payload for wrapped units
+                const payload = node.payload || data;
+                
+                // Collect all possible turn sources
+                const turnSources = [
+                    payload.dialogue_turns,
+                    payload.content,
+                    payload.nodes?.Start?.turns,
+                    payload.turns
+                ];
+                if (payload.dialogue_scenes) {
+                    payload.dialogue_scenes.forEach(s => turnSources.push(s.turns));
+                }
+
+                turnSources.filter(Array.isArray).forEach(turns => {
+                    turns.forEach(turn => {
+                        try {
+                            const tid = turn.id || turn.line_id;
+                            if (!tid) return;
+
+                            // Normalized IDs for matching
+                            const nid = tid.replace('-', '_');
+                            const locale = window.state.progress.prefs.locale || 'zh_tw';
+
+                            const rawTrans = i18nData?.translations?.[tid] || i18nData?.translations?.[nid];
+                            if (rawTrans) {
+                                turn.translations_i18n = turn.translations_i18n || {};
+                                turn.translations_i18n[locale] = rawTrans;
+                                turn.translations_i18n.translation = rawTrans; 
+                                turn.translations_i18n.zh_tw = rawTrans;
+                                turn.translation = rawTrans; 
+                            }
+
+                            // Map Atoms
+                            if (Array.isArray(atomsData)) {
+                                const entry = atomsData.find(a => 
+                                    (a.turn_id === tid || a.turn_id === nid || a.line_id === tid || a.line_id === nid)
+                                );
+                                
+                                if (entry && entry.atoms) {
+                                    // Sanity Check: If atoms say [music] but script says real words, discard atoms for THIS turn
+                                    const atomsText = entry.atoms.map(a => a.text).join('').trim();
+                                    const sourceText = (turn.text?.ko || turn.ko || '').trim();
+                                    
+                                    const atomsIsMeta = atomsText.startsWith('[') && atomsText.endsWith(']');
+                                    const sourceIsMeta = sourceText.startsWith('[') && sourceText.endsWith(']');
+
+                                    if (atomsIsMeta && !sourceIsMeta) {
+                                        console.warn(`[ENRICH] Alignment Mismatch for ${tid}: Atoms show ${atomsText} but source says ${sourceText}. Falling back to source.`);
+                                        turn.atoms = []; // Discarding misaligned atoms
+                                    } else {
+                                        turn.atoms = entry.atoms;
+                                    }
+                                } else if (atomsData[0]?.lesson_id) {
+                                    const turnAtoms = atomsData.filter(a => a.line_id === tid || a.line_id === nid);
+                                    if (turnAtoms.length > 0) {
+                                        turn.atoms = turnAtoms.map(a => ({
+                                            id: a.gold_final_atom_id,
+                                            text: a.surface,
+                                            pos: a.gsd_action
+                                        }));
+                                    }
+                                }
+                            }
+                        } catch (err) {
+                            console.warn(`Error enriching turn:`, err);
+                        }
+                    });
+                });
+            });
+            console.log("Enrichment complete. Re-rendering...");
+            if (window.renderCurrentNode) window.renderCurrentNode();
+        } catch (e) {
+            console.warn("Enrichment failed", e);
+        }
+    },
+
+    selectSegment(id) {
+        console.log(`Segment selected: ${id}`);
+        window.state.activeSegmentId = id;
+        document.querySelectorAll('.subtitle-row, .dialogue-turn').forEach(el => el.classList.toggle('active', el.dataset.segmentId === id));
+        // Deep integration: when a segment is selected, the first atom could be pre-selected?
+    },
+
+    selectAtom(id, event) {
+        if (event) event.stopPropagation();
+        console.log(`Atom selected: ${id}`);
+        // Highlight in UI
+        document.querySelectorAll('.atom-seg').forEach(el => el.classList.toggle('active', el.dataset.atomId === id));
+        
+        // Find atom data in current state
+        const atomData = this.getAtomData(id);
+        if (atomData) {
+            window.renderSupportDetail(atomData);
+        }
+    },
+
+    getAtomData(id) {
+        // Look into the currently normalized node state
+        const segments = window.state.currentNode?.payload?.normalized_segments?.segments || [];
+        
+        for (const seg of segments) {
+            if (seg.atoms) {
+                // Check both fully qualified ID and text-pos composite ID
+                const found = seg.atoms.find(a => a.id === id || (a.text + '-' + a.pos) === id);
+                if (found) return found;
+            }
+        }
+        return null;
+    },
+
+    renderKoreanSegmentation(seg) {
+        if (!seg.atoms || seg.atoms.length === 0) return window.escapeHtml(seg.ko);
+
+        return seg.atoms.map(a => {
+            if (a.pos === 'space' || a.id?.includes(':space:')) {
+                return ' ';
+            }
+            const cleanId = a.id || `${a.text}-${a.pos}`;
+            return `<span class="atom-seg" data-atom-id="${cleanId}">${window.escapeHtml(a.text)}</span>`;
+        }).join('');
     },
 
     renderLibraryBook() {
@@ -498,6 +707,7 @@ window.renderRoleSummary = function() {
 window.renderCurrentNode = function() {
     const node = window.state.data.sequence[window.state.currentIndex];
     const normalized = window.LessonAdapter.normalizeNode(node, 'zh_tw');
+    window.state.currentNode = normalized;
     
     window.renderNodeList();
     window.renderProgress();
@@ -520,3 +730,52 @@ window.setIndex = function(i) {
 };
 
 document.addEventListener('DOMContentLoaded', () => APP.init());
+window.APP = APP;
+
+/**
+ * Support Detail Renderer (Slice D)
+ * Renders linguistic analysis for a selected atom.
+ */
+window.renderSupportDetail = function(atom) {
+    const container = document.getElementById('supportDetail');
+    if (!container) return;
+
+    if (!atom) {
+        container.classList.remove('active');
+        return;
+    }
+
+    // Mock definitions if missing (Heuristic)
+    let definition = atom.definition || "(尚無詳細釋義)";
+    if (atom.id && atom.id.includes('안녕하세요')) definition = "【釋義】安寧，平安。用於打招呼，相當於『您好』。";
+    if (atom.id && atom.id.includes('여러분')) definition = "【釋義】各位，大家。";
+
+    container.innerHTML = `
+        <button class="close-support" onclick="document.getElementById('supportDetail').classList.remove('active')">✕</button>
+        <div class="support-header">
+            <div>
+                <div class="support-title">${window.escapeHtml(atom.text)}</div>
+                <div class="support-meta">${window.escapeHtml(atom.lemma || atom.text)} · ${window.escapeHtml(atom.id)}</div>
+            </div>
+            <span class="pos-badge">${window.escapeHtml(atom.pos || 'unknown')}</span>
+        </div>
+        <div class="support-definition">
+            ${window.escapeHtml(definition)}
+        </div>
+        <div style="margin-top: 20px; display: flex; gap: 10px;">
+            <button class="btn tiny-text audio-btn" style="flex:1" data-text="${window.escapeJsSingle(atom.text)}">🔊 播放</button>
+            <button class="btn tiny-text" style="flex:1" onclick="window.showToast('已加入生字本')">⭐ 收藏</button>
+        </div>
+    `;
+    container.classList.add('active');
+};
+
+// Global Event Delegation for Atom Selection (LLLO Style)
+document.addEventListener('click', (e) => {
+    const atomEl = e.target.closest('.atom-seg');
+    if (atomEl && window.APP) {
+        e.stopPropagation();
+        const id = atomEl.dataset.atomId;
+        window.APP.selectAtom(id);
+    }
+});

@@ -12,8 +12,14 @@ window.LessonAdapter = {
         if (!obj) return fallback;
         if (typeof obj === 'string') return obj;
 
-        // If it's an i18n object
-        if (obj[locale]) return obj[locale];
+        // Try direct locale, then common variants
+        const keys = [locale, 'zh-TW', 'zh_tw', 'zh_TW', 'zh-tw', 'zh-Hant'];
+        for (const k of keys) {
+            if (obj[k]) return obj[k];
+        }
+
+        // Try direct translation field set by enrichment
+        if (obj.translation && typeof obj.translation === 'string') return obj.translation;
         if (obj.zh_tw) return obj.zh_tw;
         if (obj.en) return obj.en;
 
@@ -80,7 +86,110 @@ window.LessonAdapter = {
             normalized.payload.items = this.resolveArray(payload.items || payload.vocab_items || []);
         }
 
+        // 4. Subtitle Normalization (Dialogue/Video)
+        if (normalized.content_form === 'dialogue' || normalized.content_form === 'video') {
+            normalized.payload.normalized_segments = this.normalizeSubtitleSegments(normalized.payload, locale);
+        }
+
         return normalized;
+    },
+
+    /**
+     * Normalizes dialogue or video payload into a unified subtitle segment model.
+     * @param {Object} payload 
+     * @param {string} locale 
+     * @returns {Object} { surface_type, segments: [...] }
+     */
+    normalizeSubtitleSegments(payload, locale = 'zh_tw') {
+        if (!payload) return { surface_type: 'unknown', segments: [] };
+
+        const segments = [];
+        let surfaceType = 'dialogue';
+
+        // 1. Handle V5 Video (nodes and turns) or V1/V4 Video (directly has turns or nodes)
+        const turns = (payload.nodes?.Start?.turns) || (payload.turns);
+        if (turns && Array.isArray(turns)) {
+            surfaceType = 'video';
+            turns.forEach((turn, idx) => {
+                const koText = typeof turn.text === 'object' ? turn.text.ko : (turn.text || '');
+                // Resolve translation: check translations_i18n has actual keys, then fallback to direct field
+                const hasI18n = turn.translations_i18n && Object.keys(turn.translations_i18n).length > 0;
+                const resolvedTrans = hasI18n
+                    ? this.resolveText(turn.translations_i18n, locale, turn.translation || '')
+                    : (turn.translation || '');
+                segments.push({
+                    segment_id: turn.id || `v-${idx}`,
+                    speaker: turn.speaker || '',
+                    ko: koText,
+                    translation: resolvedTrans,
+                    start_ms: turn.time?.start ?? 0,
+                    end_ms: turn.time?.end ?? 0,
+                    anchor_refs: turn.anchor_refs || [],
+                    atoms: turn.atoms || [], 
+                    source_meta: { source_type: 'video' }
+                });
+            });
+        }
+        // 2. Handle Dialogue V5 (dialogue_scenes)
+        else if (payload.dialogue_scenes && Array.isArray(payload.dialogue_scenes)) {
+            payload.dialogue_scenes.forEach(scene => {
+                const turns = scene.turns || [];
+                turns.forEach((turn, idx) => {
+                    segments.push({
+                        segment_id: turn.id || `scene-${scene.id || '0'}-turn-${idx}`,
+                        speaker: turn.speaker || '',
+                        ko: turn.text || turn.ko || '',
+                        translation: this.resolveText(turn.translations_i18n, locale, turn.zh_tw || turn.en || ''),
+                        anchor_refs: turn.anchor_refs || [],
+                        register: turn.register || '',
+                        atoms: turn.atoms || [],
+                        source_meta: {
+                            scene_id: scene.id,
+                            scene_title: this.resolveText(scene.title_i18n, locale, scene.title_zh_tw || ''),
+                            source_type: 'dialogue'
+                        }
+                    });
+                });
+            });
+        } 
+        // 3. Handle Legacy Dialogue (dialogue_turns)
+        else if (payload.dialogue_turns && Array.isArray(payload.dialogue_turns)) {
+            payload.dialogue_turns.forEach((turn, idx) => {
+                segments.push({
+                    segment_id: turn.id || `turn-${idx}`,
+                    speaker: turn.speaker || '',
+                    ko: turn.text || turn.ko || '',
+                    translation: this.resolveText(turn.translations_i18n, locale, turn.zh_tw || turn.en || ''),
+                    anchor_refs: turn.anchor_refs || [],
+                    register: turn.register || '',
+                    atoms: turn.atoms || [],
+                    source_meta: {
+                        source_type: 'dialogue'
+                    }
+                });
+            });
+        }
+        // 4. Handle Real Core Dialogue (content array)
+        else if (payload.content && Array.isArray(payload.content)) {
+            payload.content.forEach((turn, idx) => {
+                segments.push({
+                    segment_id: turn.id || `turn-${idx}`,
+                    speaker: turn.role || turn.speaker || '',
+                    ko: turn.text || turn.ko || '',
+                    translation: this.resolveText(turn.translations_i18n, locale, turn.zh_tw || turn.en || ''),
+                    anchor_refs: turn.anchor_refs || [],
+                    atoms: turn.atoms || [],
+                    source_meta: {
+                        source_type: 'dialogue'
+                    }
+                });
+            });
+        }
+
+        return {
+            surface_type: surfaceType,
+            segments: segments
+        };
     },
 
     /**
@@ -156,9 +265,11 @@ window.LessonAdapter = {
     inferContentForm(node) {
         if (node.content_form) return node.content_form;
         const id = node.id || '';
-        if (node.payload?.dialogue_turns || node.payload?.dialogue_scenes) return 'dialogue';
-        if (node.payload?.pattern_builder_demos || node.payload?.pattern_builder_demo) return 'pattern_lab';
-        if (node.payload?.items && (id.includes('-V') || id.includes('-D') || node.content_form === 'functional_phrase_pack')) return 'vocab_summary';
+        const payload = node.payload || {};
+        if (payload.dialogue_turns || payload.dialogue_scenes || payload.content) return 'dialogue';
+        if (payload.turns || (payload.nodes?.Start?.turns) || id.includes('video')) return 'video';
+        if (payload.pattern_builder_demos || payload.pattern_builder_demo) return 'pattern_lab';
+        if (payload.items && (id.includes('-V') || id.includes('-D') || node.content_form === 'functional_phrase_pack')) return 'vocab_summary';
         if (node.learning_role === 'structure_grammar') return 'grammar_summary';
         if (node.learning_role === 'structure_usage' || id.includes('-U')) return 'usage';
         return 'unknown';

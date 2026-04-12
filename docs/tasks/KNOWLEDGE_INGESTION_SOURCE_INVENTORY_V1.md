@@ -30,7 +30,7 @@ In accordance with `KNOWLEDGE_BANK_SHARED_USAGE_POLICY_V1.md`, items in the **Sh
 | :--- | :--- | :--- |
 | `009_對象標記 에게 한테` | `ex.ko.grammar.dative.call_sibling.v1`, `ex.ko.grammar.dative.feed_dog.v1` | **Merge**: Same parsing and function. |
 | `023_給 에게 한테 께` | `ex.ko.grammar.dative.give_friend.v1` | **Merge**: Surface match on dative particle usage. |
-| `015_在地點存在 에 있다` | `ex.ko.grammar.particle.at_time_place.at_home.v1` (implied) | **Merge**: Symmetrically link to existing items. |
+| `015_在地點存在 에 있다` | `ex.ko.grammar.copula.itda_3.v1` (집에 있어요) | **Merge**: Symmetrically link to existing items. |
 
 > [!NOTE]
 > 19 items are marked as `shared_usage`. Most are basic particles (`에`, `에서`) or polite endings (`습니다`) that were already partially extracted during prior waves.

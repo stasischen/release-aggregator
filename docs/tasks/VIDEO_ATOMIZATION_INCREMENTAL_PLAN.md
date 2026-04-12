@@ -27,7 +27,8 @@ Atomize (segment) all 26 pending YouTube videos in `content-ko` into 100% revers
 
 ## Execution Workflow (Step-by-Step)
 
-1. **Refactor Tooling**: Update `build_gemini_video_atom_bundle.py` and create `consolidate_video_atoms.py`.
+1. **Refactor Tooling**: Update `build_gemini_video_atom_bundle.py`- Results are moved to `content/core/video_atoms/`
+- Intermediate runs are gitignored
 2. **Queue Setup**: Run `build_gemini_video_atom_queue.py --limit 5` to focus on the top 5 videos.
 3. **Incremental Processing**:
 - [x] **Video 1**: `9lOJxJBRj1I` (Ice Cream Shop) - 79 turns

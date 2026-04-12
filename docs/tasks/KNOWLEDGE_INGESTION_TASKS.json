@@ -133,9 +133,13 @@
     {
       "id": "kg-verify-016",
       "title": "Define shared-usage policy for duplicate example surfaces before curriculum-source ingestion",
-      "status": "todo",
+      "status": "done",
       "depends_on": [
         "kg-verify-015"
+      ],
+      "notes": [
+        "2026-04-13: Shared-usage policy applied during kg-mig-015A source inventory; 19 items classified as Shared Usage and mapped to existing canonical examples.",
+        "Inventory manifest recorded in docs/tasks/KNOWLEDGE_INGESTION_SOURCE_INVENTORY_V1.md."
       ],
       "deliverable": "shared usage policy note"
     },

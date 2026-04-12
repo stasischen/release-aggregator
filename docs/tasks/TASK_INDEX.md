@@ -62,7 +62,7 @@ Layer 5: Legacy Backfill
 | Task ID | 描述 | Phase | 進度 | 檔案 |
 | :--- | :--- | :--- | :--- | :--- |
 | MODULAR_VIEWER_REFACTOR | Modular Viewer 重構（source-build adapter / renderer 拆分 / i18n-first / preview 退場） | C+/Ops | 1/8 tasks | [JSON](MODULAR_VIEWER_REFACTOR_TASKS.json) · [PLAN](MODULAR_VIEWER_REFACTOR_PLAN.md) |
-| KNOWLEDGE_LAB_VIEWER_REFACTOR | Knowledge Lab Viewer 重構（對齊 ULV runtime contract / Pattern Lab 持久化 / 真內容驗證） | C+/Ops | 3/4 tasks | [JSON](KNOWLEDGE_LAB_VIEWER_REFACTOR_TASKS.json) · [PLAN](KNOWLEDGE_LAB_VIEWER_REFACTOR_PLAN.md) |
+| KNOWLEDGE_LAB_VIEWER_REFACTOR | Knowledge Lab Viewer 重構（對齊 ULV runtime contract / Pattern Lab 持久化 / 真內容驗證） | C+/Ops | 6/6 tasks | [JSON](KNOWLEDGE_LAB_VIEWER_REFACTOR_TASKS.json) · [PLAN](KNOWLEDGE_LAB_VIEWER_REFACTOR_PLAN.md) |
 | UNIFIED_LESSON_VIEW_ARCHITECTURE | Modular Viewer 下游：統一定義 lesson runtime IA（primary content / support detail / navigation / mock verification / Flutter boundary） | C+/Ops | 7/7 tasks | [JSON](UNIFIED_LESSON_VIEW_ARCHITECTURE_TASKS.json) · [ARCH](UNIFIED_LESSON_VIEW_ARCHITECTURE.md) · [CONTRACT](mockups/modular/UNIFIED_LESSON_RUNTIME_CONTRACT.md) |
 | ULV_RUNTIME_MOCK_VERIFICATION | **[GATE]** ULV Runtime Mock 驗證（使用真 lesson/KLab content 驗證運作合約穩定性） | C+/Ops | 0/6 tasks | [JSON](ULV_RUNTIME_MOCK_VERIFICATION_TASKS.json) · [PLAN](ULV_RUNTIME_MOCK_VERIFICATION.md) |
 | UNIFIED_LESSON_VIEW_FLUTTER_TRANSFER | Modular Viewer 下游：將凍結的 unified lesson view contract 轉入 Flutter（shell / state / adapters / QA） | C+/Ops | 0/8 tasks | [JSON](UNIFIED_LESSON_VIEW_FLUTTER_TRANSFER_TASKS.json) |
@@ -103,7 +103,7 @@ Layer 5: Legacy Backfill
 
 | Task ID | 描述 | Phase | 進度 | 檔案 |
 | :--- | :--- | :--- | :--- | :--- |
-| KNOWLEDGE_LAB_ENRICHMENT | Knowledge Lab 內容充實（knowledge/topic/link/vocab/retrieval 補強；含 embedded examples 盤點與 pronunciation refs；不得改 frontend intake contract） | Lab/Ops | 6/8 tasks | [JSON](KNOWLEDGE_LAB_ENRICHMENT_TASKS.json) |
+| KNOWLEDGE_LAB_ENRICHMENT | Knowledge Lab 內容充實（knowledge/topic/link/vocab/retrieval 補強；含 embedded examples 盤點與 pronunciation refs；不得改 frontend intake contract） | Lab/Ops | 7/8 tasks | [JSON](KNOWLEDGE_LAB_ENRICHMENT_TASKS.json) |
 
 
 ### Completed Pending Archive (已完成待封存)

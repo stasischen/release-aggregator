@@ -97,7 +97,7 @@
     {
       "id": "kg-mig-010",
       "title": "Extract structured example blocks from mixed knowledge items into canonical bank (excluding freeform MD explanations); depends on extraction policy freeze",
-      "status": "in-progress",
+      "status": "done",
       "depends_on": [
         "kg-spec-011",
         "kg-spec-013",
@@ -106,7 +106,8 @@
       "notes": [
         "Run only after sentence schema freeze, extraction policy freeze, and Knowledge Lab alignment/classification are complete.",
         "This step is for existing Knowledge Lab mixed content only; do not combine with new curriculum-source ingestion.",
-        "2026-04-11: Bucket C1 extraction completed. Bucket C2 dry-run/manifest hardened (10 ready, 3 duplicates resolved, 2 skips)."
+        "2026-04-11: Bucket C1 extraction completed. Bucket C2 dry-run/manifest hardened (10 ready, 3 duplicates resolved, 2 skips).",
+        "2026-04-12: Bucket C2 formal extraction completed; residual index asymmetry documented as expected drift. Task closed out ahead of Wave 3."
       ],
       "deliverable": "mixed knowledge example extraction pass (dry-run verified with internal duplicate resolution)"
     },

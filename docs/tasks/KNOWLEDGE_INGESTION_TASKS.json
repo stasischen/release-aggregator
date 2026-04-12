@@ -131,6 +131,15 @@
       "deliverable": "pre-ingestion example bank hygiene notes"
     },
     {
+      "id": "kg-verify-016",
+      "title": "Define shared-usage policy for duplicate example surfaces before curriculum-source ingestion",
+      "status": "todo",
+      "depends_on": [
+        "kg-verify-015"
+      ],
+      "deliverable": "shared usage policy note"
+    },
+    {
       "id": "kg-mig-015",
       "title": "Ingest new curriculum-source knowledge content only after existing Knowledge Lab normalization and mixed example extraction stabilize",
       "status": "in_progress",

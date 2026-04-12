@@ -133,11 +133,15 @@
     {
       "id": "kg-mig-015",
       "title": "Ingest new curriculum-source knowledge content only after existing Knowledge Lab normalization and mixed example extraction stabilize",
-      "status": "todo",
+      "status": "in_progress",
       "depends_on": [
         "kg-plan-014",
         "kg-mig-010",
-        "kg-verify-015"
+        "kg-verify-015",
+        "kg-verify-016"
+      ],
+      "notes": [
+        "2026-04-13: Comprehensive source inventory completed (kg-mig-015A). 349 items scanned; 184 Ready, 120 Skip, 19 Shared Usage, 26 Needs Review. Manifest generated at docs/tasks/KNOWLEDGE_INGESTION_SOURCE_INVENTORY_V1.md. Ready for pilot ingestion."
       ],
       "deliverable": "next staged curriculum-source knowledge ingestion wave"
     }

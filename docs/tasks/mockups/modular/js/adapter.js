@@ -126,6 +126,7 @@ window.LessonAdapter = {
                     end_ms: turn.time?.end ?? 0,
                     anchor_refs: turn.anchor_refs || [],
                     atoms: turn.atoms || [], 
+                    alignment_failed: turn.alignment_failed || false,
                     source_meta: { source_type: 'video' }
                 });
             });

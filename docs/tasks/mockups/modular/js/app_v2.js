@@ -341,6 +341,8 @@ const APP = {
             }
             return raw;
         }
+
+        return seg.atoms.map(a => {
             if (a.pos === 'space' || a.id?.includes(':space:')) {
                 return ' ';
             }

@@ -69,7 +69,8 @@ grammar_id → GrammarNoteService.loadNote(id) → GrammarNote
 ```
 
 ### 4.2 UI Components
-*   **Entry Point**: A "文法詳解" chip/button in `DictionaryMeaningSection`, shown only when `grammar_refs` is non-empty.
+*   **Entry Point**: A "文法詳解" chip/button in `DictionaryMeaningSection`.
+*   **Visibility Rule**: Rendered if and only if at least one `grammar_refs` ID successfully resolves via the grammar manifest (see §4.3 for details).
 *   **Preferred Display Mode**:
     *   **Mobile**: Persistent Bottom Sheet.
     *   **Web/Tablet**: Right-side Drawer.

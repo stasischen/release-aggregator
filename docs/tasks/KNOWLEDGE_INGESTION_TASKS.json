@@ -152,7 +152,8 @@
       "status": "in_progress",
       "notes": [
         "2026-04-13: Initial draft created with singular grammar_ref.",
-        "2026-04-13: Revised to grammar_refs[] (plural array) per system convention. Added ingestion authority hierarchy, resolver decoupling, and fail-soft behavior sections."
+        "2026-04-13: Revised to grammar_refs[] (plural array) per system convention. Added ingestion authority hierarchy, resolver decoupling, and fail-soft behavior sections.",
+        "2026-04-13: Tightened schema constraints (minItems, uniqueItems, pattern) and aligned entry-point visibility rules across spec sections."
       ],
       "deliverable": "docs/design/DICT_GRAMMAR_LINKING_SPEC_V1.md"
     },
@@ -164,7 +165,7 @@
         "kg-spec-017"
       ],
       "notes": [
-        "Acceptance checklist: (1) grammar_refs[] cardinality confirmed, (2) manual mapping vs heuristic authority hierarchy accepted, (3) fail-soft UI states approved, (4) dict_grammar_mapping.json format agreed."
+        "Acceptance checklist: (1) grammar_refs[] cardinality & schema constraints confirmed, (2) manual mapping vs heuristic authority hierarchy accepted, (3) fail-soft UI states & resolution-based visibility approved, (4) dict_grammar_mapping.json format agreed."
       ],
       "deliverable": "review sign-off on DICT_GRAMMAR_LINKING_SPEC_V1.md"
     },

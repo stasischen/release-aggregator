@@ -148,25 +148,41 @@
     },
     {
       "id": "kg-spec-017",
-      "title": "Finalize and review DICT_GRAMMAR_LINKING_SPEC_V1 for deep-linking dictionary atoms to Knowledge Lab",
+      "title": "Finalize DICT_GRAMMAR_LINKING_SPEC_V1 for deep-linking dictionary atoms to Knowledge Lab",
       "status": "in_progress",
+      "notes": [
+        "2026-04-13: Initial draft created with singular grammar_ref.",
+        "2026-04-13: Revised to grammar_refs[] (plural array) per system convention. Added ingestion authority hierarchy, resolver decoupling, and fail-soft behavior sections."
+      ],
       "deliverable": "docs/design/DICT_GRAMMAR_LINKING_SPEC_V1.md"
     },
     {
-      "id": "kg-pipeline-018",
-      "title": "Update dictionary build pipeline to auto-inject grammar_ref based on atom mapping",
+      "id": "kg-review-017a",
+      "title": "Review gate: confirm cardinality, ingestion authority, and fail-soft behavior before implementation",
       "status": "todo",
       "depends_on": [
         "kg-spec-017"
       ],
-      "deliverable": "Updated dictionary core assets"
+      "notes": [
+        "Acceptance checklist: (1) grammar_refs[] cardinality confirmed, (2) manual mapping vs heuristic authority hierarchy accepted, (3) fail-soft UI states approved, (4) dict_grammar_mapping.json format agreed."
+      ],
+      "deliverable": "review sign-off on DICT_GRAMMAR_LINKING_SPEC_V1.md"
+    },
+    {
+      "id": "kg-pipeline-018",
+      "title": "Update dictionary build pipeline to auto-inject grammar_refs based on manual mapping + heuristic candidates",
+      "status": "todo",
+      "depends_on": [
+        "kg-review-017a"
+      ],
+      "deliverable": "Updated dictionary core assets with build report"
     },
     {
       "id": "kg-ui-019",
-      "title": "Implement Dictionary Grammar Detail Overlay and Link UI (Drawer/Bottom Sheet)",
+      "title": "Implement Dictionary Grammar Detail Overlay and Link UI (Drawer/Bottom Sheet) with fail-soft states",
       "status": "todo",
       "depends_on": [
-        "kg-spec-017"
+        "kg-review-017a"
       ],
       "deliverable": "lingo-frontend-web implementation"
     }

@@ -144,20 +144,31 @@
       "deliverable": "shared usage policy note"
     },
     {
-      "id": "kg-mig-015",
-      "title": "Ingest new curriculum-source knowledge content only after existing Knowledge Lab normalization and mixed example extraction stabilize",
-      "status": "in_progress",
-      "depends_on": [
-        "kg-plan-014",
-        "kg-mig-010",
-        "kg-verify-015",
-        "kg-verify-016"
-      ],
-      "notes": [
-        "2026-04-13: Comprehensive source inventory completed (kg-mig-015A). 349 items scanned; 184 Ready, 120 Skip, 19 Shared Usage, 26 Needs Review. Manifest generated at docs/tasks/KNOWLEDGE_INGESTION_SOURCE_INVENTORY_V1.md. Ready for pilot ingestion.",
-        "2026-04-13: Pilot ingestion (kg-mig-015B) of 11 items from youtube_connectors family completed. 11 Knowledge Items and 55 Pairs (110 total) of Example Sentences created and verified with broken_refs=0."
-      ],
       "deliverable": "next staged curriculum-source knowledge ingestion wave"
+    },
+    {
+      "id": "kg-spec-017",
+      "title": "Finalize and review DICT_GRAMMAR_LINKING_SPEC_V1 for deep-linking dictionary atoms to Knowledge Lab",
+      "status": "in_progress",
+      "deliverable": "docs/design/DICT_GRAMMAR_LINKING_SPEC_V1.md"
+    },
+    {
+      "id": "kg-pipeline-018",
+      "title": "Update dictionary build pipeline to auto-inject grammar_ref based on atom mapping",
+      "status": "todo",
+      "depends_on": [
+        "kg-spec-017"
+      ],
+      "deliverable": "Updated dictionary core assets"
+    },
+    {
+      "id": "kg-ui-019",
+      "title": "Implement Dictionary Grammar Detail Overlay and Link UI (Drawer/Bottom Sheet)",
+      "status": "todo",
+      "depends_on": [
+        "kg-spec-017"
+      ],
+      "deliverable": "lingo-frontend-web implementation"
     }
   ]
 }

@@ -53,16 +53,11 @@
     },
     {
       "id": "kg-spec-008",
-<<<<<<< Updated upstream
-      "title": "[V0 Draft] Define example sentence bank schema and link contract (initial draft)",
-=======
       "title": "Define canonical example sentence bank schema and link contract (example_sentence, i18n, links) for reuse across knowledge, vocab, and pattern layers",
->>>>>>> Stashed changes
       "status": "done",
       "deliverable": "docs/tasks/EXAMPLE_SENTENCE_BANK_V0.md"
     },
     {
-<<<<<<< Updated upstream
       "id": "kg-spec-011",
       "title": "Freeze EXAMPLE_SENTENCE_BANK_SCHEMA_V1 defining formal required/recommended fields, provenance, quality flags, and core/i18n boundaries",
       "status": "done",
@@ -149,7 +144,47 @@
       "deliverable": "shared usage policy note"
     },
     {
-      "deliverable": "next staged curriculum-source knowledge ingestion wave"
+      "id": "kg-normalize-001",
+      "title": "Define and enforce knowledge ingestion hardening gate before content promotion",
+      "status": "done",
+      "depends_on": [
+        "kg-verify-016"
+      ],
+      "notes": [
+        "2026-04-14: Hardening gate and SOP documented for schema, content, manual review, and promotion gates.",
+        "Canonical promotion is blocked unless the batch is auto-validated and manually approved."
+      ],
+      "deliverable": "docs/tasks/KNOWLEDGE_INGESTION_HARDENING_GATE_V1.md"
+    },
+    {
+      "id": "kg-normalize-001A",
+      "title": "Inventory current content pollution before normalization cleanup",
+      "status": "todo",
+      "depends_on": [
+        "kg-normalize-001"
+      ],
+      "deliverable": "docs/tasks/KNOWLEDGE_NORMALIZATION_INVENTORY_V1.md"
+    },
+    {
+      "id": "kg-normalize-001B",
+      "title": "Repair first bounded normalization batch and validate against hard gate",
+      "status": "todo",
+      "depends_on": [
+        "kg-normalize-001A"
+      ],
+      "deliverable": "first bounded normalization cleanup batch"
+    },
+    {
+      "id": "kg-mig-009",
+      "title": "Bootstrap example sentence bank from legacy sources and mark quality/segmentation readiness before production promotion",
+      "status": "todo",
+      "deliverable": "first staged example sentence bank"
+    },
+    {
+      "id": "kg-mig-010",
+      "title": "Directly extract inline examples from current mixed knowledge items into the canonical example sentence bank and replace them with example_sentence_refs, leaving only item-local commentary in the knowledge item",
+      "status": "done",
+      "deliverable": "mixed knowledge example extraction pass"
     },
     {
       "id": "kg-spec-017",
@@ -191,18 +226,6 @@
         "kg-review-017a"
       ],
       "deliverable": "lingo-frontend-web implementation"
-=======
-      "id": "kg-mig-009",
-      "title": "Bootstrap example sentence bank from legacy sentence/example sources and mark quality/segmentation readiness before production promotion",
-      "status": "todo",
-      "deliverable": "first staged example sentence bank"
-    },
-    {
-      "id": "kg-mig-010",
-      "title": "Directly extract inline examples from current mixed knowledge items into the canonical example sentence bank and replace them with example_sentence_refs, leaving only item-local commentary in the knowledge item",
-      "status": "todo",
-      "deliverable": "mixed knowledge example extraction pass"
->>>>>>> Stashed changes
     }
   ]
 }

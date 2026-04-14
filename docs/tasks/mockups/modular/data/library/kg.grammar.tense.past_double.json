@@ -1,0 +1,11 @@
+{
+  "id": "kg.grammar.tense.past_double",
+  "kind": "grammar",
+  "subcategory": "tense",
+  "explanation": "「~았/었었다」表示過去一度發生或存在，但現在已經不是那樣了。 (Video ID: _XGtQHojGL8)",
+  "provenance": {
+    "source_refs": [
+      "youtube:_XGtQHojGL8"
+    ]
+  }
+}

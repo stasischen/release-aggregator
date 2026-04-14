@@ -1,0 +1,11 @@
+{
+  "id": "kg.grammar.particle.jjum",
+  "kind": "grammar",
+  "subcategory": "particle",
+  "explanation": "表示在某個單位基準下的數量或頻率。「쯤」表示大約。 (Video ID: ZYteepqy_wU)",
+  "provenance": {
+    "source_refs": [
+      "youtube:ZYteepqy_wU"
+    ]
+  }
+}

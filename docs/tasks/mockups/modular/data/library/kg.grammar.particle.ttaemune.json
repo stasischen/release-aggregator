@@ -1,0 +1,11 @@
+{
+  "id": "kg.grammar.particle.ttaemune",
+  "kind": "grammar",
+  "subcategory": "particle",
+  "explanation": "直接接在名詞後，表示該名詞是造成結果的原因（常用於負面結果，但也不限於此）。 (Video ID: 9oOijHxIlt4)",
+  "provenance": {
+    "source_refs": [
+      "youtube:9oOijHxIlt4"
+    ]
+  }
+}

@@ -53,11 +53,16 @@
     },
     {
       "id": "kg-spec-008",
+<<<<<<< Updated upstream
       "title": "[V0 Draft] Define example sentence bank schema and link contract (initial draft)",
+=======
+      "title": "Define canonical example sentence bank schema and link contract (example_sentence, i18n, links) for reuse across knowledge, vocab, and pattern layers",
+>>>>>>> Stashed changes
       "status": "done",
       "deliverable": "docs/tasks/EXAMPLE_SENTENCE_BANK_V0.md"
     },
     {
+<<<<<<< Updated upstream
       "id": "kg-spec-011",
       "title": "Freeze EXAMPLE_SENTENCE_BANK_SCHEMA_V1 defining formal required/recommended fields, provenance, quality flags, and core/i18n boundaries",
       "status": "done",
@@ -186,6 +191,18 @@
         "kg-review-017a"
       ],
       "deliverable": "lingo-frontend-web implementation"
+=======
+      "id": "kg-mig-009",
+      "title": "Bootstrap example sentence bank from legacy sentence/example sources and mark quality/segmentation readiness before production promotion",
+      "status": "todo",
+      "deliverable": "first staged example sentence bank"
+    },
+    {
+      "id": "kg-mig-010",
+      "title": "Directly extract inline examples from current mixed knowledge items into the canonical example sentence bank and replace them with example_sentence_refs, leaving only item-local commentary in the knowledge item",
+      "status": "todo",
+      "deliverable": "mixed knowledge example extraction pass"
+>>>>>>> Stashed changes
     }
   ]
 }

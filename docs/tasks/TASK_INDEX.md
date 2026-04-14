@@ -91,6 +91,7 @@ Layer 5: Legacy Backfill
 | Task ID | 描述 | Phase | 進度 | 檔案 |
 | :--- | :--- | :--- | :--- | :--- |
 | CONTENT_V5_MIGRATION_L0 | Legacy L0 Content V5 Standardization | A2 | 0/8 tasks | [JSON](CONTENT_V5_MIGRATION_L0_TASKS.json) · [PLAN](CONTENT_V5_MIGRATION_L0.md) |
+| BATCH_V5_VIDEO_GATE | Batch process remaining 4 pilot videos (V5 Gate) | Ops | 0/4 tasks | [PLAN](BATCH_V5_VIDEO_GATE_PLAN.md) |
 
 ### Future / Automation (未來優化)
 
@@ -103,7 +104,11 @@ Layer 5: Legacy Backfill
 
 | Task ID | 描述 | Phase | 進度 | 檔案 |
 | :--- | :--- | :--- | :--- | :--- |
+<<<<<<< Updated upstream
 | KNOWLEDGE_LAB_ENRICHMENT | Knowledge Lab 內容充實（knowledge/topic/link/vocab/retrieval 補強；含 embedded examples 盤點與 pronunciation refs；不得改 frontend intake contract） | Lab/Ops | 7/8 tasks | [JSON](KNOWLEDGE_LAB_ENRICHMENT_TASKS.json) |
+=======
+| KNOWLEDGE_LAB_ENRICHMENT | Knowledge Lab 內容充實（knowledge/topic/link/vocab/retrieval 補強；含 embedded examples 盤點與 pronunciation refs；不得改 frontend intake contract） | Lab/Ops | 2/7 tasks | [JSON](KNOWLEDGE_LAB_ENRICHMENT_TASKS.json) |
+>>>>>>> Stashed changes
 
 
 ### Completed Pending Archive (已完成待封存)

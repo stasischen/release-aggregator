@@ -32,6 +32,7 @@
     {
       "id": "KLAB-005",
       "desc": "Wave 4-5: Ingestion of Survival Patterns and connective endings.",
+<<<<<<< Updated upstream
       "status": "done"
     },
     {
@@ -46,15 +47,27 @@
       "depends_on": [
         "KLAB-006"
       ]
+=======
+      "status": "todo"
+    },
+    {
+      "id": "KLAB-006",
+      "desc": "Wave 1 support: Inventory embedded examples inside existing knowledge items, classify which are canonical reusable example sentences vs item-local teaching notes, and define non-breaking migration flags.",
+      "status": "todo"
+>>>>>>> Stashed changes
     },
     {
       "id": "KLAB-007",
       "desc": "Wave 4: Add pronunciation / sound-change knowledge items plus curated external reference metadata by support locale (zh_tw/en/ja), without making external videos the canonical source of truth.",
+<<<<<<< Updated upstream
       "status": "todo",
       "depends_on": [
         "KLAB-006b",
         "kg-mig-010"
       ]
+=======
+      "status": "todo"
+>>>>>>> Stashed changes
     }
   ]
 }

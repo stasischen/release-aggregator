@@ -105,8 +105,8 @@ window.applyInlineMarkdown = function (text) {
     .replace(/\[id:([^\]|]+)\]/g, (m, id) => {
       const bank = window.APP?.libSentences || {};
       const s = bank[id];
-      const ko = s?.ko || s?.surface_ko || id;
-      const zh = s?.zh_tw || s?.translation_zh_tw || "(尚無翻譯)";
+      const ko = s?.source?.ko || s?.source?.surface_ko || s?.ko || id;
+      const zh = s?.i18n?.translation || s?.translation || "(尚無翻譯)";
       const audioCall = `APP.playOriginalOrTTS('${window.escapeJsSingle(ko)}')`;
       return `<span class="inline-sentence-chip" onclick="${audioCall}" title="點擊播放音檔">
                 <span class="ko">${window.escapeHtml(ko)}</span>
@@ -222,12 +222,45 @@ window.markdownToHtmlLite = function (md) {
     if (olMatch) {
       const items = [];
       while (i < lines.length) {
-        const m = lines[i].trim().match(/^\d+\.\s+(.*)/);
-        if (!m) break;
-        items.push(m[1]);
+        const current = lines[i].trim();
+        const currentMatch = current.match(/^(\d+\.)\s+(.*)/);
+        if (!currentMatch) break;
+
+        const item = {
+          text: currentMatch[2],
+          subItems: []
+        };
         i++;
+
+        // Allow simple nested bullet lists under each numbered item.
+        while (i < lines.length) {
+          const lookahead = lines[i].trim();
+          if (!lookahead) {
+            i++;
+            break;
+          }
+          if (/^\d+\.\s+/.test(lookahead)) break;
+          if (/^[-*]\s+/.test(lookahead)) {
+            item.subItems.push(lookahead.slice(2));
+            i++;
+            continue;
+          }
+          break;
+        }
+
+        items.push(item);
       }
-      out.push(`<ol class="grammar-point-list" style="padding-left:24px;">${items.map(p => `<li>${window.applyInlineMarkdown(p)}</li>`).join('')}</ol>`);
+
+      out.push(
+        `<ol class="grammar-point-list" style="padding-left:24px;">` +
+        items.map(item => {
+          const nested = item.subItems.length
+            ? `<ul class="grammar-point-list nested">${item.subItems.map(p => `<li>${window.applyInlineMarkdown(p)}</li>`).join('')}</ul>`
+            : '';
+          return `<li>${window.applyInlineMarkdown(item.text)}${nested}</li>`;
+        }).join('') +
+        `</ol>`
+      );
       continue;
     }
 
@@ -268,7 +301,7 @@ window.renderUnifiedExampleSection = function (examples) {
   if (!examples || examples.length === 0) return '';
   
   const isCanonical = examples[0]?.is_canonical;
-  const title = isCanonical ? '🔊 精選例句 (Examples)' : '⏳ 過渡期例句 (Legacy Bank)';
+  const title = '例句';
   const badgeClass = isCanonical ? 'tag-canonical' : 'tag-transitional';
   const badgeText = isCanonical ? 'Canonical' : 'Transitional';
 
@@ -289,7 +322,7 @@ window.renderUnifiedExampleSection = function (examples) {
                   <span class="icon">🔊</span>
                 </button>
               </div>
-              <div class="example-zh">${window.escapeHtml(ex.zh_tw)}</div>
+              <div class="example-zh">${window.escapeHtml(ex.translation || '')}</div>
             </div>
           `;
         }).join('')}
@@ -300,18 +333,14 @@ window.renderUnifiedExampleSection = function (examples) {
 
 window.renderNotice = function (payload) {
   if (!payload) return '';
-  const items = (payload.what_to_notice_i18n || []).map(v => window.i18nText(v)).filter(Boolean);
-  const legacyItems = payload.notice_items_zh_tw || [];
-  const finalItems = items.length > 0 ? items : legacyItems;
-
-  if (finalItems.length === 0 && !payload.notice_zh_tw) return '';
+  const finalItems = (payload.what_to_notice_i18n || []).map(v => window.i18nText(v)).filter(Boolean);
+  if (finalItems.length === 0) return '';
 
   return `
     <div class="notice-box animate-in">
       <div class="notice-title">💡 重點觀察 (Notice)</div>
       <ul>
         ${finalItems.map(item => `<li>${window.escapeHtml(item)}</li>`).join('')}
-        ${payload.notice_zh_tw ? `<li>${window.escapeHtml(payload.notice_zh_tw)}</li>` : ''}
       </ul>
     </div>
   `;
@@ -319,8 +348,8 @@ window.renderNotice = function (payload) {
 
 window.renderLessonSupportModule = function (module) {
   if (!module) return '';
-  const title = window.i18nText(module.title_i18n, window.currentLocale(), module.title_zh_tw || '應援小提醒');
-  const why = window.i18nText(module.why_here_i18n, window.currentLocale(), module.why_here_zh_tw || '');
+  const title = window.i18nText(module.title_i18n, window.currentLocale(), '應援小提醒');
+  const why = window.i18nText(module.why_here_i18n, window.currentLocale(), '');
 
   return `
     <div class="support-module animate-in">
@@ -331,7 +360,7 @@ window.renderLessonSupportModule = function (module) {
           ${(module.items || []).map(item => `
             <div class="support-item">
               <span class="target">${window.escapeHtml(item.target || item.ko || '')}</span>
-              <span class="explain">${window.escapeHtml(window.i18nText(item.explain_i18n, window.currentLocale(), item.explain_zh_tw || ''))}</span>
+              <span class="explain">${window.escapeHtml(window.i18nText(item.explain_i18n, window.currentLocale(), ''))}</span>
             </div>
           `).join('')}
         </div>
@@ -348,9 +377,9 @@ window.showBilingual = () => window.state.progress.prefs.showBilingual !== false
 
 // --- Legacy Helper Mapping ---
 
-window.nodeTitleText = (node, locale) => node.displayTitle || window.LessonAdapter.resolveText(node && node.title_i18n, locale, (node && node.title_zh_tw) || window.LessonAdapter.getFallbackNodeTitle(node));
-window.nodeSummaryText = (node, locale) => node.displaySummary || window.LessonAdapter.resolveText(node && node.summary_i18n, locale, (node && node.summary_zh_tw) || '先看這一節的內容。');
-window.nodeExpectedText = (node, locale) => node.displayExpected || window.LessonAdapter.resolveText(node && node.expected_output_i18n, locale, (node && node.expected_output_zh_tw) || '先理解這一節的重點。');
+window.nodeTitleText = (node, locale) => node.displayTitle || window.LessonAdapter.resolveText(node && node.title_i18n, locale, window.LessonAdapter.getFallbackNodeTitle(node));
+window.nodeSummaryText = (node, locale) => node.displaySummary || window.LessonAdapter.resolveText(node && node.summary_i18n, locale, '先看這一節的內容。');
+window.nodeExpectedText = (node, locale) => node.displayExpected || window.LessonAdapter.resolveText(node && node.expected_output_i18n, locale, '先理解這一節的重點。');
 
 window.nodeSkillFocusText = function (node) {
   if (node.skill_focus && node.skill_focus.length > 0) return node.skill_focus.join(' · ');

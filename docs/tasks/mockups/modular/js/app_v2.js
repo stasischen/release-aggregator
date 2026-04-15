@@ -26,6 +26,7 @@ const APP = {
         
         this.currentLibraryFilter = 'all';
         this.libSentences = {};
+        this.libKnowledgeRuntime = [];
         this.libExampleCache = {};
         this.currentView = 'courseMapView';
         this.wireEvents();
@@ -145,15 +146,15 @@ const APP = {
                 data = {
                     unit: { 
                         unit_id: data.id || 'REAL-DATA', 
-                        title_zh_tw: (data.id && data.id.includes('vlog')) ? '實體影片測試' : '實體對話測試',
+                        title_i18n: { zh_tw: (data.id && data.id.includes('vlog')) ? '實體影片測試' : '實體對話測試' },
                         level: 'A1',
-                        theme_zh_tw: '生產環境資料鏈路'
+                        theme_i18n: { zh_tw: '生產環境資料鏈路' }
                     },
                     sequence: [
                         {
                             id: data.id || 'node-0',
-                            title_zh_tw: '內容預覽 (Real Content)',
-                            summary_zh_tw: '正在直接從 content-ko 加載實體 JSON 檔案。',
+                            title_i18n: { zh_tw: '內容預覽 (Real Content)' },
+                            summary_i18n: { zh_tw: '正在直接從 content-ko 加載實體 JSON 檔案。' },
                             content_form: (data.content_form) || (data.nodes?.Start?.turns ? 'video' : 'dialogue'),
                             payload: data
                         }
@@ -258,7 +259,6 @@ const APP = {
                                 turn.translations_i18n = turn.translations_i18n || {};
                                 turn.translations_i18n[locale] = rawTrans;
                                 turn.translations_i18n.translation = rawTrans; 
-                                turn.translations_i18n.zh_tw = rawTrans;
                                 turn.translation = rawTrans; 
                             }
 
@@ -416,13 +416,26 @@ const APP = {
 
     async initLibrary() {
         try {
-            // Load Manifest
-            const manifestResp = await fetch(`data/library_manifest.json?v=${Date.now()}`);
+            const [manifestResp, knowledgeResp, sentenceResp] = await Promise.all([
+                fetch(`data/library_manifest.json?v=${Date.now()}`),
+                fetch(`data/runtime/zh_tw/knowledge.json?v=${Date.now()}`),
+                fetch(`data/runtime/zh_tw/example_sentence.json?v=${Date.now()}`)
+            ]);
             if (manifestResp.ok) {
                 this.libManifest = await manifestResp.json();
-                this.renderLibToc();
-                this.renderLibFeatured();
             }
+            if (knowledgeResp.ok) {
+                this.libKnowledgeRuntime = await knowledgeResp.json();
+            }
+            if (sentenceResp.ok) {
+                const runtimeSentences = await sentenceResp.json();
+                this.libSentences = runtimeSentences.reduce((acc, item) => {
+                    if (item && item.id) acc[item.id] = item;
+                    return acc;
+                }, {});
+            }
+            this.renderLibToc();
+            this.renderLibFeatured();
         } catch (e) { 
             console.error("Library init error", e); 
         }
@@ -489,7 +502,7 @@ const APP = {
         }
 
         const listHtml = items.map(f => `
-            <div class="unit-card" style="text-align:left; cursor:pointer; margin-bottom:12px; display:flex; align-items:center; gap:12px;" onclick="APP.loadLibRule('${f.path}', '${f.title}')">
+            <div class="unit-card" style="text-align:left; cursor:pointer; margin-bottom:12px; display:flex; align-items:center; gap:12px;" onclick="APP.loadLibRule('${f.runtime_id || f.id}')">
                 <div class="level-badge ${f.level.toLowerCase()}">${f.level}</div>
                 <div style="flex:1">
                     <h4 style="margin:0">${window.escapeHtml(f.title)}</h4>
@@ -527,57 +540,34 @@ const APP = {
         this.toggleLibSidebar(false);
     },
 
-    canonicalI18nPathFromKnowledgePath(path) {
-        return String(path || '')
-            .replace('/core/learning_library/knowledge/', '/i18n/zh_tw/learning_library/knowledge/');
-    },
-
-    canonicalSentencePathFromId(id) {
-        return `data/content-ko/core/learning_library/example_sentence/${id}.json`;
-    },
-
-    async fetchJsonWithBust(path) {
-        const resp = await fetch(`${path}?v=${Date.now()}`);
-        if (!resp.ok) return null;
-        return await resp.json();
-    },
-
-    async loadLibRule(path, title) {
+    async loadLibRule(runtimeId) {
         try {
-            const coreData = await this.fetchJsonWithBust(path);
-            if (!coreData) throw new Error('Rule load failed');
-            const meta = (this.libManifest.items || []).find(it => it.path === path) || {};
-
-            const i18nPath = this.canonicalI18nPathFromKnowledgePath(path);
-            const i18nData = await this.fetchJsonWithBust(i18nPath);
-            const i18nBlock = i18nData?.zh_tw || {};
-
-            const refs = meta.example_sentence_refs || coreData.example_sentence_refs || [];
-            const exampleBank = [];
-            this.libSentences = {};
-            for (const sid of refs) {
-                const cached = this.libExampleCache[sid];
-                let sentence = cached;
-                if (!sentence) {
-                    const sentencePath = this.canonicalSentencePathFromId(sid);
-                    sentence = await this.fetchJsonWithBust(sentencePath);
-                    if (sentence) this.libExampleCache[sid] = sentence;
-                }
-                if (sentence) {
-                    const ko = sentence.ko || sentence.surface_ko || '';
-                    const zh = sentence.zh_tw || sentence.translation_zh_tw || '(尚無翻譯)';
-                    exampleBank.push({ id: sid, ko, zh_tw: zh });
-                    this.libSentences[sid] = { ko, zh_tw: zh };
-                }
-            }
+            const runtimeItem = this.libKnowledgeRuntime.find(item => item.id === runtimeId);
+            if (!runtimeItem) throw new Error(`Rule load failed: unknown runtime id ${runtimeId}`);
+            const meta = (this.libManifest.items || []).find(it => it.runtime_id === runtimeId || it.id === runtimeId) || {};
+            const source = runtimeItem.source || {};
+            const i18n = runtimeItem.i18n || {};
+            const refs = meta.example_sentence_refs || source.example_sentence_refs || [];
+            const exampleBank = refs.map(sid => {
+                const sentence = this.libSentences[sid];
+                if (!sentence) return null;
+                return {
+                    id: sid,
+                    ko: sentence.source?.ko || sentence.source?.surface_ko || '',
+                    translation: sentence.i18n?.translation || ''
+                };
+            }).filter(Boolean);
 
             const data = {
-                ...coreData,
-                title_zh_tw: i18nBlock.title || meta.title || coreData.surface || coreData.id,
-                summary_zh_tw: i18nBlock.description || meta.summary_zh_tw || '',
-                explanation_md_zh_tw: i18nBlock.explanation_md_zh_tw || '',
-                usage_notes_zh_tw: i18nBlock.usage_notes_zh_tw || [],
-                example_bank: exampleBank
+                id: runtimeItem.id,
+                source,
+                i18n,
+                title_i18n: { zh_tw: i18n.title || runtimeItem.id },
+                summary_i18n: { zh_tw: i18n.description || '' },
+                explanation_md_i18n: { zh_tw: i18n.explanation_md || '' },
+                usage_notes_i18n: { zh_tw: i18n.usage_notes || [] },
+                example_sentence_refs: refs,
+                resolved_examples: exampleBank
             };
 
             this.renderLibReader(data, meta);
@@ -596,7 +586,7 @@ const APP = {
     renderLibReader(data, meta = {}) {
         if (!this.elements.libReader) return;
         
-        const examplesHtml = (data.example_bank || []).map((ex, idx) => {
+        const examplesHtml = (data.resolved_examples || []).map((ex, idx) => {
             const fallbackKo = window.escapeJsSingle(ex.ko);
             return `
                 <div class="example-card animate-in">
@@ -606,14 +596,14 @@ const APP = {
                             <span class="icon">🔊</span>
                         </button>
                     </div>
-                    <div class="example-zh" style="color:var(--muted); font-size:14px;">${window.escapeHtml(ex.zh_tw)}</div>
+                    <div class="example-zh" style="color:var(--muted); font-size:14px;">${window.escapeHtml(ex.translation || '')}</div>
                 </div>
             `;
         }).join('');
 
         const levelClass = (meta.level || 'A1').toLowerCase();
-        const explanationHtml = window.markdownToHtmlLite(data.explanation_md_zh_tw || data.explanation || '');
-        const hasExamples = (data.example_bank || []).length > 0;
+        const explanationHtml = window.markdownToHtmlLite(window.i18nText(data.explanation_md_i18n, window.currentLocale(), ''));
+        const hasExamples = (data.resolved_examples || []).length > 0;
 
         this.elements.libReader.innerHTML = `
             <article class="animate-in" style="padding-bottom: 60px;">
@@ -622,30 +612,26 @@ const APP = {
                         <span class="level-badge ${levelClass}">${meta.level || 'A1'}</span>
                         <span class="tiny-text muted" style="letter-spacing:0.05em;">${data.id || ''}</span>
                     </div>
-                    <h1 style="font-size:32px; color:var(--text); margin:0 0 16px 0; line-height:1.2;">${window.escapeHtml(data.title_zh_tw)}</h1>
+                    <h1 style="font-size:32px; color:var(--text); margin:0 0 16px 0; line-height:1.2;">${window.escapeHtml(window.i18nText(data.title_i18n, window.currentLocale(), data.id || ''))}</h1>
                     <div style="height:4px; width:60px; background:var(--accent); border-radius:2px; margin-bottom:24px;"></div>
-                    <p class="lead" style="font-size:18px; font-weight:500; color:var(--muted); line-height:1.6; margin:0;">${window.escapeHtml(data.summary_zh_tw)}</p>
+                    <p class="lead" style="font-size:18px; font-weight:500; color:var(--muted); line-height:1.6; margin:0;">${window.escapeHtml(window.i18nText(data.summary_i18n, window.currentLocale(), ''))}</p>
                 </header>
 
                 <section class="content-block" style="margin-top:0; padding:22px; border:1px solid var(--line); border-radius:20px; background:var(--card);">
-                    <div class="section-subtitle" style="display:flex; align-items:center; gap:8px; margin-bottom:14px;">
-                        <span>📖</span>
-                        <span>說明</span>
-                    </div>
                     <div class="rule-body">
-                        ${explanationHtml || '<p class="md-paragraph muted">目前沒有說明內容。</p>'}
+                        ${explanationHtml || '<p class="md-paragraph muted">目前沒有內容。</p>'}
                     </div>
                 </section>
 
-                ${(data.usage_notes_zh_tw || []).length > 0 ? `
+                ${(window.i18nText(data.usage_notes_i18n, window.currentLocale(), []) || []).length > 0 ? `
                     <h2 style="margin-top:48px;">📌 重點提示</h2>
                     <div class="usage-tips" style="margin-bottom:32px; display:flex; flex-wrap:wrap; gap:8px;">
-                        ${(data.usage_notes_zh_tw || []).map(note => `<div class="tag">${window.escapeHtml(note)}</div>`).join('')}
+                        ${(window.i18nText(data.usage_notes_i18n, window.currentLocale(), []) || []).map(note => `<div class="tag">${window.escapeHtml(note)}</div>`).join('')}
                     </div>
                 ` : ''}
 
                 <div class="example-section" style="margin-top:28px;">
-                    <div class="section-subtitle">🔊 精選例句 (Examples)</div>
+                    <div class="section-subtitle">例句</div>
                     ${hasExamples ? `<div class="example-grid" style="display:grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap:16px;">${examplesHtml}</div>` : '<p class="muted-text">目前沒有對應例句。</p>'}
                 </div>
             </article>
@@ -683,7 +669,7 @@ const APP = {
         if (!el) return;
         
         el.innerHTML = featured.map(f => `
-            <div class="unit-card" style="text-align:left; cursor:pointer;" onclick="APP.loadLibRule('${f.path}', '${f.title}')">
+            <div class="unit-card" style="text-align:left; cursor:pointer;" onclick="APP.loadLibRule('${f.runtime_id || f.id}')">
                 <div class="unit-badge">${f.category}</div>
                 <h4>${window.escapeHtml(f.title)}</h4>
                 <p class="tiny-text muted">快速查看此語法條目</p>
@@ -736,7 +722,7 @@ window.renderNodeList = function() {
     APP.elements.nodeList.innerHTML = window.state.data.sequence.map((n, i) => `
         <div class="node-card ${i === window.state.currentIndex ? 'active' : ''}" onclick="window.setIndex(${i})">
             <span class="num">${i + 1}</span>
-            <span class="txt">${window.escapeHtml(n.title_zh_tw || n.id)}</span>
+            <span class="txt">${window.escapeHtml(window.nodeTitleText(n, 'zh_tw') || n.id)}</span>
         </div>
     `).join('');
 };

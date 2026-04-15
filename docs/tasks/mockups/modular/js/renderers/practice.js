@@ -22,8 +22,8 @@
         <div class="card-block">
           <div class="block-title">Practice Card</div>
           <div class="muted-text" style="margin-bottom:10px;">${window.escapeHtml(modeLabel)}</div>
-          ${window.i18nText(payload.prompt_i18n, locale, payload.prompt_zh_tw || '') ? `
-            <div style="margin-bottom:10px;">${window.escapeHtml(window.i18nText(payload.prompt_i18n, locale, payload.prompt_zh_tw || ''))}</div>
+          ${window.i18nText(payload.prompt_i18n, locale, '') ? `
+            <div style="margin-bottom:10px;">${window.escapeHtml(window.i18nText(payload.prompt_i18n, locale, ''))}</div>
           ` : ''}
           ${total ? `<div class="tiny-text muted">本節練習題數：${total}</div>` : ''}
           <div class="tiny-text muted" style="margin-top:8px;">互動內容請見下方練習區塊。</div>
@@ -78,7 +78,7 @@
     area.innerHTML = `
       <div class="interaction-panel animate-in">
         <div class="interaction-label">🧩 詞塊組句練習 (${taskIdx + 1}/${tasks.length})</div>
-        <div class="muted-text" style="margin-bottom:12px;">${window.escapeHtml(window.i18nText(task.prompt_i18n, locale, task.prompt_zh_tw || ''))}</div>
+        <div class="muted-text" style="margin-bottom:12px;">${window.escapeHtml(window.i18nText(task.prompt_i18n, locale, ''))}</div>
         
         <div class="assembly-zone">
           <div class="assembly-answer">${answerHtml || '<div class="tiny-text muted">請選擇詞塊...</div>'}</div>

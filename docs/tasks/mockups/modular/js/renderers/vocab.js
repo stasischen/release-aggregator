@@ -29,7 +29,7 @@
 
     // 3. Render Sections & Items
     const html = sections.map(s => {
-      const title = window.i18nText(s.title_i18n, locale, s.title_zh_tw || '單字');
+      const title = window.i18nText(s.title_i18n, locale, '單字');
       const items = window.LessonAdapter.resolveArray(s.items || []);
       const itemGlossByKo = s.item_gloss_by_ko || payload.item_gloss_by_ko || {};
 
@@ -51,9 +51,9 @@
                 gloss = itemGlossByKo[item] || '';
               } else {
                 target = item.ko || item.target || '';
-                gloss = window.i18nText(item.explain_i18n, locale, item.explain_zh_tw || item.gloss || item.translation || '');
+                gloss = window.i18nText(item.explain_i18n, locale, item.gloss || item.translation || '');
                 exampleKo = item.example_ko || '';
-                exampleZh = window.i18nText(item.example_i18n, locale, item.example_zh_tw || '');
+                exampleZh = window.i18nText(item.example_i18n, locale, '');
               }
 
               return `

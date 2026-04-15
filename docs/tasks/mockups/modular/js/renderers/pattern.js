@@ -18,7 +18,7 @@
           ${(panel.items_i18n || panel.items || []).map(item => `
             <div class="pro-item">
               <strong>${window.escapeHtml(item.ko || item.target || '')}</strong>
-              <div class="tiny-text muted" style="margin-top:3px;">${window.escapeHtml(window.i18nText(item.explain_i18n || item, locale, item.zh_tw || ''))}</div>
+              <div class="tiny-text muted" style="margin-top:3px;">${window.escapeHtml(window.i18nText(item.explain_i18n || item, locale, ''))}</div>
             </div>
           `).join('')}
         </div>
@@ -66,7 +66,7 @@
 
     const controlsHtml = (builder.controls || []).map(control => `
       <label class="tiny-text muted" style="display:block; margin-bottom:10px;">
-        <span style="display:block; margin-bottom:4px; font-weight:700;">${window.escapeHtml(window.i18nText(control.label_i18n, teachingLocale, control.label_zh_tw || control.control_id))}</span>
+        <span style="display:block; margin-bottom:4px; font-weight:700;">${window.escapeHtml(window.i18nText(control.label_i18n, teachingLocale, control.control_id))}</span>
         <select data-builder-control="${window.escapeHtml(control.control_id)}"
           onchange="window.updatePatternBuilderFromRoot('${builderId}')"
           style="width:100%; padding:8px; border-radius:8px; border:1px solid var(--line); background:#fff;">
@@ -81,13 +81,13 @@
 
     const presetsHtml = (builder.review_export_presets || []).map(p => `
       <div class="preset-tag" onclick="window.applyPatternBuilderPreset('${builderId}', '${window.escapeHtml(JSON.stringify(p.control_values))}')">
-        ${window.escapeHtml(window.i18nText(p.meaning_i18n, locale, (p.meaning_i18n && p.meaning_i18n.zh_tw) || ''))}
+        ${window.escapeHtml(window.i18nText(p.meaning_i18n, locale, ''))}
       </div>
     `).join('');
 
     return `
       <div class="content-block">
-        <div class="block-title">${window.escapeHtml(window.i18nText(builder.title_i18n, teachingLocale, builder.title_zh_tw || '可切換句型'))}</div>
+        <div class="block-title">${window.escapeHtml(window.i18nText(builder.title_i18n, teachingLocale, '可切換句型'))}</div>
         <div id="${builderId}" class="summary-box" data-builder-config="${configJsonAttr}" data-node-id="${window.escapeHtml(nodeId)}">
           ${window.i18nText(builder.inline_hint_i18n, teachingLocale, '') ? `<div class="muted-text" style="margin-bottom:12px;">${window.escapeHtml(window.i18nText(builder.inline_hint_i18n, teachingLocale, ''))}</div>` : ''}
           <div class="summary-grid" style="grid-template-columns:repeat(3, 1fr);">
@@ -169,7 +169,7 @@
       // Replace variables in gloss
       Object.entries(values).forEach(([key, value]) => {
         const match = selectedMap[key];
-        const gVal = match ? window.i18nText(match.gloss_i18n || match.label_i18n, locale, match.gloss_zh_tw || value) : value;
+        const gVal = match ? window.i18nText(match.gloss_i18n || match.label_i18n, locale, value) : value;
         gloss = gloss.replaceAll(`{${key}}`, gVal);
       });
     }
@@ -209,8 +209,8 @@
   window.resolvePatternBuilderValues = (config, values) => values; // Pass-through for now
   window.getAvailableControlOptions = (control) => control.options || [];
   window.renderOptionLabelWithGloss = (option, locale) => {
-    const label = window.i18nText(option.label_i18n, locale, option.label_zh_tw || option.value);
-    const gloss = window.i18nText(option.gloss_i18n, locale, option.gloss_zh_tw || '');
+    const label = window.i18nText(option.label_i18n, locale, option.value);
+    const gloss = window.i18nText(option.gloss_i18n, locale, '');
     return gloss ? `${label} (${gloss})` : label;
   };
 

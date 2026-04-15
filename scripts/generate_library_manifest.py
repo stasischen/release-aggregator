@@ -1,6 +1,5 @@
 import os
 import json
-import shutil
 from pathlib import Path
 
 # Configuration
@@ -9,62 +8,104 @@ AGGREGATOR_ROOT = SCRIPTS_DIR.parent
 CONTENT_KO_ROOT = AGGREGATOR_ROOT.parent / "content-ko"
 
 MOCKUP_DATA_ROOT = AGGREGATOR_ROOT / "docs" / "tasks" / "mockups" / "modular" / "data"
+RUNTIME_OUTPUT_DIR = MOCKUP_DATA_ROOT / "runtime" / "zh_tw"
 
 I18N_KNOWLEDGE_DIR = CONTENT_KO_ROOT / "content" / "i18n" / "zh_tw" / "learning_library" / "knowledge"
 CORE_KNOWLEDGE_DIR = CONTENT_KO_ROOT / "content" / "core" / "learning_library" / "knowledge"
 I18N_SENTENCE_DIR = CONTENT_KO_ROOT / "content" / "i18n" / "zh_tw" / "learning_library" / "example_sentence"
 CORE_SENTENCE_DIR = CONTENT_KO_ROOT / "content" / "core" / "learning_library" / "example_sentence"
 
-OUTPUT_LIBRARY_DIR = MOCKUP_DATA_ROOT / "library"
 OUTPUT_MANIFEST = MOCKUP_DATA_ROOT / "library_manifest.json"
 OUTPUT_SENTENCES = MOCKUP_DATA_ROOT / "global_sentences.json"
+OUTPUT_RUNTIME_KNOWLEDGE = RUNTIME_OUTPUT_DIR / "knowledge.json"
+OUTPUT_RUNTIME_SENTENCES = RUNTIME_OUTPUT_DIR / "example_sentence.json"
+
+
+def ensure_output_dirs():
+    RUNTIME_OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
+
+
+def load_json(path):
+    with open(path, "r", encoding="utf-8") as f:
+        return json.load(f)
+
+
+def write_json(path, data):
+    path.parent.mkdir(parents=True, exist_ok=True)
+    with open(path, "w", encoding="utf-8") as f:
+        json.dump(data, f, ensure_ascii=False, indent=2)
+
+
+def load_runtime_knowledge():
+    runtime_source = CONTENT_KO_ROOT / "runs" / "learning_library_runtime" / "zh_tw" / "knowledge.json"
+    if runtime_source.exists():
+        try:
+            return load_json(runtime_source)
+        except Exception as e:
+            print(f"Error reading runtime knowledge {runtime_source}: {e}")
+    return []
 
 def generate_global_sentences():
     print(f"Aggregating sentences from: {CORE_SENTENCE_DIR}")
-    sentences = {}
-    
+    sentences = []
+
     if not CORE_SENTENCE_DIR.exists():
         print("Sentence core directory not found.")
+        write_json(OUTPUT_SENTENCES, sentences)
+        write_json(OUTPUT_RUNTIME_SENTENCES, sentences)
         return sentences
 
-    # Load core sentences
+    core_map = {}
+
     for file in CORE_SENTENCE_DIR.glob("*.json"):
         try:
-            with open(file, "r", encoding="utf-8") as f:
-                data = json.load(f)
-                sid = data.get("id")
-                if sid:
-                    sentences[sid] = {
-                        "id": sid,
-                        "ko": data.get("surface_ko") or data.get("ko", ""),
-                        "knowledge_refs": data.get("knowledge_refs", [])
-                    }
+            data = load_json(file)
+            sid = data.get("id")
+            if sid:
+                core_map[sid] = {
+                    "id": sid,
+                    "ko": data.get("surface_ko") or data.get("ko", ""),
+                    "knowledge_refs": data.get("knowledge_refs", []),
+                    "level": data.get("level", ""),
+                    "tags": data.get("tags", []),
+                    "provenance": data.get("provenance", {})
+                }
         except Exception as e:
             print(f"Error reading sentence core {file}: {e}")
 
-    # Load i18n translations
     if I18N_SENTENCE_DIR.exists():
         for file in I18N_SENTENCE_DIR.glob("*.json"):
             try:
-                with open(file, "r", encoding="utf-8") as f:
-                    data = json.load(f)
-                    sid = data.get("id")
-                    if sid in sentences:
-                        sentences[sid]["zh_tw"] = data.get("translation_zh_tw") or data.get("zh_tw", "")
+                data = load_json(file)
+                sid = data.get("id")
+                if sid and sid in core_map:
+                    sentences.append({
+                        "id": sid,
+                        "source": core_map[sid],
+                        "i18n": {
+                            "id": sid,
+                            "locale": "zh_tw",
+                            "translation": data.get("translation") or data.get("translation_zh_tw") or data.get("zh_tw", "")
+                        }
+                    })
             except Exception as e:
                 print(f"Error reading sentence i18n {file}: {e}")
 
-    with open(OUTPUT_SENTENCES, "w", encoding="utf-8") as f:
-        json.dump(sentences, f, ensure_ascii=False, indent=2)
-    
-    print(f"Generated global_sentences.json with {len(sentences)} items.")
+    sentences.sort(key=lambda item: item.get("id", ""))
+    write_json(OUTPUT_SENTENCES, sentences)
+    write_json(OUTPUT_RUNTIME_SENTENCES, sentences)
+
+    print(f"Generated example_sentence runtime with {len(sentences)} items.")
     return sentences
 
 def generate_manifest():
     print(f"Scanning knowledge from: {I18N_KNOWLEDGE_DIR}")
     
     # Ensure output directory exists
-    OUTPUT_LIBRARY_DIR.mkdir(parents=True, exist_ok=True)
+    ensure_output_dirs()
+
+    runtime_knowledge = load_runtime_knowledge()
+    runtime_index = {item.get("id"): item for item in runtime_knowledge if item.get("id")}
     
     categories_tree = {}
     all_items = []
@@ -86,38 +127,20 @@ def generate_manifest():
             category_id = parts[0]
             subcategory_id = parts[1] if len(parts) > 2 else "general"
             
-            # Load I18N content
-            try:
-                with open(i18n_path, "r", encoding="utf-8") as f:
-                    i18n_data = json.load(f)
-            except Exception as e:
-                print(f"Error reading {i18n_path}: {e}")
+            runtime_item = runtime_index.get(file.replace(".json", "")) or runtime_index.get(Path(file).stem)
+            if not runtime_item:
+                print(f"Skipping {i18n_path}: no matching runtime knowledge item found.")
                 continue
-                
-            # Load Core content for metadata
-            core_path = CORE_KNOWLEDGE_DIR / rel_path
+
+            item_id = runtime_item.get("id")
+            core_data = runtime_item.get("source", {})
+            i18n_data = runtime_item.get("i18n", {})
+            item_title = i18n_data.get("title") or item_id
             metadata = {
-                "level": "A1",
-                "surface": "",
-                "example_sentence_refs": []
+                "level": core_data.get("level", "A1"),
+                "surface": core_data.get("surface", ""),
+                "example_sentence_refs": core_data.get("example_sentence_refs", [])
             }
-            if core_path.exists():
-                try:
-                    with open(core_path, "r", encoding="utf-8") as f:
-                        core_data = json.load(f)
-                        metadata['level'] = core_data.get('level', 'A1')
-                        metadata['surface'] = core_data.get('surface', '')
-                        metadata['example_sentence_refs'] = core_data.get('example_sentence_refs', [])
-                except Exception as e:
-                    print(f"Error reading core {core_path}: {e}")
-            
-            item_id = i18n_data.get("id", file.replace(".json", ""))
-            i18n_block = i18n_data.get("zh_tw", {}) if isinstance(i18n_data.get("zh_tw", {}), dict) else {}
-            item_title = i18n_block.get("title") or i18n_data.get("title_zh_tw") or item_id
-            
-            # Sync file to mockup
-            target_path = OUTPUT_LIBRARY_DIR / file
-            shutil.copy2(i18n_path, target_path)
             
             item_entry = {
                 "id": item_id,
@@ -125,7 +148,8 @@ def generate_manifest():
                 "sub": subcategory_id,
                 "title": item_title,
                 "level": metadata['level'],
-                "path": f"data/library/{file}",
+                "path": "data/runtime/zh_tw/knowledge.json",
+                "runtime_id": item_id,
                 "surface": metadata['surface'],
                 "example_sentence_refs": metadata['example_sentence_refs']
             }
@@ -182,8 +206,8 @@ def generate_manifest():
         "items": all_items
     }
 
-    with open(OUTPUT_MANIFEST, "w", encoding="utf-8") as f:
-        json.dump(manifest, f, ensure_ascii=False, indent=2)
+    write_json(OUTPUT_RUNTIME_KNOWLEDGE, runtime_knowledge)
+    write_json(OUTPUT_MANIFEST, manifest)
         
     print(f"Generated manifest with {len(all_items)} items.")
 

@@ -5,26 +5,28 @@
 
 window.LessonAdapter = {
     /**
-     * Resolves i18n or legacy string fields.
-     * Priority: locale > zh_tw > en > first available string
+     * Resolves i18n fields from locale maps or nested `i18n` blocks.
+     * Priority: locale key > common locale aliases > translation/text > first string.
      */
     resolveText(obj, locale = 'zh_tw', fallback = '') {
         if (!obj) return fallback;
         if (typeof obj === 'string') return obj;
+        if (Array.isArray(obj)) return obj;
+
+        const source = obj.i18n && typeof obj.i18n === 'object' ? obj.i18n : obj;
 
         // Try direct locale, then common variants
         const keys = [locale, 'zh-TW', 'zh_tw', 'zh_TW', 'zh-tw', 'zh-Hant'];
         for (const k of keys) {
-            if (obj[k]) return obj[k];
+            if (source[k]) return source[k];
         }
 
         // Try direct translation field set by enrichment
-        if (obj.translation && typeof obj.translation === 'string') return obj.translation;
-        if (obj.zh_tw) return obj.zh_tw;
-        if (obj.en) return obj.en;
+        if (typeof source.translation === 'string') return source.translation;
+        if (typeof source.text === 'string') return source.text;
 
         // Fallback to first non-empty string value
-        const first = Object.values(obj).find(v => typeof v === 'string' && v);
+        const first = Object.values(source).find(v => typeof v === 'string' && v);
         return first || fallback;
     },
 
@@ -45,9 +47,9 @@ window.LessonAdapter = {
 
         return {
             ...unit,
-            displayTitle: this.resolveText(unit.title_i18n, locale, unit.title_zh_tw || unit.unit_id || ''),
-            displayTheme: this.resolveText(unit.theme_i18n, locale, unit.theme_zh_tw || ''),
-            displayCanDo: this.resolveArray(unit.can_do_i18n || unit.can_do_zh_tw).map(v => this.resolveText(v, locale)).filter(Boolean)
+            displayTitle: this.resolveText(unit.title_i18n, locale, unit.unit_id || ''),
+            displayTheme: this.resolveText(unit.theme_i18n, locale, ''),
+            displayCanDo: this.resolveArray(unit.can_do_i18n).map(v => this.resolveText(v, locale)).filter(Boolean)
         };
     },
 
@@ -60,9 +62,9 @@ window.LessonAdapter = {
         const payload = node.payload || {};
         const normalized = {
             ...node,
-            displayTitle: this.resolveText(node.title_i18n, locale, node.title_zh_tw || this.getFallbackNodeTitle(node)),
-            displaySummary: this.resolveText(node.summary_i18n, locale, node.summary_zh_tw || '先看這一節的內容。'),
-            displayExpected: this.resolveText(node.expected_output_i18n, locale, node.expected_output_zh_tw || '先理解這一節的重點。'),
+            displayTitle: this.resolveText(node.title_i18n, locale, this.getFallbackNodeTitle(node)),
+            displaySummary: this.resolveText(node.summary_i18n, locale, '先看這一節的內容。'),
+            displayExpected: this.resolveText(node.expected_output_i18n, locale, '先理解這一節的重點。'),
             payload: payload || {}
         };
 
@@ -140,31 +142,31 @@ window.LessonAdapter = {
                         segment_id: turn.id || `scene-${scene.id || '0'}-turn-${idx}`,
                         speaker: turn.speaker || '',
                         ko: turn.text || turn.ko || '',
-                        translation: this.resolveText(turn.translations_i18n, locale, turn.zh_tw || turn.en || ''),
+                        translation: this.resolveText(turn.translations_i18n, locale, turn.translation || ''),
                         anchor_refs: turn.anchor_refs || [],
                         register: turn.register || '',
                         atoms: turn.atoms || [],
                         source_meta: {
                             scene_id: scene.id,
-                            scene_title: this.resolveText(scene.title_i18n, locale, scene.title_zh_tw || ''),
+                            scene_title: this.resolveText(scene.title_i18n, locale, ''),
                             source_type: 'dialogue'
                         }
                     });
                 });
-            });
+            }); 
         } 
         // 3. Handle Legacy Dialogue (dialogue_turns)
         else if (payload.dialogue_turns && Array.isArray(payload.dialogue_turns)) {
             payload.dialogue_turns.forEach((turn, idx) => {
-                segments.push({
-                    segment_id: turn.id || `turn-${idx}`,
-                    speaker: turn.speaker || '',
-                    ko: turn.text || turn.ko || '',
-                    translation: this.resolveText(turn.translations_i18n, locale, turn.zh_tw || turn.en || ''),
-                    anchor_refs: turn.anchor_refs || [],
-                    register: turn.register || '',
-                    atoms: turn.atoms || [],
-                    source_meta: {
+                    segments.push({
+                        segment_id: turn.id || `turn-${idx}`,
+                        speaker: turn.speaker || '',
+                        ko: turn.text || turn.ko || '',
+                        translation: this.resolveText(turn.translations_i18n, locale, turn.translation || ''),
+                        anchor_refs: turn.anchor_refs || [],
+                        register: turn.register || '',
+                        atoms: turn.atoms || [],
+                        source_meta: {
                         source_type: 'dialogue'
                     }
                 });
@@ -173,14 +175,14 @@ window.LessonAdapter = {
         // 4. Handle Real Core Dialogue (content array)
         else if (payload.content && Array.isArray(payload.content)) {
             payload.content.forEach((turn, idx) => {
-                segments.push({
-                    segment_id: turn.id || `turn-${idx}`,
-                    speaker: turn.role || turn.speaker || '',
-                    ko: turn.text || turn.ko || '',
-                    translation: this.resolveText(turn.translations_i18n, locale, turn.zh_tw || turn.en || ''),
-                    anchor_refs: turn.anchor_refs || [],
-                    atoms: turn.atoms || [],
-                    source_meta: {
+                    segments.push({
+                        segment_id: turn.id || `turn-${idx}`,
+                        speaker: turn.role || turn.speaker || '',
+                        ko: turn.text || turn.ko || '',
+                        translation: this.resolveText(turn.translations_i18n, locale, turn.translation || ''),
+                        anchor_refs: turn.anchor_refs || [],
+                        atoms: turn.atoms || [],
+                        source_meta: {
                         source_type: 'dialogue'
                     }
                 });
@@ -212,8 +214,8 @@ window.LessonAdapter = {
                 if (s) {
                     return {
                         id: refId,
-                        ko: s.ko || s.surface_ko || "",
-                        zh_tw: s.zh_tw || s.translation_zh_tw || "(尚無翻譯)",
+                        ko: s.source?.ko || s.source?.surface_ko || s.ko || "",
+                        translation: s.i18n?.translation || s.translation || "(尚無翻譯)",
                         is_canonical: true
                     };
                 }
@@ -229,7 +231,7 @@ window.LessonAdapter = {
             return bank.map(ex => ({
                 id: ex.id || "transitional",
                 ko: ex.ko || "",
-                zh_tw: ex.zh_tw || "(尚無翻譯)",
+                translation: ex.translation || "(尚無翻譯)",
                 is_canonical: false
             }));
         }

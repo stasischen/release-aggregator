@@ -18,10 +18,8 @@
       } else {
         malformedReason = "payload.sections MUST be an array.";
       }
-    } else if (payload.points_i18n || payload.points_zh_tw || payload.points) {
-      // Legacy Fallback
-      isLegacy = true;
-      const pts = payload.points_i18n || payload.points_zh_tw || payload.points;
+    } else if (payload.points_i18n || payload.points) {
+      const pts = payload.points_i18n || payload.points;
       if (Array.isArray(pts)) {
         sections = [{
           title_i18n: { zh_tw: '重點內容', en: 'Key Points' },
@@ -38,7 +36,7 @@
         return window.renderDataInspection(payload, malformedReason);
       }
       
-      const hasOtherKeys = Object.keys(payload).some(k => !['sections', 'points', 'points_i18n', 'points_zh_tw', 'notice_i18n', 'notice_zh_tw', 'notice_zh_tw', 'what_to_notice_i18n'].includes(k));
+      const hasOtherKeys = Object.keys(payload).some(k => !['sections', 'points', 'points_i18n', 'notice_i18n', 'what_to_notice_i18n'].includes(k));
       if (hasOtherKeys) {
         // Unknown payload but not explicitly marked as malformed array yet
         return window.renderDataInspection(payload, 'Unrecognized Grammar Payload Structure');
@@ -54,9 +52,9 @@
 
     // 3. Render Sections
     const html = sections.map(s => {
-      const title = window.i18nText(s.title_i18n, locale, s.title_zh_tw || (isLegacy ? '重點內容' : '文法重點'));
+      const title = window.i18nText(s.title_i18n, locale, '文法重點');
       const explanationMd = window.i18nText(s.explanation_md_i18n, locale, s.explanation_md || '');
-      const points = window.LessonAdapter.resolveArray(s.points_i18n || s.points_zh_tw || s.points || []);
+      const points = window.LessonAdapter.resolveArray(s.points_i18n || s.points || []);
 
       let sectionContent = '';
       

@@ -11,7 +11,7 @@
     const supportHtml = window.renderLessonSupportModule(payload.support_module || payload.supplementary_info);
     
     // If we have an explanation directly in the payload
-    const explanation = window.i18nText(payload.explanation_md_i18n || payload.explanation_i18n, locale, payload.explanation_md_zh_tw || payload.explanation_zh_tw || '');
+    const explanation = window.i18nText(payload.explanation_md_i18n || payload.explanation_i18n, locale, '');
     const resolvedExamples = payload.resolved_examples || [];
 
     const hasContent = noticeHtml || supportHtml || explanation || resolvedExamples.length > 0;

@@ -1180,15 +1180,16 @@ textarea {
 
 .md-block {
   display: grid;
-  gap: 10px;
+  gap: 18px;
 }
 
 .md-paragraph {
-  margin: 0;
+  margin: 0 0 14px;
 }
 
 .md-table-wrap {
   overflow-x: auto;
+  margin: 12px 0 18px;
 }
 
 .md-table {
@@ -1721,9 +1722,9 @@ textarea:focus {
 }
 
 /* Markdown Headers */
-.md-h1 { font-size: 1.8em; margin: 1.5em 0 0.5em; border-bottom: 2px solid var(--line); padding-bottom: 0.3em; }
-.md-h2 { font-size: 1.5em; margin: 1.2em 0 0.4em; color: var(--accent); }
-.md-h3 { font-size: 1.2em; margin: 1em 0 0.3em; font-weight: 700; color: var(--ink); }
+.md-h1 { font-size: 1.8em; margin: 1.6em 0 0.7em; border-bottom: 2px solid var(--line); padding-bottom: 0.35em; }
+.md-h2 { font-size: 1.5em; margin: 1.3em 0 0.6em; color: var(--accent); }
+.md-h3 { font-size: 1.2em; margin: 1.1em 0 0.5em; font-weight: 700; color: var(--ink); }
 
 /* --- Knowledge Lab Specialized Components --- */
 

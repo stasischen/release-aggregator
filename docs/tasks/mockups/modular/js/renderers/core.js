@@ -102,6 +102,17 @@ window.applyInlineMarkdown = function (text) {
     .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')
     .replace(/\*(.*?)\*/g, '<em>$1</em>')
     .replace(/`(.*?)`/g, '<code>$1</code>')
+    .replace(/\[id:([^\]|]+)\]/g, (m, id) => {
+      const bank = window.APP?.libSentences || {};
+      const s = bank[id];
+      const ko = s?.ko || s?.surface_ko || id;
+      const zh = s?.zh_tw || s?.translation_zh_tw || "(尚無翻譯)";
+      const audioCall = `APP.playOriginalOrTTS('${window.escapeJsSingle(ko)}')`;
+      return `<span class="inline-sentence-chip" onclick="${audioCall}" title="點擊播放音檔">
+                <span class="ko">${window.escapeHtml(ko)}</span>
+                <span class="view-zh">${window.escapeHtml(zh)}</span>
+              </span>`;
+    })
     .replace(/\[ko:(.*?)\|zh:(.*?)(?:\|id:(.*?))?\]/g, (m, ko, zh, id) => {
       const audioCall = `APP.playOriginalOrTTS('${window.escapeJsSingle(ko)}')`;
       return `<span class="inline-sentence-chip" onclick="${audioCall}" title="點擊播放音檔">

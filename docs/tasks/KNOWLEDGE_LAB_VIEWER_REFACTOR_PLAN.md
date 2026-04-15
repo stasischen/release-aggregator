@@ -5,12 +5,23 @@
 ### 0. 自動化數據導入與對齊 (Phase KLABVIEW-005) - 已完成
 
 - **動態 Manifest 生成**：編寫 `scripts/generate_library_manifest.py`，全量掃描 `content-ko` 內容。
+- **自動掛載**：開發期間可用 `scripts/watch_library_manifest.py` 監看 `content-ko`，新條目一出現就重生 `library_manifest.json`。
 - **閱讀器功能強化**：
   - **分級顯示**：支援 A1/A2/B1 標籤渲染。
   - **音檔播放**：實作「例句銀行」音檔按鈕，支援實體檔案與 Browser TTS 回退機制。
 - **內容對齊 (Alignment)**：
   - **例句承接**：成功對齊「全域 `example_sentence` 引用」與「過渡期 `example_bank`」。
   - **Markdown Profile**：對齊 [Markdown Profile](../guides/KNOWLEDGE_LAB_MARKDOWN_PROFILE_V1.md)，支援 Bento UI (📐, ⚠️, 💬) 及 `[ko:|zh:]` 行內積木。
+
+### 開發期運行方式
+
+若要讓新條目在本機開發時自動掛進 manifest，請同時開啟：
+
+```bash
+python3 scripts/watch_library_manifest.py
+```
+
+這會持續監看 `content-ko/content/core/learning_library/knowledge` 與 `example_sentence` 目錄，並自動重生 `docs/tasks/mockups/modular/data/library_manifest.json`。
 
 ### 1. 視覺與體驗優化 (Phase KLABVIEW-004) - 已完成
 

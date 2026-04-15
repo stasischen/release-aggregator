@@ -168,6 +168,13 @@ def generate_manifest():
             "sub": sub_list
         })
 
+    all_items.sort(key=lambda item: (
+        item.get("category", ""),
+        item.get("sub", ""),
+        item.get("title", ""),
+        item.get("id", "")
+    ))
+
     manifest = {
         "categories": final_categories,
         "featured": all_items[:5],

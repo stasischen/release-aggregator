@@ -24,7 +24,7 @@
       "id": "kg.grammar.copula.ya_iya",
       "category": "grammar",
       "sub": "copula",
-      "title": "야/이야 (非敬語語尾)",
+      "title": "야/이야 (非敬語)",
       "level": "A1",
       "path": "data/runtime/zh_tw/knowledge.json",
       "runtime_id": "kg.grammar.copula.ya_iya",
@@ -57,7 +57,11 @@
         "ex.ko.s.000003",
         "ex.ko.s.000004",
         "ex.ko.s.000005",
-        "ex.ko.s.000006"
+        "ex.ko.s.000006",
+        "ex.ko.s.000063",
+        "ex.ko.s.000064",
+        "ex.ko.s.000065",
+        "ex.ko.s.000066"
       ]
     },
     {
@@ -76,7 +80,10 @@
         "ex.ko.s.000010",
         "ex.ko.s.000011",
         "ex.ko.s.000012",
-        "ex.ko.s.000013"
+        "ex.ko.s.000013",
+        "ex.ko.s.000060",
+        "ex.ko.s.000061",
+        "ex.ko.s.000062"
       ]
     },
     {
@@ -129,7 +136,7 @@
       "id": "kg.grammar.copula.ya_iya",
       "category": "grammar",
       "sub": "copula",
-      "title": "야/이야 (非敬語語尾)",
+      "title": "야/이야 (非敬語)",
       "level": "A1",
       "path": "data/runtime/zh_tw/knowledge.json",
       "runtime_id": "kg.grammar.copula.ya_iya",
@@ -162,7 +169,11 @@
         "ex.ko.s.000003",
         "ex.ko.s.000004",
         "ex.ko.s.000005",
-        "ex.ko.s.000006"
+        "ex.ko.s.000006",
+        "ex.ko.s.000063",
+        "ex.ko.s.000064",
+        "ex.ko.s.000065",
+        "ex.ko.s.000066"
       ]
     },
     {
@@ -181,7 +192,10 @@
         "ex.ko.s.000010",
         "ex.ko.s.000011",
         "ex.ko.s.000012",
-        "ex.ko.s.000013"
+        "ex.ko.s.000013",
+        "ex.ko.s.000060",
+        "ex.ko.s.000061",
+        "ex.ko.s.000062"
       ]
     },
     {
@@ -226,6 +240,28 @@
         "ex.ko.s.000051",
         "ex.ko.s.000052",
         "ex.ko.s.000053"
+      ]
+    },
+    {
+      "id": "kg.grammar.particle.eul_reul",
+      "category": "grammar",
+      "sub": "particle",
+      "title": "을/를 (受格助詞)",
+      "level": "A1",
+      "path": "data/runtime/zh_tw/knowledge.json",
+      "runtime_id": "kg.grammar.particle.eul_reul",
+      "surface": "을/를",
+      "example_sentence_refs": [
+        "ex.ko.s.000016",
+        "ex.ko.s.000017",
+        "ex.ko.s.000019",
+        "ex.ko.s.000020",
+        "ex.ko.s.000054",
+        "ex.ko.s.000055",
+        "ex.ko.s.000056",
+        "ex.ko.s.000057",
+        "ex.ko.s.000058",
+        "ex.ko.s.000059"
       ]
     },
     {

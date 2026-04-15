@@ -455,7 +455,8 @@
       "id": "ex.ko.s.000016",
       "ko": "책을 읽어요.",
       "knowledge_refs": [
-        "kg.grammar.ending.polite_standard_ayo_eoyo"
+        "kg.grammar.ending.polite_standard_ayo_eoyo",
+        "kg.grammar.particle.eul_reul"
       ],
       "level": "A1",
       "tags": [
@@ -466,10 +467,12 @@
       "provenance": {
         "source": "youtube_beginner_grammar",
         "source_lesson_ids": [
-          2
+          2,
+          6
         ],
         "source_video_ids": [
-          "UE1NoiexRXk"
+          "UE1NoiexRXk",
+          "sxzCJB-AMvg"
         ]
       }
     },
@@ -485,7 +488,8 @@
       "id": "ex.ko.s.000017",
       "ko": "커피를 마셔요.",
       "knowledge_refs": [
-        "kg.grammar.ending.polite_standard_ayo_eoyo"
+        "kg.grammar.ending.polite_standard_ayo_eoyo",
+        "kg.grammar.particle.eul_reul"
       ],
       "level": "A1",
       "tags": [
@@ -496,10 +500,12 @@
       "provenance": {
         "source": "youtube_beginner_grammar",
         "source_lesson_ids": [
-          2
+          2,
+          6
         ],
         "source_video_ids": [
-          "UE1NoiexRXk"
+          "UE1NoiexRXk",
+          "sxzCJB-AMvg"
         ]
       }
     },
@@ -545,7 +551,8 @@
       "id": "ex.ko.s.000019",
       "ko": "버스를 타요.",
       "knowledge_refs": [
-        "kg.grammar.ending.polite_standard_ayo_eoyo"
+        "kg.grammar.ending.polite_standard_ayo_eoyo",
+        "kg.grammar.particle.eul_reul"
       ],
       "level": "A1",
       "tags": [
@@ -556,10 +563,12 @@
       "provenance": {
         "source": "youtube_beginner_grammar",
         "source_lesson_ids": [
-          2
+          2,
+          6
         ],
         "source_video_ids": [
-          "UE1NoiexRXk"
+          "UE1NoiexRXk",
+          "sxzCJB-AMvg"
         ]
       }
     },
@@ -575,7 +584,8 @@
       "id": "ex.ko.s.000020",
       "ko": "영화를 봐요.",
       "knowledge_refs": [
-        "kg.grammar.ending.polite_standard_ayo_eoyo"
+        "kg.grammar.ending.polite_standard_ayo_eoyo",
+        "kg.grammar.particle.eul_reul"
       ],
       "level": "A1",
       "tags": [
@@ -586,10 +596,12 @@
       "provenance": {
         "source": "youtube_beginner_grammar",
         "source_lesson_ids": [
-          2
+          2,
+          6
         ],
         "source_video_ids": [
-          "UE1NoiexRXk"
+          "UE1NoiexRXk",
+          "sxzCJB-AMvg"
         ]
       }
     },
@@ -1617,6 +1629,348 @@
       "id": "ex.ko.s.000053",
       "locale": "zh_tw",
       "translation": "這個蘋果真的很好吃。"
+    }
+  },
+  {
+    "id": "ex.ko.s.000054",
+    "source": {
+      "id": "ex.ko.s.000054",
+      "ko": "시원한 사과를 먹어요.",
+      "knowledge_refs": [
+        "kg.grammar.particle.eul_reul"
+      ],
+      "level": "A1",
+      "tags": [
+        "grammar",
+        "particle",
+        "beginner"
+      ],
+      "provenance": {
+        "source": "youtube_beginner_grammar",
+        "source_lesson_ids": [
+          6
+        ],
+        "source_video_ids": [
+          "sxzCJB-AMvg"
+        ],
+        "original_sentence_adjusted": "사과를 먹어요."
+      }
+    },
+    "i18n": {
+      "id": "ex.ko.s.000054",
+      "locale": "zh_tw",
+      "translation": "吃著清涼的蘋果。"
+    }
+  },
+  {
+    "id": "ex.ko.s.000055",
+    "source": {
+      "id": "ex.ko.s.000055",
+      "ko": "방에서 숙제를 해요.",
+      "knowledge_refs": [
+        "kg.grammar.particle.eul_reul"
+      ],
+      "level": "A1",
+      "tags": [
+        "grammar",
+        "particle",
+        "beginner"
+      ],
+      "provenance": {
+        "source": "youtube_beginner_grammar",
+        "source_lesson_ids": [
+          6
+        ],
+        "source_video_ids": [
+          "sxzCJB-AMvg"
+        ],
+        "original_sentence_adjusted": "숙제를 해요."
+      }
+    },
+    "i18n": {
+      "id": "ex.ko.s.000055",
+      "locale": "zh_tw",
+      "translation": "在房間裡做作業。"
+    }
+  },
+  {
+    "id": "ex.ko.s.000056",
+    "source": {
+      "id": "ex.ko.s.000056",
+      "ko": "한국 노래를 불러요.",
+      "knowledge_refs": [
+        "kg.grammar.particle.eul_reul"
+      ],
+      "level": "A1",
+      "tags": [
+        "grammar",
+        "particle",
+        "beginner"
+      ],
+      "provenance": {
+        "source": "youtube_beginner_grammar",
+        "source_lesson_ids": [
+          6
+        ],
+        "source_video_ids": [
+          "sxzCJB-AMvg"
+        ],
+        "original_sentence_adjusted": "노래를 불러요."
+      }
+    },
+    "i18n": {
+      "id": "ex.ko.s.000056",
+      "locale": "zh_tw",
+      "translation": "唱韓國歌。"
+    }
+  },
+  {
+    "id": "ex.ko.s.000057",
+    "source": {
+      "id": "ex.ko.s.000057",
+      "ko": "백화점에서 옷을 사요.",
+      "knowledge_refs": [
+        "kg.grammar.particle.eul_reul"
+      ],
+      "level": "A1",
+      "tags": [
+        "grammar",
+        "particle",
+        "beginner"
+      ],
+      "provenance": {
+        "source": "youtube_beginner_grammar",
+        "source_lesson_ids": [
+          6
+        ],
+        "source_video_ids": [
+          "sxzCJB-AMvg"
+        ],
+        "original_sentence_adjusted": "옷을 사요."
+      }
+    },
+    "i18n": {
+      "id": "ex.ko.s.000057",
+      "locale": "zh_tw",
+      "translation": "在百貨公司買衣服。"
+    }
+  },
+  {
+    "id": "ex.ko.s.000058",
+    "source": {
+      "id": "ex.ko.s.000058",
+      "ko": "지금 전화를 받아요.",
+      "knowledge_refs": [
+        "kg.grammar.particle.eul_reul"
+      ],
+      "level": "A1",
+      "tags": [
+        "grammar",
+        "particle",
+        "beginner"
+      ],
+      "provenance": {
+        "source": "youtube_beginner_grammar",
+        "source_lesson_ids": [
+          6
+        ],
+        "source_video_ids": [
+          "sxzCJB-AMvg"
+        ],
+        "original_sentence_adjusted": "전화를 받아요."
+      }
+    },
+    "i18n": {
+      "id": "ex.ko.s.000058",
+      "locale": "zh_tw",
+      "translation": "現在接電話。"
+    }
+  },
+  {
+    "id": "ex.ko.s.000059",
+    "source": {
+      "id": "ex.ko.s.000059",
+      "ko": "주말에 집을 청소해요.",
+      "knowledge_refs": [
+        "kg.grammar.particle.eul_reul"
+      ],
+      "level": "A1",
+      "tags": [
+        "grammar",
+        "particle",
+        "beginner"
+      ],
+      "provenance": {
+        "source": "youtube_beginner_grammar",
+        "source_lesson_ids": [
+          6
+        ],
+        "source_video_ids": [
+          "sxzCJB-AMvg"
+        ],
+        "original_sentence_adjusted": "집을 청소해요."
+      }
+    },
+    "i18n": {
+      "id": "ex.ko.s.000059",
+      "locale": "zh_tw",
+      "translation": "週末打掃家裡。"
+    }
+  },
+  {
+    "id": "ex.ko.s.000060",
+    "source": {
+      "id": "ex.ko.s.000060",
+      "ko": "저는 회사원입니다.",
+      "knowledge_refs": [
+        "kg.grammar.ending.formal_declarative_su_ni_da"
+      ],
+      "level": "",
+      "tags": [
+        "formal",
+        "occupation",
+        "beginner"
+      ],
+      "provenance": {}
+    },
+    "i18n": {
+      "id": "ex.ko.s.000060",
+      "locale": "zh_tw",
+      "translation": "我是上班族。"
+    }
+  },
+  {
+    "id": "ex.ko.s.000061",
+    "source": {
+      "id": "ex.ko.s.000061",
+      "ko": "커피를 마십니다.",
+      "knowledge_refs": [
+        "kg.grammar.ending.formal_declarative_su_ni_da",
+        "kg.grammar.particle.eul_reul"
+      ],
+      "level": "",
+      "tags": [
+        "formal",
+        "action",
+        "beginner"
+      ],
+      "provenance": {}
+    },
+    "i18n": {
+      "id": "ex.ko.s.000061",
+      "locale": "zh_tw",
+      "translation": "喝咖啡。"
+    }
+  },
+  {
+    "id": "ex.ko.s.000062",
+    "source": {
+      "id": "ex.ko.s.000062",
+      "ko": "노래를 듣습니다.",
+      "knowledge_refs": [
+        "kg.grammar.ending.formal_declarative_su_ni_da",
+        "kg.grammar.particle.eul_reul"
+      ],
+      "level": "",
+      "tags": [
+        "formal",
+        "action",
+        "beginner"
+      ],
+      "provenance": {}
+    },
+    "i18n": {
+      "id": "ex.ko.s.000062",
+      "locale": "zh_tw",
+      "translation": "聽歌。"
+    }
+  },
+  {
+    "id": "ex.ko.s.000063",
+    "source": {
+      "id": "ex.ko.s.000063",
+      "ko": "내일 일찍 올게요.",
+      "knowledge_refs": [
+        "kg.grammar.ending.promise_ulgeyo"
+      ],
+      "level": "",
+      "tags": [
+        "promise",
+        "time",
+        "beginner"
+      ],
+      "provenance": {}
+    },
+    "i18n": {
+      "id": "ex.ko.s.000063",
+      "locale": "zh_tw",
+      "translation": "明天會早點來。"
+    }
+  },
+  {
+    "id": "ex.ko.s.000064",
+    "source": {
+      "id": "ex.ko.s.000064",
+      "ko": "제가 창문을 닫을게요.",
+      "knowledge_refs": [
+        "kg.grammar.ending.promise_ulgeyo"
+      ],
+      "level": "",
+      "tags": [
+        "promise",
+        "action",
+        "beginner"
+      ],
+      "provenance": {}
+    },
+    "i18n": {
+      "id": "ex.ko.s.000064",
+      "locale": "zh_tw",
+      "translation": "我來關窗戶吧。"
+    }
+  },
+  {
+    "id": "ex.ko.s.000065",
+    "source": {
+      "id": "ex.ko.s.000065",
+      "ko": "집에 가서 전화할게요.",
+      "knowledge_refs": [
+        "kg.grammar.ending.promise_ulgeyo"
+      ],
+      "level": "",
+      "tags": [
+        "promise",
+        "action",
+        "beginner"
+      ],
+      "provenance": {}
+    },
+    "i18n": {
+      "id": "ex.ko.s.000065",
+      "locale": "zh_tw",
+      "translation": "回家後會打電話。"
+    }
+  },
+  {
+    "id": "ex.ko.s.000066",
+    "source": {
+      "id": "ex.ko.s.000066",
+      "ko": "다음에 꼭 같이 갈게요.",
+      "knowledge_refs": [
+        "kg.grammar.ending.promise_ulgeyo"
+      ],
+      "level": "",
+      "tags": [
+        "promise",
+        "action",
+        "beginner"
+      ],
+      "provenance": {}
+    },
+    "i18n": {
+      "id": "ex.ko.s.000066",
+      "locale": "zh_tw",
+      "translation": "下次一定會一起去。"
     }
   }
 ]

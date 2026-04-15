@@ -4,14 +4,14 @@
     "source": {
       "id": "ex.ko.s.000001",
       "ko": "내일은 꼭 일찍 올게요.",
+      "knowledge_refs": [
+        "kg.grammar.ending.promise_ulgeyo"
+      ],
       "level": "A1",
       "tags": [
         "grammar",
         "ending",
         "beginner"
-      ],
-      "knowledge_refs": [
-        "kg.grammar.ending.promise_ulgeyo"
       ],
       "provenance": {
         "source": "youtube_beginner_grammar",
@@ -34,14 +34,14 @@
     "source": {
       "id": "ex.ko.s.000002",
       "ko": "방 청소는 제가 할게요.",
+      "knowledge_refs": [
+        "kg.grammar.ending.promise_ulgeyo"
+      ],
       "level": "A1",
       "tags": [
         "grammar",
         "ending",
         "beginner"
-      ],
-      "knowledge_refs": [
-        "kg.grammar.ending.promise_ulgeyo"
       ],
       "provenance": {
         "source": "youtube_beginner_grammar",
@@ -64,14 +64,14 @@
     "source": {
       "id": "ex.ko.s.000003",
       "ko": "나중에 다시 전화할게요.",
+      "knowledge_refs": [
+        "kg.grammar.ending.promise_ulgeyo"
+      ],
       "level": "A1",
       "tags": [
         "grammar",
         "ending",
         "beginner"
-      ],
-      "knowledge_refs": [
-        "kg.grammar.ending.promise_ulgeyo"
       ],
       "provenance": {
         "source": "youtube_beginner_grammar",
@@ -94,14 +94,14 @@
     "source": {
       "id": "ex.ko.s.000004",
       "ko": "사진을 지금 바로 보낼게요.",
+      "knowledge_refs": [
+        "kg.grammar.ending.promise_ulgeyo"
+      ],
       "level": "A1",
       "tags": [
         "grammar",
         "ending",
         "beginner"
-      ],
-      "knowledge_refs": [
-        "kg.grammar.ending.promise_ulgeyo"
       ],
       "provenance": {
         "source": "youtube_beginner_grammar",
@@ -124,14 +124,14 @@
     "source": {
       "id": "ex.ko.s.000005",
       "ko": "비밀은 꼭 지킬게요.",
+      "knowledge_refs": [
+        "kg.grammar.ending.promise_ulgeyo"
+      ],
       "level": "A1",
       "tags": [
         "grammar",
         "ending",
         "beginner"
-      ],
-      "knowledge_refs": [
-        "kg.grammar.ending.promise_ulgeyo"
       ],
       "provenance": {
         "source": "youtube_beginner_grammar",
@@ -154,14 +154,14 @@
     "source": {
       "id": "ex.ko.s.000006",
       "ko": "책을 읽을게요.",
+      "knowledge_refs": [
+        "kg.grammar.ending.promise_ulgeyo"
+      ],
       "level": "A1",
       "tags": [
         "grammar",
         "ending",
         "beginner"
-      ],
-      "knowledge_refs": [
-        "kg.grammar.ending.promise_ulgeyo"
       ],
       "provenance": {
         "source": "youtube_beginner_grammar",
@@ -184,14 +184,14 @@
     "source": {
       "id": "ex.ko.s.000007",
       "ko": "저는 학생입니다.",
+      "knowledge_refs": [
+        "kg.grammar.ending.formal_declarative_su_ni_da"
+      ],
       "level": "A1",
       "tags": [
         "grammar",
         "ending",
         "beginner"
-      ],
-      "knowledge_refs": [
-        "kg.grammar.ending.formal_declarative_su_ni_da"
       ],
       "provenance": {
         "source": "youtube_beginner_grammar",
@@ -214,14 +214,14 @@
     "source": {
       "id": "ex.ko.s.000008",
       "ko": "학교에 갑니다.",
+      "knowledge_refs": [
+        "kg.grammar.ending.formal_declarative_su_ni_da"
+      ],
       "level": "A1",
       "tags": [
         "grammar",
         "ending",
         "beginner"
-      ],
-      "knowledge_refs": [
-        "kg.grammar.ending.formal_declarative_su_ni_da"
       ],
       "provenance": {
         "source": "youtube_beginner_grammar",
@@ -244,14 +244,14 @@
     "source": {
       "id": "ex.ko.s.000009",
       "ko": "책을 읽습니다.",
+      "knowledge_refs": [
+        "kg.grammar.ending.formal_declarative_su_ni_da"
+      ],
       "level": "A1",
       "tags": [
         "grammar",
         "ending",
         "beginner"
-      ],
-      "knowledge_refs": [
-        "kg.grammar.ending.formal_declarative_su_ni_da"
       ],
       "provenance": {
         "source": "youtube_beginner_grammar",
@@ -274,14 +274,14 @@
     "source": {
       "id": "ex.ko.s.000010",
       "ko": "지하철을 탑니다.",
+      "knowledge_refs": [
+        "kg.grammar.ending.formal_declarative_su_ni_da"
+      ],
       "level": "A1",
       "tags": [
         "grammar",
         "ending",
         "beginner"
-      ],
-      "knowledge_refs": [
-        "kg.grammar.ending.formal_declarative_su_ni_da"
       ],
       "provenance": {
         "source": "youtube_beginner_grammar",
@@ -304,14 +304,14 @@
     "source": {
       "id": "ex.ko.s.000011",
       "ko": "영화를 봅니다.",
+      "knowledge_refs": [
+        "kg.grammar.ending.formal_declarative_su_ni_da"
+      ],
       "level": "A1",
       "tags": [
         "grammar",
         "ending",
         "beginner"
-      ],
-      "knowledge_refs": [
-        "kg.grammar.ending.formal_declarative_su_ni_da"
       ],
       "provenance": {
         "source": "youtube_beginner_grammar",
@@ -334,14 +334,14 @@
     "source": {
       "id": "ex.ko.s.000012",
       "ko": "커피를 마십니다.",
+      "knowledge_refs": [
+        "kg.grammar.ending.formal_declarative_su_ni_da"
+      ],
       "level": "A1",
       "tags": [
         "grammar",
         "ending",
         "beginner"
-      ],
-      "knowledge_refs": [
-        "kg.grammar.ending.formal_declarative_su_ni_da"
       ],
       "provenance": {
         "source": "youtube_beginner_grammar",
@@ -364,14 +364,14 @@
     "source": {
       "id": "ex.ko.s.000013",
       "ko": "저는 회사원입니다.",
+      "knowledge_refs": [
+        "kg.grammar.ending.formal_declarative_su_ni_da"
+      ],
       "level": "A1",
       "tags": [
         "grammar",
         "ending",
         "beginner"
-      ],
-      "knowledge_refs": [
-        "kg.grammar.ending.formal_declarative_su_ni_da"
       ],
       "provenance": {
         "source": "youtube_beginner_grammar",
@@ -394,14 +394,14 @@
     "source": {
       "id": "ex.ko.s.000014",
       "ko": "집에 가요.",
+      "knowledge_refs": [
+        "kg.grammar.ending.polite_standard_ayo_eoyo"
+      ],
       "level": "A1",
       "tags": [
         "grammar",
         "ending",
         "beginner"
-      ],
-      "knowledge_refs": [
-        "kg.grammar.ending.polite_standard_ayo_eoyo"
       ],
       "provenance": {
         "source": "youtube_beginner_grammar",
@@ -424,14 +424,14 @@
     "source": {
       "id": "ex.ko.s.000015",
       "ko": "밥을 먹어요.",
+      "knowledge_refs": [
+        "kg.grammar.ending.polite_standard_ayo_eoyo"
+      ],
       "level": "A1",
       "tags": [
         "grammar",
         "ending",
         "beginner"
-      ],
-      "knowledge_refs": [
-        "kg.grammar.ending.polite_standard_ayo_eoyo"
       ],
       "provenance": {
         "source": "youtube_beginner_grammar",
@@ -454,22 +454,25 @@
     "source": {
       "id": "ex.ko.s.000016",
       "ko": "책을 읽어요.",
+      "knowledge_refs": [
+        "kg.grammar.ending.polite_standard_ayo_eoyo",
+        "kg.grammar.particle.eul_reul"
+      ],
       "level": "A1",
       "tags": [
         "grammar",
         "ending",
         "beginner"
       ],
-      "knowledge_refs": [
-        "kg.grammar.ending.polite_standard_ayo_eoyo"
-      ],
       "provenance": {
         "source": "youtube_beginner_grammar",
         "source_lesson_ids": [
-          2
+          2,
+          6
         ],
         "source_video_ids": [
-          "UE1NoiexRXk"
+          "UE1NoiexRXk",
+          "sxzCJB-AMvg"
         ]
       }
     },
@@ -484,22 +487,25 @@
     "source": {
       "id": "ex.ko.s.000017",
       "ko": "커피를 마셔요.",
+      "knowledge_refs": [
+        "kg.grammar.ending.polite_standard_ayo_eoyo",
+        "kg.grammar.particle.eul_reul"
+      ],
       "level": "A1",
       "tags": [
         "grammar",
         "ending",
         "beginner"
       ],
-      "knowledge_refs": [
-        "kg.grammar.ending.polite_standard_ayo_eoyo"
-      ],
       "provenance": {
         "source": "youtube_beginner_grammar",
         "source_lesson_ids": [
-          2
+          2,
+          6
         ],
         "source_video_ids": [
-          "UE1NoiexRXk"
+          "UE1NoiexRXk",
+          "sxzCJB-AMvg"
         ]
       }
     },
@@ -514,14 +520,14 @@
     "source": {
       "id": "ex.ko.s.000018",
       "ko": "노래를 들어요.",
+      "knowledge_refs": [
+        "kg.grammar.ending.polite_standard_ayo_eoyo"
+      ],
       "level": "A1",
       "tags": [
         "grammar",
         "ending",
         "beginner"
-      ],
-      "knowledge_refs": [
-        "kg.grammar.ending.polite_standard_ayo_eoyo"
       ],
       "provenance": {
         "source": "youtube_beginner_grammar",
@@ -544,22 +550,25 @@
     "source": {
       "id": "ex.ko.s.000019",
       "ko": "버스를 타요.",
+      "knowledge_refs": [
+        "kg.grammar.ending.polite_standard_ayo_eoyo",
+        "kg.grammar.particle.eul_reul"
+      ],
       "level": "A1",
       "tags": [
         "grammar",
         "ending",
         "beginner"
       ],
-      "knowledge_refs": [
-        "kg.grammar.ending.polite_standard_ayo_eoyo"
-      ],
       "provenance": {
         "source": "youtube_beginner_grammar",
         "source_lesson_ids": [
-          2
+          2,
+          6
         ],
         "source_video_ids": [
-          "UE1NoiexRXk"
+          "UE1NoiexRXk",
+          "sxzCJB-AMvg"
         ]
       }
     },
@@ -574,22 +583,25 @@
     "source": {
       "id": "ex.ko.s.000020",
       "ko": "영화를 봐요.",
+      "knowledge_refs": [
+        "kg.grammar.ending.polite_standard_ayo_eoyo",
+        "kg.grammar.particle.eul_reul"
+      ],
       "level": "A1",
       "tags": [
         "grammar",
         "ending",
         "beginner"
       ],
-      "knowledge_refs": [
-        "kg.grammar.ending.polite_standard_ayo_eoyo"
-      ],
       "provenance": {
         "source": "youtube_beginner_grammar",
         "source_lesson_ids": [
-          2
+          2,
+          6
         ],
         "source_video_ids": [
-          "UE1NoiexRXk"
+          "UE1NoiexRXk",
+          "sxzCJB-AMvg"
         ]
       }
     },
@@ -604,14 +616,14 @@
     "source": {
       "id": "ex.ko.s.000021",
       "ko": "운동해요.",
+      "knowledge_refs": [
+        "kg.grammar.ending.polite_standard_ayo_eoyo"
+      ],
       "level": "A1",
       "tags": [
         "grammar",
         "ending",
         "beginner"
-      ],
-      "knowledge_refs": [
-        "kg.grammar.ending.polite_standard_ayo_eoyo"
       ],
       "provenance": {
         "source": "youtube_beginner_grammar",
@@ -634,14 +646,14 @@
     "source": {
       "id": "ex.ko.s.000022",
       "ko": "숙제해요.",
+      "knowledge_refs": [
+        "kg.grammar.ending.polite_standard_ayo_eoyo"
+      ],
       "level": "A1",
       "tags": [
         "grammar",
         "ending",
         "beginner"
-      ],
-      "knowledge_refs": [
-        "kg.grammar.ending.polite_standard_ayo_eoyo"
       ],
       "provenance": {
         "source": "youtube_beginner_grammar",
@@ -664,14 +676,14 @@
     "source": {
       "id": "ex.ko.s.000023",
       "ko": "친구한테 전화해요.",
+      "knowledge_refs": [
+        "kg.grammar.ending.polite_standard_ayo_eoyo"
+      ],
       "level": "A1",
       "tags": [
         "grammar",
         "ending",
         "beginner"
-      ],
-      "knowledge_refs": [
-        "kg.grammar.ending.polite_standard_ayo_eoyo"
       ],
       "provenance": {
         "source": "youtube_beginner_grammar",
@@ -694,14 +706,14 @@
     "source": {
       "id": "ex.ko.s.000024",
       "ko": "김 선생님은 한국 사람이야.",
+      "knowledge_refs": [
+        "kg.grammar.copula.ya_iya"
+      ],
       "level": "A1",
       "tags": [
         "grammar",
         "copula",
         "beginner"
-      ],
-      "knowledge_refs": [
-        "kg.grammar.copula.ya_iya"
       ],
       "provenance": {
         "source": "youtube_beginner_grammar",
@@ -724,14 +736,14 @@
     "source": {
       "id": "ex.ko.s.000025",
       "ko": "저 강아지는 내 동생이야.",
+      "knowledge_refs": [
+        "kg.grammar.copula.ya_iya"
+      ],
       "level": "A1",
       "tags": [
         "grammar",
         "copula",
         "beginner"
-      ],
-      "knowledge_refs": [
-        "kg.grammar.copula.ya_iya"
       ],
       "provenance": {
         "source": "youtube_beginner_grammar",
@@ -754,14 +766,14 @@
     "source": {
       "id": "ex.ko.s.000026",
       "ko": "이건 내가 제일 좋아하는 버블티야.",
+      "knowledge_refs": [
+        "kg.grammar.copula.ya_iya"
+      ],
       "level": "A1",
       "tags": [
         "grammar",
         "copula",
         "beginner"
-      ],
-      "knowledge_refs": [
-        "kg.grammar.copula.ya_iya"
       ],
       "provenance": {
         "source": "youtube_beginner_grammar",
@@ -784,14 +796,14 @@
     "source": {
       "id": "ex.ko.s.000027",
       "ko": "오늘이 내 생일이야.",
+      "knowledge_refs": [
+        "kg.grammar.copula.ya_iya"
+      ],
       "level": "A1",
       "tags": [
         "grammar",
         "copula",
         "beginner"
-      ],
-      "knowledge_refs": [
-        "kg.grammar.copula.ya_iya"
       ],
       "provenance": {
         "source": "youtube_beginner_grammar",
@@ -814,14 +826,14 @@
     "source": {
       "id": "ex.ko.s.000028",
       "ko": "저 가방은 누구 거야?",
+      "knowledge_refs": [
+        "kg.grammar.copula.ya_iya"
+      ],
       "level": "A1",
       "tags": [
         "grammar",
         "copula",
         "beginner"
-      ],
-      "knowledge_refs": [
-        "kg.grammar.copula.ya_iya"
       ],
       "provenance": {
         "source": "youtube_beginner_grammar",
@@ -844,14 +856,14 @@
     "source": {
       "id": "ex.ko.s.000029",
       "ko": "우리는 제일 친한 친구야.",
+      "knowledge_refs": [
+        "kg.grammar.copula.ya_iya"
+      ],
       "level": "A1",
       "tags": [
         "grammar",
         "copula",
         "beginner"
-      ],
-      "knowledge_refs": [
-        "kg.grammar.copula.ya_iya"
       ],
       "provenance": {
         "source": "youtube_beginner_grammar",
@@ -874,14 +886,14 @@
     "source": {
       "id": "ex.ko.s.000030",
       "ko": "이거 최신형 핸드폰이야?",
+      "knowledge_refs": [
+        "kg.grammar.copula.ya_iya"
+      ],
       "level": "A1",
       "tags": [
         "grammar",
         "copula",
         "beginner"
-      ],
-      "knowledge_refs": [
-        "kg.grammar.copula.ya_iya"
       ],
       "provenance": {
         "source": "youtube_beginner_grammar",
@@ -904,14 +916,14 @@
     "source": {
       "id": "ex.ko.s.000031",
       "ko": "지금 몇 시야?",
+      "knowledge_refs": [
+        "kg.grammar.copula.ya_iya"
+      ],
       "level": "A1",
       "tags": [
         "grammar",
         "copula",
         "beginner"
-      ],
-      "knowledge_refs": [
-        "kg.grammar.copula.ya_iya"
       ],
       "provenance": {
         "source": "youtube_beginner_grammar",
@@ -934,14 +946,14 @@
     "source": {
       "id": "ex.ko.s.000032",
       "ko": "여기가 우리 집이야.",
+      "knowledge_refs": [
+        "kg.grammar.copula.ya_iya"
+      ],
       "level": "A1",
       "tags": [
         "grammar",
         "copula",
         "beginner"
-      ],
-      "knowledge_refs": [
-        "kg.grammar.copula.ya_iya"
       ],
       "provenance": {
         "source": "youtube_beginner_grammar",
@@ -964,14 +976,14 @@
     "source": {
       "id": "ex.ko.s.000033",
       "ko": "우리 형은 경찰이야.",
+      "knowledge_refs": [
+        "kg.grammar.copula.ya_iya"
+      ],
       "level": "A1",
       "tags": [
         "grammar",
         "copula",
         "beginner"
-      ],
-      "knowledge_refs": [
-        "kg.grammar.copula.ya_iya"
       ],
       "provenance": {
         "source": "youtube_beginner_grammar",
@@ -994,14 +1006,14 @@
     "source": {
       "id": "ex.ko.s.000034",
       "ko": "이 분이 우리 선생님이에요.",
+      "knowledge_refs": [
+        "kg.grammar.particle.i_ga"
+      ],
       "level": "A1",
       "tags": [
         "grammar",
         "particle",
         "beginner"
-      ],
-      "knowledge_refs": [
-        "kg.grammar.particle.i_ga"
       ],
       "provenance": {
         "source": "youtube_beginner_grammar",
@@ -1024,14 +1036,14 @@
     "source": {
       "id": "ex.ko.s.000035",
       "ko": "한국 사과가 정말 달아요.",
+      "knowledge_refs": [
+        "kg.grammar.particle.i_ga"
+      ],
       "level": "A1",
       "tags": [
         "grammar",
         "particle",
         "beginner"
-      ],
-      "knowledge_refs": [
-        "kg.grammar.particle.i_ga"
       ],
       "provenance": {
         "source": "youtube_beginner_grammar",
@@ -1054,14 +1066,14 @@
     "source": {
       "id": "ex.ko.s.000036",
       "ko": "제 방이 아주 깨끗해요.",
+      "knowledge_refs": [
+        "kg.grammar.particle.i_ga"
+      ],
       "level": "A1",
       "tags": [
         "grammar",
         "particle",
         "beginner"
-      ],
-      "knowledge_refs": [
-        "kg.grammar.particle.i_ga"
       ],
       "provenance": {
         "source": "youtube_beginner_grammar",
@@ -1084,14 +1096,14 @@
     "source": {
       "id": "ex.ko.s.000037",
       "ko": "이 고양이가 정말 작아요.",
+      "knowledge_refs": [
+        "kg.grammar.particle.i_ga"
+      ],
       "level": "A1",
       "tags": [
         "grammar",
         "particle",
         "beginner"
-      ],
-      "knowledge_refs": [
-        "kg.grammar.particle.i_ga"
       ],
       "provenance": {
         "source": "youtube_beginner_grammar",
@@ -1114,14 +1126,14 @@
     "source": {
       "id": "ex.ko.s.000038",
       "ko": "이 영화가 진짜 재미있어요.",
+      "knowledge_refs": [
+        "kg.grammar.particle.i_ga"
+      ],
       "level": "A1",
       "tags": [
         "grammar",
         "particle",
         "beginner"
-      ],
-      "knowledge_refs": [
-        "kg.grammar.particle.i_ga"
       ],
       "provenance": {
         "source": "youtube_beginner_grammar",
@@ -1144,14 +1156,14 @@
     "source": {
       "id": "ex.ko.s.000039",
       "ko": "수업이 벌써 끝났어요.",
+      "knowledge_refs": [
+        "kg.grammar.particle.i_ga"
+      ],
       "level": "A1",
       "tags": [
         "grammar",
         "particle",
         "beginner"
-      ],
-      "knowledge_refs": [
-        "kg.grammar.particle.i_ga"
       ],
       "provenance": {
         "source": "youtube_beginner_grammar",
@@ -1174,14 +1186,14 @@
     "source": {
       "id": "ex.ko.s.000040",
       "ko": "한국 노래가 참 좋아요.",
+      "knowledge_refs": [
+        "kg.grammar.particle.i_ga"
+      ],
       "level": "A1",
       "tags": [
         "grammar",
         "particle",
         "beginner"
-      ],
-      "knowledge_refs": [
-        "kg.grammar.particle.i_ga"
       ],
       "provenance": {
         "source": "youtube_beginner_grammar",
@@ -1204,14 +1216,14 @@
     "source": {
       "id": "ex.ko.s.000041",
       "ko": "택시가 지금 도착했어요.",
+      "knowledge_refs": [
+        "kg.grammar.particle.i_ga"
+      ],
       "level": "A1",
       "tags": [
         "grammar",
         "particle",
         "beginner"
-      ],
-      "knowledge_refs": [
-        "kg.grammar.particle.i_ga"
       ],
       "provenance": {
         "source": "youtube_beginner_grammar",
@@ -1234,14 +1246,14 @@
     "source": {
       "id": "ex.ko.s.000042",
       "ko": "이 식당은 밥이 비싸요.",
+      "knowledge_refs": [
+        "kg.grammar.particle.i_ga"
+      ],
       "level": "A1",
       "tags": [
         "grammar",
         "particle",
         "beginner"
-      ],
-      "knowledge_refs": [
-        "kg.grammar.particle.i_ga"
       ],
       "provenance": {
         "source": "youtube_beginner_grammar",
@@ -1264,14 +1276,14 @@
     "source": {
       "id": "ex.ko.s.000043",
       "ko": "회사가 집에서 아주 가까워요.",
+      "knowledge_refs": [
+        "kg.grammar.particle.i_ga"
+      ],
       "level": "A1",
       "tags": [
         "grammar",
         "particle",
         "beginner"
-      ],
-      "knowledge_refs": [
-        "kg.grammar.particle.i_ga"
       ],
       "provenance": {
         "source": "youtube_beginner_grammar",
@@ -1294,6 +1306,9 @@
     "source": {
       "id": "ex.ko.s.000044",
       "ko": "저는 한국 사람은 아니에요.",
+      "knowledge_refs": [
+        "kg.grammar.particle.eun_neun"
+      ],
       "level": "A1",
       "tags": [
         "grammar",
@@ -1301,9 +1316,6 @@
         "topic_marker",
         "negative",
         "beginner"
-      ],
-      "knowledge_refs": [
-        "kg.grammar.particle.eun_neun"
       ],
       "provenance": {
         "source": "youtube_beginner_grammar",
@@ -1327,6 +1339,9 @@
     "source": {
       "id": "ex.ko.s.000045",
       "ko": "방은 깨끗해요.",
+      "knowledge_refs": [
+        "kg.grammar.particle.eun_neun"
+      ],
       "level": "A1",
       "tags": [
         "grammar",
@@ -1334,9 +1349,6 @@
         "topic_marker",
         "description",
         "beginner"
-      ],
-      "knowledge_refs": [
-        "kg.grammar.particle.eun_neun"
       ],
       "provenance": {
         "source": "youtube_beginner_grammar",
@@ -1360,6 +1372,9 @@
     "source": {
       "id": "ex.ko.s.000046",
       "ko": "만화책은 재미있어요.",
+      "knowledge_refs": [
+        "kg.grammar.particle.eun_neun"
+      ],
       "level": "A1",
       "tags": [
         "grammar",
@@ -1367,9 +1382,6 @@
         "topic_marker",
         "description",
         "beginner"
-      ],
-      "knowledge_refs": [
-        "kg.grammar.particle.eun_neun"
       ],
       "provenance": {
         "source": "youtube_beginner_grammar",
@@ -1393,6 +1405,9 @@
     "source": {
       "id": "ex.ko.s.000047",
       "ko": "바나나는 달아요.",
+      "knowledge_refs": [
+        "kg.grammar.particle.eun_neun"
+      ],
       "level": "A1",
       "tags": [
         "grammar",
@@ -1400,9 +1415,6 @@
         "topic_marker",
         "description",
         "beginner"
-      ],
-      "knowledge_refs": [
-        "kg.grammar.particle.eun_neun"
       ],
       "provenance": {
         "source": "youtube_beginner_grammar",
@@ -1426,6 +1438,9 @@
     "source": {
       "id": "ex.ko.s.000048",
       "ko": "고양이는 예뻐요.",
+      "knowledge_refs": [
+        "kg.grammar.particle.eun_neun"
+      ],
       "level": "A1",
       "tags": [
         "grammar",
@@ -1433,9 +1448,6 @@
         "topic_marker",
         "description",
         "beginner"
-      ],
-      "knowledge_refs": [
-        "kg.grammar.particle.eun_neun"
       ],
       "provenance": {
         "source": "youtube_beginner_grammar",
@@ -1459,6 +1471,9 @@
     "source": {
       "id": "ex.ko.s.000049",
       "ko": "이름은 뭐예요?",
+      "knowledge_refs": [
+        "kg.grammar.particle.eun_neun"
+      ],
       "level": "A1",
       "tags": [
         "grammar",
@@ -1466,9 +1481,6 @@
         "topic_marker",
         "question",
         "beginner"
-      ],
-      "knowledge_refs": [
-        "kg.grammar.particle.eun_neun"
       ],
       "provenance": {
         "source": "youtube_beginner_grammar",
@@ -1492,6 +1504,9 @@
     "source": {
       "id": "ex.ko.s.000050",
       "ko": "제 취미는 요리예요.",
+      "knowledge_refs": [
+        "kg.grammar.particle.eun_neun"
+      ],
       "level": "A1",
       "tags": [
         "grammar",
@@ -1499,9 +1514,6 @@
         "topic_marker",
         "description",
         "beginner"
-      ],
-      "knowledge_refs": [
-        "kg.grammar.particle.eun_neun"
       ],
       "provenance": {
         "source": "youtube_beginner_grammar",
@@ -1525,6 +1537,9 @@
     "source": {
       "id": "ex.ko.s.000051",
       "ko": "저는 매일 한국어를 공부해요.",
+      "knowledge_refs": [
+        "kg.grammar.particle.eun_neun"
+      ],
       "level": "A1",
       "tags": [
         "grammar",
@@ -1532,9 +1547,6 @@
         "topic_marker",
         "description",
         "beginner"
-      ],
-      "knowledge_refs": [
-        "kg.grammar.particle.eun_neun"
       ],
       "provenance": {
         "source": "youtube_beginner_grammar",
@@ -1558,6 +1570,9 @@
     "source": {
       "id": "ex.ko.s.000052",
       "ko": "여동생은 학생이에요. 언니는 의사예요.",
+      "knowledge_refs": [
+        "kg.grammar.particle.eun_neun"
+      ],
       "level": "A1",
       "tags": [
         "grammar",
@@ -1565,9 +1580,6 @@
         "topic_marker",
         "contrast",
         "beginner"
-      ],
-      "knowledge_refs": [
-        "kg.grammar.particle.eun_neun"
       ],
       "provenance": {
         "source": "youtube_beginner_grammar",
@@ -1591,6 +1603,9 @@
     "source": {
       "id": "ex.ko.s.000053",
       "ko": "이 사과는 정말 맛있어요.",
+      "knowledge_refs": [
+        "kg.grammar.particle.eun_neun"
+      ],
       "level": "A1",
       "tags": [
         "grammar",
@@ -1598,9 +1613,6 @@
         "topic_marker",
         "description",
         "beginner"
-      ],
-      "knowledge_refs": [
-        "kg.grammar.particle.eun_neun"
       ],
       "provenance": {
         "source": "youtube_beginner_grammar",
@@ -1617,6 +1629,348 @@
       "id": "ex.ko.s.000053",
       "locale": "zh_tw",
       "translation": "這個蘋果真的很好吃。"
+    }
+  },
+  {
+    "id": "ex.ko.s.000054",
+    "source": {
+      "id": "ex.ko.s.000054",
+      "ko": "시원한 사과를 먹어요.",
+      "knowledge_refs": [
+        "kg.grammar.particle.eul_reul"
+      ],
+      "level": "A1",
+      "tags": [
+        "grammar",
+        "particle",
+        "beginner"
+      ],
+      "provenance": {
+        "source": "youtube_beginner_grammar",
+        "source_lesson_ids": [
+          6
+        ],
+        "source_video_ids": [
+          "sxzCJB-AMvg"
+        ],
+        "original_sentence_adjusted": "사과를 먹어요."
+      }
+    },
+    "i18n": {
+      "id": "ex.ko.s.000054",
+      "locale": "zh_tw",
+      "translation": "吃著清涼的蘋果。"
+    }
+  },
+  {
+    "id": "ex.ko.s.000055",
+    "source": {
+      "id": "ex.ko.s.000055",
+      "ko": "방에서 숙제를 해요.",
+      "knowledge_refs": [
+        "kg.grammar.particle.eul_reul"
+      ],
+      "level": "A1",
+      "tags": [
+        "grammar",
+        "particle",
+        "beginner"
+      ],
+      "provenance": {
+        "source": "youtube_beginner_grammar",
+        "source_lesson_ids": [
+          6
+        ],
+        "source_video_ids": [
+          "sxzCJB-AMvg"
+        ],
+        "original_sentence_adjusted": "숙제를 해요."
+      }
+    },
+    "i18n": {
+      "id": "ex.ko.s.000055",
+      "locale": "zh_tw",
+      "translation": "在房間裡做作業。"
+    }
+  },
+  {
+    "id": "ex.ko.s.000056",
+    "source": {
+      "id": "ex.ko.s.000056",
+      "ko": "한국 노래를 불러요.",
+      "knowledge_refs": [
+        "kg.grammar.particle.eul_reul"
+      ],
+      "level": "A1",
+      "tags": [
+        "grammar",
+        "particle",
+        "beginner"
+      ],
+      "provenance": {
+        "source": "youtube_beginner_grammar",
+        "source_lesson_ids": [
+          6
+        ],
+        "source_video_ids": [
+          "sxzCJB-AMvg"
+        ],
+        "original_sentence_adjusted": "노래를 불러요."
+      }
+    },
+    "i18n": {
+      "id": "ex.ko.s.000056",
+      "locale": "zh_tw",
+      "translation": "唱韓國歌。"
+    }
+  },
+  {
+    "id": "ex.ko.s.000057",
+    "source": {
+      "id": "ex.ko.s.000057",
+      "ko": "백화점에서 옷을 사요.",
+      "knowledge_refs": [
+        "kg.grammar.particle.eul_reul"
+      ],
+      "level": "A1",
+      "tags": [
+        "grammar",
+        "particle",
+        "beginner"
+      ],
+      "provenance": {
+        "source": "youtube_beginner_grammar",
+        "source_lesson_ids": [
+          6
+        ],
+        "source_video_ids": [
+          "sxzCJB-AMvg"
+        ],
+        "original_sentence_adjusted": "옷을 사요."
+      }
+    },
+    "i18n": {
+      "id": "ex.ko.s.000057",
+      "locale": "zh_tw",
+      "translation": "在百貨公司買衣服。"
+    }
+  },
+  {
+    "id": "ex.ko.s.000058",
+    "source": {
+      "id": "ex.ko.s.000058",
+      "ko": "지금 전화를 받아요.",
+      "knowledge_refs": [
+        "kg.grammar.particle.eul_reul"
+      ],
+      "level": "A1",
+      "tags": [
+        "grammar",
+        "particle",
+        "beginner"
+      ],
+      "provenance": {
+        "source": "youtube_beginner_grammar",
+        "source_lesson_ids": [
+          6
+        ],
+        "source_video_ids": [
+          "sxzCJB-AMvg"
+        ],
+        "original_sentence_adjusted": "전화를 받아요."
+      }
+    },
+    "i18n": {
+      "id": "ex.ko.s.000058",
+      "locale": "zh_tw",
+      "translation": "現在接電話。"
+    }
+  },
+  {
+    "id": "ex.ko.s.000059",
+    "source": {
+      "id": "ex.ko.s.000059",
+      "ko": "주말에 집을 청소해요.",
+      "knowledge_refs": [
+        "kg.grammar.particle.eul_reul"
+      ],
+      "level": "A1",
+      "tags": [
+        "grammar",
+        "particle",
+        "beginner"
+      ],
+      "provenance": {
+        "source": "youtube_beginner_grammar",
+        "source_lesson_ids": [
+          6
+        ],
+        "source_video_ids": [
+          "sxzCJB-AMvg"
+        ],
+        "original_sentence_adjusted": "집을 청소해요."
+      }
+    },
+    "i18n": {
+      "id": "ex.ko.s.000059",
+      "locale": "zh_tw",
+      "translation": "週末打掃家裡。"
+    }
+  },
+  {
+    "id": "ex.ko.s.000060",
+    "source": {
+      "id": "ex.ko.s.000060",
+      "ko": "저는 회사원입니다.",
+      "knowledge_refs": [
+        "kg.grammar.ending.formal_declarative_su_ni_da"
+      ],
+      "level": "",
+      "tags": [
+        "formal",
+        "occupation",
+        "beginner"
+      ],
+      "provenance": {}
+    },
+    "i18n": {
+      "id": "ex.ko.s.000060",
+      "locale": "zh_tw",
+      "translation": "我是上班族。"
+    }
+  },
+  {
+    "id": "ex.ko.s.000061",
+    "source": {
+      "id": "ex.ko.s.000061",
+      "ko": "커피를 마십니다.",
+      "knowledge_refs": [
+        "kg.grammar.ending.formal_declarative_su_ni_da",
+        "kg.grammar.particle.eul_reul"
+      ],
+      "level": "",
+      "tags": [
+        "formal",
+        "action",
+        "beginner"
+      ],
+      "provenance": {}
+    },
+    "i18n": {
+      "id": "ex.ko.s.000061",
+      "locale": "zh_tw",
+      "translation": "喝咖啡。"
+    }
+  },
+  {
+    "id": "ex.ko.s.000062",
+    "source": {
+      "id": "ex.ko.s.000062",
+      "ko": "노래를 듣습니다.",
+      "knowledge_refs": [
+        "kg.grammar.ending.formal_declarative_su_ni_da",
+        "kg.grammar.particle.eul_reul"
+      ],
+      "level": "",
+      "tags": [
+        "formal",
+        "action",
+        "beginner"
+      ],
+      "provenance": {}
+    },
+    "i18n": {
+      "id": "ex.ko.s.000062",
+      "locale": "zh_tw",
+      "translation": "聽歌。"
+    }
+  },
+  {
+    "id": "ex.ko.s.000063",
+    "source": {
+      "id": "ex.ko.s.000063",
+      "ko": "내일 일찍 올게요.",
+      "knowledge_refs": [
+        "kg.grammar.ending.promise_ulgeyo"
+      ],
+      "level": "",
+      "tags": [
+        "promise",
+        "time",
+        "beginner"
+      ],
+      "provenance": {}
+    },
+    "i18n": {
+      "id": "ex.ko.s.000063",
+      "locale": "zh_tw",
+      "translation": "明天會早點來。"
+    }
+  },
+  {
+    "id": "ex.ko.s.000064",
+    "source": {
+      "id": "ex.ko.s.000064",
+      "ko": "제가 창문을 닫을게요.",
+      "knowledge_refs": [
+        "kg.grammar.ending.promise_ulgeyo"
+      ],
+      "level": "",
+      "tags": [
+        "promise",
+        "action",
+        "beginner"
+      ],
+      "provenance": {}
+    },
+    "i18n": {
+      "id": "ex.ko.s.000064",
+      "locale": "zh_tw",
+      "translation": "我來關窗戶吧。"
+    }
+  },
+  {
+    "id": "ex.ko.s.000065",
+    "source": {
+      "id": "ex.ko.s.000065",
+      "ko": "집에 가서 전화할게요.",
+      "knowledge_refs": [
+        "kg.grammar.ending.promise_ulgeyo"
+      ],
+      "level": "",
+      "tags": [
+        "promise",
+        "action",
+        "beginner"
+      ],
+      "provenance": {}
+    },
+    "i18n": {
+      "id": "ex.ko.s.000065",
+      "locale": "zh_tw",
+      "translation": "回家後會打電話。"
+    }
+  },
+  {
+    "id": "ex.ko.s.000066",
+    "source": {
+      "id": "ex.ko.s.000066",
+      "ko": "다음에 꼭 같이 갈게요.",
+      "knowledge_refs": [
+        "kg.grammar.ending.promise_ulgeyo"
+      ],
+      "level": "",
+      "tags": [
+        "promise",
+        "action",
+        "beginner"
+      ],
+      "provenance": {}
+    },
+    "i18n": {
+      "id": "ex.ko.s.000066",
+      "locale": "zh_tw",
+      "translation": "下次一定會一起去。"
     }
   }
 ]

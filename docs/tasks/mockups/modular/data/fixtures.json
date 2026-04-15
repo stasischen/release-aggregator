@@ -1,37 +1,3 @@
 {
-  "units": [
-    {
-      "id": "REAL-VIDEO-BWIN-TEST",
-      "title": "Real Video Test (BWINkN8QbkU + Atoms)",
-      "path": "data/real_content/video/BWINkN8QbkU_daily_life.json",
-      "level": "A1"
-    },
-    {
-      "id": "REAL-DIALOGUE-A1-01-TEST",
-      "title": "Real Dialogue Test (A1-01 + Atoms)",
-      "path": "data/real_content/dialogue/A1-01.json",
-      "level": "A1"
-    },
-    {
-      "id": "REAL-VIDEO-V5-TEST",
-      "title": "Real Video V5 Test (vlog_home.v5)",
-      "path": "data/real_content/video/vlog_home.v5.json",
-      "level": "A1"
-    },
-    {
-      "id": "A1-U01",
-      "title": "新生報到與校園問答 (Migrated v0.1)",
-      "path": "data/units/a1_u01_unit_blueprint_v0.json"
-    },
-    {
-      "id": "A1-U04",
-      "title": "咖啡廳點餐 (Survival)",
-      "path": "data/units/a1_u04_unit_blueprint_v0.json"
-    },
-    {
-      "id": "A1-U05",
-      "title": "在藥局買藥 (Production-Ready)",
-      "path": "data/units/a1_u05_unit_blueprint_v0.json"
-    }
-  ]
+  "units": []
 }

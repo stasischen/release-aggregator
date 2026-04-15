@@ -3,7 +3,7 @@
     "id": "ex.ko.s.000001",
     "source": {
       "id": "ex.ko.s.000001",
-      "ko": "내일은 꼭 일찍 올게요.",
+      "ko": "나중에 다시 올게요.",
       "knowledge_refs": [
         "kg.grammar.ending.promise_ulgeyo"
       ],
@@ -26,14 +26,14 @@
     "i18n": {
       "id": "ex.ko.s.000001",
       "locale": "zh_tw",
-      "translation": "明天我一定會早點來。"
+      "translation": "稍後會再來。"
     }
   },
   {
     "id": "ex.ko.s.000002",
     "source": {
       "id": "ex.ko.s.000002",
-      "ko": "방 청소는 제가 할게요.",
+      "ko": "내일 전화할게요.",
       "knowledge_refs": [
         "kg.grammar.ending.promise_ulgeyo"
       ],
@@ -56,14 +56,14 @@
     "i18n": {
       "id": "ex.ko.s.000002",
       "locale": "zh_tw",
-      "translation": "房間打掃交給我。"
+      "translation": "明天會打電話。"
     }
   },
   {
     "id": "ex.ko.s.000003",
     "source": {
       "id": "ex.ko.s.000003",
-      "ko": "나중에 다시 전화할게요.",
+      "ko": "제가 먼저 할게요.",
       "knowledge_refs": [
         "kg.grammar.ending.promise_ulgeyo"
       ],
@@ -86,14 +86,14 @@
     "i18n": {
       "id": "ex.ko.s.000003",
       "locale": "zh_tw",
-      "translation": "晚點我再打電話。"
+      "translation": "我先來做吧。"
     }
   },
   {
     "id": "ex.ko.s.000004",
     "source": {
       "id": "ex.ko.s.000004",
-      "ko": "사진을 지금 바로 보낼게요.",
+      "ko": "정직하게 말할게요.",
       "knowledge_refs": [
         "kg.grammar.ending.promise_ulgeyo"
       ],
@@ -116,14 +116,14 @@
     "i18n": {
       "id": "ex.ko.s.000004",
       "locale": "zh_tw",
-      "translation": "我現在馬上傳照片。"
+      "translation": "會老實說的。"
     }
   },
   {
     "id": "ex.ko.s.000005",
     "source": {
       "id": "ex.ko.s.000005",
-      "ko": "비밀은 꼭 지킬게요.",
+      "ko": "꼭 기억할게요.",
       "knowledge_refs": [
         "kg.grammar.ending.promise_ulgeyo"
       ],
@@ -146,14 +146,14 @@
     "i18n": {
       "id": "ex.ko.s.000005",
       "locale": "zh_tw",
-      "translation": "我一定會保守秘密。"
+      "translation": "一定會記得的。"
     }
   },
   {
     "id": "ex.ko.s.000006",
     "source": {
       "id": "ex.ko.s.000006",
-      "ko": "책을 읽을게요.",
+      "ko": "늦지 않을게요.",
       "knowledge_refs": [
         "kg.grammar.ending.promise_ulgeyo"
       ],
@@ -176,14 +176,14 @@
     "i18n": {
       "id": "ex.ko.s.000006",
       "locale": "zh_tw",
-      "translation": "我會讀書。"
+      "translation": "不會遲到的。"
     }
   },
   {
     "id": "ex.ko.s.000007",
     "source": {
       "id": "ex.ko.s.000007",
-      "ko": "저는 학생입니다.",
+      "ko": "민수 씨는 선생님입니다.",
       "knowledge_refs": [
         "kg.grammar.ending.formal_declarative_su_ni_da"
       ],
@@ -206,14 +206,14 @@
     "i18n": {
       "id": "ex.ko.s.000007",
       "locale": "zh_tw",
-      "translation": "我是學生。"
+      "translation": "民秀先生是老師。"
     }
   },
   {
     "id": "ex.ko.s.000008",
     "source": {
       "id": "ex.ko.s.000008",
-      "ko": "학교에 갑니다.",
+      "ko": "그것은 가방입니다.",
       "knowledge_refs": [
         "kg.grammar.ending.formal_declarative_su_ni_da"
       ],
@@ -236,14 +236,14 @@
     "i18n": {
       "id": "ex.ko.s.000008",
       "locale": "zh_tw",
-      "translation": "去學校。"
+      "translation": "那個是包包。"
     }
   },
   {
     "id": "ex.ko.s.000009",
     "source": {
       "id": "ex.ko.s.000009",
-      "ko": "책을 읽습니다.",
+      "ko": "회사에 갑니다.",
       "knowledge_refs": [
         "kg.grammar.ending.formal_declarative_su_ni_da"
       ],
@@ -266,14 +266,14 @@
     "i18n": {
       "id": "ex.ko.s.000009",
       "locale": "zh_tw",
-      "translation": "讀書。"
+      "translation": "去公司。"
     }
   },
   {
     "id": "ex.ko.s.000010",
     "source": {
       "id": "ex.ko.s.000010",
-      "ko": "지하철을 탑니다.",
+      "ko": "버스를 탑니다.",
       "knowledge_refs": [
         "kg.grammar.ending.formal_declarative_su_ni_da"
       ],
@@ -296,14 +296,14 @@
     "i18n": {
       "id": "ex.ko.s.000010",
       "locale": "zh_tw",
-      "translation": "搭地鐵。"
+      "translation": "搭公車。"
     }
   },
   {
     "id": "ex.ko.s.000011",
     "source": {
       "id": "ex.ko.s.000011",
-      "ko": "영화를 봅니다.",
+      "ko": "신문을 읽습니다.",
       "knowledge_refs": [
         "kg.grammar.ending.formal_declarative_su_ni_da"
       ],
@@ -326,14 +326,14 @@
     "i18n": {
       "id": "ex.ko.s.000011",
       "locale": "zh_tw",
-      "translation": "看電影。"
+      "translation": "閱讀報紙。"
     }
   },
   {
     "id": "ex.ko.s.000012",
     "source": {
       "id": "ex.ko.s.000012",
-      "ko": "커피를 마십니다.",
+      "ko": "요리를 합니다.",
       "knowledge_refs": [
         "kg.grammar.ending.formal_declarative_su_ni_da"
       ],
@@ -356,14 +356,14 @@
     "i18n": {
       "id": "ex.ko.s.000012",
       "locale": "zh_tw",
-      "translation": "喝咖啡。"
+      "translation": "做菜。"
     }
   },
   {
     "id": "ex.ko.s.000013",
     "source": {
       "id": "ex.ko.s.000013",
-      "ko": "저는 회사원입니다.",
+      "ko": "지도를 봅니다.",
       "knowledge_refs": [
         "kg.grammar.ending.formal_declarative_su_ni_da"
       ],
@@ -386,7 +386,7 @@
     "i18n": {
       "id": "ex.ko.s.000013",
       "locale": "zh_tw",
-      "translation": "我是上班族。"
+      "translation": "看地圖。"
     }
   },
   {
@@ -453,7 +453,7 @@
     "id": "ex.ko.s.000016",
     "source": {
       "id": "ex.ko.s.000016",
-      "ko": "책을 읽어요.",
+      "ko": "잡지를 읽어요.",
       "knowledge_refs": [
         "kg.grammar.ending.polite_standard_ayo_eoyo",
         "kg.grammar.particle.eul_reul"
@@ -479,14 +479,14 @@
     "i18n": {
       "id": "ex.ko.s.000016",
       "locale": "zh_tw",
-      "translation": "看書。"
+      "translation": "看雜誌。"
     }
   },
   {
     "id": "ex.ko.s.000017",
     "source": {
       "id": "ex.ko.s.000017",
-      "ko": "커피를 마셔요.",
+      "ko": "물을 마셔요.",
       "knowledge_refs": [
         "kg.grammar.ending.polite_standard_ayo_eoyo",
         "kg.grammar.particle.eul_reul"
@@ -512,7 +512,7 @@
     "i18n": {
       "id": "ex.ko.s.000017",
       "locale": "zh_tw",
-      "translation": "喝咖啡。"
+      "translation": "喝水。"
     }
   },
   {
@@ -549,7 +549,7 @@
     "id": "ex.ko.s.000019",
     "source": {
       "id": "ex.ko.s.000019",
-      "ko": "버스를 타요.",
+      "ko": "지하철을 타요.",
       "knowledge_refs": [
         "kg.grammar.ending.polite_standard_ayo_eoyo",
         "kg.grammar.particle.eul_reul"
@@ -575,14 +575,14 @@
     "i18n": {
       "id": "ex.ko.s.000019",
       "locale": "zh_tw",
-      "translation": "搭公車。"
+      "translation": "搭地鐵。"
     }
   },
   {
     "id": "ex.ko.s.000020",
     "source": {
       "id": "ex.ko.s.000020",
-      "ko": "영화를 봐요.",
+      "ko": "사진을 봐요.",
       "knowledge_refs": [
         "kg.grammar.ending.polite_standard_ayo_eoyo",
         "kg.grammar.particle.eul_reul"
@@ -608,7 +608,7 @@
     "i18n": {
       "id": "ex.ko.s.000020",
       "locale": "zh_tw",
-      "translation": "看電影。"
+      "translation": "看照片。"
     }
   },
   {
@@ -645,7 +645,7 @@
     "id": "ex.ko.s.000022",
     "source": {
       "id": "ex.ko.s.000022",
-      "ko": "숙제해요.",
+      "ko": "선생님을 만나요.",
       "knowledge_refs": [
         "kg.grammar.ending.polite_standard_ayo_eoyo"
       ],
@@ -668,7 +668,7 @@
     "i18n": {
       "id": "ex.ko.s.000022",
       "locale": "zh_tw",
-      "translation": "做作業。"
+      "translation": "與老師見面。"
     }
   },
   {
@@ -705,7 +705,7 @@
     "id": "ex.ko.s.000024",
     "source": {
       "id": "ex.ko.s.000024",
-      "ko": "김 선생님은 한국 사람이야.",
+      "ko": "이건 내 가방이야.",
       "knowledge_refs": [
         "kg.grammar.copula.ya_iya"
       ],
@@ -728,7 +728,7 @@
     "i18n": {
       "id": "ex.ko.s.000024",
       "locale": "zh_tw",
-      "translation": "金老師是韓國人。"
+      "translation": "這是我的包包。"
     }
   },
   {
@@ -855,7 +855,7 @@
     "id": "ex.ko.s.000029",
     "source": {
       "id": "ex.ko.s.000029",
-      "ko": "우리는 제일 친한 친구야.",
+      "ko": "이건 포도야.",
       "knowledge_refs": [
         "kg.grammar.copula.ya_iya"
       ],
@@ -878,7 +878,7 @@
     "i18n": {
       "id": "ex.ko.s.000029",
       "locale": "zh_tw",
-      "translation": "我們是最要好的朋友。"
+      "translation": "這是葡萄。"
     }
   },
   {
@@ -975,7 +975,7 @@
     "id": "ex.ko.s.000033",
     "source": {
       "id": "ex.ko.s.000033",
-      "ko": "우리 형은 경찰이야.",
+      "ko": "직업이 뭐야?",
       "knowledge_refs": [
         "kg.grammar.copula.ya_iya"
       ],
@@ -998,7 +998,7 @@
     "i18n": {
       "id": "ex.ko.s.000033",
       "locale": "zh_tw",
-      "translation": "我哥哥是警察。"
+      "translation": "職業是什麼？"
     }
   },
   {
@@ -1035,7 +1035,7 @@
     "id": "ex.ko.s.000035",
     "source": {
       "id": "ex.ko.s.000035",
-      "ko": "한국 사과가 정말 달아요.",
+      "ko": "기차가 와요.",
       "knowledge_refs": [
         "kg.grammar.particle.i_ga"
       ],
@@ -1058,14 +1058,14 @@
     "i18n": {
       "id": "ex.ko.s.000035",
       "locale": "zh_tw",
-      "translation": "韓國蘋果真的很甜。"
+      "translation": "火車來了。"
     }
   },
   {
     "id": "ex.ko.s.000036",
     "source": {
       "id": "ex.ko.s.000036",
-      "ko": "제 방이 아주 깨끗해요.",
+      "ko": "한국 노래가 재미있어요.",
       "knowledge_refs": [
         "kg.grammar.particle.i_ga"
       ],
@@ -1088,14 +1088,14 @@
     "i18n": {
       "id": "ex.ko.s.000036",
       "locale": "zh_tw",
-      "translation": "我的房間非常乾淨。"
+      "translation": "韓國歌曲很有趣。"
     }
   },
   {
     "id": "ex.ko.s.000037",
     "source": {
       "id": "ex.ko.s.000037",
-      "ko": "이 고양이가 정말 작아요.",
+      "ko": "언니가 집에 와요.",
       "knowledge_refs": [
         "kg.grammar.particle.i_ga"
       ],
@@ -1118,14 +1118,14 @@
     "i18n": {
       "id": "ex.ko.s.000037",
       "locale": "zh_tw",
-      "translation": "這隻貓咪真的好小。"
+      "translation": "姐姐回家。"
     }
   },
   {
     "id": "ex.ko.s.000038",
     "source": {
       "id": "ex.ko.s.000038",
-      "ko": "이 영화가 진짜 재미있어요.",
+      "ko": "질문이 없어요.",
       "knowledge_refs": [
         "kg.grammar.particle.i_ga"
       ],
@@ -1148,14 +1148,14 @@
     "i18n": {
       "id": "ex.ko.s.000038",
       "locale": "zh_tw",
-      "translation": "這部電影真的很有趣。"
+      "translation": "沒有疑問。"
     }
   },
   {
     "id": "ex.ko.s.000039",
     "source": {
       "id": "ex.ko.s.000039",
-      "ko": "수업이 벌써 끝났어요.",
+      "ko": "약속이 있어요.",
       "knowledge_refs": [
         "kg.grammar.particle.i_ga"
       ],
@@ -1178,14 +1178,14 @@
     "i18n": {
       "id": "ex.ko.s.000039",
       "locale": "zh_tw",
-      "translation": "課程已經結束了。"
+      "translation": "有約。"
     }
   },
   {
     "id": "ex.ko.s.000040",
     "source": {
       "id": "ex.ko.s.000040",
-      "ko": "한국 노래가 참 좋아요.",
+      "ko": "포도가 달아요.",
       "knowledge_refs": [
         "kg.grammar.particle.i_ga"
       ],
@@ -1208,14 +1208,14 @@
     "i18n": {
       "id": "ex.ko.s.000040",
       "locale": "zh_tw",
-      "translation": "韓國歌曲真的很好聽。"
+      "translation": "葡萄很甜。"
     }
   },
   {
     "id": "ex.ko.s.000041",
     "source": {
       "id": "ex.ko.s.000041",
-      "ko": "택시가 지금 도착했어요.",
+      "ko": "코가 커요.",
       "knowledge_refs": [
         "kg.grammar.particle.i_ga"
       ],
@@ -1238,14 +1238,14 @@
     "i18n": {
       "id": "ex.ko.s.000041",
       "locale": "zh_tw",
-      "translation": "計程車現在抵達了。"
+      "translation": "鼻子很大。"
     }
   },
   {
     "id": "ex.ko.s.000042",
     "source": {
       "id": "ex.ko.s.000042",
-      "ko": "이 식당은 밥이 비싸요.",
+      "ko": "목소리가 좋아요.",
       "knowledge_refs": [
         "kg.grammar.particle.i_ga"
       ],
@@ -1268,14 +1268,14 @@
     "i18n": {
       "id": "ex.ko.s.000042",
       "locale": "zh_tw",
-      "translation": "這家餐廳的飯很貴。"
+      "translation": "聲音很好聽。"
     }
   },
   {
     "id": "ex.ko.s.000043",
     "source": {
       "id": "ex.ko.s.000043",
-      "ko": "회사가 집에서 아주 가까워요.",
+      "ko": "숙제가 있어요.",
       "knowledge_refs": [
         "kg.grammar.particle.i_ga"
       ],
@@ -1298,14 +1298,14 @@
     "i18n": {
       "id": "ex.ko.s.000043",
       "locale": "zh_tw",
-      "translation": "公司離家非常近。"
+      "translation": "有作業。"
     }
   },
   {
     "id": "ex.ko.s.000044",
     "source": {
       "id": "ex.ko.s.000044",
-      "ko": "저는 한국 사람은 아니에요.",
+      "ko": "민지 씨는 요리사예요.",
       "knowledge_refs": [
         "kg.grammar.particle.eun_neun"
       ],
@@ -1331,14 +1331,14 @@
     "i18n": {
       "id": "ex.ko.s.000044",
       "locale": "zh_tw",
-      "translation": "我不是韓國人。"
+      "translation": "Min-ji 是廚師。"
     }
   },
   {
     "id": "ex.ko.s.000045",
     "source": {
       "id": "ex.ko.s.000045",
-      "ko": "방은 깨끗해요.",
+      "ko": "바나나는 달아요.",
       "knowledge_refs": [
         "kg.grammar.particle.eun_neun"
       ],
@@ -1364,14 +1364,14 @@
     "i18n": {
       "id": "ex.ko.s.000045",
       "locale": "zh_tw",
-      "translation": "房間很乾淨。"
+      "translation": "香蕉很甜。"
     }
   },
   {
     "id": "ex.ko.s.000046",
     "source": {
       "id": "ex.ko.s.000046",
-      "ko": "만화책은 재미있어요.",
+      "ko": "내일은 화요일이에요.",
       "knowledge_refs": [
         "kg.grammar.particle.eun_neun"
       ],
@@ -1397,14 +1397,14 @@
     "i18n": {
       "id": "ex.ko.s.000046",
       "locale": "zh_tw",
-      "translation": "漫畫書很有趣。"
+      "translation": "明天是週二。"
     }
   },
   {
     "id": "ex.ko.s.000047",
     "source": {
       "id": "ex.ko.s.000047",
-      "ko": "바나나는 달아요.",
+      "ko": "고향은 부산이에요.",
       "knowledge_refs": [
         "kg.grammar.particle.eun_neun"
       ],
@@ -1430,14 +1430,14 @@
     "i18n": {
       "id": "ex.ko.s.000047",
       "locale": "zh_tw",
-      "translation": "香蕉很甜。"
+      "translation": "家鄉是釜山。"
     }
   },
   {
     "id": "ex.ko.s.000048",
     "source": {
       "id": "ex.ko.s.000048",
-      "ko": "고양이는 예뻐요.",
+      "ko": "제 취미는 수영이에요.",
       "knowledge_refs": [
         "kg.grammar.particle.eun_neun"
       ],
@@ -1463,14 +1463,14 @@
     "i18n": {
       "id": "ex.ko.s.000048",
       "locale": "zh_tw",
-      "translation": "貓很漂亮。"
+      "translation": "我的興趣是游泳。"
     }
   },
   {
     "id": "ex.ko.s.000049",
     "source": {
       "id": "ex.ko.s.000049",
-      "ko": "이름은 뭐예요?",
+      "ko": "이 비디오는 재미있어요.",
       "knowledge_refs": [
         "kg.grammar.particle.eun_neun"
       ],
@@ -1496,14 +1496,14 @@
     "i18n": {
       "id": "ex.ko.s.000049",
       "locale": "zh_tw",
-      "translation": "你叫什麼名字？"
+      "translation": "這部影片很有趣。"
     }
   },
   {
     "id": "ex.ko.s.000050",
     "source": {
       "id": "ex.ko.s.000050",
-      "ko": "제 취미는 요리예요.",
+      "ko": "일본은 추워요.",
       "knowledge_refs": [
         "kg.grammar.particle.eun_neun"
       ],
@@ -1529,14 +1529,14 @@
     "i18n": {
       "id": "ex.ko.s.000050",
       "locale": "zh_tw",
-      "translation": "我的興趣是料理。"
+      "translation": "日本很冷。"
     }
   },
   {
     "id": "ex.ko.s.000051",
     "source": {
       "id": "ex.ko.s.000051",
-      "ko": "저는 매일 한국어를 공부해요.",
+      "ko": "바다는 멀어요.",
       "knowledge_refs": [
         "kg.grammar.particle.eun_neun"
       ],
@@ -1562,14 +1562,14 @@
     "i18n": {
       "id": "ex.ko.s.000051",
       "locale": "zh_tw",
-      "translation": "我每天學習韓文。"
+      "translation": "大海很遠。"
     }
   },
   {
     "id": "ex.ko.s.000052",
     "source": {
       "id": "ex.ko.s.000052",
-      "ko": "여동생은 학생이에요. 언니는 의사예요.",
+      "ko": "이 노래는 슬퍼요.",
       "knowledge_refs": [
         "kg.grammar.particle.eun_neun"
       ],
@@ -1595,14 +1595,14 @@
     "i18n": {
       "id": "ex.ko.s.000052",
       "locale": "zh_tw",
-      "translation": "妹妹是學生。姐姐是醫生。"
+      "translation": "這首歌很悲傷。"
     }
   },
   {
     "id": "ex.ko.s.000053",
     "source": {
       "id": "ex.ko.s.000053",
-      "ko": "이 사과는 정말 맛있어요.",
+      "ko": "오늘은 제 생일이에요.",
       "knowledge_refs": [
         "kg.grammar.particle.eun_neun"
       ],
@@ -1628,14 +1628,14 @@
     "i18n": {
       "id": "ex.ko.s.000053",
       "locale": "zh_tw",
-      "translation": "這個蘋果真的很好吃。"
+      "translation": "今天是我的生日。"
     }
   },
   {
     "id": "ex.ko.s.000054",
     "source": {
       "id": "ex.ko.s.000054",
-      "ko": "시원한 사과를 먹어요.",
+      "ko": "시원한 주스를 마셔요.",
       "knowledge_refs": [
         "kg.grammar.particle.eul_reul"
       ],
@@ -1659,14 +1659,14 @@
     "i18n": {
       "id": "ex.ko.s.000054",
       "locale": "zh_tw",
-      "translation": "吃著清涼的蘋果。"
+      "translation": "喝涼爽的果汁。"
     }
   },
   {
     "id": "ex.ko.s.000055",
     "source": {
       "id": "ex.ko.s.000055",
-      "ko": "방에서 숙제를 해요.",
+      "ko": "방에서 요리를 해요.",
       "knowledge_refs": [
         "kg.grammar.particle.eul_reul"
       ],
@@ -1690,14 +1690,14 @@
     "i18n": {
       "id": "ex.ko.s.000055",
       "locale": "zh_tw",
-      "translation": "在房間裡做作業。"
+      "translation": "在家做菜。"
     }
   },
   {
     "id": "ex.ko.s.000056",
     "source": {
       "id": "ex.ko.s.000056",
-      "ko": "한국 노래를 불러요.",
+      "ko": "일본 노래를 불러요.",
       "knowledge_refs": [
         "kg.grammar.particle.eul_reul"
       ],
@@ -1721,14 +1721,14 @@
     "i18n": {
       "id": "ex.ko.s.000056",
       "locale": "zh_tw",
-      "translation": "唱韓國歌。"
+      "translation": "唱日本歌。"
     }
   },
   {
     "id": "ex.ko.s.000057",
     "source": {
       "id": "ex.ko.s.000057",
-      "ko": "백화점에서 옷을 사요.",
+      "ko": "시장에서 과일을 사요.",
       "knowledge_refs": [
         "kg.grammar.particle.eul_reul"
       ],
@@ -1752,14 +1752,14 @@
     "i18n": {
       "id": "ex.ko.s.000057",
       "locale": "zh_tw",
-      "translation": "在百貨公司買衣服。"
+      "translation": "在市場買水果。"
     }
   },
   {
     "id": "ex.ko.s.000058",
     "source": {
       "id": "ex.ko.s.000058",
-      "ko": "지금 전화를 받아요.",
+      "ko": "지금 편지를 읽어요.",
       "knowledge_refs": [
         "kg.grammar.particle.eul_reul"
       ],
@@ -1783,14 +1783,14 @@
     "i18n": {
       "id": "ex.ko.s.000058",
       "locale": "zh_tw",
-      "translation": "現在接電話。"
+      "translation": "現在在看信。"
     }
   },
   {
     "id": "ex.ko.s.000059",
     "source": {
       "id": "ex.ko.s.000059",
-      "ko": "주말에 집을 청소해요.",
+      "ko": "주말에 공원을 산책해요.",
       "knowledge_refs": [
         "kg.grammar.particle.eul_reul"
       ],
@@ -1814,14 +1814,14 @@
     "i18n": {
       "id": "ex.ko.s.000059",
       "locale": "zh_tw",
-      "translation": "週末打掃家裡。"
+      "translation": "週末在公園散步。"
     }
   },
   {
     "id": "ex.ko.s.000060",
     "source": {
       "id": "ex.ko.s.000060",
-      "ko": "저는 회사원입니다.",
+      "ko": "제 형은 작가입니다.",
       "knowledge_refs": [
         "kg.grammar.ending.formal_declarative_su_ni_da"
       ],
@@ -1836,14 +1836,14 @@
     "i18n": {
       "id": "ex.ko.s.000060",
       "locale": "zh_tw",
-      "translation": "我是上班族。"
+      "translation": "我哥哥是作家。"
     }
   },
   {
     "id": "ex.ko.s.000061",
     "source": {
       "id": "ex.ko.s.000061",
-      "ko": "커피를 마십니다.",
+      "ko": "우유를 마십니다.",
       "knowledge_refs": [
         "kg.grammar.ending.formal_declarative_su_ni_da",
         "kg.grammar.particle.eul_reul"
@@ -1859,14 +1859,14 @@
     "i18n": {
       "id": "ex.ko.s.000061",
       "locale": "zh_tw",
-      "translation": "喝咖啡。"
+      "translation": "喝牛奶。"
     }
   },
   {
     "id": "ex.ko.s.000062",
     "source": {
       "id": "ex.ko.s.000062",
-      "ko": "노래를 듣습니다.",
+      "ko": "클래식을 듣습니다.",
       "knowledge_refs": [
         "kg.grammar.ending.formal_declarative_su_ni_da",
         "kg.grammar.particle.eul_reul"
@@ -1882,14 +1882,14 @@
     "i18n": {
       "id": "ex.ko.s.000062",
       "locale": "zh_tw",
-      "translation": "聽歌。"
+      "translation": "聽古典樂。"
     }
   },
   {
     "id": "ex.ko.s.000063",
     "source": {
       "id": "ex.ko.s.000063",
-      "ko": "내일 일찍 올게요.",
+      "ko": "금방 돌아올게요.",
       "knowledge_refs": [
         "kg.grammar.ending.promise_ulgeyo"
       ],
@@ -1904,14 +1904,14 @@
     "i18n": {
       "id": "ex.ko.s.000063",
       "locale": "zh_tw",
-      "translation": "明天會早點來。"
+      "translation": "馬上就回來。"
     }
   },
   {
     "id": "ex.ko.s.000064",
     "source": {
       "id": "ex.ko.s.000064",
-      "ko": "제가 창문을 닫을게요.",
+      "ko": "제가 잡지를 읽을게요.",
       "knowledge_refs": [
         "kg.grammar.ending.promise_ulgeyo"
       ],
@@ -1926,14 +1926,14 @@
     "i18n": {
       "id": "ex.ko.s.000064",
       "locale": "zh_tw",
-      "translation": "我來關窗戶吧。"
+      "translation": "我來讀雜誌吧。"
     }
   },
   {
     "id": "ex.ko.s.000065",
     "source": {
       "id": "ex.ko.s.000065",
-      "ko": "집에 가서 전화할게요.",
+      "ko": "사무실에 도착해서 연락할게요.",
       "knowledge_refs": [
         "kg.grammar.ending.promise_ulgeyo"
       ],
@@ -1948,14 +1948,14 @@
     "i18n": {
       "id": "ex.ko.s.000065",
       "locale": "zh_tw",
-      "translation": "回家後會打電話。"
+      "translation": "到達辦公室後會聯絡。"
     }
   },
   {
     "id": "ex.ko.s.000066",
     "source": {
       "id": "ex.ko.s.000066",
-      "ko": "다음에 꼭 같이 갈게요.",
+      "ko": "이번에는 꼭 성공할게요.",
       "knowledge_refs": [
         "kg.grammar.ending.promise_ulgeyo"
       ],
@@ -1970,7 +1970,7 @@
     "i18n": {
       "id": "ex.ko.s.000066",
       "locale": "zh_tw",
-      "translation": "下次一定會一起去。"
+      "translation": "這次一定會成功的。"
     }
   }
 ]

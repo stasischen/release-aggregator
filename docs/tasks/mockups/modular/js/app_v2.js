@@ -25,6 +25,8 @@ const APP = {
         this.elements.libFilterTabs = document.querySelectorAll('#libraryFilterTabs .nav-tab');
         
         this.currentLibraryFilter = 'all';
+        this.libSentences = {};
+        this.libExampleCache = {};
         this.wireEvents();
         this.primeAudioEngine(); 
         this.bootstrap();
@@ -377,7 +379,19 @@ const APP = {
 
     renderCourseMap(fixtures) {
         if (!this.elements.courseMapGrid) return;
-        this.elements.courseMapGrid.innerHTML = fixtures.units.map(u => {
+        const units = fixtures.units || [];
+        if (units.length === 0) {
+            this.elements.courseMapGrid.innerHTML = `
+                <div class="empty-state" style="grid-column: 1 / -1; margin-top:80px;">
+                    <div class="icon" style="font-size:48px;">🧹</div>
+                    <h3>暫無課程資料</h3>
+                    <p class="muted-text">目前只保留知識文庫的單一重建條目。</p>
+                </div>
+            `;
+            return;
+        }
+
+        this.elements.courseMapGrid.innerHTML = units.map(u => {
             const progress = Math.floor(Math.random() * 60) + 20;
             return `
                 <div class="unit-card" onclick="APP.loadUnit('${u.path}')">
@@ -398,18 +412,17 @@ const APP = {
     async initLibrary() {
         try {
             // Load Manifest
-            const manifestResp = await fetch('data/library_manifest.json');
+            const manifestResp = await fetch(`data/library_manifest.json?v=${Date.now()}`);
             if (manifestResp.ok) {
                 this.libManifest = await manifestResp.json();
                 this.renderLibToc();
                 this.renderLibFeatured();
             }
-            
-            // Load Global Sentences (Example Bank)
-            const sentenceResp = await fetch('data/global_sentences.json');
-            if (sentenceResp.ok) {
-                this.libSentences = await sentenceResp.json();
-                console.log("Global Sentence Bank loaded.");
+
+            const libItems = this.libManifest?.items || [];
+            if (libItems.length === 1) {
+                this.switchView('libraryView');
+                await this.loadLibRule(libItems[0].path, libItems[0].title);
             }
         } catch (e) { 
             console.error("Library init error", e); 
@@ -515,27 +528,59 @@ const APP = {
         this.toggleLibSidebar(false);
     },
 
+    canonicalI18nPathFromKnowledgePath(path) {
+        return String(path || '')
+            .replace('/core/learning_library/knowledge/', '/i18n/zh_tw/learning_library/knowledge/');
+    },
+
+    canonicalSentencePathFromId(id) {
+        return `data/content-ko/core/learning_library/example_sentence/${id}.json`;
+    },
+
+    async fetchJsonWithBust(path) {
+        const resp = await fetch(`${path}?v=${Date.now()}`);
+        if (!resp.ok) return null;
+        return await resp.json();
+    },
+
     async loadLibRule(path, title) {
         try {
-            const resp = await fetch(path);
-            if (!resp.ok) throw new Error('Rule load failed');
-            const data = await resp.json();
-            
+            const coreData = await this.fetchJsonWithBust(path);
+            if (!coreData) throw new Error('Rule load failed');
             const meta = (this.libManifest.items || []).find(it => it.path === path) || {};
-            
-            if (!data.example_bank) data.example_bank = [];
-            const refs = meta.example_sentence_refs || data.example_sentence_refs || [];
-            if (refs.length > 0 && this.libSentences) {
-                refs.forEach(sid => {
-                    const s = this.libSentences[sid];
-                    if (s) {
-                        data.example_bank.push({
-                            id: sid, ko: s.ko, zh_tw: s.zh_tw || "(尚無翻譯)"
-                        });
-                    }
-                });
+
+            const i18nPath = this.canonicalI18nPathFromKnowledgePath(path);
+            const i18nData = await this.fetchJsonWithBust(i18nPath);
+            const i18nBlock = i18nData?.zh_tw || {};
+
+            const refs = meta.example_sentence_refs || coreData.example_sentence_refs || [];
+            const exampleBank = [];
+            this.libSentences = {};
+            for (const sid of refs) {
+                const cached = this.libExampleCache[sid];
+                let sentence = cached;
+                if (!sentence) {
+                    const sentencePath = this.canonicalSentencePathFromId(sid);
+                    sentence = await this.fetchJsonWithBust(sentencePath);
+                    if (sentence) this.libExampleCache[sid] = sentence;
+                }
+                if (sentence) {
+                    const ko = sentence.ko || sentence.surface_ko || '';
+                    const zh = sentence.zh_tw || sentence.translation_zh_tw || '(尚無翻譯)';
+                    exampleBank.push({ id: sid, ko, zh_tw: zh });
+                    this.libSentences[sid] = { ko, zh_tw: zh };
+                }
             }
-            
+
+            const data = {
+                ...coreData,
+                title_zh_tw: i18nBlock.title || meta.title || coreData.surface || coreData.id,
+                summary_zh_tw: i18nBlock.description || meta.summary_zh_tw || '',
+                explanation_md_zh_tw: i18nBlock.explanation_md_zh_tw || '',
+                usage_notes_zh_tw: i18nBlock.usage_notes_zh_tw || [],
+                example_bank: exampleBank
+            };
+
             this.renderLibReader(data, meta);
             
             // UI Optimization: Mobile Nav shows breadcrumb context, Card shows Title
@@ -585,10 +630,12 @@ const APP = {
                     ${window.markdownToHtmlLite(data.explanation_md_zh_tw || data.explanation || '')}
                 </div>
 
-                <h2 style="margin-top:48px;">📌 變化與用法範例</h2>
-                <div class="usage-tips" style="margin-bottom:32px; display:flex; flex-wrap:wrap; gap:8px;">
-                    ${(data.usage_notes_zh_tw || []).map(note => `<div class="tag">${window.escapeHtml(note)}</div>`).join('')}
-                </div>
+                ${(data.usage_notes_zh_tw || []).length > 0 ? `
+                    <h2 style="margin-top:48px;">📌 重點提示</h2>
+                    <div class="usage-tips" style="margin-bottom:32px; display:flex; flex-wrap:wrap; gap:8px;">
+                        ${(data.usage_notes_zh_tw || []).map(note => `<div class="tag">${window.escapeHtml(note)}</div>`).join('')}
+                    </div>
+                ` : ''}
 
                 <div class="example-section">
                     <div class="section-subtitle">🔊 精選例句 (Examples)</div>

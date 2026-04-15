@@ -5,7 +5,7 @@ const FIXTURES_INDEX = 'data/fixtures.json';
 
 const APP = {
     elements: {},
-    init() {
+    async init() {
         console.log("APP V2 FULL INIT");
         const ids = [
             'darkModeToggle', 'backToMapBtn', 'unitIndicator',
@@ -27,10 +27,11 @@ const APP = {
         this.currentLibraryFilter = 'all';
         this.libSentences = {};
         this.libExampleCache = {};
+        this.currentView = 'courseMapView';
         this.wireEvents();
         this.primeAudioEngine(); 
-        this.bootstrap();
-        this.initLibrary();
+        await this.bootstrap();
+        await this.initLibrary();
     },
 
     wireEvents() {
@@ -120,7 +121,10 @@ const APP = {
             const lastPath = localStorage.getItem('agg_gen_last_unit_path') || (fixtures.units[0]?.path);
             if (lastPath) this.loadUnit(lastPath, false);
         } catch (e) { console.error("Bootstrap error", e); }
-        this.switchView('courseMapView');
+        // Preserve the library view if it was already opened by initLibrary().
+        if (this.currentView !== 'libraryView') {
+            this.switchView('courseMapView');
+        }
     },
 
     async loadUnit(path, autoSwitch = true) {
@@ -359,6 +363,7 @@ const APP = {
     },
 
     switchView(viewId) {
+        this.currentView = viewId;
         document.querySelectorAll('.view-container, .page').forEach(el => el.classList.remove('active'));
         const target = document.getElementById(viewId);
         if (target) target.classList.add('active');
@@ -417,12 +422,6 @@ const APP = {
                 this.libManifest = await manifestResp.json();
                 this.renderLibToc();
                 this.renderLibFeatured();
-            }
-
-            const libItems = this.libManifest?.items || [];
-            if (libItems.length === 1) {
-                this.switchView('libraryView');
-                await this.loadLibRule(libItems[0].path, libItems[0].title);
             }
         } catch (e) { 
             console.error("Library init error", e); 
@@ -613,6 +612,8 @@ const APP = {
         }).join('');
 
         const levelClass = (meta.level || 'A1').toLowerCase();
+        const explanationHtml = window.markdownToHtmlLite(data.explanation_md_zh_tw || data.explanation || '');
+        const hasExamples = (data.example_bank || []).length > 0;
 
         this.elements.libReader.innerHTML = `
             <article class="animate-in" style="padding-bottom: 60px;">
@@ -625,10 +626,16 @@ const APP = {
                     <div style="height:4px; width:60px; background:var(--accent); border-radius:2px; margin-bottom:24px;"></div>
                     <p class="lead" style="font-size:18px; font-weight:500; color:var(--muted); line-height:1.6; margin:0;">${window.escapeHtml(data.summary_zh_tw)}</p>
                 </header>
-                
-                <div class="rule-body">
-                    ${window.markdownToHtmlLite(data.explanation_md_zh_tw || data.explanation || '')}
-                </div>
+
+                <section class="content-block" style="margin-top:0; padding:22px; border:1px solid var(--line); border-radius:20px; background:var(--card);">
+                    <div class="section-subtitle" style="display:flex; align-items:center; gap:8px; margin-bottom:14px;">
+                        <span>📖</span>
+                        <span>說明</span>
+                    </div>
+                    <div class="rule-body">
+                        ${explanationHtml || '<p class="md-paragraph muted">目前沒有說明內容。</p>'}
+                    </div>
+                </section>
 
                 ${(data.usage_notes_zh_tw || []).length > 0 ? `
                     <h2 style="margin-top:48px;">📌 重點提示</h2>
@@ -637,11 +644,9 @@ const APP = {
                     </div>
                 ` : ''}
 
-                <div class="example-section">
+                <div class="example-section" style="margin-top:28px;">
                     <div class="section-subtitle">🔊 精選例句 (Examples)</div>
-                    <div class="example-grid" style="display:grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap:16px;">
-                        ${examplesHtml}
-                    </div>
+                    ${hasExamples ? `<div class="example-grid" style="display:grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap:16px;">${examplesHtml}</div>` : '<p class="muted-text">目前沒有對應例句。</p>'}
                 </div>
             </article>
         `;

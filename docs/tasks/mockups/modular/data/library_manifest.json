@@ -20,6 +20,15 @@
       "level": "A2",
       "path": "data/content-ko/core/learning_library/knowledge/grammar/ending/kg.grammar.ending.promise_ulgeyo.json",
       "surface": "-(으)ㄹ게요"
+    },
+    {
+      "id": "kg.grammar.ending.formal_declarative_su_ni_da",
+      "category": "grammar",
+      "sub": "ending",
+      "title": "正式敘述句 -습니다/ㅂ니다",
+      "level": "A2",
+      "path": "data/content-ko/core/learning_library/knowledge/grammar/ending/kg.grammar.ending.formal_declarative_su_ni_da.json",
+      "surface": "-습니다/ㅂ니다"
     }
   ],
   "items": [
@@ -31,6 +40,15 @@
       "level": "A2",
       "path": "data/content-ko/core/learning_library/knowledge/grammar/ending/kg.grammar.ending.promise_ulgeyo.json",
       "surface": "-(으)ㄹ게요"
+    },
+    {
+      "id": "kg.grammar.ending.formal_declarative_su_ni_da",
+      "category": "grammar",
+      "sub": "ending",
+      "title": "正式敘述句 -습니다/ㅂ니다",
+      "level": "A2",
+      "path": "data/content-ko/core/learning_library/knowledge/grammar/ending/kg.grammar.ending.formal_declarative_su_ni_da.json",
+      "surface": "-습니다/ㅂ니다"
     }
   ]
 }

@@ -16,19 +16,57 @@
       "id": "kg.grammar.ending.promise_ulgeyo",
       "category": "grammar",
       "sub": "ending",
-      "title": "約定意志語尾 -(으)ㄹ게요",
+      "title": "-(으)ㄹ게요（承諾／我來做）",
       "level": "A2",
-      "path": "data/content-ko/core/learning_library/knowledge/grammar/ending/kg.grammar.ending.promise_ulgeyo.json",
-      "surface": "-(으)ㄹ게요"
+      "path": "data/library/kg.grammar.ending.promise_ulgeyo.json",
+      "surface": "-(으)ㄹ게요",
+      "example_sentence_refs": [
+        "ex.ko.s.000001",
+        "ex.ko.s.000002",
+        "ex.ko.s.000003",
+        "ex.ko.s.000004",
+        "ex.ko.s.000005",
+        "ex.ko.s.000006"
+      ]
     },
     {
       "id": "kg.grammar.ending.formal_declarative_su_ni_da",
       "category": "grammar",
       "sub": "ending",
-      "title": "正式敘述句 -습니다/ㅂ니다",
+      "title": "습니다/ㅂ니다（正式敘述句／敬語）",
       "level": "A2",
-      "path": "data/content-ko/core/learning_library/knowledge/grammar/ending/kg.grammar.ending.formal_declarative_su_ni_da.json",
-      "surface": "-습니다/ㅂ니다"
+      "path": "data/library/kg.grammar.ending.formal_declarative_su_ni_da.json",
+      "surface": "-습니다/ㅂ니다",
+      "example_sentence_refs": [
+        "ex.ko.s.000007",
+        "ex.ko.s.000008",
+        "ex.ko.s.000009",
+        "ex.ko.s.000010",
+        "ex.ko.s.000011",
+        "ex.ko.s.000012",
+        "ex.ko.s.000013"
+      ]
+    },
+    {
+      "id": "kg.grammar.ending.polite_standard_ayo_eoyo",
+      "category": "grammar",
+      "sub": "ending",
+      "title": "아요/어요/해요（標準敘述／一般禮貌體）",
+      "level": "A2",
+      "path": "data/library/kg.grammar.ending.polite_standard_ayo_eoyo.json",
+      "surface": "아요/어요/해요",
+      "example_sentence_refs": [
+        "ex.ko.s.000014",
+        "ex.ko.s.000015",
+        "ex.ko.s.000016",
+        "ex.ko.s.000017",
+        "ex.ko.s.000018",
+        "ex.ko.s.000019",
+        "ex.ko.s.000020",
+        "ex.ko.s.000021",
+        "ex.ko.s.000022",
+        "ex.ko.s.000023"
+      ]
     }
   ],
   "items": [
@@ -36,19 +74,57 @@
       "id": "kg.grammar.ending.promise_ulgeyo",
       "category": "grammar",
       "sub": "ending",
-      "title": "約定意志語尾 -(으)ㄹ게요",
+      "title": "-(으)ㄹ게요（承諾／我來做）",
       "level": "A2",
-      "path": "data/content-ko/core/learning_library/knowledge/grammar/ending/kg.grammar.ending.promise_ulgeyo.json",
-      "surface": "-(으)ㄹ게요"
+      "path": "data/library/kg.grammar.ending.promise_ulgeyo.json",
+      "surface": "-(으)ㄹ게요",
+      "example_sentence_refs": [
+        "ex.ko.s.000001",
+        "ex.ko.s.000002",
+        "ex.ko.s.000003",
+        "ex.ko.s.000004",
+        "ex.ko.s.000005",
+        "ex.ko.s.000006"
+      ]
     },
     {
       "id": "kg.grammar.ending.formal_declarative_su_ni_da",
       "category": "grammar",
       "sub": "ending",
-      "title": "正式敘述句 -습니다/ㅂ니다",
+      "title": "습니다/ㅂ니다（正式敘述句／敬語）",
       "level": "A2",
-      "path": "data/content-ko/core/learning_library/knowledge/grammar/ending/kg.grammar.ending.formal_declarative_su_ni_da.json",
-      "surface": "-습니다/ㅂ니다"
+      "path": "data/library/kg.grammar.ending.formal_declarative_su_ni_da.json",
+      "surface": "-습니다/ㅂ니다",
+      "example_sentence_refs": [
+        "ex.ko.s.000007",
+        "ex.ko.s.000008",
+        "ex.ko.s.000009",
+        "ex.ko.s.000010",
+        "ex.ko.s.000011",
+        "ex.ko.s.000012",
+        "ex.ko.s.000013"
+      ]
+    },
+    {
+      "id": "kg.grammar.ending.polite_standard_ayo_eoyo",
+      "category": "grammar",
+      "sub": "ending",
+      "title": "아요/어요/해요（標準敘述／一般禮貌體）",
+      "level": "A2",
+      "path": "data/library/kg.grammar.ending.polite_standard_ayo_eoyo.json",
+      "surface": "아요/어요/해요",
+      "example_sentence_refs": [
+        "ex.ko.s.000014",
+        "ex.ko.s.000015",
+        "ex.ko.s.000016",
+        "ex.ko.s.000017",
+        "ex.ko.s.000018",
+        "ex.ko.s.000019",
+        "ex.ko.s.000020",
+        "ex.ko.s.000021",
+        "ex.ko.s.000022",
+        "ex.ko.s.000023"
+      ]
     }
   ]
 }

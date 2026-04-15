@@ -112,7 +112,8 @@ def generate_manifest():
                     print(f"Error reading core {core_path}: {e}")
             
             item_id = i18n_data.get("id", file.replace(".json", ""))
-            item_title = i18n_data.get("title_zh_tw", item_id)
+            i18n_block = i18n_data.get("zh_tw", {}) if isinstance(i18n_data.get("zh_tw", {}), dict) else {}
+            item_title = i18n_block.get("title") or i18n_data.get("title_zh_tw") or item_id
             
             # Sync file to mockup
             target_path = OUTPUT_LIBRARY_DIR / file

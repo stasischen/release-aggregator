@@ -1,0 +1,186 @@
+{
+  "ex.ko.s.000012": {
+    "id": "ex.ko.s.000012",
+    "ko": "커피를 마십니다.",
+    "knowledge_refs": [
+      "kg.grammar.ending.formal_declarative_su_ni_da"
+    ],
+    "zh_tw": "喝咖啡。"
+  },
+  "ex.ko.s.000004": {
+    "id": "ex.ko.s.000004",
+    "ko": "사진을 지금 바로 보낼게요.",
+    "knowledge_refs": [
+      "kg.grammar.ending.promise_ulgeyo"
+    ],
+    "zh_tw": "我現在馬上傳照片。"
+  },
+  "ex.ko.s.000008": {
+    "id": "ex.ko.s.000008",
+    "ko": "학교에 갑니다.",
+    "knowledge_refs": [
+      "kg.grammar.ending.formal_declarative_su_ni_da"
+    ],
+    "zh_tw": "去學校。"
+  },
+  "ex.ko.s.000009": {
+    "id": "ex.ko.s.000009",
+    "ko": "책을 읽습니다.",
+    "knowledge_refs": [
+      "kg.grammar.ending.formal_declarative_su_ni_da"
+    ],
+    "zh_tw": "讀書。"
+  },
+  "ex.ko.s.000005": {
+    "id": "ex.ko.s.000005",
+    "ko": "비밀은 꼭 지킬게요.",
+    "knowledge_refs": [
+      "kg.grammar.ending.promise_ulgeyo"
+    ],
+    "zh_tw": "我一定會保守秘密。"
+  },
+  "ex.ko.s.000013": {
+    "id": "ex.ko.s.000013",
+    "ko": "저는 회사원입니다.",
+    "knowledge_refs": [
+      "kg.grammar.ending.formal_declarative_su_ni_da"
+    ],
+    "zh_tw": "我是上班族。"
+  },
+  "ex.ko.s.000022": {
+    "id": "ex.ko.s.000022",
+    "ko": "숙제해요.",
+    "knowledge_refs": [
+      "kg.grammar.ending.polite_standard_ayo_eoyo"
+    ],
+    "zh_tw": "做作業。"
+  },
+  "ex.ko.s.000018": {
+    "id": "ex.ko.s.000018",
+    "ko": "노래를 들어요.",
+    "knowledge_refs": [
+      "kg.grammar.ending.polite_standard_ayo_eoyo"
+    ],
+    "zh_tw": "聽歌。"
+  },
+  "ex.ko.s.000014": {
+    "id": "ex.ko.s.000014",
+    "ko": "집에 가요.",
+    "knowledge_refs": [
+      "kg.grammar.ending.polite_standard_ayo_eoyo"
+    ],
+    "zh_tw": "回家。"
+  },
+  "ex.ko.s.000002": {
+    "id": "ex.ko.s.000002",
+    "ko": "방 청소는 제가 할게요.",
+    "knowledge_refs": [
+      "kg.grammar.ending.promise_ulgeyo"
+    ],
+    "zh_tw": "房間打掃交給我。"
+  },
+  "ex.ko.s.000003": {
+    "id": "ex.ko.s.000003",
+    "ko": "나중에 다시 전화할게요.",
+    "knowledge_refs": [
+      "kg.grammar.ending.promise_ulgeyo"
+    ],
+    "zh_tw": "晚點我再打電話。"
+  },
+  "ex.ko.s.000015": {
+    "id": "ex.ko.s.000015",
+    "ko": "밥을 먹어요.",
+    "knowledge_refs": [
+      "kg.grammar.ending.polite_standard_ayo_eoyo"
+    ],
+    "zh_tw": "吃飯。"
+  },
+  "ex.ko.s.000019": {
+    "id": "ex.ko.s.000019",
+    "ko": "버스를 타요.",
+    "knowledge_refs": [
+      "kg.grammar.ending.polite_standard_ayo_eoyo"
+    ],
+    "zh_tw": "搭公車。"
+  },
+  "ex.ko.s.000023": {
+    "id": "ex.ko.s.000023",
+    "ko": "친구한테 전화해요.",
+    "knowledge_refs": [
+      "kg.grammar.ending.polite_standard_ayo_eoyo"
+    ],
+    "zh_tw": "打電話給朋友。"
+  },
+  "ex.ko.s.000020": {
+    "id": "ex.ko.s.000020",
+    "ko": "영화를 봐요.",
+    "knowledge_refs": [
+      "kg.grammar.ending.polite_standard_ayo_eoyo"
+    ],
+    "zh_tw": "看電影。"
+  },
+  "ex.ko.s.000016": {
+    "id": "ex.ko.s.000016",
+    "ko": "책을 읽어요.",
+    "knowledge_refs": [
+      "kg.grammar.ending.polite_standard_ayo_eoyo"
+    ],
+    "zh_tw": "看書。"
+  },
+  "ex.ko.s.000017": {
+    "id": "ex.ko.s.000017",
+    "ko": "커피를 마셔요.",
+    "knowledge_refs": [
+      "kg.grammar.ending.polite_standard_ayo_eoyo"
+    ],
+    "zh_tw": "喝咖啡。"
+  },
+  "ex.ko.s.000001": {
+    "id": "ex.ko.s.000001",
+    "ko": "내일은 꼭 일찍 올게요.",
+    "knowledge_refs": [
+      "kg.grammar.ending.promise_ulgeyo"
+    ],
+    "zh_tw": "明天我一定會早點來。"
+  },
+  "ex.ko.s.000021": {
+    "id": "ex.ko.s.000021",
+    "ko": "운동해요.",
+    "knowledge_refs": [
+      "kg.grammar.ending.polite_standard_ayo_eoyo"
+    ],
+    "zh_tw": "運動。"
+  },
+  "ex.ko.s.000006": {
+    "id": "ex.ko.s.000006",
+    "ko": "책을 읽을게요.",
+    "knowledge_refs": [
+      "kg.grammar.ending.promise_ulgeyo"
+    ],
+    "zh_tw": "我會讀書。"
+  },
+  "ex.ko.s.000010": {
+    "id": "ex.ko.s.000010",
+    "ko": "지하철을 탑니다.",
+    "knowledge_refs": [
+      "kg.grammar.ending.formal_declarative_su_ni_da"
+    ],
+    "zh_tw": "搭地鐵。"
+  },
+  "ex.ko.s.000011": {
+    "id": "ex.ko.s.000011",
+    "ko": "영화를 봅니다.",
+    "knowledge_refs": [
+      "kg.grammar.ending.formal_declarative_su_ni_da"
+    ],
+    "zh_tw": "看電影。"
+  },
+  "ex.ko.s.000007": {
+    "id": "ex.ko.s.000007",
+    "ko": "저는 학생입니다.",
+    "knowledge_refs": [
+      "kg.grammar.ending.formal_declarative_su_ni_da"
+    ],
+    "zh_tw": "我是學生。"
+  }
+}

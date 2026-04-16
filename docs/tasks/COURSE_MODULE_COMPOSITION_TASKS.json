@@ -65,20 +65,12 @@
     },
     {
       "id": "CMOD-012",
-<<<<<<< Updated upstream
       "desc": "Define canonical pattern_frame + slot_bank contract for controlled substitution drills; must align with frozen EXAMPLE_SENTENCE_BANK_SCHEMA_V1 (not just V0 draft).",
-=======
-      "desc": "Define canonical pattern_frame + slot_bank contract for controlled substitution drills, including semantic slot types, compatibility rules, translation render hints, and alignment with EXAMPLE_SENTENCE_BANK_V0 optional frame_projection/slot_projection rules.",
->>>>>>> Stashed changes
       "status": "todo",
       "depends_on": [
         "CMOD-001",
         "CMOD-003",
-<<<<<<< Updated upstream
         "kg-spec-011"
-=======
-        "kg-spec-008"
->>>>>>> Stashed changes
       ]
     },
     {

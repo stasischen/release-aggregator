@@ -21196,5 +21196,1605 @@
       "locale": "zh_tw",
       "translation": "沒意思的往事就別再提了吧。"
     }
+  },
+  {
+    "id": "ex.ko.s.000707",
+    "source": {
+      "id": "ex.ko.s.000707",
+      "ko": "저는 숙제를 하고 게임을 했어요.",
+      "level": "A1",
+      "tags": [
+        "grammar",
+        "ending",
+        "beginner"
+      ],
+      "knowledge_refs": [
+        "kg.grammar.ending.connective_go"
+      ],
+      "provenance": {
+        "source": "youtube_beginner_grammar",
+        "source_lesson_ids": [
+          72,
+          126
+        ],
+        "source_video_ids": [
+          "ue6T80ejgk0"
+        ],
+        "original_sentence_adjusted": "Original pedagogy-driven sentence."
+      }
+    },
+    "i18n": {
+      "id": "ex.ko.s.000707",
+      "locale": "zh_tw",
+      "translation": "我做完功課後玩了遊戲。"
+    }
+  },
+  {
+    "id": "ex.ko.s.000708",
+    "source": {
+      "id": "ex.ko.s.000708",
+      "ko": "손을 씻고 밥을 먹어요.",
+      "level": "A1",
+      "tags": [
+        "grammar",
+        "ending",
+        "beginner"
+      ],
+      "knowledge_refs": [
+        "kg.grammar.ending.connective_go"
+      ],
+      "provenance": {
+        "source": "youtube_beginner_grammar",
+        "source_lesson_ids": [
+          72,
+          126
+        ],
+        "source_video_ids": [
+          "ue6T80ejgk0"
+        ],
+        "original_sentence_adjusted": "Original pedagogy-driven sentence."
+      }
+    },
+    "i18n": {
+      "id": "ex.ko.s.000708",
+      "locale": "zh_tw",
+      "translation": "洗過手後吃飯。"
+    }
+  },
+  {
+    "id": "ex.ko.s.000709",
+    "source": {
+      "id": "ex.ko.s.000709",
+      "ko": "친구를 만나고 영화를 봤어요.",
+      "level": "A1",
+      "tags": [
+        "grammar",
+        "ending",
+        "beginner"
+      ],
+      "knowledge_refs": [
+        "kg.grammar.ending.connective_go"
+      ],
+      "provenance": {
+        "source": "youtube_beginner_grammar",
+        "source_lesson_ids": [
+          72,
+          126
+        ],
+        "source_video_ids": [
+          "ue6T80ejgk0"
+        ],
+        "original_sentence_adjusted": "Original pedagogy-driven sentence."
+      }
+    },
+    "i18n": {
+      "id": "ex.ko.s.000709",
+      "locale": "zh_tw",
+      "translation": "和朋友見面後看了電影。"
+    }
+  },
+  {
+    "id": "ex.ko.s.000710",
+    "source": {
+      "id": "ex.ko.s.000710",
+      "ko": "백화점에서 옷을 사고 구두를 샀어요.",
+      "level": "A1",
+      "tags": [
+        "grammar",
+        "ending",
+        "beginner"
+      ],
+      "knowledge_refs": [
+        "kg.grammar.ending.connective_go"
+      ],
+      "provenance": {
+        "source": "youtube_beginner_grammar",
+        "source_lesson_ids": [
+          72,
+          126
+        ],
+        "source_video_ids": [
+          "ue6T80ejgk0"
+        ],
+        "original_sentence_adjusted": "Original pedagogy-driven sentence."
+      }
+    },
+    "i18n": {
+      "id": "ex.ko.s.000710",
+      "locale": "zh_tw",
+      "translation": "在百貨公司買了衣服也買了皮鞋。"
+    }
+  },
+  {
+    "id": "ex.ko.s.000711",
+    "source": {
+      "id": "ex.ko.s.000711",
+      "ko": "겨울은 춥고 눈이 와요.",
+      "level": "A1",
+      "tags": [
+        "grammar",
+        "ending",
+        "beginner"
+      ],
+      "knowledge_refs": [
+        "kg.grammar.ending.connective_go"
+      ],
+      "provenance": {
+        "source": "youtube_beginner_grammar",
+        "source_lesson_ids": [
+          72,
+          126
+        ],
+        "source_video_ids": [
+          "ue6T80ejgk0"
+        ],
+        "original_sentence_adjusted": "Original pedagogy-driven sentence."
+      }
+    },
+    "i18n": {
+      "id": "ex.ko.s.000711",
+      "locale": "zh_tw",
+      "translation": "冬天很冷且會下雪。"
+    }
+  },
+  {
+    "id": "ex.ko.s.000712",
+    "source": {
+      "id": "ex.ko.s.000712",
+      "ko": "이 사과는 빨갛고 맛있어요.",
+      "level": "A1",
+      "tags": [
+        "grammar",
+        "ending",
+        "beginner"
+      ],
+      "knowledge_refs": [
+        "kg.grammar.ending.connective_go"
+      ],
+      "provenance": {
+        "source": "youtube_beginner_grammar",
+        "source_lesson_ids": [
+          72,
+          126
+        ],
+        "source_video_ids": [
+          "ue6T80ejgk0"
+        ],
+        "original_sentence_adjusted": "Original pedagogy-driven sentence."
+      }
+    },
+    "i18n": {
+      "id": "ex.ko.s.000712",
+      "locale": "zh_tw",
+      "translation": "這顆蘋果又紅又好吃。"
+    }
+  },
+  {
+    "id": "ex.ko.s.000713",
+    "source": {
+      "id": "ex.ko.s.000713",
+      "ko": "책을 읽고 메모를 해요.",
+      "level": "A1",
+      "tags": [
+        "grammar",
+        "ending",
+        "beginner"
+      ],
+      "knowledge_refs": [
+        "kg.grammar.ending.connective_go"
+      ],
+      "provenance": {
+        "source": "youtube_beginner_grammar",
+        "source_lesson_ids": [
+          72,
+          126
+        ],
+        "source_video_ids": [
+          "ue6T80ejgk0"
+        ],
+        "original_sentence_adjusted": "Original pedagogy-driven sentence."
+      }
+    },
+    "i18n": {
+      "id": "ex.ko.s.000713",
+      "locale": "zh_tw",
+      "translation": "讀完書後做筆記。"
+    }
+  },
+  {
+    "id": "ex.ko.s.000714",
+    "source": {
+      "id": "ex.ko.s.000714",
+      "ko": "음악을 듣고 춤을 춰요.",
+      "level": "A1",
+      "tags": [
+        "grammar",
+        "ending",
+        "beginner"
+      ],
+      "knowledge_refs": [
+        "kg.grammar.ending.connective_go"
+      ],
+      "provenance": {
+        "source": "youtube_beginner_grammar",
+        "source_lesson_ids": [
+          72,
+          126
+        ],
+        "source_video_ids": [
+          "ue6T80ejgk0"
+        ],
+        "original_sentence_adjusted": "Original pedagogy-driven sentence."
+      }
+    },
+    "i18n": {
+      "id": "ex.ko.s.000714",
+      "locale": "zh_tw",
+      "translation": "聽著音樂跳著舞。"
+    }
+  },
+  {
+    "id": "ex.ko.s.000715",
+    "source": {
+      "id": "ex.ko.s.000715",
+      "ko": "어제 쇼핑을 하고 카페에 갔어요.",
+      "level": "A1",
+      "tags": [
+        "grammar",
+        "ending",
+        "beginner"
+      ],
+      "knowledge_refs": [
+        "kg.grammar.ending.connective_go"
+      ],
+      "provenance": {
+        "source": "youtube_beginner_grammar",
+        "source_lesson_ids": [
+          72,
+          126
+        ],
+        "source_video_ids": [
+          "ue6T80ejgk0"
+        ],
+        "original_sentence_adjusted": "Original pedagogy-driven sentence."
+      }
+    },
+    "i18n": {
+      "id": "ex.ko.s.000715",
+      "locale": "zh_tw",
+      "translation": "昨天逛完街後去了咖啡廳。"
+    }
+  },
+  {
+    "id": "ex.ko.s.000716",
+    "source": {
+      "id": "ex.ko.s.000716",
+      "ko": "아침에 우유를 마시고 빵을 먹었어요.",
+      "level": "A1",
+      "tags": [
+        "grammar",
+        "ending",
+        "beginner"
+      ],
+      "knowledge_refs": [
+        "kg.grammar.ending.connective_go"
+      ],
+      "provenance": {
+        "source": "youtube_beginner_grammar",
+        "source_lesson_ids": [
+          72,
+          126
+        ],
+        "source_video_ids": [
+          "ue6T80ejgk0"
+        ],
+        "original_sentence_adjusted": "Original pedagogy-driven sentence."
+      }
+    },
+    "i18n": {
+      "id": "ex.ko.s.000716",
+      "locale": "zh_tw",
+      "translation": "早上喝了牛奶後吃了麵包。"
+    }
+  },
+  {
+    "id": "ex.ko.s.000717",
+    "source": {
+      "id": "ex.ko.s.000717",
+      "ko": "비가 와서 우산을 썼어요.",
+      "level": "A1",
+      "tags": [
+        "grammar",
+        "ending",
+        "beginner"
+      ],
+      "knowledge_refs": [
+        "kg.grammar.ending.cause_connective_aseo_eoseo"
+      ],
+      "provenance": {
+        "source": "youtube_beginner_grammar",
+        "source_lesson_ids": [
+          73,
+          82,
+          83
+        ],
+        "source_video_ids": [
+          "RXnEFWDQXoY"
+        ],
+        "original_sentence_adjusted": "Original pedagogy-driven sentence."
+      }
+    },
+    "i18n": {
+      "id": "ex.ko.s.000717",
+      "locale": "zh_tw",
+      "translation": "因為下雨所以撐了傘。"
+    }
+  },
+  {
+    "id": "ex.ko.s.000718",
+    "source": {
+      "id": "ex.ko.s.000718",
+      "ko": "길이 막혀서 늦었어요.",
+      "level": "A1",
+      "tags": [
+        "grammar",
+        "ending",
+        "beginner"
+      ],
+      "knowledge_refs": [
+        "kg.grammar.ending.cause_connective_aseo_eoseo"
+      ],
+      "provenance": {
+        "source": "youtube_beginner_grammar",
+        "source_lesson_ids": [
+          73,
+          82,
+          83
+        ],
+        "source_video_ids": [
+          "RXnEFWDQXoY"
+        ],
+        "original_sentence_adjusted": "Original pedagogy-driven sentence."
+      }
+    },
+    "i18n": {
+      "id": "ex.ko.s.000718",
+      "locale": "zh_tw",
+      "translation": "因為塞車所以遲到了。"
+    }
+  },
+  {
+    "id": "ex.ko.s.000719",
+    "source": {
+      "id": "ex.ko.s.000719",
+      "ko": "배가 아파서 병원에 가요.",
+      "level": "A1",
+      "tags": [
+        "grammar",
+        "ending",
+        "beginner"
+      ],
+      "knowledge_refs": [
+        "kg.grammar.ending.cause_connective_aseo_eoseo"
+      ],
+      "provenance": {
+        "source": "youtube_beginner_grammar",
+        "source_lesson_ids": [
+          73,
+          82,
+          83
+        ],
+        "source_video_ids": [
+          "RXnEFWDQXoY"
+        ],
+        "original_sentence_adjusted": "Original pedagogy-driven sentence."
+      }
+    },
+    "i18n": {
+      "id": "ex.ko.s.000719",
+      "locale": "zh_tw",
+      "translation": "因為肚子痛，所以要去醫院。"
+    }
+  },
+  {
+    "id": "ex.ko.s.000720",
+    "source": {
+      "id": "ex.ko.s.000720",
+      "ko": "어제 피곤해서 일찍 잤어요.",
+      "level": "A1",
+      "tags": [
+        "grammar",
+        "ending",
+        "beginner"
+      ],
+      "knowledge_refs": [
+        "kg.grammar.ending.cause_connective_aseo_eoseo"
+      ],
+      "provenance": {
+        "source": "youtube_beginner_grammar",
+        "source_lesson_ids": [
+          73,
+          82,
+          83
+        ],
+        "source_video_ids": [
+          "RXnEFWDQXoY"
+        ],
+        "original_sentence_adjusted": "Original pedagogy-driven sentence."
+      }
+    },
+    "i18n": {
+      "id": "ex.ko.s.000720",
+      "locale": "zh_tw",
+      "translation": "昨天因為很累所以早早就睡了。"
+    }
+  },
+  {
+    "id": "ex.ko.s.000721",
+    "source": {
+      "id": "ex.ko.s.000721",
+      "ko": "사과를 씻어서 먹어요.",
+      "level": "A1",
+      "tags": [
+        "grammar",
+        "ending",
+        "beginner"
+      ],
+      "knowledge_refs": [
+        "kg.grammar.ending.cause_connective_aseo_eoseo"
+      ],
+      "provenance": {
+        "source": "youtube_beginner_grammar",
+        "source_lesson_ids": [
+          73,
+          82,
+          83
+        ],
+        "source_video_ids": [
+          "RXnEFWDQXoY"
+        ],
+        "original_sentence_adjusted": "Original pedagogy-driven sentence."
+      }
+    },
+    "i18n": {
+      "id": "ex.ko.s.000721",
+      "locale": "zh_tw",
+      "translation": "洗好蘋果後吃。"
+    }
+  },
+  {
+    "id": "ex.ko.s.000722",
+    "source": {
+      "id": "ex.ko.s.000722",
+      "ko": "친구를 만나서 커피를 마셨어요.",
+      "level": "A1",
+      "tags": [
+        "grammar",
+        "ending",
+        "beginner"
+      ],
+      "knowledge_refs": [
+        "kg.grammar.ending.cause_connective_aseo_eoseo"
+      ],
+      "provenance": {
+        "source": "youtube_beginner_grammar",
+        "source_lesson_ids": [
+          73,
+          82,
+          83
+        ],
+        "source_video_ids": [
+          "RXnEFWDQXoY"
+        ],
+        "original_sentence_adjusted": "Original pedagogy-driven sentence."
+      }
+    },
+    "i18n": {
+      "id": "ex.ko.s.000722",
+      "locale": "zh_tw",
+      "translation": "和朋友見面喝了咖啡。"
+    }
+  },
+  {
+    "id": "ex.ko.s.000723",
+    "source": {
+      "id": "ex.ko.s.000723",
+      "ko": "한국에 가서 김치를 먹고 싶어요.",
+      "level": "A1",
+      "tags": [
+        "grammar",
+        "ending",
+        "beginner"
+      ],
+      "knowledge_refs": [
+        "kg.grammar.ending.cause_connective_aseo_eoseo"
+      ],
+      "provenance": {
+        "source": "youtube_beginner_grammar",
+        "source_lesson_ids": [
+          73,
+          82,
+          83
+        ],
+        "source_video_ids": [
+          "RXnEFWDQXoY"
+        ],
+        "original_sentence_adjusted": "Original pedagogy-driven sentence."
+      }
+    },
+    "i18n": {
+      "id": "ex.ko.s.000723",
+      "locale": "zh_tw",
+      "translation": "想去韓國吃辛奇。"
+    }
+  },
+  {
+    "id": "ex.ko.s.000724",
+    "source": {
+      "id": "ex.ko.s.000724",
+      "ko": "책방에 가서 책을 샀어요.",
+      "level": "A1",
+      "tags": [
+        "grammar",
+        "ending",
+        "beginner"
+      ],
+      "knowledge_refs": [
+        "kg.grammar.ending.cause_connective_aseo_eoseo"
+      ],
+      "provenance": {
+        "source": "youtube_beginner_grammar",
+        "source_lesson_ids": [
+          73,
+          82,
+          83
+        ],
+        "source_video_ids": [
+          "RXnEFWDQXoY"
+        ],
+        "original_sentence_adjusted": "Original pedagogy-driven sentence."
+      }
+    },
+    "i18n": {
+      "id": "ex.ko.s.000724",
+      "locale": "zh_tw",
+      "translation": "去了書店買了書。"
+    }
+  },
+  {
+    "id": "ex.ko.s.000725",
+    "source": {
+      "id": "ex.ko.s.000725",
+      "ko": "옷이 작아서 못 입어요.",
+      "level": "A1",
+      "tags": [
+        "grammar",
+        "ending",
+        "beginner"
+      ],
+      "knowledge_refs": [
+        "kg.grammar.ending.cause_connective_aseo_eoseo"
+      ],
+      "provenance": {
+        "source": "youtube_beginner_grammar",
+        "source_lesson_ids": [
+          73,
+          82,
+          83
+        ],
+        "source_video_ids": [
+          "RXnEFWDQXoY"
+        ],
+        "original_sentence_adjusted": "Original pedagogy-driven sentence."
+      }
+    },
+    "i18n": {
+      "id": "ex.ko.s.000725",
+      "locale": "zh_tw",
+      "translation": "因為衣服太小，所以穿不下。"
+    }
+  },
+  {
+    "id": "ex.ko.s.000726",
+    "source": {
+      "id": "ex.ko.s.000726",
+      "ko": "날씨가 좋아서 산책을 했어요.",
+      "level": "A1",
+      "tags": [
+        "grammar",
+        "ending",
+        "beginner"
+      ],
+      "knowledge_refs": [
+        "kg.grammar.ending.cause_connective_aseo_eoseo"
+      ],
+      "provenance": {
+        "source": "youtube_beginner_grammar",
+        "source_lesson_ids": [
+          73,
+          82,
+          83
+        ],
+        "source_video_ids": [
+          "RXnEFWDQXoY"
+        ],
+        "original_sentence_adjusted": "Original pedagogy-driven sentence."
+      }
+    },
+    "i18n": {
+      "id": "ex.ko.s.000726",
+      "locale": "zh_tw",
+      "translation": "因為天氣很好，所以去散步了。"
+    }
+  },
+  {
+    "id": "ex.ko.s.000727",
+    "source": {
+      "id": "ex.ko.s.000727",
+      "ko": "한국어는 어렵지만 재미있어요.",
+      "level": "A1",
+      "tags": [
+        "grammar",
+        "ending",
+        "beginner"
+      ],
+      "knowledge_refs": [
+        "kg.grammar.ending.contrast_jiman"
+      ],
+      "provenance": {
+        "source": "youtube_beginner_grammar",
+        "source_lesson_ids": [
+          74
+        ],
+        "source_video_ids": [
+          "IObFqiO_00Q"
+        ],
+        "original_sentence_adjusted": "Original pedagogy-driven sentence."
+      }
+    },
+    "i18n": {
+      "id": "ex.ko.s.000727",
+      "locale": "zh_tw",
+      "translation": "韓文雖然難，但很有趣。"
+    }
+  },
+  {
+    "id": "ex.ko.s.000728",
+    "source": {
+      "id": "ex.ko.s.000728",
+      "ko": "일은 힘들지만 보람이 있어요.",
+      "level": "A1",
+      "tags": [
+        "grammar",
+        "ending",
+        "beginner"
+      ],
+      "knowledge_refs": [
+        "kg.grammar.ending.contrast_jiman"
+      ],
+      "provenance": {
+        "source": "youtube_beginner_grammar",
+        "source_lesson_ids": [
+          74
+        ],
+        "source_video_ids": [
+          "IObFqiO_00Q"
+        ],
+        "original_sentence_adjusted": "Original pedagogy-driven sentence."
+      }
+    },
+    "i18n": {
+      "id": "ex.ko.s.000728",
+      "locale": "zh_tw",
+      "translation": "工作雖然辛苦，但很有成就感。"
+    }
+  },
+  {
+    "id": "ex.ko.s.000729",
+    "source": {
+      "id": "ex.ko.s.000729",
+      "ko": "이 옷은 비싸지만 예뻐요.",
+      "level": "A1",
+      "tags": [
+        "grammar",
+        "ending",
+        "beginner"
+      ],
+      "knowledge_refs": [
+        "kg.grammar.ending.contrast_jiman"
+      ],
+      "provenance": {
+        "source": "youtube_beginner_grammar",
+        "source_lesson_ids": [
+          74
+        ],
+        "source_video_ids": [
+          "IObFqiO_00Q"
+        ],
+        "original_sentence_adjusted": "Original pedagogy-driven sentence."
+      }
+    },
+    "i18n": {
+      "id": "ex.ko.s.000729",
+      "locale": "zh_tw",
+      "translation": "這件衣服雖然貴，但很漂亮。"
+    }
+  },
+  {
+    "id": "ex.ko.s.000730",
+    "source": {
+      "id": "ex.ko.s.000730",
+      "ko": "목소리는 작지만 노래를 잘 해요.",
+      "level": "A1",
+      "tags": [
+        "grammar",
+        "ending",
+        "beginner"
+      ],
+      "knowledge_refs": [
+        "kg.grammar.ending.contrast_jiman"
+      ],
+      "provenance": {
+        "source": "youtube_beginner_grammar",
+        "source_lesson_ids": [
+          74
+        ],
+        "source_video_ids": [
+          "IObFqiO_00Q"
+        ],
+        "original_sentence_adjusted": "Original pedagogy-driven sentence."
+      }
+    },
+    "i18n": {
+      "id": "ex.ko.s.000730",
+      "locale": "zh_tw",
+      "translation": "雖然聲音小，但歌唱得很好。"
+    }
+  },
+  {
+    "id": "ex.ko.s.000731",
+    "source": {
+      "id": "ex.ko.s.000731",
+      "ko": "날씨는 춥지만 마음은 따뜻해요.",
+      "level": "A1",
+      "tags": [
+        "grammar",
+        "ending",
+        "beginner"
+      ],
+      "knowledge_refs": [
+        "kg.grammar.ending.contrast_jiman"
+      ],
+      "provenance": {
+        "source": "youtube_beginner_grammar",
+        "source_lesson_ids": [
+          74
+        ],
+        "source_video_ids": [
+          "IObFqiO_00Q"
+        ],
+        "original_sentence_adjusted": "Original pedagogy-driven sentence."
+      }
+    },
+    "i18n": {
+      "id": "ex.ko.s.000731",
+      "locale": "zh_tw",
+      "translation": "雖然天氣冷，但心裡很溫暖。"
+    }
+  },
+  {
+    "id": "ex.ko.s.000732",
+    "source": {
+      "id": "ex.ko.s.000732",
+      "ko": "잠은 오지만 공부를 계속해요.",
+      "level": "A1",
+      "tags": [
+        "grammar",
+        "ending",
+        "beginner"
+      ],
+      "knowledge_refs": [
+        "kg.grammar.ending.contrast_jiman"
+      ],
+      "provenance": {
+        "source": "youtube_beginner_grammar",
+        "source_lesson_ids": [
+          74
+        ],
+        "source_video_ids": [
+          "IObFqiO_00Q"
+        ],
+        "original_sentence_adjusted": "Original pedagogy-driven sentence."
+      }
+    },
+    "i18n": {
+      "id": "ex.ko.s.000732",
+      "locale": "zh_tw",
+      "translation": "雖然很睏，但還是繼續讀書。"
+    }
+  },
+  {
+    "id": "ex.ko.s.000733",
+    "source": {
+      "id": "ex.ko.s.000733",
+      "ko": "집은 좁지만 아주 깨끗해요.",
+      "level": "A1",
+      "tags": [
+        "grammar",
+        "ending",
+        "beginner"
+      ],
+      "knowledge_refs": [
+        "kg.grammar.ending.contrast_jiman"
+      ],
+      "provenance": {
+        "source": "youtube_beginner_grammar",
+        "source_lesson_ids": [
+          74
+        ],
+        "source_video_ids": [
+          "IObFqiO_00Q"
+        ],
+        "original_sentence_adjusted": "Original pedagogy-driven sentence."
+      }
+    },
+    "i18n": {
+      "id": "ex.ko.s.000733",
+      "locale": "zh_tw",
+      "translation": "房子雖然小，但非常乾淨。"
+    }
+  },
+  {
+    "id": "ex.ko.s.000734",
+    "source": {
+      "id": "ex.ko.s.000734",
+      "ko": "김치는 맵지만 맛있어요.",
+      "level": "A1",
+      "tags": [
+        "grammar",
+        "ending",
+        "beginner"
+      ],
+      "knowledge_refs": [
+        "kg.grammar.ending.contrast_jiman"
+      ],
+      "provenance": {
+        "source": "youtube_beginner_grammar",
+        "source_lesson_ids": [
+          74
+        ],
+        "source_video_ids": [
+          "IObFqiO_00Q"
+        ],
+        "original_sentence_adjusted": "Original pedagogy-driven sentence."
+      }
+    },
+    "i18n": {
+      "id": "ex.ko.s.000734",
+      "locale": "zh_tw",
+      "translation": "辛奇雖然辣，但很好吃。"
+    }
+  },
+  {
+    "id": "ex.ko.s.000735",
+    "source": {
+      "id": "ex.ko.s.000735",
+      "ko": "어제는 비가 왔지만 오늘은 맑아요.",
+      "level": "A1",
+      "tags": [
+        "grammar",
+        "ending",
+        "beginner"
+      ],
+      "knowledge_refs": [
+        "kg.grammar.ending.contrast_jiman"
+      ],
+      "provenance": {
+        "source": "youtube_beginner_grammar",
+        "source_lesson_ids": [
+          74
+        ],
+        "source_video_ids": [
+          "IObFqiO_00Q"
+        ],
+        "original_sentence_adjusted": "Original pedagogy-driven sentence."
+      }
+    },
+    "i18n": {
+      "id": "ex.ko.s.000735",
+      "locale": "zh_tw",
+      "translation": "昨天雖然下雨，但今天天氣晴朗。"
+    }
+  },
+  {
+    "id": "ex.ko.s.000736",
+    "source": {
+      "id": "ex.ko.s.000736",
+      "ko": "키는 작지만 농구를 잘 해요.",
+      "level": "A1",
+      "tags": [
+        "grammar",
+        "ending",
+        "beginner"
+      ],
+      "knowledge_refs": [
+        "kg.grammar.ending.contrast_jiman"
+      ],
+      "provenance": {
+        "source": "youtube_beginner_grammar",
+        "source_lesson_ids": [
+          74
+        ],
+        "source_video_ids": [
+          "IObFqiO_00Q"
+        ],
+        "original_sentence_adjusted": "Original pedagogy-driven sentence."
+      }
+    },
+    "i18n": {
+      "id": "ex.ko.s.000736",
+      "locale": "zh_tw",
+      "translation": "雖然個子小，但籃球打得很好。"
+    }
+  },
+  {
+    "id": "ex.ko.s.000737",
+    "source": {
+      "id": "ex.ko.s.000737",
+      "ko": "주말에 영화를 보거나 책을 읽어요.",
+      "level": "A1",
+      "tags": [
+        "grammar",
+        "ending",
+        "beginner"
+      ],
+      "knowledge_refs": [
+        "kg.grammar.ending.choice_geona"
+      ],
+      "provenance": {
+        "source": "youtube_beginner_grammar",
+        "source_lesson_ids": [
+          75
+        ],
+        "source_video_ids": [
+          "84rR9yJMlkk"
+        ],
+        "original_sentence_adjusted": "Original pedagogy-driven sentence."
+      }
+    },
+    "i18n": {
+      "id": "ex.ko.s.000737",
+      "locale": "zh_tw",
+      "translation": "週末時看電影或看書。"
+    }
+  },
+  {
+    "id": "ex.ko.s.000738",
+    "source": {
+      "id": "ex.ko.s.000738",
+      "ko": "아침에 빵을 먹거나 우유를 마셔요.",
+      "level": "A1",
+      "tags": [
+        "grammar",
+        "ending",
+        "beginner"
+      ],
+      "knowledge_refs": [
+        "kg.grammar.ending.choice_geona"
+      ],
+      "provenance": {
+        "source": "youtube_beginner_grammar",
+        "source_lesson_ids": [
+          75
+        ],
+        "source_video_ids": [
+          "84rR9yJMlkk"
+        ],
+        "original_sentence_adjusted": "Original pedagogy-driven sentence."
+      }
+    },
+    "i18n": {
+      "id": "ex.ko.s.000738",
+      "locale": "zh_tw",
+      "translation": "早上吃麵包或喝牛奶。"
+    }
+  },
+  {
+    "id": "ex.ko.s.000739",
+    "source": {
+      "id": "ex.ko.s.000739",
+      "ko": "심심할 때 음악을 듣거나 게임을 해요.",
+      "level": "A1",
+      "tags": [
+        "grammar",
+        "ending",
+        "beginner"
+      ],
+      "knowledge_refs": [
+        "kg.grammar.ending.choice_geona"
+      ],
+      "provenance": {
+        "source": "youtube_beginner_grammar",
+        "source_lesson_ids": [
+          75
+        ],
+        "source_video_ids": [
+          "84rR9yJMlkk"
+        ],
+        "original_sentence_adjusted": "Original pedagogy-driven sentence."
+      }
+    },
+    "i18n": {
+      "id": "ex.ko.s.000739",
+      "locale": "zh_tw",
+      "translation": "無聊的時候聽音樂或玩遊戲。"
+    }
+  },
+  {
+    "id": "ex.ko.s.000740",
+    "source": {
+      "id": "ex.ko.s.000740",
+      "ko": "방을 청소하거나 세탁을 해요.",
+      "level": "A1",
+      "tags": [
+        "grammar",
+        "ending",
+        "beginner"
+      ],
+      "knowledge_refs": [
+        "kg.grammar.ending.choice_geona"
+      ],
+      "provenance": {
+        "source": "youtube_beginner_grammar",
+        "source_lesson_ids": [
+          75
+        ],
+        "source_video_ids": [
+          "84rR9yJMlkk"
+        ],
+        "original_sentence_adjusted": "Original pedagogy-driven sentence."
+      }
+    },
+    "i18n": {
+      "id": "ex.ko.s.000740",
+      "locale": "zh_tw",
+      "translation": "打掃房間或洗衣服。"
+    }
+  },
+  {
+    "id": "ex.ko.s.000741",
+    "source": {
+      "id": "ex.ko.s.000741",
+      "ko": "커피를 마시거나 녹차를 마셔요.",
+      "level": "A1",
+      "tags": [
+        "grammar",
+        "ending",
+        "beginner"
+      ],
+      "knowledge_refs": [
+        "kg.grammar.ending.choice_geona"
+      ],
+      "provenance": {
+        "source": "youtube_beginner_grammar",
+        "source_lesson_ids": [
+          75
+        ],
+        "source_video_ids": [
+          "84rR9yJMlkk"
+        ],
+        "original_sentence_adjusted": "Original pedagogy-driven sentence."
+      }
+    },
+    "i18n": {
+      "id": "ex.ko.s.000741",
+      "locale": "zh_tw",
+      "translation": "喝咖啡或喝綠茶。"
+    }
+  },
+  {
+    "id": "ex.ko.s.000742",
+    "source": {
+      "id": "ex.ko.s.000742",
+      "ko": "시장에 가거나 마트에 가요.",
+      "level": "A1",
+      "tags": [
+        "grammar",
+        "ending",
+        "beginner"
+      ],
+      "knowledge_refs": [
+        "kg.grammar.ending.choice_geona"
+      ],
+      "provenance": {
+        "source": "youtube_beginner_grammar",
+        "source_lesson_ids": [
+          75
+        ],
+        "source_video_ids": [
+          "84rR9yJMlkk"
+        ],
+        "original_sentence_adjusted": "Original pedagogy-driven sentence."
+      }
+    },
+    "i18n": {
+      "id": "ex.ko.s.000742",
+      "locale": "zh_tw",
+      "translation": "去市場或去超市。"
+    }
+  },
+  {
+    "id": "ex.ko.s.000743",
+    "source": {
+      "id": "ex.ko.s.000743",
+      "ko": "그림을 그리거나 사진을 찍어요.",
+      "level": "A1",
+      "tags": [
+        "grammar",
+        "ending",
+        "beginner"
+      ],
+      "knowledge_refs": [
+        "kg.grammar.ending.choice_geona"
+      ],
+      "provenance": {
+        "source": "youtube_beginner_grammar",
+        "source_lesson_ids": [
+          75
+        ],
+        "source_video_ids": [
+          "84rR9yJMlkk"
+        ],
+        "original_sentence_adjusted": "Original pedagogy-driven sentence."
+      }
+    },
+    "i18n": {
+      "id": "ex.ko.s.000743",
+      "locale": "zh_tw",
+      "translation": "畫畫或是拍照。"
+    }
+  },
+  {
+    "id": "ex.ko.s.000744",
+    "source": {
+      "id": "ex.ko.s.000744",
+      "ko": "수영을 하거나 조깅을 해요.",
+      "level": "A1",
+      "tags": [
+        "grammar",
+        "ending",
+        "beginner"
+      ],
+      "knowledge_refs": [
+        "kg.grammar.ending.choice_geona"
+      ],
+      "provenance": {
+        "source": "youtube_beginner_grammar",
+        "source_lesson_ids": [
+          75
+        ],
+        "source_video_ids": [
+          "84rR9yJMlkk"
+        ],
+        "original_sentence_adjusted": "Original pedagogy-driven sentence."
+      }
+    },
+    "i18n": {
+      "id": "ex.ko.s.000744",
+      "locale": "zh_tw",
+      "translation": "游泳或是慢跑。"
+    }
+  },
+  {
+    "id": "ex.ko.s.000745",
+    "source": {
+      "id": "ex.ko.s.000745",
+      "ko": "한국어를 공부하거나 일어를 공부해요.",
+      "level": "A1",
+      "tags": [
+        "grammar",
+        "ending",
+        "beginner"
+      ],
+      "knowledge_refs": [
+        "kg.grammar.ending.choice_geona"
+      ],
+      "provenance": {
+        "source": "youtube_beginner_grammar",
+        "source_lesson_ids": [
+          75
+        ],
+        "source_video_ids": [
+          "84rR9yJMlkk"
+        ],
+        "original_sentence_adjusted": "Original pedagogy-driven sentence."
+      }
+    },
+    "i18n": {
+      "id": "ex.ko.s.000745",
+      "locale": "zh_tw",
+      "translation": "學習韓語或是學習日語。"
+    }
+  },
+  {
+    "id": "ex.ko.s.000746",
+    "source": {
+      "id": "ex.ko.s.000746",
+      "ko": "산에 가거나 바다에 가고 싶어요.",
+      "level": "A1",
+      "tags": [
+        "grammar",
+        "ending",
+        "beginner"
+      ],
+      "knowledge_refs": [
+        "kg.grammar.ending.choice_geona"
+      ],
+      "provenance": {
+        "source": "youtube_beginner_grammar",
+        "source_lesson_ids": [
+          75
+        ],
+        "source_video_ids": [
+          "84rR9yJMlkk"
+        ],
+        "original_sentence_adjusted": "Original pedagogy-driven sentence."
+      }
+    },
+    "i18n": {
+      "id": "ex.ko.s.000746",
+      "locale": "zh_tw",
+      "translation": "想去山上或是去海邊。"
+    }
+  },
+  {
+    "id": "ex.ko.s.000747",
+    "source": {
+      "id": "ex.ko.s.000747",
+      "ko": "날씨가 추운데 옷을 따뜻하게 입으세요.",
+      "level": "A2",
+      "tags": [
+        "grammar",
+        "ending",
+        "beginner"
+      ],
+      "knowledge_refs": [
+        "kg.grammar.ending.background_neunde"
+      ],
+      "provenance": {
+        "source": "youtube_beginner_grammar",
+        "source_lesson_ids": [
+          76,
+          86,
+          88
+        ],
+        "source_video_ids": [
+          "6OG_BaxuOo8"
+        ],
+        "original_sentence_adjusted": "Original pedagogy-driven sentence."
+      }
+    },
+    "i18n": {
+      "id": "ex.ko.s.000747",
+      "locale": "zh_tw",
+      "translation": "天氣冷，請穿暖一點。"
+    }
+  },
+  {
+    "id": "ex.ko.s.000748",
+    "source": {
+      "id": "ex.ko.s.000748",
+      "ko": "지금 시장에 가는데 같이 갈래요?",
+      "level": "A2",
+      "tags": [
+        "grammar",
+        "ending",
+        "beginner"
+      ],
+      "knowledge_refs": [
+        "kg.grammar.ending.background_neunde"
+      ],
+      "provenance": {
+        "source": "youtube_beginner_grammar",
+        "source_lesson_ids": [
+          76,
+          86,
+          88
+        ],
+        "source_video_ids": [
+          "6OG_BaxuOo8"
+        ],
+        "original_sentence_adjusted": "Original pedagogy-driven sentence."
+      }
+    },
+    "i18n": {
+      "id": "ex.ko.s.000748",
+      "locale": "zh_tw",
+      "translation": "我現在要去市場，要一起去嗎？"
+    }
+  },
+  {
+    "id": "ex.ko.s.000749",
+    "source": {
+      "id": "ex.ko.s.000749",
+      "ko": "이 식당은 비싼데 손님이 많아요.",
+      "level": "A2",
+      "tags": [
+        "grammar",
+        "ending",
+        "beginner"
+      ],
+      "knowledge_refs": [
+        "kg.grammar.ending.background_neunde"
+      ],
+      "provenance": {
+        "source": "youtube_beginner_grammar",
+        "source_lesson_ids": [
+          76,
+          86,
+          88
+        ],
+        "source_video_ids": [
+          "6OG_BaxuOo8"
+        ],
+        "original_sentence_adjusted": "Original pedagogy-driven sentence."
+      }
+    },
+    "i18n": {
+      "id": "ex.ko.s.000749",
+      "locale": "zh_tw",
+      "translation": "這家餐廳很貴，但客人很多。"
+    }
+  },
+  {
+    "id": "ex.ko.s.000750",
+    "source": {
+      "id": "ex.ko.s.000750",
+      "ko": "방은 작은데 아주 아늑해요.",
+      "level": "A2",
+      "tags": [
+        "grammar",
+        "ending",
+        "beginner"
+      ],
+      "knowledge_refs": [
+        "kg.grammar.ending.background_neunde"
+      ],
+      "provenance": {
+        "source": "youtube_beginner_grammar",
+        "source_lesson_ids": [
+          76,
+          86,
+          88
+        ],
+        "source_video_ids": [
+          "6OG_BaxuOo8"
+        ],
+        "original_sentence_adjusted": "Original pedagogy-driven sentence."
+      }
+    },
+    "i18n": {
+      "id": "ex.ko.s.000750",
+      "locale": "zh_tw",
+      "translation": "房間雖然小，但很溫馨。"
+    }
+  },
+  {
+    "id": "ex.ko.s.000751",
+    "source": {
+      "id": "ex.ko.s.000751",
+      "ko": "전화했는데 안 받았어요.",
+      "level": "A2",
+      "tags": [
+        "grammar",
+        "ending",
+        "beginner"
+      ],
+      "knowledge_refs": [
+        "kg.grammar.ending.background_neunde"
+      ],
+      "provenance": {
+        "source": "youtube_beginner_grammar",
+        "source_lesson_ids": [
+          76,
+          86,
+          88
+        ],
+        "source_video_ids": [
+          "6OG_BaxuOo8"
+        ],
+        "original_sentence_adjusted": "Original pedagogy-driven sentence."
+      }
+    },
+    "i18n": {
+      "id": "ex.ko.s.000751",
+      "locale": "zh_tw",
+      "translation": "打了電話卻沒接。"
+    }
+  },
+  {
+    "id": "ex.ko.s.000752",
+    "source": {
+      "id": "ex.ko.s.000752",
+      "ko": "밥을 다 먹었는데 배가 아직 고파요.",
+      "level": "A2",
+      "tags": [
+        "grammar",
+        "ending",
+        "beginner"
+      ],
+      "knowledge_refs": [
+        "kg.grammar.ending.background_neunde"
+      ],
+      "provenance": {
+        "source": "youtube_beginner_grammar",
+        "source_lesson_ids": [
+          76,
+          86,
+          88
+        ],
+        "source_video_ids": [
+          "6OG_BaxuOo8"
+        ],
+        "original_sentence_adjusted": "Original pedagogy-driven sentence."
+      }
+    },
+    "i18n": {
+      "id": "ex.ko.s.000752",
+      "locale": "zh_tw",
+      "translation": "飯都吃完了，但肚子還是很餓。"
+    }
+  },
+  {
+    "id": "ex.ko.s.000753",
+    "source": {
+      "id": "ex.ko.s.000753",
+      "ko": "어제 공부했는데 시험이 어려웠어요.",
+      "level": "A2",
+      "tags": [
+        "grammar",
+        "ending",
+        "beginner"
+      ],
+      "knowledge_refs": [
+        "kg.grammar.ending.background_neunde"
+      ],
+      "provenance": {
+        "source": "youtube_beginner_grammar",
+        "source_lesson_ids": [
+          76,
+          86,
+          88
+        ],
+        "source_video_ids": [
+          "6OG_BaxuOo8"
+        ],
+        "original_sentence_adjusted": "Original pedagogy-driven sentence."
+      }
+    },
+    "i18n": {
+      "id": "ex.ko.s.000753",
+      "locale": "zh_tw",
+      "translation": "昨天讀了書，但考試還是很難。"
+    }
+  },
+  {
+    "id": "ex.ko.s.000754",
+    "source": {
+      "id": "ex.ko.s.000754",
+      "ko": "버스를 기다리는데 오지 않아요.",
+      "level": "A2",
+      "tags": [
+        "grammar",
+        "ending",
+        "beginner"
+      ],
+      "knowledge_refs": [
+        "kg.grammar.ending.background_neunde"
+      ],
+      "provenance": {
+        "source": "youtube_beginner_grammar",
+        "source_lesson_ids": [
+          76,
+          86,
+          88
+        ],
+        "source_video_ids": [
+          "6OG_BaxuOo8"
+        ],
+        "original_sentence_adjusted": "Original pedagogy-driven sentence."
+      }
+    },
+    "i18n": {
+      "id": "ex.ko.s.000754",
+      "locale": "zh_tw",
+      "translation": "在等公車，但它不來。"
+    }
+  },
+  {
+    "id": "ex.ko.s.000755",
+    "source": {
+      "id": "ex.ko.s.000755",
+      "ko": "여동생은 예쁜데 남동생은 멋있어요.",
+      "level": "A2",
+      "tags": [
+        "grammar",
+        "ending",
+        "beginner"
+      ],
+      "knowledge_refs": [
+        "kg.grammar.ending.background_neunde"
+      ],
+      "provenance": {
+        "source": "youtube_beginner_grammar",
+        "source_lesson_ids": [
+          76,
+          86,
+          88
+        ],
+        "source_video_ids": [
+          "6OG_BaxuOo8"
+        ],
+        "original_sentence_adjusted": "Original pedagogy-driven sentence."
+      }
+    },
+    "i18n": {
+      "id": "ex.ko.s.000755",
+      "locale": "zh_tw",
+      "translation": "妹妹很漂亮，弟弟很帥。"
+    }
+  },
+  {
+    "id": "ex.ko.s.000756",
+    "source": {
+      "id": "ex.ko.s.000756",
+      "ko": "도와주고 싶은데 시간이 없어요.",
+      "level": "A2",
+      "tags": [
+        "grammar",
+        "ending",
+        "beginner"
+      ],
+      "knowledge_refs": [
+        "kg.grammar.ending.background_neunde"
+      ],
+      "provenance": {
+        "source": "youtube_beginner_grammar",
+        "source_lesson_ids": [
+          76,
+          86,
+          88
+        ],
+        "source_video_ids": [
+          "6OG_BaxuOo8"
+        ],
+        "original_sentence_adjusted": "Original pedagogy-driven sentence."
+      }
+    },
+    "i18n": {
+      "id": "ex.ko.s.000756",
+      "locale": "zh_tw",
+      "translation": "想幫你，但沒有時間。"
+    }
   }
 ]

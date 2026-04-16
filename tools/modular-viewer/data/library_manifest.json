@@ -5,12 +5,20 @@
       "title": "韓文法 (Grammar)",
       "sub": [
         {
+          "id": "ability",
+          "title": "Ability"
+        },
+        {
           "id": "adverb",
           "title": "Adverb"
         },
         {
           "id": "copula",
           "title": "Copula"
+        },
+        {
+          "id": "desire",
+          "title": "Desire"
         },
         {
           "id": "determiner",
@@ -23,6 +31,14 @@
         {
           "id": "existence",
           "title": "Existence"
+        },
+        {
+          "id": "expectation",
+          "title": "Expectation"
+        },
+        {
+          "id": "intent",
+          "title": "Intent"
         },
         {
           "id": "modifier",
@@ -48,6 +64,50 @@
     }
   ],
   "featured": [
+    {
+      "id": "kg.grammar.ability.cannot_ul_su_eoptda",
+      "category": "grammar",
+      "sub": "ability",
+      "title": "-(으)ㄹ 수 없다 (無能力/不可能性)",
+      "level": "A1",
+      "path": "data/runtime/zh_tw/knowledge.json",
+      "runtime_id": "kg.grammar.ability.cannot_ul_su_eoptda",
+      "surface": "-(으)ㄹ 수 없다",
+      "example_sentence_refs": [
+        "ex.ko.s.000487",
+        "ex.ko.s.000488",
+        "ex.ko.s.000489",
+        "ex.ko.s.000490",
+        "ex.ko.s.000491",
+        "ex.ko.s.000492",
+        "ex.ko.s.000493",
+        "ex.ko.s.000494",
+        "ex.ko.s.000495",
+        "ex.ko.s.000496"
+      ]
+    },
+    {
+      "id": "kg.grammar.ability.can_ul_su_itda",
+      "category": "grammar",
+      "sub": "ability",
+      "title": "-(으)ㄹ 수 있다 (能力/可能性)",
+      "level": "A1",
+      "path": "data/runtime/zh_tw/knowledge.json",
+      "runtime_id": "kg.grammar.ability.can_ul_su_itda",
+      "surface": "-(으)ㄹ 수 있다",
+      "example_sentence_refs": [
+        "ex.ko.s.000477",
+        "ex.ko.s.000478",
+        "ex.ko.s.000479",
+        "ex.ko.s.000480",
+        "ex.ko.s.000481",
+        "ex.ko.s.000482",
+        "ex.ko.s.000483",
+        "ex.ko.s.000484",
+        "ex.ko.s.000485",
+        "ex.ko.s.000486"
+      ]
+    },
     {
       "id": "kg.grammar.adverb.got",
       "category": "grammar",
@@ -113,53 +173,53 @@
         "ex.ko.s.000265",
         "ex.ko.s.000266"
       ]
-    },
-    {
-      "id": "kg.grammar.adverb.najunge",
-      "category": "grammar",
-      "sub": "adverb",
-      "title": "나중에 (以後 - 較遠/不定)",
-      "level": "A1",
-      "path": "data/runtime/zh_tw/knowledge.json",
-      "runtime_id": "kg.grammar.adverb.najunge",
-      "surface": "나중에",
-      "example_sentence_refs": [
-        "ex.ko.s.000377",
-        "ex.ko.s.000378",
-        "ex.ko.s.000379",
-        "ex.ko.s.000380",
-        "ex.ko.s.000381",
-        "ex.ko.s.000382",
-        "ex.ko.s.000383",
-        "ex.ko.s.000384",
-        "ex.ko.s.000385",
-        "ex.ko.s.000386"
-      ]
-    },
-    {
-      "id": "kg.grammar.adverb.dangjang",
-      "category": "grammar",
-      "sub": "adverb",
-      "title": "당장 (立刻、當場)",
-      "level": "A1",
-      "path": "data/runtime/zh_tw/knowledge.json",
-      "runtime_id": "kg.grammar.adverb.dangjang",
-      "surface": "당장",
-      "example_sentence_refs": [
-        "ex.ko.s.000307",
-        "ex.ko.s.000308",
-        "ex.ko.s.000309",
-        "ex.ko.s.000310",
-        "ex.ko.s.000311",
-        "ex.ko.s.000312",
-        "ex.ko.s.000313",
-        "ex.ko.s.000314",
-        "ex.ko.s.000315",
-        "ex.ko.s.000316"
-      ]
     }
   ],
   "items": [
+    {
+      "id": "kg.grammar.ability.cannot_ul_su_eoptda",
+      "category": "grammar",
+      "sub": "ability",
+      "title": "-(으)ㄹ 수 없다 (無能力/不可能性)",
+      "level": "A1",
+      "path": "data/runtime/zh_tw/knowledge.json",
+      "runtime_id": "kg.grammar.ability.cannot_ul_su_eoptda",
+      "surface": "-(으)ㄹ 수 없다",
+      "example_sentence_refs": [
+        "ex.ko.s.000487",
+        "ex.ko.s.000488",
+        "ex.ko.s.000489",
+        "ex.ko.s.000490",
+        "ex.ko.s.000491",
+        "ex.ko.s.000492",
+        "ex.ko.s.000493",
+        "ex.ko.s.000494",
+        "ex.ko.s.000495",
+        "ex.ko.s.000496"
+      ]
+    },
+    {
+      "id": "kg.grammar.ability.can_ul_su_itda",
+      "category": "grammar",
+      "sub": "ability",
+      "title": "-(으)ㄹ 수 있다 (能力/可能性)",
+      "level": "A1",
+      "path": "data/runtime/zh_tw/knowledge.json",
+      "runtime_id": "kg.grammar.ability.can_ul_su_itda",
+      "surface": "-(으)ㄹ 수 있다",
+      "example_sentence_refs": [
+        "ex.ko.s.000477",
+        "ex.ko.s.000478",
+        "ex.ko.s.000479",
+        "ex.ko.s.000480",
+        "ex.ko.s.000481",
+        "ex.ko.s.000482",
+        "ex.ko.s.000483",
+        "ex.ko.s.000484",
+        "ex.ko.s.000485",
+        "ex.ko.s.000486"
+      ]
+    },
     {
       "id": "kg.grammar.adverb.got",
       "category": "grammar",
@@ -469,6 +529,39 @@
       ]
     },
     {
+      "id": "kg.grammar.desire.wish_go_sipda",
+      "category": "grammar",
+      "sub": "desire",
+      "title": "-고 싶다 (想/想要)",
+      "level": "A1",
+      "path": "data/runtime/zh_tw/knowledge.json",
+      "runtime_id": "kg.grammar.desire.wish_go_sipda",
+      "surface": "",
+      "example_sentence_refs": []
+    },
+    {
+      "id": "kg.grammar.desire.wish_third_person_go_sip_eohada",
+      "category": "grammar",
+      "sub": "desire",
+      "title": "-고 싶어하다 (第三人稱願望)",
+      "level": "A1",
+      "path": "data/runtime/zh_tw/knowledge.json",
+      "runtime_id": "kg.grammar.desire.wish_third_person_go_sip_eohada",
+      "surface": "-고 싶어하다",
+      "example_sentence_refs": [
+        "ex.ko.s.000617",
+        "ex.ko.s.000618",
+        "ex.ko.s.000619",
+        "ex.ko.s.000620",
+        "ex.ko.s.000621",
+        "ex.ko.s.000622",
+        "ex.ko.s.000623",
+        "ex.ko.s.000624",
+        "ex.ko.s.000625",
+        "ex.ko.s.000626"
+      ]
+    },
+    {
       "id": "kg.grammar.determiner.musun",
       "category": "grammar",
       "sub": "determiner",
@@ -535,6 +628,39 @@
       ]
     },
     {
+      "id": "kg.grammar.ending.choice_euro_hada",
+      "category": "grammar",
+      "sub": "ending",
+      "title": "(으)로 하다 (決定/選擇)",
+      "level": "A1",
+      "path": "data/runtime/zh_tw/knowledge.json",
+      "runtime_id": "kg.grammar.ending.choice_euro_hada",
+      "surface": "-(으)로 하다",
+      "example_sentence_refs": [
+        "ex.ko.s.000657",
+        "ex.ko.s.000658",
+        "ex.ko.s.000659",
+        "ex.ko.s.000660",
+        "ex.ko.s.000661",
+        "ex.ko.s.000662",
+        "ex.ko.s.000663",
+        "ex.ko.s.000664",
+        "ex.ko.s.000665",
+        "ex.ko.s.000666"
+      ]
+    },
+    {
+      "id": "kg.grammar.ending.will_ul_geyo",
+      "category": "grammar",
+      "sub": "ending",
+      "title": "-(으)ㄹ게요 (我會/我來)",
+      "level": "A1",
+      "path": "data/runtime/zh_tw/knowledge.json",
+      "runtime_id": "kg.grammar.ending.will_ul_geyo",
+      "surface": "",
+      "example_sentence_refs": []
+    },
+    {
       "id": "kg.grammar.ending.promise_ulgeyo",
       "category": "grammar",
       "sub": "ending",
@@ -557,6 +683,270 @@
       ]
     },
     {
+      "id": "kg.grammar.ending.suggest_ul_kkayo",
+      "category": "grammar",
+      "sub": "ending",
+      "title": "-(으)ㄹ까요? (要不要呢？/你覺得嗎？)",
+      "level": "A1",
+      "path": "data/runtime/zh_tw/knowledge.json",
+      "runtime_id": "kg.grammar.ending.suggest_ul_kkayo",
+      "surface": "",
+      "example_sentence_refs": []
+    },
+    {
+      "id": "kg.grammar.ending.wish_ul_laeyo",
+      "category": "grammar",
+      "sub": "ending",
+      "title": "-(으)ㄹ래요 (要不要/我想)",
+      "level": "A1",
+      "path": "data/runtime/zh_tw/knowledge.json",
+      "runtime_id": "kg.grammar.ending.wish_ul_laeyo",
+      "surface": "",
+      "example_sentence_refs": []
+    },
+    {
+      "id": "kg.grammar.ending.propose_upsida",
+      "category": "grammar",
+      "sub": "ending",
+      "title": "-(으)ㅂ시다 (提議)",
+      "level": "A1",
+      "path": "data/runtime/zh_tw/knowledge.json",
+      "runtime_id": "kg.grammar.ending.propose_upsida",
+      "surface": "-(으)ㅂ시다",
+      "example_sentence_refs": [
+        "ex.ko.s.000607",
+        "ex.ko.s.000608",
+        "ex.ko.s.000609",
+        "ex.ko.s.000610",
+        "ex.ko.s.000611",
+        "ex.ko.s.000612",
+        "ex.ko.s.000613",
+        "ex.ko.s.000614",
+        "ex.ko.s.000615",
+        "ex.ko.s.000616"
+      ]
+    },
+    {
+      "id": "kg.grammar.ending.intent_ul_ryeogo",
+      "category": "grammar",
+      "sub": "ending",
+      "title": "-(으)려고 (意圖目的)",
+      "level": "A1",
+      "path": "data/runtime/zh_tw/knowledge.json",
+      "runtime_id": "kg.grammar.ending.intent_ul_ryeogo",
+      "surface": "-(으)려고",
+      "example_sentence_refs": [
+        "ex.ko.s.000647",
+        "ex.ko.s.000648",
+        "ex.ko.s.000649",
+        "ex.ko.s.000650",
+        "ex.ko.s.000651",
+        "ex.ko.s.000652",
+        "ex.ko.s.000653",
+        "ex.ko.s.000654",
+        "ex.ko.s.000655",
+        "ex.ko.s.000656"
+      ]
+    },
+    {
+      "id": "kg.grammar.ending.polite_command_useyo",
+      "category": "grammar",
+      "sub": "ending",
+      "title": "-(으)세요 (禮貌命令)",
+      "level": "A1",
+      "path": "data/runtime/zh_tw/knowledge.json",
+      "runtime_id": "kg.grammar.ending.polite_command_useyo",
+      "surface": "-(으)세요",
+      "example_sentence_refs": [
+        "ex.ko.s.000627",
+        "ex.ko.s.000628",
+        "ex.ko.s.000629",
+        "ex.ko.s.000630",
+        "ex.ko.s.000631",
+        "ex.ko.s.000632",
+        "ex.ko.s.000633",
+        "ex.ko.s.000634",
+        "ex.ko.s.000635",
+        "ex.ko.s.000636"
+      ]
+    },
+    {
+      "id": "kg.grammar.ending.discovery_neyo",
+      "category": "grammar",
+      "sub": "ending",
+      "title": "-네/네요 (啊/耶 - 感嘆)",
+      "level": "A1",
+      "path": "data/runtime/zh_tw/knowledge.json",
+      "runtime_id": "kg.grammar.ending.discovery_neyo",
+      "surface": "-네/네요",
+      "example_sentence_refs": [
+        "ex.ko.s.000547",
+        "ex.ko.s.000548",
+        "ex.ko.s.000549",
+        "ex.ko.s.000550",
+        "ex.ko.s.000551",
+        "ex.ko.s.000552",
+        "ex.ko.s.000553",
+        "ex.ko.s.000554",
+        "ex.ko.s.000555",
+        "ex.ko.s.000556"
+      ]
+    },
+    {
+      "id": "kg.grammar.ending.benefactive_ju_da",
+      "category": "grammar",
+      "sub": "ending",
+      "title": "-아/어 주다 (幫助/供給)",
+      "level": "A1",
+      "path": "data/runtime/zh_tw/knowledge.json",
+      "runtime_id": "kg.grammar.ending.benefactive_ju_da",
+      "surface": "-아/어 주다",
+      "example_sentence_refs": [
+        "ex.ko.s.000637",
+        "ex.ko.s.000638",
+        "ex.ko.s.000639",
+        "ex.ko.s.000640",
+        "ex.ko.s.000641",
+        "ex.ko.s.000642",
+        "ex.ko.s.000643",
+        "ex.ko.s.000644",
+        "ex.ko.s.000645",
+        "ex.ko.s.000646"
+      ]
+    },
+    {
+      "id": "kg.grammar.ending.must_aya_hada",
+      "category": "grammar",
+      "sub": "ending",
+      "title": "-아야/어야/해야 하다 (必須/應該)",
+      "level": "A1",
+      "path": "data/runtime/zh_tw/knowledge.json",
+      "runtime_id": "kg.grammar.ending.must_aya_hada",
+      "surface": "-아야/어야/해야 하다",
+      "example_sentence_refs": [
+        "ex.ko.s.000517",
+        "ex.ko.s.000518",
+        "ex.ko.s.000519",
+        "ex.ko.s.000520",
+        "ex.ko.s.000521",
+        "ex.ko.s.000522",
+        "ex.ko.s.000523",
+        "ex.ko.s.000524",
+        "ex.ko.s.000525",
+        "ex.ko.s.000526"
+      ]
+    },
+    {
+      "id": "kg.grammar.ending.will_aya_getda",
+      "category": "grammar",
+      "sub": "ending",
+      "title": "-아야/어야/해야겠다 (一定要/看來得)",
+      "level": "A1",
+      "path": "data/runtime/zh_tw/knowledge.json",
+      "runtime_id": "kg.grammar.ending.will_aya_getda",
+      "surface": "-아야/어야/해야겠다",
+      "example_sentence_refs": [
+        "ex.ko.s.000527",
+        "ex.ko.s.000528",
+        "ex.ko.s.000529",
+        "ex.ko.s.000530",
+        "ex.ko.s.000531",
+        "ex.ko.s.000532",
+        "ex.ko.s.000533",
+        "ex.ko.s.000534",
+        "ex.ko.s.000535",
+        "ex.ko.s.000536"
+      ]
+    },
+    {
+      "id": "kg.grammar.ending.prohibit_ji_ma",
+      "category": "grammar",
+      "sub": "ending",
+      "title": "-지 마 (禁止)",
+      "level": "A1",
+      "path": "data/runtime/zh_tw/knowledge.json",
+      "runtime_id": "kg.grammar.ending.prohibit_ji_ma",
+      "surface": "-지 마",
+      "example_sentence_refs": [
+        "ex.ko.s.000457",
+        "ex.ko.s.000458",
+        "ex.ko.s.000459",
+        "ex.ko.s.000460",
+        "ex.ko.s.000461",
+        "ex.ko.s.000462",
+        "ex.ko.s.000463",
+        "ex.ko.s.000464",
+        "ex.ko.s.000465",
+        "ex.ko.s.000466"
+      ]
+    },
+    {
+      "id": "kg.grammar.ending.prohibit_ji_mapsida",
+      "category": "grammar",
+      "sub": "ending",
+      "title": "-지 맙시다 (共動禁止)",
+      "level": "A1",
+      "path": "data/runtime/zh_tw/knowledge.json",
+      "runtime_id": "kg.grammar.ending.prohibit_ji_mapsida",
+      "surface": "-지 맙시다",
+      "example_sentence_refs": [
+        "ex.ko.s.000467",
+        "ex.ko.s.000468",
+        "ex.ko.s.000469",
+        "ex.ko.s.000470",
+        "ex.ko.s.000471",
+        "ex.ko.s.000472",
+        "ex.ko.s.000473",
+        "ex.ko.s.000474",
+        "ex.ko.s.000475",
+        "ex.ko.s.000476"
+      ]
+    },
+    {
+      "id": "kg.grammar.ending.choice_geona",
+      "category": "grammar",
+      "sub": "ending",
+      "title": "거나 (或者)",
+      "level": "A1",
+      "path": "data/runtime/zh_tw/knowledge.json",
+      "runtime_id": "kg.grammar.ending.choice_geona",
+      "surface": "거나",
+      "example_sentence_refs": [
+        "ex.ko.s.000737",
+        "ex.ko.s.000738",
+        "ex.ko.s.000739",
+        "ex.ko.s.000740",
+        "ex.ko.s.000741",
+        "ex.ko.s.000742",
+        "ex.ko.s.000743",
+        "ex.ko.s.000744",
+        "ex.ko.s.000745",
+        "ex.ko.s.000746"
+      ]
+    },
+    {
+      "id": "kg.grammar.ending.connective_go",
+      "category": "grammar",
+      "sub": "ending",
+      "title": "고 (串接動作)",
+      "level": "A1",
+      "path": "data/runtime/zh_tw/knowledge.json",
+      "runtime_id": "kg.grammar.ending.connective_go",
+      "surface": "고",
+      "example_sentence_refs": [
+        "ex.ko.s.000707",
+        "ex.ko.s.000708",
+        "ex.ko.s.000709",
+        "ex.ko.s.000710",
+        "ex.ko.s.000711",
+        "ex.ko.s.000712",
+        "ex.ko.s.000713",
+        "ex.ko.s.000714",
+        "ex.ko.s.000715",
+        "ex.ko.s.000716"
+      ]
+    },
+    {
       "id": "kg.grammar.ending.progressive_go_itda",
       "category": "grammar",
       "sub": "ending",
@@ -576,6 +966,50 @@
         "ex.ko.s.000424",
         "ex.ko.s.000425",
         "ex.ko.s.000426"
+      ]
+    },
+    {
+      "id": "kg.grammar.ending.promise_gi_ro_hada",
+      "category": "grammar",
+      "sub": "ending",
+      "title": "기로 하다 (決定/約定)",
+      "level": "A1",
+      "path": "data/runtime/zh_tw/knowledge.json",
+      "runtime_id": "kg.grammar.ending.promise_gi_ro_hada",
+      "surface": "-기로 하다",
+      "example_sentence_refs": [
+        "ex.ko.s.000677",
+        "ex.ko.s.000678",
+        "ex.ko.s.000679",
+        "ex.ko.s.000680",
+        "ex.ko.s.000681",
+        "ex.ko.s.000682",
+        "ex.ko.s.000683",
+        "ex.ko.s.000684",
+        "ex.ko.s.000685",
+        "ex.ko.s.000686"
+      ]
+    },
+    {
+      "id": "kg.grammar.ending.background_neunde",
+      "category": "grammar",
+      "sub": "ending",
+      "title": "는데/ㄴ데/은데 (背景與對比)",
+      "level": "A2",
+      "path": "data/runtime/zh_tw/knowledge.json",
+      "runtime_id": "kg.grammar.ending.background_neunde",
+      "surface": "는데/ㄴ데/은데",
+      "example_sentence_refs": [
+        "ex.ko.s.000747",
+        "ex.ko.s.000748",
+        "ex.ko.s.000749",
+        "ex.ko.s.000750",
+        "ex.ko.s.000751",
+        "ex.ko.s.000752",
+        "ex.ko.s.000753",
+        "ex.ko.s.000754",
+        "ex.ko.s.000755",
+        "ex.ko.s.000756"
       ]
     },
     {
@@ -623,6 +1057,28 @@
       ]
     },
     {
+      "id": "kg.grammar.ending.cause_connective_aseo_eoseo",
+      "category": "grammar",
+      "sub": "ending",
+      "title": "아서/어서 (原因理由/先後動作)",
+      "level": "A1",
+      "path": "data/runtime/zh_tw/knowledge.json",
+      "runtime_id": "kg.grammar.ending.cause_connective_aseo_eoseo",
+      "surface": "아서/어서",
+      "example_sentence_refs": [
+        "ex.ko.s.000717",
+        "ex.ko.s.000718",
+        "ex.ko.s.000719",
+        "ex.ko.s.000720",
+        "ex.ko.s.000721",
+        "ex.ko.s.000722",
+        "ex.ko.s.000723",
+        "ex.ko.s.000724",
+        "ex.ko.s.000725",
+        "ex.ko.s.000726"
+      ]
+    },
+    {
       "id": "kg.grammar.ending.polite_standard_ayo_eoyo",
       "category": "grammar",
       "sub": "ending",
@@ -645,6 +1101,50 @@
       ]
     },
     {
+      "id": "kg.grammar.ending.wish_ass_eumyeon_jokgetda",
+      "category": "grammar",
+      "sub": "ending",
+      "title": "았/었/했으면 좋겠다 (希望/願望)",
+      "level": "A1",
+      "path": "data/runtime/zh_tw/knowledge.json",
+      "runtime_id": "kg.grammar.ending.wish_ass_eumyeon_jokgetda",
+      "surface": "-(았/었/했)으면 좋겠다",
+      "example_sentence_refs": [
+        "ex.ko.s.000667",
+        "ex.ko.s.000668",
+        "ex.ko.s.000669",
+        "ex.ko.s.000670",
+        "ex.ko.s.000671",
+        "ex.ko.s.000672",
+        "ex.ko.s.000673",
+        "ex.ko.s.000674",
+        "ex.ko.s.000675",
+        "ex.ko.s.000676"
+      ]
+    },
+    {
+      "id": "kg.grammar.ending.propose_banmal_ja",
+      "category": "grammar",
+      "sub": "ending",
+      "title": "자 (提議 - 非敬語)",
+      "level": "A1",
+      "path": "data/runtime/zh_tw/knowledge.json",
+      "runtime_id": "kg.grammar.ending.propose_banmal_ja",
+      "surface": "-자",
+      "example_sentence_refs": [
+        "ex.ko.s.000687",
+        "ex.ko.s.000688",
+        "ex.ko.s.000689",
+        "ex.ko.s.000690",
+        "ex.ko.s.000691",
+        "ex.ko.s.000692",
+        "ex.ko.s.000693",
+        "ex.ko.s.000694",
+        "ex.ko.s.000695",
+        "ex.ko.s.000696"
+      ]
+    },
+    {
       "id": "kg.grammar.ending.prohibit_ji_maseyo",
       "category": "grammar",
       "sub": "ending",
@@ -664,6 +1164,50 @@
         "ex.ko.s.000454",
         "ex.ko.s.000455",
         "ex.ko.s.000456"
+      ]
+    },
+    {
+      "id": "kg.grammar.ending.propose_prohibit_banmal_ji_malja",
+      "category": "grammar",
+      "sub": "ending",
+      "title": "지 말자 (否定提議 - 非敬語)",
+      "level": "A1",
+      "path": "data/runtime/zh_tw/knowledge.json",
+      "runtime_id": "kg.grammar.ending.propose_prohibit_banmal_ji_malja",
+      "surface": "-지 말자",
+      "example_sentence_refs": [
+        "ex.ko.s.000697",
+        "ex.ko.s.000698",
+        "ex.ko.s.000699",
+        "ex.ko.s.000700",
+        "ex.ko.s.000701",
+        "ex.ko.s.000702",
+        "ex.ko.s.000703",
+        "ex.ko.s.000704",
+        "ex.ko.s.000705",
+        "ex.ko.s.000706"
+      ]
+    },
+    {
+      "id": "kg.grammar.ending.contrast_jiman",
+      "category": "grammar",
+      "sub": "ending",
+      "title": "지만 (雖然但是)",
+      "level": "A1",
+      "path": "data/runtime/zh_tw/knowledge.json",
+      "runtime_id": "kg.grammar.ending.contrast_jiman",
+      "surface": "지만",
+      "example_sentence_refs": [
+        "ex.ko.s.000727",
+        "ex.ko.s.000728",
+        "ex.ko.s.000729",
+        "ex.ko.s.000730",
+        "ex.ko.s.000731",
+        "ex.ko.s.000732",
+        "ex.ko.s.000733",
+        "ex.ko.s.000734",
+        "ex.ko.s.000735",
+        "ex.ko.s.000736"
       ]
     },
     {
@@ -753,6 +1297,39 @@
         "ex.ko.s.000135",
         "ex.ko.s.000136"
       ]
+    },
+    {
+      "id": "kg.grammar.expectation.seem_ul_geot_gatda",
+      "category": "grammar",
+      "sub": "expectation",
+      "title": "-(으)ㄹ 것 같다 (好像/似乎)",
+      "level": "A1",
+      "path": "data/runtime/zh_tw/knowledge.json",
+      "runtime_id": "kg.grammar.expectation.seem_ul_geot_gatda",
+      "surface": "-(으)ㄹ 것 같다",
+      "example_sentence_refs": [
+        "ex.ko.s.000537",
+        "ex.ko.s.000538",
+        "ex.ko.s.000539",
+        "ex.ko.s.000540",
+        "ex.ko.s.000541",
+        "ex.ko.s.000542",
+        "ex.ko.s.000543",
+        "ex.ko.s.000544",
+        "ex.ko.s.000545",
+        "ex.ko.s.000546"
+      ]
+    },
+    {
+      "id": "kg.grammar.intent.intend_ul_ryeogo_hada",
+      "category": "grammar",
+      "sub": "intent",
+      "title": "-(으)려고 하다 (打算/為了)",
+      "level": "A1",
+      "path": "data/runtime/zh_tw/knowledge.json",
+      "runtime_id": "kg.grammar.intent.intend_ul_ryeogo_hada",
+      "surface": "",
+      "example_sentence_refs": []
     },
     {
       "id": "kg.grammar.modifier.v_eul",
@@ -862,6 +1439,50 @@
         "ex.ko.s.000174",
         "ex.ko.s.000175",
         "ex.ko.s.000176"
+      ]
+    },
+    {
+      "id": "kg.grammar.negation.long_ji_mothada",
+      "category": "grammar",
+      "sub": "negation",
+      "title": "-지 못하다 (無法/不能)",
+      "level": "A1",
+      "path": "data/runtime/zh_tw/knowledge.json",
+      "runtime_id": "kg.grammar.negation.long_ji_mothada",
+      "surface": "-지 못하다",
+      "example_sentence_refs": [
+        "ex.ko.s.000507",
+        "ex.ko.s.000508",
+        "ex.ko.s.000509",
+        "ex.ko.s.000510",
+        "ex.ko.s.000511",
+        "ex.ko.s.000512",
+        "ex.ko.s.000513",
+        "ex.ko.s.000514",
+        "ex.ko.s.000515",
+        "ex.ko.s.000516"
+      ]
+    },
+    {
+      "id": "kg.grammar.negation.short_mot",
+      "category": "grammar",
+      "sub": "negation",
+      "title": "못 (無法/不方便)",
+      "level": "A1",
+      "path": "data/runtime/zh_tw/knowledge.json",
+      "runtime_id": "kg.grammar.negation.short_mot",
+      "surface": "못",
+      "example_sentence_refs": [
+        "ex.ko.s.000497",
+        "ex.ko.s.000498",
+        "ex.ko.s.000499",
+        "ex.ko.s.000500",
+        "ex.ko.s.000501",
+        "ex.ko.s.000502",
+        "ex.ko.s.000503",
+        "ex.ko.s.000504",
+        "ex.ko.s.000505",
+        "ex.ko.s.000506"
       ]
     },
     {

@@ -972,6 +972,53 @@
     }
   },
   {
+    "id": "kg.grammar.ending.background_neunde",
+    "source": {
+      "id": "kg.grammar.ending.background_neunde",
+      "kind": "grammar",
+      "subcategory": "ending",
+      "level": "A2",
+      "surface": "는데/ㄴ데/은데",
+      "tags": [
+        "grammar",
+        "ending",
+        "beginner",
+        "v5_ingestion"
+      ],
+      "provenance": {
+        "source": "youtube_beginner_grammar",
+        "source_lesson_ids": [
+          76,
+          86,
+          88
+        ],
+        "source_video_ids": [
+          "6OG_BaxuOo8"
+        ]
+      },
+      "example_sentence_refs": [
+        "ex.ko.s.000747",
+        "ex.ko.s.000748",
+        "ex.ko.s.000749",
+        "ex.ko.s.000750",
+        "ex.ko.s.000751",
+        "ex.ko.s.000752",
+        "ex.ko.s.000753",
+        "ex.ko.s.000754",
+        "ex.ko.s.000755",
+        "ex.ko.s.000756"
+      ]
+    },
+    "i18n": {
+      "id": "kg.grammar.ending.background_neunde",
+      "locale": "zh_tw",
+      "title": "는데/ㄴ데/은데 (背景與對比)",
+      "description": "用來提供背景資訊、說明情況，或在轉折時表達對比語氣。",
+      "explanation_md": "· 用法說明\n`~는데/ㄴ데/은데` 是韓語中極為常見且語感細膩的連接詞尾，主要用法如下：\n1. **背景提示**：引出後句所需的背景或前提。\n2. **對比轉折**：表達雖然如何，但是...（語氣較 `지만` 委婉）。\n3. **省略語尾**：在對話中作為終結，帶有一種未完待續或期待對象回應的感覺。\n\n· 常見使用場景\n- 「天氣很冷，不過人很多。」（對比）\n- 「我現在要去超市，有什麼要買的嗎？」（背景引導）\n- 「這個很好看耶...」（省略語尾）\n\n· 相近文法比較\n與 `지만` 的差別：`지만` 強調絕對的對比；`는데` 則傾向於說明當前的「背景情況」。\n\n· 注意\n**形態變化**：\n- 動詞：一律接 `~는데`。\n- 形容詞/名詞謂語：有收音接 `~은데`；無收音接 `~ㄴ데`。\n\n[id:ex.ko.s.000747] [id:ex.ko.s.000748] [id:ex.ko.s.000749] [id:ex.ko.s.000750] [id:ex.ko.s.000751] [id:ex.ko.s.000752] [id:ex.ko.s.000753] [id:ex.ko.s.000754] [id:ex.ko.s.000755] [id:ex.ko.s.000756]",
+      "usage_notes": []
+    }
+  },
+  {
     "id": "kg.grammar.ending.benefactive_ju_da",
     "source": {
       "id": "kg.grammar.ending.benefactive_ju_da",
@@ -1017,6 +1064,53 @@
     }
   },
   {
+    "id": "kg.grammar.ending.cause_connective_aseo_eoseo",
+    "source": {
+      "id": "kg.grammar.ending.cause_connective_aseo_eoseo",
+      "kind": "grammar",
+      "subcategory": "ending",
+      "level": "A1",
+      "surface": "아서/어서",
+      "tags": [
+        "grammar",
+        "ending",
+        "beginner",
+        "v5_ingestion"
+      ],
+      "provenance": {
+        "source": "youtube_beginner_grammar",
+        "source_lesson_ids": [
+          73,
+          82,
+          83
+        ],
+        "source_video_ids": [
+          "RXnEFWDQXoY"
+        ]
+      },
+      "example_sentence_refs": [
+        "ex.ko.s.000717",
+        "ex.ko.s.000718",
+        "ex.ko.s.000719",
+        "ex.ko.s.000720",
+        "ex.ko.s.000721",
+        "ex.ko.s.000722",
+        "ex.ko.s.000723",
+        "ex.ko.s.000724",
+        "ex.ko.s.000725",
+        "ex.ko.s.000726"
+      ]
+    },
+    "i18n": {
+      "id": "kg.grammar.ending.cause_connective_aseo_eoseo",
+      "locale": "zh_tw",
+      "title": "아서/어서 (原因理由/先後動作)",
+      "description": "表示原因理由（因為～所以～）或前後連貫的動作順序。",
+      "explanation_md": "· 用法說明\n`~아서/어서` 是初級最常用的連接詞尾之一，主要有兩大用法：\n1. **原因與理由**：前項是後項發生的原因。\n2. **動作連貫**：前項動作是後項動作的前提或緊密相連的過程。\n\n· 常見使用場景\n1. **原因**：因為下雨所以帶傘、因為肚子餓所以吃飯。\n2. **連貫**：去市場買蘋果、坐在椅子上唸書。\n\n· 相近文法比較\n與 `고` 相比，`아서/어서` 在表達動作順序時，前後項關聯更為緊密。\n\n· 注意\n1. **時態限制**：`~아서/어서` 前面不可接時態詞（如 `았/었`），過去式應在句尾表達。\n2. **句型限制**：在使用「原因」用法時，句尾不可使用命令句（`세요`）或勸誘句（`ㅂ시다`）。\n\n[id:ex.ko.s.000717] [id:ex.ko.s.000718] [id:ex.ko.s.000719] [id:ex.ko.s.000720] [id:ex.ko.s.000721] [id:ex.ko.s.000722] [id:ex.ko.s.000723] [id:ex.ko.s.000724] [id:ex.ko.s.000725] [id:ex.ko.s.000726]",
+      "usage_notes": []
+    }
+  },
+  {
     "id": "kg.grammar.ending.choice_euro_hada",
     "source": {
       "id": "kg.grammar.ending.choice_euro_hada",
@@ -1058,6 +1152,142 @@
       "title": "(으)로 하다 (決定/選擇)",
       "description": "表示從多個選項中做出最終決定或選擇",
       "explanation_md": "這個句型用於在咖啡廳點餐、購物或與他人共同決定事情時，明確指名「我要選這個」或「決定是這個」。\n\n· 用法說明\n- 名詞末尾有收音：接 `~으로 하다` (例如：`비빔밥으로 하다`)\n- 名詞末尾無收音或為 `ㄹ`：接 `~로 하다` (例如：`피자로 하다`, `사무실로 하다`)\n\n· 常見使用場景\n- 在餐館或咖啡廳點餐：[id:ex.ko.s.000657], [id:ex.ko.s.000658]\n- 選擇顏色、尺寸或款式：[id:ex.ko.s.000663], [id:ex.ko.s.000665]\n- 決定交通工具、結帳方式或約定地點：[id:ex.ko.s.000662], [id:ex.ko.s.000659]\n\n· 注意\n- 常用語法結合：點單時常配合 `~을게요` (意願) 變成 `~(으)로 할게요`；提議時常用 `~(으)로 합시다` (我們...吧)。",
+      "usage_notes": []
+    }
+  },
+  {
+    "id": "kg.grammar.ending.choice_geona",
+    "source": {
+      "id": "kg.grammar.ending.choice_geona",
+      "kind": "grammar",
+      "subcategory": "ending",
+      "level": "A1",
+      "surface": "거나",
+      "tags": [
+        "grammar",
+        "ending",
+        "beginner",
+        "v5_ingestion"
+      ],
+      "provenance": {
+        "source": "youtube_beginner_grammar",
+        "source_lesson_ids": [
+          75
+        ],
+        "source_video_ids": [
+          "84rR9yJMlkk"
+        ]
+      },
+      "example_sentence_refs": [
+        "ex.ko.s.000737",
+        "ex.ko.s.000738",
+        "ex.ko.s.000739",
+        "ex.ko.s.000740",
+        "ex.ko.s.000741",
+        "ex.ko.s.000742",
+        "ex.ko.s.000743",
+        "ex.ko.s.000744",
+        "ex.ko.s.000745",
+        "ex.ko.s.000746"
+      ]
+    },
+    "i18n": {
+      "id": "kg.grammar.ending.choice_geona",
+      "locale": "zh_tw",
+      "title": "거나 (或者)",
+      "description": "表示在兩個或多個行為或狀態中選擇其一。",
+      "explanation_md": "· 用法說明\n`~거나` 用於動詞或形容詞後，表示在兩個以上的動作或狀態中任選一個。通常翻譯為「～或是～」、「或者」。\n\n· 常見使用場景\n1. 動作選擇：例如「看電視或是聽音樂」。\n2. 狀態選擇：例如「冷或是熱的時候都沒關係」。\n\n· 相近文法比較\n與名詞使用的 `나/이나` 對應，`~거나` 則是專門用於動詞和形容詞的接續。\n\n· 注意\n在句中連續使用多次時，最後一個動詞接續一般的終結詞尾即可。\n\n[id:ex.ko.s.000737] [id:ex.ko.s.000738] [id:ex.ko.s.000739] [id:ex.ko.s.000740] [id:ex.ko.s.000741] [id:ex.ko.s.000742] [id:ex.ko.s.000743] [id:ex.ko.s.000744] [id:ex.ko.s.000745] [id:ex.ko.s.000746]",
+      "usage_notes": []
+    }
+  },
+  {
+    "id": "kg.grammar.ending.connective_go",
+    "source": {
+      "id": "kg.grammar.ending.connective_go",
+      "kind": "grammar",
+      "subcategory": "ending",
+      "level": "A1",
+      "surface": "고",
+      "tags": [
+        "grammar",
+        "ending",
+        "beginner",
+        "v5_ingestion"
+      ],
+      "provenance": {
+        "source": "youtube_beginner_grammar",
+        "source_lesson_ids": [
+          72,
+          126
+        ],
+        "source_video_ids": [
+          "ue6T80ejgk0"
+        ]
+      },
+      "example_sentence_refs": [
+        "ex.ko.s.000707",
+        "ex.ko.s.000708",
+        "ex.ko.s.000709",
+        "ex.ko.s.000710",
+        "ex.ko.s.000711",
+        "ex.ko.s.000712",
+        "ex.ko.s.000713",
+        "ex.ko.s.000714",
+        "ex.ko.s.000715",
+        "ex.ko.s.000716"
+      ]
+    },
+    "i18n": {
+      "id": "kg.grammar.ending.connective_go",
+      "locale": "zh_tw",
+      "title": "고 (串接動作)",
+      "description": "用來連接兩個以上的動作或狀態，相當於「～然後～」。",
+      "explanation_md": "· 用法說明\n`~고` 用於連接兩個或多個動作、狀態或事實。在描述動作順序時，表示先做前項動作後再做後項動作。\n\n· 常見使用場景\n1. **動作先後順序**：例如「吃飯然後喝咖啡」。\n2. **並列事實**：例如「哥哥很聰明而且弟弟很帥」。\n\n· 相近文法比較\n與 `아서/어서` 不同，`고` 僅強調單純的順序或並列，前後動作不一定有緊密的因果或關聯。\n\n· 注意\n在表示動作順序時，通常主語要保持一致。\n\n[id:ex.ko.s.000707] [id:ex.ko.s.000708] [id:ex.ko.s.000709] [id:ex.ko.s.000710] [id:ex.ko.s.000711] [id:ex.ko.s.000712] [id:ex.ko.s.000713] [id:ex.ko.s.000714] [id:ex.ko.s.000715] [id:ex.ko.s.000716]",
+      "usage_notes": []
+    }
+  },
+  {
+    "id": "kg.grammar.ending.contrast_jiman",
+    "source": {
+      "id": "kg.grammar.ending.contrast_jiman",
+      "kind": "grammar",
+      "subcategory": "ending",
+      "level": "A1",
+      "surface": "지만",
+      "tags": [
+        "grammar",
+        "ending",
+        "beginner",
+        "v5_ingestion"
+      ],
+      "provenance": {
+        "source": "youtube_beginner_grammar",
+        "source_lesson_ids": [
+          74
+        ],
+        "source_video_ids": [
+          "IObFqiO_00Q"
+        ]
+      },
+      "example_sentence_refs": [
+        "ex.ko.s.000727",
+        "ex.ko.s.000728",
+        "ex.ko.s.000729",
+        "ex.ko.s.000730",
+        "ex.ko.s.000731",
+        "ex.ko.s.000732",
+        "ex.ko.s.000733",
+        "ex.ko.s.000734",
+        "ex.ko.s.000735",
+        "ex.ko.s.000736"
+      ]
+    },
+    "i18n": {
+      "id": "kg.grammar.ending.contrast_jiman",
+      "locale": "zh_tw",
+      "title": "지만 (雖然但是)",
+      "description": "用於表示前後內容的對比或轉折，相當於「雖然～但是～」。",
+      "explanation_md": "· 用法說明\n`~지만` 用於連接兩個相反或相對立的事實。通常先承認前項事實，再提出與之相反或補充的內容。\n\n· 常見使用場景\n1. 表示轉折：例如「韓文雖然難，但很有趣」。\n2. 描述特徵：例如「這件衣服雖然漂亮，但是很貴」。\n\n· 相近文法比較\n與 `는데` 相比，`지만` 的對比意味更強，語感較為明確。\n\n· 注意\n`~지만` 前面可以接時態詞（如 `았/었`），用於表達過去發生的事實。\n\n[id:ex.ko.s.000727] [id:ex.ko.s.000728] [id:ex.ko.s.000729] [id:ex.ko.s.000730] [id:ex.ko.s.000731] [id:ex.ko.s.000732] [id:ex.ko.s.000733] [id:ex.ko.s.000734] [id:ex.ko.s.000735] [id:ex.ko.s.000736]",
       "usage_notes": []
     }
   },

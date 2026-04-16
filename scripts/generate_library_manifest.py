@@ -7,7 +7,7 @@ SCRIPTS_DIR = Path(__file__).resolve().parent
 AGGREGATOR_ROOT = SCRIPTS_DIR.parent
 CONTENT_KO_ROOT = AGGREGATOR_ROOT.parent / "content-ko"
 
-MOCKUP_DATA_ROOT = AGGREGATOR_ROOT / "docs" / "tasks" / "mockups" / "modular" / "data"
+MOCKUP_DATA_ROOT = AGGREGATOR_ROOT / "tools" / "modular-viewer" / "data"
 RUNTIME_OUTPUT_DIR = MOCKUP_DATA_ROOT / "runtime" / "zh_tw"
 
 I18N_KNOWLEDGE_DIR = CONTENT_KO_ROOT / "content" / "i18n" / "zh_tw" / "learning_library" / "knowledge"

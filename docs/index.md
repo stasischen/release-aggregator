@@ -72,6 +72,7 @@ Welcome to the central documentation hub for the Lingo multi-repo system.
 ## 🛠️ Internal Tools / Viewers
 
 - **[KO Content Dev Viewer](../../content-ko/scripts/tools/dict_viewer/index.html)** - Korean atomic data development viewer (for `content-ko` devs).
+- **[Modular UI Viewer](../tools/modular-viewer/index.html)** - Core curriculum and grammar detail viewer (for content production and preview).
 - **[Release Artifact Viewer](../tools/core_i18n_viewer/index.html)** - Core + I18N package validator (for `aggregator` release checks).
 
 ## Repositories

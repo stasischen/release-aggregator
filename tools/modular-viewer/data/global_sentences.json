@@ -1137,21 +1137,25 @@
       "id": "ex.ko.s.000038",
       "ko": "질문이 없어요.",
       "knowledge_refs": [
-        "kg.grammar.particle.i_ga"
+        "kg.grammar.particle.i_ga",
+        "kg.grammar.existence.eopda"
       ],
       "level": "A1",
       "tags": [
         "grammar",
         "particle",
+        "existence",
         "beginner"
       ],
       "provenance": {
         "source": "youtube_beginner_grammar",
         "source_lesson_ids": [
-          4
+          4,
+          14
         ],
         "source_video_ids": [
-          "AZUSaoBXPdY"
+          "AZUSaoBXPdY",
+          "Fm8h7G7oZ9Q"
         ]
       }
     },
@@ -4216,37 +4220,6 @@
     }
   },
   {
-    "id": "ex.ko.s.000139",
-    "source": {
-      "id": "ex.ko.s.000139",
-      "ko": "질문이 없어요.",
-      "knowledge_refs": [
-        "kg.grammar.existence.eopda"
-      ],
-      "level": "A1",
-      "tags": [
-        "grammar",
-        "existence",
-        "beginner"
-      ],
-      "provenance": {
-        "source": "youtube_beginner_grammar",
-        "source_lesson_ids": [
-          14
-        ],
-        "source_video_ids": [
-          "Fm8h7G7oZ9Q"
-        ],
-        "original_sentence_adjusted": "시간이 없어요."
-      }
-    },
-    "i18n": {
-      "id": "ex.ko.s.000139",
-      "locale": "zh_tw",
-      "translation": "沒有問題。"
-    }
-  },
-  {
     "id": "ex.ko.s.000140",
     "source": {
       "id": "ex.ko.s.000140",
@@ -6479,7 +6452,8 @@
       "id": "ex.ko.s.000217",
       "ko": "어제 친구를 만났어요.",
       "knowledge_refs": [
-        "kg.grammar.tense.past_ass_oss"
+        "kg.grammar.tense.past_ass_oss",
+        "kg.grammar.tense.past_ass_oss_haess"
       ],
       "level": "A1",
       "tags": [
@@ -6490,7 +6464,8 @@
       "provenance": {
         "source": "youtube_beginner_grammar",
         "source_lesson_ids": [
-          27
+          27,
+          31
         ],
         "source_video_ids": [
           "Md8ppk8GwNA"
@@ -6509,7 +6484,8 @@
       "id": "ex.ko.s.000218",
       "ko": "아침에 빵을 먹었어요.",
       "knowledge_refs": [
-        "kg.grammar.tense.past_ass_oss"
+        "kg.grammar.tense.past_ass_oss",
+        "kg.grammar.tense.past_ass_oss_haess"
       ],
       "level": "A1",
       "tags": [
@@ -6520,7 +6496,8 @@
       "provenance": {
         "source": "youtube_beginner_grammar",
         "source_lesson_ids": [
-          27
+          27,
+          31
         ],
         "source_video_ids": [
           "Md8ppk8GwNA"
@@ -8274,62 +8251,6 @@
     }
   },
   {
-    "id": "ex.ko.s.000277",
-    "source": {
-      "id": "ex.ko.s.000277",
-      "ko": "어제 친구를 만났어요.",
-      "knowledge_refs": [
-        "kg.grammar.tense.past_ass_oss_haess"
-      ],
-      "level": "A1",
-      "tags": [
-        "grammar",
-        "tense",
-        "beginner"
-      ],
-      "provenance": {
-        "source": "youtube_beginner_grammar",
-        "source_lesson_ids": [
-          31
-        ],
-        "source_video_ids": []
-      }
-    },
-    "i18n": {
-      "id": "ex.ko.s.000277",
-      "locale": "zh_tw",
-      "translation": "昨天見了朋友。"
-    }
-  },
-  {
-    "id": "ex.ko.s.000278",
-    "source": {
-      "id": "ex.ko.s.000278",
-      "ko": "아침에 빵을 먹었어요.",
-      "knowledge_refs": [
-        "kg.grammar.tense.past_ass_oss_haess"
-      ],
-      "level": "A1",
-      "tags": [
-        "grammar",
-        "tense",
-        "beginner"
-      ],
-      "provenance": {
-        "source": "youtube_beginner_grammar",
-        "source_lesson_ids": [
-          31
-        ],
-        "source_video_ids": []
-      }
-    },
-    "i18n": {
-      "id": "ex.ko.s.000278",
-      "locale": "zh_tw",
-      "translation": "早上吃了麵包。"
-    }
-  },
-  {
     "id": "ex.ko.s.000279",
     "source": {
       "id": "ex.ko.s.000279",
@@ -9131,6 +9052,1556 @@
       "id": "ex.ko.s.000306",
       "locale": "zh_tw",
       "translation": "我想喝涼水。"
+    }
+  },
+  {
+    "id": "ex.ko.s.000307",
+    "source": {
+      "id": "ex.ko.s.000307",
+      "ko": "당장 짐을 싸서 집을 나갔어요.",
+      "knowledge_refs": [
+        "kg.grammar.adverb.dangjang"
+      ],
+      "level": "A1",
+      "tags": [
+        "grammar",
+        "adverb",
+        "beginner"
+      ],
+      "provenance": {
+        "source": "youtube_connectors",
+        "source_lesson_ids": [
+          32
+        ],
+        "source_video_ids": [
+          "akewNIu9Em0"
+        ],
+        "original_sentence_adjusted": "당장 나가세요!"
+      }
+    },
+    "i18n": {
+      "id": "ex.ko.s.000307",
+      "locale": "zh_tw",
+      "translation": "立刻收拾行李離開了家。"
+    }
+  },
+  {
+    "id": "ex.ko.s.000308",
+    "source": {
+      "id": "ex.ko.s.000308",
+      "ko": "배가 너무 고파서 당장 밥을 먹어야겠어요.",
+      "knowledge_refs": [
+        "kg.grammar.adverb.dangjang"
+      ],
+      "level": "A1",
+      "tags": [
+        "grammar",
+        "adverb",
+        "beginner"
+      ],
+      "provenance": {
+        "source": "youtube_connectors",
+        "source_lesson_ids": [
+          32
+        ],
+        "source_video_ids": [
+          "akewNIu9Em0"
+        ],
+        "original_sentence_adjusted": "돈이 당장 필요해요."
+      }
+    },
+    "i18n": {
+      "id": "ex.ko.s.000308",
+      "locale": "zh_tw",
+      "translation": "肚子太餓了，得立刻吃飯。"
+    }
+  },
+  {
+    "id": "ex.ko.s.000309",
+    "source": {
+      "id": "ex.ko.s.000309",
+      "ko": "이 일을 당장 끝내세요.",
+      "knowledge_refs": [
+        "kg.grammar.adverb.dangjang"
+      ],
+      "level": "A1",
+      "tags": [
+        "grammar",
+        "adverb",
+        "beginner"
+      ],
+      "provenance": {
+        "source": "youtube_connectors",
+        "source_lesson_ids": [
+          32
+        ],
+        "source_video_ids": [
+          "akewNIu9Em0"
+        ],
+        "original_sentence_adjusted": "당장 나가세요!"
+      }
+    },
+    "i18n": {
+      "id": "ex.ko.s.000309",
+      "locale": "zh_tw",
+      "translation": "請立刻完成這項工作。"
+    }
+  },
+  {
+    "id": "ex.ko.s.000310",
+    "source": {
+      "id": "ex.ko.s.000310",
+      "ko": "사고가 났으니까 당장 경찰에 신고하세요.",
+      "knowledge_refs": [
+        "kg.grammar.adverb.dangjang"
+      ],
+      "level": "A1",
+      "tags": [
+        "grammar",
+        "adverb",
+        "beginner"
+      ],
+      "provenance": {
+        "source": "youtube_connectors",
+        "source_lesson_ids": [
+          32
+        ],
+        "source_video_ids": [
+          "akewNIu9Em0"
+        ],
+        "original_sentence_adjusted": "아프면 당장 병원에 가요."
+      }
+    },
+    "i18n": {
+      "id": "ex.ko.s.000310",
+      "locale": "zh_tw",
+      "translation": "出事故了，請立刻向警察報案。"
+    }
+  },
+  {
+    "id": "ex.ko.s.000311",
+    "source": {
+      "id": "ex.ko.s.000311",
+      "ko": "숙제를 당장 하지 않으면 선생님께 혼나요.",
+      "knowledge_refs": [
+        "kg.grammar.adverb.dangjang"
+      ],
+      "level": "A1",
+      "tags": [
+        "grammar",
+        "adverb",
+        "beginner"
+      ],
+      "provenance": {
+        "source": "youtube_connectors",
+        "source_lesson_ids": [
+          32
+        ],
+        "source_video_ids": [
+          "akewNIu9Em0"
+        ],
+        "original_sentence_adjusted": "그만두고 싶으면 당장 말해요."
+      }
+    },
+    "i18n": {
+      "id": "ex.ko.s.000311",
+      "locale": "zh_tw",
+      "translation": "如果不立刻做作業，會被老師罵。"
+    }
+  },
+  {
+    "id": "ex.ko.s.000312",
+    "source": {
+      "id": "ex.ko.s.000312",
+      "ko": "당장 대답해 주세요.",
+      "knowledge_refs": [
+        "kg.grammar.adverb.dangjang"
+      ],
+      "level": "A1",
+      "tags": [
+        "grammar",
+        "adverb",
+        "beginner"
+      ],
+      "provenance": {
+        "source": "youtube_connectors",
+        "source_lesson_ids": [
+          32
+        ],
+        "source_video_ids": [
+          "akewNIu9Em0"
+        ],
+        "original_sentence_adjusted": "당장 전화해 보세요."
+      }
+    },
+    "i18n": {
+      "id": "ex.ko.s.000312",
+      "locale": "zh_tw",
+      "translation": "請立刻回答。"
+    }
+  },
+  {
+    "id": "ex.ko.s.000313",
+    "source": {
+      "id": "ex.ko.s.000313",
+      "ko": "돈이 없어서 당장 물건을 살 수 없어요.",
+      "knowledge_refs": [
+        "kg.grammar.adverb.dangjang"
+      ],
+      "level": "A1",
+      "tags": [
+        "grammar",
+        "adverb",
+        "beginner"
+      ],
+      "provenance": {
+        "source": "youtube_connectors",
+        "source_lesson_ids": [
+          32
+        ],
+        "source_video_ids": [
+          "akewNIu9Em0"
+        ],
+        "original_sentence_adjusted": "돈이 당장 필요해요."
+      }
+    },
+    "i18n": {
+      "id": "ex.ko.s.000313",
+      "locale": "zh_tw",
+      "translation": "因為沒錢，不能立刻買東西。"
+    }
+  },
+  {
+    "id": "ex.ko.s.000314",
+    "source": {
+      "id": "ex.ko.s.000314",
+      "ko": "사장님이 화가 나서 당장 오라고 하셨어요.",
+      "knowledge_refs": [
+        "kg.grammar.adverb.dangjang"
+      ],
+      "level": "A1",
+      "tags": [
+        "grammar",
+        "adverb",
+        "beginner"
+      ],
+      "provenance": {
+        "source": "youtube_connectors",
+        "source_lesson_ids": [
+          32
+        ],
+        "source_video_ids": [
+          "akewNIu9Em0"
+        ],
+        "original_sentence_adjusted": "당장 나가세요!"
+      }
+    },
+    "i18n": {
+      "id": "ex.ko.s.000314",
+      "locale": "zh_tw",
+      "translation": "老闆生氣了，叫我立刻過去。"
+    }
+  },
+  {
+    "id": "ex.ko.s.000315",
+    "source": {
+      "id": "ex.ko.s.000315",
+      "ko": "당장 시작하는 것이 좋아요.",
+      "knowledge_refs": [
+        "kg.grammar.adverb.dangjang"
+      ],
+      "level": "A1",
+      "tags": [
+        "grammar",
+        "adverb",
+        "beginner"
+      ],
+      "provenance": {
+        "source": "youtube_connectors",
+        "source_lesson_ids": [
+          32
+        ],
+        "source_video_ids": [
+          "akewNIu9Em0"
+        ],
+        "original_sentence_adjusted": "당장 전화해 보세요."
+      }
+    },
+    "i18n": {
+      "id": "ex.ko.s.000315",
+      "locale": "zh_tw",
+      "translation": "最好立刻開始。"
+    }
+  },
+  {
+    "id": "ex.ko.s.000316",
+    "source": {
+      "id": "ex.ko.s.000316",
+      "ko": "당장 그만두세요.",
+      "knowledge_refs": [
+        "kg.grammar.adverb.dangjang"
+      ],
+      "level": "A1",
+      "tags": [
+        "grammar",
+        "adverb",
+        "beginner"
+      ],
+      "provenance": {
+        "source": "youtube_connectors",
+        "source_lesson_ids": [
+          32
+        ],
+        "source_video_ids": [
+          "akewNIu9Em0"
+        ],
+        "original_sentence_adjusted": "당장 나가세요!"
+      }
+    },
+    "i18n": {
+      "id": "ex.ko.s.000316",
+      "locale": "zh_tw",
+      "translation": "請立刻停止。"
+    }
+  },
+  {
+    "id": "ex.ko.s.000317",
+    "source": {
+      "id": "ex.ko.s.000317",
+      "ko": "공부하는 친구에게 전화했어요.",
+      "knowledge_refs": [
+        "kg.grammar.modifier.v_neun"
+      ],
+      "level": "A1",
+      "tags": [
+        "grammar",
+        "modifier",
+        "beginner"
+      ],
+      "provenance": {
+        "source": "youtube_beginner_grammar",
+        "source_lesson_ids": [
+          33
+        ],
+        "source_video_ids": [
+          "z2H6chZ0PH0"
+        ],
+        "original_sentence_adjusted": "공부하는 모습이 예뻐요."
+      }
+    },
+    "i18n": {
+      "id": "ex.ko.s.000317",
+      "locale": "zh_tw",
+      "translation": "給正在學習的朋友打了電話。"
+    }
+  },
+  {
+    "id": "ex.ko.s.000318",
+    "source": {
+      "id": "ex.ko.s.000318",
+      "ko": "노래하는 사람이 제 동생이에요.",
+      "knowledge_refs": [
+        "kg.grammar.modifier.v_neun"
+      ],
+      "level": "A1",
+      "tags": [
+        "grammar",
+        "modifier",
+        "beginner"
+      ],
+      "provenance": {
+        "source": "youtube_beginner_grammar",
+        "source_lesson_ids": [
+          33
+        ],
+        "source_video_ids": [
+          "z2H6chZ0PH0"
+        ],
+        "original_sentence_adjusted": "요리하는 사람이 우리 엄마예요."
+      }
+    },
+    "i18n": {
+      "id": "ex.ko.s.000318",
+      "locale": "zh_tw",
+      "translation": "正在唱歌的人是我弟弟。"
+    }
+  },
+  {
+    "id": "ex.ko.s.000319",
+    "source": {
+      "id": "ex.ko.s.000319",
+      "ko": "춤추는 아이들이 아주 즐거워 보여요.",
+      "knowledge_refs": [
+        "kg.grammar.modifier.v_neun"
+      ],
+      "level": "A1",
+      "tags": [
+        "grammar",
+        "modifier",
+        "beginner"
+      ],
+      "provenance": {
+        "source": "youtube_beginner_grammar",
+        "source_lesson_ids": [
+          33
+        ],
+        "source_video_ids": [
+          "z2H6chZ0PH0"
+        ],
+        "original_sentence_adjusted": "TV 보는 아이가 귀엽네요."
+      }
+    },
+    "i18n": {
+      "id": "ex.ko.s.000319",
+      "locale": "zh_tw",
+      "translation": "正在跳舞的孩子們看起來很開心。"
+    }
+  },
+  {
+    "id": "ex.ko.s.000320",
+    "source": {
+      "id": "ex.ko.s.000320",
+      "ko": "청소하는 소리가 너무 시끄러워요.",
+      "knowledge_refs": [
+        "kg.grammar.modifier.v_neun"
+      ],
+      "level": "A1",
+      "tags": [
+        "grammar",
+        "modifier",
+        "beginner"
+      ],
+      "provenance": {
+        "source": "youtube_beginner_grammar",
+        "source_lesson_ids": [
+          33
+        ],
+        "source_video_ids": [
+          "z2H6chZ0PH0"
+        ],
+        "original_sentence_adjusted": "짖는 소리가 들려요."
+      }
+    },
+    "i18n": {
+      "id": "ex.ko.s.000320",
+      "locale": "zh_tw",
+      "translation": "打掃的聲音太吵了。"
+    }
+  },
+  {
+    "id": "ex.ko.s.000321",
+    "source": {
+      "id": "ex.ko.s.000321",
+      "ko": "제가 다니는 회사는 강남에 있어요.",
+      "knowledge_refs": [
+        "kg.grammar.modifier.v_neun"
+      ],
+      "level": "A1",
+      "tags": [
+        "grammar",
+        "modifier",
+        "beginner"
+      ],
+      "provenance": {
+        "source": "youtube_beginner_grammar",
+        "source_lesson_ids": [
+          33
+        ],
+        "source_video_ids": [
+          "z2H6chZ0PH0"
+        ],
+        "original_sentence_adjusted": "지금 일하는 회사가 어디예요?"
+      }
+    },
+    "i18n": {
+      "id": "ex.ko.s.000321",
+      "locale": "zh_tw",
+      "translation": "我正就讀的公司/去上班的公司在江南。"
+    }
+  },
+  {
+    "id": "ex.ko.s.000322",
+    "source": {
+      "id": "ex.ko.s.000322",
+      "ko": "운동하는 모습이 정말 멋있네요.",
+      "knowledge_refs": [
+        "kg.grammar.modifier.v_neun"
+      ],
+      "level": "A1",
+      "tags": [
+        "grammar",
+        "modifier",
+        "beginner"
+      ],
+      "provenance": {
+        "source": "youtube_beginner_grammar",
+        "source_lesson_ids": [
+          33
+        ],
+        "source_video_ids": [
+          "z2H6chZ0PH0"
+        ],
+        "original_sentence_adjusted": "공부하는 모습이 예뻐요."
+      }
+    },
+    "i18n": {
+      "id": "ex.ko.s.000322",
+      "locale": "zh_tw",
+      "translation": "運動的樣子真的很帥氣。"
+    }
+  },
+  {
+    "id": "ex.ko.s.000323",
+    "source": {
+      "id": "ex.ko.s.000323",
+      "ko": "잠자는 강아지가 너무 귀여워요.",
+      "knowledge_refs": [
+        "kg.grammar.modifier.v_neun"
+      ],
+      "level": "A1",
+      "tags": [
+        "grammar",
+        "modifier",
+        "beginner"
+      ],
+      "provenance": {
+        "source": "youtube_beginner_grammar",
+        "source_lesson_ids": [
+          33
+        ],
+        "source_video_ids": [
+          "z2H6chZ0PH0"
+        ],
+        "original_sentence_adjusted": "TV 보는 아이가 귀엽네요."
+      }
+    },
+    "i18n": {
+      "id": "ex.ko.s.000323",
+      "locale": "zh_tw",
+      "translation": "正在睡覺的小狗太可愛了。"
+    }
+  },
+  {
+    "id": "ex.ko.s.000324",
+    "source": {
+      "id": "ex.ko.s.000324",
+      "ko": "기다리는 사람들을 위해 문을 열어 주세요.",
+      "knowledge_refs": [
+        "kg.grammar.modifier.v_neun"
+      ],
+      "level": "A1",
+      "tags": [
+        "grammar",
+        "modifier",
+        "beginner"
+      ],
+      "provenance": {
+        "source": "youtube_beginner_grammar",
+        "source_lesson_ids": [
+          33
+        ],
+        "source_video_ids": [
+          "z2H6chZ0PH0"
+        ],
+        "original_sentence_adjusted": "준비하는 학생들이 많아요."
+      }
+    },
+    "i18n": {
+      "id": "ex.ko.s.000324",
+      "locale": "zh_tw",
+      "translation": "請為正在等待的人們開門。"
+    }
+  },
+  {
+    "id": "ex.ko.s.000325",
+    "source": {
+      "id": "ex.ko.s.000325",
+      "ko": "달리는 차 안에서 밖을 봤어요.",
+      "knowledge_refs": [
+        "kg.grammar.modifier.v_neun"
+      ],
+      "level": "A1",
+      "tags": [
+        "grammar",
+        "modifier",
+        "beginner"
+      ],
+      "provenance": {
+        "source": "youtube_beginner_grammar",
+        "source_lesson_ids": [
+          33
+        ],
+        "source_video_ids": [
+          "z2H6chZ0PH0"
+        ],
+        "original_sentence_adjusted": "TV 보는 아이가 귀엽네요."
+      }
+    },
+    "i18n": {
+      "id": "ex.ko.s.000325",
+      "locale": "zh_tw",
+      "translation": "在行駛的車裡看了外面。"
+    }
+  },
+  {
+    "id": "ex.ko.s.000326",
+    "source": {
+      "id": "ex.ko.s.000326",
+      "ko": "책 읽는 시간은 제가 가장 좋아하는 시간이에요.",
+      "knowledge_refs": [
+        "kg.grammar.modifier.v_neun"
+      ],
+      "level": "A1",
+      "tags": [
+        "grammar",
+        "modifier",
+        "beginner"
+      ],
+      "provenance": {
+        "source": "youtube_beginner_grammar",
+        "source_lesson_ids": [
+          33
+        ],
+        "source_video_ids": [
+          "z2H6chZ0PH0"
+        ],
+        "original_sentence_adjusted": "공부하는 모습이 예뻐요."
+      }
+    },
+    "i18n": {
+      "id": "ex.ko.s.000326",
+      "locale": "zh_tw",
+      "translation": "讀書的時間是我最喜歡的時間。"
+    }
+  },
+  {
+    "id": "ex.ko.s.000327",
+    "source": {
+      "id": "ex.ko.s.000327",
+      "ko": "잠시 후 비가 오기 시작했어요.",
+      "knowledge_refs": [
+        "kg.grammar.adverb.jamsi_hu"
+      ],
+      "level": "A1",
+      "tags": [
+        "grammar",
+        "adverb",
+        "beginner"
+      ],
+      "provenance": {
+        "source": "youtube_connectors",
+        "source_lesson_ids": [
+          33
+        ],
+        "source_video_ids": [
+          "MMs_N2g5A64"
+        ],
+        "original_sentence_adjusted": "No source examples available."
+      }
+    },
+    "i18n": {
+      "id": "ex.ko.s.000327",
+      "locale": "zh_tw",
+      "translation": "過了一會兒開始下雨了。"
+    }
+  },
+  {
+    "id": "ex.ko.s.000328",
+    "source": {
+      "id": "ex.ko.s.000328",
+      "ko": "잠시 후 버스가 도착할 거예요.",
+      "knowledge_refs": [
+        "kg.grammar.adverb.jamsi_hu"
+      ],
+      "level": "A1",
+      "tags": [
+        "grammar",
+        "adverb",
+        "beginner"
+      ],
+      "provenance": {
+        "source": "youtube_connectors",
+        "source_lesson_ids": [
+          33
+        ],
+        "source_video_ids": [
+          "MMs_N2g5A64"
+        ],
+        "original_sentence_adjusted": "No source examples available."
+      }
+    },
+    "i18n": {
+      "id": "ex.ko.s.000328",
+      "locale": "zh_tw",
+      "translation": "過了一會兒公車就會抵達。"
+    }
+  },
+  {
+    "id": "ex.ko.s.000329",
+    "source": {
+      "id": "ex.ko.s.000329",
+      "ko": "잠시 후 전화하겠습니다.",
+      "knowledge_refs": [
+        "kg.grammar.adverb.jamsi_hu"
+      ],
+      "level": "A1",
+      "tags": [
+        "grammar",
+        "adverb",
+        "beginner"
+      ],
+      "provenance": {
+        "source": "youtube_connectors",
+        "source_lesson_ids": [
+          33
+        ],
+        "source_video_ids": [
+          "MMs_N2g5A64"
+        ],
+        "original_sentence_adjusted": "No source examples available."
+      }
+    },
+    "i18n": {
+      "id": "ex.ko.s.000329",
+      "locale": "zh_tw",
+      "translation": "過一會兒會打電話。"
+    }
+  },
+  {
+    "id": "ex.ko.s.000330",
+    "source": {
+      "id": "ex.ko.s.000330",
+      "ko": "잠시 후 다시 만나요.",
+      "knowledge_refs": [
+        "kg.grammar.adverb.jamsi_hu"
+      ],
+      "level": "A1",
+      "tags": [
+        "grammar",
+        "adverb",
+        "beginner"
+      ],
+      "provenance": {
+        "source": "youtube_connectors",
+        "source_lesson_ids": [
+          33
+        ],
+        "source_video_ids": [
+          "MMs_N2g5A64"
+        ],
+        "original_sentence_adjusted": "No source examples available."
+      }
+    },
+    "i18n": {
+      "id": "ex.ko.s.000330",
+      "locale": "zh_tw",
+      "translation": "過一會兒再見。"
+    }
+  },
+  {
+    "id": "ex.ko.s.000331",
+    "source": {
+      "id": "ex.ko.s.000331",
+      "ko": "잠시 후 불이 꺼졌어요.",
+      "knowledge_refs": [
+        "kg.grammar.adverb.jamsi_hu"
+      ],
+      "level": "A1",
+      "tags": [
+        "grammar",
+        "adverb",
+        "beginner"
+      ],
+      "provenance": {
+        "source": "youtube_connectors",
+        "source_lesson_ids": [
+          33
+        ],
+        "source_video_ids": [
+          "MMs_N2g5A64"
+        ],
+        "original_sentence_adjusted": "No source examples available."
+      }
+    },
+    "i18n": {
+      "id": "ex.ko.s.000331",
+      "locale": "zh_tw",
+      "translation": "過了一會兒燈滅了。"
+    }
+  },
+  {
+    "id": "ex.ko.s.000332",
+    "source": {
+      "id": "ex.ko.s.000332",
+      "ko": "잠시 후 영화가 시작됩니다.",
+      "knowledge_refs": [
+        "kg.grammar.adverb.jamsi_hu"
+      ],
+      "level": "A1",
+      "tags": [
+        "grammar",
+        "adverb",
+        "beginner"
+      ],
+      "provenance": {
+        "source": "youtube_connectors",
+        "source_lesson_ids": [
+          33
+        ],
+        "source_video_ids": [
+          "MMs_N2g5A64"
+        ],
+        "original_sentence_adjusted": "No source examples available."
+      }
+    },
+    "i18n": {
+      "id": "ex.ko.s.000332",
+      "locale": "zh_tw",
+      "translation": "等一下電影就要開始了。"
+    }
+  },
+  {
+    "id": "ex.ko.s.000333",
+    "source": {
+      "id": "ex.ko.s.000333",
+      "ko": "잠시 후 기차가 출발합니다.",
+      "knowledge_refs": [
+        "kg.grammar.adverb.jamsi_hu"
+      ],
+      "level": "A1",
+      "tags": [
+        "grammar",
+        "adverb",
+        "beginner"
+      ],
+      "provenance": {
+        "source": "youtube_connectors",
+        "source_lesson_ids": [
+          33
+        ],
+        "source_video_ids": [
+          "MMs_N2g5A64"
+        ],
+        "original_sentence_adjusted": "No source examples available."
+      }
+    },
+    "i18n": {
+      "id": "ex.ko.s.000333",
+      "locale": "zh_tw",
+      "translation": "過一會兒火車就要出發了。"
+    }
+  },
+  {
+    "id": "ex.ko.s.000334",
+    "source": {
+      "id": "ex.ko.s.000334",
+      "ko": "잠시 후 우리 차례예요.",
+      "knowledge_refs": [
+        "kg.grammar.adverb.jamsi_hu"
+      ],
+      "level": "A1",
+      "tags": [
+        "grammar",
+        "adverb",
+        "beginner"
+      ],
+      "provenance": {
+        "source": "youtube_connectors",
+        "source_lesson_ids": [
+          33
+        ],
+        "source_video_ids": [
+          "MMs_N2g5A64"
+        ],
+        "original_sentence_adjusted": "No source examples available."
+      }
+    },
+    "i18n": {
+      "id": "ex.ko.s.000334",
+      "locale": "zh_tw",
+      "translation": "過一會兒就輪到我們了。"
+    }
+  },
+  {
+    "id": "ex.ko.s.000335",
+    "source": {
+      "id": "ex.ko.s.000335",
+      "ko": "잠시 후 문을 닫겠습니다.",
+      "knowledge_refs": [
+        "kg.grammar.adverb.jamsi_hu"
+      ],
+      "level": "A1",
+      "tags": [
+        "grammar",
+        "adverb",
+        "beginner"
+      ],
+      "provenance": {
+        "source": "youtube_connectors",
+        "source_lesson_ids": [
+          33
+        ],
+        "source_video_ids": [
+          "MMs_N2g5A64"
+        ],
+        "original_sentence_adjusted": "No source examples available."
+      }
+    },
+    "i18n": {
+      "id": "ex.ko.s.000335",
+      "locale": "zh_tw",
+      "translation": "過一會兒就要關門了。"
+    }
+  },
+  {
+    "id": "ex.ko.s.000336",
+    "source": {
+      "id": "ex.ko.s.000336",
+      "ko": "잠시 후 맛있는 저녁을 먹을 거예요.",
+      "knowledge_refs": [
+        "kg.grammar.adverb.jamsi_hu"
+      ],
+      "level": "A1",
+      "tags": [
+        "grammar",
+        "adverb",
+        "beginner"
+      ],
+      "provenance": {
+        "source": "youtube_connectors",
+        "source_lesson_ids": [
+          33
+        ],
+        "source_video_ids": [
+          "MMs_N2g5A64"
+        ],
+        "original_sentence_adjusted": "No source examples available."
+      }
+    },
+    "i18n": {
+      "id": "ex.ko.s.000336",
+      "locale": "zh_tw",
+      "translation": "過一會兒就要吃好吃的晚餐了。"
+    }
+  },
+  {
+    "id": "ex.ko.s.000337",
+    "source": {
+      "id": "ex.ko.s.000337",
+      "ko": "곧 수업이 끝나요.",
+      "knowledge_refs": [
+        "kg.grammar.adverb.got"
+      ],
+      "level": "A1",
+      "tags": [
+        "grammar",
+        "adverb",
+        "beginner"
+      ],
+      "provenance": {
+        "source": "youtube_connectors",
+        "source_lesson_ids": [
+          34
+        ],
+        "source_video_ids": [
+          "mh9dbBAikU0"
+        ],
+        "original_sentence_adjusted": "곧 졸업해요."
+      }
+    },
+    "i18n": {
+      "id": "ex.ko.s.000337",
+      "locale": "zh_tw",
+      "translation": "課程馬上就要結束了。"
+    }
+  },
+  {
+    "id": "ex.ko.s.000338",
+    "source": {
+      "id": "ex.ko.s.000338",
+      "ko": "곧 비가 올 것 같아요.",
+      "knowledge_refs": [
+        "kg.grammar.adverb.got"
+      ],
+      "level": "A1",
+      "tags": [
+        "grammar",
+        "adverb",
+        "beginner"
+      ],
+      "provenance": {
+        "source": "youtube_connectors",
+        "source_lesson_ids": [
+          34
+        ],
+        "source_video_ids": [
+          "mh9dbBAikU0"
+        ],
+        "original_sentence_adjusted": "겨울이 가고 곧 봄이 올 거예요."
+      }
+    },
+    "i18n": {
+      "id": "ex.ko.s.000338",
+      "locale": "zh_tw",
+      "translation": "好像馬上就要下雨了。"
+    }
+  },
+  {
+    "id": "ex.ko.s.000339",
+    "source": {
+      "id": "ex.ko.s.000339",
+      "ko": "곧 친구 생일 파티가 있어요.",
+      "knowledge_refs": [
+        "kg.grammar.adverb.got"
+      ],
+      "level": "A1",
+      "tags": [
+        "grammar",
+        "adverb",
+        "beginner"
+      ],
+      "provenance": {
+        "source": "youtube_connectors",
+        "source_lesson_ids": [
+          34
+        ],
+        "source_video_ids": [
+          "mh9dbBAikU0"
+        ],
+        "original_sentence_adjusted": "곧 크리스마스예요."
+      }
+    },
+    "i18n": {
+      "id": "ex.ko.s.000339",
+      "locale": "zh_tw",
+      "translation": "馬上就有朋友的生日派對了。"
+    }
+  },
+  {
+    "id": "ex.ko.s.000340",
+    "source": {
+      "id": "ex.ko.s.000340",
+      "ko": "비행기가 곧 이륙합니다.",
+      "knowledge_refs": [
+        "kg.grammar.adverb.got"
+      ],
+      "level": "A1",
+      "tags": [
+        "grammar",
+        "adverb",
+        "beginner"
+      ],
+      "provenance": {
+        "source": "youtube_connectors",
+        "source_lesson_ids": [
+          34
+        ],
+        "source_video_ids": [
+          "mh9dbBAikU0"
+        ],
+        "original_sentence_adjusted": "기차가 곧 도착합니다."
+      }
+    },
+    "i18n": {
+      "id": "ex.ko.s.000340",
+      "locale": "zh_tw",
+      "translation": "飛機馬上就要起飛了。"
+    }
+  },
+  {
+    "id": "ex.ko.s.000341",
+    "source": {
+      "id": "ex.ko.s.000341",
+      "ko": "우리 언니가 곧 결혼해요.",
+      "knowledge_refs": [
+        "kg.grammar.adverb.got"
+      ],
+      "level": "A1",
+      "tags": [
+        "grammar",
+        "adverb",
+        "beginner"
+      ],
+      "provenance": {
+        "source": "youtube_connectors",
+        "source_lesson_ids": [
+          34
+        ],
+        "source_video_ids": [
+          "mh9dbBAikU0"
+        ],
+        "original_sentence_adjusted": "곧 졸업해요."
+      }
+    },
+    "i18n": {
+      "id": "ex.ko.s.000341",
+      "locale": "zh_tw",
+      "translation": "我姐姐馬上就要結婚了。"
+    }
+  },
+  {
+    "id": "ex.ko.s.000342",
+    "source": {
+      "id": "ex.ko.s.000342",
+      "ko": "곧 만나서 이야기합시다.",
+      "knowledge_refs": [
+        "kg.grammar.adverb.got"
+      ],
+      "level": "A1",
+      "tags": [
+        "grammar",
+        "adverb",
+        "beginner"
+      ],
+      "provenance": {
+        "source": "youtube_connectors",
+        "source_lesson_ids": [
+          34
+        ],
+        "source_video_ids": [
+          "mh9dbBAikU0"
+        ],
+        "original_sentence_adjusted": "No source examples available."
+      }
+    },
+    "i18n": {
+      "id": "ex.ko.s.000342",
+      "locale": "zh_tw",
+      "translation": "一會兒見面聊吧。"
+    }
+  },
+  {
+    "id": "ex.ko.s.000343",
+    "source": {
+      "id": "ex.ko.s.000343",
+      "ko": "곧 돌아올게요.",
+      "knowledge_refs": [
+        "kg.grammar.adverb.got"
+      ],
+      "level": "A1",
+      "tags": [
+        "grammar",
+        "adverb",
+        "beginner"
+      ],
+      "provenance": {
+        "source": "youtube_connectors",
+        "source_lesson_ids": [
+          34
+        ],
+        "source_video_ids": [
+          "mh9dbBAikU0"
+        ],
+        "original_sentence_adjusted": "No source examples available."
+      }
+    },
+    "i18n": {
+      "id": "ex.ko.s.000343",
+      "locale": "zh_tw",
+      "translation": "我馬上就回來。"
+    }
+  },
+  {
+    "id": "ex.ko.s.000344",
+    "source": {
+      "id": "ex.ko.s.000344",
+      "ko": "곧 저녁 시간이에요.",
+      "knowledge_refs": [
+        "kg.grammar.adverb.got"
+      ],
+      "level": "A1",
+      "tags": [
+        "grammar",
+        "adverb",
+        "beginner"
+      ],
+      "provenance": {
+        "source": "youtube_connectors",
+        "source_lesson_ids": [
+          34
+        ],
+        "source_video_ids": [
+          "mh9dbBAikU0"
+        ],
+        "original_sentence_adjusted": "곧 크리스마스예요."
+      }
+    },
+    "i18n": {
+      "id": "ex.ko.s.000344",
+      "locale": "zh_tw",
+      "translation": "馬上就是晚餐時間了。"
+    }
+  },
+  {
+    "id": "ex.ko.s.000345",
+    "source": {
+      "id": "ex.ko.s.000345",
+      "ko": "곧 겨울 방학이 시작돼요.",
+      "knowledge_refs": [
+        "kg.grammar.adverb.got"
+      ],
+      "level": "A1",
+      "tags": [
+        "grammar",
+        "adverb",
+        "beginner"
+      ],
+      "provenance": {
+        "source": "youtube_connectors",
+        "source_lesson_ids": [
+          34
+        ],
+        "source_video_ids": [
+          "mh9dbBAikU0"
+        ],
+        "original_sentence_adjusted": "겨울이 가고 곧 봄이 올 거예요."
+      }
+    },
+    "i18n": {
+      "id": "ex.ko.s.000345",
+      "locale": "zh_tw",
+      "translation": "寒假馬上就要開始了。"
+    }
+  },
+  {
+    "id": "ex.ko.s.000346",
+    "source": {
+      "id": "ex.ko.s.000346",
+      "ko": "곧 버스 정류장에 도착해요.",
+      "knowledge_refs": [
+        "kg.grammar.adverb.got"
+      ],
+      "level": "A1",
+      "tags": [
+        "grammar",
+        "adverb",
+        "beginner"
+      ],
+      "provenance": {
+        "source": "youtube_connectors",
+        "source_lesson_ids": [
+          34
+        ],
+        "source_video_ids": [
+          "mh9dbBAikU0"
+        ],
+        "original_sentence_adjusted": "기차가 곧 도착합니다."
+      }
+    },
+    "i18n": {
+      "id": "ex.ko.s.000346",
+      "locale": "zh_tw",
+      "translation": "馬上就到達公車站了。"
+    }
+  },
+  {
+    "id": "ex.ko.s.000347",
+    "source": {
+      "id": "ex.ko.s.000347",
+      "ko": "내일 마실 우유를 샀어요.",
+      "knowledge_refs": [
+        "kg.grammar.modifier.v_eul"
+      ],
+      "level": "A1",
+      "tags": [
+        "grammar",
+        "modifier",
+        "beginner"
+      ],
+      "provenance": {
+        "source": "youtube_beginner_grammar",
+        "source_lesson_ids": [
+          35
+        ],
+        "source_video_ids": [
+          "BYgzhoRaXZU"
+        ],
+        "original_sentence_adjusted": "마실 커피를 골라 주세요."
+      }
+    },
+    "i18n": {
+      "id": "ex.ko.s.000347",
+      "locale": "zh_tw",
+      "translation": "買了明天要喝的牛奶。"
+    }
+  },
+  {
+    "id": "ex.ko.s.000348",
+    "source": {
+      "id": "ex.ko.s.000348",
+      "ko": "제주도에서 구경할 곳이 정말 많아요.",
+      "knowledge_refs": [
+        "kg.grammar.modifier.v_eul"
+      ],
+      "level": "A1",
+      "tags": [
+        "grammar",
+        "modifier",
+        "beginner"
+      ],
+      "provenance": {
+        "source": "youtube_beginner_grammar",
+        "source_lesson_ids": [
+          35
+        ],
+        "source_video_ids": [
+          "BYgzhoRaXZU"
+        ],
+        "original_sentence_adjusted": "갈 곳이 없어요."
+      }
+    },
+    "i18n": {
+      "id": "ex.ko.s.000348",
+      "locale": "zh_tw",
+      "translation": "在濟州島有很多要參觀的地方。"
+    }
+  },
+  {
+    "id": "ex.ko.s.000349",
+    "source": {
+      "id": "ex.ko.s.000349",
+      "ko": "오늘 저녁에 먹을 음식을 준비하고 있어요.",
+      "knowledge_refs": [
+        "kg.grammar.modifier.v_eul"
+      ],
+      "level": "A1",
+      "tags": [
+        "grammar",
+        "modifier",
+        "beginner"
+      ],
+      "provenance": {
+        "source": "youtube_beginner_grammar",
+        "source_lesson_ids": [
+          35
+        ],
+        "source_video_ids": [
+          "BYgzhoRaXZU"
+        ],
+        "original_sentence_adjusted": "냉장고에 먹을 것이 하나도 없어요."
+      }
+    },
+    "i18n": {
+      "id": "ex.ko.s.000349",
+      "locale": "zh_tw",
+      "translation": "正在準備今天晚上要吃的食物。"
+    }
+  },
+  {
+    "id": "ex.ko.s.000350",
+    "source": {
+      "id": "ex.ko.s.000350",
+      "ko": "이번 주말에 입을 옷을 골라 주세요.",
+      "knowledge_refs": [
+        "kg.grammar.modifier.v_eul"
+      ],
+      "level": "A1",
+      "tags": [
+        "grammar",
+        "modifier",
+        "beginner"
+      ],
+      "provenance": {
+        "source": "youtube_beginner_grammar",
+        "source_lesson_ids": [
+          35
+        ],
+        "source_video_ids": [
+          "BYgzhoRaXZU"
+        ],
+        "original_sentence_adjusted": "마실 커피를 골라 주세요."
+      }
+    },
+    "i18n": {
+      "id": "ex.ko.s.000350",
+      "locale": "zh_tw",
+      "translation": "請幫我挑這週末要穿的衣服。"
+    }
+  },
+  {
+    "id": "ex.ko.s.000351",
+    "source": {
+      "id": "ex.ko.s.000351",
+      "ko": "나중에 살 집을 미리 보고 왔어요.",
+      "knowledge_refs": [
+        "kg.grammar.modifier.v_eul"
+      ],
+      "level": "A1",
+      "tags": [
+        "grammar",
+        "modifier",
+        "beginner"
+      ],
+      "provenance": {
+        "source": "youtube_beginner_grammar",
+        "source_lesson_ids": [
+          35
+        ],
+        "source_video_ids": [
+          "BYgzhoRaXZU"
+        ],
+        "original_sentence_adjusted": "사귈 사람은 따로 있을 거예요."
+      }
+    },
+    "i18n": {
+      "id": "ex.ko.s.000351",
+      "locale": "zh_tw",
+      "translation": "預先看了一下以後要買的房子。"
+    }
+  },
+  {
+    "id": "ex.ko.s.000352",
+    "source": {
+      "id": "ex.ko.s.000352",
+      "ko": "한국에서 공부할 계획을 세우고 있어요.",
+      "knowledge_refs": [
+        "kg.grammar.modifier.v_eul"
+      ],
+      "level": "A1",
+      "tags": [
+        "grammar",
+        "modifier",
+        "beginner"
+      ],
+      "provenance": {
+        "source": "youtube_beginner_grammar",
+        "source_lesson_ids": [
+          35
+        ],
+        "source_video_ids": [
+          "BYgzhoRaXZU"
+        ],
+        "original_sentence_adjusted": "공부할 시간이 없어요."
+      }
+    },
+    "i18n": {
+      "id": "ex.ko.s.000352",
+      "locale": "zh_tw",
+      "translation": "正在制定要在韓國學習的計畫。"
+    }
+  },
+  {
+    "id": "ex.ko.s.000353",
+    "source": {
+      "id": "ex.ko.s.000353",
+      "ko": "내일 만날 친구는 고등학교 친구예요.",
+      "knowledge_refs": [
+        "kg.grammar.modifier.v_eul"
+      ],
+      "level": "A1",
+      "tags": [
+        "grammar",
+        "modifier",
+        "beginner"
+      ],
+      "provenance": {
+        "source": "youtube_beginner_grammar",
+        "source_lesson_ids": [
+          35
+        ],
+        "source_video_ids": [
+          "BYgzhoRaXZU"
+        ],
+        "original_sentence_adjusted": "내일 만날 사람이 있어요."
+      }
+    },
+    "i18n": {
+      "id": "ex.ko.s.000353",
+      "locale": "zh_tw",
+      "translation": "明天要見的朋友是高中同學。"
+    }
+  },
+  {
+    "id": "ex.ko.s.000354",
+    "source": {
+      "id": "ex.ko.s.000354",
+      "ko": "주말에 할 숙제가 너무 많아서 걱정이에요.",
+      "knowledge_refs": [
+        "kg.grammar.modifier.v_eul"
+      ],
+      "level": "A1",
+      "tags": [
+        "grammar",
+        "modifier",
+        "beginner"
+      ],
+      "provenance": {
+        "source": "youtube_beginner_grammar",
+        "source_lesson_ids": [
+          35
+        ],
+        "source_video_ids": [
+          "BYgzhoRaXZU"
+        ],
+        "original_sentence_adjusted": "할 일이 너무 많아요."
+      }
+    },
+    "i18n": {
+      "id": "ex.ko.s.000354",
+      "locale": "zh_tw",
+      "translation": "週末要做的工作/作業太多了，很擔心。"
+    }
+  },
+  {
+    "id": "ex.ko.s.000355",
+    "source": {
+      "id": "ex.ko.s.000355",
+      "ko": "오늘 사장님께 보낼 서류를 다 썼어요.",
+      "knowledge_refs": [
+        "kg.grammar.modifier.v_eul"
+      ],
+      "level": "A1",
+      "tags": [
+        "grammar",
+        "modifier",
+        "beginner"
+      ],
+      "provenance": {
+        "source": "youtube_beginner_grammar",
+        "source_lesson_ids": [
+          35
+        ],
+        "source_video_ids": [
+          "BYgzhoRaXZU"
+        ],
+        "original_sentence_adjusted": "보낼 택배가 많아요."
+      }
+    },
+    "i18n": {
+      "id": "ex.ko.s.000355",
+      "locale": "zh_tw",
+      "translation": "寫完了今天要寄給老闆的文件。"
+    }
+  },
+  {
+    "id": "ex.ko.s.000356",
+    "source": {
+      "id": "ex.ko.s.000356",
+      "ko": "어머니께 드릴 선물을 샀어요.",
+      "knowledge_refs": [
+        "kg.grammar.modifier.v_eul"
+      ],
+      "level": "A1",
+      "tags": [
+        "grammar",
+        "modifier",
+        "beginner"
+      ],
+      "provenance": {
+        "source": "youtube_beginner_grammar",
+        "source_lesson_ids": [
+          35
+        ],
+        "source_video_ids": [
+          "BYgzhoRaXZU"
+        ],
+        "original_sentence_adjusted": "보낼 택배가 많아요."
+      }
+    },
+    "i18n": {
+      "id": "ex.ko.s.000356",
+      "locale": "zh_tw",
+      "translation": "買了要給媽媽的禮物。"
     }
   }
 ]

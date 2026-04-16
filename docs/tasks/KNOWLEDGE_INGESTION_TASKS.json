@@ -36,8 +36,12 @@
     {
       "id": "kg-verify-005",
       "title": "Validate links and artifact compatibility with migrated pack",
-      "status": "todo",
-      "deliverable": "pipeline verification notes"
+      "status": "deprecated",
+      "deliverable": "pipeline verification notes",
+      "notes": [
+        "Folded into kg-mig-015 as the batch-level verification step.",
+        "No standalone verification artifact is currently required beyond the skill-driven per-item/batch validation flow."
+      ]
     },
     {
       "id": "kg-pipeline-006",
@@ -197,6 +201,7 @@
         "kg-verify-016"
       ],
       "notes": [
+        "Batch-level verification formerly tracked under kg-verify-005 is now treated as a subflow of this task.",
         "Item-level digest/bootstrap work formerly tracked under kg-mig-009 is now treated as a subflow of this task.",
         "2026-04-13: Comprehensive source inventory completed (kg-mig-015A). 349 items scanned; 184 Ready, 120 Skip, 19 Shared Usage, 26 Needs Review. Manifest generated at docs/tasks/KNOWLEDGE_INGESTION_SOURCE_INVENTORY_V1.md.",
         "2026-04-13: Pilot ingestion phases kg-mig-015B, kg-mig-015C, and kg-mig-015D completed for connectors, beginner grammar, and connective endings.",

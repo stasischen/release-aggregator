@@ -104,7 +104,7 @@ Layer 5: Legacy Backfill
 
 | Task ID | 描述 | Phase | 進度 | 檔案 |
 | :--- | :--- | :--- | :--- | :--- |
-| KNOWLEDGE_LAB_ENRICHMENT | Knowledge Lab 內容充實（knowledge/topic/link/vocab/retrieval 補強；含 embedded examples 盤點與 pronunciation refs；不得改 frontend intake contract） | Lab/Ops | 7/8 tasks | [JSON](KNOWLEDGE_LAB_ENRICHMENT_TASKS.json) |
+| KNOWLEDGE_LAB_ENRICHMENT | Knowledge Lab 內容充實（knowledge/topic/link/vocab/retrieval 補強；含 embedded examples 盤點與 pronunciation refs；不得改 frontend intake contract） | Lab/Ops | 7/8 tasks | [JSON](KNOWLEDGE_LAB_ENRICHMENT_TASKS.json) · [FINDINGS](kg-normalize-001B_FINDINGS_HANDOFF.md) |
 
 
 ### Completed Pending Archive (已完成待封存)

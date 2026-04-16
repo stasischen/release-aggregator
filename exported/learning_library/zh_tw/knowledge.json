@@ -972,6 +972,51 @@
     }
   },
   {
+    "id": "kg.grammar.ending.after_eun_hue",
+    "source": {
+      "id": "kg.grammar.ending.after_eun_hue",
+      "kind": "grammar",
+      "subcategory": "ending",
+      "level": "A2",
+      "surface": "ㄴ/은 후에",
+      "tags": [
+        "grammar",
+        "ending",
+        "beginner",
+        "v5_ingestion"
+      ],
+      "provenance": {
+        "source": "youtube_beginner_grammar",
+        "source_lesson_ids": [
+          89
+        ],
+        "source_video_ids": [
+          "M8Xgf117_Xg"
+        ]
+      },
+      "example_sentence_refs": [
+        "ex.ko.s.000887",
+        "ex.ko.s.000888",
+        "ex.ko.s.000889",
+        "ex.ko.s.000890",
+        "ex.ko.s.000891",
+        "ex.ko.s.000892",
+        "ex.ko.s.000893",
+        "ex.ko.s.000894",
+        "ex.ko.s.000895",
+        "ex.ko.s.000896"
+      ]
+    },
+    "i18n": {
+      "id": "kg.grammar.ending.after_eun_hue",
+      "locale": "zh_tw",
+      "title": "ㄴ/은 후에 (動作先後順序)",
+      "description": "用來表示做完前面的動作之後，接著進行後面的動作。",
+      "explanation_md": "· 用法說明\n`~ㄴ/은 후에` 用於明確表達兩個動作的前後順序，相當於中文的「在做完 A 之後要做 B」。它可以幫你條理分明地描述一整天的行程。\n\n· 常見使用場景\n- 「洗完澡之後喝啤酒。」\n- 「吃完飯之後請吃藥。」\n- 「回家之後會給你打電話。」\n\n· 相近文法比較\n與 `~고 나서` 的差別：兩者意義相近，但 `~ㄴ/은 후에` 更強調時間上的「之後」；而 `~고 나서` 則更強調前一個動作徹底「結束」後才進行下一個。\n\n· 注意\n**形態變化**：\n- 只接在動詞後。\n- 動詞詞幹有收音：接 `~은 후에`。\n- 動詞詞幹無收音：接 `~ㄴ 후에`。\n\n[id:ex.ko.s.000887] [id:ex.ko.s.000888] [id:ex.ko.s.000889] [id:ex.ko.s.000890] [id:ex.ko.s.000891] [id:ex.ko.s.000892] [id:ex.ko.s.000893] [id:ex.ko.s.000894] [id:ex.ko.s.000895] [id:ex.ko.s.000896]",
+      "usage_notes": []
+    }
+  },
+  {
     "id": "kg.grammar.ending.after_go_na_seo",
     "source": {
       "id": "kg.grammar.ending.after_go_na_seo",
@@ -1083,7 +1128,8 @@
           88
         ],
         "source_video_ids": [
-          "6OG_BaxuOo8"
+          "6OG_BaxuOo8",
+          "YK0DqzHe9T4"
         ]
       },
       "example_sentence_refs": [
@@ -1096,7 +1142,17 @@
         "ex.ko.s.000753",
         "ex.ko.s.000754",
         "ex.ko.s.000755",
-        "ex.ko.s.000756"
+        "ex.ko.s.000756",
+        "ex.ko.s.000877",
+        "ex.ko.s.000878",
+        "ex.ko.s.000879",
+        "ex.ko.s.000880",
+        "ex.ko.s.000881",
+        "ex.ko.s.000882",
+        "ex.ko.s.000883",
+        "ex.ko.s.000884",
+        "ex.ko.s.000885",
+        "ex.ko.s.000886"
       ]
     },
     "i18n": {
@@ -1104,7 +1160,7 @@
       "locale": "zh_tw",
       "title": "는데/ㄴ데/은데 (背景與對比)",
       "description": "用來提供背景資訊、說明情況，或在轉折時表達對比語氣。",
-      "explanation_md": "· 用法說明\n`~는데/ㄴ데/은데` 是韓語中極為常見且語感細膩的連接詞尾，主要用法如下：\n1. **背景提示**：引出後句所需的背景或前提。\n2. **對比轉折**：表達雖然如何，但是...（語氣較 `지만` 委婉）。\n3. **省略語尾**：在對話中作為終結，帶有一種未完待續或期待對象回應的感覺。\n\n· 常見使用場景\n- 「天氣很冷，不過人很多。」（對比）\n- 「我現在要去超市，有什麼要買的嗎？」（背景引導）\n- 「這個很好看耶...」（省略語尾）\n\n· 相近文法比較\n與 `지만` 的差別：`지만` 強調絕對的對比；`는데` 則傾向於說明當前的「背景情況」。\n\n· 注意\n**形態變化**：\n- 動詞：一律接 `~는데`。\n- 形容詞/名詞謂語：有收音接 `~은데`；無收音接 `~ㄴ데`。\n\n[id:ex.ko.s.000747] [id:ex.ko.s.000748] [id:ex.ko.s.000749] [id:ex.ko.s.000750] [id:ex.ko.s.000751] [id:ex.ko.s.000752] [id:ex.ko.s.000753] [id:ex.ko.s.000754] [id:ex.ko.s.000755] [id:ex.ko.s.000756]",
+      "explanation_md": "· 用法說明\n`~는데/ㄴ데/은데` 是韓語中極為常見且語感細膩的連接詞尾，主要用法如下：\n1. **背景提示**：引出後句所需的背景或前提。\n2. **對比轉折**：表達雖然如何，但是...（語氣較 `지만` 委婉）。\n3. **省略語尾**：在對話中作為終結，帶有一種未完待續或期待對象回應的感覺。\n\n· 常見使用場景\n- 「天氣很冷，不過人很多。」（對比）\n- 「我現在要去超市，有什麼要買的嗎？」（背景引導）\n- 「這個很好看耶...」（省略語尾）\n\n· 相近文法比較\n與 `지만` 的差別：`지만` 強調絕對的對比；`는데` 則傾向於說明當前的「背景情況」。\n\n· 注意\n**形態變化**：\n- 動詞：一律接 `~는데`。\n- 形容詞/名詞謂語：有收音接 `~은데`；無收音接 `~ㄴ데`。\n\n[id:ex.ko.s.000747] [id:ex.ko.s.000748] [id:ex.ko.s.000749] [id:ex.ko.s.000750] [id:ex.ko.s.000751] [id:ex.ko.s.000752] [id:ex.ko.s.000753] [id:ex.ko.s.000754] [id:ex.ko.s.000755] [id:ex.ko.s.000756] [id:ex.ko.s.000877] [id:ex.ko.s.000878] [id:ex.ko.s.000879] [id:ex.ko.s.000880] [id:ex.ko.s.000881] [id:ex.ko.s.000882] [id:ex.ko.s.000883] [id:ex.ko.s.000884] [id:ex.ko.s.000885] [id:ex.ko.s.000886]",
       "usage_notes": []
     }
   },
@@ -1336,6 +1392,51 @@
     }
   },
   {
+    "id": "kg.grammar.ending.condition_myeon",
+    "source": {
+      "id": "kg.grammar.ending.condition_myeon",
+      "kind": "grammar",
+      "subcategory": "ending",
+      "level": "A1",
+      "surface": "면/으면",
+      "tags": [
+        "grammar",
+        "ending",
+        "beginner",
+        "v5_ingestion"
+      ],
+      "provenance": {
+        "source": "youtube_beginner_grammar",
+        "source_lesson_ids": [
+          87
+        ],
+        "source_video_ids": [
+          "ixqg7pPGKQw"
+        ]
+      },
+      "example_sentence_refs": [
+        "ex.ko.s.000867",
+        "ex.ko.s.000868",
+        "ex.ko.s.000869",
+        "ex.ko.s.000870",
+        "ex.ko.s.000871",
+        "ex.ko.s.000872",
+        "ex.ko.s.000873",
+        "ex.ko.s.000874",
+        "ex.ko.s.000875",
+        "ex.ko.s.000876"
+      ]
+    },
+    "i18n": {
+      "id": "kg.grammar.ending.condition_myeon",
+      "locale": "zh_tw",
+      "title": "면/으면 (假設與條件)",
+      "description": "用來表示假設某種情況，或是設定達成某件事的條件。",
+      "explanation_md": "· 用法說明\n`~면/으면` 是韓語中表達「假設」或「條件」的最基礎文法。當你想說「如果做某事的話...」或「當某種情況發生時...」時就會用到它。\n\n· 常見使用場景\n- 「下雨的話請撐傘。」（設定條件）\n- 「如果很不舒服的話就回家休息吧。」（針對情況建議）\n- 「到了機場的話請打電話給我。」（時間性條件）\n\n· 相近文法比較\n與 `~았/었으면 좋겠다` 的差別：`~면` 單純表示假設或條件；而 `~았/었으면 좋겠다` 則更強調「希望某事發生」的個人願望。\n\n· 注意\n**形態變化**：\n- 詞幹最後一個字有收音（底座）：接 `~으면`。\n- 詞幹最後一個字無收音或以 `ㄹ` 結尾：接 `~면`。\n\n[id:ex.ko.s.000867] [id:ex.ko.s.000868] [id:ex.ko.s.000869] [id:ex.ko.s.000870] [id:ex.ko.s.000871] [id:ex.ko.s.000872] [id:ex.ko.s.000873] [id:ex.ko.s.000874] [id:ex.ko.s.000875] [id:ex.ko.s.000876]",
+      "usage_notes": []
+    }
+  },
+  {
     "id": "kg.grammar.ending.connective_go",
     "source": {
       "id": "kg.grammar.ending.connective_go",
@@ -1470,6 +1571,51 @@
       "title": "-네/네요 (啊/耶 - 感嘆)",
       "description": "表示對剛得知的新事實感到驚訝、感嘆，或是對當前狀況的體會。",
       "explanation_md": "· 用法說明\n直接接在詞幹後。用於表達「原來是這樣啊！」的驚奇感。\n\n· 常見使用場景\n- 親眼看到事實：哇，今天天氣真好耶！\n- 體驗後感悟：這道菜真的很好吃耶。\n- 確認新訊息：原本你是大學生啊。\n\n· 相近文法比較\n- **-군요/구나**: 通用的感嘆，但不一定需要是「剛發現」的事情。\n- **-네요**: 更強調「此刻當下」新發現的事實，口語感非常強。\n\n· 注意\n與第二人稱問句合用時，帶有「原來你...啊？」的確認色彩。",
+      "usage_notes": []
+    }
+  },
+  {
+    "id": "kg.grammar.ending.explanation_surprise_neundeyo",
+    "source": {
+      "id": "kg.grammar.ending.explanation_surprise_neundeyo",
+      "kind": "grammar",
+      "subcategory": "ending",
+      "level": "A2",
+      "surface": "ㄴ/은데요 / 는데요",
+      "tags": [
+        "grammar",
+        "ending",
+        "beginner",
+        "v5_ingestion"
+      ],
+      "provenance": {
+        "source": "youtube_beginner_grammar",
+        "source_lesson_ids": [
+          86
+        ],
+        "source_video_ids": [
+          "SRgE_wyfo9U"
+        ]
+      },
+      "example_sentence_refs": [
+        "ex.ko.s.000857",
+        "ex.ko.s.000858",
+        "ex.ko.s.000859",
+        "ex.ko.s.000860",
+        "ex.ko.s.000861",
+        "ex.ko.s.000862",
+        "ex.ko.s.000863",
+        "ex.ko.s.000864",
+        "ex.ko.s.000865",
+        "ex.ko.s.000866"
+      ]
+    },
+    "i18n": {
+      "id": "kg.grammar.ending.explanation_surprise_neundeyo",
+      "locale": "zh_tw",
+      "title": "ㄴ/은데요/는데요 (婉轉語氣與驚訝)",
+      "description": "用來委婉地說明情況、期待對方回應，或是表達驚訝與感嘆。",
+      "explanation_md": "· 用法說明\n`~ㄴ/은데요 / 는데요` 是韓語對話中極其重要的「魔法語尾」，主要用於以下場景：\n1. **婉轉說明或拒絕**：當直接說「不」顯得太生硬時，用此語尾可以帶出一種「那個...其實是...」的委婉語感，讓對方理解你的難處。\n2. **感嘆與驚訝**：看到出乎意料的情況時，表達「喔！沒想到...呢」的驚訝感。\n3. **期待回應**：說完話後語尾稍稍拉長，暗示句子未完，希望聽者能接著給予反饋。\n\n· 常見使用場景\n- 「那個...我週末已經有約了耶...」（委婉拒絕）\n- 「哇，這件衣服比想像中還貴耶！」（驚訝）\n- 「我朋友還沒來呢...」（提供背景資訊並期待回應）\n\n· 相近文法比較\n與 `~아요/어요` 的差別：直接使用 `~아요/어요` 是在陳述事實；而 `~는데요` 則多了一層「考慮對方反應」或「當前情境背景」的細膩語感。\n\n· 注意\n**形態變化**：\n- 動詞/ 있다 / 없다：接 `~는데요`。\n- 形容詞：有收音接 `~은데요`；無收音接 `~ㄴ데요`。\n- 名詞：接 `~인데요`。\n\n[id:ex.ko.s.000857] [id:ex.ko.s.000858] [id:ex.ko.s.000859] [id:ex.ko.s.000860] [id:ex.ko.s.000861] [id:ex.ko.s.000862] [id:ex.ko.s.000863] [id:ex.ko.s.000864] [id:ex.ko.s.000865] [id:ex.ko.s.000866]",
       "usage_notes": []
     }
   },
@@ -3252,6 +3398,51 @@
       "title": "못 (無法/不方便)",
       "description": "表示因為能力不足或外部客觀因素，導致無法完成某動作。",
       "explanation_md": "· 用法說明\n放置在動詞前方。僅能與動詞連用，不能接在形容詞前（除極少數例外）。\n\n· 常見使用場景\n- 能力不足：我沒辦法（因為沒學過）做這道菜。\n- 外部障礙：因為感冒了所以沒辦法去上班。\n\n· 相近文法比較\n- **안**: 「不想做」的意志否定。\n- **못**: 「做不到」的能力或情況否定。\n\n· 注意\n動詞如果是 `名詞 + 하다` 的形式（如 공부하다），`못` 必須放在 `하다` 之前（공부 못 해요）。",
+      "usage_notes": []
+    }
+  },
+  {
+    "id": "kg.grammar.particle.after_noun_hu",
+    "source": {
+      "id": "kg.grammar.particle.after_noun_hu",
+      "kind": "grammar",
+      "subcategory": "particle",
+      "level": "A1",
+      "surface": "n 후에",
+      "tags": [
+        "grammar",
+        "particle",
+        "beginner",
+        "v5_ingestion"
+      ],
+      "provenance": {
+        "source": "youtube_beginner_grammar",
+        "source_lesson_ids": [
+          90
+        ],
+        "source_video_ids": [
+          "S5L72HIvmko"
+        ]
+      },
+      "example_sentence_refs": [
+        "ex.ko.s.000897",
+        "ex.ko.s.000898",
+        "ex.ko.s.000899",
+        "ex.ko.s.000900",
+        "ex.ko.s.000901",
+        "ex.ko.s.000902",
+        "ex.ko.s.000903",
+        "ex.ko.s.000904",
+        "ex.ko.s.000905",
+        "ex.ko.s.000906"
+      ]
+    },
+    "i18n": {
+      "id": "kg.grammar.particle.after_noun_hu",
+      "locale": "zh_tw",
+      "title": "n 후에 (時間與事件順序)",
+      "description": "用來表示經過某段時間或某個事件發生之後。",
+      "explanation_md": "· 用法說明\n`~n 후에` 是非常簡單且實用的表現方式，直接接在表示「時間」或「事件」的名詞後，表示在那之後。不需要像動詞一樣考慮複雜的變化。\n\n· 常見使用場景\n- 「下班之後喝一杯吧。」\n- 「一小時之後請再來。」\n- 「下課後有問題要問。」\n\n· 相近文法比較\n與 `~ㄴ/은 후에` 的差別：`~ㄴ/은 후에` 接在**動詞**後；而 `~후에` 則直接接在**名詞**（尤其是時間或活動名詞）後。\n\n· 注意\n- 主要用於時間名詞（如 10분、1시간、3일）或活動名詞（如 수업、식사、결혼）。\n\n[id:ex.ko.s.000897] [id:ex.ko.s.000898] [id:ex.ko.s.000899] [id:ex.ko.s.000900] [id:ex.ko.s.000901] [id:ex.ko.s.000902] [id:ex.ko.s.000903] [id:ex.ko.s.000904] [id:ex.ko.s.000905] [id:ex.ko.s.000906]",
       "usage_notes": []
     }
   },

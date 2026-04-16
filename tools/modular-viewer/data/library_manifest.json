@@ -767,7 +767,39 @@
         "ex.ko.s.000653",
         "ex.ko.s.000654",
         "ex.ko.s.000655",
-        "ex.ko.s.000656"
+        "ex.ko.s.000656",
+        "ex.ko.s.000817",
+        "ex.ko.s.000818",
+        "ex.ko.s.000819",
+        "ex.ko.s.000820",
+        "ex.ko.s.000821",
+        "ex.ko.s.000822",
+        "ex.ko.s.000823",
+        "ex.ko.s.000824",
+        "ex.ko.s.000825",
+        "ex.ko.s.000826"
+      ]
+    },
+    {
+      "id": "kg.grammar.ending.wish_eumyeon_jokgetda",
+      "category": "grammar",
+      "sub": "ending",
+      "title": "-(으)면 좋겠다 (希望/願望)",
+      "level": "A1",
+      "path": "data/runtime/zh_tw/knowledge.json",
+      "runtime_id": "kg.grammar.ending.wish_eumyeon_jokgetda",
+      "surface": "-(으)면 좋겠다",
+      "example_sentence_refs": [
+        "ex.ko.s.000837",
+        "ex.ko.s.000838",
+        "ex.ko.s.000839",
+        "ex.ko.s.000840",
+        "ex.ko.s.000841",
+        "ex.ko.s.000842",
+        "ex.ko.s.000843",
+        "ex.ko.s.000844",
+        "ex.ko.s.000845",
+        "ex.ko.s.000846"
       ]
     },
     {
@@ -1053,7 +1085,17 @@
         "ex.ko.s.000683",
         "ex.ko.s.000684",
         "ex.ko.s.000685",
-        "ex.ko.s.000686"
+        "ex.ko.s.000686",
+        "ex.ko.s.000847",
+        "ex.ko.s.000848",
+        "ex.ko.s.000849",
+        "ex.ko.s.000850",
+        "ex.ko.s.000851",
+        "ex.ko.s.000852",
+        "ex.ko.s.000853",
+        "ex.ko.s.000854",
+        "ex.ko.s.000855",
+        "ex.ko.s.000856"
       ]
     },
     {
@@ -1412,12 +1454,23 @@
       "id": "kg.grammar.intent.intend_ul_ryeogo_hada",
       "category": "grammar",
       "sub": "intent",
-      "title": "-(으)려고 하다 (打算/為了)",
+      "title": "-(으)려고 하다 (打算/意圖)",
       "level": "A1",
       "path": "data/runtime/zh_tw/knowledge.json",
       "runtime_id": "kg.grammar.intent.intend_ul_ryeogo_hada",
-      "surface": "",
-      "example_sentence_refs": []
+      "surface": "-(으)려고 하다",
+      "example_sentence_refs": [
+        "ex.ko.s.000827",
+        "ex.ko.s.000828",
+        "ex.ko.s.000829",
+        "ex.ko.s.000830",
+        "ex.ko.s.000831",
+        "ex.ko.s.000832",
+        "ex.ko.s.000833",
+        "ex.ko.s.000834",
+        "ex.ko.s.000835",
+        "ex.ko.s.000836"
+      ]
     },
     {
       "id": "kg.grammar.modifier.v_eul",
@@ -1505,6 +1558,28 @@
         "ex.ko.s.000364",
         "ex.ko.s.000365",
         "ex.ko.s.000366"
+      ]
+    },
+    {
+      "id": "kg.grammar.movement.ul_ryeo_ga_da_o_da",
+      "category": "grammar",
+      "sub": "movement",
+      "title": "-(으)러 가다/오다 (目的移動)",
+      "level": "A1",
+      "path": "data/runtime/zh_tw/knowledge.json",
+      "runtime_id": "kg.grammar.movement.ul_ryeo_ga_da_o_da",
+      "surface": "-(으)러 가다/오다",
+      "example_sentence_refs": [
+        "ex.ko.s.000807",
+        "ex.ko.s.000808",
+        "ex.ko.s.000809",
+        "ex.ko.s.000810",
+        "ex.ko.s.000811",
+        "ex.ko.s.000812",
+        "ex.ko.s.000813",
+        "ex.ko.s.000814",
+        "ex.ko.s.000815",
+        "ex.ko.s.000816"
       ]
     },
     {

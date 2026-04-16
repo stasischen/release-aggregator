@@ -22680,5 +22680,1405 @@
       "locale": "zh_tw",
       "translation": "想幫你，但沒有時間。"
     }
+  },
+  {
+    "id": "ex.ko.s.000757",
+    "source": {
+      "id": "ex.ko.s.000757",
+      "ko": "배가 고프니까 일찍 밥을 먹읍시다.",
+      "knowledge_refs": [
+        "kg.grammar.ending.cause_ul_ni_ka"
+      ],
+      "level": "A1",
+      "tags": [
+        "grammar",
+        "ending",
+        "beginner"
+      ],
+      "provenance": {
+        "source": "youtube_beginner_grammar",
+        "source_lesson_ids": [
+          77
+        ],
+        "original_sentence_adjusted": "배고프니까 밥을 먹어요."
+      }
+    },
+    "i18n": {
+      "id": "ex.ko.s.000757",
+      "locale": "zh_tw",
+      "translation": "因為肚子餓，所以早點吃飯吧。"
+    }
+  },
+  {
+    "id": "ex.ko.s.000758",
+    "source": {
+      "id": "ex.ko.s.000758",
+      "ko": "비가 오니까 우산을 가져가세요.",
+      "knowledge_refs": [
+        "kg.grammar.ending.cause_ul_ni_ka"
+      ],
+      "level": "A1",
+      "tags": [
+        "grammar",
+        "ending",
+        "beginner"
+      ],
+      "provenance": {
+        "source": "youtube_beginner_grammar",
+        "source_lesson_ids": [
+          77
+        ],
+        "original_sentence_adjusted": "비가 오니까 우산을 챙기세요."
+      }
+    },
+    "i18n": {
+      "id": "ex.ko.s.000758",
+      "locale": "zh_tw",
+      "translation": "因為下雨，請帶傘出門。"
+    }
+  },
+  {
+    "id": "ex.ko.s.000759",
+    "source": {
+      "id": "ex.ko.s.000759",
+      "ko": "날씨가 추우니까 카페에 들어갑시다.",
+      "knowledge_refs": [
+        "kg.grammar.ending.cause_ul_ni_ka"
+      ],
+      "level": "A1",
+      "tags": [
+        "grammar",
+        "ending",
+        "beginner"
+      ],
+      "provenance": {
+        "source": "youtube_beginner_grammar",
+        "source_lesson_ids": [
+          77
+        ],
+        "original_sentence_adjusted": "카페가 조용하니까 공부하자."
+      }
+    },
+    "i18n": {
+      "id": "ex.ko.s.000759",
+      "locale": "zh_tw",
+      "translation": "因為天氣冷，我們進去咖啡廳吧。"
+    }
+  },
+  {
+    "id": "ex.ko.s.000760",
+    "source": {
+      "id": "ex.ko.s.000760",
+      "ko": "지금은 출근 시간이니까 길이 많이 막혀요.",
+      "knowledge_refs": [
+        "kg.grammar.ending.cause_ul_ni_ka"
+      ],
+      "level": "A1",
+      "tags": [
+        "grammar",
+        "ending",
+        "beginner"
+      ],
+      "provenance": {
+        "source": "youtube_beginner_grammar",
+        "source_lesson_ids": [
+          77
+        ],
+        "original_sentence_adjusted": "길이 막히니까 지하철 타자."
+      }
+    },
+    "i18n": {
+      "id": "ex.ko.s.000760",
+      "locale": "zh_tw",
+      "translation": "因為現在是通飯時間，路很塞。"
+    }
+  },
+  {
+    "id": "ex.ko.s.000761",
+    "source": {
+      "id": "ex.ko.s.000761",
+      "ko": "이 책이 재미있으니까 꼭 읽어 보세요.",
+      "knowledge_refs": [
+        "kg.grammar.ending.cause_ul_ni_ka"
+      ],
+      "level": "A1",
+      "tags": [
+        "grammar",
+        "ending",
+        "beginner"
+      ],
+      "provenance": {
+        "source": "youtube_beginner_grammar",
+        "source_lesson_ids": [
+          77
+        ],
+        "original_sentence_adjusted": "영화가 재미있으니까 같이 보자."
+      }
+    },
+    "i18n": {
+      "id": "ex.ko.s.000761",
+      "locale": "zh_tw",
+      "translation": "因為這本書很有趣，請一定要讀讀看。"
+    }
+  },
+  {
+    "id": "ex.ko.s.000762",
+    "source": {
+      "id": "ex.ko.s.000762",
+      "ko": "이미 늦었으니까 빨리 갑시다.",
+      "knowledge_refs": [
+        "kg.grammar.ending.cause_ul_ni_ka"
+      ],
+      "level": "A1",
+      "tags": [
+        "grammar",
+        "ending",
+        "beginner"
+      ],
+      "provenance": {
+        "source": "youtube_beginner_grammar",
+        "source_lesson_ids": [
+          77
+        ],
+        "original_sentence_adjusted": "시간이 없으니까 빨리 가요."
+      }
+    },
+    "i18n": {
+      "id": "ex.ko.s.000762",
+      "locale": "zh_tw",
+      "translation": "因為已經晚了，快走吧。"
+    }
+  },
+  {
+    "id": "ex.ko.s.000763",
+    "source": {
+      "id": "ex.ko.s.000763",
+      "ko": "주말이니까 같이 공원에 놀러 가요.",
+      "knowledge_refs": [
+        "kg.grammar.ending.cause_ul_ni_ka"
+      ],
+      "level": "A1",
+      "tags": [
+        "grammar",
+        "ending",
+        "beginner"
+      ],
+      "provenance": {
+        "source": "youtube_beginner_grammar",
+        "source_lesson_ids": [
+          77
+        ],
+        "original_sentence_adjusted": "주말이니까 다 같이 만나요."
+      }
+    },
+    "i18n": {
+      "id": "ex.ko.s.000763",
+      "locale": "zh_tw",
+      "translation": "因為是週末，一起去公園玩吧。"
+    }
+  },
+  {
+    "id": "ex.ko.s.000764",
+    "source": {
+      "id": "ex.ko.s.000764",
+      "ko": "바쁘니까 내일 만납시다.",
+      "knowledge_refs": [
+        "kg.grammar.ending.cause_ul_ni_ka"
+      ],
+      "level": "A1",
+      "tags": [
+        "grammar",
+        "ending",
+        "beginner"
+      ],
+      "provenance": {
+        "source": "youtube_beginner_grammar",
+        "source_lesson_ids": [
+          77
+        ],
+        "original_sentence_adjusted": "공부하니까 성적이 좋아졌어요."
+      }
+    },
+    "i18n": {
+      "id": "ex.ko.s.000764",
+      "locale": "zh_tw",
+      "translation": "因為很忙，明天再見面吧。"
+    }
+  },
+  {
+    "id": "ex.ko.s.000765",
+    "source": {
+      "id": "ex.ko.s.000765",
+      "ko": "방이 더러우니까 청소를 하세요.",
+      "knowledge_refs": [
+        "kg.grammar.ending.cause_ul_ni_ka"
+      ],
+      "level": "A1",
+      "tags": [
+        "grammar",
+        "ending",
+        "beginner"
+      ],
+      "provenance": {
+        "source": "youtube_beginner_grammar",
+        "source_lesson_ids": [
+          77
+        ],
+        "original_sentence_adjusted": "세일하니까 사람들이 많아요."
+      }
+    },
+    "i18n": {
+      "id": "ex.ko.s.000765",
+      "locale": "zh_tw",
+      "translation": "房間很髒，請打掃一下。"
+    }
+  },
+  {
+    "id": "ex.ko.s.000766",
+    "source": {
+      "id": "ex.ko.s.000766",
+      "ko": "돈이 없으니까 못 사요.",
+      "knowledge_refs": [
+        "kg.grammar.ending.cause_ul_ni_ka"
+      ],
+      "level": "A1",
+      "tags": [
+        "grammar",
+        "ending",
+        "beginner"
+      ],
+      "provenance": {
+        "source": "youtube_beginner_grammar",
+        "source_lesson_ids": [
+          77
+        ],
+        "original_sentence_adjusted": "운동하니까 건강해졌어요."
+      }
+    },
+    "i18n": {
+      "id": "ex.ko.s.000766",
+      "locale": "zh_tw",
+      "translation": "因為沒有錢，所以沒辦法買。"
+    }
+  },
+  {
+    "id": "ex.ko.s.000767",
+    "source": {
+      "id": "ex.ko.s.000767",
+      "ko": "숙제를 하고 나서 친구를 만났어요.",
+      "knowledge_refs": [
+        "kg.grammar.ending.after_go_na_seo"
+      ],
+      "level": "A1",
+      "tags": [
+        "grammar",
+        "ending",
+        "beginner"
+      ],
+      "provenance": {
+        "source": "youtube_beginner_grammar",
+        "source_lesson_ids": [
+          78
+        ],
+        "original_sentence_adjusted": "밥을 먹고 나서 숙제를 했어요."
+      }
+    },
+    "i18n": {
+      "id": "ex.ko.s.000767",
+      "locale": "zh_tw",
+      "translation": "做完作業後，我和朋友見面了。"
+    }
+  },
+  {
+    "id": "ex.ko.s.000768",
+    "source": {
+      "id": "ex.ko.s.000768",
+      "ko": "점심을 먹고 나서 커피를 마셨어요.",
+      "knowledge_refs": [
+        "kg.grammar.ending.after_go_na_seo"
+      ],
+      "level": "A1",
+      "tags": [
+        "grammar",
+        "ending",
+        "beginner"
+      ],
+      "provenance": {
+        "source": "youtube_beginner_grammar",
+        "source_lesson_ids": [
+          78
+        ],
+        "original_sentence_adjusted": "커피를 마시고 나서 케이크를 먹었어요."
+      }
+    },
+    "i18n": {
+      "id": "ex.ko.s.000768",
+      "locale": "zh_tw",
+      "translation": "吃完午飯後，喝了咖啡。"
+    }
+  },
+  {
+    "id": "ex.ko.s.000769",
+    "source": {
+      "id": "ex.ko.s.000769",
+      "ko": "샤워를 하고 나서 잤어요.",
+      "knowledge_refs": [
+        "kg.grammar.ending.after_go_na_seo"
+      ],
+      "level": "A1",
+      "tags": [
+        "grammar",
+        "ending",
+        "beginner"
+      ],
+      "provenance": {
+        "source": "youtube_beginner_grammar",
+        "source_lesson_ids": [
+          78
+        ],
+        "original_sentence_adjusted": "씻고 나서 잤어요."
+      }
+    },
+    "i18n": {
+      "id": "ex.ko.s.000769",
+      "locale": "zh_tw",
+      "translation": "洗完澡後後睡覺了。"
+    }
+  },
+  {
+    "id": "ex.ko.s.000770",
+    "source": {
+      "id": "ex.ko.s.000770",
+      "ko": "책을 읽고 나서 책상을 정리했어요.",
+      "knowledge_refs": [
+        "kg.grammar.ending.after_go_na_seo"
+      ],
+      "level": "A1",
+      "tags": [
+        "grammar",
+        "ending",
+        "beginner"
+      ],
+      "provenance": {
+        "source": "youtube_beginner_grammar",
+        "source_lesson_ids": [
+          78
+        ],
+        "original_sentence_adjusted": "책을 읽고 나서 메모했어요."
+      }
+    },
+    "i18n": {
+      "id": "ex.ko.s.000770",
+      "locale": "zh_tw",
+      "translation": "讀完書之後，整理了書桌。"
+    }
+  },
+  {
+    "id": "ex.ko.s.000771",
+    "source": {
+      "id": "ex.ko.s.000771",
+      "ko": "버스를 타고 나서 지갑이 없는 것을 알았어요.",
+      "knowledge_refs": [
+        "kg.grammar.ending.after_go_na_seo"
+      ],
+      "level": "A2",
+      "tags": [
+        "grammar",
+        "ending",
+        "beginner"
+      ],
+      "provenance": {
+        "source": "youtube_beginner_grammar",
+        "source_lesson_ids": [
+          78
+        ],
+        "original_sentence_adjusted": "버스를 타고 나서 전화를 했어요."
+      }
+    },
+    "i18n": {
+      "id": "ex.ko.s.000771",
+      "locale": "zh_tw",
+      "translation": "上了公車後，發現錢包不見了。"
+    }
+  },
+  {
+    "id": "ex.ko.s.000772",
+    "source": {
+      "id": "ex.ko.s.000772",
+      "ko": "운동을 하고 나서 시원한 물을 마셨어요.",
+      "knowledge_refs": [
+        "kg.grammar.ending.after_go_na_seo"
+      ],
+      "level": "A1",
+      "tags": [
+        "grammar",
+        "ending",
+        "beginner"
+      ],
+      "provenance": {
+        "source": "youtube_beginner_grammar",
+        "source_lesson_ids": [
+          78
+        ],
+        "original_sentence_adjusted": "운동하고 나서 샤워했어요."
+      }
+    },
+    "i18n": {
+      "id": "ex.ko.s.000772",
+      "locale": "zh_tw",
+      "translation": "運動完之後，喝了冷水。"
+    }
+  },
+  {
+    "id": "ex.ko.s.000773",
+    "source": {
+      "id": "ex.ko.s.000773",
+      "ko": "영화가 끝나고 나서 저녁을 먹으러 갔어요.",
+      "knowledge_refs": [
+        "kg.grammar.ending.after_go_na_seo"
+      ],
+      "level": "A1",
+      "tags": [
+        "grammar",
+        "ending",
+        "beginner"
+      ],
+      "provenance": {
+        "source": "youtube_beginner_grammar",
+        "source_lesson_ids": [
+          78
+        ],
+        "original_sentence_adjusted": "파티가 끝나고 나서 사진을 정리했어요."
+      }
+    },
+    "i18n": {
+      "id": "ex.ko.s.000773",
+      "locale": "zh_tw",
+      "translation": "電影結束後，我們去吃了晚餐。"
+    }
+  },
+  {
+    "id": "ex.ko.s.000774",
+    "source": {
+      "id": "ex.ko.s.000774",
+      "ko": "옷을 사고 나서 마트에 갔어요.",
+      "knowledge_refs": [
+        "kg.grammar.ending.after_go_na_seo"
+      ],
+      "level": "A1",
+      "tags": [
+        "grammar",
+        "ending",
+        "beginner"
+      ],
+      "provenance": {
+        "source": "youtube_beginner_grammar",
+        "source_lesson_ids": [
+          78
+        ],
+        "original_sentence_adjusted": "쇼핑하고 나서 영화를 봤어요."
+      }
+    },
+    "i18n": {
+      "id": "ex.ko.s.000774",
+      "locale": "zh_tw",
+      "translation": "買完衣服後，去逛了超市。"
+    }
+  },
+  {
+    "id": "ex.ko.s.000775",
+    "source": {
+      "id": "ex.ko.s.000775",
+      "ko": "세수를 하고 나서 로션을 발랐어요.",
+      "knowledge_refs": [
+        "kg.grammar.ending.after_go_na_seo"
+      ],
+      "level": "A1",
+      "tags": [
+        "grammar",
+        "ending",
+        "beginner"
+      ],
+      "provenance": {
+        "source": "youtube_beginner_grammar",
+        "source_lesson_ids": [
+          78
+        ],
+        "original_sentence_adjusted": "노래 부르고 나서 춤췄어요."
+      }
+    },
+    "i18n": {
+      "id": "ex.ko.s.000775",
+      "locale": "zh_tw",
+      "translation": "洗完臉後，塗了乳液。"
+    }
+  },
+  {
+    "id": "ex.ko.s.000776",
+    "source": {
+      "id": "ex.ko.s.000776",
+      "ko": "청소를 하고 나서 옷을 갈아입었어요.",
+      "knowledge_refs": [
+        "kg.grammar.ending.after_go_na_seo"
+      ],
+      "level": "A1",
+      "tags": [
+        "grammar",
+        "ending",
+        "beginner"
+      ],
+      "provenance": {
+        "source": "youtube_beginner_grammar",
+        "source_lesson_ids": [
+          78
+        ],
+        "original_sentence_adjusted": "친구를 만나고 나서 집에 갔어요."
+      }
+    },
+    "i18n": {
+      "id": "ex.ko.s.000776",
+      "locale": "zh_tw",
+      "translation": "打掃完後，換了衣服。"
+    }
+  },
+  {
+    "id": "ex.ko.s.000777",
+    "source": {
+      "id": "ex.ko.s.000777",
+      "ko": "집에 오자마자 바로 잤어요.",
+      "knowledge_refs": [
+        "kg.grammar.ending.as_soon_as_ja_ma_ja"
+      ],
+      "level": "A1",
+      "tags": [
+        "grammar",
+        "ending",
+        "beginner"
+      ],
+      "provenance": {
+        "source": "youtube_beginner_grammar",
+        "source_lesson_ids": [
+          79
+        ],
+        "original_sentence_adjusted": "집에 오자마자 잤어요."
+      }
+    },
+    "i18n": {
+      "id": "ex.ko.s.000777",
+      "locale": "zh_tw",
+      "translation": "一回到家就馬上睡著了。"
+    }
+  },
+  {
+    "id": "ex.ko.s.000778",
+    "source": {
+      "id": "ex.ko.s.000778",
+      "ko": "전화를 받자마자 나갔어요.",
+      "knowledge_refs": [
+        "kg.grammar.ending.as_soon_as_ja_ma_ja"
+      ],
+      "level": "A1",
+      "tags": [
+        "grammar",
+        "ending",
+        "beginner"
+      ],
+      "provenance": {
+        "source": "youtube_beginner_grammar",
+        "source_lesson_ids": [
+          79
+        ],
+        "original_sentence_adjusted": "전화를 받자마자 나갔어요."
+      }
+    },
+    "i18n": {
+      "id": "ex.ko.s.000778",
+      "locale": "zh_tw",
+      "translation": "一接到電話就出門了。"
+    }
+  },
+  {
+    "id": "ex.ko.s.000779",
+    "source": {
+      "id": "ex.ko.s.000779",
+      "ko": "퇴근하자마자 헬스장에 갔어요.",
+      "knowledge_refs": [
+        "kg.grammar.ending.as_soon_as_ja_ma_ja"
+      ],
+      "level": "A1",
+      "tags": [
+        "grammar",
+        "ending",
+        "beginner"
+      ],
+      "provenance": {
+        "source": "youtube_beginner_grammar",
+        "source_lesson_ids": [
+          79
+        ],
+        "original_sentence_adjusted": "마트에 가자마자 과자를 샀어요."
+      }
+    },
+    "i18n": {
+      "id": "ex.ko.s.000779",
+      "locale": "zh_tw",
+      "translation": "一下班就立刻去了健身房。"
+    }
+  },
+  {
+    "id": "ex.ko.s.000780",
+    "source": {
+      "id": "ex.ko.s.000780",
+      "ko": "선물을 보자마자 기뻐서 뛰었어요.",
+      "knowledge_refs": [
+        "kg.grammar.ending.as_soon_as_ja_ma_ja"
+      ],
+      "level": "A1",
+      "tags": [
+        "grammar",
+        "ending",
+        "beginner"
+      ],
+      "provenance": {
+        "source": "youtube_beginner_grammar",
+        "source_lesson_ids": [
+          79
+        ],
+        "original_sentence_adjusted": "노래를 듣자마자 기분이 좋아졌어요."
+      }
+    },
+    "i18n": {
+      "id": "ex.ko.s.000780",
+      "locale": "zh_tw",
+      "translation": "一看到禮物就開心得跳了起來。"
+    }
+  },
+  {
+    "id": "ex.ko.s.000781",
+    "source": {
+      "id": "ex.ko.s.000781",
+      "ko": "버스에 타자마자 책을 꺼냈어요.",
+      "knowledge_refs": [
+        "kg.grammar.ending.as_soon_as_ja_ma_ja"
+      ],
+      "level": "A1",
+      "tags": [
+        "grammar",
+        "ending",
+        "beginner"
+      ],
+      "provenance": {
+        "source": "youtube_beginner_grammar",
+        "source_lesson_ids": [
+          79
+        ],
+        "original_sentence_adjusted": "버스에 타자마자 자 버렸어요."
+      }
+    },
+    "i18n": {
+      "id": "ex.ko.s.000781",
+      "locale": "zh_tw",
+      "translation": "一上公車就拿出書來看。"
+    }
+  },
+  {
+    "id": "ex.ko.s.000782",
+    "source": {
+      "id": "ex.ko.s.000782",
+      "ko": "눈을 뜨자마자 물을 마셨어요.",
+      "knowledge_refs": [
+        "kg.grammar.ending.as_soon_as_ja_ma_ja"
+      ],
+      "level": "A1",
+      "tags": [
+        "grammar",
+        "ending",
+        "beginner"
+      ],
+      "provenance": {
+        "source": "youtube_beginner_grammar",
+        "source_lesson_ids": [
+          79
+        ],
+        "original_sentence_adjusted": "밥을 먹자마자 후식 먹었어요."
+      }
+    },
+    "i18n": {
+      "id": "ex.ko.s.000782",
+      "locale": "zh_tw",
+      "translation": "一睜開眼就喝了水。"
+    }
+  },
+  {
+    "id": "ex.ko.s.000783",
+    "source": {
+      "id": "ex.ko.s.000783",
+      "ko": "졸업하자마자 일을 시작했어요.",
+      "knowledge_refs": [
+        "kg.grammar.ending.as_soon_as_ja_ma_ja"
+      ],
+      "level": "A1",
+      "tags": [
+        "grammar",
+        "ending",
+        "beginner"
+      ],
+      "provenance": {
+        "source": "youtube_beginner_grammar",
+        "source_lesson_ids": [
+          79
+        ],
+        "original_sentence_adjusted": "책을 읽자마자 메모했어요."
+      }
+    },
+    "i18n": {
+      "id": "ex.ko.s.000783",
+      "locale": "zh_tw",
+      "translation": "一畢業就馬上開始工作了。"
+    }
+  },
+  {
+    "id": "ex.ko.s.000784",
+    "source": {
+      "id": "ex.ko.s.000784",
+      "ko": "보고 싶은 친구를 만나자마자 눈물이 났어요.",
+      "knowledge_refs": [
+        "kg.grammar.ending.as_soon_as_ja_ma_ja"
+      ],
+      "level": "A1",
+      "tags": [
+        "grammar",
+        "ending",
+        "beginner"
+      ],
+      "provenance": {
+        "source": "youtube_beginner_grammar",
+        "source_lesson_ids": [
+          79
+        ],
+        "original_sentence_adjusted": "친구를 만나자마자 웃었어요."
+      }
+    },
+    "i18n": {
+      "id": "ex.ko.s.000784",
+      "locale": "zh_tw",
+      "translation": "一見到想念的朋友就流下眼淚了。"
+    }
+  },
+  {
+    "id": "ex.ko.s.000785",
+    "source": {
+      "id": "ex.ko.s.000785",
+      "ko": "커피를 마시자마자 정신이 났어요.",
+      "knowledge_refs": [
+        "kg.grammar.ending.as_soon_as_ja_ma_ja"
+      ],
+      "level": "A1",
+      "tags": [
+        "grammar",
+        "ending",
+        "beginner"
+      ],
+      "provenance": {
+        "source": "youtube_beginner_grammar",
+        "source_lesson_ids": [
+          79
+        ],
+        "original_sentence_adjusted": "커피를 마시자마자 정신이 들었어요."
+      }
+    },
+    "i18n": {
+      "id": "ex.ko.s.000785",
+      "locale": "zh_tw",
+      "translation": "一喝咖啡精神就清醒了。"
+    }
+  },
+  {
+    "id": "ex.ko.s.000786",
+    "source": {
+      "id": "ex.ko.s.000786",
+      "ko": "창문을 열자마자 바람이 들어왔어요.",
+      "knowledge_refs": [
+        "kg.grammar.ending.as_soon_as_ja_ma_ja"
+      ],
+      "level": "A1",
+      "tags": [
+        "grammar",
+        "ending",
+        "beginner"
+      ],
+      "provenance": {
+        "source": "youtube_beginner_grammar",
+        "source_lesson_ids": [
+          79
+        ],
+        "original_sentence_adjusted": "문을 열자마자 고양이가 뛰어 나갔어요."
+      }
+    },
+    "i18n": {
+      "id": "ex.ko.s.000786",
+      "locale": "zh_tw",
+      "translation": "一打開窗戶風就吹了進來。"
+    }
+  },
+  {
+    "id": "ex.ko.s.000787",
+    "source": {
+      "id": "ex.ko.s.000787",
+      "ko": "음악을 들으면서 공부를 해요.",
+      "knowledge_refs": [
+        "kg.grammar.ending.while_ul_myeon_seo"
+      ],
+      "level": "A1",
+      "tags": [
+        "grammar",
+        "ending",
+        "beginner"
+      ],
+      "provenance": {
+        "source": "youtube_beginner_grammar",
+        "source_lesson_ids": [
+          80
+        ],
+        "original_sentence_adjusted": "노래를 들으면서 공부해요."
+      }
+    },
+    "i18n": {
+      "id": "ex.ko.s.000787",
+      "locale": "zh_tw",
+      "translation": "一邊聽音樂一邊學習。"
+    }
+  },
+  {
+    "id": "ex.ko.s.000788",
+    "source": {
+      "id": "ex.ko.s.000788",
+      "ko": "밥을 먹으면서 신문을 봐요.",
+      "knowledge_refs": [
+        "kg.grammar.ending.while_ul_myeon_seo"
+      ],
+      "level": "A1",
+      "tags": [
+        "grammar",
+        "ending",
+        "beginner"
+      ],
+      "provenance": {
+        "source": "youtube_beginner_grammar",
+        "source_lesson_ids": [
+          80
+        ],
+        "original_sentence_adjusted": "밥을 먹으면서 TV 봐요."
+      }
+    },
+    "i18n": {
+      "id": "ex.ko.s.000788",
+      "locale": "zh_tw",
+      "translation": "一邊吃飯一邊看報紙。"
+    }
+  },
+  {
+    "id": "ex.ko.s.000789",
+    "source": {
+      "id": "ex.ko.s.000789",
+      "ko": "전화를 하면서 길을 건너요.",
+      "knowledge_refs": [
+        "kg.grammar.ending.while_ul_myeon_seo"
+      ],
+      "level": "A1",
+      "tags": [
+        "grammar",
+        "ending",
+        "beginner"
+      ],
+      "provenance": {
+        "source": "youtube_beginner_grammar",
+        "source_lesson_ids": [
+          80
+        ],
+        "original_sentence_adjusted": "전화를 하면서 걸어갔어요."
+      }
+    },
+    "i18n": {
+      "id": "ex.ko.s.000789",
+      "locale": "zh_tw",
+      "translation": "一邊講電話一邊過馬路。"
+    }
+  },
+  {
+    "id": "ex.ko.s.000790",
+    "source": {
+      "id": "ex.ko.s.000790",
+      "ko": "버스를 타면서 라디오를 들었어요.",
+      "knowledge_refs": [
+        "kg.grammar.ending.while_ul_myeon_seo"
+      ],
+      "level": "A1",
+      "tags": [
+        "grammar",
+        "ending",
+        "beginner"
+      ],
+      "provenance": {
+        "source": "youtube_beginner_grammar",
+        "source_lesson_ids": [
+          80
+        ],
+        "original_sentence_adjusted": "버스를 타면서 책을 읽었어요."
+      }
+    },
+    "i18n": {
+      "id": "ex.ko.s.000790",
+      "locale": "zh_tw",
+      "translation": "一邊坐公車一邊聽廣播。"
+    }
+  },
+  {
+    "id": "ex.ko.s.000791",
+    "source": {
+      "id": "ex.ko.s.000791",
+      "ko": "일을 하면서 주스를 마셔요.",
+      "knowledge_refs": [
+        "kg.grammar.ending.while_ul_myeon_seo"
+      ],
+      "level": "A1",
+      "tags": [
+        "grammar",
+        "ending",
+        "beginner"
+      ],
+      "provenance": {
+        "source": "youtube_beginner_grammar",
+        "source_lesson_ids": [
+          80
+        ],
+        "original_sentence_adjusted": "일을 하면서 커피를 마셔요."
+      }
+    },
+    "i18n": {
+      "id": "ex.ko.s.000791",
+      "locale": "zh_tw",
+      "translation": "一邊工作一邊喝果汁。"
+    }
+  },
+  {
+    "id": "ex.ko.s.000792",
+    "source": {
+      "id": "ex.ko.s.000792",
+      "ko": "차를 마시면서 가족과 이야기했어요.",
+      "knowledge_refs": [
+        "kg.grammar.ending.while_ul_myeon_seo"
+      ],
+      "level": "A1",
+      "tags": [
+        "grammar",
+        "ending",
+        "beginner"
+      ],
+      "provenance": {
+        "source": "youtube_beginner_grammar",
+        "source_lesson_ids": [
+          80
+        ],
+        "original_sentence_adjusted": "친구와 얘기하면서 쉬었어요."
+      }
+    },
+    "i18n": {
+      "id": "ex.ko.s.000792",
+      "locale": "zh_tw",
+      "translation": "一邊喝茶一邊和家人聊天。"
+    }
+  },
+  {
+    "id": "ex.ko.s.000793",
+    "source": {
+      "id": "ex.ko.s.000793",
+      "ko": "샤워를 하면서 노래를 불렀어요.",
+      "knowledge_refs": [
+        "kg.grammar.ending.while_ul_myeon_seo"
+      ],
+      "level": "A1",
+      "tags": [
+        "grammar",
+        "ending",
+        "beginner"
+      ],
+      "provenance": {
+        "source": "youtube_beginner_grammar",
+        "source_lesson_ids": [
+          80
+        ],
+        "original_sentence_adjusted": "청소를 하면서 노래를 불렀어요."
+      }
+    },
+    "i18n": {
+      "id": "ex.ko.s.000793",
+      "locale": "zh_tw",
+      "translation": "一邊洗澡一邊唱歌。"
+    }
+  },
+  {
+    "id": "ex.ko.s.000794",
+    "source": {
+      "id": "ex.ko.s.000794",
+      "ko": "청소를 하면서 텔레비전을 봐요.",
+      "knowledge_refs": [
+        "kg.grammar.ending.while_ul_myeon_seo"
+      ],
+      "level": "A1",
+      "tags": [
+        "grammar",
+        "ending",
+        "beginner"
+      ],
+      "provenance": {
+        "source": "youtube_beginner_grammar",
+        "source_lesson_ids": [
+          80
+        ],
+        "original_sentence_adjusted": "게임하면서 간식 먹었어요."
+      }
+    },
+    "i18n": {
+      "id": "ex.ko.s.000794",
+      "locale": "zh_tw",
+      "translation": "一邊打掃一邊看電視。"
+    }
+  },
+  {
+    "id": "ex.ko.s.000795",
+    "source": {
+      "id": "ex.ko.s.000795",
+      "ko": "그림을 그리면서 이야기를 들었어요.",
+      "knowledge_refs": [
+        "kg.grammar.ending.while_ul_myeon_seo"
+      ],
+      "level": "A1",
+      "tags": [
+        "grammar",
+        "ending",
+        "beginner"
+      ],
+      "provenance": {
+        "source": "youtube_beginner_grammar",
+        "source_lesson_ids": [
+          80
+        ],
+        "original_sentence_adjusted": "글을 쓰면서 생각을 정리했어요."
+      }
+    },
+    "i18n": {
+      "id": "ex.ko.s.000795",
+      "locale": "zh_tw",
+      "translation": "一邊畫畫一邊聽故事。"
+    }
+  },
+  {
+    "id": "ex.ko.s.000796",
+    "source": {
+      "id": "ex.ko.s.000796",
+      "ko": "친구를 기다리면서 휴대폰을 봤어요.",
+      "knowledge_refs": [
+        "kg.grammar.ending.while_ul_myeon_seo"
+      ],
+      "level": "A1",
+      "tags": [
+        "grammar",
+        "ending",
+        "beginner"
+      ],
+      "provenance": {
+        "source": "youtube_beginner_grammar",
+        "source_lesson_ids": [
+          80
+        ],
+        "original_sentence_adjusted": "쇼핑하면서 사진도 찍었어요."
+      }
+    },
+    "i18n": {
+      "id": "ex.ko.s.000796",
+      "locale": "zh_tw",
+      "translation": "一邊等朋友一邊看手機。"
+    }
+  },
+  {
+    "id": "ex.ko.s.000797",
+    "source": {
+      "id": "ex.ko.s.000797",
+      "ko": "아침부터 저녁까지 계속 바빴어요.",
+      "knowledge_refs": [
+        "kg.grammar.particle.from_to_bu_teo_kka_ji"
+      ],
+      "level": "A1",
+      "tags": [
+        "grammar",
+        "particle",
+        "beginner"
+      ],
+      "provenance": {
+        "source": "youtube_beginner_grammar",
+        "source_lesson_ids": [
+          81
+        ],
+        "original_sentence_adjusted": "아침부터 저녁까지 아무것도 못 먹었어요."
+      }
+    },
+    "i18n": {
+      "id": "ex.ko.s.000797",
+      "locale": "zh_tw",
+      "translation": "從早上到晚上一直很忙。"
+    }
+  },
+  {
+    "id": "ex.ko.s.000798",
+    "source": {
+      "id": "ex.ko.s.000798",
+      "ko": "월요일부터 금요일까지 출근해요.",
+      "knowledge_refs": [
+        "kg.grammar.particle.from_to_bu_teo_kka_ji"
+      ],
+      "level": "A1",
+      "tags": [
+        "grammar",
+        "particle",
+        "beginner"
+      ],
+      "provenance": {
+        "source": "youtube_beginner_grammar",
+        "source_lesson_ids": [
+          81
+        ],
+        "original_sentence_adjusted": "월요일부터 금요일까지 수업이 있어요."
+      }
+    },
+    "i18n": {
+      "id": "ex.ko.s.000798",
+      "locale": "zh_tw",
+      "translation": "從星期一到星期五上班。"
+    }
+  },
+  {
+    "id": "ex.ko.s.000799",
+    "source": {
+      "id": "ex.ko.s.000799",
+      "ko": "9시부터 오후 1시까지 수업이 있어요.",
+      "knowledge_refs": [
+        "kg.grammar.particle.from_to_bu_teo_kka_ji"
+      ],
+      "level": "A1",
+      "tags": [
+        "grammar",
+        "particle",
+        "beginner"
+      ],
+      "provenance": {
+        "source": "youtube_beginner_grammar",
+        "source_lesson_ids": [
+          81
+        ],
+        "original_sentence_adjusted": "10시부터 12시까지 회의가 있어요."
+      }
+    },
+    "i18n": {
+      "id": "ex.ko.s.000799",
+      "locale": "zh_tw",
+      "translation": "從九點到下午一點有課。"
+    }
+  },
+  {
+    "id": "ex.ko.s.000800",
+    "source": {
+      "id": "ex.ko.s.000800",
+      "ko": "은행은 9시부터 4시까지예요.",
+      "knowledge_refs": [
+        "kg.grammar.particle.from_to_bu_teo_kka_ji"
+      ],
+      "level": "A1",
+      "tags": [
+        "grammar",
+        "particle",
+        "beginner"
+      ],
+      "provenance": {
+        "source": "youtube_beginner_grammar",
+        "source_lesson_ids": [
+          81
+        ],
+        "original_sentence_adjusted": "1교시부터 5교시까지 시험이에요."
+      }
+    },
+    "i18n": {
+      "id": "ex.ko.s.000800",
+      "locale": "zh_tw",
+      "translation": "銀行營業時間是九點到四點。"
+    }
+  },
+  {
+    "id": "ex.ko.s.000801",
+    "source": {
+      "id": "ex.ko.s.000801",
+      "ko": "아까부터 계속 비가 와요.",
+      "knowledge_refs": [
+        "kg.grammar.particle.from_to_bu_teo_kka_ji"
+      ],
+      "level": "A1",
+      "tags": [
+        "grammar",
+        "particle",
+        "beginner"
+      ],
+      "provenance": {
+        "source": "youtube_beginner_grammar",
+        "source_lesson_ids": [
+          81
+        ],
+        "original_sentence_adjusted": "오후부터 비가 왔어요."
+      }
+    },
+    "i18n": {
+      "id": "ex.ko.s.000801",
+      "locale": "zh_tw",
+      "translation": "從剛才開始一直下雨。"
+    }
+  },
+  {
+    "id": "ex.ko.s.000802",
+    "source": {
+      "id": "ex.ko.s.000802",
+      "ko": "다음 달부터 휴가예요.",
+      "knowledge_refs": [
+        "kg.grammar.particle.from_to_bu_teo_kka_ji"
+      ],
+      "level": "A1",
+      "tags": [
+        "grammar",
+        "particle",
+        "beginner"
+      ],
+      "provenance": {
+        "source": "youtube_beginner_grammar",
+        "source_lesson_ids": [
+          81
+        ],
+        "original_sentence_adjusted": "6월부터 8월까지 여름방학이에요."
+      }
+    },
+    "i18n": {
+      "id": "ex.ko.s.000802",
+      "locale": "zh_tw",
+      "translation": "從下個月開始休假。"
+    }
+  },
+  {
+    "id": "ex.ko.s.000803",
+    "source": {
+      "id": "ex.ko.s.000803",
+      "ko": "1회부터 드라마를 봅시다.",
+      "knowledge_refs": [
+        "kg.grammar.particle.from_to_bu_teo_kka_ji"
+      ],
+      "level": "A1",
+      "tags": [
+        "grammar",
+        "particle",
+        "beginner"
+      ],
+      "provenance": {
+        "source": "youtube_beginner_grammar",
+        "source_lesson_ids": [
+          81
+        ],
+        "original_sentence_adjusted": "처음부터 다시 합시다."
+      }
+    },
+    "i18n": {
+      "id": "ex.ko.s.000803",
+      "locale": "zh_tw",
+      "translation": "從第一集開始看電視劇吧。"
+    }
+  },
+  {
+    "id": "ex.ko.s.000804",
+    "source": {
+      "id": "ex.ko.s.000804",
+      "ko": "3시부터 5시까지 기타를 연습했어요.",
+      "knowledge_refs": [
+        "kg.grammar.particle.from_to_bu_teo_kka_ji"
+      ],
+      "level": "A1",
+      "tags": [
+        "grammar",
+        "particle",
+        "beginner"
+      ],
+      "provenance": {
+        "source": "youtube_beginner_grammar",
+        "source_lesson_ids": [
+          81
+        ],
+        "original_sentence_adjusted": "출근부터 퇴근까지 바빴어요."
+      }
+    },
+    "i18n": {
+      "id": "ex.ko.s.000804",
+      "locale": "zh_tw",
+      "translation": "從三點到五點練習了吉他。"
+    }
+  },
+  {
+    "id": "ex.ko.s.000805",
+    "source": {
+      "id": "ex.ko.s.000805",
+      "ko": "어제부터 계속 기침이 나요.",
+      "knowledge_refs": [
+        "kg.grammar.particle.from_to_bu_teo_kka_ji"
+      ],
+      "level": "A1",
+      "tags": [
+        "grammar",
+        "particle",
+        "beginner"
+      ],
+      "provenance": {
+        "source": "youtube_beginner_grammar",
+        "source_lesson_ids": [
+          81
+        ],
+        "original_sentence_adjusted": "어제부터 감기 기운이 있어요."
+      }
+    },
+    "i18n": {
+      "id": "ex.ko.s.000805",
+      "locale": "zh_tw",
+      "translation": "重新昨天開始一直咳嗽。"
+    }
+  },
+  {
+    "id": "ex.ko.s.000806",
+    "source": {
+      "id": "ex.ko.s.000806",
+      "ko": "처음부터 끝까지 다시 말해 주세요.",
+      "knowledge_refs": [
+        "kg.grammar.particle.from_to_bu_teo_kka_ji"
+      ],
+      "level": "A1",
+      "tags": [
+        "grammar",
+        "particle",
+        "beginner"
+      ],
+      "provenance": {
+        "source": "youtube_beginner_grammar",
+        "source_lesson_ids": [
+          81
+        ],
+        "original_sentence_adjusted": "처음부터 다시 합시다."
+      }
+    },
+    "i18n": {
+      "id": "ex.ko.s.000806",
+      "locale": "zh_tw",
+      "translation": "從頭到尾請再說一遍。"
+    }
   }
 ]

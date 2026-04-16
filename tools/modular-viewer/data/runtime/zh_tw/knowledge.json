@@ -972,6 +972,96 @@
     }
   },
   {
+    "id": "kg.grammar.ending.after_go_na_seo",
+    "source": {
+      "id": "kg.grammar.ending.after_go_na_seo",
+      "kind": "grammar",
+      "subcategory": "ending",
+      "level": "A1",
+      "surface": "고 나서",
+      "tags": [
+        "grammar",
+        "ending",
+        "beginner",
+        "v5_ingestion"
+      ],
+      "provenance": {
+        "source": "youtube_beginner_grammar",
+        "source_lesson_ids": [
+          78
+        ],
+        "source_video_ids": [
+          "fLyVdqytkaU"
+        ]
+      },
+      "example_sentence_refs": [
+        "ex.ko.s.000767",
+        "ex.ko.s.000768",
+        "ex.ko.s.000769",
+        "ex.ko.s.000770",
+        "ex.ko.s.000771",
+        "ex.ko.s.000772",
+        "ex.ko.s.000773",
+        "ex.ko.s.000774",
+        "ex.ko.s.000775",
+        "ex.ko.s.000776"
+      ]
+    },
+    "i18n": {
+      "id": "kg.grammar.ending.after_go_na_seo",
+      "locale": "zh_tw",
+      "title": "고 나서 (做了～之後)",
+      "description": "表示前一個動作完全結束後，接著進行下一個動作。強調動作的先後順序。",
+      "explanation_md": "· 用法說明\n`고 나서` 用於表示某個動作徹底完成（Finish）之後，才開始下一個動作。與單純表示順序的 `~고` 相比，它更強調前一個動作的「完結性」。\n\n· 常見使用場景\n1. **日常生活順序**：如做完功課才玩、洗完澡才睡覺等。\n   [id:ex.ko.s.000767] [id:ex.ko.s.000768] [id:ex.ko.s.000772]\n2. **工作與學習步驟**：表達先讀完才寫、先開會才決定等。\n   [id:ex.ko.s.000769] [id:ex.ko.s.000771]\n\n· 相近文法比較\n- **`고 나서` vs `~고`**：\n  - `~고` 只簡單連接兩個動作，先後關係較鬆散。\n  - `고 나서` 則強烈表達「前項動作必須先結束」的意思。\n- **`고 나서` vs `-(으)ㄴ 후에`**：\n  - 兩者意義相近，但 `고 나서` 多用於動詞，強調動作的連貫性；`-(으)ㄴ 후에` 則可接續名詞（如 `N 후에`），應用範圍更廣。\n\n· 注意\n- **時態接續**：`고 나서` 本身不帶時態，句子時態由最後一個動詞決定。\n- **接續方式**：動詞詞幹直接接 `~고 나서`即可，不需考慮收音。",
+      "usage_notes": []
+    }
+  },
+  {
+    "id": "kg.grammar.ending.as_soon_as_ja_ma_ja",
+    "source": {
+      "id": "kg.grammar.ending.as_soon_as_ja_ma_ja",
+      "kind": "grammar",
+      "subcategory": "ending",
+      "level": "A1",
+      "surface": "자마자",
+      "tags": [
+        "grammar",
+        "ending",
+        "beginner",
+        "v5_ingestion"
+      ],
+      "provenance": {
+        "source": "youtube_beginner_grammar",
+        "source_lesson_ids": [
+          79
+        ],
+        "source_video_ids": [
+          "4b8DQxb86i8"
+        ]
+      },
+      "example_sentence_refs": [
+        "ex.ko.s.000777",
+        "ex.ko.s.000778",
+        "ex.ko.s.000779",
+        "ex.ko.s.000780",
+        "ex.ko.s.000781",
+        "ex.ko.s.000782",
+        "ex.ko.s.000783",
+        "ex.ko.s.000784",
+        "ex.ko.s.000785",
+        "ex.ko.s.000786"
+      ]
+    },
+    "i18n": {
+      "id": "kg.grammar.ending.as_soon_as_ja_ma_ja",
+      "locale": "zh_tw",
+      "title": "자마자 (一～就～)",
+      "description": "表示前一個動作一發生，後一個動作立刻緊接著發生。強調時間間隔極短。",
+      "explanation_md": "· 用法說明\n`자마자` 用於表示兩個動作之間幾乎沒有任何時間差。當第一個動作結束的瞬間，第二個動作就立刻開始，常用於描述反射性的動作或緊湊的行程。\n\n· 常見使用場景\n1. **反射性動作**：如一到家就躺下、一看到朋友就笑等。\n   [id:ex.ko.s.000777] [id:ex.ko.s.000784]\n2. **緊湊的連續動作**：如一畢業就找工作、一開門貓就衝出去等。\n   [id:ex.ko.s.000786]\n3. **心理或生理反應**：如一聽到音樂心情就變好、一喝咖啡就清醒等。\n   [id:ex.ko.s.000782] [id:ex.ko.s.000785]\n\n· 相近文法比較\n- **`자마자` vs `-(으)ㄴ 후에`**：\n  - `-(으)ㄴ 후에` 只表示先後順序，中間可能有間隔。\n  - `자마자` 強調「立刻、馬上」，中間幾乎沒有間隔。\n\n· 注意\n- **主語一致性**：前後句的主語可以相同，也可以不同。\n- **接續方式**：動詞詞幹直接接 `~자마자`即可，無論有無收音。",
+      "usage_notes": []
+    }
+  },
+  {
     "id": "kg.grammar.ending.background_neunde",
     "source": {
       "id": "kg.grammar.ending.background_neunde",
@@ -1107,6 +1197,51 @@
       "title": "아서/어서 (原因理由/先後動作)",
       "description": "表示原因理由（因為～所以～）或前後連貫的動作順序。",
       "explanation_md": "· 用法說明\n`~아서/어서` 是初級最常用的連接詞尾之一，主要有兩大用法：\n1. **原因與理由**：前項是後項發生的原因。\n2. **動作連貫**：前項動作是後項動作的前提或緊密相連的過程。\n\n· 常見使用場景\n1. **原因**：因為下雨所以帶傘、因為肚子餓所以吃飯。\n2. **連貫**：去市場買蘋果、坐在椅子上唸書。\n\n· 相近文法比較\n與 `고` 相比，`아서/어서` 在表達動作順序時，前後項關聯更為緊密。\n\n· 注意\n1. **時態限制**：`~아서/어서` 前面不可接時態詞（如 `았/었`），過去式應在句尾表達。\n2. **句型限制**：在使用「原因」用法時，句尾不可使用命令句（`세요`）或勸誘句（`ㅂ시다`）。\n\n[id:ex.ko.s.000717] [id:ex.ko.s.000718] [id:ex.ko.s.000719] [id:ex.ko.s.000720] [id:ex.ko.s.000721] [id:ex.ko.s.000722] [id:ex.ko.s.000723] [id:ex.ko.s.000724] [id:ex.ko.s.000725] [id:ex.ko.s.000726]",
+      "usage_notes": []
+    }
+  },
+  {
+    "id": "kg.grammar.ending.cause_ul_ni_ka",
+    "source": {
+      "id": "kg.grammar.ending.cause_ul_ni_ka",
+      "kind": "grammar",
+      "subcategory": "ending",
+      "level": "A1",
+      "surface": "-(으)니까",
+      "tags": [
+        "grammar",
+        "ending",
+        "beginner",
+        "v5_ingestion"
+      ],
+      "provenance": {
+        "source": "youtube_beginner_grammar",
+        "source_lesson_ids": [
+          77
+        ],
+        "source_video_ids": [
+          "6i8DxUJdV5c"
+        ]
+      },
+      "example_sentence_refs": [
+        "ex.ko.s.000757",
+        "ex.ko.s.000758",
+        "ex.ko.s.000759",
+        "ex.ko.s.000760",
+        "ex.ko.s.000761",
+        "ex.ko.s.000762",
+        "ex.ko.s.000763",
+        "ex.ko.s.000764",
+        "ex.ko.s.000765",
+        "ex.ko.s.000766"
+      ]
+    },
+    "i18n": {
+      "id": "kg.grammar.ending.cause_ul_ni_ka",
+      "locale": "zh_tw",
+      "title": "-(으)니까 (因為～所以)",
+      "description": "表示原因或依據，常用於給予建議、請求或表達主觀理由。",
+      "explanation_md": "· 用法說明\n`-(으)니까` 用於連接兩個句子，表示前句是後句的原因、理由或根據。由於它帶有較強的主觀語氣，非常適合用於後句接續「建議」、「命令」或「邀請」的情況。\n\n· 常見使用場景\n1. **提出建議或命令**：因為某種理由，建議對方做某事。\n   [id:ex.ko.s.000758] [id:ex.ko.s.000760]\n2. **提出邀請**：因為某種理由，邀請對方一起做某事。\n   [id:ex.ko.s.000759] [id:ex.ko.s.000761]\n3. **說明主觀原因**：在日常生活對話中說明自己的行動理由。\n   [id:ex.ko.s.000757]\n\n· 相近文法比較\n- **`-(으)니까` vs `-아/어서`**：\n  - `-아/어서` 通常用於客觀或一般的理由，且後句**不宜**接命令（`-(으)세요`）或提議（`-(으)ㄹ까요`, `-(으)ㅂ시다`）。\n  - `-(으)니까` 則常用於主觀理由，且後句**經常**接命令或提議。\n\n· 注意\n- **時態接續**：`-(으)니까` 前面可以接過去式（如 `~았으니까`），而 `-아/어서` 通常不與過去式標記連用。\n- **接續方式**：\n  - 詞幹末尾無收音（開音節）或收音為 `ㄹ` 時，接 `~니까`。\n  - 詞幹末尾有收音（閉音節）時，接 `~으니까`。",
       "usage_notes": []
     }
   },
@@ -2082,6 +2217,51 @@
       "title": "-(으)ㄹ까요? (要不要呢？/你覺得嗎？)",
       "description": "提議一起做某事，詢問對方的意見，或對未知事實進行推測。",
       "explanation_md": "· 用法說明\n用於動詞或形容詞後：\n- 有收音接 `-을까요?`。\n- 無收音或 `ㄹ` 收音接 `-ㄹ까요?`。\n\n· 常見使用場景\n- 提議一起行動：我們要不要一起去看電影？\n- 詢問對方意見：我應該買哪一個呢？\n- 推測：明天的天氣會好嗎？\n\n· 相近文法比較\n- **-(으)ㄹ래요?**: 問對方的意向（你想不想？）。\n- **-(으)ㄹ까요?**: 徵詢對方的意見（你覺得...如何？），語感更具討論性與禮貌感。\n\n· 注意\n在回覆 `-(으)ㄹ까요?` 的提議時，通常使用 `-(으)ㅂ시다` (讓我們...) 或 `-아요/어요`。",
+      "usage_notes": []
+    }
+  },
+  {
+    "id": "kg.grammar.ending.while_ul_myeon_seo",
+    "source": {
+      "id": "kg.grammar.ending.while_ul_myeon_seo",
+      "kind": "grammar",
+      "subcategory": "ending",
+      "level": "A1",
+      "surface": "-(으)면서",
+      "tags": [
+        "grammar",
+        "ending",
+        "beginner",
+        "v5_ingestion"
+      ],
+      "provenance": {
+        "source": "youtube_beginner_grammar",
+        "source_lesson_ids": [
+          80
+        ],
+        "source_video_ids": [
+          "tU_bZUf11Ao"
+        ]
+      },
+      "example_sentence_refs": [
+        "ex.ko.s.000787",
+        "ex.ko.s.000788",
+        "ex.ko.s.000789",
+        "ex.ko.s.000790",
+        "ex.ko.s.000791",
+        "ex.ko.s.000792",
+        "ex.ko.s.000793",
+        "ex.ko.s.000794",
+        "ex.ko.s.000795",
+        "ex.ko.s.000796"
+      ]
+    },
+    "i18n": {
+      "id": "kg.grammar.ending.while_ul_myeon_seo",
+      "locale": "zh_tw",
+      "title": "-(으)면서 (一邊～一邊～)",
+      "description": "表示兩個動作同時進行。前後句的主語必須一致。",
+      "explanation_md": "· 用法說明\n`-(으)면서` 用於連接兩個動詞或形容詞，表示主體在同一段時間內同時進行兩個動作或具備兩種狀態。相當於中文的「一邊…一邊…」。\n\n· 常見使用場景\n1. **多工處理**：如一邊吃飯一邊看電視、一邊走路一邊講電話等。\n   [id:ex.ko.s.000787] [id:ex.ko.s.000788] [id:ex.ko.s.000789]\n2. **放鬆與嗜好**：如一邊打掃一邊唱歌、一邊聊天一邊休息等。\n   [id:ex.ko.s.000792] [id:ex.ko.s.000793]\n3. **狀態與對比**：有時也用於描述兩者兼具的狀態，或帶有輕微的抱怨語氣。\n\n· 相近文法比較\n- **`-(으)면서` vs `-(으)며`**：\n  - `-(으)면서` 多用於口語，強調動作的同時性。\n  - `-(으)며` 多用於書面語或正式演講，除了同時性外，也常作為並列（And）使用。\n\n· 注意\n- **主語一致**：前後兩個動作的主語必須是同一個人。如果主語不同，請使用 `~는 동안`。\n- **接續方式**：\n  - 詞幹末尾無收音（開音節）或收音為 `ㄹ` 時，接 `~면서`。\n  - 詞幹末尾有收音（閉音節）時，接 `~으면서`。",
       "usage_notes": []
     }
   },
@@ -3244,6 +3424,51 @@
       "title": "은/는 (主題助詞)",
       "description": "用來標示句子的「主題」或表示「對比」，常用於自我介紹或強調特定對象。",
       "explanation_md": "「`~은/는`」是韓文中最基礎的助詞之一，常用來標示句子的**主題**（Topic），意指「關於...」或「至於...」。此外，它也常用於**對比**（Contrast）兩個不同的事物。\n\n· **用法說明**\n\n直接接在**名詞**後面，根據名詞最後一個字是否有收音來選擇。\n\n- **名詞最後一個字有收音時**：接「`~은`」。\n  - 例如：`사람` (人) + `은` → `사람은` [id:ex.ko.s.000044]\n  - 例如：`이름` (名字) + `은` → `이름은` [id:ex.ko.s.000049]\n- **名詞最後一個字沒有收音時**：接「`~는`」。\n  - 例如：`바나나` (香蕉) + `는` → `바나나는` [id:ex.ko.s.000047]\n  - 例如：`취미` (興趣) + `는` → `취미는` [id:ex.ko.s.000050]\n\n· **常見使用場景**\n\n- **介紹主題與自我介紹**：用於說明「我是...」或「我的興趣是...」。[id:ex.ko.s.000044], [id:ex.ko.s.000050]\n- **詢問特定主題**：例如詢問姓名或特定物品的狀況。[id:ex.ko.s.000049], [id:ex.ko.s.000053]\n- **表示對比**：當你想強調兩個對象的差異時使用。[id:ex.ko.s.000052]\n- **敘述客觀事實、狀態或習慣**：描述物品特徵或個人的日常行為。[id:ex.ko.s.000045], [id:ex.ko.s.000046], [id:ex.ko.s.000051]\n\n· **相近文法比較 (與 이/가 的差異)**\n\n- `이/가` 側重於標示**動作的主體**或引出**新資訊**。\n- `은/는` 側重於**主題**或**已知資訊**的延伸，或用於**對照**。在 [id:ex.ko.s.000044] 中，使用 `은` 帶有一種「（相較於其他可能性，）我並非韓國人」的微弱對照感。",
+      "usage_notes": []
+    }
+  },
+  {
+    "id": "kg.grammar.particle.from_to_bu_teo_kka_ji",
+    "source": {
+      "id": "kg.grammar.particle.from_to_bu_teo_kka_ji",
+      "kind": "grammar",
+      "subcategory": "particle",
+      "level": "A1",
+      "surface": "부터 ~까지",
+      "tags": [
+        "grammar",
+        "particle",
+        "beginner",
+        "v5_ingestion"
+      ],
+      "provenance": {
+        "source": "youtube_beginner_grammar",
+        "source_lesson_ids": [
+          81
+        ],
+        "source_video_ids": [
+          "oyqR7PA1Dw8"
+        ]
+      },
+      "example_sentence_refs": [
+        "ex.ko.s.000797",
+        "ex.ko.s.000798",
+        "ex.ko.s.000799",
+        "ex.ko.s.000800",
+        "ex.ko.s.000801",
+        "ex.ko.s.000802",
+        "ex.ko.s.000803",
+        "ex.ko.s.000804",
+        "ex.ko.s.000805",
+        "ex.ko.s.000806"
+      ]
+    },
+    "i18n": {
+      "id": "kg.grammar.particle.from_to_bu_teo_kka_ji",
+      "locale": "zh_tw",
+      "title": "부터 ~까지 (從～到～)",
+      "description": "表示時間的起點（부터）和終點（까지）。",
+      "explanation_md": "· 用法說明\n`부터` 和 `까지` 是韓文中最常用於表達時間範圍的助詞。`부터` 標記動作或狀態開始的時間點，而 `까지` 標記結束或截止的時間點。兩者常成對使用，也可以單獨使用。\n\n· 常見使用場景\n1. **營業與工作時間**：表述上班、上課或商店開門的時間範疇。\n   [id:ex.ko.s.000798] [id:ex.ko.s.000799] [id:ex.ko.s.000800]\n2. **日常形成**：描述從早到晚、從昨天到現在等時間線。\n   [id:ex.ko.s.000797] [id:ex.ko.s.000801] [id:ex.ko.s.000805]\n3. **順序的起點**：雖然主要用於時間，有時也可表示順序的開始（如從第一節課開始）。\n   [id:ex.ko.s.000803]\n\n· 相近文法比較\n- **`부터` vs `에서`**：\n  - `부터` 側重於「時間」或「順序」的起點。\n  - `에서` 則側重於「地點」或「場所」的起點（從某地）。\n\n· 注意\n- **單獨使用**：可以只說 `~부터`（從～開始）或 `~까지`（到～為止）。\n- **接續方式**：名詞後面直接接續即可，不需考慮有無收音。",
       "usage_notes": []
     }
   },

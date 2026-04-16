@@ -727,6 +727,28 @@
       ]
     },
     {
+      "id": "kg.grammar.ending.cause_ul_ni_ka",
+      "category": "grammar",
+      "sub": "ending",
+      "title": "-(으)니까 (因為～所以)",
+      "level": "A1",
+      "path": "data/runtime/zh_tw/knowledge.json",
+      "runtime_id": "kg.grammar.ending.cause_ul_ni_ka",
+      "surface": "-(으)니까",
+      "example_sentence_refs": [
+        "ex.ko.s.000757",
+        "ex.ko.s.000758",
+        "ex.ko.s.000759",
+        "ex.ko.s.000760",
+        "ex.ko.s.000761",
+        "ex.ko.s.000762",
+        "ex.ko.s.000763",
+        "ex.ko.s.000764",
+        "ex.ko.s.000765",
+        "ex.ko.s.000766"
+      ]
+    },
+    {
       "id": "kg.grammar.ending.intent_ul_ryeogo",
       "category": "grammar",
       "sub": "ending",
@@ -746,6 +768,28 @@
         "ex.ko.s.000654",
         "ex.ko.s.000655",
         "ex.ko.s.000656"
+      ]
+    },
+    {
+      "id": "kg.grammar.ending.while_ul_myeon_seo",
+      "category": "grammar",
+      "sub": "ending",
+      "title": "-(으)면서 (一邊～一邊～)",
+      "level": "A1",
+      "path": "data/runtime/zh_tw/knowledge.json",
+      "runtime_id": "kg.grammar.ending.while_ul_myeon_seo",
+      "surface": "-(으)면서",
+      "example_sentence_refs": [
+        "ex.ko.s.000787",
+        "ex.ko.s.000788",
+        "ex.ko.s.000789",
+        "ex.ko.s.000790",
+        "ex.ko.s.000791",
+        "ex.ko.s.000792",
+        "ex.ko.s.000793",
+        "ex.ko.s.000794",
+        "ex.ko.s.000795",
+        "ex.ko.s.000796"
       ]
     },
     {
@@ -947,6 +991,28 @@
       ]
     },
     {
+      "id": "kg.grammar.ending.after_go_na_seo",
+      "category": "grammar",
+      "sub": "ending",
+      "title": "고 나서 (做了～之後)",
+      "level": "A1",
+      "path": "data/runtime/zh_tw/knowledge.json",
+      "runtime_id": "kg.grammar.ending.after_go_na_seo",
+      "surface": "고 나서",
+      "example_sentence_refs": [
+        "ex.ko.s.000767",
+        "ex.ko.s.000768",
+        "ex.ko.s.000769",
+        "ex.ko.s.000770",
+        "ex.ko.s.000771",
+        "ex.ko.s.000772",
+        "ex.ko.s.000773",
+        "ex.ko.s.000774",
+        "ex.ko.s.000775",
+        "ex.ko.s.000776"
+      ]
+    },
+    {
       "id": "kg.grammar.ending.progressive_go_itda",
       "category": "grammar",
       "sub": "ending",
@@ -1142,6 +1208,28 @@
         "ex.ko.s.000694",
         "ex.ko.s.000695",
         "ex.ko.s.000696"
+      ]
+    },
+    {
+      "id": "kg.grammar.ending.as_soon_as_ja_ma_ja",
+      "category": "grammar",
+      "sub": "ending",
+      "title": "자마자 (一～就～)",
+      "level": "A1",
+      "path": "data/runtime/zh_tw/knowledge.json",
+      "runtime_id": "kg.grammar.ending.as_soon_as_ja_ma_ja",
+      "surface": "자마자",
+      "example_sentence_refs": [
+        "ex.ko.s.000777",
+        "ex.ko.s.000778",
+        "ex.ko.s.000779",
+        "ex.ko.s.000780",
+        "ex.ko.s.000781",
+        "ex.ko.s.000782",
+        "ex.ko.s.000783",
+        "ex.ko.s.000784",
+        "ex.ko.s.000785",
+        "ex.ko.s.000786"
       ]
     },
     {
@@ -1549,6 +1637,28 @@
         "ex.ko.s.000124",
         "ex.ko.s.000125",
         "ex.ko.s.000126"
+      ]
+    },
+    {
+      "id": "kg.grammar.particle.from_to_bu_teo_kka_ji",
+      "category": "grammar",
+      "sub": "particle",
+      "title": "부터 ~까지 (從～到～)",
+      "level": "A1",
+      "path": "data/runtime/zh_tw/knowledge.json",
+      "runtime_id": "kg.grammar.particle.from_to_bu_teo_kka_ji",
+      "surface": "부터 ~까지",
+      "example_sentence_refs": [
+        "ex.ko.s.000797",
+        "ex.ko.s.000798",
+        "ex.ko.s.000799",
+        "ex.ko.s.000800",
+        "ex.ko.s.000801",
+        "ex.ko.s.000802",
+        "ex.ko.s.000803",
+        "ex.ko.s.000804",
+        "ex.ko.s.000805",
+        "ex.ko.s.000806"
       ]
     },
     {

@@ -139,7 +139,7 @@
     {
       "id": "LLCM-007a",
       "desc": "Run parity verification for dialogue/video source list/detail flows: artifact mode must be visible, intakeable, and sample-verifiable against the prototype seed path.",
-      "status": "todo",
+      "status": "done",
       "depends_on": [
         "LLCM-006b"
       ]
@@ -147,7 +147,7 @@
     {
       "id": "LLCM-007b",
       "desc": "Record the staging recovery mismatch list and acceptance gate, explicitly allowing non-prod/staging_only status while keeping production promotion out of scope.",
-      "status": "todo",
+      "status": "in_progress",
       "depends_on": [
         "LLCM-007a"
       ]

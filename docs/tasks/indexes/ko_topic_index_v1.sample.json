@@ -1,0 +1,53 @@
+{
+  "index_id": "KO-TOPIC-INDEX-V1",
+  "version": "v1",
+  "target_lang": "ko",
+  "support_langs": ["zh_tw", "en"],
+  "generated_at": "2026-03-02",
+  "entries": [
+    {
+      "topic_id": "T-KO-TIME-WEEKDAY",
+      "label_zh_tw": "星期與時間",
+      "label_en": "Weekdays & Time",
+      "level_range": {"min": "A1", "max": "A1"},
+      "related_knowledge_ids": [
+        "G-KO-COPULA-IEYO-YEYO"
+      ],
+      "tags": ["basics", "time"]
+    },
+    {
+      "topic_id": "T-KO-SOCIAL-GREETING",
+      "label_zh_tw": "日常社交打招呼",
+      "label_en": "Social Greetings",
+      "level_range": {"min": "A1", "max": "B1"},
+      "related_knowledge_ids": [
+        "G-KO-GREETING-ANNEONGHASEYO",
+        "G-KO-HONORIFIC-POLITE-ENDINGS"
+      ],
+      "tags": ["social", "survival"]
+    },
+    {
+      "topic_id": "T-KO-SHOPPING-ORDERING",
+      "label_zh_tw": "購物與餐廳點餐",
+      "label_en": "Shopping & Ordering",
+      "level_range": {"min": "A1", "max": "A2"},
+      "related_knowledge_ids": [
+        "G-KO-REQUEST-JUSEYO",
+        "G-KO-AVAILABILITY-ISSEOYO",
+        "G-KO-PRICE-EOLMAYEYO"
+      ],
+      "tags": ["travel", "shopping"]
+    },
+    {
+      "topic_id": "T-KO-NAVIGATION-DIRECTION",
+      "label_zh_tw": "路向與地點找尋",
+      "label_en": "Direction & Navigation",
+      "level_range": {"min": "A1", "max": "A1"},
+      "related_knowledge_ids": [
+        "G-KO-LOCATION-EODIYEYO",
+        "G-KO-PARTICLE-IGA"
+      ],
+      "tags": ["travel", "navigation"]
+    }
+  ]
+}

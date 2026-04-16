@@ -39,8 +39,11 @@ Stored in: `content-ko/content/core/learning_library/example_sentence/`
   - `segmentation_ready` (boolean)
   - `reviewed_by_native` (boolean)
   - `audio_verified` (boolean)
-- `knowledge_refs` (array of strings): IDs of grammar/pattern items this sentence exemplifies.
-- `topic_refs` (array of strings): IDs of topics.
+- `knowledge_refs` (array of objects): Graph links to Global IDs (GID) of grammar/pattern items.
+  - `id` (string): Mandatory GID (e.g., `G-KO-XXX`).
+  - `is_primary` (boolean): Flag to identify the primary teaching focus for lesson-view filtering.
+  - `weight` (number, 0.0-1.0): Optional relevance score for automated drill selection.
+- `topic_refs` (array of strings): IDs of topics (must match GIDs in `ko_topic_index`).
 - `dictionary_atom_refs` (array of strings): IDs of dictionary atoms / lexical anchors. Supports sentence click targets and drill-down (CMOD-011).
 
 ---
@@ -64,12 +67,12 @@ Only used if the sentence is a valid instance of a `pattern_frame`.
 ```json
 {
   "frame_projection": {
-    "pattern_frame_ref": "kp.time.today_is_weekday",
+    "pattern_frame_ref": "P-KO-TIME-TODAY-IS-WEEKDAY",
     "slot_projection": [
       {
         "slot_id": "weekday",
         "slot_surface": "토요일",
-        "slot_refs": ["kv.time.weekday.saturday"]
+        "slot_refs": ["G-KO-VOCAB-SATURDAY"]
       }
     ]
   }

@@ -216,8 +216,10 @@
       "notes": [
         "2026-04-13: Initial draft created with singular grammar_ref.",
         "2026-04-13: Revised to grammar_refs[] (plural array) per system convention. Added ingestion authority hierarchy, resolver decoupling, and fail-soft behavior sections.",
-        "2026-04-13: Tightened schema constraints (minItems, uniqueItems, pattern) and aligned entry-point visibility rules across spec sections."
+        "2026-04-13: Tightened schema constraints (minItems, uniqueItems, pattern) and aligned entry-point visibility rules across spec sections.",
+        "2026-04-16: Review draft of dict_grammar_mapping.json landed with corrected canonical IDs (e.g., ko:cop:이다). Ready for review gate."
       ],
+
       "deliverable": "docs/design/DICT_GRAMMAR_LINKING_SPEC_V1.md"
     },
     {

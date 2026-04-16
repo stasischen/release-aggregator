@@ -1,0 +1,23 @@
+{
+  "ko:cop:이다": [
+    "G-KO-COPULA-IEYO-YEYO"
+  ],
+  "ko:p:이": [
+    "G-KO-PARTICLE-IGA"
+  ],
+  "ko:p:가": [
+    "G-KO-PARTICLE-IGA"
+  ],
+  "ko:adj:있다": [
+    "G-KO-AVAILABILITY-ISSEOYO"
+  ],
+  "ko:adj:없다": [
+    "G-KO-AVAILABILITY-ISSEOYO"
+  ],
+  "ko:e:아요": [
+    "G-KO-HONORIFIC-POLITE-ENDINGS"
+  ],
+  "ko:e:어요": [
+    "G-KO-HONORIFIC-POLITE-ENDINGS"
+  ]
+}

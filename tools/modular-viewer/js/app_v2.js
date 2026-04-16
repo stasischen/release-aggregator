@@ -148,7 +148,8 @@ const APP = {
                         unit_id: data.id || 'REAL-DATA', 
                         title_i18n: { zh_tw: (data.id && data.id.includes('vlog')) ? '實體影片測試' : '實體對話測試' },
                         level: 'A1',
-                        theme_i18n: { zh_tw: '生產環境資料鏈路' }
+                        theme_i18n: { zh_tw: '生產環境資料鏈路' },
+                        can_do_i18n: { zh_tw: [] }
                     },
                     sequence: [
                         {

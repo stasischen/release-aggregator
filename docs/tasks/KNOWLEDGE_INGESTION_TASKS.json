@@ -46,8 +46,8 @@
     {
       "id": "kg-pipeline-006",
       "title": "Evaluate schema extensions for aliases, source refs, and teaching blocks",
-      "status": "todo",
-      "deliverable": "schema extension proposal"
+      "status": "in_progress",
+      "deliverable": "docs/tasks/KNOWLEDGE_SCHEMA_EXTENSION_PROPOSAL_V1.md"
     },
     {
       "id": "kg-auto-007",
@@ -77,12 +77,17 @@
     {
       "id": "kg-spec-012",
       "title": "[Umbrella] Define CANONICAL_SENTENCE_GRAPH mapping for source -> example -> knowledge -> topic cross-links",
-      "status": "todo",
+      "status": "done",
       "depends_on": [
         "kg-spec-011",
         "kg-spec-013"
       ],
-      "deliverable": "Updated link contract"
+      "notes": [
+        "2026-04-16: Blockers resolved via ADR 001 (ADR_ENTITY_ID_UNIFICATION_V1) and Topic Index Sample (ko_topic_index_v1.sample.json).",
+        "2026-04-16: Sentence Bank schema updated with primary/weight flags for multi-knowledge links and GID enforcement.",
+        "2026-04-16: Spec converged and frozen."
+      ],
+      "deliverable": "docs/design/ADR_ENTITY_ID_UNIFICATION_V1.md"
     },
     {
       "id": "kg-mig-009",

@@ -11,7 +11,7 @@
     {
       "id": "CMOD-002",
       "desc": "Map existing node taxonomy to the three-layer model: learning_role/content_form/output_mode to modular responsibilities, including the boundary between knowledge payload and support surface.",
-      "status": "todo"
+      "status": "done"
     },
     {
       "id": "CMOD-003",

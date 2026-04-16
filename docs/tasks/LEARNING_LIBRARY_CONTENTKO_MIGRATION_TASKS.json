@@ -147,7 +147,7 @@
     {
       "id": "LLCM-007b",
       "desc": "Record the staging recovery mismatch list and acceptance gate, explicitly allowing non-prod/staging_only status while keeping production promotion out of scope.",
-      "status": "in_progress",
+      "status": "done",
       "depends_on": [
         "LLCM-007a"
       ]

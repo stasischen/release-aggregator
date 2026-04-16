@@ -24196,5 +24196,1565 @@
       "locale": "zh_tw",
       "translation": "從頭到尾請再說一遍。"
     }
+  },
+  {
+    "id": "ex.ko.s.000807",
+    "source": {
+      "id": "ex.ko.s.000807",
+      "ko": "한국어를 배우러 한국에 왔어요.",
+      "level": "A1",
+      "tags": [
+        "grammar",
+        "movement",
+        "beginner"
+      ],
+      "knowledge_refs": [
+        "kg.grammar.movement.ul_ryeo_ga_da_o_da"
+      ],
+      "provenance": {
+        "source": "youtube_beginner_grammar",
+        "source_lesson_ids": [
+          21,
+          81
+        ],
+        "source_video_ids": [
+          "-n1yvtRqDJ0"
+        ]
+      }
+    },
+    "i18n": {
+      "id": "ex.ko.s.000807",
+      "locale": "zh_tw",
+      "translation": "為了學韓語來到了韓國。"
+    }
+  },
+  {
+    "id": "ex.ko.s.000808",
+    "source": {
+      "id": "ex.ko.s.000808",
+      "ko": "주말에 등산하러 산에 갈 거예요.",
+      "level": "A1",
+      "tags": [
+        "grammar",
+        "movement",
+        "beginner"
+      ],
+      "knowledge_refs": [
+        "kg.grammar.movement.ul_ryeo_ga_da_o_da"
+      ],
+      "provenance": {
+        "source": "youtube_beginner_grammar",
+        "source_lesson_ids": [
+          21,
+          81
+        ],
+        "source_video_ids": [
+          "-n1yvtRqDJ0"
+        ]
+      }
+    },
+    "i18n": {
+      "id": "ex.ko.s.000808",
+      "locale": "zh_tw",
+      "translation": "週末打算去山上爬山。"
+    }
+  },
+  {
+    "id": "ex.ko.s.000809",
+    "source": {
+      "id": "ex.ko.s.000809",
+      "ko": "저녁 먹으러 식당에 가요.",
+      "level": "A1",
+      "tags": [
+        "grammar",
+        "movement",
+        "beginner"
+      ],
+      "knowledge_refs": [
+        "kg.grammar.movement.ul_ryeo_ga_da_o_da"
+      ],
+      "provenance": {
+        "source": "youtube_beginner_grammar",
+        "source_lesson_ids": [
+          21,
+          81
+        ],
+        "source_video_ids": [
+          "-n1yvtRqDJ0"
+        ]
+      }
+    },
+    "i18n": {
+      "id": "ex.ko.s.000809",
+      "locale": "zh_tw",
+      "translation": "去餐廳吃晚餐。"
+    }
+  },
+  {
+    "id": "ex.ko.s.000810",
+    "source": {
+      "id": "ex.ko.s.000810",
+      "ko": "친구를 만나러 카페에 갔어요.",
+      "level": "A1",
+      "tags": [
+        "grammar",
+        "movement",
+        "beginner"
+      ],
+      "knowledge_refs": [
+        "kg.grammar.movement.ul_ryeo_ga_da_o_da"
+      ],
+      "provenance": {
+        "source": "youtube_beginner_grammar",
+        "source_lesson_ids": [
+          21,
+          81
+        ],
+        "source_video_ids": [
+          "-n1yvtRqDJ0"
+        ]
+      }
+    },
+    "i18n": {
+      "id": "ex.ko.s.000810",
+      "locale": "zh_tw",
+      "translation": "為了見朋友去了咖啡廳。"
+    }
+  },
+  {
+    "id": "ex.ko.s.000811",
+    "source": {
+      "id": "ex.ko.s.000811",
+      "ko": "책을 빌리러 도서관에 가야 해요.",
+      "level": "A1",
+      "tags": [
+        "grammar",
+        "movement",
+        "beginner"
+      ],
+      "knowledge_refs": [
+        "kg.grammar.movement.ul_ryeo_ga_da_o_da"
+      ],
+      "provenance": {
+        "source": "youtube_beginner_grammar",
+        "source_lesson_ids": [
+          21,
+          81
+        ],
+        "source_video_ids": [
+          "-n1yvtRqDJ0"
+        ]
+      }
+    },
+    "i18n": {
+      "id": "ex.ko.s.000811",
+      "locale": "zh_tw",
+      "translation": "得去圖書館借書。"
+    }
+  },
+  {
+    "id": "ex.ko.s.000812",
+    "source": {
+      "id": "ex.ko.s.000812",
+      "ko": "영화를 보러 극장에 가요.",
+      "level": "A1",
+      "tags": [
+        "grammar",
+        "movement",
+        "beginner"
+      ],
+      "knowledge_refs": [
+        "kg.grammar.movement.ul_ryeo_ga_da_o_da"
+      ],
+      "provenance": {
+        "source": "youtube_beginner_grammar",
+        "source_lesson_ids": [
+          21,
+          81
+        ],
+        "source_video_ids": [
+          "-n1yvtRqDJ0"
+        ]
+      }
+    },
+    "i18n": {
+      "id": "ex.ko.s.000812",
+      "locale": "zh_tw",
+      "translation": "去電影院看電影。"
+    }
+  },
+  {
+    "id": "ex.ko.s.000813",
+    "source": {
+      "id": "ex.ko.s.000813",
+      "ko": "운동하러 체육관에 다녀요.",
+      "level": "A1",
+      "tags": [
+        "grammar",
+        "movement",
+        "beginner"
+      ],
+      "knowledge_refs": [
+        "kg.grammar.movement.ul_ryeo_ga_da_o_da"
+      ],
+      "provenance": {
+        "source": "youtube_beginner_grammar",
+        "source_lesson_ids": [
+          21,
+          81
+        ],
+        "source_video_ids": [
+          "-n1yvtRqDJ0"
+        ]
+      }
+    },
+    "i18n": {
+      "id": "ex.ko.s.000813",
+      "locale": "zh_tw",
+      "translation": "為了運動經常去體育館。"
+    }
+  },
+  {
+    "id": "ex.ko.s.000814",
+    "source": {
+      "id": "ex.ko.s.000814",
+      "ko": "옷을 사러 백화점에 갈까요?",
+      "level": "A1",
+      "tags": [
+        "grammar",
+        "movement",
+        "beginner"
+      ],
+      "knowledge_refs": [
+        "kg.grammar.movement.ul_ryeo_ga_da_o_da"
+      ],
+      "provenance": {
+        "source": "youtube_beginner_grammar",
+        "source_lesson_ids": [
+          21,
+          81
+        ],
+        "source_video_ids": [
+          "-n1yvtRqDJ0"
+        ]
+      }
+    },
+    "i18n": {
+      "id": "ex.ko.s.000814",
+      "locale": "zh_tw",
+      "translation": "要去百貨公司買衣服嗎？"
+    }
+  },
+  {
+    "id": "ex.ko.s.000815",
+    "source": {
+      "id": "ex.ko.s.000815",
+      "ko": "부모님을 보러 고향에 내려가요.",
+      "level": "A1",
+      "tags": [
+        "grammar",
+        "movement",
+        "beginner"
+      ],
+      "knowledge_refs": [
+        "kg.grammar.movement.ul_ryeo_ga_da_o_da"
+      ],
+      "provenance": {
+        "source": "youtube_beginner_grammar",
+        "source_lesson_ids": [
+          21,
+          81
+        ],
+        "source_video_ids": [
+          "-n1yvtRqDJ0"
+        ]
+      }
+    },
+    "i18n": {
+      "id": "ex.ko.s.000815",
+      "locale": "zh_tw",
+      "translation": "為了看父母回老家一趟。"
+    }
+  },
+  {
+    "id": "ex.ko.s.000816",
+    "source": {
+      "id": "ex.ko.s.000816",
+      "ko": "커피를 마시러 잠깐 나갔어요.",
+      "level": "A1",
+      "tags": [
+        "grammar",
+        "movement",
+        "beginner"
+      ],
+      "knowledge_refs": [
+        "kg.grammar.movement.ul_ryeo_ga_da_o_da"
+      ],
+      "provenance": {
+        "source": "youtube_beginner_grammar",
+        "source_lesson_ids": [
+          21,
+          81
+        ],
+        "source_video_ids": [
+          "-n1yvtRqDJ0"
+        ]
+      }
+    },
+    "i18n": {
+      "id": "ex.ko.s.000816",
+      "locale": "zh_tw",
+      "translation": "出去喝杯咖啡，馬上就回來。"
+    }
+  },
+  {
+    "id": "ex.ko.s.000817",
+    "source": {
+      "id": "ex.ko.s.000817",
+      "ko": "내일 친구를 만나려고 카페에 갈 거예요.",
+      "level": "A1",
+      "tags": [
+        "grammar",
+        "ending",
+        "beginner"
+      ],
+      "knowledge_refs": [
+        "kg.grammar.ending.intent_ul_ryeogo"
+      ],
+      "provenance": {
+        "source": "youtube_beginner_grammar",
+        "source_lesson_ids": [
+          66,
+          82
+        ],
+        "source_video_ids": [
+          "O3dHv3W9VZQ"
+        ]
+      }
+    },
+    "i18n": {
+      "id": "ex.ko.s.000817",
+      "locale": "zh_tw",
+      "translation": "明天打算去咖啡廳見朋友。"
+    }
+  },
+  {
+    "id": "ex.ko.s.000818",
+    "source": {
+      "id": "ex.ko.s.000818",
+      "ko": "선물을 사려고 백화점에 갔어요.",
+      "level": "A1",
+      "tags": [
+        "grammar",
+        "ending",
+        "beginner"
+      ],
+      "knowledge_refs": [
+        "kg.grammar.ending.intent_ul_ryeogo"
+      ],
+      "provenance": {
+        "source": "youtube_beginner_grammar",
+        "source_lesson_ids": [
+          66,
+          82
+        ],
+        "source_video_ids": [
+          "O3dHv3W9VZQ"
+        ]
+      }
+    },
+    "i18n": {
+      "id": "ex.ko.s.000818",
+      "locale": "zh_tw",
+      "translation": "為了買禮物去了百貨公司。"
+    }
+  },
+  {
+    "id": "ex.ko.s.000819",
+    "source": {
+      "id": "ex.ko.s.000819",
+      "ko": "살을 빼려고 매일 운동해요.",
+      "level": "A1",
+      "tags": [
+        "grammar",
+        "ending",
+        "beginner"
+      ],
+      "knowledge_refs": [
+        "kg.grammar.ending.intent_ul_ryeogo"
+      ],
+      "provenance": {
+        "source": "youtube_beginner_grammar",
+        "source_lesson_ids": [
+          66,
+          82
+        ],
+        "source_video_ids": [
+          "O3dHv3W9VZQ"
+        ]
+      }
+    },
+    "i18n": {
+      "id": "ex.ko.s.000819",
+      "locale": "zh_tw",
+      "translation": "為了減肥每天都在運動。"
+    }
+  },
+  {
+    "id": "ex.ko.s.000820",
+    "source": {
+      "id": "ex.ko.s.000820",
+      "ko": "한국 드라마를 보려고 한국어를 배워요.",
+      "level": "A1",
+      "tags": [
+        "grammar",
+        "ending",
+        "beginner"
+      ],
+      "knowledge_refs": [
+        "kg.grammar.ending.intent_ul_ryeogo"
+      ],
+      "provenance": {
+        "source": "youtube_beginner_grammar",
+        "source_lesson_ids": [
+          66,
+          82
+        ],
+        "source_video_ids": [
+          "O3dHv3W9VZQ"
+        ]
+      }
+    },
+    "i18n": {
+      "id": "ex.ko.s.000820",
+      "locale": "zh_tw",
+      "translation": "為了看韓劇在學韓語。"
+    }
+  },
+  {
+    "id": "ex.ko.s.000821",
+    "source": {
+      "id": "ex.ko.s.000821",
+      "ko": "집에 일찍 가려고 숙제를 빨리 끝냈어요.",
+      "level": "A1",
+      "tags": [
+        "grammar",
+        "ending",
+        "beginner"
+      ],
+      "knowledge_refs": [
+        "kg.grammar.ending.intent_ul_ryeogo"
+      ],
+      "provenance": {
+        "source": "youtube_beginner_grammar",
+        "source_lesson_ids": [
+          66,
+          82
+        ],
+        "source_video_ids": [
+          "O3dHv3W9VZQ"
+        ]
+      }
+    },
+    "i18n": {
+      "id": "ex.ko.s.000821",
+      "locale": "zh_tw",
+      "translation": "為了早點回家，趕快把作業寫完了。"
+    }
+  },
+  {
+    "id": "ex.ko.s.000822",
+    "source": {
+      "id": "ex.ko.s.000822",
+      "ko": "부모님께 드리려고 선물을 준비했어요.",
+      "level": "A1",
+      "tags": [
+        "grammar",
+        "ending",
+        "beginner"
+      ],
+      "knowledge_refs": [
+        "kg.grammar.ending.intent_ul_ryeogo"
+      ],
+      "provenance": {
+        "source": "youtube_beginner_grammar",
+        "source_lesson_ids": [
+          66,
+          82
+        ],
+        "source_video_ids": [
+          "O3dHv3W9VZQ"
+        ]
+      }
+    },
+    "i18n": {
+      "id": "ex.ko.s.000822",
+      "locale": "zh_tw",
+      "translation": "為了送給父母準備了禮物。"
+    }
+  },
+  {
+    "id": "ex.ko.s.000823",
+    "source": {
+      "id": "ex.ko.s.000823",
+      "ko": "버스를 타려고 빨리 뛰었어요.",
+      "level": "A1",
+      "tags": [
+        "grammar",
+        "ending",
+        "beginner"
+      ],
+      "knowledge_refs": [
+        "kg.grammar.ending.intent_ul_ryeogo"
+      ],
+      "provenance": {
+        "source": "youtube_beginner_grammar",
+        "source_lesson_ids": [
+          66,
+          82
+        ],
+        "source_video_ids": [
+          "O3dHv3W9VZQ"
+        ]
+      }
+    },
+    "i18n": {
+      "id": "ex.ko.s.000823",
+      "locale": "zh_tw",
+      "translation": "為了搭公車跑得很快。"
+    }
+  },
+  {
+    "id": "ex.ko.s.000824",
+    "source": {
+      "id": "ex.ko.s.000824",
+      "ko": "사진을 찍으려고 카메라를 샀어요.",
+      "level": "A1",
+      "tags": [
+        "grammar",
+        "ending",
+        "beginner"
+      ],
+      "knowledge_refs": [
+        "kg.grammar.ending.intent_ul_ryeogo"
+      ],
+      "provenance": {
+        "source": "youtube_beginner_grammar",
+        "source_lesson_ids": [
+          66,
+          82
+        ],
+        "source_video_ids": [
+          "O3dHv3W9VZQ"
+        ]
+      }
+    },
+    "i18n": {
+      "id": "ex.ko.s.000824",
+      "locale": "zh_tw",
+      "translation": "為了拍照買了相機。"
+    }
+  },
+  {
+    "id": "ex.ko.s.000825",
+    "source": {
+      "id": "ex.ko.s.000825",
+      "ko": "일찍 일어나려고 알람을 맞췄어요.",
+      "level": "A1",
+      "tags": [
+        "grammar",
+        "ending",
+        "beginner"
+      ],
+      "knowledge_refs": [
+        "kg.grammar.ending.intent_ul_ryeogo"
+      ],
+      "provenance": {
+        "source": "youtube_beginner_grammar",
+        "source_lesson_ids": [
+          66,
+          82
+        ],
+        "source_video_ids": [
+          "O3dHv3W9VZQ"
+        ]
+      }
+    },
+    "i18n": {
+      "id": "ex.ko.s.000825",
+      "locale": "zh_tw",
+      "translation": "為了早起設定了鬧鐘。"
+    }
+  },
+  {
+    "id": "ex.ko.s.000826",
+    "source": {
+      "id": "ex.ko.s.000826",
+      "ko": "맛있는 음식을 먹으려고 맛집을 검색했어요.",
+      "level": "A1",
+      "tags": [
+        "grammar",
+        "ending",
+        "beginner"
+      ],
+      "knowledge_refs": [
+        "kg.grammar.ending.intent_ul_ryeogo"
+      ],
+      "provenance": {
+        "source": "youtube_beginner_grammar",
+        "source_lesson_ids": [
+          66,
+          82
+        ],
+        "source_video_ids": [
+          "O3dHv3W9VZQ"
+        ]
+      }
+    },
+    "i18n": {
+      "id": "ex.ko.s.000826",
+      "locale": "zh_tw",
+      "translation": "為了吃美食，搜尋了有名的餐廳。"
+    }
+  },
+  {
+    "id": "ex.ko.s.000827",
+    "source": {
+      "id": "ex.ko.s.000827",
+      "ko": "내년에 한국에 유학을 가려고 해요.",
+      "level": "A1",
+      "tags": [
+        "grammar",
+        "intent",
+        "beginner"
+      ],
+      "knowledge_refs": [
+        "kg.grammar.intent.intend_ul_ryeogo_hada"
+      ],
+      "provenance": {
+        "source": "youtube_beginner_grammar",
+        "source_lesson_ids": [
+          57,
+          65,
+          83
+        ],
+        "source_video_ids": [
+          "CHel6JcmeMo"
+        ]
+      }
+    },
+    "i18n": {
+      "id": "ex.ko.s.000827",
+      "locale": "zh_tw",
+      "translation": "打算明年去韓國留學。"
+    }
+  },
+  {
+    "id": "ex.ko.s.000828",
+    "source": {
+      "id": "ex.ko.s.000828",
+      "ko": "돈을 모아서 집을 사려고 해요.",
+      "level": "A1",
+      "tags": [
+        "grammar",
+        "intent",
+        "beginner"
+      ],
+      "knowledge_refs": [
+        "kg.grammar.intent.intend_ul_ryeogo_hada"
+      ],
+      "provenance": {
+        "source": "youtube_beginner_grammar",
+        "source_lesson_ids": [
+          57,
+          65,
+          83
+        ],
+        "source_video_ids": [
+          "CHel6JcmeMo"
+        ]
+      }
+    },
+    "i18n": {
+      "id": "ex.ko.s.000828",
+      "locale": "zh_tw",
+      "translation": "打算存錢買房子。"
+    }
+  },
+  {
+    "id": "ex.ko.s.000829",
+    "source": {
+      "id": "ex.ko.s.000829",
+      "ko": "건강을 위해서 담배를 끊으려고 해요.",
+      "level": "A1",
+      "tags": [
+        "grammar",
+        "intent",
+        "beginner"
+      ],
+      "knowledge_refs": [
+        "kg.grammar.intent.intend_ul_ryeogo_hada"
+      ],
+      "provenance": {
+        "source": "youtube_beginner_grammar",
+        "source_lesson_ids": [
+          57,
+          65,
+          83
+        ],
+        "source_video_ids": [
+          "CHel6JcmeMo"
+        ]
+      }
+    },
+    "i18n": {
+      "id": "ex.ko.s.000829",
+      "locale": "zh_tw",
+      "translation": "為了健康打算戒菸。"
+    }
+  },
+  {
+    "id": "ex.ko.s.000830",
+    "source": {
+      "id": "ex.ko.s.000830",
+      "ko": "친구들과 여행을 가려고 해요.",
+      "level": "A1",
+      "tags": [
+        "grammar",
+        "intent",
+        "beginner"
+      ],
+      "knowledge_refs": [
+        "kg.grammar.intent.intend_ul_ryeogo_hada"
+      ],
+      "provenance": {
+        "source": "youtube_beginner_grammar",
+        "source_lesson_ids": [
+          57,
+          65,
+          83
+        ],
+        "source_video_ids": [
+          "CHel6JcmeMo"
+        ]
+      }
+    },
+    "i18n": {
+      "id": "ex.ko.s.000830",
+      "locale": "zh_tw",
+      "translation": "打算和朋友們一起去旅行。"
+    }
+  },
+  {
+    "id": "ex.ko.s.000831",
+    "source": {
+      "id": "ex.ko.s.000831",
+      "ko": "집에서 요리를 배우려고 해요.",
+      "level": "A1",
+      "tags": [
+        "grammar",
+        "intent",
+        "beginner"
+      ],
+      "knowledge_refs": [
+        "kg.grammar.intent.intend_ul_ryeogo_hada"
+      ],
+      "provenance": {
+        "source": "youtube_beginner_grammar",
+        "source_lesson_ids": [
+          57,
+          65,
+          83
+        ],
+        "source_video_ids": [
+          "CHel6JcmeMo"
+        ]
+      }
+    },
+    "i18n": {
+      "id": "ex.ko.s.000831",
+      "locale": "zh_tw",
+      "translation": "打算在家學做菜。"
+    }
+  },
+  {
+    "id": "ex.ko.s.000832",
+    "source": {
+      "id": "ex.ko.s.000832",
+      "ko": "오늘 저녁에는 운동을 하려고 해요.",
+      "level": "A1",
+      "tags": [
+        "grammar",
+        "intent",
+        "beginner"
+      ],
+      "knowledge_refs": [
+        "kg.grammar.intent.intend_ul_ryeogo_hada"
+      ],
+      "provenance": {
+        "source": "youtube_beginner_grammar",
+        "source_lesson_ids": [
+          57,
+          65,
+          83
+        ],
+        "source_video_ids": [
+          "CHel6JcmeMo"
+        ]
+      }
+    },
+    "i18n": {
+      "id": "ex.ko.s.000832",
+      "locale": "zh_tw",
+      "translation": "今天晚上打算做運動。"
+    }
+  },
+  {
+    "id": "ex.ko.s.000833",
+    "source": {
+      "id": "ex.ko.s.000833",
+      "ko": "회사를 그만두고 사업을 하려고 해요.",
+      "level": "A1",
+      "tags": [
+        "grammar",
+        "intent",
+        "beginner"
+      ],
+      "knowledge_refs": [
+        "kg.grammar.intent.intend_ul_ryeogo_hada"
+      ],
+      "provenance": {
+        "source": "youtube_beginner_grammar",
+        "source_lesson_ids": [
+          57,
+          65,
+          83
+        ],
+        "source_video_ids": [
+          "CHel6JcmeMo"
+        ]
+      }
+    },
+    "i18n": {
+      "id": "ex.ko.s.000833",
+      "locale": "zh_tw",
+      "translation": "打算辭職然後自己創業。"
+    }
+  },
+  {
+    "id": "ex.ko.s.000834",
+    "source": {
+      "id": "ex.ko.s.000834",
+      "ko": "주말에 가족들과 같이 시간을 보내려고 해요.",
+      "level": "A1",
+      "tags": [
+        "grammar",
+        "intent",
+        "beginner"
+      ],
+      "knowledge_refs": [
+        "kg.grammar.intent.intend_ul_ryeogo_hada"
+      ],
+      "provenance": {
+        "source": "youtube_beginner_grammar",
+        "source_lesson_ids": [
+          57,
+          65,
+          83
+        ],
+        "source_video_ids": [
+          "CHel6JcmeMo"
+        ]
+      }
+    },
+    "i18n": {
+      "id": "ex.ko.s.000834",
+      "locale": "zh_tw",
+      "translation": "週末打算和家人一起度過。"
+    }
+  },
+  {
+    "id": "ex.ko.s.000835",
+    "source": {
+      "id": "ex.ko.s.000835",
+      "ko": "한국 친구를 사귀려고 동호회에 가입했어요.",
+      "level": "A1",
+      "tags": [
+        "grammar",
+        "intent",
+        "beginner"
+      ],
+      "knowledge_refs": [
+        "kg.grammar.intent.intend_ul_ryeogo_hada"
+      ],
+      "provenance": {
+        "source": "youtube_beginner_grammar",
+        "source_lesson_ids": [
+          57,
+          65,
+          83
+        ],
+        "source_video_ids": [
+          "CHel6JcmeMo"
+        ]
+      }
+    },
+    "i18n": {
+      "id": "ex.ko.s.000835",
+      "locale": "zh_tw",
+      "translation": "為了交韓國朋友，加入了同好會。"
+    }
+  },
+  {
+    "id": "ex.ko.s.000836",
+    "source": {
+      "id": "ex.ko.s.000836",
+      "ko": "일찍 자려고 불을 다 껐어요.",
+      "level": "A1",
+      "tags": [
+        "grammar",
+        "intent",
+        "beginner"
+      ],
+      "knowledge_refs": [
+        "kg.grammar.intent.intend_ul_ryeogo_hada"
+      ],
+      "provenance": {
+        "source": "youtube_beginner_grammar",
+        "source_lesson_ids": [
+          57,
+          65,
+          83
+        ],
+        "source_video_ids": [
+          "CHel6JcmeMo"
+        ]
+      }
+    },
+    "i18n": {
+      "id": "ex.ko.s.000836",
+      "locale": "zh_tw",
+      "translation": "為了早點睡覺，把燈都關了。"
+    }
+  },
+  {
+    "id": "ex.ko.s.000837",
+    "source": {
+      "id": "ex.ko.s.000837",
+      "ko": "내일은 날씨가 좋으면 좋겠어요.",
+      "level": "A1",
+      "tags": [
+        "grammar",
+        "ending",
+        "beginner"
+      ],
+      "knowledge_refs": [
+        "kg.grammar.ending.wish_eumyeon_jokgetda"
+      ],
+      "provenance": {
+        "source": "youtube_beginner_grammar",
+        "source_lesson_ids": [
+          68,
+          84
+        ],
+        "source_video_ids": [
+          "BBVswzxatGc"
+        ]
+      }
+    },
+    "i18n": {
+      "id": "ex.ko.s.000837",
+      "locale": "zh_tw",
+      "translation": "希望明天天氣很好。"
+    }
+  },
+  {
+    "id": "ex.ko.s.000838",
+    "source": {
+      "id": "ex.ko.s.000838",
+      "ko": "우리 가족이 모두 건강하면 좋겠어요.",
+      "level": "A1",
+      "tags": [
+        "grammar",
+        "ending",
+        "beginner"
+      ],
+      "knowledge_refs": [
+        "kg.grammar.ending.wish_eumyeon_jokgetda"
+      ],
+      "provenance": {
+        "source": "youtube_beginner_grammar",
+        "source_lesson_ids": [
+          68,
+          84
+        ],
+        "source_video_ids": [
+          "BBVswzxatGc"
+        ]
+      }
+    },
+    "i18n": {
+      "id": "ex.ko.s.000838",
+      "locale": "zh_tw",
+      "translation": "希望我們全家人都健康。"
+    }
+  },
+  {
+    "id": "ex.ko.s.000839",
+    "source": {
+      "id": "ex.ko.s.000839",
+      "ko": "이번 시험이 쉬우면 좋겠어요.",
+      "level": "A1",
+      "tags": [
+        "grammar",
+        "ending",
+        "beginner"
+      ],
+      "knowledge_refs": [
+        "kg.grammar.ending.wish_eumyeon_jokgetda"
+      ],
+      "provenance": {
+        "source": "youtube_beginner_grammar",
+        "source_lesson_ids": [
+          68,
+          84
+        ],
+        "source_video_ids": [
+          "BBVswzxatGc"
+        ]
+      }
+    },
+    "i18n": {
+      "id": "ex.ko.s.000839",
+      "locale": "zh_tw",
+      "translation": "希望這次考試很容易。"
+    }
+  },
+  {
+    "id": "ex.ko.s.000840",
+    "source": {
+      "id": "ex.ko.s.000840",
+      "ko": "빨리 방학이 되면 좋겠어요.",
+      "level": "A1",
+      "tags": [
+        "grammar",
+        "ending",
+        "beginner"
+      ],
+      "knowledge_refs": [
+        "kg.grammar.ending.wish_eumyeon_jokgetda"
+      ],
+      "provenance": {
+        "source": "youtube_beginner_grammar",
+        "source_lesson_ids": [
+          68,
+          84
+        ],
+        "source_video_ids": [
+          "BBVswzxatGc"
+        ]
+      }
+    },
+    "i18n": {
+      "id": "ex.ko.s.000840",
+      "locale": "zh_tw",
+      "translation": "希望能快點放假。"
+    }
+  },
+  {
+    "id": "ex.ko.s.000841",
+    "source": {
+      "id": "ex.ko.s.000841",
+      "ko": "돈이 많이 있으면 좋겠어요.",
+      "level": "A1",
+      "tags": [
+        "grammar",
+        "ending",
+        "beginner"
+      ],
+      "knowledge_refs": [
+        "kg.grammar.ending.wish_eumyeon_jokgetda"
+      ],
+      "provenance": {
+        "source": "youtube_beginner_grammar",
+        "source_lesson_ids": [
+          68,
+          84
+        ],
+        "source_video_ids": [
+          "BBVswzxatGc"
+        ]
+      }
+    },
+    "i18n": {
+      "id": "ex.ko.s.000841",
+      "locale": "zh_tw",
+      "translation": "希望能有很多錢。"
+    }
+  },
+  {
+    "id": "ex.ko.s.000842",
+    "source": {
+      "id": "ex.ko.s.000842",
+      "ko": "주말에 비가 안 오면 좋겠어요.",
+      "level": "A1",
+      "tags": [
+        "grammar",
+        "ending",
+        "beginner"
+      ],
+      "knowledge_refs": [
+        "kg.grammar.ending.wish_eumyeon_jokgetda"
+      ],
+      "provenance": {
+        "source": "youtube_beginner_grammar",
+        "source_lesson_ids": [
+          68,
+          84
+        ],
+        "source_video_ids": [
+          "BBVswzxatGc"
+        ]
+      }
+    },
+    "i18n": {
+      "id": "ex.ko.s.000842",
+      "locale": "zh_tw",
+      "translation": "希望週末不要下雨。"
+    }
+  },
+  {
+    "id": "ex.ko.s.000843",
+    "source": {
+      "id": "ex.ko.s.000843",
+      "ko": "키가 좀 더 크면 좋겠어요.",
+      "level": "A1",
+      "tags": [
+        "grammar",
+        "ending",
+        "beginner"
+      ],
+      "knowledge_refs": [
+        "kg.grammar.ending.wish_eumyeon_jokgetda"
+      ],
+      "provenance": {
+        "source": "youtube_beginner_grammar",
+        "source_lesson_ids": [
+          68,
+          84
+        ],
+        "source_video_ids": [
+          "BBVswzxatGc"
+        ]
+      }
+    },
+    "i18n": {
+      "id": "ex.ko.s.000843",
+      "locale": "zh_tw",
+      "translation": "希望個子能再長高一點。"
+    }
+  },
+  {
+    "id": "ex.ko.s.000844",
+    "source": {
+      "id": "ex.ko.s.000844",
+      "ko": "한국 친구가 많이 생기면 좋겠어요.",
+      "level": "A1",
+      "tags": [
+        "grammar",
+        "ending",
+        "beginner"
+      ],
+      "knowledge_refs": [
+        "kg.grammar.ending.wish_eumyeon_jokgetda"
+      ],
+      "provenance": {
+        "source": "youtube_beginner_grammar",
+        "source_lesson_ids": [
+          68,
+          84
+        ],
+        "source_video_ids": [
+          "BBVswzxatGc"
+        ]
+      }
+    },
+    "i18n": {
+      "id": "ex.ko.s.000844",
+      "locale": "zh_tw",
+      "translation": "希望能交到很多韓國朋友。"
+    }
+  },
+  {
+    "id": "ex.ko.s.000845",
+    "source": {
+      "id": "ex.ko.s.000845",
+      "ko": "맛있는 음식을 많이 먹으면 좋겠어요.",
+      "level": "A1",
+      "tags": [
+        "grammar",
+        "ending",
+        "beginner"
+      ],
+      "knowledge_refs": [
+        "kg.grammar.ending.wish_eumyeon_jokgetda"
+      ],
+      "provenance": {
+        "source": "youtube_beginner_grammar",
+        "source_lesson_ids": [
+          68,
+          84
+        ],
+        "source_video_ids": [
+          "BBVswzxatGc"
+        ]
+      }
+    },
+    "i18n": {
+      "id": "ex.ko.s.000845",
+      "locale": "zh_tw",
+      "translation": "希望能吃到很多好吃的東西。"
+    }
+  },
+  {
+    "id": "ex.ko.s.000846",
+    "source": {
+      "id": "ex.ko.s.000846",
+      "ko": "세상이 평화로우면 좋겠어요.",
+      "level": "A1",
+      "tags": [
+        "grammar",
+        "ending",
+        "beginner"
+      ],
+      "knowledge_refs": [
+        "kg.grammar.ending.wish_eumyeon_jokgetda"
+      ],
+      "provenance": {
+        "source": "youtube_beginner_grammar",
+        "source_lesson_ids": [
+          68,
+          84
+        ],
+        "source_video_ids": [
+          "BBVswzxatGc"
+        ]
+      }
+    },
+    "i18n": {
+      "id": "ex.ko.s.000846",
+      "locale": "zh_tw",
+      "translation": "希望世界能很和平。"
+    }
+  },
+  {
+    "id": "ex.ko.s.000847",
+    "source": {
+      "id": "ex.ko.s.000847",
+      "ko": "친구와 9시에 만나기로 했어요.",
+      "level": "A1",
+      "tags": [
+        "grammar",
+        "ending",
+        "beginner"
+      ],
+      "knowledge_refs": [
+        "kg.grammar.ending.promise_gi_ro_hada"
+      ],
+      "provenance": {
+        "source": "youtube_beginner_grammar",
+        "source_lesson_ids": [
+          69,
+          85
+        ],
+        "source_video_ids": [
+          "gH7dgpnFiUc"
+        ]
+      }
+    },
+    "i18n": {
+      "id": "ex.ko.s.000847",
+      "locale": "zh_tw",
+      "translation": "和朋友約好九點見面。"
+    }
+  },
+  {
+    "id": "ex.ko.s.000848",
+    "source": {
+      "id": "ex.ko.s.000848",
+      "ko": "이제부터 매일 운동하기로 했어요.",
+      "level": "A1",
+      "tags": [
+        "grammar",
+        "ending",
+        "beginner"
+      ],
+      "knowledge_refs": [
+        "kg.grammar.ending.promise_gi_ro_hada"
+      ],
+      "provenance": {
+        "source": "youtube_beginner_grammar",
+        "source_lesson_ids": [
+          69,
+          85
+        ],
+        "source_video_ids": [
+          "gH7dgpnFiUc"
+        ]
+      }
+    },
+    "i18n": {
+      "id": "ex.ko.s.000848",
+      "locale": "zh_tw",
+      "translation": "決定從現在開始每天運動。"
+    }
+  },
+  {
+    "id": "ex.ko.s.000849",
+    "source": {
+      "id": "ex.ko.s.000849",
+      "ko": "주말에 영화를 보러 가기로 했어요.",
+      "level": "A1",
+      "tags": [
+        "grammar",
+        "ending",
+        "beginner"
+      ],
+      "knowledge_refs": [
+        "kg.grammar.ending.promise_gi_ro_hada"
+      ],
+      "provenance": {
+        "source": "youtube_beginner_grammar",
+        "source_lesson_ids": [
+          69,
+          85
+        ],
+        "source_video_ids": [
+          "gH7dgpnFiUc"
+        ]
+      }
+    },
+    "i18n": {
+      "id": "ex.ko.s.000849",
+      "locale": "zh_tw",
+      "translation": "約好週末去看電影。"
+    }
+  },
+  {
+    "id": "ex.ko.s.000850",
+    "source": {
+      "id": "ex.ko.s.000850",
+      "ko": "돈을 아껴 쓰기로 했어요.",
+      "level": "A1",
+      "tags": [
+        "grammar",
+        "ending",
+        "beginner"
+      ],
+      "knowledge_refs": [
+        "kg.grammar.ending.promise_gi_ro_hada"
+      ],
+      "provenance": {
+        "source": "youtube_beginner_grammar",
+        "source_lesson_ids": [
+          69,
+          85
+        ],
+        "source_video_ids": [
+          "gH7dgpnFiUc"
+        ]
+      }
+    },
+    "i18n": {
+      "id": "ex.ko.s.000850",
+      "locale": "zh_tw",
+      "translation": "決定要省錢。"
+    }
+  },
+  {
+    "id": "ex.ko.s.000851",
+    "source": {
+      "id": "ex.ko.s.000851",
+      "ko": "올해부터 담배를 끊기로 했어요.",
+      "level": "A1",
+      "tags": [
+        "grammar",
+        "ending",
+        "beginner"
+      ],
+      "knowledge_refs": [
+        "kg.grammar.ending.promise_gi_ro_hada"
+      ],
+      "provenance": {
+        "source": "youtube_beginner_grammar",
+        "source_lesson_ids": [
+          69,
+          85
+        ],
+        "source_video_ids": [
+          "gH7dgpnFiUc"
+        ]
+      }
+    },
+    "i18n": {
+      "id": "ex.ko.s.000851",
+      "locale": "zh_tw",
+      "translation": "決定從今年開始戒菸。"
+    }
+  },
+  {
+    "id": "ex.ko.s.000852",
+    "source": {
+      "id": "ex.ko.s.000852",
+      "ko": "우리는 내년에 결혼하기로 했어요.",
+      "level": "A1",
+      "tags": [
+        "grammar",
+        "ending",
+        "beginner"
+      ],
+      "knowledge_refs": [
+        "kg.grammar.ending.promise_gi_ro_hada"
+      ],
+      "provenance": {
+        "source": "youtube_beginner_grammar",
+        "source_lesson_ids": [
+          69,
+          85
+        ],
+        "source_video_ids": [
+          "gH7dgpnFiUc"
+        ]
+      }
+    },
+    "i18n": {
+      "id": "ex.ko.s.000852",
+      "locale": "zh_tw",
+      "translation": "我們約好明年結婚。"
+    }
+  },
+  {
+    "id": "ex.ko.s.000853",
+    "source": {
+      "id": "ex.ko.s.000853",
+      "ko": "내일은 일찍 일어나기로 했어요.",
+      "level": "A1",
+      "tags": [
+        "grammar",
+        "ending",
+        "beginner"
+      ],
+      "knowledge_refs": [
+        "kg.grammar.ending.promise_gi_ro_hada"
+      ],
+      "provenance": {
+        "source": "youtube_beginner_grammar",
+        "source_lesson_ids": [
+          69,
+          85
+        ],
+        "source_video_ids": [
+          "gH7dgpnFiUc"
+        ]
+      }
+    },
+    "i18n": {
+      "id": "ex.ko.s.000853",
+      "locale": "zh_tw",
+      "translation": "決定明天要早起。"
+    }
+  },
+  {
+    "id": "ex.ko.s.000854",
+    "source": {
+      "id": "ex.ko.s.000854",
+      "ko": "앞으로 한국어를 더 열심히 공부하기로 했어요.",
+      "level": "A1",
+      "tags": [
+        "grammar",
+        "ending",
+        "beginner"
+      ],
+      "knowledge_refs": [
+        "kg.grammar.ending.promise_gi_ro_hada"
+      ],
+      "provenance": {
+        "source": "youtube_beginner_grammar",
+        "source_lesson_ids": [
+          69,
+          85
+        ],
+        "source_video_ids": [
+          "gH7dgpnFiUc"
+        ]
+      }
+    },
+    "i18n": {
+      "id": "ex.ko.s.000854",
+      "locale": "zh_tw",
+      "translation": "決定以後要更認真學韓語。"
+    }
+  },
+  {
+    "id": "ex.ko.s.000855",
+    "source": {
+      "id": "ex.ko.s.000855",
+      "ko": "다시는 싸우지 않기로 했어요.",
+      "level": "A1",
+      "tags": [
+        "grammar",
+        "ending",
+        "beginner"
+      ],
+      "knowledge_refs": [
+        "kg.grammar.ending.promise_gi_ro_hada"
+      ],
+      "provenance": {
+        "source": "youtube_beginner_grammar",
+        "source_lesson_ids": [
+          69,
+          85
+        ],
+        "source_video_ids": [
+          "gH7dgpnFiUc"
+        ]
+      }
+    },
+    "i18n": {
+      "id": "ex.ko.s.000855",
+      "locale": "zh_tw",
+      "translation": "約好以後不再吵架。"
+    }
+  },
+  {
+    "id": "ex.ko.s.000856",
+    "source": {
+      "id": "ex.ko.s.000856",
+      "ko": "오늘 저녁은 샐러드를 먹기로 했어요.",
+      "level": "A1",
+      "tags": [
+        "grammar",
+        "ending",
+        "beginner"
+      ],
+      "knowledge_refs": [
+        "kg.grammar.ending.promise_gi_ro_hada"
+      ],
+      "provenance": {
+        "source": "youtube_beginner_grammar",
+        "source_lesson_ids": [
+          69,
+          85
+        ],
+        "source_video_ids": [
+          "gH7dgpnFiUc"
+        ]
+      }
+    },
+    "i18n": {
+      "id": "ex.ko.s.000856",
+      "locale": "zh_tw",
+      "translation": "今天晚餐決定吃沙拉。"
+    }
   }
 ]

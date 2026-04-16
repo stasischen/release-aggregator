@@ -1541,7 +1541,8 @@
       "provenance": {
         "source": "youtube_beginner_grammar",
         "source_lesson_ids": [
-          66
+          66,
+          82
         ],
         "source_video_ids": [
           "O3dHv3W9VZQ"
@@ -1557,7 +1558,17 @@
         "ex.ko.s.000653",
         "ex.ko.s.000654",
         "ex.ko.s.000655",
-        "ex.ko.s.000656"
+        "ex.ko.s.000656",
+        "ex.ko.s.000817",
+        "ex.ko.s.000818",
+        "ex.ko.s.000819",
+        "ex.ko.s.000820",
+        "ex.ko.s.000821",
+        "ex.ko.s.000822",
+        "ex.ko.s.000823",
+        "ex.ko.s.000824",
+        "ex.ko.s.000825",
+        "ex.ko.s.000826"
       ]
     },
     "i18n": {
@@ -1916,7 +1927,8 @@
       "provenance": {
         "source": "youtube_beginner_grammar",
         "source_lesson_ids": [
-          69
+          69,
+          85
         ],
         "source_video_ids": [
           "gH7dgpnFiUc"
@@ -1932,7 +1944,17 @@
         "ex.ko.s.000683",
         "ex.ko.s.000684",
         "ex.ko.s.000685",
-        "ex.ko.s.000686"
+        "ex.ko.s.000686",
+        "ex.ko.s.000847",
+        "ex.ko.s.000848",
+        "ex.ko.s.000849",
+        "ex.ko.s.000850",
+        "ex.ko.s.000851",
+        "ex.ko.s.000852",
+        "ex.ko.s.000853",
+        "ex.ko.s.000854",
+        "ex.ko.s.000855",
+        "ex.ko.s.000856"
       ]
     },
     "i18n": {
@@ -2392,6 +2414,52 @@
     }
   },
   {
+    "id": "kg.grammar.ending.wish_eumyeon_jokgetda",
+    "source": {
+      "id": "kg.grammar.ending.wish_eumyeon_jokgetda",
+      "kind": "grammar",
+      "subcategory": "ending",
+      "level": "A1",
+      "surface": "-(으)면 좋겠다",
+      "tags": [
+        "grammar",
+        "ending",
+        "beginner",
+        "v5_ingestion"
+      ],
+      "provenance": {
+        "source": "youtube_beginner_grammar",
+        "source_lesson_ids": [
+          68,
+          84
+        ],
+        "source_video_ids": [
+          "BBVswzxatGc"
+        ]
+      },
+      "example_sentence_refs": [
+        "ex.ko.s.000837",
+        "ex.ko.s.000838",
+        "ex.ko.s.000839",
+        "ex.ko.s.000840",
+        "ex.ko.s.000841",
+        "ex.ko.s.000842",
+        "ex.ko.s.000843",
+        "ex.ko.s.000844",
+        "ex.ko.s.000845",
+        "ex.ko.s.000846"
+      ]
+    },
+    "i18n": {
+      "id": "kg.grammar.ending.wish_eumyeon_jokgetda",
+      "locale": "zh_tw",
+      "title": "-(으)면 좋겠다 (希望/願望)",
+      "description": "表示說話者的願望、希望或期待某種情況發生。",
+      "explanation_md": "「-(으)면 좋겠다」 用於向他人傳達自己內心的願望或對未來的期待。它與過去式的版本 `-(았/었/했)으면 좋겠다` 意思相近，但在某些語境下，現在式版本顯得更具直接的期待感。\n\n· 用法說明\n| 詞幹結尾 | 接續形式 | 範例 |\n| :--- | :--- | :--- |\n| 無收音 (母音) | `-면 좋겠다` | `오다` -> `오면 좋겠다` |\n| 有收音 (子音) | `-으면 좋겠다` | `있다` -> `있으면 좋겠다` |\n| 收音為 `ㄹ` | `-면 좋겠다` | `살다` -> `살면 좋겠다` |\n\n· 常見使用場景\n  - 表達個人的心願：[id:ex.ko.s.000839]\n  - 祝福他人或期待好天氣：[id:ex.ko.s.000838]\n\n· 相近文法比較\n  - **-(았/었/했)으면 좋겠다**: 這是最通用的願望表達方式，帶有一種「如果能成真該有多好」的強烈渴望感，甚至包含對現狀不滿的反向期望。\n  - **-(으)면 좋겠다**: 語氣相對平實，單純描述「如果發生這件事我會很高興」的想法。\n\n· 注意\n  - 雖然是表示「希望、願望」，但結尾通常使用過去推測式 `좋겠다`，使語氣顯得更委婉與溫和。",
+      "usage_notes": []
+    }
+  },
+  {
     "id": "kg.grammar.ending.wish_ul_laeyo",
     "source": {
       "id": "kg.grammar.ending.wish_ul_laeyo",
@@ -2682,31 +2750,46 @@
     "id": "kg.grammar.intent.intend_ul_ryeogo_hada",
     "source": {
       "id": "kg.grammar.intent.intend_ul_ryeogo_hada",
-      "category": "grammar",
+      "kind": "grammar",
       "subcategory": "intent",
-      "knowledge_type": "official",
+      "level": "A1",
+      "surface": "-(으)려고 하다",
       "tags": [
+        "grammar",
         "intent",
-        "plan",
-        "beginner"
+        "beginner",
+        "v5_ingestion"
       ],
       "provenance": {
         "source": "youtube_beginner_grammar",
         "source_lesson_ids": [
-          57
+          57,
+          65,
+          83
+        ],
+        "source_video_ids": [
+          "CHel6JcmeMo"
         ]
       },
-      "usage_policies": [
-        "shared_usage"
-      ],
-      "related_knowledge_ids": []
+      "example_sentence_refs": [
+        "ex.ko.s.000827",
+        "ex.ko.s.000828",
+        "ex.ko.s.000829",
+        "ex.ko.s.000830",
+        "ex.ko.s.000831",
+        "ex.ko.s.000832",
+        "ex.ko.s.000833",
+        "ex.ko.s.000834",
+        "ex.ko.s.000835",
+        "ex.ko.s.000836"
+      ]
     },
     "i18n": {
       "id": "kg.grammar.intent.intend_ul_ryeogo_hada",
       "locale": "zh_tw",
-      "title": "-(으)려고 하다 (打算/為了)",
-      "description": "表示說話者的意圖、計畫或打算做某事。",
-      "explanation_md": "· 用法說明\n用於動詞詞幹後：\n- 有收音接 `-으려고 하다`。\n- 無收音或 `ㄹ` 收音接 `-려고 하다`。\n\n· 常見使用場景\n- 說明個人計畫：我打算明年去韓國留學。\n- 說明行動目的：為了買麵包，我去了超市。\n- 快要發生的狀態：現在好像快要下雨了。\n\n· 相近文法比較\n- **-(으)ㄹ 거예요**: 較強的未來陳述。\n- **-(으)려고 하다**: 強調「心裡的打算」或「準備過程」，即使最後沒做成也常使用此形式敘述原意。\n\n· 注意\n不能用於命令句或提議句的結尾（如 `-(으)려고 하세요` 是錯誤的）。",
+      "title": "-(으)려고 하다 (打算/意圖)",
+      "description": "表示說話者心裡的計畫、意圖或打算做某事，通常用於尚未採取行動的階段。",
+      "explanation_md": "「-(으)려고 하다」 用於表達說話者心中的「想法」或「計畫」。與單純的未來式相比，它更強調主觀的「意圖」。\n\n· 用法說明\n| 詞幹結尾 | 接續形式 | 範例 |\n| :--- | :--- | :--- |\n| 無收音 (母音) | `-려고 하다` | `가다` -> `가려고 하다` |\n| 有收音 (子音) | `-으려고 하다` | `먹다` -> `먹으러 하다` |\n| 收音為 `ㄹ` | `-려고 하다` | `만들다` -> `만들려고 하다` |\n\n· 常見使用場景\n  - 表達未來的具體計畫：[id:ex.ko.s.000827]\n  - 向他人分享自己的目標或決心：[id:ex.ko.s.000829]\n  - 描述快要發生的自然現象（非意志動詞）：`비가 오려고 해요` (快要下雨了)。\n\n· 相近文法比較\n  - **-(으)ㄹ 거예요**: 單純敘述未來事實，語氣較確定。 \n  - **-(으)려고 하다**: 側重於「計畫中」或「心中的打算」，即使後來計畫改變也常使用此形式描述最初意圖：[id:ex.ko.s.000831]\n\n· 注意\n  - 句尾不能使用命令句 (`-(으)세요`) 或提議句 (`-(으)ㅂ시다`)：(X) `공부하려고 하세요`。",
       "usage_notes": []
     }
   },
@@ -2937,6 +3020,52 @@
       "title": "에 가다/오다 (前往某處)",
       "description": "表示前往或來到某個特定的地點。",
       "explanation_md": "· 用法說明\n`에 가다` 表示向著目標地點「去」；`에 오다` 則表示朝著說話者所在的地點「來」。\n\n· 結構\n「[地點名詞] + 에 + 가다/오다」。\n\n· 常見例句\n- [id:ex.ko.s.000167] (去學校)\n- [id:ex.ko.s.000168] (來家裡)\n\n· 注意\n- `에` 為方向格助詞，標示出移動的目的地。\n- `가다` 是遠離說話者，`오다` 是靠近說話者。",
+      "usage_notes": []
+    }
+  },
+  {
+    "id": "kg.grammar.movement.ul_ryeo_ga_da_o_da",
+    "source": {
+      "id": "kg.grammar.movement.ul_ryeo_ga_da_o_da",
+      "kind": "grammar",
+      "subcategory": "movement",
+      "level": "A1",
+      "surface": "-(으)러 가다/오다",
+      "tags": [
+        "grammar",
+        "movement",
+        "beginner",
+        "v5_ingestion"
+      ],
+      "provenance": {
+        "source": "youtube_beginner_grammar",
+        "source_lesson_ids": [
+          21,
+          81
+        ],
+        "source_video_ids": [
+          "-n1yvtRqDJ0"
+        ]
+      },
+      "example_sentence_refs": [
+        "ex.ko.s.000807",
+        "ex.ko.s.000808",
+        "ex.ko.s.000809",
+        "ex.ko.s.000810",
+        "ex.ko.s.000811",
+        "ex.ko.s.000812",
+        "ex.ko.s.000813",
+        "ex.ko.s.000814",
+        "ex.ko.s.000815",
+        "ex.ko.s.000816"
+      ]
+    },
+    "i18n": {
+      "id": "kg.grammar.movement.ul_ryeo_ga_da_o_da",
+      "locale": "zh_tw",
+      "title": "-(으)러 가다/오다 (目的移動)",
+      "description": "表示為了做某事而去或來某地，常用於說明移動的目的。",
+      "explanation_md": "「-(으)러 가다/오다」 是韓語中最常用來表達「移動目的」的文法。它通常接在動詞之後，後面緊跟著表示移動的動詞（如 `가다`、`오다`、`다니다` 等）。\n\n· 用法說明\n| 詞幹結尾 | 接續形式 | 範例 |\n| :--- | :--- | :--- |\n| 無收音 (母音) | `-러` | `보다` -> `보러` |\n| 有收音 (子音) | `-으러` | `먹다` -> `먹으러` |\n| 收音為 `ㄹ` | `-러` | `만들다` -> `만들러` |\n\n· 常見使用場景\n  - 向他人說明出門的目的：[id:ex.ko.s.000809]\n  - 詢問他人來訪的原因：[id:ex.ko.s.000808]\n\n· 注意\n  - 此文法後面只能接 `가다` (去)、`오다` (來)、`다니다` (通勤/往返) 等具有「移動」意義的動詞。\n  - 在同一句子中，移動的目的地（地點）通常放在 `가다/오다` 之前，並加上地點助詞 `에`：[id:ex.ko.s.000807]\n  - 「-(으)러」 前面不能接形容詞或是 `이다` (是)。",
       "usage_notes": []
     }
   },

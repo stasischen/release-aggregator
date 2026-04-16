@@ -40,7 +40,7 @@ Layer 5: Legacy Backfill
 │  └── 最後才回頭做 L0 V4 -> V5 遷移
 ```
 
-**正式架構文件：** [COURSE_REFACTOR_EXECUTION_ARCHITECTURE.md](COURSE_REFACTOR_EXECUTION_ARCHITECTURE.md)
+**正式架構文件：** [COURSE_REFACTOR_EXECUTION_ARCHITECTURE.md](assets/COURSE_REFACTOR_EXECUTION_ARCHITECTURE.md)
 **原則：先恢復可見與可驗證，再做前端承接，再做課程重構；不要把 segmentation 修復和單元重構綁在一起。**
 
 ---
@@ -52,8 +52,9 @@ Layer 5: Legacy Backfill
 | TASK_ID | 描述 | Phase | 進度 | 檔案 |
 | :--- | :--- | :--- | :--- | :--- |
 | LEARNING_LIBRARY_CONTENTKO_MIGRATION | Learning Library 正式化：content-ko overlay + build artifact + frontend intake | C+/Ops | 18/20 tasks | [JSON](LEARNING_LIBRARY_CONTENTKO_MIGRATION_TASKS.json) · [PLAN](LEARNING_LIBRARY_CONTENTKO_MIGRATION_PLAN.md) |
-| PRODUCTION_RELEASE_GATING | Staging candidate / production release gate（全量進 staging、allowlist 才能發佈 production） | C+/Ops | 4/6 tasks | [JSON](PRODUCTION_RELEASE_GATING_TASKS.json) · [ARCH](STAGING_CANDIDATE_VS_PRODUCTION_RELEASE_ARCHITECTURE.md) |
-| GOLDEN_STANDARD_RECONCILIATION | Ingest Golden / Surgery into unified build & recovery plan | B1 | 0/3 tasks | [PLAN](GOLDEN_STANDARD_RECONCILIATION_PLAN_V0.md) · [INV](REVIEW_ARTIFACT_INVENTORY_V0.md) |
+| KO_DICT_LAYERING | Dictionary 常用度分層重建（1-1000 基礎 / 1001-2000 擴充 / quarantine 隔離） | C+/Ops | 0/6 tasks | [JSON](KO_DICT_LAYERING_TASKS.json) · [PLAN](KO_DICT_LAYERING_PLAN_V1.md) |
+| PRODUCTION_RELEASE_GATING | Staging candidate / production release gate（全量進 staging、allowlist 才能發佈 production） | C+/Ops | 4/6 tasks | [JSON](PRODUCTION_RELEASE_GATING_TASKS.json) · [ARCH](assets/STAGING_CANDIDATE_VS_PRODUCTION_RELEASE_ARCHITECTURE.md) |
+| GOLDEN_STANDARD_RECONCILIATION | Ingest Golden / Surgery into unified build & recovery plan | B1 | 0/3 tasks | [PLAN](GOLDEN_STANDARD_RECONCILIATION_PLAN_V0.md) · [INV](assets/REVIEW_ARTIFACT_INVENTORY_V0.md) |
 | GOLDEN_REVIEW_MATERIALIZATION | Materialize verified reviews into committed overrides | B1 | 3/4 tasks | [PLAN](GOLDEN_REVIEW_MATERIALIZATION_PLAN_V1.md) · [JSON](GOLDEN_REVIEW_MATERIALIZATION_TASKS.json) |
 | STABLE_TEST_RCA | Root Cause Analysis for Skipped Stable Tests | QA | 0/3 tasks | [PLAN](STABLE_TEST_ROOT_CAUSE_ANALYSIS.md) |
 
@@ -63,7 +64,7 @@ Layer 5: Legacy Backfill
 | :--- | :--- | :--- | :--- | :--- |
 | MODULAR_VIEWER_REFACTOR | Modular Viewer 重構（source-build adapter / renderer 拆分 / i18n-first / preview 退場） | C+/Ops | 1/8 tasks | [JSON](MODULAR_VIEWER_REFACTOR_TASKS.json) · [PLAN](MODULAR_VIEWER_REFACTOR_PLAN.md) |
 | KNOWLEDGE_LAB_VIEWER_REFACTOR | Knowledge Lab Viewer 重構（對齊 ULV runtime contract / Pattern Lab 持久化 / 真內容驗證） | C+/Ops | 6/6 tasks | [JSON](KNOWLEDGE_LAB_VIEWER_REFACTOR_TASKS.json) · [PLAN](KNOWLEDGE_LAB_VIEWER_REFACTOR_PLAN.md) |
-| UNIFIED_LESSON_VIEW_ARCHITECTURE | Modular Viewer 下游：統一定義 lesson runtime IA（primary content / support detail / navigation / mock verification / Flutter boundary） | C+/Ops | 7/7 tasks | [JSON](UNIFIED_LESSON_VIEW_ARCHITECTURE_TASKS.json) · [ARCH](UNIFIED_LESSON_VIEW_ARCHITECTURE.md) · [CONTRACT](mockups/modular/UNIFIED_LESSON_RUNTIME_CONTRACT.md) |
+| UNIFIED_LESSON_VIEW_ARCHITECTURE | Modular Viewer 下游：統一定義 lesson runtime IA（primary content / support detail / navigation / mock verification / Flutter boundary） | C+/Ops | 7/7 tasks | [JSON](UNIFIED_LESSON_VIEW_ARCHITECTURE_TASKS.json) · [ARCH](assets/UNIFIED_LESSON_VIEW_ARCHITECTURE.md) · [CONTRACT](../../tools/modular-viewer/UNIFIED_LESSON_RUNTIME_CONTRACT.md) |
 | ULV_RUNTIME_MOCK_VERIFICATION | **[GATE]** ULV Runtime Mock 驗證（使用真 lesson/KLab content 驗證運作合約穩定性） | C+/Ops | 0/6 tasks | [JSON](ULV_RUNTIME_MOCK_VERIFICATION_TASKS.json) · [PLAN](ULV_RUNTIME_MOCK_VERIFICATION.md) |
 | UNIFIED_LESSON_VIEW_FLUTTER_TRANSFER | Modular Viewer 下游：將凍結的 unified lesson view contract 轉入 Flutter（shell / state / adapters / QA） | C+/Ops | 0/8 tasks | [JSON](UNIFIED_LESSON_VIEW_FLUTTER_TRANSFER_TASKS.json) |
 
@@ -104,7 +105,7 @@ Layer 5: Legacy Backfill
 
 | Task ID | 描述 | Phase | 進度 | 檔案 |
 | :--- | :--- | :--- | :--- | :--- |
-| KNOWLEDGE_LAB_ENRICHMENT | Knowledge Lab 內容充實（knowledge/topic/link/vocab/retrieval 補強；含 embedded examples 盤點與 pronunciation refs；不得改 frontend intake contract） | Lab/Ops | 7/8 tasks | [JSON](KNOWLEDGE_LAB_ENRICHMENT_TASKS.json) · [FINDINGS](kg-normalize-001B_FINDINGS_HANDOFF.md) |
+| KNOWLEDGE_LAB_ENRICHMENT | Knowledge Lab 內容充實（knowledge/topic/link/vocab/retrieval 補強；含 embedded examples 盤點與 pronunciation refs；不得改 frontend intake contract） | Lab/Ops | 7/8 tasks | [JSON](KNOWLEDGE_LAB_ENRICHMENT_TASKS.json) · [FINDINGS](assets/kg-normalize-001B_FINDINGS_HANDOFF.md) |
 
 
 ### Completed Pending Archive (已完成待封存)
@@ -127,23 +128,23 @@ Layer 5: Legacy Backfill
 | Task ID | 描述 | 完成時間 | 檔案 |
 | :--- | :--- | :--- | :--- |
 | VIDEO_SUBTITLE_ENRICHMENT | 影片字幕校對與補全 (zh_tw) | 2026-04-07 | [PLAN](VIDEO_SUBTITLE_ENRICHMENT_PLAN.md) |
-| VIEWER_ENHANCEMENT | Viewer 辭典彈出 + 舊課程顯示 | 2026-02-15 | [ARCHIVE](archive/20260215_VIEWER_ENHANCEMENT_TASKS.json) |
-| KO_RESOLUTION_100PCT | 韓語 Token 解析 100% | 2026-02-15 | [ARCHIVE](archive/20260215_KO_RESOLUTION_100PCT_TASKS.json) |
-| FRONTEND_VIEWER_INTEGRATION | Viewer 整合 (音檔/高亮/文法) | 2026-02-22 | [ARCHIVE](archive/20260222_FRONTEND_VIEWER_INTEGRATION_TASKS.json) |
-| WORKFLOW_OPTIMIZATION | 工作流優化 (Ingest/Quality Gate/Index) | 2026-02-22 | [ARCHIVE](archive/20260222_WORKFLOW_OPTIMIZATION_TASKS.json) |
-| FUTURE_BACKLOG | 自動化與優化提案 | 2026-02-22 | [ARCHIVE](archive/20260222_FUTURE_BACKLOG_TASKS.json) |
-| CONTENT_CANDIDATE_REVIEW | Content Candidate Review Station 審核台 | 2026-02-25 | [ARCHIVE](archive/20260225_CONTENT_CANDIDATE_REVIEW_TASKS.json) |
-| KO_GEMINI_REVIEW | KO 全量 Gemini 人工審核（mapping + TOPIK POS，含 i18n/base 詞性人工複核） | 2026-02-25 | [ARCHIVE](archive/20260225_KO_GEMINI_REVIEW_TASKS.json) |
-| DIALOGUE_UI_REDESIGN | Zen Study 介面改版：居中對焦、翻譯開關、垂直字典 | 2026-02-25 | [ARCHIVE](archive/20260225_DIALOGUE_UI_REDESIGN_TASKS.json) |
-| KO_B2_C1_OPTIMIZATION | B2/C1 課程優化：角色大修、商務/評論語氣、翻譯與文法補全 | 2026-02-25 | [ARCHIVE](archive/20260225_KO_B2_C1_OPTIMIZATION_TASKS.json) |
-| TTS_GENERATION | 高品質 Edge-TTS 語音生成 | 2026-02-25 | [ARCHIVE](archive/20260225_TTS_GENERATION_TASKS.json) |
-| CONTENT_CANDIDATE_GENERATION_FRAMEWORK | 候選內容生成雙流程框架（API + Agent + QA + 審核台對接） | 2026-02-25 | [ARCHIVE](archive/20260225_CONTENT_CANDIDATE_GENERATION_FRAMEWORK_TASKS.json) |
-| KO_ATOM_TRANSLATION_EXTRACTION | A1 atom 翻譯補齊 + 從課文抽取 atom 品質稽核 | 2026-02-25 | [ARCHIVE](archive/20260225_KO_ATOM_TRANSLATION_AND_EXTRACTION_TASKS.json) |
-| CROSS_LANG_REVIEW_LOCK | 跨語系 review/lock 流程（多機協作 + 規則分離） | 2026-02-25 | [ARCHIVE](archive/20260225_CROSS_LANG_REVIEW_LOCK_TASKS.json) |
-| CONTENT_PIPELINE_SEPARATION | 職責分離 + Build 格式 | 2026-02-25 | [ARCHIVE](archive/20260225_CONTENT_PIPELINE_SEPARATION_TASKS.json) |
-| MAPPING_DICTIONARY | 字典映射標準化 + 品質驗證（含雙層詞性落地） | 2026-02-27 | [ARCHIVE](archive/20260227_MAPPING_DICTIONARY_TASKS.json) |
-| COURSE_UNIT_FACTORY | 課程單元量產工廠（unit blueprint 模板化 + lint + multi-unit mockup 驗證） | 2026-02-27 | [ARCHIVE](archive/20260227_COURSE_UNIT_FACTORY_TASKS.json) |
-| CONTENT_PIPELINE_POST_SEPARATION_GAPS | Universal Pipeline 後續缺口收斂 | 2026-02-27 | [ARCHIVE](archive/20260227_CONTENT_PIPELINE_POST_SEPARATION_GAPS_TASKS.json) |
+| VIEWER_ENHANCEMENT | Viewer 辭典彈出 + 舊課程顯示 | 2026-02-15 | [ARCHIVE](archive/20260215/20260215_VIEWER_ENHANCEMENT_TASKS.json) |
+| KO_RESOLUTION_100PCT | 韓語 Token 解析 100% | 2026-02-15 | [ARCHIVE](archive/20260215/20260215_KO_RESOLUTION_100PCT_TASKS.json) |
+| FRONTEND_VIEWER_INTEGRATION | Viewer 整合 (音檔/高亮/文法) | 2026-02-22 | [ARCHIVE](archive/20260222/20260222_FRONTEND_VIEWER_INTEGRATION_TASKS.json) |
+| WORKFLOW_OPTIMIZATION | 工作流優化 (Ingest/Quality Gate/Index) | 2026-02-22 | [ARCHIVE](archive/20260222/20260222_WORKFLOW_OPTIMIZATION_TASKS.json) |
+| FUTURE_BACKLOG | 自動化與優化提案 | 2026-02-22 | [ARCHIVE](archive/20260222/20260222_FUTURE_BACKLOG_TASKS.json) |
+| CONTENT_CANDIDATE_REVIEW | Content Candidate Review Station 審核台 | 2026-02-25 | [ARCHIVE](archive/20260225/20260225_CONTENT_CANDIDATE_REVIEW_TASKS.json) |
+| KO_GEMINI_REVIEW | KO 全量 Gemini 人工審核（mapping + TOPIK POS，含 i18n/base 詞性人工複核） | 2026-02-25 | [ARCHIVE](archive/20260225/20260225_KO_GEMINI_REVIEW_TASKS.json) |
+| DIALOGUE_UI_REDESIGN | Zen Study 介面改版：居中對焦、翻譯開關、垂直字典 | 2026-02-25 | [ARCHIVE](archive/20260225/20260225_DIALOGUE_UI_REDESIGN_TASKS.json) |
+| KO_B2_C1_OPTIMIZATION | B2/C1 課程優化：角色大修、商務/評論語氣、翻譯與文法補全 | 2026-02-25 | [ARCHIVE](archive/20260225/20260225_KO_B2_C1_OPTIMIZATION_TASKS.json) |
+| TTS_GENERATION | 高品質 Edge-TTS 語音生成 | 2026-02-25 | [ARCHIVE](archive/20260225/20260225_TTS_GENERATION_TASKS.json) |
+| CONTENT_CANDIDATE_GENERATION_FRAMEWORK | 候選內容生成雙流程框架（API + Agent + QA + 審核台對接） | 2026-02-25 | [ARCHIVE](archive/20260225/20260225_CONTENT_CANDIDATE_GENERATION_FRAMEWORK_TASKS.json) |
+| KO_ATOM_TRANSLATION_EXTRACTION | A1 atom 翻譯補齊 + 從課文抽取 atom 品質稽核 | 2026-02-25 | [ARCHIVE](archive/20260225/20260225_KO_ATOM_TRANSLATION_AND_EXTRACTION_TASKS.json) |
+| CROSS_LANG_REVIEW_LOCK | 跨語系 review/lock 流程（多機協作 + 規則分離） | 2026-02-25 | [ARCHIVE](archive/20260225/20260225_CROSS_LANG_REVIEW_LOCK_TASKS.json) |
+| CONTENT_PIPELINE_SEPARATION | 職責分離 + Build 格式 | 2026-02-25 | [ARCHIVE](archive/20260225/20260225_CONTENT_PIPELINE_SEPARATION_TASKS.json) |
+| MAPPING_DICTIONARY | 字典映射標準化 + 品質驗證（含雙層詞性落地） | 2026-02-27 | [ARCHIVE](archive/20260227/20260227_MAPPING_DICTIONARY_TASKS.json) |
+| COURSE_UNIT_FACTORY | 課程單元量產工廠（unit blueprint 模板化 + lint + multi-unit mockup 驗證） | 2026-02-27 | [ARCHIVE](archive/20260227/20260227_COURSE_UNIT_FACTORY_TASKS.json) |
+| CONTENT_PIPELINE_POST_SEPARATION_GAPS | Universal Pipeline 後續缺口收斂 | 2026-02-27 | [ARCHIVE](archive/20260227/20260227_CONTENT_PIPELINE_POST_SEPARATION_GAPS_TASKS.json) |
 
 ---
 
@@ -151,7 +152,7 @@ Layer 5: Legacy Backfill
 
 ### 共享 Plan 檔案
 
-所有 implementation plan **必須存放在 `release-aggregator/docs/tasks/`**，命名慣例：
+所有 implementation plan **必須存放在 `release-aggregator/docs/tasks/`** 的 active working set，命名慣例：
 
 ```text
 {TASK_ID}_PLAN.md    — 例如 KO_DICT_01_PLAN.md
@@ -165,9 +166,15 @@ Layer 5: Legacy Backfill
 > - 版本控制 (git) 追蹤變更歷史
 > - 人類和 Agent 共享同一份文件
 
+### Active / Assets / Archive
+
+- `docs/tasks/` 根層：active working set，放正在執行的 plan、tasks、verification、walkthrough
+- `docs/tasks/assets/`：可重用的 reference、spec、schema、contract、guide、mockup
+- `docs/tasks/archive/`：已完成或封存的歷史文件
+
 ### 封存 (Archive)
 
-完成的 Task JSON 和 Plan **應移至 `docs/tasks/archive/`**，且檔名開頭應加上日期：
+完成的 Task JSON 和 Plan **應移至 `docs/tasks/archive/YYYYMMDD/`**，且檔名開頭應加上日期：
 
 - 命名格式：`YYYYMMDD_{ORIGINAL_NAME}`
 - 例如：`20260215_VIEWER_ENHANCEMENT_TASKS.json`

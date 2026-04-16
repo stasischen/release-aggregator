@@ -1,0 +1,148 @@
+{
+  "task_group": "ko-dictionary-layering-v1",
+  "owner_repo": "release-aggregator",
+  "status": "todo",
+  "tasks": [
+    {
+      "id": "KO-DICT-LAYER-001",
+      "title": "Inventory current mappings and vocabulary sources",
+      "status": "todo",
+      "target_repo": "content-ko",
+      "goal": "Build a ranked source inventory from docs/vocabulary and existing mapping files without treating polluted mappings as authoritative truth.",
+      "actions": [
+        "Parse docs/vocabulary TOPIK_1000, TOPIK_2000, TOPIK_3000, and TOPIK_I lists into one ranked lexicon table.",
+        "Extract POS hints from content/mappings/*.json as legacy seed data only.",
+        "Identify duplicate surfaces, inflected-only entries, and likely polluted rows for quarantine."
+      ],
+      "deliverables": [
+        "ranked vocabulary inventory manifest",
+        "legacy mapping seed extract",
+        "pollution candidate list"
+      ],
+      "acceptance": [
+        "Every surfaced lemma carries a rank band and source reference.",
+        "Legacy mapping data is never used as the authoritative source during inventory."
+      ]
+    },
+    {
+      "id": "KO-DICT-LAYER-002",
+      "title": "Define base, extension, tail, and quarantine policy",
+      "status": "todo",
+      "depends_on": [
+        "KO-DICT-LAYER-001"
+      ],
+      "target_repo": "content-ko",
+      "goal": "Split dictionary governance into clean production layers so base mapping cannot be polluted by low-frequency or incorrect rows.",
+      "actions": [
+        "Define banding rules for 1-1000, 1001-2000, and 2001+.",
+        "Define quarantine criteria for wrong splits, wrong POS, and uncertain canonicalization.",
+        "Define how dual-POS surfaces are allowed to coexist without overwriting each other."
+      ],
+      "deliverables": [
+        "dictionary layering policy",
+        "quarantine policy note",
+        "rank-band routing rules"
+      ],
+      "acceptance": [
+        "Base mapping and extension mapping are explicitly separated.",
+        "Quarantined items are excluded from production dictionaries."
+      ]
+    },
+    {
+      "id": "KO-DICT-LAYER-003",
+      "title": "Derive POS assignment rules from current seeds",
+      "status": "todo",
+      "depends_on": [
+        "KO-DICT-LAYER-002"
+      ],
+      "target_repo": "content-ko",
+      "goal": "Use existing mapping files only as POS seeds, then normalize them into a controlled POS routing matrix.",
+      "actions": [
+        "Map existing ko:n / ko:v / ko:adj / ko:adv / ko:pron / ko:p / ko:e / ko:cop / ko:det / ko:intj / ko:xnum / ko:count tags into the new layer policy.",
+        "Flag lemma/base-form entries versus functional-token entries.",
+        "Mark known conflicts and polysemy cases for manual review."
+      ],
+      "deliverables": [
+        "POS routing matrix",
+        "seed-derived POS extract",
+        "polysemy review list"
+      ],
+      "acceptance": [
+        "POS hints are traceable back to seed mappings.",
+        "Conflicting POS cases are separated from the clean production layers."
+      ]
+    },
+    {
+      "id": "KO-DICT-LAYER-004",
+      "title": "Build clean base dictionary for rank band 1-1000",
+      "status": "todo",
+      "depends_on": [
+        "KO-DICT-LAYER-003"
+      ],
+      "target_repo": "content-ko",
+      "goal": "Generate the production base dictionary from the common-frequency band only.",
+      "actions": [
+        "Create clean base mapping files split by POS.",
+        "Write only verified 1-1000 items into the base layer.",
+        "Keep composite atoms decomposed into their component canonical entries."
+      ],
+      "deliverables": [
+        "clean base mapping files",
+        "base-layer build report",
+        "base-layer diff summary"
+      ],
+      "acceptance": [
+        "No polluted or low-frequency rows appear in the base dictionary.",
+        "Base files remain stable under rerun with the same source snapshot."
+      ]
+    },
+    {
+      "id": "KO-DICT-LAYER-005",
+      "title": "Build extension dictionary and quarantine outputs for rank band 1001-2000",
+      "status": "todo",
+      "depends_on": [
+        "KO-DICT-LAYER-004"
+      ],
+      "target_repo": "content-ko",
+      "goal": "Store mid-frequency items in a separate extension layer and keep uncertain rows out of production.",
+      "actions": [
+        "Create clean extension mapping files split by POS.",
+        "Move questionable or conflicting rows into quarantine outputs instead of forcing them into base.",
+        "Preserve source provenance for every extension entry."
+      ],
+      "deliverables": [
+        "extension mapping files",
+        "quarantine report",
+        "extension diff summary"
+      ],
+      "acceptance": [
+        "Extension items do not contaminate base mapping files.",
+        "Quarantined rows are explicitly separated and reviewable."
+      ]
+    },
+    {
+      "id": "KO-DICT-LAYER-006",
+      "title": "Validate layered dictionaries against XknpI48lT-g atoms",
+      "status": "todo",
+      "depends_on": [
+        "KO-DICT-LAYER-005"
+      ],
+      "target_repo": "content-ko",
+      "goal": "Re-run the audit against the layered dictionary design and confirm the polluted rows are isolated instead of merged back into base.",
+      "actions": [
+        "Re-check XknpI48lT-g_atoms.json against the new layered mappings.",
+        "Verify composite atoms component-by-component and file-by-file.",
+        "Confirm remaining mismatches are either real gaps or quarantined cases."
+      ],
+      "deliverables": [
+        "validation audit table",
+        "mismatch summary",
+        "quarantine confirmation"
+      ],
+      "acceptance": [
+        "Validation distinguishes base hits, extension hits, and quarantined misses.",
+        "The audit demonstrates that polluted rows are not written back into the base dictionary."
+      ]
+    }
+  ]
+}

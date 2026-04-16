@@ -5,134 +5,290 @@
       "title": "韓文法 (Grammar)",
       "sub": [
         {
+          "id": "adverb",
+          "title": "Adverb"
+        },
+        {
           "id": "copula",
           "title": "Copula"
+        },
+        {
+          "id": "determiner",
+          "title": "Determiner"
         },
         {
           "id": "ending",
           "title": "Ending"
         },
         {
+          "id": "existence",
+          "title": "Existence"
+        },
+        {
+          "id": "modifier",
+          "title": "Modifier"
+        },
+        {
+          "id": "movement",
+          "title": "Movement"
+        },
+        {
           "id": "particle",
           "title": "Particle"
+        },
+        {
+          "id": "tense",
+          "title": "Tense"
         }
       ]
     }
   ],
   "featured": [
     {
-      "id": "kg.grammar.copula.ya_iya",
+      "id": "kg.grammar.adverb.kkwae",
       "category": "grammar",
-      "sub": "copula",
-      "title": "야/이야 (非敬語)",
+      "sub": "adverb",
+      "title": "꽤 (相當、頗)",
       "level": "A1",
       "path": "data/runtime/zh_tw/knowledge.json",
-      "runtime_id": "kg.grammar.copula.ya_iya",
-      "surface": "야/이야",
+      "runtime_id": "kg.grammar.adverb.kkwae",
+      "surface": "꽤",
       "example_sentence_refs": [
-        "ex.ko.s.000024",
-        "ex.ko.s.000025",
-        "ex.ko.s.000026",
-        "ex.ko.s.000027",
-        "ex.ko.s.000028",
-        "ex.ko.s.000029",
-        "ex.ko.s.000030",
-        "ex.ko.s.000031",
-        "ex.ko.s.000032",
-        "ex.ko.s.000033"
+        "ex.ko.s.000257",
+        "ex.ko.s.000258",
+        "ex.ko.s.000259",
+        "ex.ko.s.000260",
+        "ex.ko.s.000261",
+        "ex.ko.s.000262",
+        "ex.ko.s.000263",
+        "ex.ko.s.000264",
+        "ex.ko.s.000265",
+        "ex.ko.s.000266"
       ]
     },
     {
-      "id": "kg.grammar.ending.promise_ulgeyo",
+      "id": "kg.grammar.adverb.mak",
       "category": "grammar",
-      "sub": "ending",
-      "title": "-(으)ㄹ게요 (承諾)",
-      "level": "A2",
-      "path": "data/runtime/zh_tw/knowledge.json",
-      "runtime_id": "kg.grammar.ending.promise_ulgeyo",
-      "surface": "-(으)ㄹ게요",
-      "example_sentence_refs": [
-        "ex.ko.s.000001",
-        "ex.ko.s.000002",
-        "ex.ko.s.000003",
-        "ex.ko.s.000004",
-        "ex.ko.s.000005",
-        "ex.ko.s.000006",
-        "ex.ko.s.000063",
-        "ex.ko.s.000064",
-        "ex.ko.s.000065",
-        "ex.ko.s.000066"
-      ]
-    },
-    {
-      "id": "kg.grammar.ending.formal_declarative_su_ni_da",
-      "category": "grammar",
-      "sub": "ending",
-      "title": "습니다/ㅂ니다 (正式敘述句)",
-      "level": "A2",
-      "path": "data/runtime/zh_tw/knowledge.json",
-      "runtime_id": "kg.grammar.ending.formal_declarative_su_ni_da",
-      "surface": "-습니다/ㅂ니다",
-      "example_sentence_refs": [
-        "ex.ko.s.000007",
-        "ex.ko.s.000008",
-        "ex.ko.s.000009",
-        "ex.ko.s.000010",
-        "ex.ko.s.000011",
-        "ex.ko.s.000012",
-        "ex.ko.s.000013",
-        "ex.ko.s.000060",
-        "ex.ko.s.000061",
-        "ex.ko.s.000062"
-      ]
-    },
-    {
-      "id": "kg.grammar.ending.polite_standard_ayo_eoyo",
-      "category": "grammar",
-      "sub": "ending",
-      "title": "아요/어요/해요 (標準禮貌體)",
-      "level": "A2",
-      "path": "data/runtime/zh_tw/knowledge.json",
-      "runtime_id": "kg.grammar.ending.polite_standard_ayo_eoyo",
-      "surface": "아요/어요/해요",
-      "example_sentence_refs": [
-        "ex.ko.s.000014",
-        "ex.ko.s.000015",
-        "ex.ko.s.000016",
-        "ex.ko.s.000017",
-        "ex.ko.s.000018",
-        "ex.ko.s.000019",
-        "ex.ko.s.000020",
-        "ex.ko.s.000021",
-        "ex.ko.s.000022",
-        "ex.ko.s.000023"
-      ]
-    },
-    {
-      "id": "kg.grammar.particle.eun_neun",
-      "category": "grammar",
-      "sub": "particle",
-      "title": "은/는 (主題助詞)",
+      "sub": "adverb",
+      "title": "막 (剛剛、隨便地)",
       "level": "A1",
       "path": "data/runtime/zh_tw/knowledge.json",
-      "runtime_id": "kg.grammar.particle.eun_neun",
-      "surface": "은/는",
+      "runtime_id": "kg.grammar.adverb.mak",
+      "surface": "막",
       "example_sentence_refs": [
-        "ex.ko.s.000044",
-        "ex.ko.s.000045",
-        "ex.ko.s.000046",
-        "ex.ko.s.000047",
-        "ex.ko.s.000048",
-        "ex.ko.s.000049",
-        "ex.ko.s.000050",
-        "ex.ko.s.000051",
-        "ex.ko.s.000052",
-        "ex.ko.s.000053"
+        "ex.ko.s.000287",
+        "ex.ko.s.000288",
+        "ex.ko.s.000289",
+        "ex.ko.s.000290",
+        "ex.ko.s.000291",
+        "ex.ko.s.000292",
+        "ex.ko.s.000293",
+        "ex.ko.s.000294",
+        "ex.ko.s.000295",
+        "ex.ko.s.000296"
+      ]
+    },
+    {
+      "id": "kg.grammar.adverb.byeollo",
+      "category": "grammar",
+      "sub": "adverb",
+      "title": "별로 (不太)",
+      "level": "A1",
+      "path": "data/runtime/zh_tw/knowledge.json",
+      "runtime_id": "kg.grammar.adverb.byeollo",
+      "surface": "별로",
+      "example_sentence_refs": [
+        "ex.ko.s.000227",
+        "ex.ko.s.000228",
+        "ex.ko.s.000229",
+        "ex.ko.s.000230",
+        "ex.ko.s.000231",
+        "ex.ko.s.000232",
+        "ex.ko.s.000233",
+        "ex.ko.s.000234",
+        "ex.ko.s.000235",
+        "ex.ko.s.000236"
+      ]
+    },
+    {
+      "id": "kg.grammar.adverb.yakgan",
+      "category": "grammar",
+      "sub": "adverb",
+      "title": "약간 (稍微、有點)",
+      "level": "A1",
+      "path": "data/runtime/zh_tw/knowledge.json",
+      "runtime_id": "kg.grammar.adverb.yakgan",
+      "surface": "약간",
+      "example_sentence_refs": [
+        "ex.ko.s.000237",
+        "ex.ko.s.000238",
+        "ex.ko.s.000239",
+        "ex.ko.s.000240",
+        "ex.ko.s.000241",
+        "ex.ko.s.000242",
+        "ex.ko.s.000243",
+        "ex.ko.s.000244",
+        "ex.ko.s.000245",
+        "ex.ko.s.000246"
+      ]
+    },
+    {
+      "id": "kg.grammar.adverb.eolleun",
+      "category": "grammar",
+      "sub": "adverb",
+      "title": "얼른 (趕快、快速地)",
+      "level": "A1",
+      "path": "data/runtime/zh_tw/knowledge.json",
+      "runtime_id": "kg.grammar.adverb.eolleun",
+      "surface": "얼른",
+      "example_sentence_refs": [
+        "ex.ko.s.000267",
+        "ex.ko.s.000268",
+        "ex.ko.s.000269",
+        "ex.ko.s.000270",
+        "ex.ko.s.000271",
+        "ex.ko.s.000272",
+        "ex.ko.s.000273",
+        "ex.ko.s.000274",
+        "ex.ko.s.000275",
+        "ex.ko.s.000276"
       ]
     }
   ],
   "items": [
     {
+      "id": "kg.grammar.adverb.kkwae",
+      "category": "grammar",
+      "sub": "adverb",
+      "title": "꽤 (相當、頗)",
+      "level": "A1",
+      "path": "data/runtime/zh_tw/knowledge.json",
+      "runtime_id": "kg.grammar.adverb.kkwae",
+      "surface": "꽤",
+      "example_sentence_refs": [
+        "ex.ko.s.000257",
+        "ex.ko.s.000258",
+        "ex.ko.s.000259",
+        "ex.ko.s.000260",
+        "ex.ko.s.000261",
+        "ex.ko.s.000262",
+        "ex.ko.s.000263",
+        "ex.ko.s.000264",
+        "ex.ko.s.000265",
+        "ex.ko.s.000266"
+      ]
+    },
+    {
+      "id": "kg.grammar.adverb.mak",
+      "category": "grammar",
+      "sub": "adverb",
+      "title": "막 (剛剛、隨便地)",
+      "level": "A1",
+      "path": "data/runtime/zh_tw/knowledge.json",
+      "runtime_id": "kg.grammar.adverb.mak",
+      "surface": "막",
+      "example_sentence_refs": [
+        "ex.ko.s.000287",
+        "ex.ko.s.000288",
+        "ex.ko.s.000289",
+        "ex.ko.s.000290",
+        "ex.ko.s.000291",
+        "ex.ko.s.000292",
+        "ex.ko.s.000293",
+        "ex.ko.s.000294",
+        "ex.ko.s.000295",
+        "ex.ko.s.000296"
+      ]
+    },
+    {
+      "id": "kg.grammar.adverb.byeollo",
+      "category": "grammar",
+      "sub": "adverb",
+      "title": "별로 (不太)",
+      "level": "A1",
+      "path": "data/runtime/zh_tw/knowledge.json",
+      "runtime_id": "kg.grammar.adverb.byeollo",
+      "surface": "별로",
+      "example_sentence_refs": [
+        "ex.ko.s.000227",
+        "ex.ko.s.000228",
+        "ex.ko.s.000229",
+        "ex.ko.s.000230",
+        "ex.ko.s.000231",
+        "ex.ko.s.000232",
+        "ex.ko.s.000233",
+        "ex.ko.s.000234",
+        "ex.ko.s.000235",
+        "ex.ko.s.000236"
+      ]
+    },
+    {
+      "id": "kg.grammar.adverb.yakgan",
+      "category": "grammar",
+      "sub": "adverb",
+      "title": "약간 (稍微、有點)",
+      "level": "A1",
+      "path": "data/runtime/zh_tw/knowledge.json",
+      "runtime_id": "kg.grammar.adverb.yakgan",
+      "surface": "약간",
+      "example_sentence_refs": [
+        "ex.ko.s.000237",
+        "ex.ko.s.000238",
+        "ex.ko.s.000239",
+        "ex.ko.s.000240",
+        "ex.ko.s.000241",
+        "ex.ko.s.000242",
+        "ex.ko.s.000243",
+        "ex.ko.s.000244",
+        "ex.ko.s.000245",
+        "ex.ko.s.000246"
+      ]
+    },
+    {
+      "id": "kg.grammar.adverb.eolleun",
+      "category": "grammar",
+      "sub": "adverb",
+      "title": "얼른 (趕快、快速地)",
+      "level": "A1",
+      "path": "data/runtime/zh_tw/knowledge.json",
+      "runtime_id": "kg.grammar.adverb.eolleun",
+      "surface": "얼른",
+      "example_sentence_refs": [
+        "ex.ko.s.000267",
+        "ex.ko.s.000268",
+        "ex.ko.s.000269",
+        "ex.ko.s.000270",
+        "ex.ko.s.000271",
+        "ex.ko.s.000272",
+        "ex.ko.s.000273",
+        "ex.ko.s.000274",
+        "ex.ko.s.000275",
+        "ex.ko.s.000276"
+      ]
+    },
+    {
+      "id": "kg.grammar.adverb.jeonhyeo",
+      "category": "grammar",
+      "sub": "adverb",
+      "title": "전혀 (完全不)",
+      "level": "A1",
+      "path": "data/runtime/zh_tw/knowledge.json",
+      "runtime_id": "kg.grammar.adverb.jeonhyeo",
+      "surface": "전혀",
+      "example_sentence_refs": [
+        "ex.ko.s.000207",
+        "ex.ko.s.000208",
+        "ex.ko.s.000209",
+        "ex.ko.s.000210",
+        "ex.ko.s.000211",
+        "ex.ko.s.000212",
+        "ex.ko.s.000213",
+        "ex.ko.s.000214",
+        "ex.ko.s.000215",
+        "ex.ko.s.000216"
+      ]
+    },
+    {
       "id": "kg.grammar.copula.ya_iya",
       "category": "grammar",
       "sub": "copula",
@@ -152,6 +308,72 @@
         "ex.ko.s.000031",
         "ex.ko.s.000032",
         "ex.ko.s.000033"
+      ]
+    },
+    {
+      "id": "kg.grammar.determiner.musun",
+      "category": "grammar",
+      "sub": "determiner",
+      "title": "무슨 (什麼名詞)",
+      "level": "A1",
+      "path": "data/runtime/zh_tw/knowledge.json",
+      "runtime_id": "kg.grammar.determiner.musun",
+      "surface": "무슨",
+      "example_sentence_refs": [
+        "ex.ko.s.000177",
+        "ex.ko.s.000178",
+        "ex.ko.s.000179",
+        "ex.ko.s.000180",
+        "ex.ko.s.000181",
+        "ex.ko.s.000182",
+        "ex.ko.s.000183",
+        "ex.ko.s.000184",
+        "ex.ko.s.000185",
+        "ex.ko.s.000186"
+      ]
+    },
+    {
+      "id": "kg.grammar.determiner.eoneu",
+      "category": "grammar",
+      "sub": "determiner",
+      "title": "어느 (哪個名詞)",
+      "level": "A1",
+      "path": "data/runtime/zh_tw/knowledge.json",
+      "runtime_id": "kg.grammar.determiner.eoneu",
+      "surface": "어느",
+      "example_sentence_refs": [
+        "ex.ko.s.000187",
+        "ex.ko.s.000188",
+        "ex.ko.s.000189",
+        "ex.ko.s.000190",
+        "ex.ko.s.000191",
+        "ex.ko.s.000192",
+        "ex.ko.s.000193",
+        "ex.ko.s.000194",
+        "ex.ko.s.000195",
+        "ex.ko.s.000196"
+      ]
+    },
+    {
+      "id": "kg.grammar.determiner.demonstrative",
+      "category": "grammar",
+      "sub": "determiner",
+      "title": "이/그/저 (這/那/那)",
+      "level": "A1",
+      "path": "data/runtime/zh_tw/knowledge.json",
+      "runtime_id": "kg.grammar.determiner.demonstrative",
+      "surface": "이/그/저",
+      "example_sentence_refs": [
+        "ex.ko.s.000197",
+        "ex.ko.s.000198",
+        "ex.ko.s.000199",
+        "ex.ko.s.000200",
+        "ex.ko.s.000201",
+        "ex.ko.s.000202",
+        "ex.ko.s.000203",
+        "ex.ko.s.000204",
+        "ex.ko.s.000205",
+        "ex.ko.s.000206"
       ]
     },
     {
@@ -199,6 +421,28 @@
       ]
     },
     {
+      "id": "kg.grammar.ending.state_prog_a_eo_itda",
+      "category": "grammar",
+      "sub": "ending",
+      "title": "아/어 있다 (狀態持續)",
+      "level": "A1",
+      "path": "data/runtime/zh_tw/knowledge.json",
+      "runtime_id": "kg.grammar.ending.state_prog_a_eo_itda",
+      "surface": "-아/어 있다",
+      "example_sentence_refs": [
+        "ex.ko.s.000247",
+        "ex.ko.s.000248",
+        "ex.ko.s.000249",
+        "ex.ko.s.000250",
+        "ex.ko.s.000251",
+        "ex.ko.s.000252",
+        "ex.ko.s.000253",
+        "ex.ko.s.000254",
+        "ex.ko.s.000255",
+        "ex.ko.s.000256"
+      ]
+    },
+    {
       "id": "kg.grammar.ending.polite_standard_ayo_eoyo",
       "category": "grammar",
       "sub": "ending",
@@ -218,6 +462,248 @@
         "ex.ko.s.000021",
         "ex.ko.s.000022",
         "ex.ko.s.000023"
+      ]
+    },
+    {
+      "id": "kg.grammar.existence.loc_eopda",
+      "category": "grammar",
+      "sub": "existence",
+      "title": "에 없다 (不在某處)",
+      "level": "A1",
+      "path": "data/runtime/zh_tw/knowledge.json",
+      "runtime_id": "kg.grammar.existence.loc_eopda",
+      "surface": "에 없다",
+      "example_sentence_refs": [
+        "ex.ko.s.000157",
+        "ex.ko.s.000158",
+        "ex.ko.s.000159",
+        "ex.ko.s.000160",
+        "ex.ko.s.000161",
+        "ex.ko.s.000162",
+        "ex.ko.s.000163",
+        "ex.ko.s.000164",
+        "ex.ko.s.000165",
+        "ex.ko.s.000166"
+      ]
+    },
+    {
+      "id": "kg.grammar.existence.loc_itda",
+      "category": "grammar",
+      "sub": "existence",
+      "title": "에 있다 (位在某處)",
+      "level": "A1",
+      "path": "data/runtime/zh_tw/knowledge.json",
+      "runtime_id": "kg.grammar.existence.loc_itda",
+      "surface": "에 있다",
+      "example_sentence_refs": [
+        "ex.ko.s.000147",
+        "ex.ko.s.000148",
+        "ex.ko.s.000149",
+        "ex.ko.s.000150",
+        "ex.ko.s.000151",
+        "ex.ko.s.000152",
+        "ex.ko.s.000153",
+        "ex.ko.s.000154",
+        "ex.ko.s.000155",
+        "ex.ko.s.000156"
+      ]
+    },
+    {
+      "id": "kg.grammar.existence.eopda",
+      "category": "grammar",
+      "sub": "existence",
+      "title": "이/가 없다 (沒有、不在)",
+      "level": "A1",
+      "path": "data/runtime/zh_tw/knowledge.json",
+      "runtime_id": "kg.grammar.existence.eopda",
+      "surface": "이/가 없다",
+      "example_sentence_refs": [
+        "ex.ko.s.000137",
+        "ex.ko.s.000138",
+        "ex.ko.s.000139",
+        "ex.ko.s.000140",
+        "ex.ko.s.000141",
+        "ex.ko.s.000142",
+        "ex.ko.s.000143",
+        "ex.ko.s.000144",
+        "ex.ko.s.000145",
+        "ex.ko.s.000146"
+      ]
+    },
+    {
+      "id": "kg.grammar.existence.itda",
+      "category": "grammar",
+      "sub": "existence",
+      "title": "이/가 있다 (有、在)",
+      "level": "A1",
+      "path": "data/runtime/zh_tw/knowledge.json",
+      "runtime_id": "kg.grammar.existence.itda",
+      "surface": "이/가 있다",
+      "example_sentence_refs": [
+        "ex.ko.s.000127",
+        "ex.ko.s.000128",
+        "ex.ko.s.000129",
+        "ex.ko.s.000130",
+        "ex.ko.s.000131",
+        "ex.ko.s.000132",
+        "ex.ko.s.000133",
+        "ex.ko.s.000134",
+        "ex.ko.s.000135",
+        "ex.ko.s.000136"
+      ]
+    },
+    {
+      "id": "kg.grammar.modifier.adj_noun",
+      "category": "grammar",
+      "sub": "modifier",
+      "title": "ㄴ/은 + 名詞 (形容詞修飾名詞)",
+      "level": "A1",
+      "path": "data/runtime/zh_tw/knowledge.json",
+      "runtime_id": "kg.grammar.modifier.adj_noun",
+      "surface": "ㄴ/은 + 名詞",
+      "example_sentence_refs": [
+        "ex.ko.s.000297",
+        "ex.ko.s.000298",
+        "ex.ko.s.000299",
+        "ex.ko.s.000300",
+        "ex.ko.s.000301",
+        "ex.ko.s.000302",
+        "ex.ko.s.000303",
+        "ex.ko.s.000304",
+        "ex.ko.s.000305",
+        "ex.ko.s.000306"
+      ]
+    },
+    {
+      "id": "kg.grammar.movement.loc_ga_o",
+      "category": "grammar",
+      "sub": "movement",
+      "title": "에 가다/오다 (前往某處)",
+      "level": "A1",
+      "path": "data/runtime/zh_tw/knowledge.json",
+      "runtime_id": "kg.grammar.movement.loc_ga_o",
+      "surface": "에 가다/오다",
+      "example_sentence_refs": [
+        "ex.ko.s.000167",
+        "ex.ko.s.000168",
+        "ex.ko.s.000169",
+        "ex.ko.s.000170",
+        "ex.ko.s.000171",
+        "ex.ko.s.000172",
+        "ex.ko.s.000173",
+        "ex.ko.s.000174",
+        "ex.ko.s.000175",
+        "ex.ko.s.000176"
+      ]
+    },
+    {
+      "id": "kg.grammar.particle.do",
+      "category": "grammar",
+      "sub": "particle",
+      "title": "도 (也、還)",
+      "level": "A1",
+      "path": "data/runtime/zh_tw/knowledge.json",
+      "runtime_id": "kg.grammar.particle.do",
+      "surface": "도",
+      "example_sentence_refs": [
+        "ex.ko.s.000117",
+        "ex.ko.s.000118",
+        "ex.ko.s.000119",
+        "ex.ko.s.000120",
+        "ex.ko.s.000121",
+        "ex.ko.s.000122",
+        "ex.ko.s.000123",
+        "ex.ko.s.000124",
+        "ex.ko.s.000125",
+        "ex.ko.s.000126"
+      ]
+    },
+    {
+      "id": "kg.grammar.particle.e_loc_existence",
+      "category": "grammar",
+      "sub": "particle",
+      "title": "에 (場所助詞)",
+      "level": "A1",
+      "path": "data/runtime/zh_tw/knowledge.json",
+      "runtime_id": "kg.grammar.particle.e_loc_existence",
+      "surface": "에",
+      "example_sentence_refs": [
+        "ex.ko.s.000067",
+        "ex.ko.s.000068",
+        "ex.ko.s.000069",
+        "ex.ko.s.000070",
+        "ex.ko.s.000071",
+        "ex.ko.s.000072",
+        "ex.ko.s.000073",
+        "ex.ko.s.000074",
+        "ex.ko.s.000075",
+        "ex.ko.s.000076"
+      ]
+    },
+    {
+      "id": "kg.grammar.particle.ege_hante",
+      "category": "grammar",
+      "sub": "particle",
+      "title": "에게 / 한테 (對象助詞)",
+      "level": "A1",
+      "path": "data/runtime/zh_tw/knowledge.json",
+      "runtime_id": "kg.grammar.particle.ege_hante",
+      "surface": "에게/한테",
+      "example_sentence_refs": [
+        "ex.ko.s.000087",
+        "ex.ko.s.000088",
+        "ex.ko.s.000089",
+        "ex.ko.s.000090",
+        "ex.ko.s.000091",
+        "ex.ko.s.000092",
+        "ex.ko.s.000093",
+        "ex.ko.s.000094",
+        "ex.ko.s.000095",
+        "ex.ko.s.000096"
+      ]
+    },
+    {
+      "id": "kg.grammar.particle.eseo",
+      "category": "grammar",
+      "sub": "particle",
+      "title": "에서 (動作場所)",
+      "level": "A1",
+      "path": "data/runtime/zh_tw/knowledge.json",
+      "runtime_id": "kg.grammar.particle.eseo",
+      "surface": "에서",
+      "example_sentence_refs": [
+        "ex.ko.s.000077",
+        "ex.ko.s.000078",
+        "ex.ko.s.000079",
+        "ex.ko.s.000080",
+        "ex.ko.s.000081",
+        "ex.ko.s.000082",
+        "ex.ko.s.000083",
+        "ex.ko.s.000084",
+        "ex.ko.s.000085",
+        "ex.ko.s.000086"
+      ]
+    },
+    {
+      "id": "kg.grammar.particle.wa_gwa",
+      "category": "grammar",
+      "sub": "particle",
+      "title": "와/과 (並列助詞)",
+      "level": "A1",
+      "path": "data/runtime/zh_tw/knowledge.json",
+      "runtime_id": "kg.grammar.particle.wa_gwa",
+      "surface": "와/과",
+      "example_sentence_refs": [
+        "ex.ko.s.000097",
+        "ex.ko.s.000098",
+        "ex.ko.s.000099",
+        "ex.ko.s.000100",
+        "ex.ko.s.000101",
+        "ex.ko.s.000102",
+        "ex.ko.s.000103",
+        "ex.ko.s.000104",
+        "ex.ko.s.000105",
+        "ex.ko.s.000106"
       ]
     },
     {
@@ -284,6 +770,72 @@
         "ex.ko.s.000041",
         "ex.ko.s.000042",
         "ex.ko.s.000043"
+      ]
+    },
+    {
+      "id": "kg.grammar.particle.hago",
+      "category": "grammar",
+      "sub": "particle",
+      "title": "하고 (和、跟、與)",
+      "level": "A1",
+      "path": "data/runtime/zh_tw/knowledge.json",
+      "runtime_id": "kg.grammar.particle.hago",
+      "surface": "하고",
+      "example_sentence_refs": [
+        "ex.ko.s.000107",
+        "ex.ko.s.000108",
+        "ex.ko.s.000109",
+        "ex.ko.s.000110",
+        "ex.ko.s.000111",
+        "ex.ko.s.000112",
+        "ex.ko.s.000113",
+        "ex.ko.s.000114",
+        "ex.ko.s.000115",
+        "ex.ko.s.000116"
+      ]
+    },
+    {
+      "id": "kg.grammar.tense.past_ass_oss_haess",
+      "category": "grammar",
+      "sub": "tense",
+      "title": "았/었/했 (過去式進階)",
+      "level": "A1",
+      "path": "data/runtime/zh_tw/knowledge.json",
+      "runtime_id": "kg.grammar.tense.past_ass_oss_haess",
+      "surface": "았/었/했",
+      "example_sentence_refs": [
+        "ex.ko.s.000277",
+        "ex.ko.s.000278",
+        "ex.ko.s.000279",
+        "ex.ko.s.000280",
+        "ex.ko.s.000281",
+        "ex.ko.s.000282",
+        "ex.ko.s.000283",
+        "ex.ko.s.000284",
+        "ex.ko.s.000285",
+        "ex.ko.s.000286"
+      ]
+    },
+    {
+      "id": "kg.grammar.tense.past_ass_oss",
+      "category": "grammar",
+      "sub": "tense",
+      "title": "았/었어요 (過去式)",
+      "level": "A1",
+      "path": "data/runtime/zh_tw/knowledge.json",
+      "runtime_id": "kg.grammar.tense.past_ass_oss",
+      "surface": "-았/었어요",
+      "example_sentence_refs": [
+        "ex.ko.s.000217",
+        "ex.ko.s.000218",
+        "ex.ko.s.000219",
+        "ex.ko.s.000220",
+        "ex.ko.s.000221",
+        "ex.ko.s.000222",
+        "ex.ko.s.000223",
+        "ex.ko.s.000224",
+        "ex.ko.s.000225",
+        "ex.ko.s.000226"
       ]
     }
   ]

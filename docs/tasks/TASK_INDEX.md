@@ -72,7 +72,7 @@ Layer 5: Legacy Backfill
 | Task ID | 描述 | Phase | 進度 | 檔案 |
 | :--- | :--- | :--- | :--- | :--- |
 | TARGET_LANG_COURSE_FACTORY | 目標語系課程工廠（目標語內容優先 + 中英文教學層 + 前端轉換） | C+/Ops | 10/20 tasks | [JSON](TARGET_LANG_COURSE_FACTORY_TASKS.json) |
-| COURSE_MODULE_COMPOSITION | 課程模組組裝（Content / Interaction / Review 三層設計與 contract 對齊；含 segmentation anchor、slot bank 與 sentence practice actions） | C+/Ops | 1/13 tasks | [JSON](COURSE_MODULE_COMPOSITION_TASKS.json) · [PLAN](COURSE_MODULE_COMPOSITION_PLAN.md) |
+| COURSE_MODULE_COMPOSITION | 課程模組組裝（Content / Interaction / Review 三層設計與 contract 對齊；含 segmentation anchor、slot bank 與 sentence practice actions） | C+/Ops | 2/13 tasks | [JSON](COURSE_MODULE_COMPOSITION_TASKS.json) · [PLAN](COURSE_MODULE_COMPOSITION_PLAN.md) |
 
 ### Layer 4 — 技能深化 / Skill-Layer Expansion
 

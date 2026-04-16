@@ -243,6 +243,38 @@ Good combinations:
 - `scheduled_followups` with `followup_goal_type`
 - review cue source should prefer primary carriers, then example evidence
 
+## Practice Layer Ownership
+
+以下分工用來對齊後續練習設計，不重新定義三層模型，只標記每種練習主要由哪個 task 負責。
+
+### Anki-style review cards
+
+- 主責：`CMOD-004`
+- 對應範圍：字卡型複習、間隔排程、卡片來源與 review cue priority
+- 對應實體：`review_card`, `review_retrieval`, `scheduled_followups`
+
+### Sentence assembly / typing / response selection
+
+- 主責：`CMOD-003` + `CMOD-012`
+- `CMOD-003`：定義 `interaction_modes`，描述同一內容節點可支援的回答路徑
+- `CMOD-012`：定義 `pattern_frame + slot_bank`，描述組句、替換、填空這類 controlled substitution drills
+- 對應實體：`chunk_assembly`, `response_builder`, `frame_fill`, `pattern_transform`
+
+### Shadowing / repeat / type / sentence practice
+
+- 主責：`CMOD-013`
+- 對應範圍：跟讀、重播、打句子、逐句模仿、sentence practice action contract
+- 對應實體：`listen`, `repeat`, `shadow`, `type`
+
+### Boundary Reminders
+
+- `CMOD-001` 先定義 Content / Interaction / Review 邊界
+- `CMOD-002` 再把 node taxonomy 映射到三層模型
+- `CMOD-003` 定義回答路徑，不決定單一練習的最終 UX
+- `CMOD-004` 定義 review 元數據，不決定前端卡面樣式
+- `CMOD-012` 定義 controlled substitution drills，不取代 `CMOD-003`
+- `CMOD-013` 定義 sentence-level actions，不取代 `CMOD-004`
+
 ## Work Breakdown
 
 ### CMOD-001 — Three-layer canonical model spec
@@ -270,6 +302,7 @@ Deliverable:
 
 Acceptance:
 - supports MCQ/assembly/typing/speaking/transform variants without adding new content_form
+- explicitly covers selection, assembly, typing, and speaking answer paths
 
 ### CMOD-004 — review_policy proposal
 
@@ -279,6 +312,7 @@ Deliverable:
 Acceptance:
 - supports same-day/+1/+3 scheduling semantics
 - review cue source priority is documented without coupling to implementation
+- explicitly covers Anki-style review cards and followup spacing policy
 
 ### CMOD-005 — completion_rules proposal
 

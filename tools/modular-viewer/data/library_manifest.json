@@ -33,6 +33,10 @@
           "title": "Movement"
         },
         {
+          "id": "negation",
+          "title": "Negation"
+        },
+        {
           "id": "particle",
           "title": "Particle"
         },
@@ -45,6 +49,50 @@
   ],
   "featured": [
     {
+      "id": "kg.grammar.adverb.got",
+      "category": "grammar",
+      "sub": "adverb",
+      "title": "곧 (即將、馬上)",
+      "level": "A1",
+      "path": "data/runtime/zh_tw/knowledge.json",
+      "runtime_id": "kg.grammar.adverb.got",
+      "surface": "곧",
+      "example_sentence_refs": [
+        "ex.ko.s.000337",
+        "ex.ko.s.000338",
+        "ex.ko.s.000339",
+        "ex.ko.s.000340",
+        "ex.ko.s.000341",
+        "ex.ko.s.000342",
+        "ex.ko.s.000343",
+        "ex.ko.s.000344",
+        "ex.ko.s.000345",
+        "ex.ko.s.000346"
+      ]
+    },
+    {
+      "id": "kg.grammar.adverb.geumbang",
+      "category": "grammar",
+      "sub": "adverb",
+      "title": "금방 (馬上/剛剛)",
+      "level": "A1",
+      "path": "data/runtime/zh_tw/knowledge.json",
+      "runtime_id": "kg.grammar.adverb.geumbang",
+      "surface": "금방",
+      "example_sentence_refs": [
+        "ex.ko.s.000397",
+        "ex.ko.s.000398",
+        "ex.ko.s.000399",
+        "ex.ko.s.000400",
+        "ex.ko.s.000401",
+        "ex.ko.s.000402",
+        "ex.ko.s.000403",
+        "ex.ko.s.000404",
+        "ex.ko.s.000405",
+        "ex.ko.s.000406"
+      ]
+    },
+    {
       "id": "kg.grammar.adverb.kkwae",
       "category": "grammar",
       "sub": "adverb",
@@ -67,96 +115,96 @@
       ]
     },
     {
-      "id": "kg.grammar.adverb.mak",
+      "id": "kg.grammar.adverb.najunge",
       "category": "grammar",
       "sub": "adverb",
-      "title": "막 (剛剛、隨便地)",
+      "title": "나중에 (以後 - 較遠/不定)",
       "level": "A1",
       "path": "data/runtime/zh_tw/knowledge.json",
-      "runtime_id": "kg.grammar.adverb.mak",
-      "surface": "막",
+      "runtime_id": "kg.grammar.adverb.najunge",
+      "surface": "나중에",
       "example_sentence_refs": [
-        "ex.ko.s.000287",
-        "ex.ko.s.000288",
-        "ex.ko.s.000289",
-        "ex.ko.s.000290",
-        "ex.ko.s.000291",
-        "ex.ko.s.000292",
-        "ex.ko.s.000293",
-        "ex.ko.s.000294",
-        "ex.ko.s.000295",
-        "ex.ko.s.000296"
+        "ex.ko.s.000377",
+        "ex.ko.s.000378",
+        "ex.ko.s.000379",
+        "ex.ko.s.000380",
+        "ex.ko.s.000381",
+        "ex.ko.s.000382",
+        "ex.ko.s.000383",
+        "ex.ko.s.000384",
+        "ex.ko.s.000385",
+        "ex.ko.s.000386"
       ]
     },
     {
-      "id": "kg.grammar.adverb.byeollo",
+      "id": "kg.grammar.adverb.dangjang",
       "category": "grammar",
       "sub": "adverb",
-      "title": "별로 (不太)",
+      "title": "당장 (立刻、當場)",
       "level": "A1",
       "path": "data/runtime/zh_tw/knowledge.json",
-      "runtime_id": "kg.grammar.adverb.byeollo",
-      "surface": "별로",
+      "runtime_id": "kg.grammar.adverb.dangjang",
+      "surface": "당장",
       "example_sentence_refs": [
-        "ex.ko.s.000227",
-        "ex.ko.s.000228",
-        "ex.ko.s.000229",
-        "ex.ko.s.000230",
-        "ex.ko.s.000231",
-        "ex.ko.s.000232",
-        "ex.ko.s.000233",
-        "ex.ko.s.000234",
-        "ex.ko.s.000235",
-        "ex.ko.s.000236"
-      ]
-    },
-    {
-      "id": "kg.grammar.adverb.yakgan",
-      "category": "grammar",
-      "sub": "adverb",
-      "title": "약간 (稍微、有點)",
-      "level": "A1",
-      "path": "data/runtime/zh_tw/knowledge.json",
-      "runtime_id": "kg.grammar.adverb.yakgan",
-      "surface": "약간",
-      "example_sentence_refs": [
-        "ex.ko.s.000237",
-        "ex.ko.s.000238",
-        "ex.ko.s.000239",
-        "ex.ko.s.000240",
-        "ex.ko.s.000241",
-        "ex.ko.s.000242",
-        "ex.ko.s.000243",
-        "ex.ko.s.000244",
-        "ex.ko.s.000245",
-        "ex.ko.s.000246"
-      ]
-    },
-    {
-      "id": "kg.grammar.adverb.eolleun",
-      "category": "grammar",
-      "sub": "adverb",
-      "title": "얼른 (趕快、快速地)",
-      "level": "A1",
-      "path": "data/runtime/zh_tw/knowledge.json",
-      "runtime_id": "kg.grammar.adverb.eolleun",
-      "surface": "얼른",
-      "example_sentence_refs": [
-        "ex.ko.s.000267",
-        "ex.ko.s.000268",
-        "ex.ko.s.000269",
-        "ex.ko.s.000270",
-        "ex.ko.s.000271",
-        "ex.ko.s.000272",
-        "ex.ko.s.000273",
-        "ex.ko.s.000274",
-        "ex.ko.s.000275",
-        "ex.ko.s.000276"
+        "ex.ko.s.000307",
+        "ex.ko.s.000308",
+        "ex.ko.s.000309",
+        "ex.ko.s.000310",
+        "ex.ko.s.000311",
+        "ex.ko.s.000312",
+        "ex.ko.s.000313",
+        "ex.ko.s.000314",
+        "ex.ko.s.000315",
+        "ex.ko.s.000316"
       ]
     }
   ],
   "items": [
     {
+      "id": "kg.grammar.adverb.got",
+      "category": "grammar",
+      "sub": "adverb",
+      "title": "곧 (即將、馬上)",
+      "level": "A1",
+      "path": "data/runtime/zh_tw/knowledge.json",
+      "runtime_id": "kg.grammar.adverb.got",
+      "surface": "곧",
+      "example_sentence_refs": [
+        "ex.ko.s.000337",
+        "ex.ko.s.000338",
+        "ex.ko.s.000339",
+        "ex.ko.s.000340",
+        "ex.ko.s.000341",
+        "ex.ko.s.000342",
+        "ex.ko.s.000343",
+        "ex.ko.s.000344",
+        "ex.ko.s.000345",
+        "ex.ko.s.000346"
+      ]
+    },
+    {
+      "id": "kg.grammar.adverb.geumbang",
+      "category": "grammar",
+      "sub": "adverb",
+      "title": "금방 (馬上/剛剛)",
+      "level": "A1",
+      "path": "data/runtime/zh_tw/knowledge.json",
+      "runtime_id": "kg.grammar.adverb.geumbang",
+      "surface": "금방",
+      "example_sentence_refs": [
+        "ex.ko.s.000397",
+        "ex.ko.s.000398",
+        "ex.ko.s.000399",
+        "ex.ko.s.000400",
+        "ex.ko.s.000401",
+        "ex.ko.s.000402",
+        "ex.ko.s.000403",
+        "ex.ko.s.000404",
+        "ex.ko.s.000405",
+        "ex.ko.s.000406"
+      ]
+    },
+    {
       "id": "kg.grammar.adverb.kkwae",
       "category": "grammar",
       "sub": "adverb",
@@ -176,6 +224,50 @@
         "ex.ko.s.000264",
         "ex.ko.s.000265",
         "ex.ko.s.000266"
+      ]
+    },
+    {
+      "id": "kg.grammar.adverb.najunge",
+      "category": "grammar",
+      "sub": "adverb",
+      "title": "나중에 (以後 - 較遠/不定)",
+      "level": "A1",
+      "path": "data/runtime/zh_tw/knowledge.json",
+      "runtime_id": "kg.grammar.adverb.najunge",
+      "surface": "나중에",
+      "example_sentence_refs": [
+        "ex.ko.s.000377",
+        "ex.ko.s.000378",
+        "ex.ko.s.000379",
+        "ex.ko.s.000380",
+        "ex.ko.s.000381",
+        "ex.ko.s.000382",
+        "ex.ko.s.000383",
+        "ex.ko.s.000384",
+        "ex.ko.s.000385",
+        "ex.ko.s.000386"
+      ]
+    },
+    {
+      "id": "kg.grammar.adverb.dangjang",
+      "category": "grammar",
+      "sub": "adverb",
+      "title": "당장 (立刻、當場)",
+      "level": "A1",
+      "path": "data/runtime/zh_tw/knowledge.json",
+      "runtime_id": "kg.grammar.adverb.dangjang",
+      "surface": "당장",
+      "example_sentence_refs": [
+        "ex.ko.s.000307",
+        "ex.ko.s.000308",
+        "ex.ko.s.000309",
+        "ex.ko.s.000310",
+        "ex.ko.s.000311",
+        "ex.ko.s.000312",
+        "ex.ko.s.000313",
+        "ex.ko.s.000314",
+        "ex.ko.s.000315",
+        "ex.ko.s.000316"
       ]
     },
     {
@@ -223,6 +315,28 @@
       ]
     },
     {
+      "id": "kg.grammar.adverb.akka",
+      "category": "grammar",
+      "sub": "adverb",
+      "title": "아까 (剛才 - 稍早)",
+      "level": "A1",
+      "path": "data/runtime/zh_tw/knowledge.json",
+      "runtime_id": "kg.grammar.adverb.akka",
+      "surface": "아까",
+      "example_sentence_refs": [
+        "ex.ko.s.000387",
+        "ex.ko.s.000388",
+        "ex.ko.s.000389",
+        "ex.ko.s.000390",
+        "ex.ko.s.000391",
+        "ex.ko.s.000392",
+        "ex.ko.s.000393",
+        "ex.ko.s.000394",
+        "ex.ko.s.000395",
+        "ex.ko.s.000396"
+      ]
+    },
+    {
       "id": "kg.grammar.adverb.yakgan",
       "category": "grammar",
       "sub": "adverb",
@@ -264,6 +378,50 @@
         "ex.ko.s.000274",
         "ex.ko.s.000275",
         "ex.ko.s.000276"
+      ]
+    },
+    {
+      "id": "kg.grammar.adverb.ittaga",
+      "category": "grammar",
+      "sub": "adverb",
+      "title": "이따가 (等一下 - 當天內)",
+      "level": "A1",
+      "path": "data/runtime/zh_tw/knowledge.json",
+      "runtime_id": "kg.grammar.adverb.ittaga",
+      "surface": "이따가",
+      "example_sentence_refs": [
+        "ex.ko.s.000367",
+        "ex.ko.s.000368",
+        "ex.ko.s.000369",
+        "ex.ko.s.000370",
+        "ex.ko.s.000371",
+        "ex.ko.s.000372",
+        "ex.ko.s.000373",
+        "ex.ko.s.000374",
+        "ex.ko.s.000375",
+        "ex.ko.s.000376"
+      ]
+    },
+    {
+      "id": "kg.grammar.adverb.jamsi_hu",
+      "category": "grammar",
+      "sub": "adverb",
+      "title": "잠시 후 (過了一會兒)",
+      "level": "A1",
+      "path": "data/runtime/zh_tw/knowledge.json",
+      "runtime_id": "kg.grammar.adverb.jamsi_hu",
+      "surface": "잠시 후",
+      "example_sentence_refs": [
+        "ex.ko.s.000327",
+        "ex.ko.s.000328",
+        "ex.ko.s.000329",
+        "ex.ko.s.000330",
+        "ex.ko.s.000331",
+        "ex.ko.s.000332",
+        "ex.ko.s.000333",
+        "ex.ko.s.000334",
+        "ex.ko.s.000335",
+        "ex.ko.s.000336"
       ]
     },
     {
@@ -399,6 +557,28 @@
       ]
     },
     {
+      "id": "kg.grammar.ending.progressive_go_itda",
+      "category": "grammar",
+      "sub": "ending",
+      "title": "고 있다 (正在、進行式)",
+      "level": "A1",
+      "path": "data/runtime/zh_tw/knowledge.json",
+      "runtime_id": "kg.grammar.ending.progressive_go_itda",
+      "surface": "-고 있다",
+      "example_sentence_refs": [
+        "ex.ko.s.000417",
+        "ex.ko.s.000418",
+        "ex.ko.s.000419",
+        "ex.ko.s.000420",
+        "ex.ko.s.000421",
+        "ex.ko.s.000422",
+        "ex.ko.s.000423",
+        "ex.ko.s.000424",
+        "ex.ko.s.000425",
+        "ex.ko.s.000426"
+      ]
+    },
+    {
       "id": "kg.grammar.ending.formal_declarative_su_ni_da",
       "category": "grammar",
       "sub": "ending",
@@ -465,6 +645,28 @@
       ]
     },
     {
+      "id": "kg.grammar.ending.prohibit_ji_maseyo",
+      "category": "grammar",
+      "sub": "ending",
+      "title": "지 마세요 (請不要、禮貌命令否定)",
+      "level": "A1",
+      "path": "data/runtime/zh_tw/knowledge.json",
+      "runtime_id": "kg.grammar.ending.prohibit_ji_maseyo",
+      "surface": "-지 마세요",
+      "example_sentence_refs": [
+        "ex.ko.s.000447",
+        "ex.ko.s.000448",
+        "ex.ko.s.000449",
+        "ex.ko.s.000450",
+        "ex.ko.s.000451",
+        "ex.ko.s.000452",
+        "ex.ko.s.000453",
+        "ex.ko.s.000454",
+        "ex.ko.s.000455",
+        "ex.ko.s.000456"
+      ]
+    },
+    {
       "id": "kg.grammar.existence.loc_eopda",
       "category": "grammar",
       "sub": "existence",
@@ -520,7 +722,7 @@
       "example_sentence_refs": [
         "ex.ko.s.000137",
         "ex.ko.s.000138",
-        "ex.ko.s.000139",
+        "ex.ko.s.000038",
         "ex.ko.s.000140",
         "ex.ko.s.000141",
         "ex.ko.s.000142",
@@ -553,6 +755,50 @@
       ]
     },
     {
+      "id": "kg.grammar.modifier.v_eul",
+      "category": "grammar",
+      "sub": "modifier",
+      "title": "~ㄹ/을 (未來式動詞修飾語)",
+      "level": "A1",
+      "path": "data/runtime/zh_tw/knowledge.json",
+      "runtime_id": "kg.grammar.modifier.v_eul",
+      "surface": "~ㄹ/을 + 名詞",
+      "example_sentence_refs": [
+        "ex.ko.s.000347",
+        "ex.ko.s.000348",
+        "ex.ko.s.000349",
+        "ex.ko.s.000350",
+        "ex.ko.s.000351",
+        "ex.ko.s.000352",
+        "ex.ko.s.000353",
+        "ex.ko.s.000354",
+        "ex.ko.s.000355",
+        "ex.ko.s.000356"
+      ]
+    },
+    {
+      "id": "kg.grammar.modifier.v_neun",
+      "category": "grammar",
+      "sub": "modifier",
+      "title": "~는 (現在式動詞修飾語)",
+      "level": "A1",
+      "path": "data/runtime/zh_tw/knowledge.json",
+      "runtime_id": "kg.grammar.modifier.v_neun",
+      "surface": "~는 + 名詞",
+      "example_sentence_refs": [
+        "ex.ko.s.000317",
+        "ex.ko.s.000318",
+        "ex.ko.s.000319",
+        "ex.ko.s.000320",
+        "ex.ko.s.000321",
+        "ex.ko.s.000322",
+        "ex.ko.s.000323",
+        "ex.ko.s.000324",
+        "ex.ko.s.000325",
+        "ex.ko.s.000326"
+      ]
+    },
+    {
       "id": "kg.grammar.modifier.adj_noun",
       "category": "grammar",
       "sub": "modifier",
@@ -575,6 +821,28 @@
       ]
     },
     {
+      "id": "kg.grammar.modifier.v_eun",
+      "category": "grammar",
+      "sub": "modifier",
+      "title": "ㄴ/은 + 名詞 (過去式動詞修飾語)",
+      "level": "A1",
+      "path": "data/runtime/zh_tw/knowledge.json",
+      "runtime_id": "kg.grammar.modifier.v_eun",
+      "surface": "ㄴ/은 + 名詞",
+      "example_sentence_refs": [
+        "ex.ko.s.000357",
+        "ex.ko.s.000358",
+        "ex.ko.s.000359",
+        "ex.ko.s.000360",
+        "ex.ko.s.000361",
+        "ex.ko.s.000362",
+        "ex.ko.s.000363",
+        "ex.ko.s.000364",
+        "ex.ko.s.000365",
+        "ex.ko.s.000366"
+      ]
+    },
+    {
       "id": "kg.grammar.movement.loc_ga_o",
       "category": "grammar",
       "sub": "movement",
@@ -594,6 +862,50 @@
         "ex.ko.s.000174",
         "ex.ko.s.000175",
         "ex.ko.s.000176"
+      ]
+    },
+    {
+      "id": "kg.grammar.negation.short_an",
+      "category": "grammar",
+      "sub": "negation",
+      "title": "안 (不、短形否定)",
+      "level": "A1",
+      "path": "data/runtime/zh_tw/knowledge.json",
+      "runtime_id": "kg.grammar.negation.short_an",
+      "surface": "안 + V/A",
+      "example_sentence_refs": [
+        "ex.ko.s.000437",
+        "ex.ko.s.000438",
+        "ex.ko.s.000439",
+        "ex.ko.s.000440",
+        "ex.ko.s.000441",
+        "ex.ko.s.000442",
+        "ex.ko.s.000443",
+        "ex.ko.s.000444",
+        "ex.ko.s.000445",
+        "ex.ko.s.000446"
+      ]
+    },
+    {
+      "id": "kg.grammar.negation.long_ji_anta",
+      "category": "grammar",
+      "sub": "negation",
+      "title": "지 않다 (不、長形否定)",
+      "level": "A1",
+      "path": "data/runtime/zh_tw/knowledge.json",
+      "runtime_id": "kg.grammar.negation.long_ji_anta",
+      "surface": "-지 않다",
+      "example_sentence_refs": [
+        "ex.ko.s.000427",
+        "ex.ko.s.000428",
+        "ex.ko.s.000429",
+        "ex.ko.s.000430",
+        "ex.ko.s.000431",
+        "ex.ko.s.000432",
+        "ex.ko.s.000433",
+        "ex.ko.s.000434",
+        "ex.ko.s.000435",
+        "ex.ko.s.000436"
       ]
     },
     {
@@ -795,6 +1107,28 @@
       ]
     },
     {
+      "id": "kg.grammar.tense.future_ul_geoyeyo",
+      "category": "grammar",
+      "sub": "tense",
+      "title": "ㄹ/을 거예요 (未來式、打算)",
+      "level": "A1",
+      "path": "data/runtime/zh_tw/knowledge.json",
+      "runtime_id": "kg.grammar.tense.future_ul_geoyeyo",
+      "surface": "-(으)ㄹ 거예요",
+      "example_sentence_refs": [
+        "ex.ko.s.000407",
+        "ex.ko.s.000408",
+        "ex.ko.s.000409",
+        "ex.ko.s.000410",
+        "ex.ko.s.000411",
+        "ex.ko.s.000412",
+        "ex.ko.s.000413",
+        "ex.ko.s.000414",
+        "ex.ko.s.000415",
+        "ex.ko.s.000416"
+      ]
+    },
+    {
       "id": "kg.grammar.tense.past_ass_oss_haess",
       "category": "grammar",
       "sub": "tense",
@@ -804,8 +1138,8 @@
       "runtime_id": "kg.grammar.tense.past_ass_oss_haess",
       "surface": "았/었/했",
       "example_sentence_refs": [
-        "ex.ko.s.000277",
-        "ex.ko.s.000278",
+        "ex.ko.s.000217",
+        "ex.ko.s.000218",
         "ex.ko.s.000279",
         "ex.ko.s.000280",
         "ex.ko.s.000281",

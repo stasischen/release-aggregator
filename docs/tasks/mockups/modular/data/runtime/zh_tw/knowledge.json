@@ -1,5 +1,50 @@
 [
   {
+    "id": "kg.grammar.adverb.akka",
+    "source": {
+      "id": "kg.grammar.adverb.akka",
+      "kind": "grammar",
+      "subcategory": "adverb",
+      "level": "A1",
+      "surface": "아까",
+      "tags": [
+        "grammar",
+        "adverb",
+        "beginner",
+        "v5_ingestion"
+      ],
+      "provenance": {
+        "source": "youtube_connectors",
+        "source_lesson_ids": [
+          37
+        ],
+        "source_video_ids": [
+          "zt_9Co8Ta-Y"
+        ]
+      },
+      "example_sentence_refs": [
+        "ex.ko.s.000387",
+        "ex.ko.s.000388",
+        "ex.ko.s.000389",
+        "ex.ko.s.000390",
+        "ex.ko.s.000391",
+        "ex.ko.s.000392",
+        "ex.ko.s.000393",
+        "ex.ko.s.000394",
+        "ex.ko.s.000395",
+        "ex.ko.s.000396"
+      ]
+    },
+    "i18n": {
+      "id": "kg.grammar.adverb.akka",
+      "locale": "zh_tw",
+      "title": "아까 (剛才 - 稍早)",
+      "description": "表示在不久前的過去，通常是指「在同一天之內」較早的時間點。",
+      "explanation_md": "· 用法說明\n用於表示在當天內稍早的一段時間，常用於口語中，意為「剛才」、「剛才那一會兒」。\n\n· 常見使用場景\n- 提及剛做完的事：[id:ex.ko.s.000387]\n- 描述剛才的天氣或狀態：[id:ex.ko.s.000389]\n- 詢問刚才見過的人或事：[id:ex.ko.s.000390]\n\n· 相近文法比較\n- `아까`: 指當天內、剛過一會兒的過去（如：幾分鐘或幾小時前）。\n- `방금` / `금방`: 指非常接近現在的過去（如：幾秒鐘或幾分鐘前）。`아까` 比範圍稍大一些。\n\n· 注意\n與 `이따가`（等一下）相對，一個是指過去，一個是指未來，且都通常限於「當天之內」。",
+      "usage_notes": []
+    }
+  },
+  {
     "id": "kg.grammar.adverb.byeollo",
     "source": {
       "id": "kg.grammar.adverb.byeollo",
@@ -140,6 +185,51 @@
     }
   },
   {
+    "id": "kg.grammar.adverb.geumbang",
+    "source": {
+      "id": "kg.grammar.adverb.geumbang",
+      "kind": "grammar",
+      "subcategory": "adverb",
+      "level": "A1",
+      "surface": "금방",
+      "tags": [
+        "grammar",
+        "adverb",
+        "beginner",
+        "v5_ingestion"
+      ],
+      "provenance": {
+        "source": "youtube_connectors",
+        "source_lesson_ids": [
+          38
+        ],
+        "source_video_ids": [
+          "YlHTNwXb9Bc"
+        ]
+      },
+      "example_sentence_refs": [
+        "ex.ko.s.000397",
+        "ex.ko.s.000398",
+        "ex.ko.s.000399",
+        "ex.ko.s.000400",
+        "ex.ko.s.000401",
+        "ex.ko.s.000402",
+        "ex.ko.s.000403",
+        "ex.ko.s.000404",
+        "ex.ko.s.000405",
+        "ex.ko.s.000406"
+      ]
+    },
+    "i18n": {
+      "id": "kg.grammar.adverb.geumbang",
+      "locale": "zh_tw",
+      "title": "금방 (馬上/剛剛)",
+      "description": "具有雙重含義，既可以指「即將發生的未來」，也可以指「剛剛完成的過去」。",
+      "explanation_md": "· 用法說明\n1. 用於未來：意為「馬上」、「立刻」，表示動作很快就會發生。\n2. 用於過去：意為「剛才」、「剛剛」，表示動作剛剛結束不久。\n\n· 常見使用場景\n- 表示即將出發或到達：[id:ex.ko.s.000397]\n- 描述剛做完某事（如吃飯、打掃）：[id:ex.ko.s.000398]\n- 預測天氣或事情很快結束：[id:ex.ko.s.000399]\n\n· 相近文法比較\n- `금방` vs `방금`：\n  - `방금` 通常只用於「過去」（剛剛）。\n  - `금방` 則「過去」與「未來」皆可使用。在表示「未來」時，`금방` 比 `곧`（即將）更具急迫感。\n\n· 注意\n在縮略語中也可以說成 `금방`。",
+      "usage_notes": []
+    }
+  },
+  {
     "id": "kg.grammar.adverb.got",
     "source": {
       "id": "kg.grammar.adverb.got",
@@ -181,6 +271,51 @@
       "title": "곧 (即將、馬上)",
       "description": "表示某個動作或狀態在不久之後就會發生。",
       "explanation_md": "· 用法說明\n`곧` 是一個副詞，用來表示時間上的鄰近，意即「馬上」、「很快地」。它通常用於描述計畫中的即將到來的事，或自然趨勢下快要發生的變化。\n\n· 常見使用場景\n1. **描述即將到來的時間或節日**：如「即將是聖誕節了 (`곧 크리스마스예요`)」。\n2. **描述交通工具的抵達或出發**：如「火車即將抵達 (`기차가 곧 도착합니다`)」。\n3. **描述正在發生的變化**：如「電影馬上開始 (`영화가 곧 시작해요`)」。\n\n· 注意\n與 `당장` 相比，`곧` 更多是指「不久的未來」，而不一定帶有 `당장` 那種強烈的「就在這一秒、當場」的急迫催促感。",
+      "usage_notes": []
+    }
+  },
+  {
+    "id": "kg.grammar.adverb.ittaga",
+    "source": {
+      "id": "kg.grammar.adverb.ittaga",
+      "kind": "grammar",
+      "subcategory": "adverb",
+      "level": "A1",
+      "surface": "이따가",
+      "tags": [
+        "grammar",
+        "adverb",
+        "beginner",
+        "v5_ingestion"
+      ],
+      "provenance": {
+        "source": "youtube_connectors",
+        "source_lesson_ids": [
+          35
+        ],
+        "source_video_ids": [
+          "1FWKlCmEUXo"
+        ]
+      },
+      "example_sentence_refs": [
+        "ex.ko.s.000367",
+        "ex.ko.s.000368",
+        "ex.ko.s.000369",
+        "ex.ko.s.000370",
+        "ex.ko.s.000371",
+        "ex.ko.s.000372",
+        "ex.ko.s.000373",
+        "ex.ko.s.000374",
+        "ex.ko.s.000375",
+        "ex.ko.s.000376"
+      ]
+    },
+    "i18n": {
+      "id": "kg.grammar.adverb.ittaga",
+      "locale": "zh_tw",
+      "title": "이따가 (等一下 - 當天內)",
+      "description": "表示在不久的將來，通常是指「在同一天之內」稍晚的時間點。",
+      "explanation_md": "· 用法說明\n用於表示在當天內稍後的一段時間，常用於口語中，意為「等一下」、「待會兒」。\n\n· 常見使用場景\n- 約定稍後的時間見面：[id:ex.ko.s.000369]\n- 推後要做的事情：[id:ex.ko.s.000370]\n- 描述當天稍晚的天氣變化：[id:ex.ko.s.000373]\n\n· 相近文法比較\n- `이따가`: 指當天內、剛過一會兒的稍晚（如：幾個小時後）。\n- `나중에`: 可以指當天稍後，但更多用於更遙遠、不確定的未來（如：幾天後、幾年後）。\n\n· 注意\n在縮略語中也可以說成 `이따`。",
       "usage_notes": []
     }
   },
@@ -366,6 +501,51 @@
       "title": "막 (剛剛、隨便地)",
       "description": "具有兩大主要含義：時間上的「剛剛」與動作上的「胡亂、隨便」。",
       "explanation_md": "副詞 `막` 在韓文中是一個非常靈活的語詞，常用於口語中。\n\n· 用法說明\n1. **時間 (剛剛)**: 表示某事剛發生，與 `방금`、`금방` 相似。\n2. **動作 (隨便、胡亂)**: 表示動作不經過思考、沒有秩序或隨心所欲地進行。\n\n· 常見使用場景\n- 形容剛到家、剛吃完飯，或者是隨便說話、隨便塞東西。\n- [id:ex.ko.s.000287]\n- [id:ex.ko.s.000288]\n- [id:ex.ko.s.000290]\n\n· 相近文法比較\n- **방금**: 專指時間上的「剛才」，較為正式。\n- **막**: 語氣更為隨意，且具備「胡亂」的第二層含義。\n\n· 注意\n- 作為「隨便地」使用時，有時帶有負面或不滿的語氣（如：`말을 막 하다` 亂說話）。",
+      "usage_notes": []
+    }
+  },
+  {
+    "id": "kg.grammar.adverb.najunge",
+    "source": {
+      "id": "kg.grammar.adverb.najunge",
+      "kind": "grammar",
+      "subcategory": "adverb",
+      "level": "A1",
+      "surface": "나중에",
+      "tags": [
+        "grammar",
+        "adverb",
+        "beginner",
+        "v5_ingestion"
+      ],
+      "provenance": {
+        "source": "youtube_connectors",
+        "source_lesson_ids": [
+          36
+        ],
+        "source_video_ids": [
+          "fL0OsC7FLvI"
+        ]
+      },
+      "example_sentence_refs": [
+        "ex.ko.s.000377",
+        "ex.ko.s.000378",
+        "ex.ko.s.000379",
+        "ex.ko.s.000380",
+        "ex.ko.s.000381",
+        "ex.ko.s.000382",
+        "ex.ko.s.000383",
+        "ex.ko.s.000384",
+        "ex.ko.s.000385",
+        "ex.ko.s.000386"
+      ]
+    },
+    "i18n": {
+      "id": "kg.grammar.adverb.najunge",
+      "locale": "zh_tw",
+      "title": "나중에 (以後 - 較遠/不定)",
+      "description": "表示在未來的一個時間點，通常指比 `이따가` 更遙遠或不確定的時間。",
+      "explanation_md": "· 用法說明\n用於表示在未來某個時間，範圍可以從當天晚些時候到幾年後。與 `이따가` 相比，它所指的時間通常更長、更不具體。\n\n· 常見使用場景\n- 規劃長遠的未來：[id:ex.ko.s.000377]\n- 推遲目前無法處理的事：[id:ex.ko.s.000378]\n- 表達長大的願望：[id:ex.ko.s.000385]\n\n· 相近文法比較\n- `이따가`: 限於「當天之內」的稍後。\n- `나중에`: 可以是「當天稍後」，也可以是「幾天後、以後、將來」。\n\n· 注意\n在縮略語中也可以說成 `나중`。",
       "usage_notes": []
     }
   },
@@ -724,6 +904,99 @@
     }
   },
   {
+    "id": "kg.grammar.ending.progressive_go_itda",
+    "source": {
+      "id": "kg.grammar.ending.progressive_go_itda",
+      "kind": "grammar",
+      "subcategory": "ending",
+      "level": "A1",
+      "surface": "-고 있다",
+      "tags": [
+        "grammar",
+        "ending",
+        "progressive",
+        "beginner",
+        "v5_ingestion"
+      ],
+      "provenance": {
+        "source": "youtube_beginner_grammar",
+        "source_lesson_ids": [
+          37
+        ],
+        "source_video_ids": [
+          "JckRbngKH6o"
+        ]
+      },
+      "example_sentence_refs": [
+        "ex.ko.s.000417",
+        "ex.ko.s.000418",
+        "ex.ko.s.000419",
+        "ex.ko.s.000420",
+        "ex.ko.s.000421",
+        "ex.ko.s.000422",
+        "ex.ko.s.000423",
+        "ex.ko.s.000424",
+        "ex.ko.s.000425",
+        "ex.ko.s.000426"
+      ]
+    },
+    "i18n": {
+      "id": "kg.grammar.ending.progressive_go_itda",
+      "locale": "zh_tw",
+      "title": "고 있다 (正在、進行式)",
+      "description": "用於表示動作正在持續進行中，強調動作的當下狀態。",
+      "explanation_md": "· 用法說明\n直接接在動詞原形（去 `다`）之後，表示該動作正在進行中。不論有無收音，接法皆相同。\n\n· 常見使用場景\n1. **描述當下動作**：告知他人自己目前正在做的事情。\n   - [id:ex.ko.s.000417]\n2. **描述正在持續的狀態**：如外面正在下雨等。\n   - [id:ex.ko.s.000426]\n\n· 特殊用法（敬語）\n對長輩或需要尊敬的對象時，應將 `있어요` 改為 `계세요`（即 `~고 계세요`）。\n\n· 注意\n1. **不可用於形容詞**：此文法僅限於「動作動詞」。描述狀態的變化通常使用其他文法。\n2. **不可用於狀態已結束的情況**：若要表示動作已完成但狀態持續，應使用 `~아/어 있다` (L25)。\n\n· 相近文法比較\n與 `~아요/어요` (L2) 相比，`~고 있다` 更具臨場感。`~아요/어요` 也可以表示正在進行，但 `~고 있다` 專門強調「正在進行」這一點。",
+      "usage_notes": []
+    }
+  },
+  {
+    "id": "kg.grammar.ending.prohibit_ji_maseyo",
+    "source": {
+      "id": "kg.grammar.ending.prohibit_ji_maseyo",
+      "kind": "grammar",
+      "subcategory": "ending",
+      "level": "A1",
+      "surface": "-지 마세요",
+      "tags": [
+        "grammar",
+        "ending",
+        "prohibition",
+        "polite",
+        "beginner",
+        "v5_ingestion"
+      ],
+      "provenance": {
+        "source": "youtube_beginner_grammar",
+        "source_lesson_ids": [
+          42
+        ],
+        "source_video_ids": [
+          "mpSkpGcxOEc"
+        ]
+      },
+      "example_sentence_refs": [
+        "ex.ko.s.000447",
+        "ex.ko.s.000448",
+        "ex.ko.s.000449",
+        "ex.ko.s.000450",
+        "ex.ko.s.000451",
+        "ex.ko.s.000452",
+        "ex.ko.s.000453",
+        "ex.ko.s.000454",
+        "ex.ko.s.000455",
+        "ex.ko.s.000456"
+      ]
+    },
+    "i18n": {
+      "id": "kg.grammar.ending.prohibit_ji_maseyo",
+      "locale": "zh_tw",
+      "title": "지 마세요 (請不要、禮貌命令否定)",
+      "description": "用於禮貌地要求或命令他人不要做某事。",
+      "explanation_md": "· 用法說明\n直接接在動詞原形（去 `다`）之後。這是禮貌命令形式 `~(으)세요` 的否定形式，用於正式或一般公眾場合的禁止與規勸。\n\n· 常見使用場景\n1. **公眾場所規定**：如「請勿拍照」、「請勿抽菸」。\n   - [id:ex.ko.s.000447]\n2. **日常規勸**：如「請不要擔心」、「請不要遲到」。\n   - [id:ex.ko.s.000456]\n\n· 注意\n1. **接續簡單**：不論動詞是否有收音，統一接 `~지 마세요`。\n2. **時態限制**：這是命令句，因此不具有時態變化（不可用於過去式）。\n3. **形容詞限制**：原則上用於「動作動詞」。若要對形容詞使用，通常會轉換為動作形式（如：`걱정하다` 雖然是動詞，但 `슬퍼하다` 表示難過的情緒動作化）。\n\n· 相近文法比較\n與非敬語形式 `~지 마` (L43/L53) 相比，`~지 마세요` 保留了對聽者的尊重，適合對陌生人或在正式場合使用。",
+      "usage_notes": []
+    }
+  },
+  {
     "id": "kg.grammar.ending.promise_ulgeyo",
     "source": {
       "id": "kg.grammar.ending.promise_ulgeyo",
@@ -862,7 +1135,7 @@
       "example_sentence_refs": [
         "ex.ko.s.000137",
         "ex.ko.s.000138",
-        "ex.ko.s.000139",
+        "ex.ko.s.000038",
         "ex.ko.s.000140",
         "ex.ko.s.000141",
         "ex.ko.s.000142",
@@ -1125,6 +1398,51 @@
     }
   },
   {
+    "id": "kg.grammar.modifier.v_eun",
+    "source": {
+      "id": "kg.grammar.modifier.v_eun",
+      "kind": "grammar",
+      "subcategory": "modifier",
+      "level": "A1",
+      "surface": "ㄴ/은 + 名詞",
+      "tags": [
+        "grammar",
+        "modifier",
+        "beginner",
+        "v5_ingestion"
+      ],
+      "provenance": {
+        "source": "youtube_beginner_grammar",
+        "source_lesson_ids": [
+          34
+        ],
+        "source_video_ids": [
+          "k4p4FJbK4Bw"
+        ]
+      },
+      "example_sentence_refs": [
+        "ex.ko.s.000357",
+        "ex.ko.s.000358",
+        "ex.ko.s.000359",
+        "ex.ko.s.000360",
+        "ex.ko.s.000361",
+        "ex.ko.s.000362",
+        "ex.ko.s.000363",
+        "ex.ko.s.000364",
+        "ex.ko.s.000365",
+        "ex.ko.s.000366"
+      ]
+    },
+    "i18n": {
+      "id": "kg.grammar.modifier.v_eun",
+      "locale": "zh_tw",
+      "title": "ㄴ/은 + 名詞 (過去式動詞修飾語)",
+      "description": "接在動詞後方，用來修飾後面的名詞，表示「過去累積的動作」或「已經完成的事情」。",
+      "explanation_md": "· 用法說明\n當動詞要修飾名詞，且動作發生在「過去」或已經「完成」時使用。相當於中文的「做過...的名詞」或「...了的名詞」。\n\n· 接續規則\n1. 動詞詞幹末尾無收音（Batchim）：接 `ㄴ + 名詞`。\n   - `가다` → `간 사람` (去過的人)\n2. 動詞詞幹末尾有收音時：接 `은 + 名詞`。\n   - `먹다` → `먹은 밥` (吃過的飯)\n   - `읽다` → `읽은 책` (讀過的書)\n3. 收音為 `ㄹ` 的動詞（ㄹ 脫落）：接 `ㄴ + 名詞`。\n   - `만들다` → `만든 케이크` (做的蛋糕)\n\n· 常見使用場景\n- 描述過去的經驗：[id:ex.ko.s.000357]\n- 提及剛發生的事情：[id:ex.ko.s.000359]\n\n· 注意\n- 如果是「形容詞」修飾名詞（如 `예쁜`、`좋은`），雖然形式也是 `ㄴ/은`，但在時間感上通常是指「現在的狀態」。\n- 對於「動詞」來說，`ㄴ/은` 則專門表示「過去/完成」。",
+      "usage_notes": []
+    }
+  },
+  {
     "id": "kg.grammar.modifier.v_neun",
     "source": {
       "id": "kg.grammar.modifier.v_neun",
@@ -1218,6 +1536,100 @@
       "title": "에 가다/오다 (前往某處)",
       "description": "表示前往或來到某個特定的地點。",
       "explanation_md": "· 用法說明\n`에 가다` 表示向著目標地點「去」；`에 오다` 則表示朝著說話者所在的地點「來」。\n\n· 結構\n「[地點名詞] + 에 + 가다/오다」。\n\n· 常見例句\n- [id:ex.ko.s.000167] (去學校)\n- [id:ex.ko.s.000168] (來家裡)\n\n· 注意\n- `에` 為方向格助詞，標示出移動的目的地。\n- `가다` 是遠離說話者，`오다` 是靠近說話者。",
+      "usage_notes": []
+    }
+  },
+  {
+    "id": "kg.grammar.negation.long_ji_anta",
+    "source": {
+      "id": "kg.grammar.negation.long_ji_anta",
+      "kind": "grammar",
+      "subcategory": "negation",
+      "level": "A1",
+      "surface": "-지 않다",
+      "tags": [
+        "grammar",
+        "negation",
+        "long_form",
+        "formal",
+        "beginner",
+        "v5_ingestion"
+      ],
+      "provenance": {
+        "source": "youtube_beginner_grammar",
+        "source_lesson_ids": [
+          40
+        ],
+        "source_video_ids": [
+          "lMadRLw_irg"
+        ]
+      },
+      "example_sentence_refs": [
+        "ex.ko.s.000427",
+        "ex.ko.s.000428",
+        "ex.ko.s.000429",
+        "ex.ko.s.000430",
+        "ex.ko.s.000431",
+        "ex.ko.s.000432",
+        "ex.ko.s.000433",
+        "ex.ko.s.000434",
+        "ex.ko.s.000435",
+        "ex.ko.s.000436"
+      ]
+    },
+    "i18n": {
+      "id": "kg.grammar.negation.long_ji_anta",
+      "locale": "zh_tw",
+      "title": "지 않다 (不、長形否定)",
+      "description": "接在動詞或形容詞後，表示對動作或狀態的否定。語氣較為正式且完整。",
+      "explanation_md": "· 用法說明\n直接接在動詞或形容詞的原形（去 `다`）後面。相對於短形否定 `안`，長形否定 `~지 않다` 被認為語氣更為莊重、正式或書面化。\n\n· 常見使用場景\n1. **正式場合**：如講演、寫作或較正式的對話。\n   - [id:ex.ko.s.000427]\n2. **客觀事實否定**：描述某種不成立的狀態。\n   - [id:ex.ko.s.000431]\n\n· 注意\n1. **時態表現**：過去時態要接在 `않다` 後面，變為 `~지 않았어요`。\n2. **活用形式**：`않다` 的活用規則與一般動詞/形容詞相同。\n\n· 相近文法比較\n與 `안` (L44) 相比，`~지 않다` 更中性，常用於書面或需要客氣說明的正式場合。在日常極其口語的對話中，使用 `안` 的頻率通常更高。",
+      "usage_notes": []
+    }
+  },
+  {
+    "id": "kg.grammar.negation.short_an",
+    "source": {
+      "id": "kg.grammar.negation.short_an",
+      "kind": "grammar",
+      "subcategory": "negation",
+      "level": "A1",
+      "surface": "안 + V/A",
+      "tags": [
+        "grammar",
+        "negation",
+        "short_form",
+        "informal",
+        "beginner",
+        "v5_ingestion"
+      ],
+      "provenance": {
+        "source": "youtube_beginner_grammar",
+        "source_lesson_ids": [
+          41
+        ],
+        "source_video_ids": [
+          "YvyMN4cp1yQ"
+        ]
+      },
+      "example_sentence_refs": [
+        "ex.ko.s.000437",
+        "ex.ko.s.000438",
+        "ex.ko.s.000439",
+        "ex.ko.s.000440",
+        "ex.ko.s.000441",
+        "ex.ko.s.000442",
+        "ex.ko.s.000443",
+        "ex.ko.s.000444",
+        "ex.ko.s.000445",
+        "ex.ko.s.000446"
+      ]
+    },
+    "i18n": {
+      "id": "kg.grammar.negation.short_an",
+      "locale": "zh_tw",
+      "title": "안 (不、短形否定)",
+      "description": "置於動詞或形容詞前，表示否定或主觀的不想做某事。在口語會話中最為自然常用。",
+      "explanation_md": "· 用法說明\n「안」是「아니」的縮寫，直接放在動詞或形容詞的前面即可構成否定。這在日常口語對話中是最常見的一種否定形式。\n\n· 常見使用場景\n1. **主觀意願**：表達「我不（想）做某事」。\n   - [id:ex.ko.s.000437]\n2. **客觀狀態**：如天氣不冷、東西不好吃等。\n   - [id:ex.ko.s.000446]\n\n· 注意\n1. **與 `하다` 動詞結合**：對於 `名詞 + 하다` 形式的動詞（如 `공부하다`），「안」必須放在 `하다` 之前（即 `공부 안 해요`），不能放在整個單字前（不可說 `안 공부해요`）。\n2. **不可用於部分固定動詞**：像 `알다` (知道) 的否定是 `모르다`，不是 `안 알아요`。\n\n· 相近文法比較\n與 `~지 않다` (L43) 相比，`안` 更加口語化且簡潔。若要表達客觀能力的不及（想做但做不到），則應使用 `못` (L47)。",
       "usage_notes": []
     }
   },
@@ -1676,6 +2088,53 @@
     }
   },
   {
+    "id": "kg.grammar.tense.future_ul_geoyeyo",
+    "source": {
+      "id": "kg.grammar.tense.future_ul_geoyeyo",
+      "kind": "grammar",
+      "subcategory": "tense",
+      "level": "A1",
+      "surface": "-(으)ㄹ 거예요",
+      "tags": [
+        "grammar",
+        "tense",
+        "future",
+        "intention",
+        "beginner",
+        "v5_ingestion"
+      ],
+      "provenance": {
+        "source": "youtube_beginner_grammar",
+        "source_lesson_ids": [
+          36
+        ],
+        "source_video_ids": [
+          "orKw0dBVEYc"
+        ]
+      },
+      "example_sentence_refs": [
+        "ex.ko.s.000407",
+        "ex.ko.s.000408",
+        "ex.ko.s.000409",
+        "ex.ko.s.000410",
+        "ex.ko.s.000411",
+        "ex.ko.s.000412",
+        "ex.ko.s.000413",
+        "ex.ko.s.000414",
+        "ex.ko.s.000415",
+        "ex.ko.s.000416"
+      ]
+    },
+    "i18n": {
+      "id": "kg.grammar.tense.future_ul_geoyeyo",
+      "locale": "zh_tw",
+      "title": "ㄹ/을 거예요 (未來式、打算)",
+      "description": "用於表示未來的計畫、打算，或是對未來或當前狀態的強烈推測。",
+      "explanation_md": "· 用法說明\n用於動詞或形容詞後，表示說話者的未來計畫，或對某種狀態的推測。這是 `-(으)ㄹ 것이다` 的口語禮貌形式，在日常生活中極為常用。\n\n· 常見使用場景\n1. **個人計畫**：表達之後打算做的事情。\n   - [id:ex.ko.s.000407]\n2. **強烈推測**：根據現有情況判斷未來或他人的狀態。\n   - [id:ex.ko.s.000410]\n\n· 注意\n1. **接續規則**：\n   - 無收音或收音為 `ㄹ` 時：接 `~ㄹ 거예요` (例如：`가다` -> `갈 거예요`)。\n   - 有收音時：接 `~을 거예요` (例如：`먹다` -> `먹을 거예요`)。\n2. **區分用法**：與 L35 的 `-(으)ㄹ` 修飾語形式不同，此處作為句子的終結詞尾，表達完整的語氣。\n\n· 相近文法比較\n與 `-(으)ㄹ게요` (L56) 相比，`-(으)ㄹ 거예요` 的主觀承諾意味較輕，更多是用於陳述客觀的計畫或推測。對比起來，`-(으)ㄹ게요` 更強調對聽者的承諾與對方反應的期待。",
+      "usage_notes": []
+    }
+  },
+  {
     "id": "kg.grammar.tense.past_ass_oss",
     "source": {
       "id": "kg.grammar.tense.past_ass_oss",
@@ -1748,8 +2207,8 @@
         "source_video_ids": []
       },
       "example_sentence_refs": [
-        "ex.ko.s.000277",
-        "ex.ko.s.000278",
+        "ex.ko.s.000217",
+        "ex.ko.s.000218",
         "ex.ko.s.000279",
         "ex.ko.s.000280",
         "ex.ko.s.000281",
@@ -1765,7 +2224,7 @@
       "locale": "zh_tw",
       "title": "았/었/했 (過去式進階)",
       "description": "韓文的過去式表現，根據詞幹母音決定結合形式。",
-      "explanation_md": "韓文的過去式由詞幹結合 `았`、`었` 或 `했` 組成，通常接續終結語尾如 `~어요` 或 `~습니다`。\n\n· 用法說明\n- **았**: 詞幹最後一個母音是 `ㅏ` 或 `ㅗ` 時（例如：`가다` -> `갔어요`）。\n- **었**: 詞幹最後一個母音不是 `ㅏ` 或 `ㅗ` 時（例如：`먹다` -> `먹었어요`）。\n- **했**: 以 `하다` 結尾的動詞或形容詞（例如：`공부하다` -> `공부했어요`）。\n\n· 常見使用場景\n- 描述過去發生的動作或狀態。\n- [id:ex.ko.s.000277]\n- [id:ex.ko.s.000278]\n- [id:ex.ko.s.000281]\n\n· 相近文法比較\n- **았/었/했**: 標準過去式。\n- **았었/었었/했었**: 過去完成式（強調過去曾經...但現在已不再如此）。\n\n· 注意\n- 要注意詞幹的收音，有收音的詞幹結合時會多出一個音節（如 `먹다` -> `먹었`），無收音則常發生縮略（如 `오다` -> `왔`）。",
+      "explanation_md": "韓文的過去式由詞幹結合 `았`、`었` 或 `했` 組成，通常接續終結語尾如 `~어요` 或 `~습니다`。\n\n· 用法說明\n- **았**: 詞幹最後一個母音是 `ㅏ` 或 `ㅗ` 時（例如：`가다` -> `갔어요`）。\n- **었**: 詞幹最後一個母音不是 `ㅏ` 或 `ㅗ` 時（例如：`먹다` -> `먹었어요`）。\n- **했**: 以 `하다` 結尾的動詞或形容詞（例如：`공부하다` -> `공부했어요`）。\n\n· 常見使用場景\n- 描述過去發生的動作或狀態。\n- [id:ex.ko.s.000217]\n- [id:ex.ko.s.000218]\n- [id:ex.ko.s.000281]\n\n· 相近文法比較\n- **았/었/했**: 標準過去式。\n- **았었/었었/했었**: 過去完成式（強調過去曾經...但現在已不再如此）。\n\n· 注意\n- 要注意詞幹的收音，有收音的詞幹結合時會多出一個音節（如 `먹다` -> `먹었`），無收音則常發生縮略（如 `오다` -> `왔`）。",
       "usage_notes": []
     }
   }

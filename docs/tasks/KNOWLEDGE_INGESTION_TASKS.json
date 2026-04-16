@@ -83,13 +83,13 @@
     {
       "id": "kg-mig-009",
       "title": "Bootstrap example sentence bank from legacy sources and mark quality/segmentation readiness (initial source bootstrap)",
-      "status": "in_progress",
+      "status": "deprecated",
       "depends_on": [
         "kg-spec-011"
       ],
       "notes": [
-        "Current skill work is actively digesting 30+ entries toward the bootstrap example sentence bank.",
-        "Treat this as the live example-sentence intake/bootstrap path rather than a dormant planning item."
+        "Folded into kg-mig-015 as the item-level digest/bootstrap subflow.",
+        "Retained only as historical context; do not treat as an independent active task."
       ],
       "deliverable": "first staged example sentence bank"
     },
@@ -173,7 +173,7 @@
       ],
       "notes": [
         "Abandoned as a standalone cleanup inventory.",
-        "The rework path is tracked under kg-mig-009, not as a continuation of this inventory."
+        "The rework path is folded into the live item-level ingestion flow under kg-mig-015."
       ],
       "deliverable": "docs/tasks/KNOWLEDGE_NORMALIZATION_INVENTORY_V1.md"
     },
@@ -197,6 +197,7 @@
         "kg-verify-016"
       ],
       "notes": [
+        "Item-level digest/bootstrap work formerly tracked under kg-mig-009 is now treated as a subflow of this task.",
         "2026-04-13: Comprehensive source inventory completed (kg-mig-015A). 349 items scanned; 184 Ready, 120 Skip, 19 Shared Usage, 26 Needs Review. Manifest generated at docs/tasks/KNOWLEDGE_INGESTION_SOURCE_INVENTORY_V1.md.",
         "2026-04-13: Pilot ingestion phases kg-mig-015B, kg-mig-015C, and kg-mig-015D completed for connectors, beginner grammar, and connective endings.",
         "2026-04-14: Follow-up ingestion phases kg-mig-015E through kg-mig-015J completed across connective endings, connectors, and beginner grammar batches."

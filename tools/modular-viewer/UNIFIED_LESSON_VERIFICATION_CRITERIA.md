@@ -30,3 +30,15 @@ This document outlines the heuristic evaluation and automated check criteria for
 - **Validation Heuristics**:
     - `Warning`: Missing optional support field (e.g., `Notice` missing in a Grammar node).
     - `Error`: Missing mandatory primary field (e.g., `Dialogue turns` missing in a Dialogue node).
+
+## 5. Staging Recovery Gate (Dialogue/Video)
+These criteria are specific to the `LEARNING_LIBRARY_CONTENTKO_MIGRATION` (LLCM) tasks for recovering legacy content into the new unified build artifacts.
+
+- **Staging Intake Minimums**:
+    - [ ] **Visibility**: Unit must appear in `fixtures.json` and load in the map.
+    - [ ] **Bilingual Display**: Korean source + `zh_tw` translation must both load for all turns.
+    - [ ] **Failure Resilience**: Missing `dialogue_atoms.json` MUST NOT crash the viewer; it should fall back to full-text turns.
+    - [ ] **Video Atoms**: If atoms exist in `content/core/video_atoms/`, they must be visible in the viewer as interactive chips.
+- **Accepted Mismatches (Deferred)**:
+    - **Dialogue Atom Lack**: It is currently **ACCEPTED** that Dialogue artifacts lack word-level segmentation in Staging.
+    - **Volume Differential**: It is **ACCEPTED** that Artifact Mode contains more turns than the original Prototype Seed.

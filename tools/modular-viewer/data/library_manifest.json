@@ -650,6 +650,28 @@
       ]
     },
     {
+      "id": "kg.grammar.ending.when_ul_tte",
+      "category": "grammar",
+      "sub": "ending",
+      "title": "-(으)ㄹ 때 (的時候)",
+      "level": "A1",
+      "path": "data/runtime/zh_tw/knowledge.json",
+      "runtime_id": "kg.grammar.ending.when_ul_tte",
+      "surface": "-(으)ㄹ 때",
+      "example_sentence_refs": [
+        "ex.ko.s.000917",
+        "ex.ko.s.000918",
+        "ex.ko.s.000919",
+        "ex.ko.s.000920",
+        "ex.ko.s.000921",
+        "ex.ko.s.000922",
+        "ex.ko.s.000923",
+        "ex.ko.s.000924",
+        "ex.ko.s.000925",
+        "ex.ko.s.000926"
+      ]
+    },
+    {
       "id": "kg.grammar.ending.will_ul_geyo",
       "category": "grammar",
       "sub": "ending",
@@ -847,6 +869,50 @@
       ]
     },
     {
+      "id": "kg.grammar.ending.cause_gi_ttaemune",
+      "category": "grammar",
+      "sub": "ending",
+      "title": "-기 때문에 (因為)",
+      "level": "A1",
+      "path": "data/runtime/zh_tw/knowledge.json",
+      "runtime_id": "kg.grammar.ending.cause_gi_ttaemune",
+      "surface": "-기 때문에",
+      "example_sentence_refs": [
+        "ex.ko.s.000947",
+        "ex.ko.s.000948",
+        "ex.ko.s.000949",
+        "ex.ko.s.000950",
+        "ex.ko.s.000951",
+        "ex.ko.s.000952",
+        "ex.ko.s.000953",
+        "ex.ko.s.000954",
+        "ex.ko.s.000955",
+        "ex.ko.s.000956"
+      ]
+    },
+    {
+      "id": "kg.grammar.ending.before_gi_jeone",
+      "category": "grammar",
+      "sub": "ending",
+      "title": "-기 전에 (之前)",
+      "level": "A1",
+      "path": "data/runtime/zh_tw/knowledge.json",
+      "runtime_id": "kg.grammar.ending.before_gi_jeone",
+      "surface": "-기 전에",
+      "example_sentence_refs": [
+        "ex.ko.s.000937",
+        "ex.ko.s.000938",
+        "ex.ko.s.000939",
+        "ex.ko.s.000940",
+        "ex.ko.s.000941",
+        "ex.ko.s.000942",
+        "ex.ko.s.000943",
+        "ex.ko.s.000944",
+        "ex.ko.s.000945",
+        "ex.ko.s.000946"
+      ]
+    },
+    {
       "id": "kg.grammar.ending.discovery_neyo",
       "category": "grammar",
       "sub": "ending",
@@ -976,6 +1042,50 @@
         "ex.ko.s.000474",
         "ex.ko.s.000475",
         "ex.ko.s.000476"
+      ]
+    },
+    {
+      "id": "kg.grammar.ending.after_eun_hue",
+      "category": "grammar",
+      "sub": "ending",
+      "title": "ㄴ/은 후에 (動作先後順序)",
+      "level": "A2",
+      "path": "data/runtime/zh_tw/knowledge.json",
+      "runtime_id": "kg.grammar.ending.after_eun_hue",
+      "surface": "ㄴ/은 후에",
+      "example_sentence_refs": [
+        "ex.ko.s.000887",
+        "ex.ko.s.000888",
+        "ex.ko.s.000889",
+        "ex.ko.s.000890",
+        "ex.ko.s.000891",
+        "ex.ko.s.000892",
+        "ex.ko.s.000893",
+        "ex.ko.s.000894",
+        "ex.ko.s.000895",
+        "ex.ko.s.000896"
+      ]
+    },
+    {
+      "id": "kg.grammar.ending.explanation_surprise_neundeyo",
+      "category": "grammar",
+      "sub": "ending",
+      "title": "ㄴ/은데요/는데요 (婉轉語氣與驚訝)",
+      "level": "A2",
+      "path": "data/runtime/zh_tw/knowledge.json",
+      "runtime_id": "kg.grammar.ending.explanation_surprise_neundeyo",
+      "surface": "ㄴ/은데요 / 는데요",
+      "example_sentence_refs": [
+        "ex.ko.s.000857",
+        "ex.ko.s.000858",
+        "ex.ko.s.000859",
+        "ex.ko.s.000860",
+        "ex.ko.s.000861",
+        "ex.ko.s.000862",
+        "ex.ko.s.000863",
+        "ex.ko.s.000864",
+        "ex.ko.s.000865",
+        "ex.ko.s.000866"
       ]
     },
     {
@@ -1117,7 +1227,39 @@
         "ex.ko.s.000753",
         "ex.ko.s.000754",
         "ex.ko.s.000755",
-        "ex.ko.s.000756"
+        "ex.ko.s.000756",
+        "ex.ko.s.000877",
+        "ex.ko.s.000878",
+        "ex.ko.s.000879",
+        "ex.ko.s.000880",
+        "ex.ko.s.000881",
+        "ex.ko.s.000882",
+        "ex.ko.s.000883",
+        "ex.ko.s.000884",
+        "ex.ko.s.000885",
+        "ex.ko.s.000886"
+      ]
+    },
+    {
+      "id": "kg.grammar.ending.condition_myeon",
+      "category": "grammar",
+      "sub": "ending",
+      "title": "면/으면 (假設與條件)",
+      "level": "A1",
+      "path": "data/runtime/zh_tw/knowledge.json",
+      "runtime_id": "kg.grammar.ending.condition_myeon",
+      "surface": "면/으면",
+      "example_sentence_refs": [
+        "ex.ko.s.000867",
+        "ex.ko.s.000868",
+        "ex.ko.s.000869",
+        "ex.ko.s.000870",
+        "ex.ko.s.000871",
+        "ex.ko.s.000872",
+        "ex.ko.s.000873",
+        "ex.ko.s.000874",
+        "ex.ko.s.000875",
+        "ex.ko.s.000876"
       ]
     },
     {
@@ -1693,6 +1835,28 @@
       ]
     },
     {
+      "id": "kg.grammar.particle.after_noun_hu",
+      "category": "grammar",
+      "sub": "particle",
+      "title": "n 후에 (時間與事件順序)",
+      "level": "A1",
+      "path": "data/runtime/zh_tw/knowledge.json",
+      "runtime_id": "kg.grammar.particle.after_noun_hu",
+      "surface": "n 후에",
+      "example_sentence_refs": [
+        "ex.ko.s.000897",
+        "ex.ko.s.000898",
+        "ex.ko.s.000899",
+        "ex.ko.s.000900",
+        "ex.ko.s.000901",
+        "ex.ko.s.000902",
+        "ex.ko.s.000903",
+        "ex.ko.s.000904",
+        "ex.ko.s.000905",
+        "ex.ko.s.000906"
+      ]
+    },
+    {
       "id": "kg.grammar.particle.do",
       "category": "grammar",
       "sub": "particle",
@@ -1712,6 +1876,28 @@
         "ex.ko.s.000124",
         "ex.ko.s.000125",
         "ex.ko.s.000126"
+      ]
+    },
+    {
+      "id": "kg.grammar.particle.during_dongan",
+      "category": "grammar",
+      "sub": "particle",
+      "title": "동안 (期間)",
+      "level": "A1",
+      "path": "data/runtime/zh_tw/knowledge.json",
+      "runtime_id": "kg.grammar.particle.during_dongan",
+      "surface": "동안",
+      "example_sentence_refs": [
+        "ex.ko.s.000907",
+        "ex.ko.s.000908",
+        "ex.ko.s.000909",
+        "ex.ko.s.000910",
+        "ex.ko.s.000911",
+        "ex.ko.s.000912",
+        "ex.ko.s.000913",
+        "ex.ko.s.000914",
+        "ex.ko.s.000915",
+        "ex.ko.s.000916"
       ]
     },
     {
@@ -1888,6 +2074,28 @@
         "ex.ko.s.000041",
         "ex.ko.s.000042",
         "ex.ko.s.000043"
+      ]
+    },
+    {
+      "id": "kg.grammar.particle.among_jung_eseo",
+      "category": "grammar",
+      "sub": "particle",
+      "title": "중에서 (之中)",
+      "level": "A1",
+      "path": "data/runtime/zh_tw/knowledge.json",
+      "runtime_id": "kg.grammar.particle.among_jung_eseo",
+      "surface": "중에서",
+      "example_sentence_refs": [
+        "ex.ko.s.000927",
+        "ex.ko.s.000928",
+        "ex.ko.s.000929",
+        "ex.ko.s.000930",
+        "ex.ko.s.000931",
+        "ex.ko.s.000932",
+        "ex.ko.s.000933",
+        "ex.ko.s.000934",
+        "ex.ko.s.000935",
+        "ex.ko.s.000936"
       ]
     },
     {

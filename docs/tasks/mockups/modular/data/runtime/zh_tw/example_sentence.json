@@ -25756,5 +25756,2905 @@
       "locale": "zh_tw",
       "translation": "今天晚餐決定吃沙拉。"
     }
+  },
+  {
+    "id": "ex.ko.s.000857",
+    "source": {
+      "id": "ex.ko.s.000857",
+      "ko": "동생은 아직 안 왔는데요.",
+      "level": "A2",
+      "tags": [
+        "grammar",
+        "ending",
+        "beginner"
+      ],
+      "knowledge_refs": [
+        "kg.grammar.ending.explanation_surprise_neundeyo"
+      ],
+      "provenance": {
+        "source": "youtube_beginner_grammar",
+        "source_lesson_ids": [
+          86
+        ],
+        "source_video_ids": [
+          "SRgE_wyfo9U"
+        ],
+        "original_sentence_adjusted": "제 친구는 아직 안 왔는데요."
+      }
+    },
+    "i18n": {
+      "id": "ex.ko.s.000857",
+      "locale": "zh_tw",
+      "translation": "我弟弟/妹妹（或室友）還沒有來耶。"
+    }
+  },
+  {
+    "id": "ex.ko.s.000858",
+    "source": {
+      "id": "ex.ko.s.000858",
+      "ko": "여기는 에어컨 때문에 좀 추운데요.",
+      "level": "A2",
+      "tags": [
+        "grammar",
+        "ending",
+        "beginner"
+      ],
+      "knowledge_refs": [
+        "kg.grammar.ending.explanation_surprise_neundeyo"
+      ],
+      "provenance": {
+        "source": "youtube_beginner_grammar",
+        "source_lesson_ids": [
+          86
+        ],
+        "source_video_ids": [
+          "SRgE_wyfo9U"
+        ],
+        "original_sentence_adjusted": "밖은 날씨가 정말 추운데요."
+      }
+    },
+    "i18n": {
+      "id": "ex.ko.s.000858",
+      "locale": "zh_tw",
+      "translation": "因為冷氣的關係，這裡有點冷耶。"
+    }
+  },
+  {
+    "id": "ex.ko.s.000859",
+    "source": {
+      "id": "ex.ko.s.000859",
+      "ko": "준비하는 시간이 좀 오래 걸리는데요.",
+      "level": "A2",
+      "tags": [
+        "grammar",
+        "ending",
+        "beginner"
+      ],
+      "knowledge_refs": [
+        "kg.grammar.ending.explanation_surprise_neundeyo"
+      ],
+      "provenance": {
+        "source": "youtube_beginner_grammar",
+        "source_lesson_ids": [
+          86
+        ],
+        "source_video_ids": [
+          "SRgE_wyfo9U"
+        ],
+        "original_sentence_adjusted": "시간이 좀 오래 걸리는데요."
+      }
+    },
+    "i18n": {
+      "id": "ex.ko.s.000859",
+      "locale": "zh_tw",
+      "translation": "準備的時間會花得有點久耶。"
+    }
+  },
+  {
+    "id": "ex.ko.s.000860",
+    "source": {
+      "id": "ex.ko.s.000860",
+      "ko": "방값이 생각보다 비싼데요.",
+      "level": "A2",
+      "tags": [
+        "grammar",
+        "ending",
+        "beginner"
+      ],
+      "knowledge_refs": [
+        "kg.grammar.ending.explanation_surprise_neundeyo"
+      ],
+      "provenance": {
+        "source": "youtube_beginner_grammar",
+        "source_lesson_ids": [
+          86
+        ],
+        "source_video_ids": [
+          "SRgE_wyfo9U"
+        ],
+        "original_sentence_adjusted": "가격이 생각보다 비싼데요."
+      }
+    },
+    "i18n": {
+      "id": "ex.ko.s.000860",
+      "locale": "zh_tw",
+      "translation": "房租比想像中還貴耶。"
+    }
+  },
+  {
+    "id": "ex.ko.s.000861",
+    "source": {
+      "id": "ex.ko.s.000861",
+      "ko": "그 구두는 제 사이즈가 없는데요.",
+      "level": "A2",
+      "tags": [
+        "grammar",
+        "ending",
+        "beginner"
+      ],
+      "knowledge_refs": [
+        "kg.grammar.ending.explanation_surprise_neundeyo"
+      ],
+      "provenance": {
+        "source": "youtube_beginner_grammar",
+        "source_lesson_ids": [
+          86
+        ],
+        "source_video_ids": [
+          "SRgE_wyfo9U"
+        ],
+        "original_sentence_adjusted": "그 옷은 사이즈가 없는데요."
+      }
+    },
+    "i18n": {
+      "id": "ex.ko.s.000861",
+      "locale": "zh_tw",
+      "translation": "那雙鞋子沒有我的尺寸耶。"
+    }
+  },
+  {
+    "id": "ex.ko.s.000862",
+    "source": {
+      "id": "ex.ko.s.000862",
+      "ko": "지금 회의 중이라서 통화하기 좀 힘든데요.",
+      "level": "A2",
+      "tags": [
+        "grammar",
+        "ending",
+        "beginner"
+      ],
+      "knowledge_refs": [
+        "kg.grammar.ending.explanation_surprise_neundeyo"
+      ],
+      "provenance": {
+        "source": "youtube_beginner_grammar",
+        "source_lesson_ids": [
+          86
+        ],
+        "source_video_ids": [
+          "SRgE_wyfo9U"
+        ],
+        "original_sentence_adjusted": "지금 통화하기 좀 힘든데요."
+      }
+    },
+    "i18n": {
+      "id": "ex.ko.s.000862",
+      "locale": "zh_tw",
+      "translation": "現在正在開會中，有點難講電話耶。"
+    }
+  },
+  {
+    "id": "ex.ko.s.000863",
+    "source": {
+      "id": "ex.ko.s.000863",
+      "ko": "다음 주에는 중요한 시험이 있는데요.",
+      "level": "A2",
+      "tags": [
+        "grammar",
+        "ending",
+        "beginner"
+      ],
+      "knowledge_refs": [
+        "kg.grammar.ending.explanation_surprise_neundeyo"
+      ],
+      "provenance": {
+        "source": "youtube_beginner_grammar",
+        "source_lesson_ids": [
+          86
+        ],
+        "source_video_ids": [
+          "SRgE_wyfo9U"
+        ],
+        "original_sentence_adjusted": "주말에는 약속이 있는데요."
+      }
+    },
+    "i18n": {
+      "id": "ex.ko.s.000863",
+      "locale": "zh_tw",
+      "translation": "下週我有重要的考試耶。"
+    }
+  },
+  {
+    "id": "ex.ko.s.000864",
+    "source": {
+      "id": "ex.ko.s.000864",
+      "ko": "이 드라마는 이미 다 봤는데요.",
+      "level": "A2",
+      "tags": [
+        "grammar",
+        "ending",
+        "beginner"
+      ],
+      "knowledge_refs": [
+        "kg.grammar.ending.explanation_surprise_neundeyo"
+      ],
+      "provenance": {
+        "source": "youtube_beginner_grammar",
+        "source_lesson_ids": [
+          86
+        ],
+        "source_video_ids": [
+          "SRgE_wyfo9U"
+        ],
+        "original_sentence_adjusted": "이 영화는 벌써 봤는데요."
+      }
+    },
+    "i18n": {
+      "id": "ex.ko.s.000864",
+      "locale": "zh_tw",
+      "translation": "這部韓劇我已經全都看過了耶。"
+    }
+  },
+  {
+    "id": "ex.ko.s.000865",
+    "source": {
+      "id": "ex.ko.s.000865",
+      "ko": "저녁을 안 먹어서 배가 너무 고픈데요.",
+      "level": "A2",
+      "tags": [
+        "grammar",
+        "ending",
+        "beginner"
+      ],
+      "knowledge_refs": [
+        "kg.grammar.ending.explanation_surprise_neundeyo"
+      ],
+      "provenance": {
+        "source": "youtube_beginner_grammar",
+        "source_lesson_ids": [
+          86
+        ],
+        "source_video_ids": [
+          "SRgE_wyfo9U"
+        ],
+        "original_sentence_adjusted": "배가 너무 고픈데요."
+      }
+    },
+    "i18n": {
+      "id": "ex.ko.s.000865",
+      "locale": "zh_tw",
+      "translation": "因為沒吃晚餐，現在肚子好餓喔。"
+    }
+  },
+  {
+    "id": "ex.ko.s.000866",
+    "source": {
+      "id": "ex.ko.s.000866",
+      "ko": "저는 커피를 잘 못 마시는데요.",
+      "level": "A2",
+      "tags": [
+        "grammar",
+        "ending",
+        "beginner"
+      ],
+      "knowledge_refs": [
+        "kg.grammar.ending.explanation_surprise_neundeyo"
+      ],
+      "provenance": {
+        "source": "youtube_beginner_grammar",
+        "source_lesson_ids": [
+          86
+        ],
+        "source_video_ids": [
+          "SRgE_wyfo9U"
+        ],
+        "original_sentence_adjusted": "저는 매운 음식을 잘 못 먹는데요."
+      }
+    },
+    "i18n": {
+      "id": "ex.ko.s.000866",
+      "locale": "zh_tw",
+      "translation": "其實我不太能喝咖啡呢。"
+    }
+  },
+  {
+    "id": "ex.ko.s.000867",
+    "source": {
+      "id": "ex.ko.s.000867",
+      "ko": "머리가 많이 아프면 약을 드세요.",
+      "level": "A1",
+      "tags": [
+        "grammar",
+        "ending",
+        "beginner"
+      ],
+      "knowledge_refs": [
+        "kg.grammar.ending.condition_myeon"
+      ],
+      "provenance": {
+        "source": "youtube_beginner_grammar",
+        "source_lesson_ids": [
+          87
+        ],
+        "source_video_ids": [
+          "ixqg7pPGKQw"
+        ],
+        "original_sentence_adjusted": "많이 아프면 조퇴하세요."
+      }
+    },
+    "i18n": {
+      "id": "ex.ko.s.000867",
+      "locale": "zh_tw",
+      "translation": "如果頭很痛的話，請吃點藥。"
+    }
+  },
+  {
+    "id": "ex.ko.s.000868",
+    "source": {
+      "id": "ex.ko.s.000868",
+      "ko": "날씨가 추우면 코트를 입으세요.",
+      "level": "A1",
+      "tags": [
+        "grammar",
+        "ending",
+        "beginner"
+      ],
+      "knowledge_refs": [
+        "kg.grammar.ending.condition_myeon"
+      ],
+      "provenance": {
+        "source": "youtube_beginner_grammar",
+        "source_lesson_ids": [
+          87
+        ],
+        "source_video_ids": [
+          "ixqg7pPGKQw"
+        ],
+        "original_sentence_adjusted": "비가 오면 우산을 쓰세요."
+      }
+    },
+    "i18n": {
+      "id": "ex.ko.s.000868",
+      "locale": "zh_tw",
+      "translation": "如果天氣冷的話，請穿上大衣。"
+    }
+  },
+  {
+    "id": "ex.ko.s.000869",
+    "source": {
+      "id": "ex.ko.s.000869",
+      "ko": "맛있으면 저도 하나 살게요.",
+      "level": "A1",
+      "tags": [
+        "grammar",
+        "ending",
+        "beginner"
+      ],
+      "knowledge_refs": [
+        "kg.grammar.ending.condition_myeon"
+      ],
+      "provenance": {
+        "source": "youtube_beginner_grammar",
+        "source_lesson_ids": [
+          87
+        ],
+        "source_video_ids": [
+          "ixqg7pPGKQw"
+        ],
+        "original_sentence_adjusted": "가격이 싸면 하나 살게요."
+      }
+    },
+    "i18n": {
+      "id": "ex.ko.s.000869",
+      "locale": "zh_tw",
+      "translation": "如果好吃的話，我也會買一個。"
+    }
+  },
+  {
+    "id": "ex.ko.s.000870",
+    "source": {
+      "id": "ex.ko.s.000870",
+      "ko": "집에 도착하면 연락해 주세요.",
+      "level": "A1",
+      "tags": [
+        "grammar",
+        "ending",
+        "beginner"
+      ],
+      "knowledge_refs": [
+        "kg.grammar.ending.condition_myeon"
+      ],
+      "provenance": {
+        "source": "youtube_beginner_grammar",
+        "source_lesson_ids": [
+          87
+        ],
+        "source_video_ids": [
+          "ixqg7pPGKQw"
+        ],
+        "original_sentence_adjusted": "공항에 도착하면 전화해 주세요."
+      }
+    },
+    "i18n": {
+      "id": "ex.ko.s.000870",
+      "locale": "zh_tw",
+      "translation": "如果到家了，請跟我聯絡。"
+    }
+  },
+  {
+    "id": "ex.ko.s.000871",
+    "source": {
+      "id": "ex.ko.s.000871",
+      "ko": "내일 시간이 있으면 같이 영화 볼까요?",
+      "level": "A1",
+      "tags": [
+        "grammar",
+        "ending",
+        "beginner"
+      ],
+      "knowledge_refs": [
+        "kg.grammar.ending.condition_myeon"
+      ],
+      "provenance": {
+        "source": "youtube_beginner_grammar",
+        "source_lesson_ids": [
+          87
+        ],
+        "source_video_ids": [
+          "ixqg7pPGKQw"
+        ],
+        "original_sentence_adjusted": "시간이 있으면 우리 만날까요?"
+      }
+    },
+    "i18n": {
+      "id": "ex.ko.s.000871",
+      "locale": "zh_tw",
+      "translation": "如果明天有時間的話，我們要一起看電影嗎？"
+    }
+  },
+  {
+    "id": "ex.ko.s.000872",
+    "source": {
+      "id": "ex.ko.s.000872",
+      "ko": "이 커피가 맛있으면 더 드릴까요?",
+      "level": "A1",
+      "tags": [
+        "grammar",
+        "ending",
+        "beginner"
+      ],
+      "knowledge_refs": [
+        "kg.grammar.ending.condition_myeon"
+      ],
+      "provenance": {
+        "source": "youtube_beginner_grammar",
+        "source_lesson_ids": [
+          87
+        ],
+        "source_video_ids": [
+          "ixqg7pPGKQw"
+        ],
+        "original_sentence_adjusted": "음식이 맛있으면 더 드세요."
+      }
+    },
+    "i18n": {
+      "id": "ex.ko.s.000872",
+      "locale": "zh_tw",
+      "translation": "如果這咖啡好喝的話，要再多給你一點嗎？"
+    }
+  },
+  {
+    "id": "ex.ko.s.000873",
+    "source": {
+      "id": "ex.ko.s.000873",
+      "ko": "방이 어두우면 불을 켜세요.",
+      "level": "A1",
+      "tags": [
+        "grammar",
+        "ending",
+        "beginner"
+      ],
+      "knowledge_refs": [
+        "kg.grammar.ending.condition_myeon"
+      ],
+      "provenance": {
+        "source": "youtube_beginner_grammar",
+        "source_lesson_ids": [
+          87
+        ],
+        "source_video_ids": [
+          "ixqg7pPGKQw"
+        ],
+        "original_sentence_adjusted": "더우면 에어컨을 켜세요."
+      }
+    },
+    "i18n": {
+      "id": "ex.ko.s.000873",
+      "locale": "zh_tw",
+      "translation": "如果房間很暗的話，請開燈。"
+    }
+  },
+  {
+    "id": "ex.ko.s.000874",
+    "source": {
+      "id": "ex.ko.s.000874",
+      "ko": "이번 학기가 끝나면 여행을 갈 거예요.",
+      "level": "A1",
+      "tags": [
+        "grammar",
+        "ending",
+        "beginner"
+      ],
+      "knowledge_refs": [
+        "kg.grammar.ending.condition_myeon"
+      ],
+      "provenance": {
+        "source": "youtube_beginner_grammar",
+        "source_lesson_ids": [
+          87
+        ],
+        "source_video_ids": [
+          "ixqg7pPGKQw"
+        ],
+        "original_sentence_adjusted": "시험에 합격하면 파티를 할 거예요."
+      }
+    },
+    "i18n": {
+      "id": "ex.ko.s.000874",
+      "locale": "zh_tw",
+      "translation": "如果這學期結束了，我要去旅遊。"
+    }
+  },
+  {
+    "id": "ex.ko.s.000875",
+    "source": {
+      "id": "ex.ko.s.000875",
+      "ko": "졸리면 잠시 자세요.",
+      "level": "A1",
+      "tags": [
+        "grammar",
+        "ending",
+        "beginner"
+      ],
+      "knowledge_refs": [
+        "kg.grammar.ending.condition_myeon"
+      ],
+      "provenance": {
+        "source": "youtube_beginner_grammar",
+        "source_lesson_ids": [
+          87
+        ],
+        "source_video_ids": [
+          "ixqg7pPGKQw"
+        ],
+        "original_sentence_adjusted": "피곤하면 좀 쉬세요."
+      }
+    },
+    "i18n": {
+      "id": "ex.ko.s.000875",
+      "locale": "zh_tw",
+      "translation": "如果睏了的話，請稍微睡一下吧。"
+    }
+  },
+  {
+    "id": "ex.ko.s.000876",
+    "source": {
+      "id": "ex.ko.s.000876",
+      "ko": "도움이 필요하면 언제든지 물어보세요.",
+      "level": "A1",
+      "tags": [
+        "grammar",
+        "ending",
+        "beginner"
+      ],
+      "knowledge_refs": [
+        "kg.grammar.ending.condition_myeon"
+      ],
+      "provenance": {
+        "source": "youtube_beginner_grammar",
+        "source_lesson_ids": [
+          87
+        ],
+        "source_video_ids": [
+          "ixqg7pPGKQw"
+        ],
+        "original_sentence_adjusted": "모르는 단어가 있으면 물어보세요."
+      }
+    },
+    "i18n": {
+      "id": "ex.ko.s.000876",
+      "locale": "zh_tw",
+      "translation": "如果需要幫助的話，隨時都可以提問喔。"
+    }
+  },
+  {
+    "id": "ex.ko.s.000877",
+    "source": {
+      "id": "ex.ko.s.000877",
+      "ko": "한식은 매운데 정말 맛있어요.",
+      "level": "A2",
+      "tags": [
+        "grammar",
+        "ending",
+        "beginner"
+      ],
+      "knowledge_refs": [
+        "kg.grammar.ending.background_neunde"
+      ],
+      "provenance": {
+        "source": "youtube_beginner_grammar",
+        "source_lesson_ids": [
+          88
+        ],
+        "source_video_ids": [
+          "YK0DqzHe9T4"
+        ],
+        "original_sentence_adjusted": "한국어는 어려운데 재미있어요."
+      }
+    },
+    "i18n": {
+      "id": "ex.ko.s.000877",
+      "locale": "zh_tw",
+      "translation": "韓式料理雖然辣，但是真的很好吃。"
+    }
+  },
+  {
+    "id": "ex.ko.s.000878",
+    "source": {
+      "id": "ex.ko.s.000878",
+      "ko": "그 가방은 예쁜데 너무 무거워요.",
+      "level": "A2",
+      "tags": [
+        "grammar",
+        "ending",
+        "beginner"
+      ],
+      "knowledge_refs": [
+        "kg.grammar.ending.background_neunde"
+      ],
+      "provenance": {
+        "source": "youtube_beginner_grammar",
+        "source_lesson_ids": [
+          88
+        ],
+        "source_video_ids": [
+          "YK0DqzHe9T4"
+        ],
+        "original_sentence_adjusted": "이 식당은 비싼데 맛이 없어요."
+      }
+    },
+    "i18n": {
+      "id": "ex.ko.s.000878",
+      "locale": "zh_tw",
+      "translation": "那個包包雖然漂亮，但是太重了。"
+    }
+  },
+  {
+    "id": "ex.ko.s.000879",
+    "source": {
+      "id": "ex.ko.s.000879",
+      "ko": "노트북을 샀는데 소음이 좀 커요.",
+      "level": "A2",
+      "tags": [
+        "grammar",
+        "ending",
+        "beginner"
+      ],
+      "knowledge_refs": [
+        "kg.grammar.ending.background_neunde"
+      ],
+      "provenance": {
+        "source": "youtube_beginner_grammar",
+        "source_lesson_ids": [
+          88
+        ],
+        "source_video_ids": [
+          "YK0DqzHe9T4"
+        ],
+        "original_sentence_adjusted": "옷을 샀는데 사이즈가 좀 작아요."
+      }
+    },
+    "i18n": {
+      "id": "ex.ko.s.000879",
+      "locale": "zh_tw",
+      "translation": "買了筆記型電腦，但是噪音有點大。"
+    }
+  },
+  {
+    "id": "ex.ko.s.000880",
+    "source": {
+      "id": "ex.ko.s.000880",
+      "ko": "백화점에 갔는데 사람이 정말 많았어요.",
+      "level": "A2",
+      "tags": [
+        "grammar",
+        "ending",
+        "beginner"
+      ],
+      "knowledge_refs": [
+        "kg.grammar.ending.background_neunde"
+      ],
+      "provenance": {
+        "source": "youtube_beginner_grammar",
+        "source_lesson_ids": [
+          88
+        ],
+        "source_video_ids": [
+          "YK0DqzHe9T4"
+        ],
+        "original_sentence_adjusted": "병원에 갔는데 문을 닫았어요."
+      }
+    },
+    "i18n": {
+      "id": "ex.ko.s.000880",
+      "locale": "zh_tw",
+      "translation": "去了百貨公司，但是人真的很多。"
+    }
+  },
+  {
+    "id": "ex.ko.s.000881",
+    "source": {
+      "id": "ex.ko.s.000881",
+      "ko": "자고 싶은데 아직 일이 안 끝났어요.",
+      "level": "A2",
+      "tags": [
+        "grammar",
+        "ending",
+        "beginner"
+      ],
+      "knowledge_refs": [
+        "kg.grammar.ending.background_neunde"
+      ],
+      "provenance": {
+        "source": "youtube_beginner_grammar",
+        "source_lesson_ids": [
+          88
+        ],
+        "source_video_ids": [
+          "YK0DqzHe9T4"
+        ],
+        "original_sentence_adjusted": "먹고 싶은데 다이어트 중이에요."
+      }
+    },
+    "i18n": {
+      "id": "ex.ko.s.000881",
+      "locale": "zh_tw",
+      "translation": "雖然想睡覺，但是工作還沒結束。"
+    }
+  },
+  {
+    "id": "ex.ko.s.000882",
+    "source": {
+      "id": "ex.ko.s.000882",
+      "ko": "눈이 오는데 장갑이 없어요.",
+      "level": "A2",
+      "tags": [
+        "grammar",
+        "ending",
+        "beginner"
+      ],
+      "knowledge_refs": [
+        "kg.grammar.ending.background_neunde"
+      ],
+      "provenance": {
+        "source": "youtube_beginner_grammar",
+        "source_lesson_ids": [
+          88
+        ],
+        "source_video_ids": [
+          "YK0DqzHe9T4"
+        ],
+        "original_sentence_adjusted": "비가 오는데 우산이 없어요."
+      }
+    },
+    "i18n": {
+      "id": "ex.ko.s.000882",
+      "locale": "zh_tw",
+      "translation": "正在下雪，但是我沒有手套。"
+    }
+  },
+  {
+    "id": "ex.ko.s.000883",
+    "source": {
+      "id": "ex.ko.s.000883",
+      "ko": "일찍 일어났는데 버스를 놓쳤어요.",
+      "level": "A2",
+      "tags": [
+        "grammar",
+        "ending",
+        "beginner"
+      ],
+      "knowledge_refs": [
+        "kg.grammar.ending.background_neunde"
+      ],
+      "provenance": {
+        "source": "youtube_beginner_grammar",
+        "source_lesson_ids": [
+          88
+        ],
+        "source_video_ids": [
+          "YK0DqzHe9T4"
+        ],
+        "original_sentence_adjusted": "열심히 공부했는데 다 잊어버렸어요."
+      }
+    },
+    "i18n": {
+      "id": "ex.ko.s.000883",
+      "locale": "zh_tw",
+      "translation": "雖然早起了，但是錯過了公車。"
+    }
+  },
+  {
+    "id": "ex.ko.s.000884",
+    "source": {
+      "id": "ex.ko.s.000884",
+      "ko": "메시지를 보냈는데 답장이 없어요.",
+      "level": "A2",
+      "tags": [
+        "grammar",
+        "ending",
+        "beginner"
+      ],
+      "knowledge_refs": [
+        "kg.grammar.ending.background_neunde"
+      ],
+      "provenance": {
+        "source": "youtube_beginner_grammar",
+        "source_lesson_ids": [
+          88
+        ],
+        "source_video_ids": [
+          "YK0DqzHe9T4"
+        ],
+        "original_sentence_adjusted": "전화를 했는데 안 받아요."
+      }
+    },
+    "i18n": {
+      "id": "ex.ko.s.000884",
+      "locale": "zh_tw",
+      "translation": "發了訊息，但是沒有回覆。"
+    }
+  },
+  {
+    "id": "ex.ko.s.000885",
+    "source": {
+      "id": "ex.ko.s.000885",
+      "ko": "방학인데 학교에 가요.",
+      "level": "A2",
+      "tags": [
+        "grammar",
+        "ending",
+        "beginner"
+      ],
+      "knowledge_refs": [
+        "kg.grammar.ending.background_neunde"
+      ],
+      "provenance": {
+        "source": "youtube_beginner_grammar",
+        "source_lesson_ids": [
+          88
+        ],
+        "source_video_ids": [
+          "YK0DqzHe9T4"
+        ],
+        "original_sentence_adjusted": "주말인데 출근해요."
+      }
+    },
+    "i18n": {
+      "id": "ex.ko.s.000885",
+      "locale": "zh_tw",
+      "translation": "雖然是放假，但是要去學校。"
+    }
+  },
+  {
+    "id": "ex.ko.s.000886",
+    "source": {
+      "id": "ex.ko.s.000886",
+      "ko": "돈은 많은데 시간이 없어요.",
+      "level": "A2",
+      "tags": [
+        "grammar",
+        "ending",
+        "beginner"
+      ],
+      "knowledge_refs": [
+        "kg.grammar.ending.background_neunde"
+      ],
+      "provenance": {
+        "source": "youtube_beginner_grammar",
+        "source_lesson_ids": [
+          88
+        ],
+        "source_video_ids": [
+          "YK0DqzHe9T4"
+        ],
+        "original_sentence_adjusted": "친구는 많은데 얘기할 사람이 없어요."
+      }
+    },
+    "i18n": {
+      "id": "ex.ko.s.000886",
+      "locale": "zh_tw",
+      "translation": "雖然錢很多，但是沒有時間。"
+    }
+  },
+  {
+    "id": "ex.ko.s.000887",
+    "source": {
+      "id": "ex.ko.s.000887",
+      "ko": "대학교를 졸업한 후에 취직할 거예요.",
+      "level": "A2",
+      "tags": [
+        "grammar",
+        "ending",
+        "beginner"
+      ],
+      "knowledge_refs": [
+        "kg.grammar.ending.after_eun_hue"
+      ],
+      "provenance": {
+        "source": "youtube_beginner_grammar",
+        "source_lesson_ids": [
+          89
+        ],
+        "source_video_ids": [
+          "M8Xgf117_Xg"
+        ],
+        "original_sentence_adjusted": "학교를 졸업한 후에 뭘 할 거예요?"
+      }
+    },
+    "i18n": {
+      "id": "ex.ko.s.000887",
+      "locale": "zh_tw",
+      "translation": "大學畢業之後，我打算去上班（就職）。"
+    }
+  },
+  {
+    "id": "ex.ko.s.000888",
+    "source": {
+      "id": "ex.ko.s.000888",
+      "ko": "아침 식사를 한 후에 과일을 드세요.",
+      "level": "A2",
+      "tags": [
+        "grammar",
+        "ending",
+        "beginner"
+      ],
+      "knowledge_refs": [
+        "kg.grammar.ending.after_eun_hue"
+      ],
+      "provenance": {
+        "source": "youtube_beginner_grammar",
+        "source_lesson_ids": [
+          89
+        ],
+        "source_video_ids": [
+          "M8Xgf117_Xg"
+        ],
+        "original_sentence_adjusted": "밥을 먹은 후에 약을 드세요."
+      }
+    },
+    "i18n": {
+      "id": "ex.ko.s.000888",
+      "locale": "zh_tw",
+      "translation": "吃完早餐之後，請吃點水果。"
+    }
+  },
+  {
+    "id": "ex.ko.s.000889",
+    "source": {
+      "id": "ex.ko.s.000889",
+      "ko": "청소를 한 후에 친구를 만나요.",
+      "level": "A2",
+      "tags": [
+        "grammar",
+        "ending",
+        "beginner"
+      ],
+      "knowledge_refs": [
+        "kg.grammar.ending.after_eun_hue"
+      ],
+      "provenance": {
+        "source": "youtube_beginner_grammar",
+        "source_lesson_ids": [
+          89
+        ],
+        "source_video_ids": [
+          "M8Xgf117_Xg"
+        ],
+        "original_sentence_adjusted": "숙제를 한 후에 놀아요."
+      }
+    },
+    "i18n": {
+      "id": "ex.ko.s.000889",
+      "locale": "zh_tw",
+      "translation": "打掃完之後，我要去見朋友。"
+    }
+  },
+  {
+    "id": "ex.ko.s.000890",
+    "source": {
+      "id": "ex.ko.s.000890",
+      "ko": "콘서트가 끝난 후에 야식을 먹었어요.",
+      "level": "A2",
+      "tags": [
+        "grammar",
+        "ending",
+        "beginner"
+      ],
+      "knowledge_refs": [
+        "kg.grammar.ending.after_eun_hue"
+      ],
+      "provenance": {
+        "source": "youtube_beginner_grammar",
+        "source_lesson_ids": [
+          89
+        ],
+        "source_video_ids": [
+          "M8Xgf117_Xg"
+        ],
+        "original_sentence_adjusted": "영화를 본 후에 밥을 먹었어요."
+      }
+    },
+    "i18n": {
+      "id": "ex.ko.s.000890",
+      "locale": "zh_tw",
+      "translation": "演唱會結束之後，我們去吃了宵夜。"
+    }
+  },
+  {
+    "id": "ex.ko.s.000891",
+    "source": {
+      "id": "ex.ko.s.000891",
+      "ko": "세수한 후에 화장품을 발라요.",
+      "level": "A2",
+      "tags": [
+        "grammar",
+        "ending",
+        "beginner"
+      ],
+      "knowledge_refs": [
+        "kg.grammar.ending.after_eun_hue"
+      ],
+      "provenance": {
+        "source": "youtube_beginner_grammar",
+        "source_lesson_ids": [
+          89
+        ],
+        "source_video_ids": [
+          "M8Xgf117_Xg"
+        ],
+        "original_sentence_adjusted": "샤워한 후에 맥주를 마셔요."
+      }
+    },
+    "i18n": {
+      "id": "ex.ko.s.000891",
+      "locale": "zh_tw",
+      "translation": "洗完臉之後，我會擦化妝品。"
+    }
+  },
+  {
+    "id": "ex.ko.s.000892",
+    "source": {
+      "id": "ex.ko.s.000892",
+      "ko": "사무실에 도착한 후에 회의할게요.",
+      "level": "A2",
+      "tags": [
+        "grammar",
+        "ending",
+        "beginner"
+      ],
+      "knowledge_refs": [
+        "kg.grammar.ending.after_eun_hue"
+      ],
+      "provenance": {
+        "source": "youtube_beginner_grammar",
+        "source_lesson_ids": [
+          89
+        ],
+        "source_video_ids": [
+          "M8Xgf117_Xg"
+        ],
+        "original_sentence_adjusted": "집에 도착한 후에 전화할게요."
+      }
+    },
+    "i18n": {
+      "id": "ex.ko.s.000892",
+      "locale": "zh_tw",
+      "translation": "到了辦公室之後，我會開個會。"
+    }
+  },
+  {
+    "id": "ex.ko.s.000893",
+    "source": {
+      "id": "ex.ko.s.000893",
+      "ko": "수영한 후에 샤워를 했어요.",
+      "level": "A2",
+      "tags": [
+        "grammar",
+        "ending",
+        "beginner"
+      ],
+      "knowledge_refs": [
+        "kg.grammar.ending.after_eun_hue"
+      ],
+      "provenance": {
+        "source": "youtube_beginner_grammar",
+        "source_lesson_ids": [
+          89
+        ],
+        "source_video_ids": [
+          "M8Xgf117_Xg"
+        ],
+        "original_sentence_adjusted": "운동한 후에 물을 많이 마셨어요."
+      }
+    },
+    "i18n": {
+      "id": "ex.ko.s.000893",
+      "locale": "zh_tw",
+      "translation": "游完泳之後，我去沖了澡。"
+    }
+  },
+  {
+    "id": "ex.ko.s.000894",
+    "source": {
+      "id": "ex.ko.s.000894",
+      "ko": "준비를 다 한 후에 출발하세요.",
+      "level": "A2",
+      "tags": [
+        "grammar",
+        "ending",
+        "beginner"
+      ],
+      "knowledge_refs": [
+        "kg.grammar.ending.after_eun_hue"
+      ],
+      "provenance": {
+        "source": "youtube_beginner_grammar",
+        "source_lesson_ids": [
+          89
+        ],
+        "source_video_ids": [
+          "M8Xgf117_Xg"
+        ],
+        "original_sentence_adjusted": "잘 생각한 후에 결정하세요."
+      }
+    },
+    "i18n": {
+      "id": "ex.ko.s.000894",
+      "locale": "zh_tw",
+      "translation": "等準備好之後，再出發吧。"
+    }
+  },
+  {
+    "id": "ex.ko.s.000895",
+    "source": {
+      "id": "ex.ko.s.000895",
+      "ko": "머리를 자른 후에 집에 갈 거예요.",
+      "level": "A2",
+      "tags": [
+        "grammar",
+        "ending",
+        "beginner"
+      ],
+      "knowledge_refs": [
+        "kg.grammar.ending.after_eun_hue"
+      ],
+      "provenance": {
+        "source": "youtube_beginner_grammar",
+        "source_lesson_ids": [
+          89
+        ],
+        "source_video_ids": [
+          "M8Xgf117_Xg"
+        ],
+        "original_sentence_adjusted": "친구를 만난 후에 쇼핑할 거예요."
+      }
+    },
+    "i18n": {
+      "id": "ex.ko.s.000895",
+      "locale": "zh_tw",
+      "translation": "剪完頭髮之後，我要回家。"
+    }
+  },
+  {
+    "id": "ex.ko.s.000896",
+    "source": {
+      "id": "ex.ko.s.000896",
+      "ko": "눈을 뜬 후에 스트레칭을 해요.",
+      "level": "A2",
+      "tags": [
+        "grammar",
+        "ending",
+        "beginner"
+      ],
+      "knowledge_refs": [
+        "kg.grammar.ending.after_eun_hue"
+      ],
+      "provenance": {
+        "source": "youtube_beginner_grammar",
+        "source_lesson_ids": [
+          89
+        ],
+        "source_video_ids": [
+          "M8Xgf117_Xg"
+        ],
+        "original_sentence_adjusted": "아침에 일어난 후에 바로 양치질을 해요."
+      }
+    },
+    "i18n": {
+      "id": "ex.ko.s.000896",
+      "locale": "zh_tw",
+      "translation": "睜開眼之後，我會做一下伸展。"
+    }
+  },
+  {
+    "id": "ex.ko.s.000897",
+    "source": {
+      "id": "ex.ko.s.000897",
+      "ko": "퇴근 후에 같이 저녁 먹을까요?",
+      "level": "A1",
+      "tags": [
+        "grammar",
+        "particle",
+        "beginner"
+      ],
+      "knowledge_refs": [
+        "kg.grammar.particle.after_noun_hu"
+      ],
+      "provenance": {
+        "source": "youtube_beginner_grammar",
+        "source_lesson_ids": [
+          90
+        ],
+        "source_video_ids": [
+          "S5L72HIvmko"
+        ],
+        "original_sentence_adjusted": "퇴근 후에 한잔 합시다."
+      }
+    },
+    "i18n": {
+      "id": "ex.ko.s.000897",
+      "locale": "zh_tw",
+      "translation": "下班之後要一起吃晚餐嗎？"
+    }
+  },
+  {
+    "id": "ex.ko.s.000898",
+    "source": {
+      "id": "ex.ko.s.000898",
+      "ko": "30분 후에 다시 전화해 주세요.",
+      "level": "A1",
+      "tags": [
+        "grammar",
+        "particle",
+        "beginner"
+      ],
+      "knowledge_refs": [
+        "kg.grammar.particle.after_noun_hu"
+      ],
+      "provenance": {
+        "source": "youtube_beginner_grammar",
+        "source_lesson_ids": [
+          90
+        ],
+        "source_video_ids": [
+          "S5L72HIvmko"
+        ],
+        "original_sentence_adjusted": "1시간 후에 다시 오세요."
+      }
+    },
+    "i18n": {
+      "id": "ex.ko.s.000898",
+      "locale": "zh_tw",
+      "translation": "請過 30 分鐘之後再打電話給我。"
+    }
+  },
+  {
+    "id": "ex.ko.s.000899",
+    "source": {
+      "id": "ex.ko.s.000899",
+      "ko": "3년 후에 고향에 돌아갈 거예요.",
+      "level": "A1",
+      "tags": [
+        "grammar",
+        "particle",
+        "beginner"
+      ],
+      "knowledge_refs": [
+        "kg.grammar.particle.after_noun_hu"
+      ],
+      "provenance": {
+        "source": "youtube_beginner_grammar",
+        "source_lesson_ids": [
+          90
+        ],
+        "source_video_ids": [
+          "S5L72HIvmko"
+        ],
+        "original_sentence_adjusted": "1년 후에 한국에 갈 거예요."
+      }
+    },
+    "i18n": {
+      "id": "ex.ko.s.000899",
+      "locale": "zh_tw",
+      "translation": "3 年之後，我要回老家。"
+    }
+  },
+  {
+    "id": "ex.ko.s.000900",
+    "source": {
+      "id": "ex.ko.s.000900",
+      "ko": "시험 후에 같이 놀아요.",
+      "level": "A1",
+      "tags": [
+        "grammar",
+        "particle",
+        "beginner"
+      ],
+      "knowledge_refs": [
+        "kg.grammar.particle.after_noun_hu"
+      ],
+      "provenance": {
+        "source": "youtube_beginner_grammar",
+        "source_lesson_ids": [
+          90
+        ],
+        "source_video_ids": [
+          "S5L72HIvmko"
+        ],
+        "original_sentence_adjusted": "수업 후에 질문이 있어요."
+      }
+    },
+    "i18n": {
+      "id": "ex.ko.s.000900",
+      "locale": "zh_tw",
+      "translation": "考完試之後，我們一起玩吧。"
+    }
+  },
+  {
+    "id": "ex.ko.s.000901",
+    "source": {
+      "id": "ex.ko.s.000901",
+      "ko": "점심 식사 후에 산책을 해요.",
+      "level": "A1",
+      "tags": [
+        "grammar",
+        "particle",
+        "beginner"
+      ],
+      "knowledge_refs": [
+        "kg.grammar.particle.after_noun_hu"
+      ],
+      "provenance": {
+        "source": "youtube_beginner_grammar",
+        "source_lesson_ids": [
+          90
+        ],
+        "source_video_ids": [
+          "S5L72HIvmko"
+        ],
+        "original_sentence_adjusted": "식사 후에 커피를 마셔요."
+      }
+    },
+    "i18n": {
+      "id": "ex.ko.s.000901",
+      "locale": "zh_tw",
+      "translation": "午餐之後，我會去散散步。"
+    }
+  },
+  {
+    "id": "ex.ko.s.000902",
+    "source": {
+      "id": "ex.ko.s.000902",
+      "ko": "축제 후에 거리가 깨끗해요.",
+      "level": "A1",
+      "tags": [
+        "grammar",
+        "particle",
+        "beginner"
+      ],
+      "knowledge_refs": [
+        "kg.grammar.particle.after_noun_hu"
+      ],
+      "provenance": {
+        "source": "youtube_beginner_grammar",
+        "source_lesson_ids": [
+          90
+        ],
+        "source_video_ids": [
+          "S5L72HIvmko"
+        ],
+        "original_sentence_adjusted": "휴가 후에 회사가 바빠요."
+      }
+    },
+    "i18n": {
+      "id": "ex.ko.s.000902",
+      "locale": "zh_tw",
+      "translation": "慶典結束之後，街道變得很乾淨。"
+    }
+  },
+  {
+    "id": "ex.ko.s.000903",
+    "source": {
+      "id": "ex.ko.s.000903",
+      "ko": "오분 후에 버스가 옵니다.",
+      "level": "A1",
+      "tags": [
+        "grammar",
+        "particle",
+        "beginner"
+      ],
+      "knowledge_refs": [
+        "kg.grammar.particle.after_noun_hu"
+      ],
+      "provenance": {
+        "source": "youtube_beginner_grammar",
+        "source_lesson_ids": [
+          90
+        ],
+        "source_video_ids": [
+          "S5L72HIvmko"
+        ],
+        "original_sentence_adjusted": "10분 후에 출발합니다."
+      }
+    },
+    "i18n": {
+      "id": "ex.ko.s.000903",
+      "locale": "zh_tw",
+      "translation": "五分鐘之後公車就會來了。"
+    }
+  },
+  {
+    "id": "ex.ko.s.000904",
+    "source": {
+      "id": "ex.ko.s.000904",
+      "ko": "영화 후에 커피를 마실까요?",
+      "level": "A1",
+      "tags": [
+        "grammar",
+        "particle",
+        "beginner"
+      ],
+      "knowledge_refs": [
+        "kg.grammar.particle.after_noun_hu"
+      ],
+      "provenance": {
+        "source": "youtube_beginner_grammar",
+        "source_lesson_ids": [
+          90
+        ],
+        "source_video_ids": [
+          "S5L72HIvmko"
+        ],
+        "original_sentence_adjusted": "회의 후에 점심을 먹어요."
+      }
+    },
+    "i18n": {
+      "id": "ex.ko.s.000904",
+      "locale": "zh_tw",
+      "translation": "看完電影之後，我們要去喝咖啡嗎？"
+    }
+  },
+  {
+    "id": "ex.ko.s.000905",
+    "source": {
+      "id": "ex.ko.s.000905",
+      "ko": "이사 후에 더 넓은 집에 살아요.",
+      "level": "A1",
+      "tags": [
+        "grammar",
+        "particle",
+        "beginner"
+      ],
+      "knowledge_refs": [
+        "kg.grammar.particle.after_noun_hu"
+      ],
+      "provenance": {
+        "source": "youtube_beginner_grammar",
+        "source_lesson_ids": [
+          90
+        ],
+        "source_video_ids": [
+          "S5L72HIvmko"
+        ],
+        "original_sentence_adjusted": "결혼 후에 대만에서 살아요."
+      }
+    },
+    "i18n": {
+      "id": "ex.ko.s.000905",
+      "locale": "zh_tw",
+      "translation": "搬家之後，我住在更寬敞的房子裡。"
+    }
+  },
+  {
+    "id": "ex.ko.s.000906",
+    "source": {
+      "id": "ex.ko.s.000906",
+      "ko": "졸업 후에 부모님을 만나요.",
+      "level": "A1",
+      "tags": [
+        "grammar",
+        "particle",
+        "beginner"
+      ],
+      "knowledge_refs": [
+        "kg.grammar.particle.after_noun_hu"
+      ],
+      "provenance": {
+        "source": "youtube_beginner_grammar",
+        "source_lesson_ids": [
+          90
+        ],
+        "source_video_ids": [
+          "S5L72HIvmko"
+        ],
+        "original_sentence_adjusted": "퇴원 후에 푹 쉬어야 해요."
+      }
+    },
+    "i18n": {
+      "id": "ex.ko.s.000906",
+      "locale": "zh_tw",
+      "translation": "畢業之後，我要去見父母。"
+    }
+  },
+  {
+    "id": "ex.ko.s.000907",
+    "source": {
+      "id": "ex.ko.s.000907",
+      "ko": "방학 동안 여행을 갈 거예요.",
+      "level": "A1",
+      "tags": [
+        "grammar",
+        "particle",
+        "beginner"
+      ],
+      "knowledge_refs": [
+        "kg.grammar.particle.during_dongan"
+      ],
+      "provenance": {
+        "source": "youtube_beginner_grammar",
+        "source_lesson_ids": [
+          91
+        ]
+      }
+    },
+    "i18n": {
+      "id": "ex.ko.s.000907",
+      "locale": "zh_tw",
+      "translation": "假期期間我打算去旅行。"
+    }
+  },
+  {
+    "id": "ex.ko.s.000908",
+    "source": {
+      "id": "ex.ko.s.000908",
+      "ko": "세 시간 동안 공부했어요.",
+      "level": "A1",
+      "tags": [
+        "grammar",
+        "particle",
+        "beginner"
+      ],
+      "knowledge_refs": [
+        "kg.grammar.particle.during_dongan"
+      ],
+      "provenance": {
+        "source": "youtube_beginner_grammar",
+        "source_lesson_ids": [
+          91
+        ]
+      }
+    },
+    "i18n": {
+      "id": "ex.ko.s.000908",
+      "locale": "zh_tw",
+      "translation": "我學習了三個小時。"
+    }
+  },
+  {
+    "id": "ex.ko.s.000909",
+    "source": {
+      "id": "ex.ko.s.000909",
+      "ko": "주말 동안 집에서 쉬었어요.",
+      "level": "A1",
+      "tags": [
+        "grammar",
+        "particle",
+        "beginner"
+      ],
+      "knowledge_refs": [
+        "kg.grammar.particle.during_dongan"
+      ],
+      "provenance": {
+        "source": "youtube_beginner_grammar",
+        "source_lesson_ids": [
+          91
+        ]
+      }
+    },
+    "i18n": {
+      "id": "ex.ko.s.000909",
+      "locale": "zh_tw",
+      "translation": "週末期間我在家休息了。"
+    }
+  },
+  {
+    "id": "ex.ko.s.000910",
+    "source": {
+      "id": "ex.ko.s.000910",
+      "ko": "십 분 동안 기다려 주세요.",
+      "level": "A1",
+      "tags": [
+        "grammar",
+        "particle",
+        "beginner"
+      ],
+      "knowledge_refs": [
+        "kg.grammar.particle.during_dongan"
+      ],
+      "provenance": {
+        "source": "youtube_beginner_grammar",
+        "source_lesson_ids": [
+          91
+        ]
+      }
+    },
+    "i18n": {
+      "id": "ex.ko.s.000910",
+      "locale": "zh_tw",
+      "translation": "請等十分鐘。"
+    }
+  },
+  {
+    "id": "ex.ko.s.000911",
+    "source": {
+      "id": "ex.ko.s.000911",
+      "ko": "한 달 동안 한국어를 배웠어요.",
+      "level": "A1",
+      "tags": [
+        "grammar",
+        "particle",
+        "beginner"
+      ],
+      "knowledge_refs": [
+        "kg.grammar.particle.during_dongan"
+      ],
+      "provenance": {
+        "source": "youtube_beginner_grammar",
+        "source_lesson_ids": [
+          91
+        ]
+      }
+    },
+    "i18n": {
+      "id": "ex.ko.s.000911",
+      "locale": "zh_tw",
+      "translation": "我學習了一個月的韓語。"
+    }
+  },
+  {
+    "id": "ex.ko.s.000912",
+    "source": {
+      "id": "ex.ko.s.000912",
+      "ko": "점심 시간 동안 친구를 만났어요.",
+      "level": "A1",
+      "tags": [
+        "grammar",
+        "particle",
+        "beginner"
+      ],
+      "knowledge_refs": [
+        "kg.grammar.particle.during_dongan"
+      ],
+      "provenance": {
+        "source": "youtube_beginner_grammar",
+        "source_lesson_ids": [
+          91
+        ]
+      }
+    },
+    "i18n": {
+      "id": "ex.ko.s.000912",
+      "locale": "zh_tw",
+      "translation": "午休時間我見了朋友。"
+    }
+  },
+  {
+    "id": "ex.ko.s.000913",
+    "source": {
+      "id": "ex.ko.s.000913",
+      "ko": "이틀 동안 비가 내렸어요.",
+      "level": "A1",
+      "tags": [
+        "grammar",
+        "particle",
+        "beginner"
+      ],
+      "knowledge_refs": [
+        "kg.grammar.particle.during_dongan"
+      ],
+      "provenance": {
+        "source": "youtube_beginner_grammar",
+        "source_lesson_ids": [
+          91
+        ]
+      }
+    },
+    "i18n": {
+      "id": "ex.ko.s.000913",
+      "locale": "zh_tw",
+      "translation": "雨下了兩天。"
+    }
+  },
+  {
+    "id": "ex.ko.s.000914",
+    "source": {
+      "id": "ex.ko.s.000914",
+      "ko": "방학 동안 매일 아침 운동했어요.",
+      "level": "A1",
+      "tags": [
+        "grammar",
+        "particle",
+        "beginner"
+      ],
+      "knowledge_refs": [
+        "kg.grammar.particle.during_dongan"
+      ],
+      "provenance": {
+        "source": "youtube_beginner_grammar",
+        "source_lesson_ids": [
+          91
+        ]
+      }
+    },
+    "i18n": {
+      "id": "ex.ko.s.000914",
+      "locale": "zh_tw",
+      "translation": "假期期間每天早上都運動了。"
+    }
+  },
+  {
+    "id": "ex.ko.s.000915",
+    "source": {
+      "id": "ex.ko.s.000915",
+      "ko": "두 시간 동안 영화를 봤어요.",
+      "level": "A1",
+      "tags": [
+        "grammar",
+        "particle",
+        "beginner"
+      ],
+      "knowledge_refs": [
+        "kg.grammar.particle.during_dongan"
+      ],
+      "provenance": {
+        "source": "youtube_beginner_grammar",
+        "source_lesson_ids": [
+          91
+        ]
+      }
+    },
+    "i18n": {
+      "id": "ex.ko.s.000915",
+      "locale": "zh_tw",
+      "translation": "看了兩個小時的電影。"
+    }
+  },
+  {
+    "id": "ex.ko.s.000916",
+    "source": {
+      "id": "ex.ko.s.000916",
+      "ko": "일주일 동안 친구 집에서 지냈어요.",
+      "level": "A1",
+      "tags": [
+        "grammar",
+        "particle",
+        "beginner"
+      ],
+      "knowledge_refs": [
+        "kg.grammar.particle.during_dongan"
+      ],
+      "provenance": {
+        "source": "youtube_beginner_grammar",
+        "source_lesson_ids": [
+          91
+        ]
+      }
+    },
+    "i18n": {
+      "id": "ex.ko.s.000916",
+      "locale": "zh_tw",
+      "translation": "在一週期間住在朋友家了。"
+    }
+  },
+  {
+    "id": "ex.ko.s.000917",
+    "source": {
+      "id": "ex.ko.s.000917",
+      "ko": "밥을 먹을 때 조용히 하세요.",
+      "level": "A1",
+      "tags": [
+        "grammar",
+        "ending",
+        "beginner"
+      ],
+      "knowledge_refs": [
+        "kg.grammar.ending.when_ul_tte"
+      ],
+      "provenance": {
+        "source": "youtube_beginner_grammar",
+        "source_lesson_ids": [
+          92
+        ]
+      }
+    },
+    "i18n": {
+      "id": "ex.ko.s.000917",
+      "locale": "zh_tw",
+      "translation": "吃飯的時候請保持安靜。"
+    }
+  },
+  {
+    "id": "ex.ko.s.000918",
+    "source": {
+      "id": "ex.ko.s.000918",
+      "ko": "잠을 잘 때 음악을 들어요.",
+      "level": "A1",
+      "tags": [
+        "grammar",
+        "ending",
+        "beginner"
+      ],
+      "knowledge_refs": [
+        "kg.grammar.ending.when_ul_tte"
+      ],
+      "provenance": {
+        "source": "youtube_beginner_grammar",
+        "source_lesson_ids": [
+          92
+        ]
+      }
+    },
+    "i18n": {
+      "id": "ex.ko.s.000918",
+      "locale": "zh_tw",
+      "translation": "睡覺的時候聽音樂。"
+    }
+  },
+  {
+    "id": "ex.ko.s.000919",
+    "source": {
+      "id": "ex.ko.s.000919",
+      "ko": "비가 올 때 우산을 가져가세요.",
+      "level": "A1",
+      "tags": [
+        "grammar",
+        "ending",
+        "beginner"
+      ],
+      "knowledge_refs": [
+        "kg.grammar.ending.when_ul_tte"
+      ],
+      "provenance": {
+        "source": "youtube_beginner_grammar",
+        "source_lesson_ids": [
+          92
+        ]
+      }
+    },
+    "i18n": {
+      "id": "ex.ko.s.000919",
+      "locale": "zh_tw",
+      "translation": "下雨的時候請帶上傘。"
+    }
+  },
+  {
+    "id": "ex.ko.s.000920",
+    "source": {
+      "id": "ex.ko.s.000920",
+      "ko": "공부할 때 커피를 마셔요.",
+      "level": "A1",
+      "tags": [
+        "grammar",
+        "ending",
+        "beginner"
+      ],
+      "knowledge_refs": [
+        "kg.grammar.ending.when_ul_tte"
+      ],
+      "provenance": {
+        "source": "youtube_beginner_grammar",
+        "source_lesson_ids": [
+          92
+        ]
+      }
+    },
+    "i18n": {
+      "id": "ex.ko.s.000920",
+      "locale": "zh_tw",
+      "translation": "學習的時候喝咖啡。"
+    }
+  },
+  {
+    "id": "ex.ko.s.000921",
+    "source": {
+      "id": "ex.ko.s.000921",
+      "ko": "집을 찾을 때 지도를 봤어요.",
+      "level": "A1",
+      "tags": [
+        "grammar",
+        "ending",
+        "beginner"
+      ],
+      "knowledge_refs": [
+        "kg.grammar.ending.when_ul_tte"
+      ],
+      "provenance": {
+        "source": "youtube_beginner_grammar",
+        "source_lesson_ids": [
+          92
+        ]
+      }
+    },
+    "i18n": {
+      "id": "ex.ko.s.000921",
+      "locale": "zh_tw",
+      "translation": "找房子的時候看了地圖。"
+    }
+  },
+  {
+    "id": "ex.ko.s.000922",
+    "source": {
+      "id": "ex.ko.s.000922",
+      "ko": "날씨가 좋을 때 공원에 가요.",
+      "level": "A1",
+      "tags": [
+        "grammar",
+        "ending",
+        "beginner"
+      ],
+      "knowledge_refs": [
+        "kg.grammar.ending.when_ul_tte"
+      ],
+      "provenance": {
+        "source": "youtube_beginner_grammar",
+        "source_lesson_ids": [
+          92
+        ]
+      }
+    },
+    "i18n": {
+      "id": "ex.ko.s.000922",
+      "locale": "zh_tw",
+      "translation": "天氣好的時候去公園。"
+    }
+  },
+  {
+    "id": "ex.ko.s.000923",
+    "source": {
+      "id": "ex.ko.s.000923",
+      "ko": "기분이 나쁠 때 노래를 불러요.",
+      "level": "A1",
+      "tags": [
+        "grammar",
+        "ending",
+        "beginner"
+      ],
+      "knowledge_refs": [
+        "kg.grammar.ending.when_ul_tte"
+      ],
+      "provenance": {
+        "source": "youtube_beginner_grammar",
+        "source_lesson_ids": [
+          92
+        ]
+      }
+    },
+    "i18n": {
+      "id": "ex.ko.s.000923",
+      "locale": "zh_tw",
+      "translation": "心情不好的時候唱歌。"
+    }
+  },
+  {
+    "id": "ex.ko.s.000924",
+    "source": {
+      "id": "ex.ko.s.000924",
+      "ko": "어릴 때 의사가 되고 싶었어요.",
+      "level": "A1",
+      "tags": [
+        "grammar",
+        "ending",
+        "beginner"
+      ],
+      "knowledge_refs": [
+        "kg.grammar.ending.when_ul_tte"
+      ],
+      "provenance": {
+        "source": "youtube_beginner_grammar",
+        "source_lesson_ids": [
+          92
+        ]
+      }
+    },
+    "i18n": {
+      "id": "ex.ko.s.000924",
+      "locale": "zh_tw",
+      "translation": "小時候想成為醫生。"
+    }
+  },
+  {
+    "id": "ex.ko.s.000925",
+    "source": {
+      "id": "ex.ko.s.000925",
+      "ko": "한국에 갈 때 친구를 만날 거예요.",
+      "level": "A1",
+      "tags": [
+        "grammar",
+        "ending",
+        "beginner"
+      ],
+      "knowledge_refs": [
+        "kg.grammar.ending.when_ul_tte"
+      ],
+      "provenance": {
+        "source": "youtube_beginner_grammar",
+        "source_lesson_ids": [
+          92
+        ]
+      }
+    },
+    "i18n": {
+      "id": "ex.ko.s.000925",
+      "locale": "zh_tw",
+      "translation": "去韓國的時候會見朋友。"
+    }
+  },
+  {
+    "id": "ex.ko.s.000926",
+    "source": {
+      "id": "ex.ko.s.000926",
+      "ko": "시간이 있을 때 책을 읽어요.",
+      "level": "A1",
+      "tags": [
+        "grammar",
+        "ending",
+        "beginner"
+      ],
+      "knowledge_refs": [
+        "kg.grammar.ending.when_ul_tte"
+      ],
+      "provenance": {
+        "source": "youtube_beginner_grammar",
+        "source_lesson_ids": [
+          92
+        ]
+      }
+    },
+    "i18n": {
+      "id": "ex.ko.s.000926",
+      "locale": "zh_tw",
+      "translation": "有時間的時候唸書。"
+    }
+  },
+  {
+    "id": "ex.ko.s.000927",
+    "source": {
+      "id": "ex.ko.s.000927",
+      "ko": "이 중에서 제일 좋아하는 과일이 뭐예요?",
+      "level": "A1",
+      "tags": [
+        "grammar",
+        "particle",
+        "beginner"
+      ],
+      "knowledge_refs": [
+        "kg.grammar.particle.among_jung_eseo"
+      ],
+      "provenance": {
+        "source": "youtube_beginner_grammar",
+        "source_lesson_ids": [
+          93
+        ]
+      }
+    },
+    "i18n": {
+      "id": "ex.ko.s.000927",
+      "locale": "zh_tw",
+      "translation": "在這些之中最喜歡的水果是什麼？"
+    }
+  },
+  {
+    "id": "ex.ko.s.000928",
+    "source": {
+      "id": "ex.ko.s.000928",
+      "ko": "한국 음식 중에서 비빔밥을 가장 좋아해요.",
+      "level": "A1",
+      "tags": [
+        "grammar",
+        "particle",
+        "beginner"
+      ],
+      "knowledge_refs": [
+        "kg.grammar.particle.among_jung_eseo"
+      ],
+      "provenance": {
+        "source": "youtube_beginner_grammar",
+        "source_lesson_ids": [
+          93
+        ]
+      }
+    },
+    "i18n": {
+      "id": "ex.ko.s.000928",
+      "locale": "zh_tw",
+      "translation": "在韓國料理之中最喜歡石鍋拌飯。"
+    }
+  },
+  {
+    "id": "ex.ko.s.000929",
+    "source": {
+      "id": "ex.ko.s.000929",
+      "ko": "친구들 중에서 누가 제일 커요?",
+      "level": "A1",
+      "tags": [
+        "grammar",
+        "particle",
+        "beginner"
+      ],
+      "knowledge_refs": [
+        "kg.grammar.particle.among_jung_eseo"
+      ],
+      "provenance": {
+        "source": "youtube_beginner_grammar",
+        "source_lesson_ids": [
+          93
+        ]
+      }
+    },
+    "i18n": {
+      "id": "ex.ko.s.000929",
+      "locale": "zh_tw",
+      "translation": "在朋友們之中誰最高？"
+    }
+  },
+  {
+    "id": "ex.ko.s.000930",
+    "source": {
+      "id": "ex.ko.s.000930",
+      "ko": "이 세 권 중에서 한 권을 골라 보세요.",
+      "level": "A1",
+      "tags": [
+        "grammar",
+        "particle",
+        "beginner"
+      ],
+      "knowledge_refs": [
+        "kg.grammar.particle.among_jung_eseo"
+      ],
+      "provenance": {
+        "source": "youtube_beginner_grammar",
+        "source_lesson_ids": [
+          93
+        ]
+      }
+    },
+    "i18n": {
+      "id": "ex.ko.s.000930",
+      "locale": "zh_tw",
+      "translation": "請從這三本之中選一本。"
+    }
+  },
+  {
+    "id": "ex.ko.s.000931",
+    "source": {
+      "id": "ex.ko.s.000931",
+      "ko": "운동 중에서 축구가 제일 재미있어요.",
+      "level": "A1",
+      "tags": [
+        "grammar",
+        "particle",
+        "beginner"
+      ],
+      "knowledge_refs": [
+        "kg.grammar.particle.among_jung_eseo"
+      ],
+      "provenance": {
+        "source": "youtube_beginner_grammar",
+        "source_lesson_ids": [
+          93
+        ]
+      }
+    },
+    "i18n": {
+      "id": "ex.ko.s.000931",
+      "locale": "zh_tw",
+      "translation": "在運動之中足球最有意思。"
+    }
+  },
+  {
+    "id": "ex.ko.s.000932",
+    "source": {
+      "id": "ex.ko.s.000932",
+      "ko": "사과하고 포도 중에서 사과가 더 맛있어요.",
+      "level": "A1",
+      "tags": [
+        "grammar",
+        "particle",
+        "beginner"
+      ],
+      "knowledge_refs": [
+        "kg.grammar.particle.among_jung_eseo"
+      ],
+      "provenance": {
+        "source": "youtube_beginner_grammar",
+        "source_lesson_ids": [
+          93
+        ]
+      }
+    },
+    "i18n": {
+      "id": "ex.ko.s.000932",
+      "locale": "zh_tw",
+      "translation": "在蘋果和葡萄之中，蘋果更好吃。"
+    }
+  },
+  {
+    "id": "ex.ko.s.000933",
+    "source": {
+      "id": "ex.ko.s.000933",
+      "ko": "여기에 있는 옷 중에서 골라 보세요.",
+      "level": "A1",
+      "tags": [
+        "grammar",
+        "particle",
+        "beginner"
+      ],
+      "knowledge_refs": [
+        "kg.grammar.particle.among_jung_eseo"
+      ],
+      "provenance": {
+        "source": "youtube_beginner_grammar",
+        "source_lesson_ids": [
+          93
+        ]
+      }
+    },
+    "i18n": {
+      "id": "ex.ko.s.000933",
+      "locale": "zh_tw",
+      "translation": "請從這裡有的衣服之中挑選。"
+    }
+  },
+  {
+    "id": "ex.ko.s.000934",
+    "source": {
+      "id": "ex.ko.s.000934",
+      "ko": "우리 가족 중에서 아버지가 요리를 제일 잘해요.",
+      "level": "A1",
+      "tags": [
+        "grammar",
+        "particle",
+        "beginner"
+      ],
+      "knowledge_refs": [
+        "kg.grammar.particle.among_jung_eseo"
+      ],
+      "provenance": {
+        "source": "youtube_beginner_grammar",
+        "source_lesson_ids": [
+          93
+        ]
+      }
+    },
+    "i18n": {
+      "id": "ex.ko.s.000934",
+      "locale": "zh_tw",
+      "translation": "在我們家之中，爸爸最擅長料理。"
+    }
+  },
+  {
+    "id": "ex.ko.s.000935",
+    "source": {
+      "id": "ex.ko.s.000935",
+      "ko": "색깔 중에서 파란색을 제일 좋아해요.",
+      "level": "A1",
+      "tags": [
+        "grammar",
+        "particle",
+        "beginner"
+      ],
+      "knowledge_refs": [
+        "kg.grammar.particle.among_jung_eseo"
+      ],
+      "provenance": {
+        "source": "youtube_beginner_grammar",
+        "source_lesson_ids": [
+          93
+        ]
+      }
+    },
+    "i18n": {
+      "id": "ex.ko.s.000935",
+      "locale": "zh_tw",
+      "translation": "在顏色之中最喜歡藍色。"
+    }
+  },
+  {
+    "id": "ex.ko.s.000936",
+    "source": {
+      "id": "ex.ko.s.000936",
+      "ko": "이 노래들 중에서 이 노래가 가장 유명해요.",
+      "level": "A1",
+      "tags": [
+        "grammar",
+        "particle",
+        "beginner"
+      ],
+      "knowledge_refs": [
+        "kg.grammar.particle.among_jung_eseo"
+      ],
+      "provenance": {
+        "source": "youtube_beginner_grammar",
+        "source_lesson_ids": [
+          93
+        ]
+      }
+    },
+    "i18n": {
+      "id": "ex.ko.s.000936",
+      "locale": "zh_tw",
+      "translation": "在這些歌之中這一首最有名。"
+    }
+  },
+  {
+    "id": "ex.ko.s.000937",
+    "source": {
+      "id": "ex.ko.s.000937",
+      "ko": "밥을 먹기 전에 손을 씻어요.",
+      "level": "A1",
+      "tags": [
+        "grammar",
+        "ending",
+        "beginner"
+      ],
+      "knowledge_refs": [
+        "kg.grammar.ending.before_gi_jeone"
+      ],
+      "provenance": {
+        "source": "youtube_beginner_grammar",
+        "source_lesson_ids": [
+          94
+        ]
+      }
+    },
+    "i18n": {
+      "id": "ex.ko.s.000937",
+      "locale": "zh_tw",
+      "translation": "吃飯之前洗手。"
+    }
+  },
+  {
+    "id": "ex.ko.s.000938",
+    "source": {
+      "id": "ex.ko.s.000938",
+      "ko": "요리를 하기 전에 장을 봐요.",
+      "level": "A1",
+      "tags": [
+        "grammar",
+        "ending",
+        "beginner"
+      ],
+      "knowledge_refs": [
+        "kg.grammar.ending.before_gi_jeone"
+      ],
+      "provenance": {
+        "source": "youtube_beginner_grammar",
+        "source_lesson_ids": [
+          94
+        ]
+      }
+    },
+    "i18n": {
+      "id": "ex.ko.s.000938",
+      "locale": "zh_tw",
+      "translation": "做飯之前先買菜。"
+    }
+  },
+  {
+    "id": "ex.ko.s.000939",
+    "source": {
+      "id": "ex.ko.s.000939",
+      "ko": "숙제를 하기 전에 게임을 했어요.",
+      "level": "A1",
+      "tags": [
+        "grammar",
+        "ending",
+        "beginner"
+      ],
+      "knowledge_refs": [
+        "kg.grammar.ending.before_gi_jeone"
+      ],
+      "provenance": {
+        "source": "youtube_beginner_grammar",
+        "source_lesson_ids": [
+          94
+        ]
+      }
+    },
+    "i18n": {
+      "id": "ex.ko.s.000939",
+      "locale": "zh_tw",
+      "translation": "做作業之前玩了遊戲。"
+    }
+  },
+  {
+    "id": "ex.ko.s.000940",
+    "source": {
+      "id": "ex.ko.s.000940",
+      "ko": "자기 전에 책을 읽었어요.",
+      "level": "A1",
+      "tags": [
+        "grammar",
+        "ending",
+        "beginner"
+      ],
+      "knowledge_refs": [
+        "kg.grammar.ending.before_gi_jeone"
+      ],
+      "provenance": {
+        "source": "youtube_beginner_grammar",
+        "source_lesson_ids": [
+          94
+        ]
+      }
+    },
+    "i18n": {
+      "id": "ex.ko.s.000940",
+      "locale": "zh_tw",
+      "translation": "睡覺之前看書。"
+    }
+  },
+  {
+    "id": "ex.ko.s.000941",
+    "source": {
+      "id": "ex.ko.s.000941",
+      "ko": "운동하기 전에 준비 운동을 하세요.",
+      "level": "A1",
+      "tags": [
+        "grammar",
+        "ending",
+        "beginner"
+      ],
+      "knowledge_refs": [
+        "kg.grammar.ending.before_gi_jeone"
+      ],
+      "provenance": {
+        "source": "youtube_beginner_grammar",
+        "source_lesson_ids": [
+          94
+        ]
+      }
+    },
+    "i18n": {
+      "id": "ex.ko.s.000941",
+      "locale": "zh_tw",
+      "translation": "運動之前請先做準備運動。"
+    }
+  },
+  {
+    "id": "ex.ko.s.000942",
+    "source": {
+      "id": "ex.ko.s.000942",
+      "ko": "영화를 보기 전에 팝콘을 샀어요.",
+      "level": "A1",
+      "tags": [
+        "grammar",
+        "ending",
+        "beginner"
+      ],
+      "knowledge_refs": [
+        "kg.grammar.ending.before_gi_jeone"
+      ],
+      "provenance": {
+        "source": "youtube_beginner_grammar",
+        "source_lesson_ids": [
+          94
+        ]
+      }
+    },
+    "i18n": {
+      "id": "ex.ko.s.000942",
+      "locale": "zh_tw",
+      "translation": "看電影之前買了爆米花。"
+    }
+  },
+  {
+    "id": "ex.ko.s.000943",
+    "source": {
+      "id": "ex.ko.s.000943",
+      "ko": "여행을 가기 전에 계획을 세웠어요.",
+      "level": "A1",
+      "tags": [
+        "grammar",
+        "ending",
+        "beginner"
+      ],
+      "knowledge_refs": [
+        "kg.grammar.ending.before_gi_jeone"
+      ],
+      "provenance": {
+        "source": "youtube_beginner_grammar",
+        "source_lesson_ids": [
+          94
+        ]
+      }
+    },
+    "i18n": {
+      "id": "ex.ko.s.000943",
+      "locale": "zh_tw",
+      "translation": "去旅行之前制定了計畫。"
+    }
+  },
+  {
+    "id": "ex.ko.s.000944",
+    "source": {
+      "id": "ex.ko.s.000944",
+      "ko": "한국에 오기 전에 한국어를 조금 배웠어요.",
+      "level": "A1",
+      "tags": [
+        "grammar",
+        "ending",
+        "beginner"
+      ],
+      "knowledge_refs": [
+        "kg.grammar.ending.before_gi_jeone"
+      ],
+      "provenance": {
+        "source": "youtube_beginner_grammar",
+        "source_lesson_ids": [
+          94
+        ]
+      }
+    },
+    "i18n": {
+      "id": "ex.ko.s.000944",
+      "locale": "zh_tw",
+      "translation": "來韓國之前學了一點韓語。"
+    }
+  },
+  {
+    "id": "ex.ko.s.000945",
+    "source": {
+      "id": "ex.ko.s.000945",
+      "ko": "수업이 시작하기 전에 교실에 오세요.",
+      "level": "A1",
+      "tags": [
+        "grammar",
+        "ending",
+        "beginner"
+      ],
+      "knowledge_refs": [
+        "kg.grammar.ending.before_gi_jeone"
+      ],
+      "provenance": {
+        "source": "youtube_beginner_grammar",
+        "source_lesson_ids": [
+          94
+        ]
+      }
+    },
+    "i18n": {
+      "id": "ex.ko.s.000945",
+      "locale": "zh_tw",
+      "translation": "請在課開始之前來教室。"
+    }
+  },
+  {
+    "id": "ex.ko.s.000946",
+    "source": {
+      "id": "ex.ko.s.000946",
+      "ko": "화장하기 전에 세수를 해요.",
+      "level": "A1",
+      "tags": [
+        "grammar",
+        "ending",
+        "beginner"
+      ],
+      "knowledge_refs": [
+        "kg.grammar.ending.before_gi_jeone"
+      ],
+      "provenance": {
+        "source": "youtube_beginner_grammar",
+        "source_lesson_ids": [
+          94
+        ]
+      }
+    },
+    "i18n": {
+      "id": "ex.ko.s.000946",
+      "locale": "zh_tw",
+      "translation": "化妝之前先洗臉。"
+    }
+  },
+  {
+    "id": "ex.ko.s.000947",
+    "source": {
+      "id": "ex.ko.s.000947",
+      "ko": "날씨가 춥기 때문에 코트를 입었어요.",
+      "level": "A1",
+      "tags": [
+        "grammar",
+        "ending",
+        "beginner"
+      ],
+      "knowledge_refs": [
+        "kg.grammar.ending.cause_gi_ttaemune"
+      ],
+      "provenance": {
+        "source": "youtube_beginner_grammar",
+        "source_lesson_ids": [
+          95
+        ]
+      }
+    },
+    "i18n": {
+      "id": "ex.ko.s.000947",
+      "locale": "zh_tw",
+      "translation": "因為天氣很冷，所以穿了大衣。"
+    }
+  },
+  {
+    "id": "ex.ko.s.000948",
+    "source": {
+      "id": "ex.ko.s.000948",
+      "ko": "배가 고프기 때문에 식당에 가요.",
+      "level": "A1",
+      "tags": [
+        "grammar",
+        "ending",
+        "beginner"
+      ],
+      "knowledge_refs": [
+        "kg.grammar.ending.cause_gi_ttaemune"
+      ],
+      "provenance": {
+        "source": "youtube_beginner_grammar",
+        "source_lesson_ids": [
+          95
+        ]
+      }
+    },
+    "i18n": {
+      "id": "ex.ko.s.000948",
+      "locale": "zh_tw",
+      "translation": "因為肚子餓，所以去餐廳。"
+    }
+  },
+  {
+    "id": "ex.ko.s.000949",
+    "source": {
+      "id": "ex.ko.s.000949",
+      "ko": "한국어가 재미있기 때문에 열심히 공부해요.",
+      "level": "A1",
+      "tags": [
+        "grammar",
+        "ending",
+        "beginner"
+      ],
+      "knowledge_refs": [
+        "kg.grammar.ending.cause_gi_ttaemune"
+      ],
+      "provenance": {
+        "source": "youtube_beginner_grammar",
+        "source_lesson_ids": [
+          95
+        ]
+      }
+    },
+    "i18n": {
+      "id": "ex.ko.s.000949",
+      "locale": "zh_tw",
+      "translation": "因為韓語很有趣，所以努力地學習。"
+    }
+  },
+  {
+    "id": "ex.ko.s.000950",
+    "source": {
+      "id": "ex.ko.s.000950",
+      "ko": "머리가 아프기 때문에 약을 먹었어요.",
+      "level": "A1",
+      "tags": [
+        "grammar",
+        "ending",
+        "beginner"
+      ],
+      "knowledge_refs": [
+        "kg.grammar.ending.cause_gi_ttaemune"
+      ],
+      "provenance": {
+        "source": "youtube_beginner_grammar",
+        "source_lesson_ids": [
+          95
+        ]
+      }
+    },
+    "i18n": {
+      "id": "ex.ko.s.000950",
+      "locale": "zh_tw",
+      "translation": "因為頭痛，所以吃了藥。"
+    }
+  },
+  {
+    "id": "ex.ko.s.000951",
+    "source": {
+      "id": "ex.ko.s.000951",
+      "ko": "사람이 많기 때문에 조금 복잡해요.",
+      "level": "A1",
+      "tags": [
+        "grammar",
+        "ending",
+        "beginner"
+      ],
+      "knowledge_refs": [
+        "kg.grammar.ending.cause_gi_ttaemune"
+      ],
+      "provenance": {
+        "source": "youtube_beginner_grammar",
+        "source_lesson_ids": [
+          95
+        ]
+      }
+    },
+    "i18n": {
+      "id": "ex.ko.s.000951",
+      "locale": "zh_tw",
+      "translation": "因為人很多，所以有點擁擠（複雜）。"
+    }
+  },
+  {
+    "id": "ex.ko.s.000952",
+    "source": {
+      "id": "ex.ko.s.000952",
+      "ko": "내일 시험이 있기 때문에 집에서 공부할 거예요.",
+      "level": "A1",
+      "tags": [
+        "grammar",
+        "ending",
+        "beginner"
+      ],
+      "knowledge_refs": [
+        "kg.grammar.ending.cause_gi_ttaemune"
+      ],
+      "provenance": {
+        "source": "youtube_beginner_grammar",
+        "source_lesson_ids": [
+          95
+        ]
+      }
+    },
+    "i18n": {
+      "id": "ex.ko.s.000952",
+      "locale": "zh_tw",
+      "translation": "因為明天有考試，所以打算在家學習。"
+    }
+  },
+  {
+    "id": "ex.ko.s.000953",
+    "source": {
+      "id": "ex.ko.s.000953",
+      "ko": "길이 막히기 때문에 지하철을 탔어요.",
+      "level": "A1",
+      "tags": [
+        "grammar",
+        "ending",
+        "beginner"
+      ],
+      "knowledge_refs": [
+        "kg.grammar.ending.cause_gi_ttaemune"
+      ],
+      "provenance": {
+        "source": "youtube_beginner_grammar",
+        "source_lesson_ids": [
+          95
+        ]
+      }
+    },
+    "i18n": {
+      "id": "ex.ko.s.000953",
+      "locale": "zh_tw",
+      "translation": "因為塞車（路塞住了），所以搭了地鐵。"
+    }
+  },
+  {
+    "id": "ex.ko.s.000954",
+    "source": {
+      "id": "ex.ko.s.000954",
+      "ko": "늦었기 때문에 택시를 탔어요.",
+      "level": "A1",
+      "tags": [
+        "grammar",
+        "ending",
+        "beginner"
+      ],
+      "knowledge_refs": [
+        "kg.grammar.ending.cause_gi_ttaemune"
+      ],
+      "provenance": {
+        "source": "youtube_beginner_grammar",
+        "source_lesson_ids": [
+          95
+        ]
+      }
+    },
+    "i18n": {
+      "id": "ex.ko.s.000954",
+      "locale": "zh_tw",
+      "translation": "因為遲到了，所以搭了計程車。"
+    }
+  },
+  {
+    "id": "ex.ko.s.000955",
+    "source": {
+      "id": "ex.ko.s.000955",
+      "ko": "비가 오기 때문에 축구를 못 해요.",
+      "level": "A1",
+      "tags": [
+        "grammar",
+        "ending",
+        "beginner"
+      ],
+      "knowledge_refs": [
+        "kg.grammar.ending.cause_gi_ttaemune"
+      ],
+      "provenance": {
+        "source": "youtube_beginner_grammar",
+        "source_lesson_ids": [
+          95
+        ]
+      }
+    },
+    "i18n": {
+      "id": "ex.ko.s.000955",
+      "locale": "zh_tw",
+      "translation": "因為下雨，所以不能踢足球。"
+    }
+  },
+  {
+    "id": "ex.ko.s.000956",
+    "source": {
+      "id": "ex.ko.s.000956",
+      "ko": "학생이기 때문에 공부를 많이 해야 돼요.",
+      "level": "A1",
+      "tags": [
+        "grammar",
+        "ending",
+        "beginner"
+      ],
+      "knowledge_refs": [
+        "kg.grammar.ending.cause_gi_ttaemune"
+      ],
+      "provenance": {
+        "source": "youtube_beginner_grammar",
+        "source_lesson_ids": [
+          95
+        ]
+      }
+    },
+    "i18n": {
+      "id": "ex.ko.s.000956",
+      "locale": "zh_tw",
+      "translation": "因為是學生，所以必須要多學習。"
+    }
   }
 ]

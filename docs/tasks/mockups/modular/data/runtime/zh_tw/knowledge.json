@@ -50,6 +50,51 @@
     }
   },
   {
+    "id": "kg.grammar.adverb.dangjang",
+    "source": {
+      "id": "kg.grammar.adverb.dangjang",
+      "kind": "grammar",
+      "subcategory": "adverb",
+      "level": "A1",
+      "surface": "당장",
+      "tags": [
+        "grammar",
+        "adverb",
+        "beginner",
+        "v5_ingestion"
+      ],
+      "provenance": {
+        "source": "youtube_connectors",
+        "source_lesson_ids": [
+          32
+        ],
+        "source_video_ids": [
+          "akewNIu9Em0"
+        ]
+      },
+      "example_sentence_refs": [
+        "ex.ko.s.000307",
+        "ex.ko.s.000308",
+        "ex.ko.s.000309",
+        "ex.ko.s.000310",
+        "ex.ko.s.000311",
+        "ex.ko.s.000312",
+        "ex.ko.s.000313",
+        "ex.ko.s.000314",
+        "ex.ko.s.000315",
+        "ex.ko.s.000316"
+      ]
+    },
+    "i18n": {
+      "id": "kg.grammar.adverb.dangjang",
+      "locale": "zh_tw",
+      "title": "당장 (立刻、當場)",
+      "description": "表示不拖延，立即進行某個動作或處於某種狀態。",
+      "explanation_md": "· 用法說明\n`당장` 是一個副詞，用來強調動作必須「馬上」、「立刻」執行，或者某個情況「當下」就發生。它常用於命令、急迫的需求或突然的決定。\n\n· 常見使用場景\n1. **強烈命令或要求**：如「立刻出去」、「馬上回答」。\n2. **迫切的需要**：如「現在馬上就需要錢」。\n3. **即時的決定或反應**：如「不舒服的話立刻去醫院」。\n\n· 注意\n`당장` 的語氣通常比較強烈，在對長輩或正式場合使用時需注意禮貌，避免給人過於催促或無禮的感覺。",
+      "usage_notes": []
+    }
+  },
+  {
     "id": "kg.grammar.adverb.eolleun",
     "source": {
       "id": "kg.grammar.adverb.eolleun",
@@ -91,6 +136,96 @@
       "title": "얼른 (趕快、快速地)",
       "description": "表示不拖延，立刻、迅速地採取行動。",
       "explanation_md": "副詞 `얼른` 用於強調動作必須迅速執行，不應延遲，類似於中文的「趕快」、「趕緊」。\n\n· 用法說明\n- `얼른` 多用於祈使句、建議句或表示意志的句子中。\n- 常見於日常對話，催促他人或自己儘快行動。\n\n· 常見使用場景\n- 提醒他人快點回家、吃飯、去醫院或完成作業。\n- [id:ex.ko.s.000267]\n- [id:ex.ko.s.000269]\n- [id:ex.ko.s.000272]\n\n· 相近文法比較\n- **빨리**: 單純強調「速度快」。\n- **얼른**: 除了速度，更強調「不耽擱時間」、「立刻」的時效性。\n\n· 注意\n- 在口語中非常常用，語氣較為親近或直接。",
+      "usage_notes": []
+    }
+  },
+  {
+    "id": "kg.grammar.adverb.got",
+    "source": {
+      "id": "kg.grammar.adverb.got",
+      "kind": "grammar",
+      "subcategory": "adverb",
+      "level": "A1",
+      "surface": "곧",
+      "tags": [
+        "grammar",
+        "adverb",
+        "beginner",
+        "v5_ingestion"
+      ],
+      "provenance": {
+        "source": "youtube_connectors",
+        "source_lesson_ids": [
+          34
+        ],
+        "source_video_ids": [
+          "mh9dbBAikU0"
+        ]
+      },
+      "example_sentence_refs": [
+        "ex.ko.s.000337",
+        "ex.ko.s.000338",
+        "ex.ko.s.000339",
+        "ex.ko.s.000340",
+        "ex.ko.s.000341",
+        "ex.ko.s.000342",
+        "ex.ko.s.000343",
+        "ex.ko.s.000344",
+        "ex.ko.s.000345",
+        "ex.ko.s.000346"
+      ]
+    },
+    "i18n": {
+      "id": "kg.grammar.adverb.got",
+      "locale": "zh_tw",
+      "title": "곧 (即將、馬上)",
+      "description": "表示某個動作或狀態在不久之後就會發生。",
+      "explanation_md": "· 用法說明\n`곧` 是一個副詞，用來表示時間上的鄰近，意即「馬上」、「很快地」。它通常用於描述計畫中的即將到來的事，或自然趨勢下快要發生的變化。\n\n· 常見使用場景\n1. **描述即將到來的時間或節日**：如「即將是聖誕節了 (`곧 크리스마스예요`)」。\n2. **描述交通工具的抵達或出發**：如「火車即將抵達 (`기차가 곧 도착합니다`)」。\n3. **描述正在發生的變化**：如「電影馬上開始 (`영화가 곧 시작해요`)」。\n\n· 注意\n與 `당장` 相比，`곧` 更多是指「不久的未來」，而不一定帶有 `당장` 那種強烈的「就在這一秒、當場」的急迫催促感。",
+      "usage_notes": []
+    }
+  },
+  {
+    "id": "kg.grammar.adverb.jamsi_hu",
+    "source": {
+      "id": "kg.grammar.adverb.jamsi_hu",
+      "kind": "grammar",
+      "subcategory": "adverb",
+      "level": "A1",
+      "surface": "잠시 후",
+      "tags": [
+        "grammar",
+        "adverb",
+        "beginner",
+        "v5_ingestion"
+      ],
+      "provenance": {
+        "source": "youtube_connectors",
+        "source_lesson_ids": [
+          33
+        ],
+        "source_video_ids": [
+          "MMs_N2g5A64"
+        ]
+      },
+      "example_sentence_refs": [
+        "ex.ko.s.000327",
+        "ex.ko.s.000328",
+        "ex.ko.s.000329",
+        "ex.ko.s.000330",
+        "ex.ko.s.000331",
+        "ex.ko.s.000332",
+        "ex.ko.s.000333",
+        "ex.ko.s.000334",
+        "ex.ko.s.000335",
+        "ex.ko.s.000336"
+      ]
+    },
+    "i18n": {
+      "id": "kg.grammar.adverb.jamsi_hu",
+      "locale": "zh_tw",
+      "title": "잠시 후 (過了一會兒)",
+      "description": "表示在短暫的時間過後。",
+      "explanation_md": "· 用法說明\n`잠시 후` 是一個副詞短語，結合了 `잠시`（暫時、一會兒）和 `후`（之後）。它用來描述在一個很短的時間間隔之後發生的事。中文常譯為「過了一會兒」、「待會兒」。\n\n· 常見使用場景\n1. **描述即將發生的短暫延遲**：如「過一會兒公車就會抵達 (`잠시 후 버스가 도착할 거예요`)」。\n2. **描述過去發生的短暫間隔**：如「過了一會兒開始下雨了 (`잠시 후 비가 오기 시작했어요`)」。\n3. **用於公告語句**：如「電影即將開始 (`잠시 후 영화가 시작됩니다`)」。\n\n· 注意\n與 `나중에`（以後）相比，`잠시 후` 強調的時間跨度更短，通常是指幾分鐘或極短的時間內。",
       "usage_notes": []
     }
   },
@@ -941,6 +1076,96 @@
       "title": "ㄴ/은 + 名詞 (形容詞修飾名詞)",
       "description": "將形容詞轉化為修飾語，放在名詞前面進行修飾。",
       "explanation_md": "形容詞的基本型結尾是 `다`（如 `크다`、`작다`），若要用來修飾後面的名詞（如「大包包」、「小房子」），需要將詞幹進行變形。\n\n· 用法說明\n- **無收音詞幹 + `ㄴ`**: 如 `크다` -> `큰 가방`。\n- **有收音詞幹 + `은`**: 如 `작다` -> `작은 집`。\n- **收音 `ㄹ` 脫落**: 如 `길다` -> `긴 바지`。\n- **收音 `ㅂ` 變為 `우`**: 如 `맵다` -> `매운 음식`。\n\n· 常見使用場景\n- 形容物品的屬性、人的特徵或天氣狀況。\n- [id:ex.ko.s.000297]\n- [id:ex.ko.s.000300]\n- [id:ex.ko.s.000301]\n\n· 相近文法比較\n- **ㄴ/은**: 修飾名詞的形容詞（冠形詞形）。\n- **~아/어요**: 放在句尾的敘述語。\n\n· 注意\n- `있다` 和 `없다` 結尾的詞（如 `재미있다`、`맛없다`）不加 `ㄴ/은`，而是加 `는`（如 `재미있는 책`）。",
+      "usage_notes": []
+    }
+  },
+  {
+    "id": "kg.grammar.modifier.v_eul",
+    "source": {
+      "id": "kg.grammar.modifier.v_eul",
+      "kind": "grammar",
+      "subcategory": "modifier",
+      "level": "A1",
+      "surface": "~ㄹ/을 + 名詞",
+      "tags": [
+        "grammar",
+        "modifier",
+        "beginner",
+        "v5_ingestion"
+      ],
+      "provenance": {
+        "source": "youtube_beginner_grammar",
+        "source_lesson_ids": [
+          35
+        ],
+        "source_video_ids": [
+          "BYgzhoRaXZU"
+        ]
+      },
+      "example_sentence_refs": [
+        "ex.ko.s.000347",
+        "ex.ko.s.000348",
+        "ex.ko.s.000349",
+        "ex.ko.s.000350",
+        "ex.ko.s.000351",
+        "ex.ko.s.000352",
+        "ex.ko.s.000353",
+        "ex.ko.s.000354",
+        "ex.ko.s.000355",
+        "ex.ko.s.000356"
+      ]
+    },
+    "i18n": {
+      "id": "kg.grammar.modifier.v_eul",
+      "locale": "zh_tw",
+      "title": "~ㄹ/을 (未來式動詞修飾語)",
+      "description": "接在動詞後，用來修飾後面的名詞，表示「要...的」、「即將...的」。",
+      "explanation_md": "· 用法說明\n`~ㄹ/을` 接在動詞語幹後，將動詞轉化為形容詞形式來修飾名詞，用以表示「計畫中」或「即將發生」的動作。中文通常翻譯為「要...的」。\n\n· 常見使用場景\n1. **描述未來的計畫**：如「要讀的書 (`읽을 책`)」、「要見的人 (`만날 사람`)」。\n2. **描述用途或目的**：如「要喝的咖啡 (`마실 커피`)」、「要寄的包裹 (`보낼 택배`)」。\n3. **描述預期的事物**：如「要交往的人 (`사귈 사람`)」。\n\n· 注意\n1. **區分時態**：現在式修飾用 `~는`，未來式修飾用 `~ㄹ/을`。例如：`먹는 음식` (正在吃的食物) vs `먹을 음식` (要吃的食物)。\n2. **收音規則**：\n   - 無收音：接 `~ㄹ`。例如：`가다` -> `갈`。\n   - 有收音：接 `~을`。例如：`먹다` -> `먹을`。\n3. **ㄹ 不規則**：若語幹以 `ㄹ` 結尾，則不加 `~을`，直接使用原語幹即可。例如：`만들다` -> `만들`, `살다` -> `살`。",
+      "usage_notes": []
+    }
+  },
+  {
+    "id": "kg.grammar.modifier.v_neun",
+    "source": {
+      "id": "kg.grammar.modifier.v_neun",
+      "kind": "grammar",
+      "subcategory": "modifier",
+      "level": "A1",
+      "surface": "~는 + 名詞",
+      "tags": [
+        "grammar",
+        "modifier",
+        "beginner",
+        "v5_ingestion"
+      ],
+      "provenance": {
+        "source": "youtube_beginner_grammar",
+        "source_lesson_ids": [
+          33
+        ],
+        "source_video_ids": [
+          "z2H6chZ0PH0"
+        ]
+      },
+      "example_sentence_refs": [
+        "ex.ko.s.000317",
+        "ex.ko.s.000318",
+        "ex.ko.s.000319",
+        "ex.ko.s.000320",
+        "ex.ko.s.000321",
+        "ex.ko.s.000322",
+        "ex.ko.s.000323",
+        "ex.ko.s.000324",
+        "ex.ko.s.000325",
+        "ex.ko.s.000326"
+      ]
+    },
+    "i18n": {
+      "id": "kg.grammar.modifier.v_neun",
+      "locale": "zh_tw",
+      "title": "~는 (現在式動詞修飾語)",
+      "description": "接在動詞後，用來修飾後面的名詞，表示「正在...的」。",
+      "explanation_md": "· 用法說明\n`~는` 接在動詞語幹後，將動詞轉化為形容詞的形式來修飾名詞。它用於表示目前的狀態、習慣或是正在進行的動作。中文通常翻譯為「...的」。\n\n· 常見使用場景\n1. **描述正在進行的動作**：如「正在讀書的學生 (`공부하는 학생`)」。\n2. **描述習慣或職業相關動作**：如「現在工作的公司 (`지금 일하는 회사`)」。\n3. **描述眼前的畫面**：如「正在做飯的人 (`요리하는 사람`)」。\n\n· 注意\n1. **僅限動詞**：這個文法主要用於動詞。如果是形容詞修飾名詞，則使用 `~ㄴ/은`。\n2. **收音無關**：不論動詞語幹是否有收音，一律接 `~는`。例如：`먹다` -> `먹는`, `가다` -> `가는`。\n3. **ㄹ 不規則**：若語幹以 `ㄹ` 結尾，則 `ㄹ` 會脫落再接 `~는`。例如：`만들다` -> `만드는`, `살다` -> `사는`。",
       "usage_notes": []
     }
   },

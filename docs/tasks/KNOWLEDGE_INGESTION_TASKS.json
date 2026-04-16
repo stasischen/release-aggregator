@@ -212,12 +212,13 @@
     {
       "id": "kg-spec-017",
       "title": "Finalize DICT_GRAMMAR_LINKING_SPEC_V1 for deep-linking dictionary atoms to Knowledge Lab",
-      "status": "in_progress",
+      "status": "done",
       "notes": [
         "2026-04-13: Initial draft created with singular grammar_ref.",
         "2026-04-13: Revised to grammar_refs[] (plural array) per system convention. Added ingestion authority hierarchy, resolver decoupling, and fail-soft behavior sections.",
         "2026-04-13: Tightened schema constraints (minItems, uniqueItems, pattern) and aligned entry-point visibility rules across spec sections.",
-        "2026-04-16: Review draft of dict_grammar_mapping.json landed with corrected canonical IDs (e.g., ko:cop:이다). Ready for review gate."
+        "2026-04-16: Review draft of dict_grammar_mapping.json landed with corrected canonical IDs (e.g., ko:cop:이다). Ready for review gate.",
+        "2026-04-16: Review gate approved; spec frozen with canonical seed mapping."
       ],
 
       "deliverable": "docs/design/DICT_GRAMMAR_LINKING_SPEC_V1.md"
@@ -225,12 +226,13 @@
     {
       "id": "kg-review-017a",
       "title": "Review gate: confirm cardinality, ingestion authority, and fail-soft behavior before implementation",
-      "status": "todo",
+      "status": "done",
       "depends_on": [
         "kg-spec-017"
       ],
       "notes": [
-        "Acceptance checklist: (1) grammar_refs[] cardinality & schema constraints confirmed, (2) manual mapping vs heuristic authority hierarchy accepted, (3) fail-soft UI states & resolution-based visibility approved, (4) dict_grammar_mapping.json format agreed."
+        "Acceptance checklist: (1) grammar_refs[] cardinality & schema constraints confirmed, (2) manual mapping vs heuristic authority hierarchy accepted, (3) fail-soft UI states & resolution-based visibility approved, (4) dict_grammar_mapping.json format agreed.",
+        "2026-04-16: Review gate approved; mapping sample accepted as official seed."
       ],
       "deliverable": "review sign-off on DICT_GRAMMAR_LINKING_SPEC_V1.md"
     },

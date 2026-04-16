@@ -5,12 +5,12 @@
   "tasks": [
     {
       "id": "CMOD-001",
-      "desc": "Define canonical three-layer model: Content module, Interaction module, Review module, and their responsibilities.",
+      "desc": "Define the canonical three-layer model: Content module, Interaction module, Review module, and their responsibilities, treating dialogue/video as peer input carriers.",
       "status": "todo"
     },
     {
       "id": "CMOD-002",
-      "desc": "Map existing node taxonomy to three-layer model: learning_role/content_form/output_mode to modular responsibilities.",
+      "desc": "Map existing node taxonomy to the three-layer model: learning_role/content_form/output_mode to modular responsibilities, including the boundary between knowledge payload and support surface.",
       "status": "todo"
     },
     {
@@ -20,7 +20,7 @@
     },
     {
       "id": "CMOD-004",
-      "desc": "Introduce review_policy contract proposal for Anki-style scheduling and card source definitions.",
+      "desc": "Introduce review_policy contract proposal for Anki-style scheduling, card source definitions, and review cue priority.",
       "status": "todo"
     },
     {
@@ -30,7 +30,7 @@
     },
     {
       "id": "CMOD-006",
-      "desc": "Resolve contract mismatches between UNITFAC specs/templates/checker (repair_practice, followup semantics, command paths).",
+      "desc": "Resolve contract mismatches between UNITFAC specs/templates/checker (repair_practice, followup semantics, command paths, source_refs naming, sections versus teaching_blocks wording).",
       "status": "todo"
     },
     {
@@ -45,12 +45,12 @@
     },
     {
       "id": "CMOD-009",
-      "desc": "Pilot application on A1-U05: attach modular metadata and validate mockup behavior with existing renderer registry.",
+      "desc": "Pilot application on A1-U05: attach modular metadata and validate mockup behavior with existing renderer registry, including dialogue/video carriers and transitional grammar_note.sections support.",
       "status": "todo"
     },
     {
       "id": "CMOD-010",
-      "desc": "Freeze recommendation: define what enters UNITFAC-001 v0.1 contract vs what remains optional.",
+      "desc": "Freeze recommendation: define what enters UNITFAC-001 v0.1 contract vs what remains optional, with frozen carrier/structure boundaries and deferred migration details.",
       "status": "todo"
     },
     {

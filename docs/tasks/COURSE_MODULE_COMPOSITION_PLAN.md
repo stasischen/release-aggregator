@@ -9,6 +9,7 @@
 3. Review module（什麼時候回收、怎麼回收）
 
 本計畫目標不是新增更多 content forms，而是讓同一內容能掛載多種回答方式與複習策略。
+同時要維持 `dialogue/video` 作為 input carriers，並讓 knowledge-layer 的 `source_refs` / `teaching_blocks` 只負責溯源與教學結構，不承擔 UI 角色。
 
 ## Why This Task Exists
 
@@ -23,6 +24,7 @@
 - 一致的 multi-answer-path contract（同節點多回答模式）
 - 明確的 review policy contract（Anki-style schedule and card source）
 - completion rules contract（完成判準一致）
+- `teaching_blocks` 與 `grammar_note.sections` 的 migration boundary
 
 ## Current Foundation (Already Implemented)
 
@@ -49,7 +51,7 @@
 - `learning_role`
 
 **Examples**
-- `dialogue`, `notice`, `message_thread`, `pattern_card`, `grammar_note`, `functional_phrase_pack`
+- `dialogue`, `video`, `notice`, `message_thread`, `pattern_card`, `grammar_note`, `functional_phrase_pack`
 
 ### 2) Interaction module
 
@@ -82,6 +84,7 @@
 - `review_policy`
 - `followup_goal_type`
 - card source tags / scheduling profile
+- `source_refs` indexing flow for knowledge-to-source traceability
 
 ## Proposed Contract Additions (Draft for UNITFAC-001 Input)
 
@@ -115,6 +118,26 @@ Draft shape:
     "schedule_profile": "same_day_plus_1_plus_3",
     "card_source_refs": ["U05-G1", "U05-P1", "U05-P5"]
   }
+}
+```
+
+### teaching_blocks
+
+Purpose:
+- define the future canonical pedagogical payload for a single knowledge item
+- keep `grammar_note.sections` as a transitional shape until migration is ready
+
+Draft shape:
+
+```json
+{
+  "teaching_blocks": [
+    {
+      "title": "string",
+      "content_md": "string",
+      "usage_tag": "form_rule"
+    }
+  ]
 }
 ```
 
@@ -157,6 +180,7 @@ Draft shape:
 Scope note:
 - This belongs under `COURSE_MODULE_COMPOSITION`, not `KNOWLEDGE_LAB_ENRICHMENT` alone.
 - Knowledge Lab supplies the canonical refs; course composition decides how the lesson surface exposes them.
+- `source_refs` should be treated as one-way knowledge-to-source traceability, not as a UI routing mechanism.
 
 ## Node Usage Mapping (Practical)
 
@@ -168,6 +192,7 @@ Scope note:
 
 Good combinations:
 - `dialogue + none`
+- `video + none`
 - `notice + none`
 - `message_thread + none`
 - `comprehension_check + none`
@@ -182,6 +207,7 @@ Good combinations:
 - `pattern_card + frame_fill`
 - `grammar_note + none`
 - `functional_phrase_pack + chunk_assembly`
+- `grammar_note.sections` should remain compatible with the future `teaching_blocks` shape during migration
 
 ### Drill nodes
 
@@ -203,6 +229,8 @@ Good combinations:
 Good combinations:
 - `roleplay_prompt + guided`
 - `message_prompt + guided`
+- `dialogue + guided`
+- `video + guided`
 
 ### Review nodes
 
@@ -213,6 +241,7 @@ Good combinations:
 Good combinations:
 - `review_card + review_retrieval`
 - `scheduled_followups` with `followup_goal_type`
+- review cue source should prefer primary carriers, then example evidence
 
 ## Work Breakdown
 
@@ -223,6 +252,7 @@ Deliverable:
 
 Acceptance:
 - clearly defines responsibilities and boundaries between content/interaction/review
+- treats `dialogue` and `video` as peer input carriers
 
 ### CMOD-002 — Node taxonomy mapping
 
@@ -231,6 +261,7 @@ Deliverable:
 
 Acceptance:
 - each existing node type has a three-layer mapping and expected role
+- mapping distinguishes knowledge payload from support surface and review surface
 
 ### CMOD-003 — interaction_modes proposal
 
@@ -247,6 +278,7 @@ Deliverable:
 
 Acceptance:
 - supports same-day/+1/+3 scheduling semantics
+- review cue source priority is documented without coupling to implementation
 
 ### CMOD-005 — completion_rules proposal
 
@@ -265,6 +297,8 @@ Known mismatch examples:
 - `repair_practice` mention vs checker allowlist alignment
 - followup semantics consistency
 - mockup-check command path references
+- `source_refs` naming consistency across knowledge-layer docs
+- `grammar_note.sections` versus `teaching_blocks` transitional wording
 
 ### CMOD-007 — Template integration
 
@@ -289,6 +323,7 @@ Deliverable:
 
 Acceptance:
 - fixture remains playable and checkable
+- pilot demonstrates `dialogue/video` as carriers and `grammar_note.sections` as transitional structure
 
 ### CMOD-010 — Freeze recommendation
 
@@ -297,6 +332,7 @@ Deliverable:
 
 Acceptance:
 - clear include/defer list for UNITFAC-001 contract freeze
+- explicitly separates frozen carrier/structure boundaries from deferred migration details
 
 ## Recommended Execution Order
 

@@ -48,7 +48,11 @@
     {
       "id": "kg-auto-007",
       "title": "Prototype normalizer script after manual pack proves stable",
-      "status": "todo",
+      "status": "deprecated",
+      "notes": [
+        "Superseded by the current skill-driven ingestion workflow and hardening gate.",
+        "Normalization/validation responsibilities are now covered by the manual-first skill flow and task-level gates."
+      ],
       "deliverable": "normalizer prototype"
     },
     {
@@ -79,9 +83,13 @@
     {
       "id": "kg-mig-009",
       "title": "Bootstrap example sentence bank from legacy sources and mark quality/segmentation readiness (initial source bootstrap)",
-      "status": "todo",
+      "status": "in_progress",
       "depends_on": [
         "kg-spec-011"
+      ],
+      "notes": [
+        "Current skill work is actively digesting 30+ entries toward the bootstrap example sentence bank.",
+        "Treat this as the live example-sentence intake/bootstrap path rather than a dormant planning item."
       ],
       "deliverable": "first staged example sentence bank"
     },
@@ -159,9 +167,13 @@
     {
       "id": "kg-normalize-001A",
       "title": "Inventory current content pollution before normalization cleanup",
-      "status": "todo",
+      "status": "deprecated",
       "depends_on": [
         "kg-normalize-001"
+      ],
+      "notes": [
+        "Abandoned and will be redone under a revised normalization flow.",
+        "Current inventory is considered garbage/obsolete for the new process."
       ],
       "deliverable": "docs/tasks/KNOWLEDGE_NORMALIZATION_INVENTORY_V1.md"
     },

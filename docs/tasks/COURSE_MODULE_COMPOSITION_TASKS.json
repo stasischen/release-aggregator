@@ -6,7 +6,7 @@
     {
       "id": "CMOD-001",
       "desc": "Define the canonical three-layer model: Content module, Interaction module, Review module, and their responsibilities, treating dialogue/video as peer input carriers.",
-      "status": "todo"
+      "status": "done"
     },
     {
       "id": "CMOD-002",

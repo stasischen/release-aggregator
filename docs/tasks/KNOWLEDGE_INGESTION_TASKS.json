@@ -172,8 +172,8 @@
         "kg-normalize-001"
       ],
       "notes": [
-        "Abandoned and will be redone under a revised normalization flow.",
-        "Current inventory is considered garbage/obsolete for the new process."
+        "Abandoned as a standalone cleanup inventory.",
+        "The rework path is tracked under kg-mig-009, not as a continuation of this inventory."
       ],
       "deliverable": "docs/tasks/KNOWLEDGE_NORMALIZATION_INVENTORY_V1.md"
     },

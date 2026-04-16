@@ -1,5 +1,97 @@
 [
   {
+    "id": "kg.grammar.ability.can_ul_su_itda",
+    "source": {
+      "id": "kg.grammar.ability.can_ul_su_itda",
+      "kind": "grammar",
+      "subcategory": "ability",
+      "level": "A1",
+      "surface": "-(으)ㄹ 수 있다",
+      "tags": [
+        "grammar",
+        "ability",
+        "can",
+        "beginner",
+        "v5_ingestion"
+      ],
+      "provenance": {
+        "source": "youtube_beginner_grammar",
+        "source_lesson_ids": [
+          45
+        ],
+        "source_video_ids": [
+          "KJGW9Is-Tx8"
+        ]
+      },
+      "example_sentence_refs": [
+        "ex.ko.s.000477",
+        "ex.ko.s.000478",
+        "ex.ko.s.000479",
+        "ex.ko.s.000480",
+        "ex.ko.s.000481",
+        "ex.ko.s.000482",
+        "ex.ko.s.000483",
+        "ex.ko.s.000484",
+        "ex.ko.s.000485",
+        "ex.ko.s.000486"
+      ]
+    },
+    "i18n": {
+      "id": "kg.grammar.ability.can_ul_su_itda",
+      "locale": "zh_tw",
+      "title": "-(으)ㄹ 수 있다 (能力/可能性)",
+      "description": "表示具備某種能力，或某種情況發生的可能性。",
+      "explanation_md": "· 用法說明\n用於動詞後。有收音接 `-을 수 있다`，無收音或收音為 `ㄹ` 時接 `-ㄹ 수 있다`。\n\n· 常見使用場景\n- 能力：我會說韓文、我會開車。\n- 可能性：今天下午可能會下雨、那件事也有可能發生。\n\n· 相近文法比較\n- **-기(가) 쉽다**: 強調「容易做到某事」，而 `-(으)ㄹ 수 있다` 僅表示「具備該能力」。\n\n· 注意\n在反問句中，也可以表示「你怎麼可以...」的責備口吻。",
+      "usage_notes": []
+    }
+  },
+  {
+    "id": "kg.grammar.ability.cannot_ul_su_eoptda",
+    "source": {
+      "id": "kg.grammar.ability.cannot_ul_su_eoptda",
+      "kind": "grammar",
+      "subcategory": "ability",
+      "level": "A1",
+      "surface": "-(으)ㄹ 수 없다",
+      "tags": [
+        "grammar",
+        "ability",
+        "cannot",
+        "beginner",
+        "v5_ingestion"
+      ],
+      "provenance": {
+        "source": "youtube_beginner_grammar",
+        "source_lesson_ids": [
+          46
+        ],
+        "source_video_ids": [
+          "CJkDHUQIjaU"
+        ]
+      },
+      "example_sentence_refs": [
+        "ex.ko.s.000487",
+        "ex.ko.s.000488",
+        "ex.ko.s.000489",
+        "ex.ko.s.000490",
+        "ex.ko.s.000491",
+        "ex.ko.s.000492",
+        "ex.ko.s.000493",
+        "ex.ko.s.000494",
+        "ex.ko.s.000495",
+        "ex.ko.s.000496"
+      ]
+    },
+    "i18n": {
+      "id": "kg.grammar.ability.cannot_ul_su_eoptda",
+      "locale": "zh_tw",
+      "title": "-(으)ㄹ 수 없다 (無能力/不可能性)",
+      "description": "表示不具備某種能力，或某種情況不可能發生。",
+      "explanation_md": "· 用法說明\n用於動詞後。有收音接 `-을 수 없다`，無收音或收音為 `ㄹ` 時接 `-ㄹ 수 없다`。\n\n· 常見使用場景\n- 無能力：我不會游泳、我沒辦法看沒有字幕的電影。\n- 不可能性：現在這時間不可能還有位置。\n\n· 相近文法比較\n- **못 / -지 못하다**: 通常指「想做但因為外在或能力限制做不到」。`-(으)ㄹ 수 없다` 更常帶有「本質上的不可能性」。\n\n· 注意\n在敬語語境下，通常用 `-지 못하다` 聽起來會比 `-(으)ㄹ 수 없다` 稍微委婉一些。",
+      "usage_notes": []
+    }
+  },
+  {
     "id": "kg.grammar.adverb.akka",
     "source": {
       "id": "kg.grammar.adverb.akka",
@@ -652,6 +744,84 @@
     }
   },
   {
+    "id": "kg.grammar.desire.wish_go_sipda",
+    "source": {
+      "id": "kg.grammar.desire.wish_go_sipda",
+      "category": "grammar",
+      "subcategory": "desire",
+      "knowledge_type": "official",
+      "tags": [
+        "desire",
+        "wish",
+        "beginner"
+      ],
+      "provenance": {
+        "source": "youtube_beginner_grammar",
+        "source_lesson_ids": [
+          54,
+          60
+        ]
+      },
+      "usage_policies": [
+        "shared_usage"
+      ],
+      "related_knowledge_ids": []
+    },
+    "i18n": {
+      "id": "kg.grammar.desire.wish_go_sipda",
+      "locale": "zh_tw",
+      "title": "-고 싶다 (想/想要)",
+      "description": "表示說話者的願望或意圖。用於動詞詞幹後。",
+      "explanation_md": "· 用法說明\n接在動詞詞幹後。不論有無收音都接 `-고 싶다`。主要用於表達「我」的願望。\n- 想要做某事時：`-고 싶어요` (敬語)\n- 疑問句詢問對方願望時：`-고 싶어요?` (敬語)\n\n· 常見使用場景\n- 表達個人愛好：我想學韓語。\n- 逛街購物：我想買這件衣服。\n- 飲食偏好：我想吃泡菜。\n\n· 相近文法比較\n- **-고 싶어하다**: 用於表達「第三人稱」（他/她/他們）的願望。\n\n· 注意\n雖然通常用於動詞，但在某些形容詞後（如 `행복하고 싶다` 想變得幸福）也可以使用。",
+      "usage_notes": []
+    }
+  },
+  {
+    "id": "kg.grammar.desire.wish_third_person_go_sip_eohada",
+    "source": {
+      "id": "kg.grammar.desire.wish_third_person_go_sip_eohada",
+      "kind": "grammar",
+      "subcategory": "desire",
+      "level": "A1",
+      "surface": "-고 싶어하다",
+      "tags": [
+        "grammar",
+        "desire",
+        "beginner",
+        "v5_ingestion"
+      ],
+      "provenance": {
+        "source": "youtube_beginner_grammar",
+        "source_lesson_ids": [
+          61
+        ],
+        "source_video_ids": [
+          "MUo4b2aOAs4"
+        ]
+      },
+      "example_sentence_refs": [
+        "ex.ko.s.000617",
+        "ex.ko.s.000618",
+        "ex.ko.s.000619",
+        "ex.ko.s.000620",
+        "ex.ko.s.000621",
+        "ex.ko.s.000622",
+        "ex.ko.s.000623",
+        "ex.ko.s.000624",
+        "ex.ko.s.000625",
+        "ex.ko.s.000626"
+      ]
+    },
+    "i18n": {
+      "id": "kg.grammar.desire.wish_third_person_go_sip_eohada",
+      "locale": "zh_tw",
+      "title": "-고 싶어하다 (第三人稱願望)",
+      "description": "用於描述「他人」(第三人稱) 的願望，表示某人想要做某事。",
+      "explanation_md": "· 用法說明\n當主詞是「我」(第一人稱) 時使用 `-고 싶다`；當主詞是「朋友、家人、他」(第三人稱) 時，必須使用 `-고 싶어하다`。這是因為在韓文中，說話者通常無法直接斷定他人的內心感受，必須透過觀察其行為或語言來轉述。\n\n· 形態變化\n- 直接在動詞詞幹後加上 `-고 싶어하다`。\n- 常用口語形式為 `-고 싶어해요`。\n- 若主詞為需要尊敬的對象(如父母、長輩)，可使用 `-고 싶어하세요`。\n\n· 常見使用場景\n- 描述家人的願望：[id:ex.ko.s.000620] (父母想在鄉下生活)\n- 描述朋友的愛好或計畫：[id:ex.ko.s.000619] (朋友想去韓國旅遊)\n\n· 注意\n- **絕對不能**用於第一人稱(我)的肯定句。但可用於問句中的第二人稱嗎？通常第二人稱問句仍傾向使用 `-고 싶어요?`，`-고 싶어하다` 專注於描述第三者的外顯願望。",
+      "usage_notes": []
+    }
+  },
+  {
     "id": "kg.grammar.determiner.demonstrative",
     "source": {
       "id": "kg.grammar.determiner.demonstrative",
@@ -802,6 +972,143 @@
     }
   },
   {
+    "id": "kg.grammar.ending.benefactive_ju_da",
+    "source": {
+      "id": "kg.grammar.ending.benefactive_ju_da",
+      "kind": "grammar",
+      "subcategory": "ending",
+      "level": "A1",
+      "surface": "-아/어 주다",
+      "tags": [
+        "grammar",
+        "ending",
+        "beginner",
+        "v5_ingestion"
+      ],
+      "provenance": {
+        "source": "youtube_beginner_grammar",
+        "source_lesson_ids": [
+          63
+        ],
+        "source_video_ids": [
+          "IPN92OpcvoY"
+        ]
+      },
+      "example_sentence_refs": [
+        "ex.ko.s.000637",
+        "ex.ko.s.000638",
+        "ex.ko.s.000639",
+        "ex.ko.s.000640",
+        "ex.ko.s.000641",
+        "ex.ko.s.000642",
+        "ex.ko.s.000643",
+        "ex.ko.s.000644",
+        "ex.ko.s.000645",
+        "ex.ko.s.000646"
+      ]
+    },
+    "i18n": {
+      "id": "kg.grammar.ending.benefactive_ju_da",
+      "locale": "zh_tw",
+      "title": "-아/어 주다 (幫助/供給)",
+      "description": "用於表示為他人做某事，或請求他人為自己提供協助。",
+      "explanation_md": "· 用法說明\n`주다` 原意為「給」。當它接在其他動詞之後時（`-아/어 주다`），表示動作的受益者是他人。在口語中，常以 `-아/어 주세요` 的形式出現，用來禮貌地請求幫助。\n\n· 形態變化\n依據動詞詞幹的母音進行變換：\n- 母音為 `ㅏ, ㅗ` 時：接 `-아 주다` (例：`닫다` → `닫아 주다`)\n- 其他母音時：接 `-어 주다` (例：`빌리다` → `빌려 주다`)\n- `하다` 結尾：變為 `-해 주다` (例：`설명하다` → `설명해 주다`)\n\n· 常見使用場景\n- 請求協助：[id:ex.ko.s.000637] (請幫我拿包包)\n- 表達善意或承諾：[id:ex.ko.s.000640] (我來教你韓文)\n- 描述他人的幫助：[id:ex.ko.s.000644] (母親為我做晚餐)\n\n· 注意\n- 如果受益者是需要尊敬的長輩，應使用敬語形式 `-아/어 드리다`。\n- 請求幫忙時，加上 `좀` (稍微) 會讓語氣更委婉禮貌。",
+      "usage_notes": []
+    }
+  },
+  {
+    "id": "kg.grammar.ending.choice_euro_hada",
+    "source": {
+      "id": "kg.grammar.ending.choice_euro_hada",
+      "kind": "grammar",
+      "subcategory": "ending",
+      "level": "A1",
+      "surface": "-(으)로 하다",
+      "tags": [
+        "grammar",
+        "ending",
+        "beginner",
+        "v5_ingestion"
+      ],
+      "provenance": {
+        "source": "youtube_beginner_grammar",
+        "source_lesson_ids": [
+          67
+        ],
+        "source_video_ids": [
+          "Bd_XE-4eZg4"
+        ]
+      },
+      "example_sentence_refs": [
+        "ex.ko.s.000657",
+        "ex.ko.s.000658",
+        "ex.ko.s.000659",
+        "ex.ko.s.000660",
+        "ex.ko.s.000661",
+        "ex.ko.s.000662",
+        "ex.ko.s.000663",
+        "ex.ko.s.000664",
+        "ex.ko.s.000665",
+        "ex.ko.s.000666"
+      ]
+    },
+    "i18n": {
+      "id": "kg.grammar.ending.choice_euro_hada",
+      "locale": "zh_tw",
+      "title": "(으)로 하다 (決定/選擇)",
+      "description": "表示從多個選項中做出最終決定或選擇",
+      "explanation_md": "這個句型用於在咖啡廳點餐、購物或與他人共同決定事情時，明確指名「我要選這個」或「決定是這個」。\n\n· 用法說明\n- 名詞末尾有收音：接 `~으로 하다` (例如：`비빔밥으로 하다`)\n- 名詞末尾無收音或為 `ㄹ`：接 `~로 하다` (例如：`피자로 하다`, `사무실로 하다`)\n\n· 常見使用場景\n- 在餐館或咖啡廳點餐：[id:ex.ko.s.000657], [id:ex.ko.s.000658]\n- 選擇顏色、尺寸或款式：[id:ex.ko.s.000663], [id:ex.ko.s.000665]\n- 決定交通工具、結帳方式或約定地點：[id:ex.ko.s.000662], [id:ex.ko.s.000659]\n\n· 注意\n- 常用語法結合：點單時常配合 `~을게요` (意願) 變成 `~(으)로 할게요`；提議時常用 `~(으)로 합시다` (我們...吧)。",
+      "usage_notes": []
+    }
+  },
+  {
+    "id": "kg.grammar.ending.discovery_neyo",
+    "source": {
+      "id": "kg.grammar.ending.discovery_neyo",
+      "kind": "grammar",
+      "subcategory": "ending",
+      "level": "A1",
+      "surface": "-네/네요",
+      "tags": [
+        "grammar",
+        "ending",
+        "discovery",
+        "surprise",
+        "beginner",
+        "v5_ingestion"
+      ],
+      "provenance": {
+        "source": "youtube_beginner_grammar",
+        "source_lesson_ids": [
+          52
+        ],
+        "source_video_ids": [
+          "EqpNlKjsbKA"
+        ]
+      },
+      "example_sentence_refs": [
+        "ex.ko.s.000547",
+        "ex.ko.s.000548",
+        "ex.ko.s.000549",
+        "ex.ko.s.000550",
+        "ex.ko.s.000551",
+        "ex.ko.s.000552",
+        "ex.ko.s.000553",
+        "ex.ko.s.000554",
+        "ex.ko.s.000555",
+        "ex.ko.s.000556"
+      ]
+    },
+    "i18n": {
+      "id": "kg.grammar.ending.discovery_neyo",
+      "locale": "zh_tw",
+      "title": "-네/네요 (啊/耶 - 感嘆)",
+      "description": "表示對剛得知的新事實感到驚訝、感嘆，或是對當前狀況的體會。",
+      "explanation_md": "· 用法說明\n直接接在詞幹後。用於表達「原來是這樣啊！」的驚奇感。\n\n· 常見使用場景\n- 親眼看到事實：哇，今天天氣真好耶！\n- 體驗後感悟：這道菜真的很好吃耶。\n- 確認新訊息：原本你是大學生啊。\n\n· 相近文法比較\n- **-군요/구나**: 通用的感嘆，但不一定需要是「剛發現」的事情。\n- **-네요**: 更強調「此刻當下」新發現的事實，口語感非常強。\n\n· 注意\n與第二人稱問句合用時，帶有「原來你...啊？」的確認色彩。",
+      "usage_notes": []
+    }
+  },
+  {
     "id": "kg.grammar.ending.formal_declarative_su_ni_da",
     "source": {
       "id": "kg.grammar.ending.formal_declarative_su_ni_da",
@@ -849,6 +1156,143 @@
       "title": "습니다/ㅂ니다 (正式敘述句)",
       "description": "韓文中最莊重、正式的敘述用語尾。常用於演講、新聞、正式報告或軍隊場合。在日常生活中，則用於初次見面、對上司或長輩表示端正客氣的語氣。",
       "explanation_md": "「`-습니다/ㅂ니다`」是韓文學習者最先接觸到的**正式體（格式體）**語尾。它的語氣非常莊重，會給人一種「端正、客氣、有禮貌」的印象。\n\n· **用法說明**\n\n這個語尾主要接在**動詞或形容詞**的詞幹之後。如果是名詞，則會使用「`입니다`」。\n\n- **動詞或形容詞詞幹沒有收音時**：接「`-ㅂ니다`」。例如：`가다` → [id:ex.ko.s.000008]。\n- **動詞或形容詞詞幹有收音時**：接「`-습니다`」。例如：`읽다` → [id:ex.ko.s.000009]。\n- **名詞（無論有無收音）**：直接接「`입니다`」。例如：[id:ex.ko.s.000007]、[id:ex.ko.s.000013]。\n\n· **常見使用場景**\n\n雖然在一般對話中，比較常用親切的 `-(아/어)요`，但在以下場合一定要用 `습니다` 系列：\n- **公共演講、新聞廣播**\n- **正式會議、面試、報告**\n- **軍隊、公家機關**\n- **對長輩、上司傳達重要資訊時**\n\n· **相近文法比較**\n\n| 語尾 | 核心感覺 | 常見場合 |\n| --- | --- | --- |\n| `습니다/ㅂ니다` | **莊重、端正、客觀** | 正式場合、發表 |\n| `-(아/어)요` | **禮貌、親切、自然** | 日常生活、一般對話 |\n\n· **注意**\n\n如果你想表現出「我很專業、我很尊敬對方」，或者是在嚴肅的場合，選 `습니다/ㅂ니다` 就對了。像 [id:ex.ko.s.000010] 或 [id:ex.ko.s.000011] 這樣的描述，就是在這種語境下最標準的用法。",
+      "usage_notes": []
+    }
+  },
+  {
+    "id": "kg.grammar.ending.intent_ul_ryeogo",
+    "source": {
+      "id": "kg.grammar.ending.intent_ul_ryeogo",
+      "kind": "grammar",
+      "subcategory": "ending",
+      "level": "A1",
+      "surface": "-(으)려고",
+      "tags": [
+        "grammar",
+        "ending",
+        "beginner",
+        "v5_ingestion"
+      ],
+      "provenance": {
+        "source": "youtube_beginner_grammar",
+        "source_lesson_ids": [
+          66
+        ],
+        "source_video_ids": [
+          "O3dHv3W9VZQ"
+        ]
+      },
+      "example_sentence_refs": [
+        "ex.ko.s.000647",
+        "ex.ko.s.000648",
+        "ex.ko.s.000649",
+        "ex.ko.s.000650",
+        "ex.ko.s.000651",
+        "ex.ko.s.000652",
+        "ex.ko.s.000653",
+        "ex.ko.s.000654",
+        "ex.ko.s.000655",
+        "ex.ko.s.000656"
+      ]
+    },
+    "i18n": {
+      "id": "kg.grammar.ending.intent_ul_ryeogo",
+      "locale": "zh_tw",
+      "title": "-(으)려고 (意圖目的)",
+      "description": "用於表示為了達成某個目標、意圖或目的，而進行後續的動作。",
+      "explanation_md": "· 用法說明\n表示前句是後句動作的「目的」或「意圖」。常用於解釋為什麼要做某件事。翻譯為「為了...」、「打算...所以...」。\n\n· 形態變化\n- 動詞詞幹末尾為**母音**時：接 `-려고` (例：`사다` → `사려고`)\n- 動詞詞幹末尾為**子音**時：接 `-으려고` (例：`읽다` → `읽으려고`)\n- **不規則變化**：\n    - `ㄹ` 結尾：直接接 `-려고` (例：`만들다` → `만들려고`)\n\n· 常見使用場景\n- 解釋學習目的：[id:ex.ko.s.000650] (為了和韓國朋友聊天而學韓文)\n- 描述計畫與準備：[id:ex.ko.s.000653] (為了就職而準備)\n- 展現決心或理由：[id:ex.ko.s.000651] (為了健康而開始運動)\n\n· 注意\n- 後句不能接命令句 (`-(으)세요`) 或提議句 (`-(으)ㅂ시다`)。在這種情況下應改用 `-(으)려면`。\n- 雖然 `-려고 하다` 表示意圖，但單用 `-(으)려고` 常作為連結詞尾，引導出具體的努力或準備行為。",
+      "usage_notes": []
+    }
+  },
+  {
+    "id": "kg.grammar.ending.must_aya_hada",
+    "source": {
+      "id": "kg.grammar.ending.must_aya_hada",
+      "kind": "grammar",
+      "subcategory": "ending",
+      "level": "A1",
+      "surface": "-아야/어야/해야 하다",
+      "tags": [
+        "grammar",
+        "ending",
+        "obligation",
+        "must",
+        "beginner",
+        "v5_ingestion"
+      ],
+      "provenance": {
+        "source": "youtube_beginner_grammar",
+        "source_lesson_ids": [
+          49
+        ],
+        "source_video_ids": [
+          "EqpNlKjsbKA"
+        ]
+      },
+      "example_sentence_refs": [
+        "ex.ko.s.000517",
+        "ex.ko.s.000518",
+        "ex.ko.s.000519",
+        "ex.ko.s.000520",
+        "ex.ko.s.000521",
+        "ex.ko.s.000522",
+        "ex.ko.s.000523",
+        "ex.ko.s.000524",
+        "ex.ko.s.000525",
+        "ex.ko.s.000526"
+      ]
+    },
+    "i18n": {
+      "id": "kg.grammar.ending.must_aya_hada",
+      "locale": "zh_tw",
+      "title": "-아야/어야/해야 하다 (必須/應該)",
+      "description": "表示義務、責任，或某種必要的行動。",
+      "explanation_md": "· 用法說明\n根據母音調和連接：\n- 詞幹最後母音為 `ㅏ, ㅗ` 時接 `-아야 하다`。\n- 其他母音接 `-어야 하다`。\n- `하다` 動詞變為 `해야 하다`。\n\n· 常見使用場景\n- 指示規則或社會義務：學生應該讀書。\n- 說明個人計畫：我明天必須去醫院。\n\n· 相近文法比較\n- **-아야/어야/해야 되다**: 同樣表示必須，但在口語中 `되다` 使用頻率稍高，語感較隨意。\n\n· 注意\n在縮寫口語中，結尾的 `하다` 有時會省略或寫成 `-아야지`。",
+      "usage_notes": []
+    }
+  },
+  {
+    "id": "kg.grammar.ending.polite_command_useyo",
+    "source": {
+      "id": "kg.grammar.ending.polite_command_useyo",
+      "kind": "grammar",
+      "subcategory": "ending",
+      "level": "A1",
+      "surface": "-(으)세요",
+      "tags": [
+        "grammar",
+        "ending",
+        "beginner",
+        "v5_ingestion"
+      ],
+      "provenance": {
+        "source": "youtube_beginner_grammar",
+        "source_lesson_ids": [
+          62
+        ],
+        "source_video_ids": [
+          "8JJzXIr5BBE"
+        ]
+      },
+      "example_sentence_refs": [
+        "ex.ko.s.000627",
+        "ex.ko.s.000628",
+        "ex.ko.s.000629",
+        "ex.ko.s.000630",
+        "ex.ko.s.000631",
+        "ex.ko.s.000632",
+        "ex.ko.s.000633",
+        "ex.ko.s.000634",
+        "ex.ko.s.000635",
+        "ex.ko.s.000636"
+      ]
+    },
+    "i18n": {
+      "id": "kg.grammar.ending.polite_command_useyo",
+      "locale": "zh_tw",
+      "title": "-(으)세요 (禮貌命令)",
+      "description": "用於禮貌地請求、建議或命令他人做某事。",
+      "explanation_md": "· 用法說明\n用於向對方提出禮貌的請求（請...）、溫柔的建議（要...吧）或日常的禮貌命令。它是韓語中最常用的敬語終結詞尾之一。\n\n· 形態變化\n- 動詞詞幹末尾為**母音**時：接 `-세요` (例：`가다` → `가세요`)\n- 動詞詞幹末尾為**子音**時：接 `-으세요` (例：`읽다` → `읽으세요`)\n- **不規則變化**：\n    - `ㄹ` 結尾：去掉 `ㄹ` 後接 `-세요` (例：`만들다` → `만드세요`)\n    - `ㄷ` 結尾：`ㄷ` 變 `ㄹ` 後接 `-으세요` (例：`듣다` → `들으세요`)\n\n· 常見使用場景\n- 日常請求：[id:ex.ko.s.000627] (請寫下姓名與電話)\n- 關心與建議：[id:ex.ko.s.000628] (請小心開車)\n- 教學與引導：[id:ex.ko.s.000634] (請聽老師的話)\n\n· 注意\n- 雖然帶有「命令」含義，但口語中使用時語氣通常很溫和。\n- 若對方是需要極高度尊敬的長輩，有時會換成更專業的敬語動詞（如 `드세요` แทน `먹으세요` 或 `마시으세요/마시세요`）。",
       "usage_notes": []
     }
   },
@@ -950,6 +1394,100 @@
     }
   },
   {
+    "id": "kg.grammar.ending.prohibit_ji_ma",
+    "source": {
+      "id": "kg.grammar.ending.prohibit_ji_ma",
+      "kind": "grammar",
+      "subcategory": "ending",
+      "level": "A1",
+      "surface": "-지 마",
+      "tags": [
+        "grammar",
+        "ending",
+        "prohibit",
+        "beginner",
+        "v5_ingestion"
+      ],
+      "provenance": {
+        "source": "youtube_beginner_grammar",
+        "source_lesson_ids": [
+          43,
+          53
+        ],
+        "source_video_ids": [
+          "KJGW9Is-Tx8"
+        ]
+      },
+      "example_sentence_refs": [
+        "ex.ko.s.000457",
+        "ex.ko.s.000458",
+        "ex.ko.s.000459",
+        "ex.ko.s.000460",
+        "ex.ko.s.000461",
+        "ex.ko.s.000462",
+        "ex.ko.s.000463",
+        "ex.ko.s.000464",
+        "ex.ko.s.000465",
+        "ex.ko.s.000466"
+      ]
+    },
+    "i18n": {
+      "id": "kg.grammar.ending.prohibit_ji_ma",
+      "locale": "zh_tw",
+      "title": "-지 마 (禁止)",
+      "description": "非敬語的禁止表達，用於對晚輩或親近的人說「別做某事」。",
+      "explanation_md": "· 用法說明\n用於動詞詞幹後，表示命令對方不要做某事。這是 `-지 마세요` 的非敬語（半語）形式。\n\n· 常見使用場景\n- 對親密的朋友或兄弟姐妹說「別這樣」。\n- 父母對孩子下達簡單的禁令。\n\n· 相近文法比較\n- **-지 마세요**: 禮貌的禁止，用於一般社交場合。\n- **-지 마**: 非敬語禁止，僅用於親近關係或對下對象。\n\n· 注意\n僅能接在動詞後，不能接在形容詞後（除非是使其像動詞般呈現的情緒表達）。",
+      "usage_notes": []
+    }
+  },
+  {
+    "id": "kg.grammar.ending.prohibit_ji_mapsida",
+    "source": {
+      "id": "kg.grammar.ending.prohibit_ji_mapsida",
+      "kind": "grammar",
+      "subcategory": "ending",
+      "level": "A1",
+      "surface": "-지 맙시다",
+      "tags": [
+        "grammar",
+        "ending",
+        "prohibit",
+        "formal",
+        "beginner",
+        "v5_ingestion"
+      ],
+      "provenance": {
+        "source": "youtube_beginner_grammar",
+        "source_lesson_ids": [
+          44
+        ],
+        "source_video_ids": [
+          "6Pek9u8wI-w"
+        ]
+      },
+      "example_sentence_refs": [
+        "ex.ko.s.000467",
+        "ex.ko.s.000468",
+        "ex.ko.s.000469",
+        "ex.ko.s.000470",
+        "ex.ko.s.000471",
+        "ex.ko.s.000472",
+        "ex.ko.s.000473",
+        "ex.ko.s.000474",
+        "ex.ko.s.000475",
+        "ex.ko.s.000476"
+      ]
+    },
+    "i18n": {
+      "id": "kg.grammar.ending.prohibit_ji_mapsida",
+      "locale": "zh_tw",
+      "title": "-지 맙시다 (共動禁止)",
+      "description": "禮貌地建議「我們別做某事吧」。",
+      "explanation_md": "· 用法說明\n用於動詞詞幹後，表示提議「我們大家一起不要做某事」。這是 `-ㅂ시다/읍시다` 的否定形式。\n\n· 常見使用場景\n- 在會議或團體中建議避開某些行為。\n- 在公共場合呼籲大家共同遵守規則。\n\n· 相近文法比較\n- **-지 마세요**: 單向要求對方別做。\n- **-지 맙시다**: 包含說話者在內的共同行動建議。\n\n· 注意\n雖然是正式格式，但在現代口語中對長輩使用仍顯得有些生硬或失禮，通常用於平輩或公眾廣播。",
+      "usage_notes": []
+    }
+  },
+  {
     "id": "kg.grammar.ending.prohibit_ji_maseyo",
     "source": {
       "id": "kg.grammar.ending.prohibit_ji_maseyo",
@@ -993,6 +1531,51 @@
       "title": "지 마세요 (請不要、禮貌命令否定)",
       "description": "用於禮貌地要求或命令他人不要做某事。",
       "explanation_md": "· 用法說明\n直接接在動詞原形（去 `다`）之後。這是禮貌命令形式 `~(으)세요` 的否定形式，用於正式或一般公眾場合的禁止與規勸。\n\n· 常見使用場景\n1. **公眾場所規定**：如「請勿拍照」、「請勿抽菸」。\n   - [id:ex.ko.s.000447]\n2. **日常規勸**：如「請不要擔心」、「請不要遲到」。\n   - [id:ex.ko.s.000456]\n\n· 注意\n1. **接續簡單**：不論動詞是否有收音，統一接 `~지 마세요`。\n2. **時態限制**：這是命令句，因此不具有時態變化（不可用於過去式）。\n3. **形容詞限制**：原則上用於「動作動詞」。若要對形容詞使用，通常會轉換為動作形式（如：`걱정하다` 雖然是動詞，但 `슬퍼하다` 表示難過的情緒動作化）。\n\n· 相近文法比較\n與非敬語形式 `~지 마` (L43/L53) 相比，`~지 마세요` 保留了對聽者的尊重，適合對陌生人或在正式場合使用。",
+      "usage_notes": []
+    }
+  },
+  {
+    "id": "kg.grammar.ending.promise_gi_ro_hada",
+    "source": {
+      "id": "kg.grammar.ending.promise_gi_ro_hada",
+      "kind": "grammar",
+      "subcategory": "ending",
+      "level": "A1",
+      "surface": "-기로 하다",
+      "tags": [
+        "grammar",
+        "ending",
+        "beginner",
+        "v5_ingestion"
+      ],
+      "provenance": {
+        "source": "youtube_beginner_grammar",
+        "source_lesson_ids": [
+          69
+        ],
+        "source_video_ids": [
+          "gH7dgpnFiUc"
+        ]
+      },
+      "example_sentence_refs": [
+        "ex.ko.s.000677",
+        "ex.ko.s.000678",
+        "ex.ko.s.000679",
+        "ex.ko.s.000680",
+        "ex.ko.s.000681",
+        "ex.ko.s.000682",
+        "ex.ko.s.000683",
+        "ex.ko.s.000684",
+        "ex.ko.s.000685",
+        "ex.ko.s.000686"
+      ]
+    },
+    "i18n": {
+      "id": "kg.grammar.ending.promise_gi_ro_hada",
+      "locale": "zh_tw",
+      "title": "기로 하다 (決定/約定)",
+      "description": "表示與他人約定或自己下定決心做某事",
+      "explanation_md": "這個句型用於表達「決定要...」或「約好要...」。當表達已經決定好的計畫或約定時，通常會使用過去式 `~기로 했어요`。\n\n· 用法說明\n- 直接在動詞詞幹後接 `~기로 하다`。不論是否有收音，形式都一樣：\n  - `가다` -> `가기로 하다`\n  - `먹다` -> `먹기로 하다`\n\n· 常見使用場景\n- 與他人的約定 (見面、活動)：[id:ex.ko.s.000679], [id:ex.ko.s.000685]\n- 個人的堅定決心 (戒菸、運動、學習)：[id:ex.ko.s.000678], [id:ex.ko.s.000680], [id:ex.ko.s.000681]\n- 未來計畫的宣佈：[id:ex.ko.s.000682], [id:ex.ko.s.000686]\n\n· 注意\n- 如果是否定性的決定（決定不做某事），通常使用 `~지 않기로 하다` 或是 `안 ~기로 하다`：[id:ex.ko.s.000684]。",
       "usage_notes": []
     }
   },
@@ -1053,6 +1636,141 @@
     }
   },
   {
+    "id": "kg.grammar.ending.propose_banmal_ja",
+    "source": {
+      "id": "kg.grammar.ending.propose_banmal_ja",
+      "kind": "grammar",
+      "subcategory": "ending",
+      "level": "A1",
+      "surface": "-자",
+      "tags": [
+        "grammar",
+        "ending",
+        "beginner",
+        "v5_ingestion"
+      ],
+      "provenance": {
+        "source": "youtube_beginner_grammar",
+        "source_lesson_ids": [
+          70
+        ],
+        "source_video_ids": [
+          "m3y0ofR_SZk"
+        ]
+      },
+      "example_sentence_refs": [
+        "ex.ko.s.000687",
+        "ex.ko.s.000688",
+        "ex.ko.s.000689",
+        "ex.ko.s.000690",
+        "ex.ko.s.000691",
+        "ex.ko.s.000692",
+        "ex.ko.s.000693",
+        "ex.ko.s.000694",
+        "ex.ko.s.000695",
+        "ex.ko.s.000696"
+      ]
+    },
+    "i18n": {
+      "id": "kg.grammar.ending.propose_banmal_ja",
+      "locale": "zh_tw",
+      "title": "자 (提議 - 非敬語)",
+      "description": "與朋友或晚輩等親近對象提議一起做某事",
+      "explanation_md": "這個句型是 `~(으)ㅂ시다` 的非敬語形式，用於關係親密的人之間，意思是「我們...吧」。\n\n· 用法說明\n- 直接在動詞詞幹後接 `~자`。不論是否有收音，形式都一樣：\n  - `가다` -> `가자`\n  - `먹다` -> `먹자`\n\n· 常見使用場景\n- 提議一起進食或移動：[id:ex.ko.s.000687], [id:ex.ko.s.000693], [id:ex.ko.s.000694]\n- 提議共同活動：[id:ex.ko.s.000688], [id:ex.ko.s.000689], [id:ex.ko.s.000690]\n- 提議休息或和解：[id:ex.ko.s.000691], [id:ex.ko.s.000695]\n\n· 注意\n- 此為「半語 (Banmal)」，僅限於對好友、平輩或下級使用，絕對不能對長輩或初次見面的人使用。",
+      "usage_notes": []
+    }
+  },
+  {
+    "id": "kg.grammar.ending.propose_prohibit_banmal_ji_malja",
+    "source": {
+      "id": "kg.grammar.ending.propose_prohibit_banmal_ji_malja",
+      "kind": "grammar",
+      "subcategory": "ending",
+      "level": "A1",
+      "surface": "-지 말자",
+      "tags": [
+        "grammar",
+        "ending",
+        "beginner",
+        "v5_ingestion"
+      ],
+      "provenance": {
+        "source": "youtube_beginner_grammar",
+        "source_lesson_ids": [
+          71
+        ],
+        "source_video_ids": [
+          "dn8hE0UH0GU"
+        ]
+      },
+      "example_sentence_refs": [
+        "ex.ko.s.000697",
+        "ex.ko.s.000698",
+        "ex.ko.s.000699",
+        "ex.ko.s.000700",
+        "ex.ko.s.000701",
+        "ex.ko.s.000702",
+        "ex.ko.s.000703",
+        "ex.ko.s.000704",
+        "ex.ko.s.000705",
+        "ex.ko.s.000706"
+      ]
+    },
+    "i18n": {
+      "id": "kg.grammar.ending.propose_prohibit_banmal_ji_malja",
+      "locale": "zh_tw",
+      "title": "지 말자 (否定提議 - 非敬語)",
+      "description": "與親近對象提議「不要」做某事",
+      "explanation_md": "這個句型是 `~자` 的否定形式，用於向朋友或晚輩提議「我們別...吧」或「不要...吧」。\n\n· 用法說明\n- 直接在動詞詞幹後接 `~지 말자`。形式固定：\n  - `가다` -> `가지 말자`\n  - `먹다` -> `먹지 말자`\n\n· 常見使用場景\n- 提議停止或避免某種行為：[id:ex.ko.s.000697], [id:ex.ko.s.000698], [id:ex.ko.s.000703]\n- 約定不再吵架或分手：[id:ex.ko.s.000700], [id:ex.ko.s.000704]\n- 針對負面情況的提議 (如太貴、太累)：[id:ex.ko.s.000702], [id:ex.ko.s.000705]\n\n· 注意\n- 這是 `~지 마세요` (請不要) 或 `~지 맙시다` (我們別...吧 - 敬語) 的對應非敬語形式。同樣僅限於對親近的人使用。",
+      "usage_notes": []
+    }
+  },
+  {
+    "id": "kg.grammar.ending.propose_upsida",
+    "source": {
+      "id": "kg.grammar.ending.propose_upsida",
+      "kind": "grammar",
+      "subcategory": "ending",
+      "level": "A1",
+      "surface": "-(으)ㅂ시다",
+      "tags": [
+        "grammar",
+        "ending",
+        "beginner",
+        "v5_ingestion"
+      ],
+      "provenance": {
+        "source": "youtube_beginner_grammar",
+        "source_lesson_ids": [
+          59
+        ],
+        "source_video_ids": [
+          "JKJDWmXz0Mk"
+        ]
+      },
+      "example_sentence_refs": [
+        "ex.ko.s.000607",
+        "ex.ko.s.000608",
+        "ex.ko.s.000609",
+        "ex.ko.s.000610",
+        "ex.ko.s.000611",
+        "ex.ko.s.000612",
+        "ex.ko.s.000613",
+        "ex.ko.s.000614",
+        "ex.ko.s.000615",
+        "ex.ko.s.000616"
+      ]
+    },
+    "i18n": {
+      "id": "kg.grammar.ending.propose_upsida",
+      "locale": "zh_tw",
+      "title": "-(으)ㅂ시다 (提議)",
+      "description": "用於正式場合，禮貌地提議大家一起做某事。",
+      "explanation_md": "· 用法說明\n用於正式場合（如職場、公告、會議）提議一起行動。語氣比 `-(으)ㄹ까요?` 或 `-(으)ㄹ래요?` 更為正式且莊重。\n\n· 形態變化\n- 動詞詞幹末尾為**母音**時：接 `-ㅂ시다` (例：`가다` → `갑시다`)\n- 動詞詞幹末尾為**子音**時：接 `-읍시다` (例：`먹다` → `먹읍시다`)\n\n· 常見使用場景\n- 公告或標語：[id:ex.ko.s.000610] (全心全意工作吧)\n- 正式會議結論：[id:ex.ko.s.000612] (我們開始會議吧)\n\n· 注意\n- 不能對長輩或上級使用，對上司提議時應使用轉折語氣或敬語請求（如 `-(으)실까요?`）。\n- 通常主語是包含說話者與聽話者的「我們」。",
+      "usage_notes": []
+    }
+  },
+  {
     "id": "kg.grammar.ending.state_prog_a_eo_itda",
     "source": {
       "id": "kg.grammar.ending.state_prog_a_eo_itda",
@@ -1100,6 +1818,200 @@
       "title": "아/어 있다 (狀態持續)",
       "description": "表示某個動作完成後的狀態一直持續延續。主要用於自動詞（不及物動詞）或被動形式的動詞。",
       "explanation_md": "「`-아/어 있다`」用來描述一個動作已經結束，但該動作所留下的**狀態**卻仍然維持著。這與表示「正在進行中」的 `-고 있다` 不同。\n\n· **用法規則**\n\n接在詞幹之後，母音變化規則與 `-아요/어요` 相同：\n- **詞幹母音為 `ㅏ`, `ㅗ` 時**：接 `-아 있다`。例如：`앉다` → `앉아 있다` (坐著) [id:ex.ko.s.000250]\n- **詞幹母音為其他時**：接 `-어 있다`。例如：`서다` → `서 있다` (站著) [id:ex.ko.s.000253]\n- **`하다` 變為 `해 있다`**。\n\n· **常用搭配動詞**\n\n這個語法特別常用於以下動詞：\n1.  **自動詞（不及物動詞）**：`앉다`（坐下）、`서다`（站立）、`피다`（開花 [id:ex.ko.s.000247]）\n2.  **被動動詞**：`열리다`（被打開 [id:ex.ko.s.000248]）、`닫히다`（被關上 [id:ex.ko.s.000249]）、`걸리다`（被掛著 [id:ex.ko.s.000251]）、`놓이다`（被放著 [id:ex.ko.s.000252]）\n\n· **注意與 `-고 있다` 的區別**\n\n- `-고 있다`：表示動作正在發生。例如「正在穿衣服」。\n- `-아/어 있다`：表示處於某種結果狀態。例如「開著燈」[id:ex.ko.s.000254] 或「關著空調」[id:ex.ko.s.000255]。\n\n· **其他範例**\n\n- [id:ex.ko.s.000256]：描述蘋果掉在地上並維持在那裡的狀態。",
+      "usage_notes": []
+    }
+  },
+  {
+    "id": "kg.grammar.ending.suggest_ul_kkayo",
+    "source": {
+      "id": "kg.grammar.ending.suggest_ul_kkayo",
+      "category": "grammar",
+      "subcategory": "ending",
+      "knowledge_type": "official",
+      "tags": [
+        "suggestion",
+        "question",
+        "beginner"
+      ],
+      "provenance": {
+        "source": "youtube_beginner_grammar",
+        "source_lesson_ids": [
+          58
+        ]
+      },
+      "usage_policies": [
+        "shared_usage"
+      ],
+      "related_knowledge_ids": [
+        "kg.grammar.ending.suggest_bsida"
+      ]
+    },
+    "i18n": {
+      "id": "kg.grammar.ending.suggest_ul_kkayo",
+      "locale": "zh_tw",
+      "title": "-(으)ㄹ까요? (要不要呢？/你覺得嗎？)",
+      "description": "提議一起做某事，詢問對方的意見，或對未知事實進行推測。",
+      "explanation_md": "· 用法說明\n用於動詞或形容詞後：\n- 有收音接 `-을까요?`。\n- 無收音或 `ㄹ` 收音接 `-ㄹ까요?`。\n\n· 常見使用場景\n- 提議一起行動：我們要不要一起去看電影？\n- 詢問對方意見：我應該買哪一個呢？\n- 推測：明天的天氣會好嗎？\n\n· 相近文法比較\n- **-(으)ㄹ래요?**: 問對方的意向（你想不想？）。\n- **-(으)ㄹ까요?**: 徵詢對方的意見（你覺得...如何？），語感更具討論性與禮貌感。\n\n· 注意\n在回覆 `-(으)ㄹ까요?` 的提議時，通常使用 `-(으)ㅂ시다` (讓我們...) 或 `-아요/어요`。",
+      "usage_notes": []
+    }
+  },
+  {
+    "id": "kg.grammar.ending.will_aya_getda",
+    "source": {
+      "id": "kg.grammar.ending.will_aya_getda",
+      "kind": "grammar",
+      "subcategory": "ending",
+      "level": "A1",
+      "surface": "-아야/어야/해야겠다",
+      "tags": [
+        "grammar",
+        "ending",
+        "intention",
+        "will",
+        "beginner",
+        "v5_ingestion"
+      ],
+      "provenance": {
+        "source": "youtube_beginner_grammar",
+        "source_lesson_ids": [
+          50
+        ],
+        "source_video_ids": [
+          "EqpNlKjsbKA"
+        ]
+      },
+      "example_sentence_refs": [
+        "ex.ko.s.000527",
+        "ex.ko.s.000528",
+        "ex.ko.s.000529",
+        "ex.ko.s.000530",
+        "ex.ko.s.000531",
+        "ex.ko.s.000532",
+        "ex.ko.s.000533",
+        "ex.ko.s.000534",
+        "ex.ko.s.000535",
+        "ex.ko.s.000536"
+      ]
+    },
+    "i18n": {
+      "id": "kg.grammar.ending.will_aya_getda",
+      "locale": "zh_tw",
+      "title": "-아야/어야/해야겠다 (一定要/看來得)",
+      "description": "表示說話者強烈的意圖，或根據現有情況判斷「應該要...」。",
+      "explanation_md": "· 用法說明\n組合了「義務 `-아야 하다`」與「意志 `-겠-`」。表示經過思考後下的決定，語氣較為堅定。\n\n· 常見使用場景\n- 自我下定決心：我以後一定要更努力。\n- 評估後的需求：看來現在得快點走了。\n\n· 相近文法比較\n- **-아야/어야/해야 하다**: 單純陳述「必須」。\n- **-아야/어야/해야겠다**: 帶有「我現在意識到了，所以我決定要...」的心理過程感。\n\n· 注意\n雖然表示未來或意志，但句子重心通常在目前的「決定」上。",
+      "usage_notes": []
+    }
+  },
+  {
+    "id": "kg.grammar.ending.will_ul_geyo",
+    "source": {
+      "id": "kg.grammar.ending.will_ul_geyo",
+      "category": "grammar",
+      "subcategory": "ending",
+      "knowledge_type": "official",
+      "tags": [
+        "will",
+        "promise",
+        "beginner"
+      ],
+      "provenance": {
+        "source": "youtube_beginner_grammar",
+        "source_lesson_ids": [
+          56
+        ]
+      },
+      "usage_policies": [
+        "shared_usage"
+      ],
+      "related_knowledge_ids": [
+        "kg.grammar.tense.future_ul_geoyeyo"
+      ]
+    },
+    "i18n": {
+      "id": "kg.grammar.ending.will_ul_geyo",
+      "locale": "zh_tw",
+      "title": "-(으)ㄹ게요 (我會/我來)",
+      "description": "表示說話者的承諾、決心，或在對話中承擔某種行動。",
+      "explanation_md": "· 用法說明\n用於動詞詞幹後：\n- 有收音接 `-을게요`。\n- 無收音或 `ㄹ` 收音接 `-ㄹ게요`。\n\n· 常見使用場景\n- 答應對方：我會準時到的。\n- 自告奮勇：我來洗碗吧。\n- 預告接下來的行動：我先走了。\n\n· 相近文法比較\n- **-(으)ㄹ 거예요**: 單純預測未來或陳述計畫。\n- **-(으)ㄹ게요**: 強調「對聽說者的承諾」或「意志」，句中通常有一種「我會負責完成」的責任感。\n\n· 注意\n只能用於「我（第一人稱）」作為主詞。不能用於疑問句詢問他人。",
+      "usage_notes": []
+    }
+  },
+  {
+    "id": "kg.grammar.ending.wish_ass_eumyeon_jokgetda",
+    "source": {
+      "id": "kg.grammar.ending.wish_ass_eumyeon_jokgetda",
+      "kind": "grammar",
+      "subcategory": "ending",
+      "level": "A1",
+      "surface": "-(았/었/했)으면 좋겠다",
+      "tags": [
+        "grammar",
+        "ending",
+        "beginner",
+        "v5_ingestion"
+      ],
+      "provenance": {
+        "source": "youtube_beginner_grammar",
+        "source_lesson_ids": [
+          68
+        ],
+        "source_video_ids": [
+          "BBVswzxatGc"
+        ]
+      },
+      "example_sentence_refs": [
+        "ex.ko.s.000667",
+        "ex.ko.s.000668",
+        "ex.ko.s.000669",
+        "ex.ko.s.000670",
+        "ex.ko.s.000671",
+        "ex.ko.s.000672",
+        "ex.ko.s.000673",
+        "ex.ko.s.000674",
+        "ex.ko.s.000675",
+        "ex.ko.s.000676"
+      ]
+    },
+    "i18n": {
+      "id": "kg.grammar.ending.wish_ass_eumyeon_jokgetda",
+      "locale": "zh_tw",
+      "title": "았/었/했으면 좋겠다 (希望/願望)",
+      "description": "表示說話者的願望、期待或對現狀的假設性希望",
+      "explanation_md": "這個句型用於表達「如果...就好了」或「希望...」的意思，常用於祈禱、許願或表達個人期待。\n\n· 用法說明\n- 根據動詞或形容詞詞幹的母音進行過去式變化後接 `~으면 좋겠다`：\n  - 母音為 `ㅏ`, `ㅗ`：接 `~았으면 좋겠다` (例如：`왔으면 좋겠다`)\n  - 其他母音：接 `~었으면 좋겠다` (例如：`먹었으면 좋겠다`)\n  - `하다` 結尾：接 `~했으면 좋겠다` (例如：`건강했으면 좋겠다`)\n\n· 常見使用場景\n- 祝願健康、幸福或和平：[id:ex.ko.s.000669], [id:ex.ko.s.000675]\n- 對未來事件的期待 (如天氣、考試)：[id:ex.ko.s.000667], [id:ex.ko.s.000672]\n- 個人願望 (如加薪、變高)：[id:ex.ko.s.000668], [id:ex.ko.s.000673]\n\n· 注意\n- 雖然使用了 past tense 形式 (`았/었/했`)，但表達的是對當前或未來的願望，而非過去發生的事。",
+      "usage_notes": []
+    }
+  },
+  {
+    "id": "kg.grammar.ending.wish_ul_laeyo",
+    "source": {
+      "id": "kg.grammar.ending.wish_ul_laeyo",
+      "category": "grammar",
+      "subcategory": "ending",
+      "knowledge_type": "official",
+      "tags": [
+        "intent",
+        "suggestion",
+        "beginner"
+      ],
+      "provenance": {
+        "source": "youtube_beginner_grammar",
+        "source_lesson_ids": [
+          55
+        ]
+      },
+      "usage_policies": [
+        "shared_usage"
+      ],
+      "related_knowledge_ids": [
+        "kg.grammar.desire.wish_go_sipda"
+      ]
+    },
+    "i18n": {
+      "id": "kg.grammar.ending.wish_ul_laeyo",
+      "locale": "zh_tw",
+      "title": "-(으)ㄹ래요 (要不要/我想)",
+      "description": "表示說話者的意圖，或在疑問句中溫和地詢問對方的意圖、提議某事。",
+      "explanation_md": "· 用法說明\n用於動詞詞幹後：\n- 有收音接 `-을래요`。\n- 無收音或 `ㄹ` 收音接 `-ㄹ래요`。\n\n· 常見使用場景\n- 自我宣示（較隨意）：我等下要去看電影。\n- 溫和詢問對方：你要喝咖啡嗎？\n- 點餐：我要吃拌飯。\n\n· 相近文法比較\n- **-고 싶다**: 單純表達「心裡想」，但不一定會付諸行動。\n- **-(으)ㄹ래요**: 帶有「我現在決定要這麼做」或「邀約」的語感，主觀性較強。\n\n· 注意\n這是一個較為口語化、親近的說法。在極度正式的場合或是對長輩使用時需謹慎（可能顯得乾涉對方的意志）。",
       "usage_notes": []
     }
   },
@@ -1306,6 +2218,85 @@
       "title": "에 있다 (位在某處)",
       "description": "表示人或物位於某個特定的地點。",
       "explanation_md": "· 用法說明\n`에 있다` 用於標示某人或某物所在的「位置」。與單純表達擁有的 `이/가 있다` 不同，這裡強調的是「在哪裡」。\n\n· 結構\n「[地點名詞] + 에 + [事物] + 이/가 + 있다」或是 「[事物] + 이/가 + [地點名詞] + 에 + 있다」。\n\n· 常見例句\n- [id:ex.ko.s.000147] (在補習班)\n- [id:ex.ko.s.000151] (在咖啡廳)\n\n· 注意\n- 地點助詞 `에` 不需要考慮收音，一律接在場所名詞後方。\n- 這裡的 `있다` 指的是物理位置上的存在。",
+      "usage_notes": []
+    }
+  },
+  {
+    "id": "kg.grammar.expectation.seem_ul_geot_gatda",
+    "source": {
+      "id": "kg.grammar.expectation.seem_ul_geot_gatda",
+      "kind": "grammar",
+      "subcategory": "expectation",
+      "level": "A1",
+      "surface": "-(으)ㄹ 것 같다",
+      "tags": [
+        "grammar",
+        "expectation",
+        "suppose",
+        "seem",
+        "beginner",
+        "v5_ingestion"
+      ],
+      "provenance": {
+        "source": "youtube_beginner_grammar",
+        "source_lesson_ids": [
+          51
+        ],
+        "source_video_ids": [
+          "EqpNlKjsbKA"
+        ]
+      },
+      "example_sentence_refs": [
+        "ex.ko.s.000537",
+        "ex.ko.s.000538",
+        "ex.ko.s.000539",
+        "ex.ko.s.000540",
+        "ex.ko.s.000541",
+        "ex.ko.s.000542",
+        "ex.ko.s.000543",
+        "ex.ko.s.000544",
+        "ex.ko.s.000545",
+        "ex.ko.s.000546"
+      ]
+    },
+    "i18n": {
+      "id": "kg.grammar.expectation.seem_ul_geot_gatda",
+      "locale": "zh_tw",
+      "title": "-(으)ㄹ 것 같다 (好像/似乎)",
+      "description": "表示推測、預感，或委婉地表達自己的想法。",
+      "explanation_md": "· 用法說明\n用於動詞或形容詞後，表示對未來或某種不確定狀態的推測。\n- 有收音接 `-을 것 같다`。\n- 無收音或 `ㄹ` 收音接 `-ㄹ 것 같다`。\n\n· 常見使用場景\n- 天氣推測：看來會下雨。\n- 委婉拒絕：我似乎沒辦法參加。\n- 個人意見：我覺得這雙鞋子好像有點小。\n\n· 相近文法比較\n- **-나 보다**: 通常是「看到某種跡象」後的直接判斷。\n- **-(으)ㄹ 것 같다**: 語感更為委婉，也常用於單純的個人預感。\n\n· 注意\n這是韓文中非常核心的「委婉語體」，初學者應練習用它代替過於直接的判斷。",
+      "usage_notes": []
+    }
+  },
+  {
+    "id": "kg.grammar.intent.intend_ul_ryeogo_hada",
+    "source": {
+      "id": "kg.grammar.intent.intend_ul_ryeogo_hada",
+      "category": "grammar",
+      "subcategory": "intent",
+      "knowledge_type": "official",
+      "tags": [
+        "intent",
+        "plan",
+        "beginner"
+      ],
+      "provenance": {
+        "source": "youtube_beginner_grammar",
+        "source_lesson_ids": [
+          57
+        ]
+      },
+      "usage_policies": [
+        "shared_usage"
+      ],
+      "related_knowledge_ids": []
+    },
+    "i18n": {
+      "id": "kg.grammar.intent.intend_ul_ryeogo_hada",
+      "locale": "zh_tw",
+      "title": "-(으)려고 하다 (打算/為了)",
+      "description": "表示說話者的意圖、計畫或打算做某事。",
+      "explanation_md": "· 用法說明\n用於動詞詞幹後：\n- 有收音接 `-으려고 하다`。\n- 無收音或 `ㄹ` 收音接 `-려고 하다`。\n\n· 常見使用場景\n- 說明個人計畫：我打算明年去韓國留學。\n- 說明行動目的：為了買麵包，我去了超市。\n- 快要發生的狀態：現在好像快要下雨了。\n\n· 相近文法比較\n- **-(으)ㄹ 거예요**: 較強的未來陳述。\n- **-(으)려고 하다**: 強調「心裡的打算」或「準備過程」，即使最後沒做成也常使用此形式敘述原意。\n\n· 注意\n不能用於命令句或提議句的結尾（如 `-(으)려고 하세요` 是錯誤的）。",
       "usage_notes": []
     }
   },
@@ -1587,6 +2578,52 @@
     }
   },
   {
+    "id": "kg.grammar.negation.long_ji_mothada",
+    "source": {
+      "id": "kg.grammar.negation.long_ji_mothada",
+      "kind": "grammar",
+      "subcategory": "negation",
+      "level": "A1",
+      "surface": "-지 못하다",
+      "tags": [
+        "grammar",
+        "negation",
+        "cannot",
+        "beginner",
+        "v5_ingestion"
+      ],
+      "provenance": {
+        "source": "youtube_beginner_grammar",
+        "source_lesson_ids": [
+          48
+        ],
+        "source_video_ids": [
+          "c2VqOnNtoqk"
+        ]
+      },
+      "example_sentence_refs": [
+        "ex.ko.s.000507",
+        "ex.ko.s.000508",
+        "ex.ko.s.000509",
+        "ex.ko.s.000510",
+        "ex.ko.s.000511",
+        "ex.ko.s.000512",
+        "ex.ko.s.000513",
+        "ex.ko.s.000514",
+        "ex.ko.s.000515",
+        "ex.ko.s.000516"
+      ]
+    },
+    "i18n": {
+      "id": "kg.grammar.negation.long_ji_mothada",
+      "locale": "zh_tw",
+      "title": "-지 못하다 (無法/不能)",
+      "description": "表示因為能力不足或外部客觀因素，導致無法完成某動作。是「못」的長形否定。",
+      "explanation_md": "· 用法說明\n用於動詞詞幹後。不論有無收音都接 `-지 못하다`。常用於正式場合或需要語氣較長、較穩重的場景。\n\n· 常見使用場景\n- 在正式對話中說明無法出席或無法完成某事。\n- 形容因為身體不適或環境限制而做不到某事。\n\n· 相近文法比較\n- **못**: 短形否定，多用於口語，語感較直接。\n- **-지 못하다**: 長形否定，聽起來較委婉或正式。\n\n· 注意\n這只能用於動詞。接在形容詞後時（例如 `크지 못하다`）通常表示「不到某個程度」，而非「能力否定」。",
+      "usage_notes": []
+    }
+  },
+  {
     "id": "kg.grammar.negation.short_an",
     "source": {
       "id": "kg.grammar.negation.short_an",
@@ -1630,6 +2667,52 @@
       "title": "안 (不、短形否定)",
       "description": "置於動詞或形容詞前，表示否定或主觀的不想做某事。在口語會話中最為自然常用。",
       "explanation_md": "· 用法說明\n「안」是「아니」的縮寫，直接放在動詞或形容詞的前面即可構成否定。這在日常口語對話中是最常見的一種否定形式。\n\n· 常見使用場景\n1. **主觀意願**：表達「我不（想）做某事」。\n   - [id:ex.ko.s.000437]\n2. **客觀狀態**：如天氣不冷、東西不好吃等。\n   - [id:ex.ko.s.000446]\n\n· 注意\n1. **與 `하다` 動詞結合**：對於 `名詞 + 하다` 形式的動詞（如 `공부하다`），「안」必須放在 `하다` 之前（即 `공부 안 해요`），不能放在整個單字前（不可說 `안 공부해요`）。\n2. **不可用於部分固定動詞**：像 `알다` (知道) 的否定是 `모르다`，不是 `안 알아요`。\n\n· 相近文法比較\n與 `~지 않다` (L43) 相比，`안` 更加口語化且簡潔。若要表達客觀能力的不及（想做但做不到），則應使用 `못` (L47)。",
+      "usage_notes": []
+    }
+  },
+  {
+    "id": "kg.grammar.negation.short_mot",
+    "source": {
+      "id": "kg.grammar.negation.short_mot",
+      "kind": "grammar",
+      "subcategory": "negation",
+      "level": "A1",
+      "surface": "못",
+      "tags": [
+        "grammar",
+        "negation",
+        "cannot",
+        "beginner",
+        "v5_ingestion"
+      ],
+      "provenance": {
+        "source": "youtube_beginner_grammar",
+        "source_lesson_ids": [
+          47
+        ],
+        "source_video_ids": [
+          "6Pek9u8wI-w"
+        ]
+      },
+      "example_sentence_refs": [
+        "ex.ko.s.000497",
+        "ex.ko.s.000498",
+        "ex.ko.s.000499",
+        "ex.ko.s.000500",
+        "ex.ko.s.000501",
+        "ex.ko.s.000502",
+        "ex.ko.s.000503",
+        "ex.ko.s.000504",
+        "ex.ko.s.000505",
+        "ex.ko.s.000506"
+      ]
+    },
+    "i18n": {
+      "id": "kg.grammar.negation.short_mot",
+      "locale": "zh_tw",
+      "title": "못 (無法/不方便)",
+      "description": "表示因為能力不足或外部客觀因素，導致無法完成某動作。",
+      "explanation_md": "· 用法說明\n放置在動詞前方。僅能與動詞連用，不能接在形容詞前（除極少數例外）。\n\n· 常見使用場景\n- 能力不足：我沒辦法（因為沒學過）做這道菜。\n- 外部障礙：因為感冒了所以沒辦法去上班。\n\n· 相近文法比較\n- **안**: 「不想做」的意志否定。\n- **못**: 「做不到」的能力或情況否定。\n\n· 注意\n動詞如果是 `名詞 + 하다` 的形式（如 공부하다），`못` 必須放在 `하다` 之前（공부 못 해요）。",
       "usage_notes": []
     }
   },

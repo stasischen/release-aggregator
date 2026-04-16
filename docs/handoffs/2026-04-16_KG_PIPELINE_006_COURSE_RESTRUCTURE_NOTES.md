@@ -23,7 +23,7 @@ This note captures the current discussion around `kg-pipeline-006`, the schema e
 ## What Existing Data Is Doing
 
 - `dialogue_turns` and `normalized_segments` are the primary learning surface.
-- `video` is also a primary surface, mainly for listening and situational immersion.
+- `video` is a primary surface, alongside `dialogue`, for listening and situational immersion.
 - `grammar_note.sections` is the closest existing shape to future `teaching_blocks`.
 - `pattern_card` and `pattern_builder` are structure and output scaffolds.
 - `example_sentence_refs` are evidence links for usage examples.
@@ -38,7 +38,7 @@ This note captures the current discussion around `kg-pipeline-006`, the schema e
 - `source_refs` = source traceability.
 - `teaching_blocks` = internal pedagogical organization inside one knowledge item.
 - `teaching_blocks` are not evidence and not source links.
-- `teaching_blocks` are the canonical target shape; `grammar_note.sections` is still the closest existing transitional shape.
+- `teaching_blocks` are the future canonical target shape; `grammar_note.sections` is still the closest existing transitional shape.
 
 ## Course Structure Direction
 
@@ -92,6 +92,7 @@ Unit
 - `Cross-unit Transfer` carries prior learning into later units.
 - `pattern_card` and `pattern_builder` remain support scaffolds, not part of the knowledge-item payload.
 - `review_policy` should stay a proposed contract until the task plan explicitly adopts it.
+- `dialogue` and `video` are both input carriers; neither should be treated as a default primary over the other.
 
 ## Current Architectural Reading
 
@@ -105,7 +106,7 @@ This aligns with the existing course-design and runtime docs:
 
 - Should `grammar_note.sections` be formally upgraded to `teaching_blocks`?
 - Where is the hard boundary between `pattern_card` and `grammar_note`?
-- Should `dialogue/video` remain input-only, or also provide review / transfer hooks?
+- Should `dialogue/video` remain input carriers, or also provide review / transfer hooks?
 - Do we want an explicit `review_policy` contract?
 - Should the unit skeleton be fixed as `Input -> Structure -> Output -> Review`?
 - Can we keep `source_refs` as the canonical name and avoid renaming it in the knowledge-item schema?

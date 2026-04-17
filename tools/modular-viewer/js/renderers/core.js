@@ -47,7 +47,6 @@ window.RendererRegistry = {
 // --- Shell Renderers ---
 
 window.renderDetailHeader = function (node) {
-  const locale = window.currentLocale();
   const el = document.getElementById('detailHeader');
   if (!el) return;
   const stage = window.nodeStageLabel(node.id) || '';
@@ -56,7 +55,7 @@ window.renderDetailHeader = function (node) {
   el.innerHTML = `
     <div class="detail-header-card animate-in">
       <div class="tiny-text muted">${window.escapeHtml(stage || node.learning_role || 'node')}</div>
-      <h2 style="margin:4px 0 8px;">${window.escapeHtml(window.nodeTitleText(node, locale))}</h2>
+      <h2 style="margin:4px 0 8px;">${window.escapeHtml(node.displayTitle || '')}</h2>
       <div class="meta-tags">
         <span class="tag">${window.escapeHtml(node.content_form || 'unknown')}</span>
         <span class="tag">${window.escapeHtml(node.learning_role || 'learning')}</span>
@@ -67,11 +66,10 @@ window.renderDetailHeader = function (node) {
 };
 
 window.renderDetailSummary = function (node) {
-  const locale = window.currentLocale();
   const el = document.getElementById('detailSummary');
   if (!el) return;
-  const summary = window.nodeSummaryText(node, locale);
-  const expected = window.nodeExpectedText(node, locale);
+  const summary = node.displaySummary || '先看這一節的內容。';
+  const expected = node.displayExpected || '先理解這一節的重點。';
   el.innerHTML = `
     <div class="summary-grid animate-in" style="margin-bottom:12px;">
       <div class="summary-box">
@@ -378,8 +376,8 @@ window.showBilingual = () => window.state.progress.prefs.showBilingual !== false
 // --- Legacy Helper Mapping ---
 
 window.nodeTitleText = (node, locale) => node.displayTitle || window.LessonAdapter.resolveText(node && node.title_i18n, locale, window.LessonAdapter.getFallbackNodeTitle(node));
-window.nodeSummaryText = (node, locale) => node.displaySummary || window.LessonAdapter.resolveText(node && node.summary_i18n, locale, '先看這一節的內容。');
-window.nodeExpectedText = (node, locale) => node.displayExpected || window.LessonAdapter.resolveText(node && node.expected_output_i18n, locale, '先理解這一節的重點。');
+window.nodeSummaryText = (node, locale) => node.displaySummary || '先看這一節的內容。';
+window.nodeExpectedText = (node, locale) => node.displayExpected || '先理解這一節的重點。';
 
 window.nodeSkillFocusText = function (node) {
   if (node.skill_focus && node.skill_focus.length > 0) return node.skill_focus.join(' · ');

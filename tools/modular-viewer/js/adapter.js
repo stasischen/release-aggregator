@@ -40,6 +40,144 @@ window.LessonAdapter = {
     },
 
     /**
+     * Ingests raw data (either unit or raw V5 node) and returns a standardized unit structure.
+     */
+    ingest(data, locale = 'zh_tw') {
+        if (!data) return null;
+
+        // Auto-Wrap raw V5 content from content-ko/core into a valid unit structure
+        if (data.nodes && !data.sequence) {
+            console.log("[Adapter] Wrapping raw V5 content for rendering...");
+            const cid = data.id || 'REAL-DATA';
+            const isVlog = cid.includes('vlog') || cid.includes('v1_') || (data.nodes?.Start?.turns);
+            
+            return {
+                unit: { 
+                    unit_id: cid, 
+                    title_i18n: { zh_tw: isVlog ? '實體影片測試' : '實體對話測試' },
+                    level: data.level || 'A1',
+                    theme_i18n: { zh_tw: '生產環境資料鏈路' },
+                    can_do_i18n: { zh_tw: [] }
+                },
+                sequence: [
+                    {
+                        id: cid || 'node-0',
+                        title_i18n: { zh_tw: '內容預覽 (Real Content)' },
+                        summary_i18n: { zh_tw: '正在直接從 content-ko 加載實體 JSON 檔案。' },
+                        content_form: data.content_form || (isVlog ? 'video' : 'dialogue'),
+                        payload: data
+                    }
+                ]
+            };
+        }
+
+        return data; // Already a unit structure
+    },
+
+    /**
+     * Enriches unit data with external atoms and translations.
+     * @param {Object} data The standardized unit object.
+     * @param {string} locale current UI locale.
+     */
+    async enrich(data, locale = 'zh_tw') {
+        if (!data || !data.sequence) return data;
+        
+        // Use the first node's payload as the primary content for enrichment in current viewer logic
+        const firstNode = data.sequence[0];
+        const rawPayload = firstNode.payload || {};
+        const cid = rawPayload.id || data.id || data.unit?.unit_id;
+        
+        if (!cid || cid === 'REAL-DATA') { 
+            console.warn('[Adapter] enrich: No valid content ID for enrichment, skipping.'); 
+            return data; 
+        }
+        
+        console.log(`[Adapter] Enriching assets for Content ID: ${cid} (locale: ${locale})`);
+
+        try {
+            let atomsData = null;
+            let i18nData = null;
+            const isVideo = rawPayload.nodes?.Start?.turns || rawPayload.turns;
+            const isDialogue = rawPayload.dialogue_scenes || rawPayload.dialogue_turns || rawPayload.content;
+
+            // 1. Fetch Assets
+            if (isVideo) {
+                const i18nPath = `data/real_content/i18n/${locale}/video/${cid}.json`;
+                const iResp = await fetch(`${i18nPath}?v=${Date.now()}`);
+                if (iResp.ok) i18nData = await iResp.json();
+
+                const atomPaths = [`data/real_content/atoms/${cid}_atoms.json`, `data/real_content/atoms/${cid}.json` ];
+                for (const p of atomPaths) {
+                    const r = await fetch(`${p}?v=${Date.now()}`);
+                    if (r.ok) { atomsData = await r.json(); break; }
+                }
+            } else if (isDialogue) {
+                const i18nPath = `data/real_content/i18n/${locale}/dialogue/${cid}.json`;
+                const iResp = await fetch(`${i18nPath}?v=${Date.now()}`);
+                if (iResp.ok) i18nData = await iResp.json();
+                
+                const aResp = await fetch(`data/real_content/atoms/dialogue_atoms.json?v=${Date.now()}`);
+                if (aResp.ok) atomsData = await aResp.json();
+            }
+
+            // 2. Map enrichment into nodes
+            data.sequence.forEach(node => {
+                const payload = node.payload || {};
+                const turnSources = [
+                    payload.dialogue_turns,
+                    payload.content,
+                    payload.nodes?.Start?.turns,
+                    payload.turns
+                ];
+                if (payload.dialogue_scenes) {
+                    payload.dialogue_scenes.forEach(s => turnSources.push(s.turns));
+                }
+
+                turnSources.filter(Array.isArray).forEach(turns => {
+                    turns.forEach(turn => {
+                        const tid = turn.id || turn.line_id;
+                        if (!tid) return;
+
+                        const nid = tid.replace('-', '_');
+                        const rawTrans = i18nData?.translations?.[tid] || i18nData?.translations?.[nid];
+                        if (rawTrans) {
+                            turn.translations_i18n = turn.translations_i18n || {};
+                            turn.translations_i18n[locale] = rawTrans;
+                            // Compatibility fallbacks for legacy renderers
+                            turn.translation = rawTrans; 
+                        }
+
+                        // Map Atoms
+                        if (Array.isArray(atomsData)) {
+                            const entry = atomsData.find(a => 
+                                (a.turn_id === tid || a.turn_id === nid || a.line_id === tid || a.line_id === nid)
+                            );
+                            
+                            if (entry && entry.atoms) {
+                                // Sanity check for alignment
+                                const atomsText = entry.atoms.map(a => a.text).join('').replace(/\s/g, '').replace(/[.,?!~]/g, '');
+                                const sourceText = (turn.text?.ko || turn.ko || '').replace(/\s/g, '').replace(/[.,?!~]/g, '');
+                                
+                                if (atomsText !== sourceText && sourceText.length > 0) {
+                                    console.warn(`[Adapter] Alignment Mismatch for ${tid}. Discarding atoms.`);
+                                    turn.atoms = []; 
+                                    turn.alignment_failed = true;
+                                } else {
+                                    turn.atoms = entry.atoms;
+                                }
+                            }
+                        }
+                    });
+                });
+            });
+            console.log("[Adapter] Enrichment complete.");
+        } catch (e) {
+            console.warn("[Adapter] Enrichment failed", e);
+        }
+        return data;
+    },
+
+    /**
      * Normalizes the unit metadata.
      */
     normalizeUnit(unit, locale = 'zh_tw') {
@@ -70,11 +208,10 @@ window.LessonAdapter = {
 
         // Ensure content_form is present
         if (!normalized.content_form && normalized.id) {
-            // Some legacy nodes might lack content_form but have hints in ID or role
             normalized.content_form = this.inferContentForm(normalized);
         }
 
-        // 1. Resolve Examples (Precedence: refs > bank)
+        // 1. Resolve Examples
         normalized.payload.resolved_examples = this.resolveExamples(normalized.payload);
 
         // 2. Pattern Lab Normalization
@@ -98,9 +235,6 @@ window.LessonAdapter = {
 
     /**
      * Normalizes dialogue or video payload into a unified subtitle segment model.
-     * @param {Object} payload 
-     * @param {string} locale 
-     * @returns {Object} { surface_type, segments: [...] }
      */
     normalizeSubtitleSegments(payload, locale = 'zh_tw') {
         if (!payload) return { surface_type: 'unknown', segments: [] };
@@ -108,22 +242,17 @@ window.LessonAdapter = {
         const segments = [];
         let surfaceType = 'dialogue';
 
-        // 1. Handle V5 Video (nodes and turns) or V1/V4 Video (directly has turns or nodes)
+        // 1. Video
         const turns = (payload.nodes?.Start?.turns) || (payload.turns);
         if (turns && Array.isArray(turns)) {
             surfaceType = 'video';
             turns.forEach((turn, idx) => {
                 const koText = typeof turn.text === 'object' ? turn.text.ko : (turn.text || '');
-                // Resolve translation: check translations_i18n has actual keys, then fallback to direct field
-                const hasI18n = turn.translations_i18n && Object.keys(turn.translations_i18n).length > 0;
-                const resolvedTrans = hasI18n
-                    ? this.resolveText(turn.translations_i18n, locale, turn.translation || '')
-                    : (turn.translation || '');
                 segments.push({
                     segment_id: turn.id || `v-${idx}`,
                     speaker: turn.speaker || '',
                     ko: koText,
-                    translation: resolvedTrans,
+                    translation: this.resolveText(turn.translations_i18n, locale, turn.translation || ''),
                     start_ms: turn.time?.start ?? 0,
                     end_ms: turn.time?.end ?? 0,
                     anchor_refs: turn.anchor_refs || [],
@@ -133,7 +262,7 @@ window.LessonAdapter = {
                 });
             });
         }
-        // 2. Handle Dialogue V5 (dialogue_scenes)
+        // 2. Dialogue Scenes
         else if (payload.dialogue_scenes && Array.isArray(payload.dialogue_scenes)) {
             payload.dialogue_scenes.forEach(scene => {
                 const turns = scene.turns || [];
@@ -155,44 +284,23 @@ window.LessonAdapter = {
                 });
             }); 
         } 
-        // 3. Handle Legacy Dialogue (dialogue_turns)
-        else if (payload.dialogue_turns && Array.isArray(payload.dialogue_turns)) {
-            payload.dialogue_turns.forEach((turn, idx) => {
-                    segments.push({
-                        segment_id: turn.id || `turn-${idx}`,
-                        speaker: turn.speaker || '',
-                        ko: turn.text || turn.ko || '',
-                        translation: this.resolveText(turn.translations_i18n, locale, turn.translation || ''),
-                        anchor_refs: turn.anchor_refs || [],
-                        register: turn.register || '',
-                        atoms: turn.atoms || [],
-                        source_meta: {
-                        source_type: 'dialogue'
-                    }
-                });
-            });
-        }
-        // 4. Handle Real Core Dialogue (content array)
-        else if (payload.content && Array.isArray(payload.content)) {
-            payload.content.forEach((turn, idx) => {
-                    segments.push({
-                        segment_id: turn.id || `turn-${idx}`,
-                        speaker: turn.role || turn.speaker || '',
-                        ko: turn.text || turn.ko || '',
-                        translation: this.resolveText(turn.translations_i18n, locale, turn.translation || ''),
-                        anchor_refs: turn.anchor_refs || [],
-                        atoms: turn.atoms || [],
-                        source_meta: {
-                        source_type: 'dialogue'
-                    }
+        // 3. Generic Turns (Legacy or Core)
+        else {
+            const genericTurns = payload.dialogue_turns || payload.content || [];
+            genericTurns.forEach((turn, idx) => {
+                segments.push({
+                    segment_id: turn.id || `turn-${idx}`,
+                    speaker: turn.role || turn.speaker || '',
+                    ko: turn.text || turn.ko || '',
+                    translation: this.resolveText(turn.translations_i18n, locale, turn.translation || ''),
+                    anchor_refs: turn.anchor_refs || [],
+                    atoms: turn.atoms || [],
+                    source_meta: { source_type: 'dialogue' }
                 });
             });
         }
 
-        return {
-            surface_type: surfaceType,
-            segments: segments
-        };
+        return { surface_type: surfaceType, segments: segments };
     },
 
     /**

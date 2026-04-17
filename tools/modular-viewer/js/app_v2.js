@@ -140,41 +140,20 @@ const APP = {
             if (!resp.ok) throw new Error('Load failed');
             let data = await resp.json();
             
-            // Auto-Wrap raw V5 content from content-ko/core into a valid unit structure
-            if (data.nodes && !data.sequence) {
-                console.log("Wrapping raw V5 content for rendering...");
-                data = {
-                    unit: { 
-                        unit_id: data.id || 'REAL-DATA', 
-                        title_i18n: { zh_tw: (data.id && data.id.includes('vlog')) ? '實體影片測試' : '實體對話測試' },
-                        level: 'A1',
-                        theme_i18n: { zh_tw: '生產環境資料鏈路' },
-                        can_do_i18n: { zh_tw: [] }
-                    },
-                    sequence: [
-                        {
-                            id: data.id || 'node-0',
-                            title_i18n: { zh_tw: '內容預覽 (Real Content)' },
-                            summary_i18n: { zh_tw: '正在直接從 content-ko 加載實體 JSON 檔案。' },
-                            content_form: (data.content_form) || (data.nodes?.Start?.turns ? 'video' : 'dialogue'),
-                            payload: data
-                        }
-                    ]
-                };
-            }
+            // 1. Ingest (standardize unit/node structure)
+            data = window.LessonAdapter.ingest(data, window.currentLocale());
+
+            // 2. Enrich (async assets merger)
+            data = await window.LessonAdapter.enrich(data, window.currentLocale());
 
             window.state.data = data;
             window.state.currentIndex = 0;
             localStorage.setItem('agg_gen_last_unit_path', path);
 
-            // Enrichment Step (Atoms) - Pass unit ID explicitly if available
-            const unitId = data.unit?.unit_id || data.id;
-            await this.enrichAtoms(window.state.data, unitId);
-
             window.loadProgress();
             window.renderSidebar();
             window.renderCurrentNode();
-            this.renderLibraryBook();
+            
             if (autoSwitch) this.switchView('lessonView');
             if (window.showToast) window.showToast(`已載入: ${window.state.data.unit?.unit_id || '實體內容'}`);
         } catch (e) { 
@@ -183,128 +162,6 @@ const APP = {
         }
     },
 
-    async enrichAtoms(data, providedId) {
-        if (!data) return;
-        
-        // FIND THE REAL CONTENT ID (e.g. BWINkN8QbkU or goPwS4aL4Lk)
-        const rawPayload = data.sequence?.[0]?.payload || data;
-        const cid = rawPayload.id || data.id || data.unit?.unit_id || providedId;
-        
-        if (!cid || cid === 'REAL-DATA') { 
-            console.warn('enrichAtoms: no valid content ID found, skips.'); 
-            return; 
-        }
-        
-        console.log(`[ENRICH] Loading assets for Content ID: ${cid}`);
-
-        try {
-            let atomsData = null;
-            let i18nData = null;
-            const locale = window.state.progress.prefs.locale || 'zh_tw';
-            const isVideo = rawPayload.nodes?.Start?.turns || rawPayload.turns;
-            const isDialogueLesson = rawPayload.dialogue_scenes || rawPayload.dialogue_turns || rawPayload.content;
-
-            // 1. Load Assets with explicit cid
-            if (isVideo) {
-                const i18nPath = `data/real_content/i18n/${locale}/video/${cid}.json`;
-                const iResp = await fetch(`${i18nPath}?v=${Date.now()}`);
-                if (iResp.ok) i18nData = await iResp.json();
-
-                // Atom discovery: try _atoms.json pattern first as confirmed in list_dir
-                const atomPaths = [`data/real_content/atoms/${cid}_atoms.json`, `data/real_content/atoms/${cid}.json` ];
-                for (const p of atomPaths) {
-                    const r = await fetch(`${p}?v=${Date.now()}`);
-                    if (r.ok) { atomsData = await r.json(); break; }
-                }
-            } else if (isDialogueLesson) {
-                // Dialogue
-                const i18nPath = `data/real_content/i18n/${locale}/dialogue/${cid}.json`;
-                const iResp = await fetch(`${i18nPath}?v=${Date.now()}`);
-                if (iResp.ok) i18nData = await iResp.json();
-                
-                const aResp = await fetch(`data/real_content/atoms/dialogue_atoms.json?v=${Date.now()}`);
-                if (aResp.ok) atomsData = await aResp.json();
-            }
-            console.log(`[ENRICH] Assets Loaded? Atoms: ${!!atomsData}, I18N: ${!!i18nData}`);
-
-            // 2. Apply enrichment – handle auto-wrapped structure
-            const sequence = data.sequence?.length ? data.sequence : [{ payload: rawPayload }];
-            
-            sequence.forEach(node => {
-                // IMPORTANT: The actual content lives in node.payload for wrapped units
-                const payload = node.payload || data;
-                
-                // Collect all possible turn sources
-                const turnSources = [
-                    payload.dialogue_turns,
-                    payload.content,
-                    payload.nodes?.Start?.turns,
-                    payload.turns
-                ];
-                if (payload.dialogue_scenes) {
-                    payload.dialogue_scenes.forEach(s => turnSources.push(s.turns));
-                }
-
-                turnSources.filter(Array.isArray).forEach(turns => {
-                    turns.forEach(turn => {
-                        try {
-                            const tid = turn.id || turn.line_id;
-                            if (!tid) return;
-
-                            // Normalized IDs for matching
-                            const nid = tid.replace('-', '_');
-                            const locale = window.state.progress.prefs.locale || 'zh_tw';
-
-                            const rawTrans = i18nData?.translations?.[tid] || i18nData?.translations?.[nid];
-                            if (rawTrans) {
-                                turn.translations_i18n = turn.translations_i18n || {};
-                                turn.translations_i18n[locale] = rawTrans;
-                                turn.translations_i18n.translation = rawTrans; 
-                                turn.translation = rawTrans; 
-                            }
-
-                            // Map Atoms
-                            if (Array.isArray(atomsData)) {
-                                const entry = atomsData.find(a => 
-                                    (a.turn_id === tid || a.turn_id === nid || a.line_id === tid || a.line_id === nid)
-                                );
-                                
-                                if (entry && entry.atoms) {
-                                    // DEEP SANITY CHECK: Compare the actual text content
-                                    const atomsText = entry.atoms.map(a => a.text).join('').replace(/\s/g, '').replace(/[.,?!~]/g, '');
-                                    const sourceText = (turn.text?.ko || turn.ko || '').replace(/\s/g, '').replace(/[.,?!~]/g, '');
-                                    
-                                    // If text is significantly different, the assets are misaligned
-                                    if (atomsText !== sourceText && sourceText.length > 0) {
-                                        console.warn(`[ENRICH] Content Mismatch for ${tid}: Atoms text ("${atomsText}") != Source text ("${sourceText}"). Discarding atoms for alignment.`);
-                                        turn.atoms = []; 
-                                        turn.alignment_failed = true; // MARK AS BAD
-                                    } else {
-                                        turn.atoms = entry.atoms;
-                                    }
-                                } else if (atomsData[0]?.lesson_id) {
-                                    const turnAtoms = atomsData.filter(a => a.line_id === tid || a.line_id === nid);
-                                    if (turnAtoms.length > 0) {
-                                        turn.atoms = turnAtoms.map(a => ({
-                                            id: a.gold_final_atom_id,
-                                            text: a.surface,
-                                            pos: a.gsd_action
-                                        }));
-                                    }
-                                }
-                            }
-                        } catch (err) {
-                            console.warn(`Error enriching turn:`, err);
-                        }
-                    });
-                });
-            });
-            console.log("Enrichment complete. Re-rendering...");
-            if (window.renderCurrentNode) window.renderCurrentNode();
-        } catch (e) {
-            console.warn("Enrichment failed", e);
-        }
-    },
 
     selectSegment(id) {
         console.log(`Segment selected: ${id}`);
@@ -358,10 +215,6 @@ const APP = {
         }).join('');
     },
 
-    renderLibraryBook() {
-        // Legacy shim for unit-scoped library update
-        console.log("Library refactored. Book is global.");
-    },
 
     switchView(viewId) {
         this.currentView = viewId;

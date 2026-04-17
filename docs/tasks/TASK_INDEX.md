@@ -59,6 +59,8 @@ Layer 5: Legacy Backfill
 
 ### Layer 2 — 前端承接 / Frontend Contract Integration
 
+**順序原則：** 先完成 `MODULAR_VIEWER_REFACTOR`，再跑 `ULV_RUNTIME_MOCK_VERIFICATION`，最後才把通過驗證的 overlay / link 行為正式 migrate 到前端實作（例如 `kg-ui-019`）。
+
 | Task ID | 描述 | Phase | 進度 | 檔案 |
 | :--- | :--- | :--- | :--- | :--- |
 | MODULAR_VIEWER_REFACTOR | Modular Viewer 重構（source-build adapter / renderer 拆分 / i18n-first / preview 退場） | C+/Ops | 1/8 tasks | [JSON](MODULAR_VIEWER_REFACTOR_TASKS.json) · [PLAN](MODULAR_VIEWER_REFACTOR_PLAN.md) |

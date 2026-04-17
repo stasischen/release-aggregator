@@ -206,7 +206,7 @@ class MockupChecker:
             # 5. CMOD Modular Metadata Checks (Blockers/Errors)
             # Mandatory for v0.1+ that have opted into modularity, optional for legacy
             sequence = fixture.get("sequence", [])
-            has_modular_marker = any("interaction_modes" in n or "review_policy" in n for n in sequence) or "review_policy" in fixture
+            has_modular_marker = any("interaction_modes" in n or "review_policy" in n or "completion_rules" in n for n in sequence) or "review_policy" in fixture
             is_modular_v1 = fixture.get("version", "") >= "unit_blueprint_v0.1" and has_modular_marker
             
             # 5.1 Interaction Modes & Dispatcher

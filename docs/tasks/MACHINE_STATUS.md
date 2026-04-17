@@ -8,11 +8,11 @@ Each machine should maintain its own local, gitignored claim JSON under `docs/ta
 
 | Machine ID | Label | Current Task | Status | Updated At | Notes |
 | :--- | :--- | :--- | :--- | :--- | :--- |
-| m5pro | m5pro | CMOD-006 | idle | 2026-04-17 | CMOD-006 mismatch cleanup done |
-| home | home | - | idle | 2026-04-17 | Finished pzqtJI-FxJg. Handing off yt-tasks to 888. |
-| 888 | 888 | yt-video-atomization | active | 2026-04-17 | Taking over YT atomization pipeline. |
-| gamer | gamer | Ingestion Batch (L127-131) | done | 2026-04-17 | Systematic ingestion of Beginner Grammar L127-131. |
-| mac | mac | kg-ui-019 | in_progress | 2026-04-17 | Dictionary drawer / link UI |
+| m5pro | m5pro | kg-ui-019 | in_progress | 2026-04-17 | Frontend priority: dictionary grammar detail overlay and link UI |
+| home | home | kg-pipeline-006 | in_progress | 2026-04-17 | Schema / course structure discussion and review work |
+| 888 | 888 | yt-video-atomization | in_progress | 2026-04-17 | YouTube video atomization |
+| gamer | gamer | Ingestion Batch (L127-131) | done | 2026-04-17 | Systematic ingestion of Beginner Grammar L127-131 |
+| mac | mac | idle | idle | 2026-04-17 | Docs/content-only machine; keep frontend tasks off this machine |
 
 ## Usage Rule
 

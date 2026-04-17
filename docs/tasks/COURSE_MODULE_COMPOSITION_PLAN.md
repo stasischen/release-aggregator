@@ -103,6 +103,13 @@ Draft shape:
 }
 ```
 
+Semantics:
+- `interaction_modes` 是內容層的能力清單（Registry），描述同一內容節點支援哪些回答路徑。
+- `default_interaction_mode` 是內容內生最佳預設，不代表使用者進度，也不代表難度升降順序。
+- 若 Sequence 中明確指定 `output_mode`，其優先序高於 `default_interaction_mode`，但該值仍必須存在於內容節點的 `interaction_modes` 之中。
+- 若內容尚未遷移、尚未宣告 `interaction_modes`，則可回退使用舊有單一 `output_mode` 作為 Legacy Fallback；這是遷移橋接，不是長期並列主來源。
+- `interaction_modes` 與 `output_mode` 可共存，但不得互相覆蓋職責：前者屬內容宣告，後者屬單元執行選擇。
+
 ### review_policy
 
 Purpose:

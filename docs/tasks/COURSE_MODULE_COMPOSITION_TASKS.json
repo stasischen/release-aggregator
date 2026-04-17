@@ -15,7 +15,7 @@
     },
     {
       "id": "CMOD-003",
-      "desc": "Introduce interaction_modes contract proposal for multi-answer-path nodes, covering selection, assembly, typing, speaking, and transform answer paths.",
+      "desc": "Introduce interaction_modes contract proposal for multi-answer-path nodes, covering response_builder, guided_typing, and guided_speaking answer paths with default_interaction_mode and precedence rules.",
       "status": "todo"
     },
     {

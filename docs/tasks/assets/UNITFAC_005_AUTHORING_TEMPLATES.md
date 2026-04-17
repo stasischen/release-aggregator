@@ -207,6 +207,27 @@
 }
 ```
 
+### Interaction Contract (句子級互動)
+```json
+"interaction_contract": {
+  "actions": ["listen", "repeat", "shadow", "type"],
+  "payload": {
+    "audio_ref": "audio/path/to/sentence.mp3",
+    "target_surface": "韓文句子原文",
+    "alignment_ref": "audio/path/to/alignment.json",
+    "zh_tw": "翻譯"
+  },
+  "knowledge_dive": {
+    "dictionary_atom_refs": [
+      { "surface": "單字 A", "ref": "n-ko-0001" }
+    ],
+    "grammar_refs": [
+      { "surface": "語法 A", "ref": "g-ko-0001" }
+    ]
+  }
+}
+```
+
 ---
 
 ## 5. 教育品質核查清單 (Educational QA Checklist)

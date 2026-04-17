@@ -66,7 +66,7 @@
     {
       "id": "CMOD-012",
       "desc": "Define canonical pattern_frame + slot_bank contract for controlled substitution drills such as sentence assembly, slot replacement, and fill-in exercises; must align with frozen EXAMPLE_SENTENCE_BANK_SCHEMA_V1 (not just V0 draft).",
-      "status": "in_progress",
+      "status": "done",
       "depends_on": [
         "CMOD-001",
         "CMOD-003",
@@ -76,7 +76,7 @@
     {
       "id": "CMOD-013",
       "desc": "Define sentence practice action contract for content-first runtime so listen, repeat, shadow, type, and linked-knowledge drill-down work across dialogue, video transcript, article sentence, and future custom text.",
-      "status": "todo",
+      "status": "done",
       "depends_on": [
         "CMOD-001",
         "CMOD-011",

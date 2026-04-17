@@ -4,8 +4,8 @@
   "host": "888",
   "repo": "release-aggregator",
   "owner": "ywchen",
-  "current_task": "z-R0eTXKtpo",
+  "current_task": "CMOD-013",
   "task_status": "done",
-  "updated_at": "2026-04-17T18:15:00+08:00",
-  "notes": "Completed V5 morphological atomization for z-R0eTXKtpo (86 turns). Split multi-eojeol structures ('할 거예요') per specification. Passed all V5 QA gates with 0 legacy hits."
+  "updated_at": "2026-04-17T19:20:00+08:00",
+  "notes": "Completed CMOD-013: Sentence Practice Action Contract. Defined standard interaction actions and updated mockup_check.py."
 }

@@ -48,12 +48,47 @@
           {
             "speaker": "藥劑師",
             "text": "어서 오세요. 어디가 아프세요?",
-            "zh_tw": "歡迎光臨。哪裡不舒服（哪裡痛）呢？"
+            "zh_tw": "歡迎光臨。哪裡不舒服（哪裡痛）呢？",
+            "interaction_contract": {
+              "actions": ["listen", "repeat"],
+              "payload": {
+                "audio_ref": "audio/u05/l1_t1.mp3",
+                "target_surface": "어서 오세요. 어디가 아프세요?",
+                "zh_tw": "歡迎光臨。哪裡不舒服呢？"
+              },
+              "knowledge_dive": {
+                "dictionary_atom_refs": [
+                  { "surface": "어서 오세요", "ref": "v-ko-welcome" },
+                  { "surface": "어디", "ref": "n-ko-where" }
+                ],
+                "grammar_refs": [
+                  { "surface": "아프세요", "ref": "g-ko-pain-honorific" }
+                ]
+              }
+            }
           },
           {
             "speaker": "顧客",
             "text": "안녕하세요. 감기약 좀 주세요. 머리가 아프고 기침이 나요.",
-            "zh_tw": "你好。請給我感冒藥。我頭很痛且一直在咳嗽。"
+            "zh_tw": "你好。請給我感冒藥。我頭很痛且一直在咳嗽。",
+            "interaction_contract": {
+              "actions": ["listen", "repeat", "type"],
+              "payload": {
+                "audio_ref": "audio/u05/l1_t2.mp3",
+                "target_surface": "안녕하세요. 감기약 좀 주세요. 머리가 아프고 기침이 나요."
+              },
+              "knowledge_dive": {
+                "dictionary_atom_refs": [
+                  { "surface": "감기약", "ref": "n-ko-cold-medicine" },
+                  { "surface": "머리", "ref": "n-ko-head" },
+                  { "surface": "기침", "ref": "n-ko-cough" }
+                ],
+                "grammar_refs": [
+                  { "surface": "주세요", "ref": "g-ko-give-please" },
+                  { "surface": "나다", "ref": "v-ko-occur" }
+                ]
+              }
+            }
           },
           {
             "speaker": "藥劑師",

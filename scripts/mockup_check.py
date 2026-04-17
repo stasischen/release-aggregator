@@ -56,6 +56,10 @@ SUPPORTED_PASS_POLICIES = {
     "manual_mark_after_required_modes"
 }
 
+SUPPORTED_SENTENCE_ACTIONS = {
+    "listen", "repeat", "shadow", "type"
+}
+
 SUPPORTED_CONTENT_FORMS = {
     "dialogue", "notice", "message_thread", "comparison_card",
     "pattern_card", "grammar_note", "functional_phrase_pack",
@@ -144,7 +148,7 @@ class MockupChecker:
             node_id = node.get("id", f"node_{i}")
             role = node.get("learning_role")
             form = node.get("content_form")
-            mode = node.get("output_mode")
+            mode = node.get("output_mode", "none")
             payload = node.get("payload") or {}
 
             # 1. Contract checks
@@ -325,6 +329,60 @@ class MockupChecker:
                         for source in csp:
                             if source not in SUPPORTED_CUE_SOURCES:
                                 self.log_error(f"CMOD_UNSUPPORTED_CUE_SOURCE: {source}", node_id=node_id)
+
+            # 5.4 Interaction Contract (CMOD-013)
+            # This can appear in turns or lines within payload, or at node level
+            def check_contract(contract, context_id):
+                if not isinstance(contract, dict):
+                    self.log_error("CMOD_INVALID_SCHEMA: interaction_contract must be an object", node_id=context_id)
+                    return
+                
+                actions = contract.get("actions", [])
+                if not isinstance(actions, list):
+                    self.log_error("CMOD_INVALID_SCHEMA: interaction_contract.actions must be a list", node_id=context_id)
+                else:
+                    for act in actions:
+                        if act not in SUPPORTED_SENTENCE_ACTIONS:
+                            self.log_error(f"CMOD_UNSUPPORTED_ACTION: {act}", node_id=context_id)
+                
+                c_payload = contract.get("payload", {})
+                if not isinstance(c_payload, dict):
+                    self.log_error("CMOD_INVALID_SCHEMA: interaction_contract.payload must be an object", node_id=context_id)
+                else:
+                    # Require audio_ref for audio actions
+                    if any(a in ["listen", "repeat", "shadow"] for a in actions):
+                        if not c_payload.get("audio_ref"):
+                            self.log_warning("CMOD_MISSING_AUDIO_REF: Action requires audio_ref but it is missing", node_id=context_id)
+                    
+                    # Require target_surface for type action
+                    if "type" in actions and not c_payload.get("target_surface"):
+                        self.log_warning("CMOD_MISSING_TARGET_SURFACE: Action 'type' requires target_surface", node_id=context_id)
+
+                dive = contract.get("knowledge_dive", {})
+                if not isinstance(dive, dict):
+                    self.log_error("CMOD_INVALID_SCHEMA: knowledge_dive must be an object", node_id=context_id)
+                else:
+                    for ref_key in ["dictionary_atom_refs", "grammar_refs"]:
+                        refs = dive.get(ref_key, [])
+                        if not isinstance(refs, list):
+                            self.log_error(f"CMOD_INVALID_SCHEMA: {ref_key} must be a list", node_id=context_id)
+
+            # Check top-level contract
+            if "interaction_contract" in node:
+                check_contract(node["interaction_contract"], node_id)
+            
+            # Check nested contracts in payload (dialogue turns, video lines, etc)
+            if form == "dialogue":
+                turns = payload.get("dialogue_turns") or payload.get("turns") or []
+                for j, turn in enumerate(turns):
+                    if "interaction_contract" in turn:
+                        check_contract(turn["interaction_contract"], f"{node_id}_T{j}")
+            
+            elif form == "video_transcript": # Hypothetical future form
+                lines = payload.get("lines") or []
+                for j, line in enumerate(lines):
+                    if "interaction_contract" in line:
+                        check_contract(line["interaction_contract"], f"{node_id}_L{j}")
 
         # 6. Global Sequence Validations
         if found_input and not found_comp_check:

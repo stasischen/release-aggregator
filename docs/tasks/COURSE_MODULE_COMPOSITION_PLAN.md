@@ -388,6 +388,16 @@ Acceptance:
 - clear include/defer list for UNITFAC-001 contract freeze
 - explicitly separates frozen carrier/structure boundaries from deferred migration details
 
+### CMOD-013 — Sentence practice action contract
+
+Deliverable:
+- `docs/tasks/CMOD_013_SENTENCE_ACTION_CONTRACT_SPEC.md`
+
+Acceptance:
+- defines standard interaction actions (listen, repeat, shadow, type)
+- integrates with `CMOD-011` knowledge deep-dive refs
+- demonstrated in `A1-U05` pilot blueprint
+
 ## Recommended Execution Order
 
 1. `CMOD-001` + `CMOD-002`

@@ -4,8 +4,8 @@
   "host": "888",
   "repo": "release-aggregator",
   "owner": "ywchen",
-  "current_task": "z-R0eTXKtpo",
+  "current_task": "dMgYpANNpds",
   "task_status": "done",
-  "updated_at": "2026-04-17T18:15:00+08:00",
-  "notes": "Completed V5 morphological atomization for z-R0eTXKtpo (86 turns). Split multi-eojeol structures ('할 거예요') per specification. Passed all V5 QA gates with 0 legacy hits."
+  "updated_at": "2026-04-18T00:26:00+08:00",
+  "notes": "Finalized V5 morphological atomization for aG_VlWz6NhU (154 turns) and dMgYpANNpds (184 turns). Achieved Level 3 deep decomposition and 100% surface alignment with 0 legacy hits in V5 QA gate."
 }

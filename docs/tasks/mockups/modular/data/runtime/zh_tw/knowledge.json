@@ -3503,11 +3503,13 @@
         "source_lesson_ids": [
           104,
           31,
-          116
+          116,
+          119
         ],
         "source_video_ids": [
           "fllvIVNnyck",
-          "PvUxTlynQik"
+          "PvUxTlynQik",
+          "tU_bZUf11Ao"
         ]
       },
       "example_sentence_refs": [
@@ -3520,7 +3522,27 @@
         "ex.ko.s.001043",
         "ex.ko.s.001044",
         "ex.ko.s.001045",
-        "ex.ko.s.001046"
+        "ex.ko.s.001046",
+        "ex.ko.s.001157",
+        "ex.ko.s.001158",
+        "ex.ko.s.001159",
+        "ex.ko.s.001160",
+        "ex.ko.s.001161",
+        "ex.ko.s.001162",
+        "ex.ko.s.001163",
+        "ex.ko.s.001164",
+        "ex.ko.s.001165",
+        "ex.ko.s.001166",
+        "ex.ko.s.001187",
+        "ex.ko.s.001188",
+        "ex.ko.s.001189",
+        "ex.ko.s.001190",
+        "ex.ko.s.001191",
+        "ex.ko.s.001192",
+        "ex.ko.s.001193",
+        "ex.ko.s.001194",
+        "ex.ko.s.001195",
+        "ex.ko.s.001196"
       ]
     },
     "i18n": {

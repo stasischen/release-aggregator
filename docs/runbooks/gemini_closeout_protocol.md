@@ -11,21 +11,20 @@
 若本次為 `gsd_phase` 模式，另外必須：
 4. **回寫每個 touched repo 的 `STATE.md`**（已完成任務、blockers、next task）。
 5. **同步 aggregator 任務狀態**（`docs/tasks/` 相關任務檔與索引）。
+6. **釋放本機 machine claim**，並同步 `docs/tasks/MACHINE_STATUS.md`。
 
 ---
 
 ## Step 1: 先同步 (Sync First)
 
-為了避免在更新進度與寫入 Worklog 時與其他 Agent 發生覆蓋衝突，**收工的第一步**必須先對每個 touched repo 執行同步：
+為了避免在更新進度與寫入 Worklog 時與其他 Agent 發生覆蓋衝突，收工前應先確認 touched repo 是否需要同步：
 
 ```bash
 # // turbo
 cd <repo_path>
-git stash
 git pull --rebase origin main
-git stash pop
 ```
-*(注意：若無變更也可直接 `git pull --rebase origin main`)*
+*(注意：若本機有未提交變更，先完成本次 commit 再同步；若只想查看遠端最新狀態，可先 `git fetch origin`。不要把本機 machine claim JSON 當成可提交內容。)*
 
 ## Step 2: 狀態更新與撰寫 Worklog
 
@@ -35,7 +34,7 @@ git stash pop
 - **[MANDATORY] 執行任務索引同步**：
   ```bash
   # // turbo
-  python release-aggregator/scripts/sync_task_index.py
+  python scripts/sync_task_index.py
   ```
 - 若本次只完成部分 phase，需在 `STATE.md` 明確記錄尚未完成的 Task IDs。
 - 若為 `release-aggregator` session，必須檢查 `docs/tasks/TASK_INDEX.md` 是否需要同步更新。
@@ -118,7 +117,8 @@ git push origin main
 2. 本 phase touched repo 的 `STATE.md` 已同步（若本 repo 即 release-aggregator，檢查 `.planning/STATE.md`）。
 3. 任務狀態若有變更，`docs/tasks/TASK_INDEX.md` 已同步。
 4. 收工輸出包含 `blockers` 欄位（無則填 `none`）。
-5. **Encoding 檢查**: 檢查本次撰寫/修改的 Script 是否誤植 Emoji 或特殊 Unicode（建議使用 `grep -P "[^\x00-\x7F]" <files>`）。
+5. 本機 machine claim 已更新為 `idle` / `done`，且 `docs/tasks/MACHINE_STATUS.md` 已同步。
+6. **Encoding 檢查**: 檢查本次撰寫/修改的 Script 是否誤植 Emoji 或特殊 Unicode（建議使用 `grep -P "[^\x00-\x7F]" <files>`）。
 
 ## Step 3: 輸出收工報告
 

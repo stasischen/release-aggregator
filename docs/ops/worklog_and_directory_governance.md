@@ -19,6 +19,8 @@ Define one stable place for daily logs and a clean rule for multi-repo WIP.
 - `docs/workflow_map.md`: pipeline phases
 - `docs/owners.md`: ownership and handoff boundaries
 - `docs/tasks/*.json`: active mission boards
+- `docs/tasks/MACHINE_STATUS.md`: shared machine ownership summary
+- `docs/tasks/machines/local.json`: local machine claim file (gitignored)
 - `docs/worklogs/_template.md`: daily template
 - `docs/worklogs/YYYY-MM-DD.md`: actual daily records
 - `docs/ops/*.md`: policies and governance

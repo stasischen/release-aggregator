@@ -171,6 +171,9 @@ Layer 5: Legacy Backfill
 - `docs/tasks/` 根層：active working set，放正在執行的 plan、tasks、verification、walkthrough
 - `docs/tasks/assets/`：可重用的 reference、spec、schema、contract、guide、mockup
 - `docs/tasks/archive/`：已完成或封存的歷史文件
+- `docs/tasks/machines/*.json`：每台電腦本機的 gitignored claim 記錄，用來標示目前身份與正在處理的 task
+- `docs/tasks/MACHINE_STATUS.md`：共享的 machine claim 摘要，用來讓其他電腦快速看見誰正在做什麼
+- machine claim 的最小流程：先更新本機 JSON，再更新並 push `MACHINE_STATUS.md`，之後才開始實作
 
 ### 封存 (Archive)
 

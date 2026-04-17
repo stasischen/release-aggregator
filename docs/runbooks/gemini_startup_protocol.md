@@ -9,6 +9,19 @@
 
 ## Startup Sequence
 
+### Step -1: Resolve Machine Identity
+
+Before any task discovery, determine whether this session has a local machine claim file.
+
+- Read the shared summary first: `release-aggregator/docs/tasks/MACHINE_STATUS.md`
+- Then read the local claim file at `release-aggregator/docs/tasks/machines/local.json` if present on this machine
+- If no local claim exists yet, create `local.json` before claiming a task
+
+Purpose:
+- Make the current machine explicit at session start.
+- Prevent two computers from silently working the same task.
+- Ensure the session knows its current ownership before reading tasks.
+
 ### Step 0: 載入任務全景 (Task Discovery)
 
 > [!IMPORTANT]

@@ -8,6 +8,8 @@
 ### Step 1: 整理進度狀態
 Agent 必須讀取以下檔案以彙整現況：
 - `release-aggregator/docs/tasks/TASK_INDEX.md`
+- `release-aggregator/docs/tasks/MACHINE_STATUS.md`
+- 本機 `release-aggregator/docs/tasks/machines/local.json`（若存在）
 - 各 Repo 的 `STATE.md` (若存在)
 - 當前的 `worklog`
 
@@ -27,3 +29,4 @@ Agent 必須讀取以下檔案以彙整現況：
 ## Boundary Rules
 - **不要提交未完成的破壞性變更**：如果程式碼目前無法編譯，應在交接文件中特別註明，或暫存在 `data/staging/`。
 - **路徑明確化**：交接文件中的路徑必須使用絕對路徑或 Repo 相對路徑。
+- **Machine claim**：若交接時持有 machine claim，需在 handoff 中標註是否保留、釋放，或轉交給下一個 session。

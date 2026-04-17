@@ -8,6 +8,7 @@ Use this protocol only when `release-aggregator` is touched.
 2. Verify manifest path and provenance fields.
 3. Confirm docs links and task-board status updates if documentation changed.
 4. Run `python scripts/sync_task_index.py` to ensure all task progress is reflected in the index.
+5. Update `docs/tasks/MACHINE_STATUS.md` and release the local machine claim if this session used one.
 
 ## Required Report Fields
 - `repo`: release-aggregator
@@ -17,6 +18,7 @@ Use this protocol only when `release-aggregator` is touched.
 - `test_results`
 - `manifest_status`
 - `docs_updates`
+- `machine_status`
 - `pending_decisions`
 - `blockers`
 

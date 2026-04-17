@@ -4,6 +4,7 @@ Standard operational flow for the Lingo Content Ecosystem.
 
 Current human-readable source of truth:
 - `docs/human-handbook/00_START_HERE.md`
+- `release-aggregator/docs/tasks/MACHINE_STATUS.md`
 
 ```mermaid
 graph TD
@@ -13,6 +14,13 @@ graph TD
     D -->|Repo: content-pipeline| E[Release Aggregation]
     E -->|Repo: release-aggregator| F[Frontend Intake]
     F -->|Repo: lingo-frontend-web| G[Production]
+```
+
+```mermaid
+graph LR
+    M["Machine-local claim JSON<br/>docs/tasks/machines/local.json"] --> S["Shared machine status<br/>docs/tasks/MACHINE_STATUS.md"]
+    S --> T["Task discovery<br/>docs/tasks/TASK_INDEX.md"]
+    T --> W["Execution docs / handoffs"]
 ```
 
 ## Phase Details
@@ -45,6 +53,14 @@ When user says "收工", choose closeout protocol by touched repositories:
 - Pipeline: [closeout_pipeline.md](runbooks/closeout_pipeline.md)
 - Release: [closeout_release.md](runbooks/closeout_release.md)
 - Core Schema: [closeout_schema.md](runbooks/closeout_schema.md)
+
+## Machine Claim Flow
+
+At session start:
+1. Read the shared machine status summary.
+2. Read or create the local machine claim JSON.
+3. Update the shared status before taking a new task.
+4. Treat the shared status as the source of truth for current ownership.
 
 ## Execution Modes
 - `classic_stage`: single repo + single stage, follow [gemini_stage_execution_protocol.md](runbooks/gemini_stage_execution_protocol.md).

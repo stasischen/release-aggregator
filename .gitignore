@@ -11,3 +11,6 @@ tools/core_i18n_viewer/data/
 
 # transient audit results
 scripts/ops/*.json
+
+# local machine claims
+docs/tasks/machines/*.json

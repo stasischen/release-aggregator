@@ -37,6 +37,10 @@
           "title": "Expectation"
         },
         {
+          "id": "experience",
+          "title": "Experience"
+        },
+        {
           "id": "intent",
           "title": "Intent"
         },
@@ -767,7 +771,17 @@
         "ex.ko.s.000763",
         "ex.ko.s.000764",
         "ex.ko.s.000765",
-        "ex.ko.s.000766"
+        "ex.ko.s.000766",
+        "ex.ko.s.001007",
+        "ex.ko.s.001008",
+        "ex.ko.s.001009",
+        "ex.ko.s.001010",
+        "ex.ko.s.001011",
+        "ex.ko.s.001012",
+        "ex.ko.s.001013",
+        "ex.ko.s.001014",
+        "ex.ko.s.001015",
+        "ex.ko.s.001016"
       ]
     },
     {
@@ -869,6 +883,58 @@
       ]
     },
     {
+      "id": "kg.grammar.ending.intent_inference_getda",
+      "category": "grammar",
+      "sub": "ending",
+      "title": "-겠어요 (我會、應該、好像)",
+      "level": "A1",
+      "path": "data/runtime/zh_tw/knowledge.json",
+      "runtime_id": "kg.grammar.ending.intent_inference_getda",
+      "surface": "-겠어요",
+      "example_sentence_refs": [
+        "ex.ko.s.001047",
+        "ex.ko.s.001048",
+        "ex.ko.s.001049",
+        "ex.ko.s.001050",
+        "ex.ko.s.001051",
+        "ex.ko.s.001052",
+        "ex.ko.s.001053",
+        "ex.ko.s.001054",
+        "ex.ko.s.001055",
+        "ex.ko.s.001056",
+        "ex.ko.s.001057",
+        "ex.ko.s.001058",
+        "ex.ko.s.001059",
+        "ex.ko.s.001060",
+        "ex.ko.s.001061",
+        "ex.ko.s.001062",
+        "ex.ko.s.001063",
+        "ex.ko.s.001064",
+        "ex.ko.s.001065",
+        "ex.ko.s.001066",
+        "ex.ko.s.001067",
+        "ex.ko.s.001068",
+        "ex.ko.s.001069",
+        "ex.ko.s.001070",
+        "ex.ko.s.001071",
+        "ex.ko.s.001072",
+        "ex.ko.s.001073",
+        "ex.ko.s.001074",
+        "ex.ko.s.001075",
+        "ex.ko.s.001076",
+        "ex.ko.s.001077",
+        "ex.ko.s.001078",
+        "ex.ko.s.001079",
+        "ex.ko.s.001080",
+        "ex.ko.s.001081",
+        "ex.ko.s.001082",
+        "ex.ko.s.001083",
+        "ex.ko.s.001084",
+        "ex.ko.s.001085",
+        "ex.ko.s.001086"
+      ]
+    },
+    {
       "id": "kg.grammar.ending.cause_gi_ttaemune",
       "category": "grammar",
       "sub": "ending",
@@ -954,6 +1020,28 @@
         "ex.ko.s.000644",
         "ex.ko.s.000645",
         "ex.ko.s.000646"
+      ]
+    },
+    {
+      "id": "kg.grammar.ending.connective_a_eo_haeseo_gajigo",
+      "category": "grammar",
+      "sub": "ending",
+      "title": "-아/어/해 가지고 (之後、因為)",
+      "level": "A1",
+      "path": "data/runtime/zh_tw/knowledge.json",
+      "runtime_id": "kg.grammar.ending.connective_a_eo_haeseo_gajigo",
+      "surface": "-아/어/해 가지고",
+      "example_sentence_refs": [
+        "ex.ko.s.001027",
+        "ex.ko.s.001028",
+        "ex.ko.s.001029",
+        "ex.ko.s.001030",
+        "ex.ko.s.001031",
+        "ex.ko.s.001032",
+        "ex.ko.s.001033",
+        "ex.ko.s.001034",
+        "ex.ko.s.001035",
+        "ex.ko.s.001036"
       ]
     },
     {
@@ -1655,7 +1743,39 @@
         "ex.ko.s.000543",
         "ex.ko.s.000544",
         "ex.ko.s.000545",
-        "ex.ko.s.000546"
+        "ex.ko.s.000546",
+        "ex.ko.s.001097",
+        "ex.ko.s.001098",
+        "ex.ko.s.001099",
+        "ex.ko.s.001100",
+        "ex.ko.s.001101",
+        "ex.ko.s.001102",
+        "ex.ko.s.001103",
+        "ex.ko.s.001104",
+        "ex.ko.s.001105",
+        "ex.ko.s.001106"
+      ]
+    },
+    {
+      "id": "kg.grammar.experience.un_jeoki_itda",
+      "category": "grammar",
+      "sub": "experience",
+      "title": "-(으)ㄴ 적이 있다 (有做過的經驗)",
+      "level": "A1",
+      "path": "data/runtime/zh_tw/knowledge.json",
+      "runtime_id": "kg.grammar.experience.un_jeoki_itda",
+      "surface": "-(으)ㄴ 적이 있다",
+      "example_sentence_refs": [
+        "ex.ko.s.001037",
+        "ex.ko.s.001038",
+        "ex.ko.s.001039",
+        "ex.ko.s.001040",
+        "ex.ko.s.001041",
+        "ex.ko.s.001042",
+        "ex.ko.s.001043",
+        "ex.ko.s.001044",
+        "ex.ko.s.001045",
+        "ex.ko.s.001046"
       ]
     },
     {
@@ -1901,6 +2021,28 @@
       ]
     },
     {
+      "id": "kg.grammar.particle.choice_na_ina",
+      "category": "grammar",
+      "sub": "particle",
+      "title": "-(이)나 (或是、之類的)",
+      "level": "A1",
+      "path": "data/runtime/zh_tw/knowledge.json",
+      "runtime_id": "kg.grammar.particle.choice_na_ina",
+      "surface": "-(이)나",
+      "example_sentence_refs": [
+        "ex.ko.s.001017",
+        "ex.ko.s.001018",
+        "ex.ko.s.001019",
+        "ex.ko.s.001020",
+        "ex.ko.s.001021",
+        "ex.ko.s.001022",
+        "ex.ko.s.001023",
+        "ex.ko.s.001024",
+        "ex.ko.s.001025",
+        "ex.ko.s.001026"
+      ]
+    },
+    {
       "id": "kg.grammar.particle.after_noun_hu",
       "category": "grammar",
       "sub": "particle",
@@ -1986,6 +2128,28 @@
         "ex.ko.s.000974",
         "ex.ko.s.000975",
         "ex.ko.s.000976"
+      ]
+    },
+    {
+      "id": "kg.grammar.particle.boda_comparison",
+      "category": "grammar",
+      "sub": "particle",
+      "title": "보다 (比)",
+      "level": "A1",
+      "path": "data/runtime/zh_tw/knowledge.json",
+      "runtime_id": "kg.grammar.particle.boda_comparison",
+      "surface": "보다",
+      "example_sentence_refs": [
+        "ex.ko.s.001087",
+        "ex.ko.s.001088",
+        "ex.ko.s.001089",
+        "ex.ko.s.001090",
+        "ex.ko.s.001091",
+        "ex.ko.s.001092",
+        "ex.ko.s.001093",
+        "ex.ko.s.001094",
+        "ex.ko.s.001095",
+        "ex.ko.s.001096"
       ]
     },
     {

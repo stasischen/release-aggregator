@@ -1062,6 +1062,60 @@
     }
   },
   {
+    "id": "kg.grammar.ending.after_time_eun_ji",
+    "source": {
+      "id": "kg.grammar.ending.after_time_eun_ji",
+      "kind": "grammar",
+      "subcategory": "ending",
+      "level": "A1",
+      "surface": "-(으)ㄴ 지",
+      "knowledge_type": "official",
+      "tags": [
+        "grammar",
+        "ending",
+        "beginner",
+        "v5_ingestion",
+        "time",
+        "duration"
+      ],
+      "provenance": {
+        "source": "youtube_beginner_grammar",
+        "source_lesson_ids": [
+          113
+        ],
+        "source_video_ids": [
+          "Z_31X_kZj_o"
+        ]
+      },
+      "usage_policies": [
+        "shared_usage"
+      ],
+      "related_knowledge_ids": [
+        "kg.grammar.ending.after_eun_hue"
+      ],
+      "example_sentence_refs": [
+        "ex.ko.s.001127",
+        "ex.ko.s.001128",
+        "ex.ko.s.001129",
+        "ex.ko.s.001130",
+        "ex.ko.s.001131",
+        "ex.ko.s.001132",
+        "ex.ko.s.001133",
+        "ex.ko.s.001134",
+        "ex.ko.s.001135",
+        "ex.ko.s.001136"
+      ]
+    },
+    "i18n": {
+      "id": "kg.grammar.ending.after_time_eun_ji",
+      "locale": "zh_tw",
+      "title": "ㄴ/은 지 (了多久)",
+      "description": "用於計算某個動作發生後經過了多少時間。",
+      "explanation_md": "· 用法說明\n用於計算某個動作發生後經過了多少時間。就像是告訴我們從過去某個時間點到現在為止過了多少時間的「計時器」一樣。\n\n· 常見使用場景\n常用於自我介紹（來韓國多久了）、描述工作經歷或計算關係持續時間（結婚多久了）。\n\n· 注意\n`-(으)ㄴ 지` 常與 `되다` (過了多久)、`넘다` (超過多久)、`지나다` (經過多久) 等動詞搭配使用。",
+      "usage_notes": []
+    }
+  },
+  {
     "id": "kg.grammar.ending.as_soon_as_ja_ma_ja",
     "source": {
       "id": "kg.grammar.ending.as_soon_as_ja_ma_ja",
@@ -1848,6 +1902,61 @@
     }
   },
   {
+    "id": "kg.grammar.ending.emotion_observer_ahada",
+    "source": {
+      "id": "kg.grammar.ending.emotion_observer_ahada",
+      "kind": "grammar",
+      "subcategory": "ending",
+      "level": "A1",
+      "surface": "-아/어/해하다",
+      "knowledge_type": "official",
+      "tags": [
+        "grammar",
+        "ending",
+        "beginner",
+        "v5_ingestion",
+        "emotion",
+        "observer",
+        "third-person"
+      ],
+      "provenance": {
+        "source": "youtube_beginner_grammar",
+        "source_lesson_ids": [
+          115
+        ],
+        "source_video_ids": [
+          "Pu8cdYyX40k"
+        ]
+      },
+      "usage_policies": [
+        "shared_usage"
+      ],
+      "related_knowledge_ids": [
+        "kg.grammar.ending.want_go_sipda"
+      ],
+      "example_sentence_refs": [
+        "ex.ko.s.001147",
+        "ex.ko.s.001148",
+        "ex.ko.s.001149",
+        "ex.ko.s.001150",
+        "ex.ko.s.001151",
+        "ex.ko.s.001152",
+        "ex.ko.s.001153",
+        "ex.ko.s.001154",
+        "ex.ko.s.001155",
+        "ex.ko.s.001156"
+      ]
+    },
+    "i18n": {
+      "id": "kg.grammar.ending.emotion_observer_ahada",
+      "locale": "zh_tw",
+      "title": "아/어/해하다 (感到覺得)",
+      "description": "將形容詞轉為動詞，用於描述「第三人稱」觀察到的感受或情緒。",
+      "explanation_md": "· 用法說明\n用於說明朋友或家人的心情。韓語中，當我們描述「他人」的感情時，必須從直接陳述轉化為「觀察模式」。\n\n· 常見使用場景\n描述他人的情緒（感到開心、難過、害怕）或是他人的願望（想要做某事）。\n\n· 注意\n`나는 슬프다` (我很難過) 是直接陳述；但 `친구는 슬퍼해요` (朋友感到難過) 則是基於觀察的陳述。這是韓語中尊重他人內心邊界的表現。",
+      "usage_notes": []
+    }
+  },
+  {
     "id": "kg.grammar.ending.explanation_surprise_neundeyo",
     "source": {
       "id": "kg.grammar.ending.explanation_surprise_neundeyo",
@@ -1986,7 +2095,37 @@
         "ex.ko.s.001053",
         "ex.ko.s.001054",
         "ex.ko.s.001055",
-        "ex.ko.s.001056"
+        "ex.ko.s.001056",
+        "ex.ko.s.001057",
+        "ex.ko.s.001058",
+        "ex.ko.s.001059",
+        "ex.ko.s.001060",
+        "ex.ko.s.001061",
+        "ex.ko.s.001062",
+        "ex.ko.s.001063",
+        "ex.ko.s.001064",
+        "ex.ko.s.001065",
+        "ex.ko.s.001066",
+        "ex.ko.s.001067",
+        "ex.ko.s.001068",
+        "ex.ko.s.001069",
+        "ex.ko.s.001070",
+        "ex.ko.s.001071",
+        "ex.ko.s.001072",
+        "ex.ko.s.001073",
+        "ex.ko.s.001074",
+        "ex.ko.s.001075",
+        "ex.ko.s.001076",
+        "ex.ko.s.001077",
+        "ex.ko.s.001078",
+        "ex.ko.s.001079",
+        "ex.ko.s.001080",
+        "ex.ko.s.001081",
+        "ex.ko.s.001082",
+        "ex.ko.s.001083",
+        "ex.ko.s.001084",
+        "ex.ko.s.001085",
+        "ex.ko.s.001086"
       ]
     },
     "i18n": {
@@ -1994,7 +2133,7 @@
       "locale": "zh_tw",
       "title": "-겠어요 (我會、應該、好像)",
       "description": "表示說話者的強烈意志或對當前狀況的推測。",
-      "explanation_md": "· 用法說明\n`-겠어요` 是一個擁有多種功能的結尾，主要根據主詞而有所不同：\n1. **表示意志/打算**：主詞為「第一人稱（我/我們）」時，表示說話者強烈的決心或承諾。翻譯為「我會...」、「一定要...」。\n2. **表示推測**：主詞為「第二/三人稱」或描述氣候、環境時，表示根據當前線索所做出的推論。翻譯為「應該會...」、「好像...」。\n3. **客氣與婉轉**：在某些服務場景中（如：餐廳、預約），用於表達更有禮貌的意向。\n\n· 常見使用場景\n1. **展現決心 (意志)**：向別人承諾自己會努力或完成某事。\n   [id:ex.ko.s.001047] (我會努力的)\n2. **做出推論 (推測)**：看到天空陰暗推測會下雨，或看到別人很忙推測對方很累。\n   [id:ex.ko.s.001048] (推測對方很累)、[id:ex.ko.s.001049] (推測會下雨)\n\n· 相近文法比較\n- **`-겠어요` vs `-(으)ㄹ 거예요`**：\n  - `-겠어요` 的「意志」主觀強度更高且較為正式（如：職場承諾）。\n  - `-겠어요` 的「推測」通常是基於眼前的直覺或明確線索，而 `-(으)ㄹ 거예요` 是更具邏輯性的未來預測。\n\n· 注意\n- **收音規則**：詞幹末尾不論有無收音，一律接 `~겠어요`。",
+      "explanation_md": "· 用法說明\n`-겠어요` 是一個擁有多種功能的結尾，主要根據主詞而有所不同：\n1. **表示意志/打算**：主詞為「第一人稱（我/我們）」時，表示說話者強烈的決心或承諾。翻譯為「我會...」、「一定要...」。\n2. **表示推測**：主詞為「第二/三人稱」或描述氣候、環境時，表示根據當前線索所做出的推論。翻譯為「應該會...」、「好像...」。\n3. **客氣與婉轉**：在某些服務場景中（如：餐廳、預約），用於表達更有禮貌的意向（如：`잘 먹겠습니다`）。\n4. **感嘆與反應**：看到對方的狀況後，表示強烈的感同身受或驚訝（如：`힘들겠어요`）。\n\n· 常見使用場景\n1. **展現決心 (意志)**：向別人承諾自己會努力或完成某事。\n   [id:ex.ko.s.001057] (一定要拿到獎學金)、[id:ex.ko.s.001058] (會努力學習)\n2. **做出推論 (推測)**：看到天氣或對方的情況，提出自己的判斷。\n   [id:ex.ko.s.001067] (應該會下雨吧)、[id:ex.ko.s.001069] (應該真的很累吧)\n3. **感嘆與反應**：對眼前看到的美食或事情表示讚嘆。\n   [id:ex.ko.s.001078] (看起來很好吃！)、[id:ex.ko.s.001083] (應該真的很棒吧)\n\n· 相近文法比較\n- **`-겠어요` vs `-(으)ㄹ 거예요`**：\n  - `-겠어요` 的「意志」主觀強度更高且較為正式（如：職場承諾）。\n  - `-겠어요` 的「推測」通常是基於眼前的直覺或明確線索，而 `-(으)ㄹ 거예요` 是更具邏輯性的未來預測。\n\n· 注意\n- **收音規則**：詞幹末尾不論有無收音，一律接 `~겠어요`。",
       "usage_notes": []
     }
   },
@@ -2632,6 +2771,60 @@
     }
   },
   {
+    "id": "kg.grammar.ending.state_change_ajida_eojida",
+    "source": {
+      "id": "kg.grammar.ending.state_change_ajida_eojida",
+      "kind": "grammar",
+      "subcategory": "ending",
+      "level": "A1",
+      "surface": "-아/어/해지다",
+      "knowledge_type": "official",
+      "tags": [
+        "grammar",
+        "ending",
+        "beginner",
+        "v5_ingestion",
+        "change",
+        "state"
+      ],
+      "provenance": {
+        "source": "youtube_beginner_grammar",
+        "source_lesson_ids": [
+          114
+        ],
+        "source_video_ids": [
+          "FUtuiZzrxHU"
+        ]
+      },
+      "usage_policies": [
+        "shared_usage"
+      ],
+      "related_knowledge_ids": [
+        "kg.grammar.ending.become_ge_doeda"
+      ],
+      "example_sentence_refs": [
+        "ex.ko.s.001137",
+        "ex.ko.s.001138",
+        "ex.ko.s.001139",
+        "ex.ko.s.001140",
+        "ex.ko.s.001141",
+        "ex.ko.s.001142",
+        "ex.ko.s.001143",
+        "ex.ko.s.001144",
+        "ex.ko.s.001145",
+        "ex.ko.s.001146"
+      ]
+    },
+    "i18n": {
+      "id": "kg.grammar.ending.state_change_ajida_eojida",
+      "locale": "zh_tw",
+      "title": "아/어/해지다 (變了)",
+      "description": "表示形容詞的狀態發生了變化。",
+      "explanation_md": "· 用法說明\n表示形容詞的狀態發生了變化，強調從「之前的狀態」變成了「現在的狀態」。\n\n· 常見使用場景\n用於描述隨時間而變化的事物，如天氣變冷、心情變好、或是學習成果的進步（發音變好）。\n\n· 注意\n與單純描述狀態的形容詞相比，`아/어/해지다` 強調的是「變化的過程」。",
+      "usage_notes": []
+    }
+  },
+  {
     "id": "kg.grammar.ending.state_prog_a_eo_itda",
     "source": {
       "id": "kg.grammar.ending.state_prog_a_eo_itda",
@@ -2854,18 +3047,23 @@
     "id": "kg.grammar.ending.will_ul_geyo",
     "source": {
       "id": "kg.grammar.ending.will_ul_geyo",
-      "category": "grammar",
+      "kind": "grammar",
       "subcategory": "ending",
+      "level": "A1",
+      "surface": "-(으)ㄹ게요",
       "knowledge_type": "official",
       "tags": [
-        "will",
-        "promise",
-        "beginner"
+        "grammar",
+        "ending",
+        "beginner",
+        "v5_ingestion",
+        "promise"
       ],
       "provenance": {
         "source": "youtube_beginner_grammar",
         "source_lesson_ids": [
-          56
+          56,
+          111
         ]
       },
       "usage_policies": [
@@ -2873,6 +3071,18 @@
       ],
       "related_knowledge_ids": [
         "kg.grammar.tense.future_ul_geoyeyo"
+      ],
+      "example_sentence_refs": [
+        "ex.ko.s.001107",
+        "ex.ko.s.001108",
+        "ex.ko.s.001109",
+        "ex.ko.s.001110",
+        "ex.ko.s.001111",
+        "ex.ko.s.001112",
+        "ex.ko.s.001113",
+        "ex.ko.s.001114",
+        "ex.ko.s.001115",
+        "ex.ko.s.001116"
       ]
     },
     "i18n": {
@@ -3234,10 +3444,12 @@
       "provenance": {
         "source": "youtube_beginner_grammar",
         "source_lesson_ids": [
-          51
+          51,
+          110
         ],
         "source_video_ids": [
-          "EqpNlKjsbKA"
+          "EqpNlKjsbKA",
+          "UKaIq7PwjEk"
         ]
       },
       "example_sentence_refs": [
@@ -3250,7 +3462,17 @@
         "ex.ko.s.000543",
         "ex.ko.s.000544",
         "ex.ko.s.000545",
-        "ex.ko.s.000546"
+        "ex.ko.s.000546",
+        "ex.ko.s.001097",
+        "ex.ko.s.001098",
+        "ex.ko.s.001099",
+        "ex.ko.s.001100",
+        "ex.ko.s.001101",
+        "ex.ko.s.001102",
+        "ex.ko.s.001103",
+        "ex.ko.s.001104",
+        "ex.ko.s.001105",
+        "ex.ko.s.001106"
       ]
     },
     "i18n": {
@@ -3281,11 +3503,13 @@
         "source_lesson_ids": [
           104,
           31,
-          116
+          116,
+          119
         ],
         "source_video_ids": [
           "fllvIVNnyck",
-          "PvUxTlynQik"
+          "PvUxTlynQik",
+          "tU_bZUf11Ao"
         ]
       },
       "example_sentence_refs": [
@@ -3298,7 +3522,27 @@
         "ex.ko.s.001043",
         "ex.ko.s.001044",
         "ex.ko.s.001045",
-        "ex.ko.s.001046"
+        "ex.ko.s.001046",
+        "ex.ko.s.001157",
+        "ex.ko.s.001158",
+        "ex.ko.s.001159",
+        "ex.ko.s.001160",
+        "ex.ko.s.001161",
+        "ex.ko.s.001162",
+        "ex.ko.s.001163",
+        "ex.ko.s.001164",
+        "ex.ko.s.001165",
+        "ex.ko.s.001166",
+        "ex.ko.s.001187",
+        "ex.ko.s.001188",
+        "ex.ko.s.001189",
+        "ex.ko.s.001190",
+        "ex.ko.s.001191",
+        "ex.ko.s.001192",
+        "ex.ko.s.001193",
+        "ex.ko.s.001194",
+        "ex.ko.s.001195",
+        "ex.ko.s.001196"
       ]
     },
     "i18n": {
@@ -3907,6 +4151,52 @@
     }
   },
   {
+    "id": "kg.grammar.particle.boda_comparison",
+    "source": {
+      "id": "kg.grammar.particle.boda_comparison",
+      "kind": "grammar",
+      "subcategory": "particle",
+      "level": "A1",
+      "surface": "보다",
+      "tags": [
+        "grammar",
+        "particle",
+        "comparison",
+        "beginner",
+        "v5_ingestion"
+      ],
+      "provenance": {
+        "source": "youtube_beginner_grammar",
+        "source_lesson_ids": [
+          109
+        ],
+        "source_video_ids": [
+          "kBopzRAUqLs"
+        ]
+      },
+      "example_sentence_refs": [
+        "ex.ko.s.001087",
+        "ex.ko.s.001088",
+        "ex.ko.s.001089",
+        "ex.ko.s.001090",
+        "ex.ko.s.001091",
+        "ex.ko.s.001092",
+        "ex.ko.s.001093",
+        "ex.ko.s.001094",
+        "ex.ko.s.001095",
+        "ex.ko.s.001096"
+      ]
+    },
+    "i18n": {
+      "id": "kg.grammar.particle.boda_comparison",
+      "locale": "zh_tw",
+      "title": "보다 (比)",
+      "description": "接在名詞後，用於比較兩個對象。",
+      "explanation_md": "· 用法說明\n`보다` 是一個比較助詞，直接接在被比較的對象（名詞）後面。通常句子中還會配合 `더`（更）或 `덜`（較不）來加強程度。\n\n· 常見使用場景\n1. **事物特性的比較**：比較速度、大小、溫度等。\n   [id:ex.ko.s.001087] (火車比飛機更便宜)、[id:ex.ko.s.001088] (冬天比秋天更冷)\n2. **取向與能力的比較**：表達更喜歡什麼，或誰做得更好。\n   [id:ex.ko.s.001090] (唱歌比跳舞更好)、[id:ex.ko.s.001094] (朋友韓語比我更好)\n3. **重要性的比較**：說明某事物優先於另一事物。\n   [id:ex.ko.s.001095] (家人比工作更珍貴)\n\n· 相近文法比較\n- **A가 B보다 더...**：表示 A 比 B 更...。注意 `보다` 是接在「被比較的對象」(B) 後面。\n\n· 注意\n- **無收音規則限制**：不論名詞最後有無收音，一律接 `보다`。\n- **句子順序**：`보다` 可以放在主詞前面或後面，只要緊跟在基準對象後即可。例如：`지하철이 버스보다 빨라요` 與 `버스보다 지하철이 빨라요` 意思相同。",
+      "usage_notes": []
+    }
+  },
+  {
     "id": "kg.grammar.particle.cause_noun_ttaemune",
     "source": {
       "id": "kg.grammar.particle.cause_noun_ttaemune",
@@ -4085,6 +4375,60 @@
       "title": "동안 (期間)",
       "description": "接在表示時間的名詞之後，表示該動作或狀態持續的時間長度或期間。",
       "explanation_md": "「`동안`」用來描述一段時間的持續狀態。在對話中，它常被用來回答「持續了多久？」或是「在什麼時候？」的問題。\n\n· **用法說明**\n\n它接在表示時間的名詞之後，例如「三小時（세 시간）」、「三天（사흘/삼 일）」、「假期（방학）」等。像 [id:ex.ko.s.000907]、[id:ex.ko.s.000908]、[id:ex.ko.s.000909] 這些句子，展示了它在不同時間單位下的用法。它不只是講一個時間點，而是強調從開始到結束的**持續過程**。\n\n· **常見使用場景**\n\n| 場景 | 用法 | 例句 |\n| --- | --- | --- |\n| 特定期間 | `名詞 + 동안` | [id:ex.ko.s.000911] |\n| 數值時間 | `數值時間 + 동안` | [id:ex.ko.s.000913] |\n\n· **注意**\n\n雖然「`동안`」也可以接在動詞後（如 `~는 동안`），但在初級文法中，最常見且必須掌握的是接在**名詞**後的用法。",
+      "usage_notes": []
+    }
+  },
+  {
+    "id": "kg.grammar.particle.e_jjeum",
+    "source": {
+      "id": "kg.grammar.particle.e_jjeum",
+      "kind": "grammar",
+      "subcategory": "particle",
+      "level": "A1",
+      "surface": "~에 ~쯤",
+      "knowledge_type": "official",
+      "tags": [
+        "grammar",
+        "particle",
+        "beginner",
+        "v5_ingestion",
+        "frequency",
+        "degree"
+      ],
+      "provenance": {
+        "source": "youtube_beginner_grammar",
+        "source_lesson_ids": [
+          112
+        ],
+        "source_video_ids": [
+          "ZYteepqy_wU"
+        ]
+      },
+      "usage_policies": [
+        "shared_usage"
+      ],
+      "related_knowledge_ids": [
+        "kg.grammar.particle.e_location_time"
+      ],
+      "example_sentence_refs": [
+        "ex.ko.s.001117",
+        "ex.ko.s.001118",
+        "ex.ko.s.001119",
+        "ex.ko.s.001120",
+        "ex.ko.s.001121",
+        "ex.ko.s.001122",
+        "ex.ko.s.001123",
+        "ex.ko.s.001124",
+        "ex.ko.s.001125",
+        "ex.ko.s.001126"
+      ]
+    },
+    "i18n": {
+      "id": "kg.grammar.particle.e_jjeum",
+      "locale": "zh_tw",
+      "title": "에 쯤 (每大約)",
+      "description": "表示在某個單位基準下的數量或頻率。",
+      "explanation_md": "· 用法說明\n表示在某個單位基準下的數量或頻率。`~에` 用於表示基準單位（如時間、人數、次數），而 `~쯤` 接在數量詞後，表示大約的程度。\n\n· 常見使用場景\n常用於描述日常生活習慣、頻率（如一週運動幾次）或價格預算（如每人大約多少錢）。\n\n· 注意\n`~쯤` 是接在「數量」後面，而非基準單位後面。例如：`하루에 한 번쯤` (正確)，`하루쯤에 한 번` (不自然)。",
       "usage_notes": []
     }
   },

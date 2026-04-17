@@ -148,8 +148,13 @@ class MockupChecker:
             node_id = node.get("id", f"node_{i}")
             role = node.get("learning_role")
             form = node.get("content_form")
-            mode = node.get("output_mode", "none")
+            mode = node.get("output_mode")
             payload = node.get("payload") or {}
+
+            # 0. Presence check for required fields
+            if mode is None:
+                self.log_error("MISSING_FIELD: output_mode is required", node_id=node_id)
+                mode = "none" # Internal fallback for subsequent checks
 
             # 1. Contract checks
             if role not in SUPPORTED_LEARNING_ROLES:
@@ -352,11 +357,11 @@ class MockupChecker:
                     # Require audio_ref for audio actions
                     if any(a in ["listen", "repeat", "shadow"] for a in actions):
                         if not c_payload.get("audio_ref"):
-                            self.log_warning("CMOD_MISSING_AUDIO_REF: Action requires audio_ref but it is missing", node_id=context_id)
+                            self.log_error("CMOD_MISSING_AUDIO_REF: Action requires audio_ref", node_id=context_id)
                     
                     # Require target_surface for type action
                     if "type" in actions and not c_payload.get("target_surface"):
-                        self.log_warning("CMOD_MISSING_TARGET_SURFACE: Action 'type' requires target_surface", node_id=context_id)
+                        self.log_error("CMOD_MISSING_TARGET_SURFACE: Action 'type' requires target_surface", node_id=context_id)
 
                 dive = contract.get("knowledge_dive", {})
                 if not isinstance(dive, dict):

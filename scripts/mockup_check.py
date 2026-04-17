@@ -27,8 +27,8 @@ SUPPORTED_LEARNING_ROLES = {
 
 SUPPORTED_OUTPUT_MODES = {
     "none", "chunk_assembly", "frame_fill", "response_builder",
-    "pattern_transform", "guided", "open_task", "retell",
-    "transform", "review_retrieval"
+    "pattern_transform", "guided", "guided_typing", "guided_speaking",
+    "open_task", "retell", "transform", "review_retrieval"
 }
 
 SUPPORTED_CONTENT_FORMS = {
@@ -178,12 +178,18 @@ class MockupChecker:
             if "answers_ko" in payload:
                 self.log_warning("Uses legacy payload.answers_ko; prefer reference_answers_ko", node_id=node_id)
             
-            # Bilingual mismatch
-            if "notice_items" in payload and "notice_items_zh_tw" in payload:
-                if len(payload["notice_items"]) != len(payload["notice_items_zh_tw"]):
-                    self.log_warning(f"notice_items length mismatch: {len(payload['notice_items'])} vs {len(payload['notice_items_zh_tw'])}", node_id=node_id)
+            # 5. CMOD Modular Metadata Checks (Warnings)
+            if role == "immersion_output":
+                if "interaction_modes" not in node:
+                    self.log_warning("CMOD_MISSING_INTERACTION_MODES: Output nodes should declare capability list", node_id=node_id)
+                if "completion_rules" not in node:
+                    self.log_warning("CMOD_MISSING_COMPLETION_RULES: Output nodes should declare completion gating", node_id=node_id)
+            
+            if form == "review_card" or role == "review_retrieval":
+                if "review_policy" not in node and not payload.get("review_policy"):
+                    self.log_warning("CMOD_MISSING_REVIEW_POLICY: Review nodes should declare retrieval strategy", node_id=node_id)
 
-        # 5. Global Sequence Validations
+        # 6. Global Sequence Validations
         if found_input and not found_comp_check:
             self.log_error("ERR_MISSING_COMPREHENSION: No comprehension_check found in the sequence.")
         

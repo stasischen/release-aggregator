@@ -3,7 +3,7 @@
 本文件提供 Lingourmet 課程單元 Fixture（Mockup Blueprint）的作者指引、填寫模板與 QA 核查清單。
 
 > [!NOTE]
-> 所有 Fixture 在提交前必須通過 `tools/content_candidate_generation/bin/mockup_check.py` 驗證。
+> 所有 Fixture 在提交前必須通過 `release-aggregator/scripts/mockup_check.py` 驗證。
 
 ---
 
@@ -74,7 +74,9 @@
 - `frame_fill`: 句框填空。
 - `chunk_assembly`: 詞塊組裝。
 - `response_builder`: 多選一回應組裝。
-- `guided`: 導引式開口/寫作任務。
+- `guided_typing`: 導引式打字練習。
+- `guided_speaking`: 導引式口說練習。
+- `guided`: (Legacy) 舊版導引式任務。
 - `review_retrieval`: 複習擷取。
 
 ---
@@ -164,7 +166,49 @@
 
 ---
 
-## 4. 教育品質核查清單 (Educational QA Checklist)
+## 4. CMOD 模組化元數據 (Modular Metadata)
+
+對於已遷移至 CMOD 架構的內容，應包含以下擴展欄位以解耦內容與互動。
+
+### Interaction Modes (回答路徑集)
+```json
+"interaction_modes": ["response_builder", "guided_typing", "guided_speaking"],
+"default_interaction_mode": "response_builder"
+```
+
+### Completion Rules (完成判準)
+```json
+"completion_rules": {
+  "required_modes": ["guided_typing"],
+  "min_attempts": 1,
+  "pass_policy": "manual_mark_after_required_modes"
+}
+```
+
+### Review Policy (複習策略)
+```json
+"review_policy": {
+  "enabled": true,
+  "card_source": {
+    "prefer_carrier": true,
+    "include_support": ["pattern_card"]
+  },
+  "spacing_semantics": {
+    "profile": "same_day_plus_1_plus_3",
+    "intensity": "high"
+  },
+  "card_policies": {
+    "recognition": { "priority": 10, "cue_type": "audio_first" },
+    "recall": { "priority": 20, "cue_type": "meaning_first" },
+    "response": { "priority": 30, "cue_type": "scenario_context" }
+  },
+  "cue_source_preference": ["carrier_context", "sentence_surface", "grammar_rule"]
+}
+```
+
+---
+
+## 5. 教育品質核查清單 (Educational QA Checklist)
 
 #### 骨架結構 (Unit Skeleton)
 - [ ] **Scaffolding**: 單元安排是否遵循從沉浸輸入 -> 句型建模 -> 受控練習 -> 自由產出的順序？

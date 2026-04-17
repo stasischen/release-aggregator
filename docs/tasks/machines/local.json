@@ -4,8 +4,8 @@
   "host": "888",
   "repo": "release-aggregator",
   "owner": "ywchen",
-  "current_task": "yt-video-atomization",
+  "current_task": "vc3hGLgyXL4",
   "task_status": "done",
-  "updated_at": "2026-04-17T17:40:00+08:00",
-  "notes": "Completed V5 morphological atomization for r2lXjL7l4xI (119 turns). Artifact promoted to content/core/video_atoms/."
+  "updated_at": "2026-04-17T18:05:00+08:00",
+  "notes": "Completed V5 morphological atomization for vc3hGLgyXL4 (88 turns). Corrected orthography in source video JSON. Artifact promoted to content/core/video_atoms/."
 }

@@ -166,17 +166,19 @@
 
 ---
 
-## 4. CMOD 模組化元數據 (Modular Metadata)
+## 4. CMOD 模組化元數據 (Mandatory for v0.1+)
 
-對於已遷移至 CMOD 架構的內容，應包含以下擴展欄位以解耦內容與互動。
+對於已遷移至 CMOD 架構（`version: "unit_blueprint_v0.1"`）的內容，以下欄位為 **Mandatory (Blocker)**。
 
 ### Interaction Modes (回答路徑集)
+> **Rule**: 凡 `learning_role` 為 `controlled_output` 或 `immersion_output` 之節點必填。
 ```json
 "interaction_modes": ["response_builder", "guided_typing", "guided_speaking"],
 "default_interaction_mode": "response_builder"
 ```
 
 ### Completion Rules (完成判準)
+> **Rule**: 凡具備 `interaction_modes` 之節點必填。
 ```json
 "completion_rules": {
   "required_modes": ["response_builder", "guided_typing"],
@@ -186,6 +188,7 @@
 ```
 
 ### Review Policy (複習策略)
+> **Rule**: 凡 `content_form` 為 `review_card` 之節點必填。
 ```json
 "review_policy": {
   "policy_id": "standard_a1_grammar",

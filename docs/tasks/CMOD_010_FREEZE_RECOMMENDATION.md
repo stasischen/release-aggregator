@@ -15,9 +15,11 @@
 以下模組化契約已完成驗證，應作為 `v0.1` 以上單元的強制性標準。
 
 ### A. 強制性元數據 (Mandatory Metadata)
-對於所有 `v0.1` 單元，凡 `learning_role` 為 `controlled_output` 或 `immersion_output` 的節點，必須包含：
+對於所有 `v0.1` 單元，凡具有交互行為之節點（即 `learning_role` 為 `controlled_output`、`immersion_output` 或任何具備非 `none` 之 `output_mode` 者），必須包含：
 - **`interaction_modes`**: 宣告該內容支援的回答能力路徑（如 `["response_builder", "guided_typing"]`）。
 - **`completion_rules`**: 明確定義節點完成的門檻（如 `min_attempts`, `required_modes`）。
+
+對於純輸入型節點（Input Carriers），建議顯式宣告 `interaction_modes: ["none"]` 以求結構對齊，但 `v0.1` 階段暫不強制報錯。
 
 ### B. 互動契約 (Interaction Contract)
 句子級別的互動行為應統一使用 `interaction_contract` 結構，並支援以下標準位置：
@@ -78,4 +80,4 @@
 - [x] `core-schema` 更新並包含上述元數據定義。
 - [x] `mockup_check.py` 正式開啟強制校驗（已完成）。
 - [x] `A1-U05` Pilot 單元通過 100% 校驗並作為 Reference 存檔。
-- [ ] 所有撰寫模板 (`UNITFAC_005`) 更新完畢。
+- [x] 所有撰寫模板 (`UNITFAC_005`) 更新完畢。

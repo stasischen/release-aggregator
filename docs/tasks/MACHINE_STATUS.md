@@ -11,7 +11,7 @@ Each machine should maintain its own local, gitignored claim JSON under `docs/ta
 | m5pro | m5pro | MODULAR_VIEWER_REFACTOR | in_progress | 2026-04-17 | Modular first: source-build adapter, renderer split, and ULV gate before frontend migration |
 | home | home | CMOD-001~010 | in_progress | 2026-04-17 | Course module composition architecture work |
 | 888 | 888 | yt-video-atomization | in_progress | 2026-04-17 | YouTube video atomization |
-| gamer | gamer | Ingestion Batch (L127-131) | done | 2026-04-17 | Systematic ingestion of Beginner Grammar L127-131 |
+| gamer | gamer | Ingestion Batch (L137-142) - FINAL | done | 2026-04-17 | Beginner series officially complete. |
 | mac | mac | repo-org / kg-ui-019-docs | in_progress | 2026-04-17 | Repo organization, doc cleanup, and spec stabilization for KG-UI-019 |
 
 ## Usage Rule

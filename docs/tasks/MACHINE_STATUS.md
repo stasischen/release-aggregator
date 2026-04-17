@@ -12,7 +12,7 @@ Each machine should maintain its own local, gitignored claim JSON under `docs/ta
 | home | home | kg-mig-015 / yt atomization | in_progress | 2026-04-17 | YouTube video atomization |
 | 888 | 888 | kg-normalize-001B | done | 2026-04-17 06:00 | Normalization and hardening work completed. |
 | gamer | gamer | Ingestion Batch (L116-L120) | in_progress | 2026-04-17 | Systematic ingestion of Beginner Grammar L116-L120. |
-| mac | mac | kg-ui-019 | planned | 2026-04-17 | Dictionary drawer / link UI |
+| mac | mac | kg-ui-019 | in_progress | 2026-04-17 | Dictionary drawer / link UI |
 
 ## Usage Rule
 

@@ -14,7 +14,7 @@
         <div class="dialogue-container animate-in">
           ${window.renderNotice(payload)}
           <div class="bubble-stream">
-            <div class="system-message">未找到對話內容。</div>
+            <div class="system-message">${window.getLabel('no_dialogue')}</div>
           </div>
         </div>
       `;
@@ -32,7 +32,7 @@
         if (sceneId !== currentSceneId || !currentScene) {
             currentSceneId = sceneId;
             currentScene = {
-                title: seg.source_meta?.scene_title || '對話片段',
+                title: seg.source_meta?.scene_title || window.getLabel('unnamed_scene'),
                 segments: []
             };
             scenes.push(currentScene);

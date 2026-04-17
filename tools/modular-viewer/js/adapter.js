@@ -45,9 +45,9 @@ window.LessonAdapter = {
     ingest(data, locale = 'zh_tw') {
         if (!data) return null;
 
-        // Auto-Wrap raw V5 content from content-ko/core into a valid unit structure
+        // Branch 1: Auto-Wrap raw V5 content (nodes-based)
         if (data.nodes && !data.sequence) {
-            console.log("[Adapter] Wrapping raw V5 content for rendering...");
+            // console.log("[Adapter] Wrapping raw V5 content for rendering...");
             const cid = data.id || 'REAL-DATA';
             const isVlog = cid.includes('vlog') || cid.includes('v1_') || (data.nodes?.Start?.turns);
             
@@ -65,6 +65,30 @@ window.LessonAdapter = {
                         title_i18n: { zh_tw: '內容預覽 (Real Content)' },
                         summary_i18n: { zh_tw: '正在直接從 content-ko 加載實體 JSON 檔案。' },
                         content_form: data.content_form || (isVlog ? 'video' : 'dialogue'),
+                        payload: data
+                    }
+                ]
+            };
+        }
+
+        // Branch 2: Auto-Wrap source-build artifacts (content-array-based)
+        if (!data.sequence && data.content && Array.isArray(data.content)) {
+            // console.log("[Adapter] Wrapping source-build content for rendering...");
+            const cid = data.id || 'BUILD-DATA';
+            return {
+                unit: {
+                    unit_id: cid,
+                    title_i18n: { zh_tw: data.title || '無標題課程' },
+                    level: data.level || 'A1',
+                    theme_i18n: { zh_tw: '正式建置版本' },
+                    can_do_i18n: { zh_tw: [] }
+                },
+                sequence: [
+                    {
+                        id: 'node-0',
+                        title_i18n: { zh_tw: '課程內容' },
+                        summary_i18n: { zh_tw: '正式建置之課程內容。' },
+                        content_form: data.content_form || 'dialogue',
                         payload: data
                     }
                 ]
@@ -92,7 +116,7 @@ window.LessonAdapter = {
             return data; 
         }
         
-        console.log(`[Adapter] Enriching assets for Content ID: ${cid} (locale: ${locale})`);
+        // console.log(`[Adapter] Enriching assets for Content ID: ${cid} (locale: ${locale})`);
 
         try {
             let atomsData = null;
@@ -143,8 +167,6 @@ window.LessonAdapter = {
                         if (rawTrans) {
                             turn.translations_i18n = turn.translations_i18n || {};
                             turn.translations_i18n[locale] = rawTrans;
-                            // Compatibility fallbacks for legacy renderers
-                            turn.translation = rawTrans; 
                         }
 
                         // Map Atoms
@@ -170,7 +192,7 @@ window.LessonAdapter = {
                     });
                 });
             });
-            console.log("[Adapter] Enrichment complete.");
+            // console.log("[Adapter] Enrichment complete.");
         } catch (e) {
             console.warn("[Adapter] Enrichment failed", e);
         }
@@ -201,8 +223,8 @@ window.LessonAdapter = {
         const normalized = {
             ...node,
             displayTitle: this.resolveText(node.title_i18n, locale, this.getFallbackNodeTitle(node)),
-            displaySummary: this.resolveText(node.summary_i18n, locale, '先看這一節的內容。'),
-            displayExpected: this.resolveText(node.expected_output_i18n, locale, '先理解這一節的重點。'),
+            displaySummary: this.resolveText(node.summary_i18n, locale, window.getLabel('look_at_content')),
+            displayExpected: this.resolveText(node.expected_output_i18n, locale, window.getLabel('understand_focus')),
             payload: payload || {}
         };
 
@@ -323,7 +345,7 @@ window.LessonAdapter = {
                     return {
                         id: refId,
                         ko: s.source?.ko || s.source?.surface_ko || s.ko || "",
-                        translation: s.i18n?.translation || s.translation || "(尚無翻譯)",
+                        translation: s.i18n?.translation || s.translation || window.getLabel('no_translation'),
                         is_canonical: true
                     };
                 }
@@ -339,7 +361,7 @@ window.LessonAdapter = {
             return bank.map(ex => ({
                 id: ex.id || "transitional",
                 ko: ex.ko || "",
-                translation: ex.translation || "(尚無翻譯)",
+                translation: ex.translation || window.getLabel('no_translation'),
                 is_canonical: false
             }));
         }

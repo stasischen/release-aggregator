@@ -63,10 +63,10 @@ Layer 5: Legacy Backfill
 
 | Task ID | 描述 | Phase | 進度 | 檔案 |
 | :--- | :--- | :--- | :--- | :--- |
-| MODULAR_VIEWER_REFACTOR | Modular Viewer 重構（source-build adapter / renderer 拆分 / i18n-first / preview 退場） | C+/Ops | 1/8 tasks | [JSON](MODULAR_VIEWER_REFACTOR_TASKS.json) · [PLAN](MODULAR_VIEWER_REFACTOR_PLAN.md) |
+| MODULAR_VIEWER_REFACTOR | Modular Viewer 重構（source-build adapter / renderer 拆分 / i18n-first / preview 退場） | C+/Ops | 8/8 tasks | [JSON](MODULAR_VIEWER_REFACTOR_TASKS.json) · [PLAN](MODULAR_VIEWER_REFACTOR_PLAN.md) |
 | KNOWLEDGE_LAB_VIEWER_REFACTOR | Knowledge Lab Viewer 重構（對齊 ULV runtime contract / Pattern Lab 持久化 / 真內容驗證） | C+/Ops | 6/6 tasks | [JSON](KNOWLEDGE_LAB_VIEWER_REFACTOR_TASKS.json) · [PLAN](KNOWLEDGE_LAB_VIEWER_REFACTOR_PLAN.md) |
 | UNIFIED_LESSON_VIEW_ARCHITECTURE | Modular Viewer 下游：統一定義 lesson runtime IA（primary content / support detail / navigation / mock verification / Flutter boundary） | C+/Ops | 7/7 tasks | [JSON](UNIFIED_LESSON_VIEW_ARCHITECTURE_TASKS.json) · [ARCH](assets/UNIFIED_LESSON_VIEW_ARCHITECTURE.md) · [CONTRACT](../../tools/modular-viewer/UNIFIED_LESSON_RUNTIME_CONTRACT.md) |
-| ULV_RUNTIME_MOCK_VERIFICATION | **[GATE]** ULV Runtime Mock 驗證（使用真 lesson/KLab content 驗證運作合約穩定性） | C+/Ops | 0/6 tasks | [JSON](ULV_RUNTIME_MOCK_VERIFICATION_TASKS.json) · [PLAN](ULV_RUNTIME_MOCK_VERIFICATION.md) |
+| ULV_RUNTIME_MOCK_VERIFICATION | **[GATE]** ULV Runtime Mock 驗證（使用真 lesson/KLab content 驗證運作合約穩定性） | C+/Ops | 6/6 tasks | [JSON](ULV_RUNTIME_MOCK_VERIFICATION_TASKS.json) · [PLAN](ULV_RUNTIME_MOCK_VERIFICATION.md) |
 | KG-UI-019 | Dictionary-to-Grammar Deep Linking UI（字典意思連結至文法詳解 Drawer） | C+/UI | 0/4 tasks | [JSON](KG-UI-019_TASKS.json) · [PLAN](KG-UI-019_PLAN.md) |
 | UNIFIED_LESSON_VIEW_FLUTTER_TRANSFER | Modular Viewer 下游：將凍結的 unified lesson view contract 轉入 Flutter（shell / state / adapters / QA） | C+/Ops | 0/8 tasks | [JSON](UNIFIED_LESSON_VIEW_FLUTTER_TRANSFER_TASKS.json) |
 
@@ -75,7 +75,7 @@ Layer 5: Legacy Backfill
 | Task ID | 描述 | Phase | 進度 | 檔案 |
 | :--- | :--- | :--- | :--- | :--- |
 | TARGET_LANG_COURSE_FACTORY | 目標語系課程工廠（目標語內容優先 + 中英文教學層 + 前端轉換） | C+/Ops | 10/20 tasks | [JSON](TARGET_LANG_COURSE_FACTORY_TASKS.json) |
-| COURSE_MODULE_COMPOSITION | 課程模組組裝（Content / Interaction / Review 三層設計與 contract 對齊；含 segmentation anchor、slot bank 與 sentence practice actions） | C+/Ops | 2/13 tasks | [JSON](COURSE_MODULE_COMPOSITION_TASKS.json) · [PLAN](COURSE_MODULE_COMPOSITION_PLAN.md) |
+| COURSE_MODULE_COMPOSITION | 課程模組組裝（Content / Interaction / Review 三層設計 with contract 對齊；含 segmentation anchor、slot bank 與 sentence practice actions） | C+/Ops | 14/14 tasks | [JSON](COURSE_MODULE_COMPOSITION_TASKS.json) · [PLAN](COURSE_MODULE_COMPOSITION_PLAN.md) |
 
 ### Layer 4 — 技能深化 / Skill-Layer Expansion
 
@@ -106,13 +106,13 @@ Layer 5: Legacy Backfill
 
 | Task ID | 描述 | Phase | 進度 | 檔案 |
 | :--- | :--- | :--- | :--- | :--- |
-| KNOWLEDGE_LAB_ENRICHMENT | Knowledge Lab 內容充實（knowledge/topic/link/vocab/retrieval 補強；含 embedded examples 盤點與 pronunciation refs；不得改 frontend intake contract） | Lab/Ops | 7/8 tasks | [JSON](KNOWLEDGE_LAB_ENRICHMENT_TASKS.json) · [FINDINGS](assets/kg-normalize-001B_FINDINGS_HANDOFF.md) |
 
 
 ### Completed Pending Archive (已完成待封存)
 
 | Task ID | 描述 | 進度 | 檔案 |
 | :--- | :--- | :--- | :--- |
+| KNOWLEDGE_LAB_ENRICHMENT | Knowledge Lab 內容充實（knowledge/topic/link/vocab/retrieval 補強；含 embedded examples 盤點與 pronunciation refs；KLAB-007 phonology 已收斂為 zh_tw only；不得改 frontend intake contract） | 8/8 tasks | [JSON](KNOWLEDGE_LAB_ENRICHMENT_TASKS.json) · [FINDINGS](assets/kg-normalize-001B_FINDINGS_HANDOFF.md) |
 
 
 ### Deferred / Later

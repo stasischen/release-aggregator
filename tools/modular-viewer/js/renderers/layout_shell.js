@@ -25,16 +25,16 @@ window.renderDetailHeader = function (node) {
 window.renderDetailSummary = function (node) {
   const el = document.getElementById('detailSummary');
   if (!el) return;
-  const summary = node.displaySummary || '先看這一節的內容。';
-  const expected = node.displayExpected || '先理解這一節的重點。';
+  const summary = node.displaySummary || window.getLabel('look_at_content');
+  const expected = node.displayExpected || window.getLabel('understand_focus');
   el.innerHTML = `
     <div class="summary-grid animate-in" style="margin-bottom:12px;">
       <div class="summary-box">
-        <span class="label">本節目標</span>
+        <span class="label">${window.getLabel('node_goal')}</span>
         ${window.escapeHtml(summary)}
       </div>
       <div class="summary-box">
-        <span class="label">預期輸出</span>
+        <span class="label">${window.getLabel('expected_output')}</span>
         ${window.escapeHtml(expected)}
       </div>
     </div>
@@ -44,7 +44,7 @@ window.renderDetailSummary = function (node) {
 window.renderFreeNote = function (node) {
   return `
       <div class="free-note-box animate-in">
-        <textarea placeholder="隨手筆記 (Free Note)..."></textarea>
+        <textarea placeholder="${window.getLabel('free_note_placeholder')}"></textarea>
       </div>
     `;
 };

@@ -8,11 +8,11 @@ Each machine should maintain its own local, gitignored claim JSON under `docs/ta
 
 | Machine ID | Label | Current Task | Status | Updated At | Notes |
 | :--- | :--- | :--- | :--- | :--- | :--- |
-| m5pro | m5pro | MODULAR_VIEWER_REFACTOR | in_progress | 2026-04-17 | Modular first: source-build adapter, renderer split, and ULV gate before frontend migration |
-| home | home | idle | idle | 2026-04-17 | Completed CMOD-012 |
+| m5pro | m5pro | KG-UI-019 | in_progress | 2026-04-17 | Frontend dictionary-to-grammar deep linking UI |
+| home | home | none | idle | 2026-04-17 | Batch 1.1 Ingestion completed (50 sentences, 5 KIs). |
 | 888 | 888 | yt-video-atomization | in_progress | 2026-04-17 | YouTube video atomization |
 | gamer | gamer | Ingestion Batch (L137-142) - FINAL | done | 2026-04-17 | Beginner series officially complete. |
-| mac | mac | repo-org / kg-ui-019-docs | in_progress | 2026-04-17 | Repo organization, doc cleanup, and spec stabilization for KG-UI-019 |
+| mac | mac | repo-org / docs maintenance | in_progress | 2026-04-17 | Repo organization, doc cleanup, and spec stabilization |
 
 ## Usage Rule
 

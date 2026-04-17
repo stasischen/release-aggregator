@@ -166,17 +166,19 @@
 
 ---
 
-## 4. CMOD 模組化元數據 (Modular Metadata)
+## 4. CMOD 模組化元數據 (Mandatory for v0.1+)
 
-對於已遷移至 CMOD 架構的內容，應包含以下擴展欄位以解耦內容與互動。
+對於已遷移至 CMOD 架構（`version: "unit_blueprint_v0.1"`）的內容，以下欄位為 **Mandatory (Blocker)**。
 
 ### Interaction Modes (回答路徑集)
+> **Rule**: 凡具有交互行為之節點（即 `learning_role` 為 `controlled_output`、`immersion_output`、`review_retrieval` 或任何具備非 `none` 之 `output_mode` 者）必填。
 ```json
 "interaction_modes": ["response_builder", "guided_typing", "guided_speaking"],
 "default_interaction_mode": "response_builder"
 ```
 
 ### Completion Rules (完成判準)
+> **Rule**: 凡具備 `interaction_modes` 且非 `none` 之節點必填。
 ```json
 "completion_rules": {
   "required_modes": ["response_builder", "guided_typing"],
@@ -186,6 +188,7 @@
 ```
 
 ### Review Policy (複習策略)
+> **Rule**: 凡 `content_form` 為 `review_card` 之節點必填。
 ```json
 "review_policy": {
   "policy_id": "standard_a1_grammar",
@@ -207,6 +210,46 @@
 }
 ```
 
+### Interaction Contract (句子級互動)
+```json
+"interaction_contract": {
+  "actions": ["listen", "repeat", "shadow", "type"],
+  "payload": {
+    "tts_text": "韓文句子原文",
+    "target_surface": "韓文句子原文",
+    "audio_ref": "audio/path/to/sentence.mp3", // optional, when a prebuilt asset exists
+    "alignment_ref": "audio/path/to/alignment.json", // optional, mainly for shadow
+    "zh_tw": "翻譯"
+  },
+  "knowledge_dive": {
+    "anchors": [
+      {
+        "surface": "생일카드",
+        "offset": 7,
+        "length": 4,
+        "level": "chunk",
+        "target": "topic_ref",
+        "ref": "topic:ko:birthday"
+      },
+      {
+        "surface": "오늘",
+        "offset": 0,
+        "length": 2,
+        "level": "token",
+        "target": "dictionary_atom_ref",
+        "ref": "ko:n:오늘"
+      }
+    ],
+    "dictionary_atom_refs": [
+      { "surface": "單字 A", "ref": "n-ko-0001" }
+    ],
+    "grammar_refs": [
+      { "surface": "語法 A", "ref": "g-ko-0001" }
+    ]
+  }
+}
+```
+
 ---
 
 ## 5. 教育品質核查清單 (Educational QA Checklist)
@@ -224,6 +267,7 @@
 - [ ] **Bilingual**: 所有 `zh_tw` 翻譯是否準確且符合台灣用語習慣（非機器直譯）？
 - [ ] **Honorifics**: 韓文敬語等級在單元內是否一致（例如 A1 預設使用 해요體）？
 - [ ] **Authenticity**: 對話是否自然？（避免像機器人般的課本對話）
+- [ ] **TTS Fit**: `interaction_contract` 是否能以 `tts_text` 或既有音檔達成，不強迫作者為所有句子補錄音檔？
 
 ### 資源連接 (Resources)
 - [ ] **Lexicon**: 重要的 `dictionary_terms` 是否都有在節點中定義，以便後續關聯解析？

@@ -1,7 +1,7 @@
 {
   "task_id": "COURSE_MODULE_COMPOSITION",
   "description": "課程模組組裝（Content / Interaction / Review 三層設計與 contract 對齊）",
-  "status": "in_progress",
+  "status": "done",
   "tasks": [
     {
       "id": "CMOD-001",
@@ -51,12 +51,12 @@
     {
       "id": "CMOD-010",
       "desc": "Freeze recommendation: define what enters UNITFAC-001 v0.1 contract vs what remains optional, with frozen carrier/structure boundaries and deferred migration details.",
-      "status": "todo"
+      "status": "done"
     },
     {
       "id": "CMOD-011",
       "desc": "Add course content segmentation and inline anchor linking: sentence/chunk click targets should open dictionary or knowledge lab refs when canonical knowledge links exist (e.g. weekday -> topic.weekday, numbers -> topic.number, endings -> grammar refs).",
-      "status": "todo",
+      "status": "done",
       "depends_on": [
         "CMOD-001",
         "ULV-003",
@@ -66,7 +66,7 @@
     {
       "id": "CMOD-012",
       "desc": "Define canonical pattern_frame + slot_bank contract for controlled substitution drills such as sentence assembly, slot replacement, and fill-in exercises; must align with frozen EXAMPLE_SENTENCE_BANK_SCHEMA_V1 (not just V0 draft).",
-      "status": "in_progress",
+      "status": "done",
       "depends_on": [
         "CMOD-001",
         "CMOD-003",
@@ -76,11 +76,19 @@
     {
       "id": "CMOD-013",
       "desc": "Define sentence practice action contract for content-first runtime so listen, repeat, shadow, type, and linked-knowledge drill-down work across dialogue, video transcript, article sentence, and future custom text.",
-      "status": "todo",
+      "status": "done",
       "depends_on": [
         "CMOD-001",
         "CMOD-011",
         "ULV-004"
+      ]
+    },
+    {
+      "id": "CMOD-014",
+      "desc": "Regression closure for CMOD-011 anchor linking: lock multi-level overlap behavior with positive and negative fixtures, and keep the mockup-check usage guide aligned for Gemini handoff.",
+      "status": "done",
+      "depends_on": [
+        "CMOD-011"
       ]
     }
   ]

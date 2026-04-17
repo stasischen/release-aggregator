@@ -13,7 +13,7 @@
     // Slot Banks (Legacy or supplemental)
     const slotBanks = (payload.slot_bank_panels || []).map(panel => `
       <div class="content-block">
-        <div class="block-title">${window.escapeHtml(window.i18nText(panel.title_i18n, locale, '可替換材料'))}</div>
+        <div class="block-title">${window.escapeHtml(window.i18nText(panel.title_i18n, locale, window.getLabel('swappable_materials')))}</div>
         <div class="compare-pros">
           ${(panel.items_i18n || panel.items || []).map(item => `
             <div class="pro-item">
@@ -87,14 +87,14 @@
 
     return `
       <div class="content-block">
-        <div class="block-title">${window.escapeHtml(window.i18nText(builder.title_i18n, teachingLocale, '可切換句型'))}</div>
+        <div class="block-title">${window.escapeHtml(window.i18nText(builder.title_i18n, teachingLocale, window.getLabel('dynamic_patterns')))}</div>
         <div id="${builderId}" class="summary-box" data-builder-config="${configJsonAttr}" data-node-id="${window.escapeHtml(nodeId)}">
           ${window.i18nText(builder.inline_hint_i18n, teachingLocale, '') ? `<div class="muted-text" style="margin-bottom:12px;">${window.escapeHtml(window.i18nText(builder.inline_hint_i18n, teachingLocale, ''))}</div>` : ''}
           <div class="summary-grid" style="grid-template-columns:repeat(3, 1fr);">
             ${controlsHtml}
           </div>
           ${presetsHtml ? `<div class="presets-row" style="margin-top:12px; display:flex; gap:8px; flex-wrap:wrap;">
-            <span class="tiny-text muted" style="width:100%;">快速切換示例：</span>
+            <span class="tiny-text muted" style="width:100%;">${window.getLabel('quick_presets')}</span>
             ${presetsHtml}
           </div>` : ''}
           <div class="pattern-entry" style="margin-top:12px; border-top:1px dashed var(--line); padding-top:12px;">
@@ -121,7 +121,7 @@
       if (select) select.value = val;
     });
     window.updatePatternBuilderFromRoot(builderId);
-    if (window.showToast) window.showToast('已切換示例');
+    if (window.showToast) window.showToast(window.getLabel('applied_preset'));
   };
 
   window.computePatternBuilderOutput = function (config, rawValues) {
@@ -199,7 +199,7 @@
     try {
         if (window.setNodeInteractionState) {
             window.setNodeInteractionState(builderId, values);
-            if (window.showToast) window.showToast(`已存儲狀態: ${builderId.split('-').pop()}`);
+            if (window.showToast) window.showToast(`${window.getLabel('saved_state')}: ${builderId.split('-').pop()}`);
         }
     } catch (e) {
         console.error('Pattern persistence error', e);

@@ -22,7 +22,7 @@
       const pts = payload.points_i18n || payload.points;
       if (Array.isArray(pts)) {
         sections = [{
-          title_i18n: { zh_tw: '重點內容', en: 'Key Points' },
+          title_i18n: { zh_tw: window.getLabel('key_points'), en: window.getLabel('key_points') },
           points_i18n: pts
         }];
       } else {
@@ -45,14 +45,14 @@
       return `
         <div class="grammar-container animate-in">
           ${window.renderNotice(payload)}
-          ${window.renderEmptyState('本節點無額外的文法詳情。')}
+          ${window.renderEmptyState(window.getLabel('no_grammar'))}
         </div>
       `;
     }
 
     // 3. Render Sections
     const html = sections.map(s => {
-      const title = window.i18nText(s.title_i18n, locale, '文法重點');
+      const title = window.i18nText(s.title_i18n, locale, window.getLabel('grammar_points'));
       const explanationMd = window.i18nText(s.explanation_md_i18n, locale, s.explanation_md || '');
       const points = window.LessonAdapter.resolveArray(s.points_i18n || s.points || []);
 
@@ -77,7 +77,7 @@
         <details open>
           <summary>${window.escapeHtml(title)}</summary>
           <div class="grammar-body">
-            ${sectionContent || '<div class="muted-text tiny-text">內容為空</div>'}
+            ${sectionContent || `<div class="muted-text tiny-text">${window.getLabel('empty_content')}</div>`}
           </div>
         </details>
       `;
@@ -90,7 +90,7 @@
       <div class="grammar-container animate-in">
         ${window.renderNotice(payload)}
         <div class="content-block">
-          <div class="block-title">文法解說</div>
+          <div class="block-title">${window.getLabel('grammar_explanation')}</div>
           <div class="grammar-accordion">
             ${html}
           </div>

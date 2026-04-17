@@ -47,11 +47,11 @@ const APP = {
                 document.body.classList.toggle('dark');
                 const isDark = document.body.classList.contains('dark');
                 localStorage.setItem('lingo_mock_dark_mode', isDark);
-                this.elements.darkModeToggle.textContent = isDark ? '☀️ 淺色' : '🌓 深色';
+                this.elements.darkModeToggle.textContent = isDark ? window.getLabel('light_mode') : window.getLabel('dark_mode');
             };
             if (localStorage.getItem('lingo_mock_dark_mode') === 'true') {
                 document.body.classList.add('dark');
-                this.elements.darkModeToggle.textContent = '☀️ 淺色';
+                this.elements.darkModeToggle.textContent = window.getLabel('light_mode');
             }
         }
 
@@ -155,10 +155,10 @@ const APP = {
             window.renderCurrentNode();
             
             if (autoSwitch) this.switchView('lessonView');
-            if (window.showToast) window.showToast(`已載入: ${window.state.data.unit?.unit_id || '實體內容'}`);
+            if (window.showToast) window.showToast(`${window.getLabel('unit_loaded')}${window.state.data.unit?.unit_id || window.getLabel('real_content')}`);
         } catch (e) { 
             console.error("LoadUnit Error:", e);
-            if (window.showToast) window.showToast("載入失敗: " + e.message, "error");
+            if (window.showToast) window.showToast(window.getLabel('load_failed') + e.message, "error");
         }
     },
 
@@ -229,7 +229,7 @@ const APP = {
         if (this.elements.unitIndicator) {
             if (viewId === 'lessonView' && window.state.data) {
                 this.elements.unitIndicator.style.display = 'block';
-                this.elements.unitIndicator.textContent = `導覽中: ${window.state.data.unit.unit_id}`;
+                this.elements.unitIndicator.textContent = `${window.getLabel('navigating_unit')}${window.state.data.unit.unit_id}`;
             } else {
                 this.elements.unitIndicator.style.display = 'none';
             }
@@ -243,8 +243,8 @@ const APP = {
             this.elements.courseMapGrid.innerHTML = `
                 <div class="empty-state" style="grid-column: 1 / -1; margin-top:80px;">
                     <div class="icon" style="font-size:48px;">🧹</div>
-                    <h3>暫無課程資料</h3>
-                    <p class="muted-text">目前只保留知識文庫的單一重建條目。</p>
+                    <h3>${window.getLabel('no_units')}</h3>
+                    <p class="muted-text">${window.getLabel('no_units_desc')}</p>
                 </div>
             `;
             return;
@@ -326,11 +326,11 @@ const APP = {
 
     getCategoryTitle(cid) {
         const mapping = {
-            "grammar": "韓文法",
-            "pattern": "必修句型",
-            "connector": "連接詞",
-            "expression": "慣用語",
-            "vocab": "主題單字"
+            "grammar": window.getLabel('grammar'),
+            "pattern": window.getLabel('pattern'),
+            "connector": window.getLabel('connector'),
+            "expression": window.getLabel('expression'),
+            "vocab": window.getLabel('vocab')
         };
         return mapping[cid] || cid.capitalize();
     },
@@ -346,8 +346,8 @@ const APP = {
         if (items.length === 0) {
             this.elements.libReader.innerHTML = `
                 <div class="empty-state">
-                    <h3>${subId} 內容準備中</h3>
-                    <p>此章節的編寫正在進行中，敬請期待。</p>
+                    <h3>${subId} ${window.getLabel('content_preparing')}</h3>
+                    <p>${window.getLabel('content_preparing_desc')}</p>
                 </div>
             `;
             if (this.elements.libCurrentTitle) this.elements.libCurrentTitle.textContent = subId;
@@ -380,8 +380,8 @@ const APP = {
                         <div style="height:2px; width:40px; background:var(--accent); margin-top:12px;"></div>
                     </div>
                     <div style="display:flex; gap:8px;">
-                        <button class="btn tiny-text" onclick="window.resetAudioEngine()" style="padding:4px 8px; border-radius:8px; opacity:0.8; color:var(--warn); border-color:var(--warn-soft);">🔊 重設語音</button>
-                        <button class="btn tiny-text" onclick="APP.showLibTOC()" style="padding:4px 8px; border-radius:8px; opacity:0.8;">全部主題</button>
+                        <button class="btn tiny-text" onclick="window.resetAudioEngine()" style="padding:4px 8px; border-radius:8px; opacity:0.8; color:var(--warn); border-color:var(--warn-soft);">${window.getLabel('reset_audio')}</button>
+                        <button class="btn tiny-text" onclick="APP.showLibTOC()" style="padding:4px 8px; border-radius:8px; opacity:0.8;">${window.getLabel('all_topics')}</button>
                     </div>
                 </div>
                 <div class="list-grid">
@@ -446,7 +446,7 @@ const APP = {
                 <div class="example-card animate-in">
                     <div class="example-header" style="display:flex; justify-content:space-between; align-items:center; margin-bottom:8px;">
                         <div class="example-ko" style="font-weight:700; color:var(--text);">${window.escapeHtml(ex.ko)}</div>
-                        <button type="button" class="audio-btn" onclick="event.stopPropagation(); APP.playOriginalOrTTS('${fallbackKo}'); return false;" title="播放 TTS">
+                        <button type="button" class="audio-btn" onclick="event.stopPropagation(); APP.playOriginalOrTTS('${fallbackKo}'); return false;" title="${window.getLabel('play_tts')}">
                             <span class="icon">🔊</span>
                         </button>
                     </div>
@@ -466,27 +466,27 @@ const APP = {
                         <span class="level-badge ${levelClass}">${meta.level || 'A1'}</span>
                         <span class="tiny-text muted" style="letter-spacing:0.05em;">${data.id || ''}</span>
                     </div>
-                    <h1 style="font-size:32px; color:var(--text); margin:0 0 16px 0; line-height:1.2;">${window.escapeHtml(window.i18nText(data.title_i18n, window.currentLocale(), data.id || ''))}</h1>
+                    <h2 style="margin:0; font-size:32px; color:var(--text); margin:0 0 16px 0; line-height:1.2;">${window.escapeHtml(window.i18nText(data.title_i18n, window.currentLocale(), data.id || ''))}</h2>
                     <div style="height:4px; width:60px; background:var(--accent); border-radius:2px; margin-bottom:24px;"></div>
                     <p class="lead" style="font-size:18px; font-weight:500; color:var(--muted); line-height:1.6; margin:0;">${window.escapeHtml(window.i18nText(data.summary_i18n, window.currentLocale(), ''))}</p>
                 </header>
 
                 <section class="content-block" style="margin-top:0; padding:22px; border:1px solid var(--line); border-radius:20px; background:var(--card);">
                     <div class="rule-body">
-                        ${explanationHtml || '<p class="md-paragraph muted">目前沒有內容。</p>'}
+                        ${explanationHtml || `<p class="md-paragraph muted">${window.getLabel('no_rule_content')}</p>`}
                     </div>
                 </section>
 
                 ${(window.i18nText(data.usage_notes_i18n, window.currentLocale(), []) || []).length > 0 ? `
-                    <h2 style="margin-top:48px;">📌 重點提示</h2>
+                    <h2 style="margin-top:48px;">${window.getLabel('usage_tips')}</h2>
                     <div class="usage-tips" style="margin-bottom:32px; display:flex; flex-wrap:wrap; gap:8px;">
                         ${(window.i18nText(data.usage_notes_i18n, window.currentLocale(), []) || []).map(note => `<div class="tag">${window.escapeHtml(note)}</div>`).join('')}
                     </div>
                 ` : ''}
 
                 <div class="example-section" style="margin-top:28px;">
-                    <div class="section-subtitle">例句</div>
-                    ${hasExamples ? `<div class="example-grid" style="display:grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap:16px;">${examplesHtml}</div>` : '<p class="muted-text">目前沒有對應例句。</p>'}
+                    <div class="section-subtitle">${window.getLabel('examples')}</div>
+                    ${hasExamples ? `<div class="example-grid" style="display:grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap:16px;">${examplesHtml}</div>` : `<p class="muted-text">${window.getLabel('no_examples')}</p>`}
                 </div>
             </article>
         `;
@@ -502,13 +502,13 @@ const APP = {
         this.elements.libReader.innerHTML = `
             <div class="empty-state" style="margin-top:100px;">
                 <div class="icon" style="font-size:48px;">📖</div>
-                <h3>歡迎來到 Lingourmet 韓語知識文庫</h3>
-                <p class="muted-text">請從左側目錄選擇一個主題開始學習。</p>
+                <h3>${window.getLabel('lib_welcome')}</h3>
+                <p class="muted-text">${window.getLabel('lib_sidebar_prompt')}</p>
                 <div class="featured-list" id="libFeaturedList" style="margin-top:32px;"></div>
             </div>
         `;
         this.renderLibFeatured();
-        if (this.elements.libCurrentTitle) this.elements.libCurrentTitle.textContent = '請選擇主題';
+        if (this.elements.libCurrentTitle) this.elements.libCurrentTitle.textContent = window.getLabel('lib_select_topic');
     },
 
     toggleLibSidebar(open) {
@@ -526,7 +526,7 @@ const APP = {
             <div class="unit-card" style="text-align:left; cursor:pointer;" onclick="APP.loadLibRule('${f.runtime_id || f.id}')">
                 <div class="unit-badge">${f.category}</div>
                 <h4>${window.escapeHtml(f.title)}</h4>
-                <p class="tiny-text muted">快速查看此語法條目</p>
+                <p class="tiny-text muted">${window.getLabel('lib_featured_desc')}</p>
             </div>
         `).join('');
     },
@@ -558,8 +558,8 @@ window.renderSidebar = function() {
     
     if (APP.elements.unitMetaGrid) {
         APP.elements.unitMetaGrid.innerHTML = `
-            <div class="meta-box"><span class="k">主題</span><span class="v">${unit.displayTheme}</span></div>
-            <div class="meta-box"><span class="k">類型</span><span class="v">單元課程</span></div>
+            <div class="meta-box"><span class="k">${window.getLabel('theme')}</span><span class="v">${unit.displayTheme}</span></div>
+            <div class="meta-box"><span class="k">${window.getLabel('type')}</span><span class="v">${window.getLabel('unit_course')}</span></div>
         `;
     }
     
@@ -593,7 +593,7 @@ window.renderRoleSummary = function() {
     if (!APP.elements.roleSummaryBox) return;
     const counts = {};
     window.state.data.sequence.forEach(n => counts[n.learning_role] = (counts[n.learning_role] || 0) + 1);
-    APP.elements.roleSummaryBox.innerHTML = '<h3>內容分佈</h3>' + Object.entries(counts).map(([k, v]) => `
+    APP.elements.roleSummaryBox.innerHTML = `<h3>${window.getLabel('content_dist')}</h3>` + Object.entries(counts).map(([k, v]) => `
         <div class="tiny-text" style="display:flex; justify-content:space-between; margin-bottom:4px;">
             <span class="muted">${k}</span>
             <span class="accent" style="font-weight:700">${v}</span>
@@ -643,9 +643,9 @@ window.renderSupportDetail = function(atom) {
     }
 
     // Mock definitions if missing (Heuristic)
-    let definition = atom.definition || "(尚無詳細釋義)";
-    if (atom.id && atom.id.includes('안녕하세요')) definition = "【釋義】安寧，平安。用於打招呼，相當於『您好』。";
-    if (atom.id && atom.id.includes('여러분')) definition = "【釋義】各位，大家。";
+    let definition = atom.definition || window.getLabel('no_definition');
+    if (atom.id && atom.id.includes('안녕하세요')) definition = `${window.getLabel('definition')}安寧，平安。用於打招呼，相當於『您好』。`;
+    if (atom.id && atom.id.includes('여러분')) definition = `${window.getLabel('definition')}各位，大家。`;
 
     container.innerHTML = `
         <button class="close-support" onclick="document.getElementById('supportDetail').classList.remove('active')">✕</button>
@@ -660,8 +660,8 @@ window.renderSupportDetail = function(atom) {
             ${window.escapeHtml(definition)}
         </div>
         <div style="margin-top: 20px; display: flex; gap: 10px;">
-            <button class="btn tiny-text audio-btn" style="flex:1" data-text="${window.escapeJsSingle(atom.text)}">🔊 播放</button>
-            <button class="btn tiny-text" style="flex:1" onclick="window.showToast('已加入生字本')">⭐ 收藏</button>
+            <button class="btn tiny-text audio-btn" style="flex:1" data-text="${window.escapeJsSingle(atom.text)}">🔊 ${window.getLabel('play')}</button>
+            <button class="btn tiny-text" style="flex:1" onclick="window.showToast(window.getLabel('added_to_vocab'))">⭐ ${window.getLabel('save')}</button>
         </div>
     `;
     container.classList.add('active');

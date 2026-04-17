@@ -14,18 +14,18 @@ window.applyInlineMarkdown = function (text) {
       const bank = window.APP?.libSentences || {};
       const s = bank[id];
       const ko = s?.source?.ko || s?.source?.surface_ko || s?.ko || id;
-      const zh = s?.i18n?.translation || s?.translation || "(尚無翻譯)";
+      const zh = s?.i18n?.translation || s?.translation || window.getLabel('no_translation');
       const audioCall = `APP.playOriginalOrTTS('${window.escapeJsSingle(ko)}')`;
-      return `<span class="inline-sentence-chip" onclick="${audioCall}" title="點擊播放音檔">
+      return `<span class="inline-sentence-chip" onclick="${audioCall}" title="${window.getLabel('click_to_play')}">
                 <span class="ko">${window.escapeHtml(ko)}</span>
-                <span class="view-zh">${window.escapeHtml(zh)}</span>
+                <span class="view-translation">${window.escapeHtml(zh)}</span>
               </span>`;
     })
     .replace(/\[ko:(.*?)\|zh:(.*?)(?:\|id:(.*?))?\]/g, (m, ko, zh, id) => {
       const audioCall = `APP.playOriginalOrTTS('${window.escapeJsSingle(ko)}')`;
-      return `<span class="inline-sentence-chip" onclick="${audioCall}" title="點擊播放音檔">
+      return `<span class="inline-sentence-chip" onclick="${audioCall}" title="${window.getLabel('click_to_play')}">
                 <span class="ko">${window.escapeHtml(ko)}</span>
-                <span class="view-zh">${window.escapeHtml(zh)}</span>
+                <span class="view-translation">${window.escapeHtml(zh)}</span>
               </span>`;
     })
     .replace(/\[(.*?)\]\((.*?)\)/g, '<a href="$2" target="_blank">$1</a>');
@@ -189,8 +189,8 @@ window.showBilingual = () => window.state?.progress?.prefs?.showBilingual !== fa
 // --- Node Metadata Helpers ---
 
 window.nodeTitleText = (node, locale) => node.displayTitle || window.LessonAdapter.resolveText(node && node.title_i18n, locale, window.LessonAdapter.getFallbackNodeTitle(node));
-window.nodeSummaryText = (node, locale) => node.displaySummary || '先看這一節的內容。';
-window.nodeExpectedText = (node, locale) => node.displayExpected || '先理解這一節的重點。';
+window.nodeSummaryText = (node, locale) => node.displaySummary || window.getLabel('look_at_content');
+window.nodeExpectedText = (node, locale) => node.displayExpected || window.getLabel('understand_focus');
 
 window.nodeSkillFocusText = function (node) {
   if (node.skill_focus && node.skill_focus.length > 0) return node.skill_focus.join(' · ');

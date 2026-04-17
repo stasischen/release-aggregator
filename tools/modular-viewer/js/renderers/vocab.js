@@ -12,7 +12,7 @@
       sections = payload.sections;
     } else if (payload.items && Array.isArray(payload.items)) {
       sections = [{
-        title_i18n: { zh_tw: '單字表', en: 'Vocabulary' },
+        title_i18n: { zh_tw: window.getLabel('vocab_list'), en: window.getLabel('vocab_list') },
         items: payload.items
       }];
     }
@@ -22,14 +22,14 @@
         return `
           <div class="vocab-container animate-in">
             ${window.renderNotice(payload)}
-            ${window.renderEmptyState('本節點目前無單字列表。')}
+            ${window.renderEmptyState(window.getLabel('no_vocab'))}
           </div>
         `;
     }
 
     // 3. Render Sections & Items
     const html = sections.map(s => {
-      const title = window.i18nText(s.title_i18n, locale, '單字');
+      const title = window.i18nText(s.title_i18n, locale, window.getLabel('vocab_list'));
       const items = window.LessonAdapter.resolveArray(s.items || []);
       const itemGlossByKo = s.item_gloss_by_ko || payload.item_gloss_by_ko || {};
 
@@ -65,7 +65,7 @@
                   ${exampleKo ? `
                     <div class="vocab-example">
                       <div class="ko-ex">${window.escapeHtml(exampleKo)}</div>
-                      <div class="zh-ex muted-text tiny-text">${window.escapeHtml(exampleZh)}</div>
+                      <div class="translation-ex muted-text tiny-text">${window.escapeHtml(exampleZh)}</div>
                     </div>
                   ` : ''}
                 </div>
@@ -80,7 +80,7 @@
       <div class="vocab-container animate-in">
         ${window.renderNotice(payload)}
         <div class="content-block">
-          <div class="block-title">單字與表達 (Vocabulary)</div>
+          <div class="block-title">${window.getLabel('vocab_and_phrases')}</div>
           ${html}
         </div>
       </div>

@@ -7,26 +7,20 @@
     const payload = node.payload || {};
     const locale = window.currentLocale();
 
-    const modeLabel = {
-      chunk_assembly: '拼句型練習',
-      response_builder: '回應建構',
-      guided: '引導式練習',
-      flashcard_review: '閃卡複習',
-      review_retrieval: '回想練習'
-    }[payload.mode || node.output_mode] || '練習卡';
+    const modeLabel = window.getLabel('mode_' + (payload.mode || node.output_mode), window.getLabel('practice_card'));
 
     const total = (payload.tasks || payload.items || payload.cards || []).length;
 
     return `
       <div class="practice-container animate-in">
         <div class="card-block">
-          <div class="block-title">Practice Card</div>
+          <div class="block-title">${window.getLabel('practice_card')}</div>
           <div class="muted-text" style="margin-bottom:10px;">${window.escapeHtml(modeLabel)}</div>
           ${window.i18nText(payload.prompt_i18n, locale, '') ? `
             <div style="margin-bottom:10px;">${window.escapeHtml(window.i18nText(payload.prompt_i18n, locale, ''))}</div>
           ` : ''}
-          ${total ? `<div class="tiny-text muted">本節練習題數：${total}</div>` : ''}
-          <div class="tiny-text muted" style="margin-top:8px;">互動內容請見下方練習區塊。</div>
+          ${total ? `<div class="tiny-text muted">${window.getLabel('total_tasks')}：${total}</div>` : ''}
+          <div class="tiny-text muted" style="margin-top:8px;">${window.getLabel('interact_below')}</div>
         </div>
         <div id="interactionArea"></div>
       </div>
@@ -34,8 +28,8 @@
   }
 
   function renderReviewCard(node) {
-    renderPracticeCard(node); // Reuse practice card shell for now
-  }
+    return renderPracticeCard(node);
+  } // Reuse practice card shell for now
 
   // --- Interaction Modes ---
 
@@ -46,7 +40,7 @@
     const area = document.getElementById('interactionArea') || document.getElementById('detailBody');
 
     if (!tasks.length) {
-      area.innerHTML = `<div class="interaction-panel"><div class="muted-text">無可用題目。</div></div>`;
+      area.innerHTML = `<div class="interaction-panel"><div class="muted-text">${window.getLabel('no_practice_tasks')}</div></div>`;
       return;
     }
 
@@ -77,18 +71,18 @@
 
     area.innerHTML = `
       <div class="interaction-panel animate-in">
-        <div class="interaction-label">🧩 詞塊組句練習 (${taskIdx + 1}/${tasks.length})</div>
+        <div class="interaction-label">🧩 ${window.getLabel('mode_chunk_assembly')} (${taskIdx + 1}/${tasks.length})</div>
         <div class="muted-text" style="margin-bottom:12px;">${window.escapeHtml(window.i18nText(task.prompt_i18n, locale, ''))}</div>
         
         <div class="assembly-zone">
-          <div class="assembly-answer">${answerHtml || '<div class="tiny-text muted">請選擇詞塊...</div>'}</div>
+          <div class="assembly-answer">${answerHtml || `<div class="tiny-text muted">${window.getLabel('pick_chunks')}</div>`}</div>
           <div class="chunk-cloud" style="margin-top:16px;">${bank}</div>
         </div>
 
         <div class="btn-row" style="margin-top:20px;">
-          <button class="btn" onclick="window.clearAssembly()">清空</button>
-          <button class="btn primary" onclick="window.checkAssembly()">檢查</button>
-          <button class="btn" onclick="window.nextTask()">下一題</button>
+          <button class="btn" onclick="window.clearAssembly()">${window.getLabel('clear')}</button>
+          <button class="btn primary" onclick="window.checkAssembly()">${window.getLabel('check')}</button>
+          <button class="btn" onclick="window.nextTask()">${window.getLabel('next_task')}</button>
         </div>
         ${feedback ? `<div class="feedback-box ${feedback.kind}">${window.escapeHtml(feedback.message)}</div>` : ''}
       </div>
@@ -104,7 +98,7 @@
 
     const html = items.map((item, idx) => `
       <div class="interaction-panel-item" style="margin-bottom:20px; padding-bottom:16px; border-bottom:1px dashed var(--line);">
-        <div class="muted-text" style="font-weight:700; margin-bottom:8px;">情境 ${idx + 1}: ${window.escapeHtml(item.prompt_ko || '')}</div>
+        <div class="muted-text" style="font-weight:700; margin-bottom:8px;">${window.getLabel('scenario')} ${idx + 1}: ${window.escapeHtml(item.prompt_ko || '')}</div>
         <div class="btn-group" style="flex-wrap:wrap; gap:8px;">
           ${(item.response_choices_ko || []).map(choice => `
             <button class="btn ${chosen[idx] === choice ? 'success' : ''}" onclick="window.pickResponse(${idx}, '${window.escapeJsSingle(choice)}')">
@@ -117,7 +111,7 @@
 
     area.innerHTML = `
       <div class="interaction-panel animate-in">
-        <div class="interaction-label">💬 回應選擇練習</div>
+        <div class="interaction-label">💬 ${window.getLabel('mode_response_builder')}</div>
         ${html}
       </div>
     `;
@@ -130,7 +124,7 @@
     const area = document.getElementById('interactionArea') || document.getElementById('detailBody');
 
     if (!cards.length) {
-      area.innerHTML = `<div class="interaction-panel"><div class="muted-text">無可用閃卡。</div></div>`;
+      area.innerHTML = `<div class="interaction-panel"><div class="muted-text">${window.getLabel('no_flashcards')}</div></div>`;
       return;
     }
 
@@ -148,7 +142,7 @@
 
     area.innerHTML = `
       <div class="interaction-panel animate-in">
-        <div class="interaction-label">🗂️ 閃卡複習 (${activeIdx + 1}/${cards.length})</div>
+        <div class="interaction-label">🗂️ ${window.getLabel('mode_flashcard_review')} (${activeIdx + 1}/${cards.length})</div>
         <div class="summary-box" style="background:#fff; border-radius:12px; padding:20px; text-align:center;">
           <div class="tiny-text muted" style="margin-bottom:8px;">Front</div>
           <div style="font-size:24px; font-weight:800; color:var(--accent);">${window.escapeHtml(card.front_ko || '')}</div>
@@ -156,7 +150,7 @@
         </div>
         
         <div class="btn-row" style="margin-top:16px;">
-          <button class="btn primary" onclick="window.toggleFlashcardReveal()">${revealed ? '隱藏答案' : '顯示答案'}</button>
+          <button class="btn primary" onclick="window.toggleFlashcardReveal()">${revealed ? window.getLabel('hide_answer') : window.getLabel('show_answer')}</button>
         </div>
 
         ${revealed ? `
@@ -169,8 +163,8 @@
         ` : ''}
 
         <div class="btn-row" style="margin-top:20px;">
-          <button class="btn" onclick="window.prevFlashcard()">上一張</button>
-          <button class="btn" onclick="window.nextFlashcard()">下一張</button>
+          <button class="btn" onclick="window.prevFlashcard()">${window.getLabel('prev_card')}</button>
+          <button class="btn" onclick="window.nextFlashcard()">${window.getLabel('next_card')}</button>
         </div>
       </div>
     `;
@@ -229,10 +223,11 @@
     const answer = (s.answers || []).join(' ').trim();
 
     let kind = 'incorrect';
-    let message = '不完全正確，再試試看！';
+    let message = window.getLabel('incorrect');
+
     if ((task.target_examples || []).includes(answer)) {
       kind = 'best_fit';
-      message = '完全正確！';
+      message = window.getLabel('correct');
     }
 
     if (!s.feedbackByTaskIndex) s.feedbackByTaskIndex = {};

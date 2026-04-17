@@ -13,7 +13,7 @@
       return `
         <div class="video-container animate-in">
           <div class="bubble-stream">
-            <div class="system-message">未找到影片字幕內容。</div>
+            <div class="system-message">${window.getLabel('no_video_subtitle')}</div>
           </div>
         </div>
       `;
@@ -32,7 +32,7 @@
         ${window.renderNotice ? window.renderNotice(payload) : ''}
         <div class="video-player-placeholder">
             <div class="placeholder-icon">🎬</div>
-            <div class="placeholder-text">影片預覽區 (Fail-soft)</div>
+            <div class="placeholder-text">${window.getLabel('video_preview_soft')}</div>
         </div>
         ${subtitleHtml}
       </div>

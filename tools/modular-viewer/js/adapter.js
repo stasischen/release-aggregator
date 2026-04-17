@@ -143,8 +143,6 @@ window.LessonAdapter = {
                         if (rawTrans) {
                             turn.translations_i18n = turn.translations_i18n || {};
                             turn.translations_i18n[locale] = rawTrans;
-                            // Compatibility fallbacks for legacy renderers
-                            turn.translation = rawTrans; 
                         }
 
                         // Map Atoms
@@ -201,8 +199,8 @@ window.LessonAdapter = {
         const normalized = {
             ...node,
             displayTitle: this.resolveText(node.title_i18n, locale, this.getFallbackNodeTitle(node)),
-            displaySummary: this.resolveText(node.summary_i18n, locale, '先看這一節的內容。'),
-            displayExpected: this.resolveText(node.expected_output_i18n, locale, '先理解這一節的重點。'),
+            displaySummary: this.resolveText(node.summary_i18n, locale, window.getLabel('look_at_content')),
+            displayExpected: this.resolveText(node.expected_output_i18n, locale, window.getLabel('understand_focus')),
             payload: payload || {}
         };
 
@@ -323,7 +321,7 @@ window.LessonAdapter = {
                     return {
                         id: refId,
                         ko: s.source?.ko || s.source?.surface_ko || s.ko || "",
-                        translation: s.i18n?.translation || s.translation || "(尚無翻譯)",
+                        translation: s.i18n?.translation || s.translation || window.getLabel('no_translation'),
                         is_canonical: true
                     };
                 }
@@ -339,7 +337,7 @@ window.LessonAdapter = {
             return bank.map(ex => ({
                 id: ex.id || "transitional",
                 ko: ex.ko || "",
-                translation: ex.translation || "(尚無翻譯)",
+                translation: ex.translation || window.getLabel('no_translation'),
                 is_canonical: false
             }));
         }

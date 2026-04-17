@@ -1808,7 +1808,7 @@ textarea:focus {
     font-size: 16px;
 }
 
-.inline-sentence-chip .view-zh {
+.inline-sentence-chip .view-translation {
     font-size: 12px;
     color: var(--accent);
     font-weight: 700;

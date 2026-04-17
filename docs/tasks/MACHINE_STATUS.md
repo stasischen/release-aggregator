@@ -11,8 +11,9 @@ Each machine should maintain its own local, gitignored claim JSON under `docs/ta
 | m5pro | m5pro | CMOD-006 | idle | 2026-04-17 | CMOD-006 mismatch cleanup done |
 | home | home | yt-video-atomization | idle | 2026-04-17 | Completed hBGbIvyU5G4. |
 | 888 | 888 | kg-normalize-001B | done | 2026-04-17 06:00 | Normalization and hardening work completed. |
+<<<<<<< HEAD
 | gamer | gamer | Ingestion Batch (L121-L125) | done | 2026-04-17 | Systematic ingestion of Beginner Grammar L121-125/126. |
-| mac | mac | kg-ui-019 | planned | 2026-04-17 | Dictionary drawer / link UI |
+| mac | mac | idle | idle | 2026-04-17 | Docs/content-only machine; keep frontend tasks off this machine |
 
 ## Usage Rule
 

@@ -1,11 +1,11 @@
 {
-  "machine_id": "888",
-  "label": "888",
-  "host": "888",
+  "machine_id": "home",
+  "label": "home",
+  "host": "home",
   "repo": "release-aggregator",
   "owner": "ywchen",
   "current_task": "none",
   "task_status": "idle",
-  "updated_at": "2026-04-17T20:55:00+08:00",
-  "notes": "Completed CMOD-010: Freeze Recommendation for UNITFAC-001 v0.1. Released task and returned to idle."
+  "updated_at": "2026-04-17T20:50:00+08:00",
+  "notes": "Completed CMOD-010: Freeze Recommendation for UNITFAC-001 v0.1. Re-identified as machine 'home' (correcting previous misidentification as '888')."
 }

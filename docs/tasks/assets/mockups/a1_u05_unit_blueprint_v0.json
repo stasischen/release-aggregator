@@ -341,6 +341,12 @@
         "writing"
       ],
       "output_mode": "chunk_assembly",
+      "interaction_modes": ["chunk_assembly"],
+      "completion_rules": {
+        "required_modes": ["chunk_assembly"],
+        "min_attempts": 1,
+        "pass_policy": "manual_mark_after_required_modes"
+      },
       "duration_min": 4,
       "title_zh_tw": "句子組裝：在藥局開口",
       "summary_zh_tw": "根據中文提示組出完整的韓文句子。",
@@ -402,6 +408,12 @@
         "speaking"
       ],
       "output_mode": "response_builder",
+      "interaction_modes": ["response_builder"],
+      "completion_rules": {
+        "required_modes": ["response_builder"],
+        "min_attempts": 1,
+        "pass_policy": "manual_mark_after_required_modes"
+      },
       "duration_min": 4,
       "title_zh_tw": "情境應對：藥劑師的詢問",
       "summary_zh_tw": "模擬回答藥劑師的常見問題（症狀、過敏、發燒）。",
@@ -446,6 +458,12 @@
         "writing"
       ],
       "output_mode": "frame_fill",
+      "interaction_modes": ["frame_fill"],
+      "completion_rules": {
+        "required_modes": ["frame_fill"],
+        "min_attempts": 1,
+        "pass_policy": "manual_mark_after_required_modes"
+      },
       "duration_min": 4,
       "title_zh_tw": "結構轉換：更換症狀與藥品",
       "summary_zh_tw": "練習將『頭痛』切換為『喉嚨痛』等變體。",
@@ -485,6 +503,12 @@
         "integrated"
       ],
       "output_mode": "chunk_assembly",
+      "interaction_modes": ["chunk_assembly"],
+      "completion_rules": {
+        "required_modes": ["chunk_assembly"],
+        "min_attempts": 1,
+        "pass_policy": "manual_mark_after_required_modes"
+      },
       "duration_min": 3,
       "title_zh_tw": "溝通故障修復：聽不懂怎麼辦？",
       "summary_zh_tw": "練習在藥局聽不懂指令時的求救短句。",

@@ -32,7 +32,8 @@ SUPPORTED_OUTPUT_MODES = {
 }
 
 SUPPORTED_INTERACTION_MODES = {
-    "response_builder", "guided_typing", "guided_speaking"
+    "response_builder", "guided_typing", "guided_speaking",
+    "chunk_assembly", "frame_fill", "pattern_transform"
 }
 
 SUPPORTED_CARD_POLICY_TYPES = {
@@ -210,8 +211,8 @@ class MockupChecker:
             
             # 5.1 Interaction Modes & Dispatcher
             interaction_modes = node.get("interaction_modes")
-            if is_modular_v1 and role == "immersion_output" and interaction_modes is None:
-                self.log_error("CMOD_MISSING_INTERACTION_MODES: Output nodes MUST declare capability list in v0.1+", node_id=node_id)
+            if is_modular_v1 and role in ["immersion_output", "controlled_output"] and interaction_modes is None:
+                self.log_error("CMOD_MISSING_INTERACTION_MODES: Output/Drill nodes MUST declare capability list in v0.1+", node_id=node_id)
             
             if interaction_modes is not None:
                 if not isinstance(interaction_modes, list):
@@ -226,8 +227,8 @@ class MockupChecker:
 
             # 5.2 Completion Rules
             comp_rules = node.get("completion_rules")
-            if is_modular_v1 and role == "immersion_output" and comp_rules is None:
-                self.log_error("CMOD_MISSING_COMPLETION_RULES: Output nodes MUST declare completion gating in v0.1+", node_id=node_id)
+            if is_modular_v1 and role in ["immersion_output", "controlled_output"] and comp_rules is None:
+                self.log_error("CMOD_MISSING_COMPLETION_RULES: Output/Drill nodes MUST declare completion gating in v0.1+", node_id=node_id)
             
             if comp_rules is not None:
                 if not isinstance(comp_rules, dict):

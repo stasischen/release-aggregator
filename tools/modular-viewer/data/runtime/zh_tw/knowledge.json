@@ -1,5 +1,38 @@
 [
   {
+    "id": "kg.connector.cause.geuraeseo",
+    "source": {
+      "id": "kg.connector.cause.geuraeseo",
+      "kind": "connector",
+      "subcategory": "cause",
+      "level": "A1",
+      "surface": "그래서",
+      "tags": [
+        "connector",
+        "cause",
+        "reason",
+        "foundation",
+        "grammar",
+        "beginner"
+      ],
+      "example_sentence_refs": [
+        "ex.ko.s.001157",
+        "ex.ko.s.001158",
+        "ex.ko.s.001159",
+        "ex.ko.s.001160",
+        "ex.ko.s.001161"
+      ]
+    },
+    "i18n": {
+      "id": "kg.connector.cause.geuraeseo",
+      "locale": "zh_tw",
+      "title": "所以、因此 (그래서)",
+      "description": "用於引導結果或理由，表示「所以」或「因此」。",
+      "explanation_md": "· 用法說明\n`所以` (所以) 是用來連接兩個句子的副詞，表示前者是後者的原因。連接時通常獨立成句，或以連詞形式出現。\n\n· 常見使用場景\n1. **描述因果關係**：因為下雨，所以我帶了傘。\n   [id:ex.ko.s.001157] (下雨了，所以用傘)\n2. **描述連貫動作的理由**：肚子餓了，所以吃飯了。\n   [id:ex.ko.s.001158] (肚子餓，所以吃飯)\n\n與「그러니까」的區別\n- **그래서**：著重在自然發生的「因果事實」。\n- **그러니까**：較常帶有說話者的「強烈主張」或「建議」。",
+      "usage_notes": []
+    }
+  },
+  {
     "id": "kg.grammar.ability.can_ul_su_itda",
     "source": {
       "id": "kg.grammar.ability.can_ul_su_itda",
@@ -100,9 +133,10 @@
       "level": "A1",
       "surface": "아까",
       "tags": [
-        "grammar",
         "adverb",
         "beginner",
+        "grammar",
+        "time",
         "v5_ingestion"
       ],
       "provenance": {
@@ -195,9 +229,10 @@
       "level": "A1",
       "surface": "당장",
       "tags": [
-        "grammar",
         "adverb",
         "beginner",
+        "grammar",
+        "time",
         "v5_ingestion"
       ],
       "provenance": {
@@ -240,9 +275,10 @@
       "level": "A1",
       "surface": "얼른",
       "tags": [
-        "grammar",
         "adverb",
         "beginner",
+        "grammar",
+        "time",
         "v5_ingestion"
       ],
       "provenance": {
@@ -285,9 +321,10 @@
       "level": "A1",
       "surface": "금방",
       "tags": [
-        "grammar",
         "adverb",
         "beginner",
+        "grammar",
+        "time",
         "v5_ingestion"
       ],
       "provenance": {
@@ -330,9 +367,10 @@
       "level": "A1",
       "surface": "곧",
       "tags": [
-        "grammar",
         "adverb",
         "beginner",
+        "grammar",
+        "time",
         "v5_ingestion"
       ],
       "provenance": {
@@ -375,9 +413,10 @@
       "level": "A1",
       "surface": "이따가",
       "tags": [
-        "grammar",
         "adverb",
         "beginner",
+        "grammar",
+        "time",
         "v5_ingestion"
       ],
       "provenance": {
@@ -420,9 +459,10 @@
       "level": "A1",
       "surface": "잠시 후",
       "tags": [
-        "grammar",
         "adverb",
         "beginner",
+        "grammar",
+        "time",
         "v5_ingestion"
       ],
       "provenance": {
@@ -515,9 +555,10 @@
       "level": "A1",
       "surface": "꽤",
       "tags": [
-        "grammar",
         "adverb",
         "beginner",
+        "degree",
+        "grammar",
         "v5_ingestion"
       ],
       "provenance": {
@@ -560,9 +601,10 @@
       "level": "A1",
       "surface": "막",
       "tags": [
-        "grammar",
         "adverb",
         "beginner",
+        "grammar",
+        "time",
         "v5_ingestion"
       ],
       "provenance": {
@@ -605,9 +647,10 @@
       "level": "A1",
       "surface": "나중에",
       "tags": [
-        "grammar",
         "adverb",
         "beginner",
+        "grammar",
+        "time",
         "v5_ingestion"
       ],
       "provenance": {
@@ -650,8 +693,10 @@
       "level": "A1",
       "surface": "약간",
       "tags": [
-        "degree",
+        "adverb",
         "beginner",
+        "degree",
+        "grammar",
         "v5_ingestion"
       ],
       "provenance": {
@@ -1058,6 +1103,60 @@
       "title": "고 나서 (做了～之後)",
       "description": "表示前一個動作完全結束後，接著進行下一個動作。強調動作的先後順序。",
       "explanation_md": "· 用法說明\n`고 나서` 用於表示某個動作徹底完成（Finish）之後，才開始下一個動作。與單純表示順序的 `~고` 相比，它更強調前一個動作的「完結性」。\n\n· 常見使用場景\n1. **日常生活順序**：如做完功課才玩、洗完澡才睡覺等。\n   [id:ex.ko.s.000767] [id:ex.ko.s.000768] [id:ex.ko.s.000772]\n2. **工作與學習步驟**：表達先讀完才寫、先開會才決定等。\n   [id:ex.ko.s.000769] [id:ex.ko.s.000771]\n\n· 相近文法比較\n- **`고 나서` vs `~고`**：\n  - `~고` 只簡單連接兩個動作，先後關係較鬆散。\n  - `고 나서` 則強烈表達「前項動作必須先結束」的意思。\n- **`고 나서` vs `-(으)ㄴ 후에`**：\n  - 兩者意義相近，但 `고 나서` 多用於動詞，強調動作的連貫性；`-(으)ㄴ 후에` 則可接續名詞（如 `N 후에`），應用範圍更廣。\n\n· 注意\n- **時態接續**：`고 나서` 本身不帶時態，句子時態由最後一個動詞決定。\n- **接續方式**：動詞詞幹直接接 `~고 나서`即可，不需考慮收音。",
+      "usage_notes": []
+    }
+  },
+  {
+    "id": "kg.grammar.ending.after_time_eun_ji",
+    "source": {
+      "id": "kg.grammar.ending.after_time_eun_ji",
+      "kind": "grammar",
+      "subcategory": "ending",
+      "level": "A1",
+      "surface": "-(으)ㄴ 지",
+      "knowledge_type": "official",
+      "tags": [
+        "grammar",
+        "ending",
+        "beginner",
+        "v5_ingestion",
+        "time",
+        "duration"
+      ],
+      "provenance": {
+        "source": "youtube_beginner_grammar",
+        "source_lesson_ids": [
+          113
+        ],
+        "source_video_ids": [
+          "Z_31X_kZj_o"
+        ]
+      },
+      "usage_policies": [
+        "shared_usage"
+      ],
+      "related_knowledge_ids": [
+        "kg.grammar.ending.after_eun_hue"
+      ],
+      "example_sentence_refs": [
+        "ex.ko.s.001127",
+        "ex.ko.s.001128",
+        "ex.ko.s.001129",
+        "ex.ko.s.001130",
+        "ex.ko.s.001131",
+        "ex.ko.s.001132",
+        "ex.ko.s.001133",
+        "ex.ko.s.001134",
+        "ex.ko.s.001135",
+        "ex.ko.s.001136"
+      ]
+    },
+    "i18n": {
+      "id": "kg.grammar.ending.after_time_eun_ji",
+      "locale": "zh_tw",
+      "title": "ㄴ/은 지 (了多久)",
+      "description": "用於計算某個動作發生後經過了多少時間。",
+      "explanation_md": "· 用法說明\n用於計算某個動作發生後經過了多少時間。就像是告訴我們從過去某個時間點到現在為止過了多少時間的「計時器」一樣。\n\n· 常見使用場景\n常用於自我介紹（來韓國多久了）、描述工作經歷或計算關係持續時間（結婚多久了）。\n\n· 注意\n`-(으)ㄴ 지` 常與 `되다` (過了多久)、`넘다` (超過多久)、`지나다` (經過多久) 等動詞搭配使用。",
       "usage_notes": []
     }
   },
@@ -1743,7 +1842,17 @@
         "ex.ko.s.000713",
         "ex.ko.s.000714",
         "ex.ko.s.000715",
-        "ex.ko.s.000716"
+        "ex.ko.s.000716",
+        "ex.ko.s.001257",
+        "ex.ko.s.001258",
+        "ex.ko.s.001259",
+        "ex.ko.s.001260",
+        "ex.ko.s.001261",
+        "ex.ko.s.001262",
+        "ex.ko.s.001263",
+        "ex.ko.s.001264",
+        "ex.ko.s.001265",
+        "ex.ko.s.001266"
       ]
     },
     "i18n": {
@@ -1751,7 +1860,7 @@
       "locale": "zh_tw",
       "title": "고 (串接動作)",
       "description": "用來連接兩個以上的動作或狀態，相當於「～然後～」。",
-      "explanation_md": "· 用法說明\n`~고` 用於連接兩個或多個動作、狀態或事實。在描述動作順序時，表示先做前項動作後再做後項動作。\n\n· 常見使用場景\n1. **動作先後順序**：例如「吃飯然後喝咖啡」。\n2. **並列事實**：例如「哥哥很聰明而且弟弟很帥」。\n\n· 相近文法比較\n與 `아서/어서` 不同，`고` 僅強調單純的順序或並列，前後動作不一定有緊密的因果或關聯。\n\n· 注意\n在表示動作順序時，通常主語要保持一致。\n\n[id:ex.ko.s.000707] [id:ex.ko.s.000708] [id:ex.ko.s.000709] [id:ex.ko.s.000710] [id:ex.ko.s.000711] [id:ex.ko.s.000712] [id:ex.ko.s.000713] [id:ex.ko.s.000714] [id:ex.ko.s.000715] [id:ex.ko.s.000716]",
+      "explanation_md": "· 用法說明\n`~고` 用於連接兩個或多個動作、狀態或事實。在描述動作順序時，表示先做前項動作後再做後項動作。\n\n· 常見使用場景\n1. **動作先後順序**：例如「吃飯然後喝咖啡」。\n2. **並列事實**：例如「哥哥很聰明而且弟弟很帥」。\n\n· 相近文法比較\n與 `아서/어서` 不同，`고` 僅強調單純的順序或並列，前後動作不一定有緊密的因果或關聯。\n\n· 注意\n在表示動作順序時，通常主語要保持一致。\n\n[id:ex.ko.s.000707] [id:ex.ko.s.000708] [id:ex.ko.s.000709] [id:ex.ko.s.000710] [id:ex.ko.s.000711] [id:ex.ko.s.000712] [id:ex.ko.s.000713] [id:ex.ko.s.000714] [id:ex.ko.s.000715] [id:ex.ko.s.000716] [id:ex.ko.s.001257] [id:ex.ko.s.001258] [id:ex.ko.s.001259] [id:ex.ko.s.001260]",
       "usage_notes": []
     }
   },
@@ -1844,6 +1953,61 @@
       "title": "-네/네요 (啊/耶 - 感嘆)",
       "description": "表示對剛得知的新事實感到驚訝、感嘆，或是對當前狀況的體會。",
       "explanation_md": "· 用法說明\n直接接在詞幹後。用於表達「原來是這樣啊！」的驚奇感。\n\n· 常見使用場景\n- 親眼看到事實：哇，今天天氣真好耶！\n- 體驗後感悟：這道菜真的很好吃耶。\n- 確認新訊息：原本你是大學生啊。\n\n· 相近文法比較\n- **-군요/구나**: 通用的感嘆，但不一定需要是「剛發現」的事情。\n- **-네요**: 更強調「此刻當下」新發現的事實，口語感非常強。\n\n· 注意\n與第二人稱問句合用時，帶有「原來你...啊？」的確認色彩。",
+      "usage_notes": []
+    }
+  },
+  {
+    "id": "kg.grammar.ending.emotion_observer_ahada",
+    "source": {
+      "id": "kg.grammar.ending.emotion_observer_ahada",
+      "kind": "grammar",
+      "subcategory": "ending",
+      "level": "A1",
+      "surface": "-아/어/해하다",
+      "knowledge_type": "official",
+      "tags": [
+        "grammar",
+        "ending",
+        "beginner",
+        "v5_ingestion",
+        "emotion",
+        "observer",
+        "third-person"
+      ],
+      "provenance": {
+        "source": "youtube_beginner_grammar",
+        "source_lesson_ids": [
+          115
+        ],
+        "source_video_ids": [
+          "Pu8cdYyX40k"
+        ]
+      },
+      "usage_policies": [
+        "shared_usage"
+      ],
+      "related_knowledge_ids": [
+        "kg.grammar.ending.want_go_sipda"
+      ],
+      "example_sentence_refs": [
+        "ex.ko.s.001147",
+        "ex.ko.s.001148",
+        "ex.ko.s.001149",
+        "ex.ko.s.001150",
+        "ex.ko.s.001151",
+        "ex.ko.s.001152",
+        "ex.ko.s.001153",
+        "ex.ko.s.001154",
+        "ex.ko.s.001155",
+        "ex.ko.s.001156"
+      ]
+    },
+    "i18n": {
+      "id": "kg.grammar.ending.emotion_observer_ahada",
+      "locale": "zh_tw",
+      "title": "아/어/해하다 (感到覺得)",
+      "description": "將形容詞轉為動詞，用於描述「第三人稱」觀察到的感受或情緒。",
+      "explanation_md": "· 用法說明\n用於說明朋友或家人的心情。韓語中，當我們描述「他人」的感情時，必須從直接陳述轉化為「觀察模式」。\n\n· 常見使用場景\n描述他人的情緒（感到開心、難過、害怕）或是他人的願望（想要做某事）。\n\n· 注意\n`나는 슬프다` (我很難過) 是直接陳述；但 `친구는 슬퍼해요` (朋友感到難過) 則是基於觀察的陳述。這是韓語中尊重他人內心邊界的表現。",
       "usage_notes": []
     }
   },
@@ -2128,6 +2292,97 @@
       "title": "-아야/어야/해야 하다 (必須/應該)",
       "description": "表示義務、責任，或某種必要的行動。",
       "explanation_md": "· 用法說明\n根據母音調和連接：\n- 詞幹最後母音為 `ㅏ, ㅗ` 時接 `-아야 하다`。\n- 其他母音接 `-어야 하다`。\n- `하다` 動詞變為 `해야 하다`。\n\n· 常見使用場景\n- 指示規則或社會義務：學生應該讀書。\n- 說明個人計畫：我明天必須去醫院。\n\n· 相近文法比較\n- **-아야/어야/해야 되다**: 同樣表示必須，但在口語中 `되다` 使用頻率稍高，語感較隨意。\n\n· 注意\n在縮寫口語中，結尾的 `하다` 有時會省略或寫成 `-아야지`。",
+      "usage_notes": []
+    }
+  },
+  {
+    "id": "kg.grammar.ending.not_try_a_eo_boji_anta",
+    "source": {
+      "id": "kg.grammar.ending.not_try_a_eo_boji_anta",
+      "kind": "grammar",
+      "subcategory": "ending",
+      "level": "A1",
+      "surface": "~아/어/해 보지 않다",
+      "tags": [
+        "grammar",
+        "ending",
+        "beginner",
+        "v5_ingestion"
+      ],
+      "provenance": {
+        "source": "youtube_beginner_grammar",
+        "source_lesson_ids": [
+          118,
+          34
+        ],
+        "source_video_ids": [
+          "_dIyfesfsSk"
+        ]
+      },
+      "example_sentence_refs": [
+        "ex.ko.s.001187",
+        "ex.ko.s.001188",
+        "ex.ko.s.001189",
+        "ex.ko.s.001190",
+        "ex.ko.s.001191",
+        "ex.ko.s.001192",
+        "ex.ko.s.001193",
+        "ex.ko.s.001194",
+        "ex.ko.s.001195",
+        "ex.ko.s.001196"
+      ]
+    },
+    "i18n": {
+      "id": "kg.grammar.ending.not_try_a_eo_boji_anta",
+      "locale": "zh_tw",
+      "title": "아/어/해 보지 않다 (未曾嘗試)",
+      "description": "表示沒有做過某事或未曾嘗試過的經驗。",
+      "explanation_md": "· 用法說明\n`~아/어/해 보지 않다` 是 `~아/어 보다` 的否定形式，用來表達「未曾嘗試過某事」或「沒有那樣的體驗」。在口語中常以 `~아/어 보지 않았어요` 表現。\n\n· 常見使用場景\n1. **表達陌生的領域**：還沒去過那個地方、還沒吃過那種食物。\n   [id:ex.ko.s.001194] (未曾去過歐洲)\n2. **描述未開發的技能**：還沒試過打棒球、還沒試過開車。\n   [id:ex.ko.s.001196] (未曾開過車)\n\n· 注意\n- 這是 `~아/어 보다`（嘗試）加上 `-지 않다`（長形否定）的組合。\n- 也可以用 `안 ~아/어 보다` 的形式表達，但 `~아/어 보지 않다` 在描述「經驗不足」時語氣更為自然。",
+      "usage_notes": []
+    }
+  },
+  {
+    "id": "kg.grammar.ending.past_perfect_ass_eossda",
+    "source": {
+      "id": "kg.grammar.ending.past_perfect_ass_eossda",
+      "kind": "grammar",
+      "subcategory": "ending",
+      "level": "A1",
+      "surface": "~았/었었다",
+      "tags": [
+        "grammar",
+        "ending",
+        "beginner",
+        "v5_ingestion"
+      ],
+      "provenance": {
+        "source": "youtube_beginner_grammar",
+        "source_lesson_ids": [
+          124
+        ],
+        "source_video_ids": [
+          "_XGtQHojGL8"
+        ]
+      },
+      "example_sentence_refs": [
+        "ex.ko.s.001237",
+        "ex.ko.s.001238",
+        "ex.ko.s.001239",
+        "ex.ko.s.001240",
+        "ex.ko.s.001241",
+        "ex.ko.s.001242",
+        "ex.ko.s.001243",
+        "ex.ko.s.001244",
+        "ex.ko.s.001245",
+        "ex.ko.s.001246"
+      ]
+    },
+    "i18n": {
+      "id": "kg.grammar.ending.past_perfect_ass_eossda",
+      "locale": "zh_tw",
+      "title": "았/었었다 (曾經但現在不是)",
+      "description": "表示過去曾經發生的狀態或動作，但現在已經不再持續或情況已改變。",
+      "explanation_md": "· 用法說明\n`~았/었었다` 比起一般的過去式（`~았/었어요`），更強烈地暗示「過去的狀態與現在已經斷絕」。常用於回憶以前的經驗，且該情況現在已經改變了。\n\n· 常見使用場景\n1. **回憶已改變的過去經歷**：例如以前住過韓國（現在沒住了）、以前學過鋼琴（現在沒學了）。\n   [id:ex.ko.s.001237] (以前住過韓國)\n   [id:ex.ko.s.001240] (以前學過鋼琴)\n2. **對比過去與現在的差異**：以前不喜歡某物（但現在喜歡）。\n   [id:ex.ko.s.001239] (小時候曾不能吃泡菜)\n\n· 相近文法比較\n- **`~았/었었다` vs `~았/었어요`**：\n  - `~았/었어요` 單純描述過去發生的事實，可能現在依然如此。\n  - `~았/었었다` 強調「過去是那樣，但現在不是了」，有一種「曾幾何時」的回憶感。\n\n· 注意\n結合方式與過去式 `~았/었어요` 相同，差別在於中間多了一個 `었`。",
       "usage_notes": []
     }
   },
@@ -2662,6 +2917,105 @@
     }
   },
   {
+    "id": "kg.grammar.ending.resultative_ge",
+    "source": {
+      "id": "kg.grammar.ending.resultative_ge",
+      "kind": "grammar",
+      "subcategory": "ending",
+      "level": "A1",
+      "surface": "~게",
+      "tags": [
+        "grammar",
+        "ending",
+        "beginner",
+        "v5_ingestion"
+      ],
+      "provenance": {
+        "source": "youtube_beginner_grammar",
+        "source_lesson_ids": [
+          121
+        ],
+        "source_video_ids": [
+          "gZwkXQq576I"
+        ]
+      },
+      "example_sentence_refs": [
+        "ex.ko.s.001217",
+        "ex.ko.s.001218",
+        "ex.ko.s.001219",
+        "ex.ko.s.001220",
+        "ex.ko.s.001221",
+        "ex.ko.s.001222",
+        "ex.ko.s.001223",
+        "ex.ko.s.001224",
+        "ex.ko.s.001225",
+        "ex.ko.s.001226"
+      ]
+    },
+    "i18n": {
+      "id": "kg.grammar.ending.resultative_ge",
+      "locale": "zh_tw",
+      "title": "게 (副詞化/程度)",
+      "description": "將形容詞轉為副詞，用來修飾後面的動詞，說明動作的方式或程度。",
+      "explanation_md": "· 用法說明\n`~게` 接在形容詞詞幹後，將其轉換為副詞形式，用來修飾後面的動詞。它主要說明動作是「如何」進行的，或者動作達到的「程度/目的」。\n\n· 常見使用場景\n1. **說明動作的方式**：例如「漂亮地畫」、「大聲地說」。\n   [id:ex.ko.s.001223] (漂亮地畫畫)\n   [id:ex.ko.s.001225] (大聲地寫字/寫大一點)\n2. **表示為對方著想的心意**：祝對方愉快或叮嚀。\n   [id:ex.ko.s.001220] (請慢用/美味地吃)\n   [id:ex.ko.s.001218] (穿暖和一點)\n\n· 相近文法比較\n- **`~게` vs `-(으)ㄴ`**：\n  - `-(으)ㄴ` 是形容詞修飾「名詞」（如：漂亮的衣服）。\n  - `~게` 是形容詞修飾「動詞」（如：漂亮地穿）。\n\n· 注意\n`~게` 不受收音（Batchim）影響，直接接在詞幹後即可。",
+      "usage_notes": []
+    }
+  },
+  {
+    "id": "kg.grammar.ending.state_change_ajida_eojida",
+    "source": {
+      "id": "kg.grammar.ending.state_change_ajida_eojida",
+      "kind": "grammar",
+      "subcategory": "ending",
+      "level": "A1",
+      "surface": "-아/어/해지다",
+      "knowledge_type": "official",
+      "tags": [
+        "grammar",
+        "ending",
+        "beginner",
+        "v5_ingestion",
+        "change",
+        "state"
+      ],
+      "provenance": {
+        "source": "youtube_beginner_grammar",
+        "source_lesson_ids": [
+          114
+        ],
+        "source_video_ids": [
+          "FUtuiZzrxHU"
+        ]
+      },
+      "usage_policies": [
+        "shared_usage"
+      ],
+      "related_knowledge_ids": [
+        "kg.grammar.ending.become_ge_doeda"
+      ],
+      "example_sentence_refs": [
+        "ex.ko.s.001137",
+        "ex.ko.s.001138",
+        "ex.ko.s.001139",
+        "ex.ko.s.001140",
+        "ex.ko.s.001141",
+        "ex.ko.s.001142",
+        "ex.ko.s.001143",
+        "ex.ko.s.001144",
+        "ex.ko.s.001145",
+        "ex.ko.s.001146"
+      ]
+    },
+    "i18n": {
+      "id": "kg.grammar.ending.state_change_ajida_eojida",
+      "locale": "zh_tw",
+      "title": "아/어/해지다 (變了)",
+      "description": "表示形容詞的狀態發生了變化。",
+      "explanation_md": "· 用法說明\n表示形容詞的狀態發生了變化，強調從「之前的狀態」變成了「現在的狀態」。\n\n· 常見使用場景\n用於描述隨時間而變化的事物，如天氣變冷、心情變好、或是學習成果的進步（發音變好）。\n\n· 注意\n與單純描述狀態的形容詞相比，`아/어/해지다` 強調的是「變化的過程」。",
+      "usage_notes": []
+    }
+  },
+  {
     "id": "kg.grammar.ending.state_prog_a_eo_itda",
     "source": {
       "id": "kg.grammar.ending.state_prog_a_eo_itda",
@@ -2743,6 +3097,65 @@
       "title": "-(으)ㄹ까요? (要不要呢？/你覺得嗎？)",
       "description": "提議一起做某事，詢問對方的意見，或對未知事實進行推測。",
       "explanation_md": "· 用法說明\n用於動詞或形容詞後：\n- 有收音接 `-을까요?`。\n- 無收音或 `ㄹ` 收音接 `-ㄹ까요?`。\n\n· 常見使用場景\n- 提議一起行動：我們要不要一起去看電影？\n- 詢問對方意見：我應該買哪一個呢？\n- 推測：明天的天氣會好嗎？\n\n· 相近文法比較\n- **-(으)ㄹ래요?**: 問對方的意向（你想不想？）。\n- **-(으)ㄹ까요?**: 徵詢對方的意見（你覺得...如何？），語感更具討論性與禮貌感。\n\n· 注意\n在回覆 `-(으)ㄹ까요?` 的提議時，通常使用 `-(으)ㅂ시다` (讓我們...) 或 `-아요/어요`。",
+      "usage_notes": []
+    }
+  },
+  {
+    "id": "kg.grammar.ending.try_a_eo_boda",
+    "source": {
+      "id": "kg.grammar.ending.try_a_eo_boda",
+      "kind": "grammar",
+      "subcategory": "ending",
+      "level": "A1",
+      "surface": "~아/어/해 보다",
+      "tags": [
+        "grammar",
+        "ending",
+        "beginner",
+        "v5_ingestion"
+      ],
+      "provenance": {
+        "source": "youtube_beginner_grammar",
+        "source_lesson_ids": [
+          117,
+          22,
+          122
+        ],
+        "source_video_ids": [
+          "GqvpJ0wtIq4",
+          "eSwWwdKXzw0",
+          "fLyVdqytkaU"
+        ]
+      },
+      "example_sentence_refs": [
+        "ex.ko.s.001177",
+        "ex.ko.s.001178",
+        "ex.ko.s.001179",
+        "ex.ko.s.001180",
+        "ex.ko.s.001181",
+        "ex.ko.s.001182",
+        "ex.ko.s.001183",
+        "ex.ko.s.001184",
+        "ex.ko.s.001185",
+        "ex.ko.s.001186",
+        "ex.ko.s.001227",
+        "ex.ko.s.001228",
+        "ex.ko.s.001229",
+        "ex.ko.s.001230",
+        "ex.ko.s.001231",
+        "ex.ko.s.001232",
+        "ex.ko.s.001233",
+        "ex.ko.s.001234",
+        "ex.ko.s.001235",
+        "ex.ko.s.001236"
+      ]
+    },
+    "i18n": {
+      "id": "kg.grammar.ending.try_a_eo_boda",
+      "locale": "zh_tw",
+      "title": "아/어/해 보다 (嘗試)",
+      "description": "表示嘗試做某事或有過嘗試的經驗。",
+      "explanation_md": "· 用法說明\n`~아/어 보다` 用於表示嘗試做某事（試試看）或過去曾嘗試過的經驗。在初級課程中，常以 `~아/어 봤어요` 的形式出現，用來分享主觀的嘗試經歷。\n\n· 常見使用場景\n1. **建議他人嘗試**：請試試看穿這件衣服、請試吃看看。這是 Lesson 122 強調的「積極勸導」語氣。\n   - [id:ex.ko.s.001227] (可以試穿看看嗎？)\n   - [id:ex.ko.s.001228] (請吃吃看。)\n2. **述說自己的嘗試經歷**：我去過哪裡、我做過什麼。這是 Lesson 117 側重的經驗分享。\n   - [id:ex.ko.s.001177] (試吃過泡菜)\n\n· 相近文法比較\n- **`~아/어 보다` vs `-(으)ㄴ 적이 있다`**：\n  - `~아/어 보다` 強調的是「嘗試」的過程和動作，感官上比較生動。\n  - `-(으)ㄴ 적이 있다` 較強調「事實上有無此紀錄」，語氣較為平實中性。\n\n· 注意\n- **母音和諧**：\n  - 詞幹最後一個母音為 `ㅏ, ㅗ` 時，接 `~아 보다`。\n  - 其他母音時，接 `~어 보다`。\n  - `하다` 結尾的動詞，變為 `~해 보다`。",
       "usage_notes": []
     }
   },
@@ -2884,18 +3297,23 @@
     "id": "kg.grammar.ending.will_ul_geyo",
     "source": {
       "id": "kg.grammar.ending.will_ul_geyo",
-      "category": "grammar",
+      "kind": "grammar",
       "subcategory": "ending",
+      "level": "A1",
+      "surface": "-(으)ㄹ게요",
       "knowledge_type": "official",
       "tags": [
-        "will",
-        "promise",
-        "beginner"
+        "grammar",
+        "ending",
+        "beginner",
+        "v5_ingestion",
+        "promise"
       ],
       "provenance": {
         "source": "youtube_beginner_grammar",
         "source_lesson_ids": [
-          56
+          56,
+          111
         ]
       },
       "usage_policies": [
@@ -2903,6 +3321,18 @@
       ],
       "related_knowledge_ids": [
         "kg.grammar.tense.future_ul_geoyeyo"
+      ],
+      "example_sentence_refs": [
+        "ex.ko.s.001107",
+        "ex.ko.s.001108",
+        "ex.ko.s.001109",
+        "ex.ko.s.001110",
+        "ex.ko.s.001111",
+        "ex.ko.s.001112",
+        "ex.ko.s.001113",
+        "ex.ko.s.001114",
+        "ex.ko.s.001115",
+        "ex.ko.s.001116"
       ]
     },
     "i18n": {
@@ -3305,6 +3735,52 @@
     }
   },
   {
+    "id": "kg.grammar.experience.un_jeoki_eopda",
+    "source": {
+      "id": "kg.grammar.experience.un_jeoki_eopda",
+      "kind": "grammar",
+      "subcategory": "experience",
+      "level": "A1",
+      "surface": "-(으)ㄴ 적이 없다",
+      "tags": [
+        "grammar",
+        "experience",
+        "beginner",
+        "v5_ingestion"
+      ],
+      "provenance": {
+        "source": "youtube_beginner_grammar",
+        "source_lesson_ids": [
+          120,
+          30
+        ],
+        "source_video_ids": [
+          "5AwFe4pRAAY"
+        ]
+      },
+      "example_sentence_refs": [
+        "ex.ko.s.001207",
+        "ex.ko.s.001208",
+        "ex.ko.s.001209",
+        "ex.ko.s.001210",
+        "ex.ko.s.001211",
+        "ex.ko.s.001212",
+        "ex.ko.s.001213",
+        "ex.ko.s.001214",
+        "ex.ko.s.001215",
+        "ex.ko.s.001216"
+      ]
+    },
+    "i18n": {
+      "id": "kg.grammar.experience.un_jeoki_eopda",
+      "locale": "zh_tw",
+      "title": "-(으)ㄴ 적이 없다 (沒有做過的經驗)",
+      "description": "表示過去從未做過某事或沒有過某種經歷。",
+      "explanation_md": "· 用法說明\n`-(으)ㄴ 적이 없다` 是 `-(으)ㄴ 적이 있다` 的相反詞，用來強調「完全沒有那樣的事實、紀錄或經驗」。常用於表示清白、澄清事實或強調某項完美的紀錄（如從未遲到）。\n\n· 常見使用場景\n1. **強調完美的紀錄**：從沒遲到過、從沒缺席過。\n   [id:ex.ko.s.001213] (從未遲到過)\n2. **澄清或聲明事實**：沒喝過酒、沒說過謊。\n   [id:ex.ko.s.001207] (從未喝過酒)\n\n· 注意\n- **收音規則**：\n  - 動詞詞幹末尾無收音時，接 `~ㄴ 적이 없다`。\n  - 動詞詞幹末尾有收音時，接 `~은 적이 없다`。\n  - 收音為 `ㄹ` 時，去掉 `ㄹ` 並接 `~ㄴ 적이 없다`。",
+      "usage_notes": []
+    }
+  },
+  {
     "id": "kg.grammar.experience.un_jeoki_itda",
     "source": {
       "id": "kg.grammar.experience.un_jeoki_itda",
@@ -3323,11 +3799,13 @@
         "source_lesson_ids": [
           104,
           31,
-          116
+          116,
+          119
         ],
         "source_video_ids": [
           "fllvIVNnyck",
-          "PvUxTlynQik"
+          "PvUxTlynQik",
+          "tU_bZUf11Ao"
         ]
       },
       "example_sentence_refs": [
@@ -3340,7 +3818,27 @@
         "ex.ko.s.001043",
         "ex.ko.s.001044",
         "ex.ko.s.001045",
-        "ex.ko.s.001046"
+        "ex.ko.s.001046",
+        "ex.ko.s.001167",
+        "ex.ko.s.001168",
+        "ex.ko.s.001169",
+        "ex.ko.s.001170",
+        "ex.ko.s.001171",
+        "ex.ko.s.001172",
+        "ex.ko.s.001173",
+        "ex.ko.s.001174",
+        "ex.ko.s.001175",
+        "ex.ko.s.001176",
+        "ex.ko.s.001197",
+        "ex.ko.s.001198",
+        "ex.ko.s.001199",
+        "ex.ko.s.001200",
+        "ex.ko.s.001201",
+        "ex.ko.s.001202",
+        "ex.ko.s.001203",
+        "ex.ko.s.001204",
+        "ex.ko.s.001205",
+        "ex.ko.s.001206"
       ]
     },
     "i18n": {
@@ -3406,7 +3904,7 @@
       "kind": "grammar",
       "subcategory": "modifier",
       "level": "A1",
-      "surface": "ㄴ/은 + 名詞",
+      "surface": "形容詞 + ㄴ/은 + 名詞 (現在)",
       "tags": [
         "grammar",
         "modifier",
@@ -3436,7 +3934,7 @@
     "i18n": {
       "id": "kg.grammar.modifier.adj_noun",
       "locale": "zh_tw",
-      "title": "ㄴ/은 + 名詞 (形容詞修飾名詞)",
+      "title": "形容詞 + ㄴ/은 + 名詞 (現在)",
       "description": "將形容詞轉化為修飾語，放在名詞前面進行修飾。",
       "explanation_md": "形容詞的基本型結尾是 `다`（如 `크다`、`작다`），若要用來修飾後面的名詞（如「大包包」、「小房子」），需要將詞幹進行變形。\n\n· 用法說明\n- **無收音詞幹 + `ㄴ`**: 如 `크다` -> `큰 가방`。\n- **有收音詞幹 + `은`**: 如 `작다` -> `작은 집`。\n- **收音 `ㄹ` 脫落**: 如 `길다` -> `긴 바지`。\n- **收音 `ㅂ` 變為 `우`**: 如 `맵다` -> `매운 음식`。\n\n· 常見使用場景\n- 形容物品的屬性、人的特徵或天氣狀況。\n- [id:ex.ko.s.000297]\n- [id:ex.ko.s.000300]\n- [id:ex.ko.s.000301]\n\n· 相近文法比較\n- **ㄴ/은**: 修飾名詞的形容詞（冠形詞形）。\n- **~아/어요**: 放在句尾的敘述語。\n\n· 注意\n- `있다` 和 `없다` 結尾的詞（如 `재미있다`、`맛없다`）不加 `ㄴ/은`，而是加 `는`（如 `재미있는 책`）。",
       "usage_notes": []
@@ -3494,7 +3992,7 @@
       "kind": "grammar",
       "subcategory": "modifier",
       "level": "A1",
-      "surface": "ㄴ/은 + 名詞",
+      "surface": "動詞 + ㄴ/은 + 名詞 (過去)",
       "tags": [
         "grammar",
         "modifier",
@@ -3526,7 +4024,7 @@
     "i18n": {
       "id": "kg.grammar.modifier.v_eun",
       "locale": "zh_tw",
-      "title": "ㄴ/은 + 名詞 (過去式動詞修飾語)",
+      "title": "動詞 + ㄴ/은 + 名詞 (過去)",
       "description": "接在動詞後方，用來修飾後面的名詞，表示「過去累積的動作」或「已經完成的事情」。",
       "explanation_md": "· 用法說明\n當動詞要修飾名詞，且動作發生在「過去」或已經「完成」時使用。相當於中文的「做過...的名詞」或「...了的名詞」。\n\n· 接續規則\n1. 動詞詞幹末尾無收音（Batchim）：接 `ㄴ + 名詞`。\n   - `가다` → `간 사람` (去過的人)\n2. 動詞詞幹末尾有收音時：接 `은 + 名詞`。\n   - `먹다` → `먹은 밥` (吃過的飯)\n   - `읽다` → `읽은 책` (讀過的書)\n3. 收音為 `ㄹ` 的動詞（ㄹ 脫落）：接 `ㄴ + 名詞`。\n   - `만들다` → `만든 케이크` (做的蛋糕)\n\n· 常見使用場景\n- 描述過去的經驗：[id:ex.ko.s.000357]\n- 提及剛發生的事情：[id:ex.ko.s.000359]\n\n· 注意\n- 如果是「形容詞」修飾名詞（如 `예쁜`、`좋은`），雖然形式也是 `ㄴ/은`，但在時間感上通常是指「現在的狀態」。\n- 對於「動詞」來說，`ㄴ/은` 則專門表示「過去/完成」。",
       "usage_notes": []
@@ -4177,6 +4675,60 @@
     }
   },
   {
+    "id": "kg.grammar.particle.e_jjeum",
+    "source": {
+      "id": "kg.grammar.particle.e_jjeum",
+      "kind": "grammar",
+      "subcategory": "particle",
+      "level": "A1",
+      "surface": "~에 ~쯤",
+      "knowledge_type": "official",
+      "tags": [
+        "grammar",
+        "particle",
+        "beginner",
+        "v5_ingestion",
+        "frequency",
+        "degree"
+      ],
+      "provenance": {
+        "source": "youtube_beginner_grammar",
+        "source_lesson_ids": [
+          112
+        ],
+        "source_video_ids": [
+          "ZYteepqy_wU"
+        ]
+      },
+      "usage_policies": [
+        "shared_usage"
+      ],
+      "related_knowledge_ids": [
+        "kg.grammar.particle.e_location_time"
+      ],
+      "example_sentence_refs": [
+        "ex.ko.s.001117",
+        "ex.ko.s.001118",
+        "ex.ko.s.001119",
+        "ex.ko.s.001120",
+        "ex.ko.s.001121",
+        "ex.ko.s.001122",
+        "ex.ko.s.001123",
+        "ex.ko.s.001124",
+        "ex.ko.s.001125",
+        "ex.ko.s.001126"
+      ]
+    },
+    "i18n": {
+      "id": "kg.grammar.particle.e_jjeum",
+      "locale": "zh_tw",
+      "title": "에 쯤 (每大約)",
+      "description": "表示在某個單位基準下的數量或頻率。",
+      "explanation_md": "· 用法說明\n表示在某個單位基準下的數量或頻率。`~에` 用於表示基準單位（如時間、人數、次數），而 `~쯤` 接在數量詞後，表示大約的程度。\n\n· 常見使用場景\n常用於描述日常生活習慣、頻率（如一週運動幾次）或價格預算（如每人大約多少錢）。\n\n· 注意\n`~쯤` 是接在「數量」後面，而非基準單位後面。例如：`하루에 한 번쯤` (正確)，`하루쯤에 한 번` (不自然)。",
+      "usage_notes": []
+    }
+  },
+  {
     "id": "kg.grammar.particle.e_loc_existence",
     "source": {
       "id": "kg.grammar.particle.e_loc_existence",
@@ -4193,16 +4745,20 @@
       "provenance": {
         "source": "youtube_beginner_grammar",
         "source_lesson_ids": [
-          7
+          7,
+          125
         ],
         "source_lesson_titles": [
-          "場所助詞 에"
+          "場所助詞 에",
+          "把物品放在某地 에"
         ],
         "source_video_ids": [
-          "Y1GA2rWabCU"
+          "Y1GA2rWabCU",
+          "QqZ7jn806oI"
         ],
         "source_urls": [
-          "https://www.youtube.com/watch?v=Y1GA2rWabCU"
+          "https://www.youtube.com/watch?v=Y1GA2rWabCU",
+          "https://www.youtube.com/watch?v=QqZ7jn806oI"
         ]
       },
       "example_sentence_refs": [
@@ -4215,7 +4771,17 @@
         "ex.ko.s.000073",
         "ex.ko.s.000074",
         "ex.ko.s.000075",
-        "ex.ko.s.000076"
+        "ex.ko.s.000076",
+        "ex.ko.s.001247",
+        "ex.ko.s.001248",
+        "ex.ko.s.001249",
+        "ex.ko.s.001250",
+        "ex.ko.s.001251",
+        "ex.ko.s.001252",
+        "ex.ko.s.001253",
+        "ex.ko.s.001254",
+        "ex.ko.s.001255",
+        "ex.ko.s.001256"
       ]
     },
     "i18n": {
@@ -4223,7 +4789,7 @@
       "locale": "zh_tw",
       "title": "에 (場所助詞)",
       "description": "表示存在地點、目的地或方向。",
-      "explanation_md": "· 用法說明\n`에` 是韓文中最基礎的場所助詞之一，主要接在地點名詞後方，用來標示「目的地」或「存在的場所」。\n\n· 常見使用場景\n1. **表示目的地或方向**：常用於移動動詞如 `가다`（去）、`오다`（來）、`다니다`（往返/上學/上班）。\n   - [id:ex.ko.s.000068]\n   - [id:ex.ko.s.000075]\n\n2. **表示存在的地點**：標示人或物體「在」哪裡，常用於 `있다`（有/在）、`없다`（沒有/不在）。\n   - [id:ex.ko.s.000067]\n   - [id:ex.ko.s.000073]\n\n· 注意\n- 當 `에` 用於表示地點時，通常與「靜態」的狀態（如：在某處）或「移動」的方向相關。如果是表示在某處進行「動態」的活動（如：在學校唸書），則需要使用另一個助詞 `에서`。\n- `에` 也可以接在「時間名詞」後方表示時間點，但此用法在 Lesson 007 僅側重於「場所」的功能。",
+      "explanation_md": "· 用法說明\n`에` 是韓文中最基礎的場所助詞之一，主要接在地點名詞後方，用來標示「目的地」或「存在的場所」。\n\n· 常見使用場景\n1. **表示目的地或方向**：常用於移動動詞如 `가다`（去）、`오다`（來）、`다니다`（往返/上學/上班）。\n   - [id:ex.ko.s.000068]\n   - [id:ex.ko.s.000075]\n\n2. **表示存在的地點**：標示人或物體「在」哪裡，常用於 `있다`（有/在）、`없다`（沒有/不在）。\n   - [id:ex.ko.s.000067]\n   - [id:ex.ko.s.000073]\n\n3. **表示物品放置的目標點**：表示將物品「放在」哪裡，強調動作的完成位置。這是 Lesson 125 的重點。\n   - [id:ex.ko.s.001247] (杯子放在餐桌上)\n   - [id:ex.ko.s.001249] (行李放進房間裡)\n\n· 注意\n- 當 `에` 用於表示地點時，通常與「靜態」的狀態（如：在某處）或「移動」的方向相關。如果是表示在某處進行「動態」的活動（如：在學校唸書），則需要使用另一個助詞 `에서`。\n- `에` 也可以接在「時間名詞」後方表示時間點，但此用法在 Lesson 007 僅側重於「場所」的功能。",
       "usage_notes": []
     }
   },
@@ -4806,6 +5372,39 @@
       "title": "았/었/했 (過去式進階)",
       "description": "韓文的過去式表現，根據詞幹母音決定結合形式。",
       "explanation_md": "韓文的過去式由詞幹結合 `았`、`었` 或 `했` 組成，通常接續終結語尾如 `~어요` 或 `~습니다`。\n\n· 用法說明\n- **았**: 詞幹最後一個母音是 `ㅏ` 或 `ㅗ` 時（例如：`가다` -> `갔어요`）。\n- **었**: 詞幹最後一個母音不是 `ㅏ` 或 `ㅗ` 時（例如：`먹다` -> `먹었어요`）。\n- **했**: 以 `하다` 結尾的動詞或形容詞（例如：`공부하다` -> `공부했어요`）。\n\n· 常見使用場景\n- 描述過去發生的動作或狀態。\n- [id:ex.ko.s.000217]\n- [id:ex.ko.s.000218]\n- [id:ex.ko.s.000281]\n\n· 相近文法比較\n- **았/었/했**: 標準過去式。\n- **았었/었었/했었**: 過去完成式（強調過去曾經...但現在已不再如此）。\n\n· 注意\n- 要注意詞幹的收音，有收音的詞幹結合時會多出一個音節（如 `먹다` -> `먹었`），無收音則常發生縮略（如 `오다` -> `왔`）。",
+      "usage_notes": []
+    }
+  },
+  {
+    "id": "kg.connector.sequence.geurigo",
+    "source": {
+      "id": "kg.connector.sequence.geurigo",
+      "kind": "connector",
+      "subcategory": "sequence",
+      "level": "A1",
+      "surface": "그리고",
+      "tags": [
+        "connector",
+        "sequence",
+        "addition",
+        "foundation",
+        "grammar",
+        "beginner"
+      ],
+      "example_sentence_refs": [
+        "ex.ko.s.001162",
+        "ex.ko.s.001163",
+        "ex.ko.s.001164",
+        "ex.ko.s.001165",
+        "ex.ko.s.001166"
+      ]
+    },
+    "i18n": {
+      "id": "kg.connector.sequence.geurigo",
+      "locale": "zh_tw",
+      "title": "然後、並且 (그리고)",
+      "description": "用於連接兩個句子或單字，表示「然後」或「並且」。",
+      "explanation_md": "· 用法說明\n`然後、而且` (그리고) 是用來連接兩個句子的副詞，表示並列或順序關係。通常用在第一個句子結束後，引出下一個相關的動作或事實。\n\n· 常見使用場景\n1. **描述動作順序**：先喝咖啡，然後工作。\n   [id:ex.ko.s.001165] (買了咖啡，然後工作了)\n2. **列舉事物**：有蘋果，而且還有梨子。\n   [id:ex.ko.s.001166] (買了花，而且送了禮物)",
       "usage_notes": []
     }
   }

@@ -65,9 +65,46 @@
           "title": "Tense"
         }
       ]
+    },
+    {
+      "id": "cause",
+      "title": "Cause",
+      "sub": [
+        {
+          "id": "general",
+          "title": "General"
+        }
+      ]
+    },
+    {
+      "id": "sequence",
+      "title": "Sequence",
+      "sub": [
+        {
+          "id": "general",
+          "title": "General"
+        }
+      ]
     }
   ],
   "featured": [
+    {
+      "id": "kg.connector.cause.geuraeseo",
+      "category": "cause",
+      "sub": "general",
+      "title": "所以、因此 (그래서)",
+      "level": "A1",
+      "path": "data/runtime/zh_tw/knowledge.json",
+      "runtime_id": "kg.connector.cause.geuraeseo",
+      "surface": "그래서",
+      "example_sentence_refs": [
+        "ex.ko.s.001157",
+        "ex.ko.s.001158",
+        "ex.ko.s.001159",
+        "ex.ko.s.001160",
+        "ex.ko.s.001161"
+      ]
+    },
     {
       "id": "kg.grammar.ability.cannot_ul_su_eoptda",
       "category": "grammar",
@@ -155,31 +192,26 @@
         "ex.ko.s.000405",
         "ex.ko.s.000406"
       ]
-    },
-    {
-      "id": "kg.grammar.adverb.kkwae",
-      "category": "grammar",
-      "sub": "adverb",
-      "title": "꽤 (相當、頗)",
-      "level": "A1",
-      "path": "data/runtime/zh_tw/knowledge.json",
-      "runtime_id": "kg.grammar.adverb.kkwae",
-      "surface": "꽤",
-      "example_sentence_refs": [
-        "ex.ko.s.000257",
-        "ex.ko.s.000258",
-        "ex.ko.s.000259",
-        "ex.ko.s.000260",
-        "ex.ko.s.000261",
-        "ex.ko.s.000262",
-        "ex.ko.s.000263",
-        "ex.ko.s.000264",
-        "ex.ko.s.000265",
-        "ex.ko.s.000266"
-      ]
     }
   ],
   "items": [
+    {
+      "id": "kg.connector.cause.geuraeseo",
+      "category": "cause",
+      "sub": "general",
+      "title": "所以、因此 (그래서)",
+      "level": "A1",
+      "path": "data/runtime/zh_tw/knowledge.json",
+      "runtime_id": "kg.connector.cause.geuraeseo",
+      "surface": "그래서",
+      "example_sentence_refs": [
+        "ex.ko.s.001157",
+        "ex.ko.s.001158",
+        "ex.ko.s.001159",
+        "ex.ko.s.001160",
+        "ex.ko.s.001161"
+      ]
+    },
     {
       "id": "kg.grammar.ability.cannot_ul_su_eoptda",
       "category": "grammar",
@@ -683,8 +715,19 @@
       "level": "A1",
       "path": "data/runtime/zh_tw/knowledge.json",
       "runtime_id": "kg.grammar.ending.will_ul_geyo",
-      "surface": "",
-      "example_sentence_refs": []
+      "surface": "-(으)ㄹ게요",
+      "example_sentence_refs": [
+        "ex.ko.s.001107",
+        "ex.ko.s.001108",
+        "ex.ko.s.001109",
+        "ex.ko.s.001110",
+        "ex.ko.s.001111",
+        "ex.ko.s.001112",
+        "ex.ko.s.001113",
+        "ex.ko.s.001114",
+        "ex.ko.s.001115",
+        "ex.ko.s.001116"
+      ]
     },
     {
       "id": "kg.grammar.ending.promise_ulgeyo",
@@ -1133,6 +1176,28 @@
       ]
     },
     {
+      "id": "kg.grammar.ending.after_time_eun_ji",
+      "category": "grammar",
+      "sub": "ending",
+      "title": "ㄴ/은 지 (了多久)",
+      "level": "A1",
+      "path": "data/runtime/zh_tw/knowledge.json",
+      "runtime_id": "kg.grammar.ending.after_time_eun_ji",
+      "surface": "-(으)ㄴ 지",
+      "example_sentence_refs": [
+        "ex.ko.s.001127",
+        "ex.ko.s.001128",
+        "ex.ko.s.001129",
+        "ex.ko.s.001130",
+        "ex.ko.s.001131",
+        "ex.ko.s.001132",
+        "ex.ko.s.001133",
+        "ex.ko.s.001134",
+        "ex.ko.s.001135",
+        "ex.ko.s.001136"
+      ]
+    },
+    {
       "id": "kg.grammar.ending.after_eun_hue",
       "category": "grammar",
       "sub": "ending",
@@ -1221,6 +1286,28 @@
       ]
     },
     {
+      "id": "kg.grammar.ending.resultative_ge",
+      "category": "grammar",
+      "sub": "ending",
+      "title": "게 (副詞化/程度)",
+      "level": "A1",
+      "path": "data/runtime/zh_tw/knowledge.json",
+      "runtime_id": "kg.grammar.ending.resultative_ge",
+      "surface": "~게",
+      "example_sentence_refs": [
+        "ex.ko.s.001217",
+        "ex.ko.s.001218",
+        "ex.ko.s.001219",
+        "ex.ko.s.001220",
+        "ex.ko.s.001221",
+        "ex.ko.s.001222",
+        "ex.ko.s.001223",
+        "ex.ko.s.001224",
+        "ex.ko.s.001225",
+        "ex.ko.s.001226"
+      ]
+    },
+    {
       "id": "kg.grammar.ending.connective_go",
       "category": "grammar",
       "sub": "ending",
@@ -1239,7 +1326,17 @@
         "ex.ko.s.000713",
         "ex.ko.s.000714",
         "ex.ko.s.000715",
-        "ex.ko.s.000716"
+        "ex.ko.s.000716",
+        "ex.ko.s.001257",
+        "ex.ko.s.001258",
+        "ex.ko.s.001259",
+        "ex.ko.s.001260",
+        "ex.ko.s.001261",
+        "ex.ko.s.001262",
+        "ex.ko.s.001263",
+        "ex.ko.s.001264",
+        "ex.ko.s.001265",
+        "ex.ko.s.001266"
       ]
     },
     {
@@ -1439,6 +1536,104 @@
       ]
     },
     {
+      "id": "kg.grammar.ending.try_a_eo_boda",
+      "category": "grammar",
+      "sub": "ending",
+      "title": "아/어/해 보다 (嘗試)",
+      "level": "A1",
+      "path": "data/runtime/zh_tw/knowledge.json",
+      "runtime_id": "kg.grammar.ending.try_a_eo_boda",
+      "surface": "~아/어/해 보다",
+      "example_sentence_refs": [
+        "ex.ko.s.001177",
+        "ex.ko.s.001178",
+        "ex.ko.s.001179",
+        "ex.ko.s.001180",
+        "ex.ko.s.001181",
+        "ex.ko.s.001182",
+        "ex.ko.s.001183",
+        "ex.ko.s.001184",
+        "ex.ko.s.001185",
+        "ex.ko.s.001186",
+        "ex.ko.s.001227",
+        "ex.ko.s.001228",
+        "ex.ko.s.001229",
+        "ex.ko.s.001230",
+        "ex.ko.s.001231",
+        "ex.ko.s.001232",
+        "ex.ko.s.001233",
+        "ex.ko.s.001234",
+        "ex.ko.s.001235",
+        "ex.ko.s.001236"
+      ]
+    },
+    {
+      "id": "kg.grammar.ending.not_try_a_eo_boji_anta",
+      "category": "grammar",
+      "sub": "ending",
+      "title": "아/어/해 보지 않다 (未曾嘗試)",
+      "level": "A1",
+      "path": "data/runtime/zh_tw/knowledge.json",
+      "runtime_id": "kg.grammar.ending.not_try_a_eo_boji_anta",
+      "surface": "~아/어/해 보지 않다",
+      "example_sentence_refs": [
+        "ex.ko.s.001187",
+        "ex.ko.s.001188",
+        "ex.ko.s.001189",
+        "ex.ko.s.001190",
+        "ex.ko.s.001191",
+        "ex.ko.s.001192",
+        "ex.ko.s.001193",
+        "ex.ko.s.001194",
+        "ex.ko.s.001195",
+        "ex.ko.s.001196"
+      ]
+    },
+    {
+      "id": "kg.grammar.ending.state_change_ajida_eojida",
+      "category": "grammar",
+      "sub": "ending",
+      "title": "아/어/해지다 (變了)",
+      "level": "A1",
+      "path": "data/runtime/zh_tw/knowledge.json",
+      "runtime_id": "kg.grammar.ending.state_change_ajida_eojida",
+      "surface": "-아/어/해지다",
+      "example_sentence_refs": [
+        "ex.ko.s.001137",
+        "ex.ko.s.001138",
+        "ex.ko.s.001139",
+        "ex.ko.s.001140",
+        "ex.ko.s.001141",
+        "ex.ko.s.001142",
+        "ex.ko.s.001143",
+        "ex.ko.s.001144",
+        "ex.ko.s.001145",
+        "ex.ko.s.001146"
+      ]
+    },
+    {
+      "id": "kg.grammar.ending.emotion_observer_ahada",
+      "category": "grammar",
+      "sub": "ending",
+      "title": "아/어/해하다 (感到覺得)",
+      "level": "A1",
+      "path": "data/runtime/zh_tw/knowledge.json",
+      "runtime_id": "kg.grammar.ending.emotion_observer_ahada",
+      "surface": "-아/어/해하다",
+      "example_sentence_refs": [
+        "ex.ko.s.001147",
+        "ex.ko.s.001148",
+        "ex.ko.s.001149",
+        "ex.ko.s.001150",
+        "ex.ko.s.001151",
+        "ex.ko.s.001152",
+        "ex.ko.s.001153",
+        "ex.ko.s.001154",
+        "ex.ko.s.001155",
+        "ex.ko.s.001156"
+      ]
+    },
+    {
       "id": "kg.grammar.ending.cause_connective_aseo_eoseo",
       "category": "grammar",
       "sub": "ending",
@@ -1502,6 +1697,28 @@
         "ex.ko.s.000674",
         "ex.ko.s.000675",
         "ex.ko.s.000676"
+      ]
+    },
+    {
+      "id": "kg.grammar.ending.past_perfect_ass_eossda",
+      "category": "grammar",
+      "sub": "ending",
+      "title": "았/었었다 (曾經但現在不是)",
+      "level": "A1",
+      "path": "data/runtime/zh_tw/knowledge.json",
+      "runtime_id": "kg.grammar.ending.past_perfect_ass_eossda",
+      "surface": "~았/었었다",
+      "example_sentence_refs": [
+        "ex.ko.s.001237",
+        "ex.ko.s.001238",
+        "ex.ko.s.001239",
+        "ex.ko.s.001240",
+        "ex.ko.s.001241",
+        "ex.ko.s.001242",
+        "ex.ko.s.001243",
+        "ex.ko.s.001244",
+        "ex.ko.s.001245",
+        "ex.ko.s.001246"
       ]
     },
     {
@@ -1757,6 +1974,28 @@
       ]
     },
     {
+      "id": "kg.grammar.experience.un_jeoki_eopda",
+      "category": "grammar",
+      "sub": "experience",
+      "title": "-(으)ㄴ 적이 없다 (沒有做過的經驗)",
+      "level": "A1",
+      "path": "data/runtime/zh_tw/knowledge.json",
+      "runtime_id": "kg.grammar.experience.un_jeoki_eopda",
+      "surface": "-(으)ㄴ 적이 없다",
+      "example_sentence_refs": [
+        "ex.ko.s.001207",
+        "ex.ko.s.001208",
+        "ex.ko.s.001209",
+        "ex.ko.s.001210",
+        "ex.ko.s.001211",
+        "ex.ko.s.001212",
+        "ex.ko.s.001213",
+        "ex.ko.s.001214",
+        "ex.ko.s.001215",
+        "ex.ko.s.001216"
+      ]
+    },
+    {
       "id": "kg.grammar.experience.un_jeoki_itda",
       "category": "grammar",
       "sub": "experience",
@@ -1775,7 +2014,27 @@
         "ex.ko.s.001043",
         "ex.ko.s.001044",
         "ex.ko.s.001045",
-        "ex.ko.s.001046"
+        "ex.ko.s.001046",
+        "ex.ko.s.001167",
+        "ex.ko.s.001168",
+        "ex.ko.s.001169",
+        "ex.ko.s.001170",
+        "ex.ko.s.001171",
+        "ex.ko.s.001172",
+        "ex.ko.s.001173",
+        "ex.ko.s.001174",
+        "ex.ko.s.001175",
+        "ex.ko.s.001176",
+        "ex.ko.s.001197",
+        "ex.ko.s.001198",
+        "ex.ko.s.001199",
+        "ex.ko.s.001200",
+        "ex.ko.s.001201",
+        "ex.ko.s.001202",
+        "ex.ko.s.001203",
+        "ex.ko.s.001204",
+        "ex.ko.s.001205",
+        "ex.ko.s.001206"
       ]
     },
     {
@@ -1845,36 +2104,14 @@
       ]
     },
     {
-      "id": "kg.grammar.modifier.adj_noun",
-      "category": "grammar",
-      "sub": "modifier",
-      "title": "ㄴ/은 + 名詞 (形容詞修飾名詞)",
-      "level": "A1",
-      "path": "data/runtime/zh_tw/knowledge.json",
-      "runtime_id": "kg.grammar.modifier.adj_noun",
-      "surface": "ㄴ/은 + 名詞",
-      "example_sentence_refs": [
-        "ex.ko.s.000297",
-        "ex.ko.s.000298",
-        "ex.ko.s.000299",
-        "ex.ko.s.000300",
-        "ex.ko.s.000301",
-        "ex.ko.s.000302",
-        "ex.ko.s.000303",
-        "ex.ko.s.000304",
-        "ex.ko.s.000305",
-        "ex.ko.s.000306"
-      ]
-    },
-    {
       "id": "kg.grammar.modifier.v_eun",
       "category": "grammar",
       "sub": "modifier",
-      "title": "ㄴ/은 + 名詞 (過去式動詞修飾語)",
+      "title": "動詞 + ㄴ/은 + 名詞 (過去)",
       "level": "A1",
       "path": "data/runtime/zh_tw/knowledge.json",
       "runtime_id": "kg.grammar.modifier.v_eun",
-      "surface": "ㄴ/은 + 名詞",
+      "surface": "動詞 + ㄴ/은 + 名詞 (過去)",
       "example_sentence_refs": [
         "ex.ko.s.000357",
         "ex.ko.s.000358",
@@ -1886,6 +2123,28 @@
         "ex.ko.s.000364",
         "ex.ko.s.000365",
         "ex.ko.s.000366"
+      ]
+    },
+    {
+      "id": "kg.grammar.modifier.adj_noun",
+      "category": "grammar",
+      "sub": "modifier",
+      "title": "形容詞 + ㄴ/은 + 名詞 (現在)",
+      "level": "A1",
+      "path": "data/runtime/zh_tw/knowledge.json",
+      "runtime_id": "kg.grammar.modifier.adj_noun",
+      "surface": "形容詞 + ㄴ/은 + 名詞 (現在)",
+      "example_sentence_refs": [
+        "ex.ko.s.000297",
+        "ex.ko.s.000298",
+        "ex.ko.s.000299",
+        "ex.ko.s.000300",
+        "ex.ko.s.000301",
+        "ex.ko.s.000302",
+        "ex.ko.s.000303",
+        "ex.ko.s.000304",
+        "ex.ko.s.000305",
+        "ex.ko.s.000306"
       ]
     },
     {
@@ -2193,7 +2452,39 @@
         "ex.ko.s.000073",
         "ex.ko.s.000074",
         "ex.ko.s.000075",
-        "ex.ko.s.000076"
+        "ex.ko.s.000076",
+        "ex.ko.s.001247",
+        "ex.ko.s.001248",
+        "ex.ko.s.001249",
+        "ex.ko.s.001250",
+        "ex.ko.s.001251",
+        "ex.ko.s.001252",
+        "ex.ko.s.001253",
+        "ex.ko.s.001254",
+        "ex.ko.s.001255",
+        "ex.ko.s.001256"
+      ]
+    },
+    {
+      "id": "kg.grammar.particle.e_jjeum",
+      "category": "grammar",
+      "sub": "particle",
+      "title": "에 쯤 (每大約)",
+      "level": "A1",
+      "path": "data/runtime/zh_tw/knowledge.json",
+      "runtime_id": "kg.grammar.particle.e_jjeum",
+      "surface": "~에 ~쯤",
+      "example_sentence_refs": [
+        "ex.ko.s.001117",
+        "ex.ko.s.001118",
+        "ex.ko.s.001119",
+        "ex.ko.s.001120",
+        "ex.ko.s.001121",
+        "ex.ko.s.001122",
+        "ex.ko.s.001123",
+        "ex.ko.s.001124",
+        "ex.ko.s.001125",
+        "ex.ko.s.001126"
       ]
     },
     {
@@ -2458,6 +2749,23 @@
         "ex.ko.s.000224",
         "ex.ko.s.000225",
         "ex.ko.s.000226"
+      ]
+    },
+    {
+      "id": "kg.connector.sequence.geurigo",
+      "category": "sequence",
+      "sub": "general",
+      "title": "然後、並且 (그리고)",
+      "level": "A1",
+      "path": "data/runtime/zh_tw/knowledge.json",
+      "runtime_id": "kg.connector.sequence.geurigo",
+      "surface": "그리고",
+      "example_sentence_refs": [
+        "ex.ko.s.001162",
+        "ex.ko.s.001163",
+        "ex.ko.s.001164",
+        "ex.ko.s.001165",
+        "ex.ko.s.001166"
       ]
     }
   ]

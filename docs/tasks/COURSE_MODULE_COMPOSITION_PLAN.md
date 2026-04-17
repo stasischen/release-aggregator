@@ -121,6 +121,7 @@ Draft shape:
 ```json
 {
   "review_policy": {
+    "policy_id": "standard_a1_grammar",
     "enabled": true,
     "card_source": {
       "prefer_carrier": true,

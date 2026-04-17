@@ -203,55 +203,68 @@ class MockupChecker:
                 self.log_warning("Uses legacy payload.answers_ko; prefer reference_answers_ko", node_id=node_id)
             
             # 5. CMOD Modular Metadata Checks (Blockers/Errors)
-            if role == "immersion_output":
-                interaction_modes = node.get("interaction_modes", [])
-                if "interaction_modes" not in node:
-                    self.log_error("CMOD_MISSING_INTERACTION_MODES: Output nodes MUST declare capability list", node_id=node_id)
-                else:
-                    if not isinstance(interaction_modes, list):
-                        self.log_error("CMOD_INVALID_SCHEMA: interaction_modes must be a list", node_id=node_id)
-                    else:
-                        for m in interaction_modes:
-                            if m not in SUPPORTED_INTERACTION_MODES:
-                                self.log_error(f"CMOD_UNSUPPORTED_INTERACTION_MODE: {m}", node_id=node_id)
-                        # Dispatcher-Capability membership check (CMOD-003 precedence rule)
-                        if mode != "none" and mode not in interaction_modes:
-                            self.log_error(f"CMOD_DISPATCH_MISMATCH: output_mode '{mode}' is not in interaction_modes capability list", node_id=node_id)
-
-                if "completion_rules" not in node:
-                    self.log_error("CMOD_MISSING_COMPLETION_RULES: Output nodes MUST declare completion gating", node_id=node_id)
-                else:
-                    comp_rules = node.get("completion_rules")
-                    if not isinstance(comp_rules, dict):
-                        self.log_error("CMOD_INVALID_SCHEMA: completion_rules must be an object", node_id=node_id)
-                    else:
-                        # Validate required_modes subset
-                        req_modes = comp_rules.get("required_modes", [])
-                        if not isinstance(req_modes, list):
-                            self.log_error("CMOD_INVALID_SCHEMA: completion_rules.required_modes must be a list", node_id=node_id)
-                        else:
-                            for rm in req_modes:
-                                if rm not in interaction_modes:
-                                    self.log_error(f"CMOD_CRITICAL_MISMATCH: required_mode '{rm}' is not in interaction_modes", node_id=node_id)
-                        
-                        # Validate pass_policy
-                        pass_policy = comp_rules.get("pass_policy")
-                        if not pass_policy or pass_policy not in SUPPORTED_PASS_POLICIES:
-                            self.log_error(f"CMOD_INVALID_PASS_POLICY: {pass_policy}", node_id=node_id)
-                        
-                        # Validate min_attempts (Type and Range)
-                        min_att = comp_rules.get("min_attempts")
-                        if "min_attempts" in comp_rules:
-                            if not isinstance(min_att, int):
-                                self.log_error("CMOD_INVALID_SCHEMA: min_attempts must be an integer", node_id=node_id)
-                            elif min_att < 1:
-                                self.log_error(f"CMOD_OUT_OF_RANGE: min_attempts must be >= 1 (found {min_att})", node_id=node_id)
+            # Mandatory for v0.1+ that have opted into modularity, optional for legacy
+            sequence = fixture.get("sequence", [])
+            has_modular_marker = any("interaction_modes" in n or "review_policy" in n for n in sequence) or "review_policy" in fixture
+            is_modular_v1 = fixture.get("version", "") >= "unit_blueprint_v0.1" and has_modular_marker
             
-            if form == "review_card" or role == "review_retrieval":
-                policy = node.get("review_policy") or payload.get("review_policy")
-                if not policy:
-                    self.log_error("CMOD_MISSING_REVIEW_POLICY: Review nodes MUST declare retrieval strategy", node_id=node_id)
-                elif isinstance(policy, dict):
+            # 5.1 Interaction Modes & Dispatcher
+            interaction_modes = node.get("interaction_modes")
+            if is_modular_v1 and role == "immersion_output" and interaction_modes is None:
+                self.log_error("CMOD_MISSING_INTERACTION_MODES: Output nodes MUST declare capability list in v0.1+", node_id=node_id)
+            
+            if interaction_modes is not None:
+                if not isinstance(interaction_modes, list):
+                    self.log_error("CMOD_INVALID_SCHEMA: interaction_modes must be a list", node_id=node_id)
+                else:
+                    for m in interaction_modes:
+                        if m not in SUPPORTED_INTERACTION_MODES:
+                            self.log_error(f"CMOD_UNSUPPORTED_INTERACTION_MODE: {m}", node_id=node_id)
+                    # Dispatcher-Capability membership check (CMOD-003 precedence rule)
+                    if mode != "none" and mode not in interaction_modes:
+                        self.log_error(f"CMOD_DISPATCH_MISMATCH: output_mode '{mode}' is not in interaction_modes capability list", node_id=node_id)
+
+            # 5.2 Completion Rules
+            comp_rules = node.get("completion_rules")
+            if is_modular_v1 and role == "immersion_output" and comp_rules is None:
+                self.log_error("CMOD_MISSING_COMPLETION_RULES: Output nodes MUST declare completion gating in v0.1+", node_id=node_id)
+            
+            if comp_rules is not None:
+                if not isinstance(comp_rules, dict):
+                    self.log_error("CMOD_INVALID_SCHEMA: completion_rules must be an object", node_id=node_id)
+                else:
+                    # Validate required_modes subset
+                    req_modes = comp_rules.get("required_modes", [])
+                    if not isinstance(req_modes, list):
+                        self.log_error("CMOD_INVALID_SCHEMA: completion_rules.required_modes must be a list", node_id=node_id)
+                    else:
+                        target_modes = interaction_modes if interaction_modes is not None else []
+                        for rm in req_modes:
+                            if rm not in target_modes:
+                                self.log_error(f"CMOD_CRITICAL_MISMATCH: required_mode '{rm}' is not in interaction_modes", node_id=node_id)
+                    
+                    # Validate pass_policy
+                    pass_policy = comp_rules.get("pass_policy")
+                    if not pass_policy or pass_policy not in SUPPORTED_PASS_POLICIES:
+                        self.log_error(f"CMOD_INVALID_PASS_POLICY: {pass_policy}", node_id=node_id)
+                    
+                    # Validate min_attempts (Type and Range)
+                    if "min_attempts" in comp_rules:
+                        min_att = comp_rules.get("min_attempts")
+                        if not isinstance(min_att, int):
+                            self.log_error("CMOD_INVALID_SCHEMA: min_attempts must be an integer", node_id=node_id)
+                        elif min_att < 1:
+                            self.log_error(f"CMOD_OUT_OF_RANGE: min_attempts must be >= 1 (found {min_att})", node_id=node_id)
+
+            # 5.3 Review Policy
+            policy = node.get("review_policy") or fixture.get("review_policy")
+            if is_modular_v1 and (form == "review_card" or role == "review_retrieval") and policy is None:
+                self.log_error("CMOD_MISSING_REVIEW_POLICY: Review nodes MUST declare retrieval strategy in v0.1+", node_id=node_id)
+            
+            if policy is not None:
+                if not isinstance(policy, dict):
+                    self.log_error("CMOD_INVALID_SCHEMA: review_policy must be an object", node_id=node_id)
+                else:
                     # Validate policy_id (Required string)
                     if not policy.get("policy_id") or not isinstance(policy.get("policy_id"), str):
                         self.log_error("CMOD_MISSING_POLICY_ID: review_policy MUST have a string policy_id", node_id=node_id)

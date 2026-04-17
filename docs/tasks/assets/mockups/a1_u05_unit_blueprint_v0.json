@@ -527,7 +527,13 @@
       "skill_focus": [
         "speaking"
       ],
-      "output_mode": "guided",
+      "output_mode": "guided_speaking",
+      "interaction_modes": ["guided_speaking"],
+      "completion_rules": {
+        "required_modes": ["guided_speaking"],
+        "min_attempts": 1,
+        "pass_policy": "manual_mark_after_required_modes"
+      },
       "duration_min": 6,
       "title_zh_tw": "口說任務：幫朋友買藥",
       "summary_zh_tw": "你在藥局幫發燒的朋友買藥，需要與藥劑師溝通。",
@@ -555,7 +561,13 @@
       "skill_focus": [
         "writing"
       ],
-      "output_mode": "guided",
+      "output_mode": "guided_typing",
+      "interaction_modes": ["guided_typing"],
+      "completion_rules": {
+        "required_modes": ["guided_typing"],
+        "min_attempts": 1,
+        "pass_policy": "manual_mark_after_required_modes"
+      },
       "duration_min": 4,
       "title_zh_tw": "任務模擬：訊息報平安",
       "summary_zh_tw": "傳訊息告訴朋友你買好藥了，正要過去。",
@@ -583,6 +595,24 @@
         "integrated"
       ],
       "output_mode": "review_retrieval",
+      "review_policy": {
+        "policy_id": "standard_a1_review",
+        "enabled": true,
+        "card_source": {
+          "prefer_carrier": true,
+          "include_support": ["pattern_card"]
+        },
+        "spacing_semantics": {
+          "profile": "same_day_plus_1_plus_3",
+          "intensity": "high"
+        },
+        "card_policies": {
+          "recognition": { "priority": 10, "cue_type": "audio_first" },
+          "recall": { "priority": 20, "cue_type": "meaning_first" },
+          "response": { "priority": 30, "cue_type": "scenario_context" }
+        },
+        "cue_source_preference": ["carrier_context", "sentence_surface", "grammar_rule"]
+      },
       "duration_min": 4,
       "title_zh_tw": "單元成果回想",
       "summary_zh_tw": "僅靠中文題目回想起藥局五大功能句。",

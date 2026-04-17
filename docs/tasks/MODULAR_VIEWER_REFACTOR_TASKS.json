@@ -6,7 +6,7 @@
     {
       "id": "VIEWREF-001",
       "desc": "Define source-build viewer adapter contract: required unit metadata fallback, node metadata fallback, content_form mapping, and learner-facing field resolution order.",
-      "status": "in_progress",
+      "status": "done",
       "depends_on": []
     },
     {
@@ -20,7 +20,7 @@
     {
       "id": "VIEWREF-003a",
       "desc": "Audit direct learner-facing *_zh_tw reads in modular viewer renderer paths and enumerate which fallbacks must move into adapter helpers.",
-      "status": "todo",
+      "status": "done",
       "depends_on": [
         "VIEWREF-001",
         "VIEWREF-002"
@@ -29,7 +29,7 @@
     {
       "id": "VIEWREF-003b",
       "desc": "Make viewer i18n-first by moving approved fallback resolution into adapter/helpers and removing direct learner-facing *_zh_tw dependencies from renderer bodies.",
-      "status": "todo",
+      "status": "done",
       "depends_on": [
         "VIEWREF-003a"
       ]

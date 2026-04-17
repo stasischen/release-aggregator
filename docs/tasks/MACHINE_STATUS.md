@@ -8,7 +8,7 @@ Each machine should maintain its own local, gitignored claim JSON under `docs/ta
 
 | Machine ID | Label | Current Task | Status | Updated At | Notes |
 | :--- | :--- | :--- | :--- | :--- | :--- |
-| m5pro | m5pro | MODULAR_VIEWER_REFACTOR | in_progress | 2026-04-17 | Step 3 (Renderer Split) done. Ready for Step 4 (i18n-first cleanup) |
+| m5pro | m5pro | MODULAR_VIEWER_REFACTOR | in_progress | 2026-04-17 | Step 4 (i18n cleanup) done. Ready for Step 5 (Regression & Polish) |
 | home | home | CMOD | in_progress | 2026-04-17 | CMOD track active |
 | 888 | 888 | yt-video-atomization | in_progress | 2026-04-17 | YouTube video atomization |
 | gamer | gamer | Ingestion Batch (L137-142) - FINAL | done | 2026-04-17 | Beginner series officially complete. |

@@ -1067,6 +1067,28 @@
       ]
     },
     {
+      "id": "kg.grammar.ending.background_question_neunde",
+      "category": "grammar",
+      "sub": "ending",
+      "title": "ㄴ/은/는데 (委婉詢問背景狀況)",
+      "level": "A2",
+      "path": "data/runtime/zh_tw/knowledge.json",
+      "runtime_id": "kg.grammar.ending.background_question_neunde",
+      "surface": "-(이)ㄴ데/는데",
+      "example_sentence_refs": [
+        "ex.ko.s.000987",
+        "ex.ko.s.000988",
+        "ex.ko.s.000989",
+        "ex.ko.s.000990",
+        "ex.ko.s.000991",
+        "ex.ko.s.000992",
+        "ex.ko.s.000993",
+        "ex.ko.s.000994",
+        "ex.ko.s.000995",
+        "ex.ko.s.000996"
+      ]
+    },
+    {
       "id": "kg.grammar.ending.explanation_surprise_neundeyo",
       "category": "grammar",
       "sub": "ending",
@@ -1174,6 +1196,28 @@
         "ex.ko.s.000424",
         "ex.ko.s.000425",
         "ex.ko.s.000426"
+      ]
+    },
+    {
+      "id": "kg.grammar.ending.concession_gi_neun_hajiman",
+      "category": "grammar",
+      "sub": "ending",
+      "title": "기는 하지만 (雖然承認但轉折)",
+      "level": "A2",
+      "path": "data/runtime/zh_tw/knowledge.json",
+      "runtime_id": "kg.grammar.ending.concession_gi_neun_hajiman",
+      "surface": "-기는 하지만",
+      "example_sentence_refs": [
+        "ex.ko.s.000997",
+        "ex.ko.s.000998",
+        "ex.ko.s.000999",
+        "ex.ko.s.001000",
+        "ex.ko.s.001001",
+        "ex.ko.s.001002",
+        "ex.ko.s.001003",
+        "ex.ko.s.001004",
+        "ex.ko.s.001005",
+        "ex.ko.s.001006"
       ]
     },
     {
@@ -1370,6 +1414,28 @@
         "ex.ko.s.000674",
         "ex.ko.s.000675",
         "ex.ko.s.000676"
+      ]
+    },
+    {
+      "id": "kg.grammar.ending.cause_igi_ttaemune",
+      "category": "grammar",
+      "sub": "ending",
+      "title": "이기 때문에 (因為某身分或事實)",
+      "level": "A2",
+      "path": "data/runtime/zh_tw/knowledge.json",
+      "runtime_id": "kg.grammar.ending.cause_igi_ttaemune",
+      "surface": "-(이)기 때문에",
+      "example_sentence_refs": [
+        "ex.ko.s.000957",
+        "ex.ko.s.000958",
+        "ex.ko.s.000959",
+        "ex.ko.s.000960",
+        "ex.ko.s.000961",
+        "ex.ko.s.000962",
+        "ex.ko.s.000963",
+        "ex.ko.s.000964",
+        "ex.ko.s.000965",
+        "ex.ko.s.000966"
       ]
     },
     {
@@ -1901,6 +1967,28 @@
       ]
     },
     {
+      "id": "kg.grammar.particle.cause_noun_ttaemune",
+      "category": "grammar",
+      "sub": "particle",
+      "title": "때문에 (因為特定人/事/物)",
+      "level": "A1",
+      "path": "data/runtime/zh_tw/knowledge.json",
+      "runtime_id": "kg.grammar.particle.cause_noun_ttaemune",
+      "surface": "때문에",
+      "example_sentence_refs": [
+        "ex.ko.s.000967",
+        "ex.ko.s.000968",
+        "ex.ko.s.000969",
+        "ex.ko.s.000970",
+        "ex.ko.s.000971",
+        "ex.ko.s.000972",
+        "ex.ko.s.000973",
+        "ex.ko.s.000974",
+        "ex.ko.s.000975",
+        "ex.ko.s.000976"
+      ]
+    },
+    {
       "id": "kg.grammar.particle.from_to_bu_teo_kka_ji",
       "category": "grammar",
       "sub": "particle",
@@ -2074,6 +2162,28 @@
         "ex.ko.s.000041",
         "ex.ko.s.000042",
         "ex.ko.s.000043"
+      ]
+    },
+    {
+      "id": "kg.grammar.particle.regardless_noun_ideunji",
+      "category": "grammar",
+      "sub": "particle",
+      "title": "이든지 (無論如何都好)",
+      "level": "A2",
+      "path": "data/runtime/zh_tw/knowledge.json",
+      "runtime_id": "kg.grammar.particle.regardless_noun_ideunji",
+      "surface": "-(이)든지",
+      "example_sentence_refs": [
+        "ex.ko.s.000977",
+        "ex.ko.s.000978",
+        "ex.ko.s.000979",
+        "ex.ko.s.000980",
+        "ex.ko.s.000981",
+        "ex.ko.s.000982",
+        "ex.ko.s.000983",
+        "ex.ko.s.000984",
+        "ex.ko.s.000985",
+        "ex.ko.s.000986"
       ]
     },
     {

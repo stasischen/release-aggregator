@@ -28540,5 +28540,1005 @@
       "locale": "zh_tw",
       "translation": "因為是學生，所以必須要多學習。"
     }
+  },
+  {
+    "id": "ex.ko.s.000957",
+    "source": {
+      "id": "ex.ko.s.000957",
+      "ko": "저는 학생이기 때문에 여행을 자주 못 가요.",
+      "knowledge_refs": [
+        "kg.grammar.ending.cause_igi_ttaemune"
+      ],
+      "level": "",
+      "tags": [],
+      "provenance": {
+        "source": "youtube_beginner_grammar"
+      }
+    },
+    "i18n": {
+      "id": "ex.ko.s.000957",
+      "locale": "zh_tw",
+      "translation": "因為是學生的緣故，無法經常出門旅行。"
+    }
+  },
+  {
+    "id": "ex.ko.s.000958",
+    "source": {
+      "id": "ex.ko.s.000958",
+      "ko": "비빔밥은 맵기 때문에 물을 많이 마셔요.",
+      "knowledge_refs": [
+        "kg.grammar.ending.cause_igi_ttaemune"
+      ],
+      "level": "",
+      "tags": [],
+      "provenance": {
+        "source": "youtube_beginner_grammar"
+      }
+    },
+    "i18n": {
+      "id": "ex.ko.s.000958",
+      "locale": "zh_tw",
+      "translation": "因為拌飯很辣，所以喝了很多水。"
+    }
+  },
+  {
+    "id": "ex.ko.s.000959",
+    "source": {
+      "id": "ex.ko.s.000959",
+      "ko": "오늘은 친구 생일이기 때문에 케이크를 샀어요.",
+      "knowledge_refs": [
+        "kg.grammar.ending.cause_igi_ttaemune"
+      ],
+      "level": "",
+      "tags": [],
+      "provenance": {
+        "source": "youtube_beginner_grammar"
+      }
+    },
+    "i18n": {
+      "id": "ex.ko.s.000959",
+      "locale": "zh_tw",
+      "translation": "因為今天是朋友生日，所以買了蛋糕。"
+    }
+  },
+  {
+    "id": "ex.ko.s.000960",
+    "source": {
+      "id": "ex.ko.s.000960",
+      "ko": "비가 오기 때문에 우산을 가져가세요.",
+      "knowledge_refs": [
+        "kg.grammar.ending.cause_igi_ttaemune"
+      ],
+      "level": "",
+      "tags": [],
+      "provenance": {
+        "source": "youtube_beginner_grammar"
+      }
+    },
+    "i18n": {
+      "id": "ex.ko.s.000960",
+      "locale": "zh_tw",
+      "translation": "因為下雨，請帶雨傘去。"
+    }
+  },
+  {
+    "id": "ex.ko.s.000961",
+    "source": {
+      "id": "ex.ko.s.000961",
+      "ko": "한국 드라마를 좋아하기 때문에 한국어를 배워요.",
+      "knowledge_refs": [
+        "kg.grammar.ending.cause_igi_ttaemune"
+      ],
+      "level": "",
+      "tags": [],
+      "provenance": {
+        "source": "youtube_beginner_grammar"
+      }
+    },
+    "i18n": {
+      "id": "ex.ko.s.000961",
+      "locale": "zh_tw",
+      "translation": "因為喜歡韓劇，所以學習韓語。"
+    }
+  },
+  {
+    "id": "ex.ko.s.000962",
+    "source": {
+      "id": "ex.ko.s.000962",
+      "ko": "휴일이기 때문에 공원에 사람이 많아요.",
+      "knowledge_refs": [
+        "kg.grammar.ending.cause_igi_ttaemune"
+      ],
+      "level": "",
+      "tags": [],
+      "provenance": {
+        "source": "youtube_beginner_grammar"
+      }
+    },
+    "i18n": {
+      "id": "ex.ko.s.000962",
+      "locale": "zh_tw",
+      "translation": "因為是假日，公園裡人很多。"
+    }
+  },
+  {
+    "id": "ex.ko.s.000963",
+    "source": {
+      "id": "ex.ko.s.000963",
+      "ko": "김치가 맛있기 때문에 매일 먹어요.",
+      "knowledge_refs": [
+        "kg.grammar.ending.cause_igi_ttaemune"
+      ],
+      "level": "",
+      "tags": [],
+      "provenance": {
+        "source": "youtube_beginner_grammar"
+      }
+    },
+    "i18n": {
+      "id": "ex.ko.s.000963",
+      "locale": "zh_tw",
+      "translation": "因為泡菜很好吃，所以每天都吃。"
+    }
+  },
+  {
+    "id": "ex.ko.s.000964",
+    "source": {
+      "id": "ex.ko.s.000964",
+      "ko": "날씨가 춥기 때문에 코트를 입으세요.",
+      "knowledge_refs": [
+        "kg.grammar.ending.cause_igi_ttaemune"
+      ],
+      "level": "",
+      "tags": [],
+      "provenance": {
+        "source": "youtube_beginner_grammar"
+      }
+    },
+    "i18n": {
+      "id": "ex.ko.s.000964",
+      "locale": "zh_tw",
+      "translation": "因為天氣冷，請穿上大衣。"
+    }
+  },
+  {
+    "id": "ex.ko.s.000965",
+    "source": {
+      "id": "ex.ko.s.000965",
+      "ko": "숙제가 많기 때문에 지금 못 놀아요.",
+      "knowledge_refs": [
+        "kg.grammar.ending.cause_igi_ttaemune"
+      ],
+      "level": "",
+      "tags": [],
+      "provenance": {
+        "source": "youtube_beginner_grammar"
+      }
+    },
+    "i18n": {
+      "id": "ex.ko.s.000965",
+      "locale": "zh_tw",
+      "translation": "因為作業很多，現在不能玩。"
+    }
+  },
+  {
+    "id": "ex.ko.s.000966",
+    "source": {
+      "id": "ex.ko.s.000966",
+      "ko": "머리가 아프기 때문에 약을 먹었어요.",
+      "knowledge_refs": [
+        "kg.grammar.ending.cause_igi_ttaemune"
+      ],
+      "level": "",
+      "tags": [],
+      "provenance": {
+        "source": "youtube_beginner_grammar"
+      }
+    },
+    "i18n": {
+      "id": "ex.ko.s.000966",
+      "locale": "zh_tw",
+      "translation": "因為頭痛，所以吃了藥。"
+    }
+  },
+  {
+    "id": "ex.ko.s.000967",
+    "source": {
+      "id": "ex.ko.s.000967",
+      "ko": "비 때문에 옷이 다 젖었어요.",
+      "knowledge_refs": [
+        "kg.grammar.particle.cause_noun_ttaemune"
+      ],
+      "level": "",
+      "tags": [],
+      "provenance": {
+        "source": "youtube_beginner_grammar"
+      }
+    },
+    "i18n": {
+      "id": "ex.ko.s.000967",
+      "locale": "zh_tw",
+      "translation": "因為雨的關係，衣服全都濕了。"
+    }
+  },
+  {
+    "id": "ex.ko.s.000968",
+    "source": {
+      "id": "ex.ko.s.000968",
+      "ko": "숙제 때문에 잠을 못 잤어요.",
+      "knowledge_refs": [
+        "kg.grammar.particle.cause_noun_ttaemune"
+      ],
+      "level": "",
+      "tags": [],
+      "provenance": {
+        "source": "youtube_beginner_grammar"
+      }
+    },
+    "i18n": {
+      "id": "ex.ko.s.000968",
+      "locale": "zh_tw",
+      "translation": "因為作業，沒能睡覺。"
+    }
+  },
+  {
+    "id": "ex.ko.s.000969",
+    "source": {
+      "id": "ex.ko.s.000969",
+      "ko": "감기 때문에 병원에 갔어요.",
+      "knowledge_refs": [
+        "kg.grammar.particle.cause_noun_ttaemune"
+      ],
+      "level": "",
+      "tags": [],
+      "provenance": {
+        "source": "youtube_beginner_grammar"
+      }
+    },
+    "i18n": {
+      "id": "ex.ko.s.000969",
+      "locale": "zh_tw",
+      "translation": "因為感冒去了醫院。"
+    }
+  },
+  {
+    "id": "ex.ko.s.000970",
+    "source": {
+      "id": "ex.ko.s.000970",
+      "ko": "소음 때문에 신경이 쓰여요.",
+      "knowledge_refs": [
+        "kg.grammar.particle.cause_noun_ttaemune"
+      ],
+      "level": "",
+      "tags": [],
+      "provenance": {
+        "source": "youtube_beginner_grammar"
+      }
+    },
+    "i18n": {
+      "id": "ex.ko.s.000970",
+      "locale": "zh_tw",
+      "translation": "因為噪音，感到很在意/煩心。"
+    }
+  },
+  {
+    "id": "ex.ko.s.000971",
+    "source": {
+      "id": "ex.ko.s.000971",
+      "ko": "길 때문에 시간이 오래 걸렸어요.",
+      "knowledge_refs": [
+        "kg.grammar.particle.cause_noun_ttaemune"
+      ],
+      "level": "",
+      "tags": [],
+      "provenance": {
+        "source": "youtube_beginner_grammar"
+      }
+    },
+    "i18n": {
+      "id": "ex.ko.s.000971",
+      "locale": "zh_tw",
+      "translation": "因為路的關係，花了很長時間。"
+    }
+  },
+  {
+    "id": "ex.ko.s.000972",
+    "source": {
+      "id": "ex.ko.s.000972",
+      "ko": "공사 때문에 길이 막혀요.",
+      "knowledge_refs": [
+        "kg.grammar.particle.cause_noun_ttaemune"
+      ],
+      "level": "",
+      "tags": [],
+      "provenance": {
+        "source": "youtube_beginner_grammar"
+      }
+    },
+    "i18n": {
+      "id": "ex.ko.s.000972",
+      "locale": "zh_tw",
+      "translation": "因為施工，路很塞。"
+    }
+  },
+  {
+    "id": "ex.ko.s.000973",
+    "source": {
+      "id": "ex.ko.s.000973",
+      "ko": "지각 때문에 선생님께 혼났어요.",
+      "knowledge_refs": [
+        "kg.grammar.particle.cause_noun_ttaemune"
+      ],
+      "level": "",
+      "tags": [],
+      "provenance": {
+        "source": "youtube_beginner_grammar"
+      }
+    },
+    "i18n": {
+      "id": "ex.ko.s.000973",
+      "locale": "zh_tw",
+      "translation": "因為遲到，被老師訓了。"
+    }
+  },
+  {
+    "id": "ex.ko.s.000974",
+    "source": {
+      "id": "ex.ko.s.000974",
+      "ko": "날씨 때문에 기분이 안 좋아요.",
+      "knowledge_refs": [
+        "kg.grammar.particle.cause_noun_ttaemune"
+      ],
+      "level": "",
+      "tags": [],
+      "provenance": {
+        "source": "youtube_beginner_grammar"
+      }
+    },
+    "i18n": {
+      "id": "ex.ko.s.000974",
+      "locale": "zh_tw",
+      "translation": "因為天氣，心情不好。"
+    }
+  },
+  {
+    "id": "ex.ko.s.000975",
+    "source": {
+      "id": "ex.ko.s.000975",
+      "ko": "시험 때문에 공부를 열심히 해요.",
+      "knowledge_refs": [
+        "kg.grammar.particle.cause_noun_ttaemune"
+      ],
+      "level": "",
+      "tags": [],
+      "provenance": {
+        "source": "youtube_beginner_grammar"
+      }
+    },
+    "i18n": {
+      "id": "ex.ko.s.000975",
+      "locale": "zh_tw",
+      "translation": "因為考試，努力讀書。"
+    }
+  },
+  {
+    "id": "ex.ko.s.000976",
+    "source": {
+      "id": "ex.ko.s.000976",
+      "ko": "친구 때문에 이 카페에 왔어요.",
+      "knowledge_refs": [
+        "kg.grammar.particle.cause_noun_ttaemune"
+      ],
+      "level": "",
+      "tags": [],
+      "provenance": {
+        "source": "youtube_beginner_grammar"
+      }
+    },
+    "i18n": {
+      "id": "ex.ko.s.000976",
+      "locale": "zh_tw",
+      "translation": "因為朋友，來了這家咖啡廳。"
+    }
+  },
+  {
+    "id": "ex.ko.s.000977",
+    "source": {
+      "id": "ex.ko.s.000977",
+      "ko": "어디든지 같이 갈 수 있어요.",
+      "knowledge_refs": [
+        "kg.grammar.particle.regardless_noun_ideunji"
+      ],
+      "level": "",
+      "tags": [],
+      "provenance": {
+        "source": "youtube_beginner_grammar"
+      }
+    },
+    "i18n": {
+      "id": "ex.ko.s.000977",
+      "locale": "zh_tw",
+      "translation": "無論哪裡都可以一起去。"
+    }
+  },
+  {
+    "id": "ex.ko.s.000978",
+    "source": {
+      "id": "ex.ko.s.000978",
+      "ko": "무엇이든지 물어보세요.",
+      "knowledge_refs": [
+        "kg.grammar.particle.regardless_noun_ideunji"
+      ],
+      "level": "",
+      "tags": [],
+      "provenance": {
+        "source": "youtube_beginner_grammar"
+      }
+    },
+    "i18n": {
+      "id": "ex.ko.s.000978",
+      "locale": "zh_tw",
+      "translation": "無論什麼請儘管問。"
+    }
+  },
+  {
+    "id": "ex.ko.s.000979",
+    "source": {
+      "id": "ex.ko.s.000979",
+      "ko": "언제든지 전화해도 돼요.",
+      "knowledge_refs": [
+        "kg.grammar.particle.regardless_noun_ideunji"
+      ],
+      "level": "",
+      "tags": [],
+      "provenance": {
+        "source": "youtube_beginner_grammar"
+      }
+    },
+    "i18n": {
+      "id": "ex.ko.s.000979",
+      "locale": "zh_tw",
+      "translation": "無論何時打電話都可以。"
+    }
+  },
+  {
+    "id": "ex.ko.s.000980",
+    "source": {
+      "id": "ex.ko.s.000980",
+      "ko": "누구든지 이 책을 읽을 수 있어요.",
+      "knowledge_refs": [
+        "kg.grammar.particle.regardless_noun_ideunji"
+      ],
+      "level": "",
+      "tags": [],
+      "provenance": {
+        "source": "youtube_beginner_grammar"
+      }
+    },
+    "i18n": {
+      "id": "ex.ko.s.000980",
+      "locale": "zh_tw",
+      "translation": "無論誰都可以讀這本書。"
+    }
+  },
+  {
+    "id": "ex.ko.s.000981",
+    "source": {
+      "id": "ex.ko.s.000981",
+      "ko": "사과든지 배든지 다 좋아요.",
+      "knowledge_refs": [
+        "kg.grammar.particle.regardless_noun_ideunji"
+      ],
+      "level": "",
+      "tags": [],
+      "provenance": {
+        "source": "youtube_beginner_grammar"
+      }
+    },
+    "i18n": {
+      "id": "ex.ko.s.000981",
+      "locale": "zh_tw",
+      "translation": "不管是蘋果還是梨子都好。"
+    }
+  },
+  {
+    "id": "ex.ko.s.000982",
+    "source": {
+      "id": "ex.ko.s.000982",
+      "ko": "커피든지 차든지 마시고 싶어요.",
+      "knowledge_refs": [
+        "kg.grammar.particle.regardless_noun_ideunji"
+      ],
+      "level": "",
+      "tags": [],
+      "provenance": {
+        "source": "youtube_beginner_grammar"
+      }
+    },
+    "i18n": {
+      "id": "ex.ko.s.000982",
+      "locale": "zh_tw",
+      "translation": "不管是咖啡還是茶都想喝。"
+    }
+  },
+  {
+    "id": "ex.ko.s.000983",
+    "source": {
+      "id": "ex.ko.s.000983",
+      "ko": "월요일이든지 화요일이든지 상관없어요.",
+      "knowledge_refs": [
+        "kg.grammar.particle.regardless_noun_ideunji"
+      ],
+      "level": "",
+      "tags": [],
+      "provenance": {
+        "source": "youtube_beginner_grammar"
+      }
+    },
+    "i18n": {
+      "id": "ex.ko.s.000983",
+      "locale": "zh_tw",
+      "translation": "不管是星期一還是星期二都沒關係。"
+    }
+  },
+  {
+    "id": "ex.ko.s.000984",
+    "source": {
+      "id": "ex.ko.s.000984",
+      "ko": "학생이든지 선생님이든지 모두 참여해요.",
+      "knowledge_refs": [
+        "kg.grammar.particle.regardless_noun_ideunji"
+      ],
+      "level": "",
+      "tags": [],
+      "provenance": {
+        "source": "youtube_beginner_grammar"
+      }
+    },
+    "i18n": {
+      "id": "ex.ko.s.000984",
+      "locale": "zh_tw",
+      "translation": "不管是學生還是老師都全部參加。"
+    }
+  },
+  {
+    "id": "ex.ko.s.000985",
+    "source": {
+      "id": "ex.ko.s.000985",
+      "ko": "바다든지 산이든지 여행 가고 싶어요.",
+      "knowledge_refs": [
+        "kg.grammar.particle.regardless_noun_ideunji"
+      ],
+      "level": "",
+      "tags": [],
+      "provenance": {
+        "source": "youtube_beginner_grammar"
+      }
+    },
+    "i18n": {
+      "id": "ex.ko.s.000985",
+      "locale": "zh_tw",
+      "translation": "不管是大海還是大山都想去旅行。"
+    }
+  },
+  {
+    "id": "ex.ko.s.000986",
+    "source": {
+      "id": "ex.ko.s.000986",
+      "ko": "국수든지 밥이든지 괜찮아요.",
+      "knowledge_refs": [
+        "kg.grammar.particle.regardless_noun_ideunji"
+      ],
+      "level": "",
+      "tags": [],
+      "provenance": {
+        "source": "youtube_beginner_grammar"
+      }
+    },
+    "i18n": {
+      "id": "ex.ko.s.000986",
+      "locale": "zh_tw",
+      "translation": "不管是麵還是飯都可以。"
+    }
+  },
+  {
+    "id": "ex.ko.s.000987",
+    "source": {
+      "id": "ex.ko.s.000987",
+      "ko": "비가 오는데 우산이 있어요?",
+      "knowledge_refs": [
+        "kg.grammar.ending.background_question_neunde"
+      ],
+      "level": "",
+      "tags": [],
+      "provenance": {
+        "source": "youtube_beginner_grammar"
+      }
+    },
+    "i18n": {
+      "id": "ex.ko.s.000987",
+      "locale": "zh_tw",
+      "translation": "正在下雨，你有傘嗎？"
+    }
+  },
+  {
+    "id": "ex.ko.s.000988",
+    "source": {
+      "id": "ex.ko.s.000988",
+      "ko": "배가 고픈데 밥 먹으러 갈까요?",
+      "knowledge_refs": [
+        "kg.grammar.ending.background_question_neunde"
+      ],
+      "level": "",
+      "tags": [],
+      "provenance": {
+        "source": "youtube_beginner_grammar"
+      }
+    },
+    "i18n": {
+      "id": "ex.ko.s.000988",
+      "locale": "zh_tw",
+      "translation": "肚子餓了，要不要去吃飯？"
+    }
+  },
+  {
+    "id": "ex.ko.s.000989",
+    "source": {
+      "id": "ex.ko.s.000989",
+      "ko": "날씨가 좋은데 산책할까요?",
+      "knowledge_refs": [
+        "kg.grammar.ending.background_question_neunde"
+      ],
+      "level": "",
+      "tags": [],
+      "provenance": {
+        "source": "youtube_beginner_grammar"
+      }
+    },
+    "i18n": {
+      "id": "ex.ko.s.000989",
+      "locale": "zh_tw",
+      "translation": "天氣很好，要不要散步？"
+    }
+  },
+  {
+    "id": "ex.ko.s.000990",
+    "source": {
+      "id": "ex.ko.s.000990",
+      "ko": "숙제가 어려운데 좀 도와줄래요?",
+      "knowledge_refs": [
+        "kg.grammar.ending.background_question_neunde"
+      ],
+      "level": "",
+      "tags": [],
+      "provenance": {
+        "source": "youtube_beginner_grammar"
+      }
+    },
+    "i18n": {
+      "id": "ex.ko.s.000990",
+      "locale": "zh_tw",
+      "translation": "作業很難，能幫幫我嗎？"
+    }
+  },
+  {
+    "id": "ex.ko.s.000991",
+    "source": {
+      "id": "ex.ko.s.000991",
+      "ko": "시간이 없는데 빨리 갈까요?",
+      "knowledge_refs": [
+        "kg.grammar.ending.background_question_neunde"
+      ],
+      "level": "",
+      "tags": [],
+      "provenance": {
+        "source": "youtube_beginner_grammar"
+      }
+    },
+    "i18n": {
+      "id": "ex.ko.s.000991",
+      "locale": "zh_tw",
+      "translation": "沒時間了，要快點走嗎？"
+    }
+  },
+  {
+    "id": "ex.ko.s.000992",
+    "source": {
+      "id": "ex.ko.s.000992",
+      "ko": "친구를 기다리는데 언제 와요?",
+      "knowledge_refs": [
+        "kg.grammar.ending.background_question_neunde"
+      ],
+      "level": "",
+      "tags": [],
+      "provenance": {
+        "source": "youtube_beginner_grammar"
+      }
+    },
+    "i18n": {
+      "id": "ex.ko.s.000992",
+      "locale": "zh_tw",
+      "translation": "正在等朋友，他什麼時候來？"
+    }
+  },
+  {
+    "id": "ex.ko.s.000993",
+    "source": {
+      "id": "ex.ko.s.000993",
+      "ko": "한국어를 배우는데 재미있어요?",
+      "knowledge_refs": [
+        "kg.grammar.ending.background_question_neunde"
+      ],
+      "level": "",
+      "tags": [],
+      "provenance": {
+        "source": "youtube_beginner_grammar"
+      }
+    },
+    "i18n": {
+      "id": "ex.ko.s.000993",
+      "locale": "zh_tw",
+      "translation": "正在學韓文，有趣嗎？"
+    }
+  },
+  {
+    "id": "ex.ko.s.000994",
+    "source": {
+      "id": "ex.ko.s.000994",
+      "ko": "옷이 예쁜데 어디에서 샀어요?",
+      "knowledge_refs": [
+        "kg.grammar.ending.background_question_neunde"
+      ],
+      "level": "",
+      "tags": [],
+      "provenance": {
+        "source": "youtube_beginner_grammar"
+      }
+    },
+    "i18n": {
+      "id": "ex.ko.s.000994",
+      "locale": "zh_tw",
+      "translation": "衣服很漂亮，在哪裡買的？"
+    }
+  },
+  {
+    "id": "ex.ko.s.000995",
+    "source": {
+      "id": "ex.ko.s.000995",
+      "ko": "지금 통화 괜찮은데 무슨 일이에요?",
+      "knowledge_refs": [
+        "kg.grammar.ending.background_question_neunde"
+      ],
+      "level": "",
+      "tags": [],
+      "provenance": {
+        "source": "youtube_beginner_grammar"
+      }
+    },
+    "i18n": {
+      "id": "ex.ko.s.000995",
+      "locale": "zh_tw",
+      "translation": "現在可以接電話，有什麼事嗎？"
+    }
+  },
+  {
+    "id": "ex.ko.s.000996",
+    "source": {
+      "id": "ex.ko.s.000996",
+      "ko": "눈이 많이 오는데 운전할 수 있어요?",
+      "knowledge_refs": [
+        "kg.grammar.ending.background_question_neunde"
+      ],
+      "level": "",
+      "tags": [],
+      "provenance": {
+        "source": "youtube_beginner_grammar"
+      }
+    },
+    "i18n": {
+      "id": "ex.ko.s.000996",
+      "locale": "zh_tw",
+      "translation": "雪下得很大，能開車嗎？"
+    }
+  },
+  {
+    "id": "ex.ko.s.000997",
+    "source": {
+      "id": "ex.ko.s.000997",
+      "ko": "이 핸드폰이 좋기는 하지만 너무 비싸요.",
+      "knowledge_refs": [
+        "kg.grammar.ending.concession_gi_neun_hajiman"
+      ],
+      "level": "",
+      "tags": [],
+      "provenance": {
+        "source": "youtube_beginner_grammar"
+      }
+    },
+    "i18n": {
+      "id": "ex.ko.s.000997",
+      "locale": "zh_tw",
+      "translation": "這支手機雖然好，但是太貴了。"
+    }
+  },
+  {
+    "id": "ex.ko.s.000998",
+    "source": {
+      "id": "ex.ko.s.000998",
+      "ko": "김치가 맵기는 하지만 맛있어요.",
+      "knowledge_refs": [
+        "kg.grammar.ending.concession_gi_neun_hajiman"
+      ],
+      "level": "",
+      "tags": [],
+      "provenance": {
+        "source": "youtube_beginner_grammar"
+      }
+    },
+    "i18n": {
+      "id": "ex.ko.s.000998",
+      "locale": "zh_tw",
+      "translation": "泡菜雖然辣，但是很好吃。"
+    }
+  },
+  {
+    "id": "ex.ko.s.000999",
+    "source": {
+      "id": "ex.ko.s.000999",
+      "ko": "바쁘기는 하지만 행복해요.",
+      "knowledge_refs": [
+        "kg.grammar.ending.concession_gi_neun_hajiman"
+      ],
+      "level": "",
+      "tags": [],
+      "provenance": {
+        "source": "youtube_beginner_grammar"
+      }
+    },
+    "i18n": {
+      "id": "ex.ko.s.000999",
+      "locale": "zh_tw",
+      "translation": "雖然忙，但是很幸福。"
+    }
+  },
+  {
+    "id": "ex.ko.s.001000",
+    "source": {
+      "id": "ex.ko.s.001000",
+      "ko": "날씨가 춥기는 하지만 견딜 만해요.",
+      "knowledge_refs": [
+        "kg.grammar.ending.concession_gi_neun_hajiman"
+      ],
+      "level": "",
+      "tags": [],
+      "provenance": {
+        "source": "youtube_beginner_grammar"
+      }
+    },
+    "i18n": {
+      "id": "ex.ko.s.001000",
+      "locale": "zh_tw",
+      "translation": "天氣雖然冷，但是還忍得住。"
+    }
+  },
+  {
+    "id": "ex.ko.s.001001",
+    "source": {
+      "id": "ex.ko.s.001001",
+      "ko": "한국어가 어렵기는 하지만 재미있어요.",
+      "knowledge_refs": [
+        "kg.grammar.ending.concession_gi_neun_hajiman"
+      ],
+      "level": "",
+      "tags": [],
+      "provenance": {
+        "source": "youtube_beginner_grammar"
+      }
+    },
+    "i18n": {
+      "id": "ex.ko.s.001001",
+      "locale": "zh_tw",
+      "translation": "韓文雖然難，但是很有趣。"
+    }
+  },
+  {
+    "id": "ex.ko.s.001002",
+    "source": {
+      "id": "ex.ko.s.001002",
+      "ko": "집이 작기는 하지만 살기 편해요.",
+      "knowledge_refs": [
+        "kg.grammar.ending.concession_gi_neun_hajiman"
+      ],
+      "level": "",
+      "tags": [],
+      "provenance": {
+        "source": "youtube_beginner_grammar"
+      }
+    },
+    "i18n": {
+      "id": "ex.ko.s.001002",
+      "locale": "zh_tw",
+      "translation": "房子雖然小，但是住起來很舒服。"
+    }
+  },
+  {
+    "id": "ex.ko.s.001003",
+    "source": {
+      "id": "ex.ko.s.001003",
+      "ko": "옷이 예쁘기는 하지만 저한테 안 어울려요.",
+      "knowledge_refs": [
+        "kg.grammar.ending.concession_gi_neun_hajiman"
+      ],
+      "level": "",
+      "tags": [],
+      "provenance": {
+        "source": "youtube_beginner_grammar"
+      }
+    },
+    "i18n": {
+      "id": "ex.ko.s.001003",
+      "locale": "zh_tw",
+      "translation": "衣服雖然漂亮，但是不適合我。"
+    }
+  },
+  {
+    "id": "ex.ko.s.001004",
+    "source": {
+      "id": "ex.ko.s.001004",
+      "ko": "친구가 많기는 하지만 진정한 친구는 적어요.",
+      "knowledge_refs": [
+        "kg.grammar.ending.concession_gi_neun_hajiman"
+      ],
+      "level": "",
+      "tags": [],
+      "provenance": {
+        "source": "youtube_beginner_grammar"
+      }
+    },
+    "i18n": {
+      "id": "ex.ko.s.001004",
+      "locale": "zh_tw",
+      "translation": "雖然朋友很多，但真心的朋友很少。"
+    }
+  },
+  {
+    "id": "ex.ko.s.001005",
+    "source": {
+      "id": "ex.ko.s.001005",
+      "ko": "잠을 자기는 했지만 아직 피곤해요.",
+      "knowledge_refs": [
+        "kg.grammar.ending.concession_gi_neun_hajiman"
+      ],
+      "level": "",
+      "tags": [],
+      "provenance": {
+        "source": "youtube_beginner_grammar"
+      }
+    },
+    "i18n": {
+      "id": "ex.ko.s.001005",
+      "locale": "zh_tw",
+      "translation": "雖然睡了覺，但還是很累。"
+    }
+  },
+  {
+    "id": "ex.ko.s.001006",
+    "source": {
+      "id": "ex.ko.s.001006",
+      "ko": "밥을 먹기는 했지만 배가 고파요.",
+      "knowledge_refs": [
+        "kg.grammar.ending.concession_gi_neun_hajiman"
+      ],
+      "level": "",
+      "tags": [],
+      "provenance": {
+        "source": "youtube_beginner_grammar"
+      }
+    },
+    "i18n": {
+      "id": "ex.ko.s.001006",
+      "locale": "zh_tw",
+      "translation": "雖然吃了飯，但還是肚子餓。"
+    }
   }
 ]

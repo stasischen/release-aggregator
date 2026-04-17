@@ -1165,6 +1165,50 @@
     }
   },
   {
+    "id": "kg.grammar.ending.background_question_neunde",
+    "source": {
+      "id": "kg.grammar.ending.background_question_neunde",
+      "kind": "grammar",
+      "subcategory": "ending",
+      "level": "A2",
+      "surface": "-(이)ㄴ데/는데",
+      "tags": [
+        "grammar",
+        "ending",
+        "beginner",
+        "v5_ingestion"
+      ],
+      "provenance": {
+        "source": "youtube_beginner_grammar",
+        "source_lesson_ids": [
+          99
+        ],
+        "source_video_ids": [
+          "SoqCJ3Y4Xgs"
+        ]
+      },
+      "example_sentence_refs": [
+        "ex.ko.s.000987",
+        "ex.ko.s.000988",
+        "ex.ko.s.000989",
+        "ex.ko.s.000990",
+        "ex.ko.s.000991",
+        "ex.ko.s.000992",
+        "ex.ko.s.000993",
+        "ex.ko.s.000994",
+        "ex.ko.s.000995",
+        "ex.ko.s.000996"
+      ]
+    },
+    "i18n": {
+      "id": "kg.grammar.ending.background_question_neunde",
+      "locale": "zh_tw",
+      "title": "ㄴ/은/는데 (委婉詢問背景狀況)",
+      "description": "在詢問對方問題前，先交代目前的背景或狀況。這樣可以使詢問聽起來更自然、不突兀，且帶有一種委婉提供背景的感覺。常與背景說明後接續詢問、提議 or 請求的用法連用。",
+      "usage_notes": []
+    }
+  },
+  {
     "id": "kg.grammar.ending.before_gi_jeone",
     "source": {
       "id": "kg.grammar.ending.before_gi_jeone",
@@ -1341,6 +1385,50 @@
     }
   },
   {
+    "id": "kg.grammar.ending.cause_igi_ttaemune",
+    "source": {
+      "id": "kg.grammar.ending.cause_igi_ttaemune",
+      "kind": "grammar",
+      "subcategory": "ending",
+      "level": "A2",
+      "surface": "-(이)기 때문에",
+      "tags": [
+        "grammar",
+        "ending",
+        "beginner",
+        "v5_ingestion"
+      ],
+      "provenance": {
+        "source": "youtube_beginner_grammar",
+        "source_lesson_ids": [
+          96
+        ],
+        "source_video_ids": [
+          "hxilNHOXQBs"
+        ]
+      },
+      "example_sentence_refs": [
+        "ex.ko.s.000957",
+        "ex.ko.s.000958",
+        "ex.ko.s.000959",
+        "ex.ko.s.000960",
+        "ex.ko.s.000961",
+        "ex.ko.s.000962",
+        "ex.ko.s.000963",
+        "ex.ko.s.000964",
+        "ex.ko.s.000965",
+        "ex.ko.s.000966"
+      ]
+    },
+    "i18n": {
+      "id": "kg.grammar.ending.cause_igi_ttaemune",
+      "locale": "zh_tw",
+      "title": "이기 때문에 (因為某身分或事實)",
+      "description": "用於名詞後，表示該身分、事實或狀況是導致後面結果的原因。比 '-아서/어서' 語氣更強烈、更正式。\n\n名詞有收音時接 '-이기 때문에'，無收音時接 '-기 때문에'（也可以用 '-이기 때문에'）。",
+      "usage_notes": []
+    }
+  },
+  {
     "id": "kg.grammar.ending.cause_ul_ni_ka",
     "source": {
       "id": "kg.grammar.ending.cause_ul_ni_ka",
@@ -1472,6 +1560,50 @@
       "title": "거나 (或者)",
       "description": "表示在兩個或多個行為或狀態中選擇其一。",
       "explanation_md": "· 用法說明\n`~거나` 用於動詞或形容詞後，表示在兩個以上的動作或狀態中任選一個。通常翻譯為「～或是～」、「或者」。\n\n· 常見使用場景\n1. 動作選擇：例如「看電視或是聽音樂」。\n2. 狀態選擇：例如「冷或是熱的時候都沒關係」。\n\n· 相近文法比較\n與名詞使用的 `나/이나` 對應，`~거나` 則是專門用於動詞和形容詞的接續。\n\n· 注意\n在句中連續使用多次時，最後一個動詞接續一般的終結詞尾即可。\n\n[id:ex.ko.s.000737] [id:ex.ko.s.000738] [id:ex.ko.s.000739] [id:ex.ko.s.000740] [id:ex.ko.s.000741] [id:ex.ko.s.000742] [id:ex.ko.s.000743] [id:ex.ko.s.000744] [id:ex.ko.s.000745] [id:ex.ko.s.000746]",
+      "usage_notes": []
+    }
+  },
+  {
+    "id": "kg.grammar.ending.concession_gi_neun_hajiman",
+    "source": {
+      "id": "kg.grammar.ending.concession_gi_neun_hajiman",
+      "kind": "grammar",
+      "subcategory": "ending",
+      "level": "A2",
+      "surface": "-기는 하지만",
+      "tags": [
+        "grammar",
+        "ending",
+        "beginner",
+        "v5_ingestion"
+      ],
+      "provenance": {
+        "source": "youtube_beginner_grammar",
+        "source_lesson_ids": [
+          100
+        ],
+        "source_video_ids": [
+          "y_y2k18pEto"
+        ]
+      },
+      "example_sentence_refs": [
+        "ex.ko.s.000997",
+        "ex.ko.s.000998",
+        "ex.ko.s.000999",
+        "ex.ko.s.001000",
+        "ex.ko.s.001001",
+        "ex.ko.s.001002",
+        "ex.ko.s.001003",
+        "ex.ko.s.001004",
+        "ex.ko.s.001005",
+        "ex.ko.s.001006"
+      ]
+    },
+    "i18n": {
+      "id": "kg.grammar.ending.concession_gi_neun_hajiman",
+      "locale": "zh_tw",
+      "title": "기는 하지만 (雖然承認但轉折)",
+      "description": "用於承認前面的事實，但隨後提出相反或轉折的內容。常用於溫和地表達不同意見或說明某物的好壞並存。動詞或形容詞詞幹後直接加 '-기는 하지만'。也可以縮寫為 '-긴 하지만'。",
       "usage_notes": []
     }
   },
@@ -3615,6 +3747,50 @@
     }
   },
   {
+    "id": "kg.grammar.particle.cause_noun_ttaemune",
+    "source": {
+      "id": "kg.grammar.particle.cause_noun_ttaemune",
+      "kind": "grammar",
+      "subcategory": "particle",
+      "level": "A1",
+      "surface": "때문에",
+      "tags": [
+        "grammar",
+        "particle",
+        "beginner",
+        "v5_ingestion"
+      ],
+      "provenance": {
+        "source": "youtube_beginner_grammar",
+        "source_lesson_ids": [
+          97
+        ],
+        "source_video_ids": [
+          "9oOijHxIlt4"
+        ]
+      },
+      "example_sentence_refs": [
+        "ex.ko.s.000967",
+        "ex.ko.s.000968",
+        "ex.ko.s.000969",
+        "ex.ko.s.000970",
+        "ex.ko.s.000971",
+        "ex.ko.s.000972",
+        "ex.ko.s.000973",
+        "ex.ko.s.000974",
+        "ex.ko.s.000975",
+        "ex.ko.s.000976"
+      ]
+    },
+    "i18n": {
+      "id": "kg.grammar.particle.cause_noun_ttaemune",
+      "locale": "zh_tw",
+      "title": "때문에 (因為特定人/事/物)",
+      "description": "用於名詞後，表示該名詞是導致後面結果的原因。相較於 '이기 때문에'，此處直接接續單純名詞，常用於表示負面原因，但正面理由亦可使用。\n\n直接在名詞後接 '-때문에'。常用於表示因為某人或某件事而發生...",
+      "usage_notes": []
+    }
+  },
+  {
     "id": "kg.grammar.particle.do",
     "source": {
       "id": "kg.grammar.particle.do",
@@ -4101,6 +4277,50 @@
       "title": "이/가 (主語助詞)",
       "description": "韓文中最基礎的助詞之一，用來標示句子的「主語」，即動作或狀態的發起者。",
       "explanation_md": "「`~이/가`」是用來標示句子**主語**的助詞。當你想強調是「誰」做動作，或者「什麼」處於某種狀態時，就會在該名詞後面加上這個助詞。\n\n· **用法說明**\n\n這個助詞直接接在**名詞**後面，根據名詞最後一個字是否有收音來決定形式。\n\n- **名詞最後一個字有收音時**：接「`~이`」。\n  - 例如：`분` (位) + `이` → `분이` [id:ex.ko.s.000034]\n  - 例如：`소설` (小說) + `이` → `소설이` [id:ex.ko.s.000038]\n- **名詞最後一個字沒有收音時**：接「`~가`」。\n  - 例如：`사과` (蘋果) + `가` → `사과가` [id:ex.ko.s.000035]\n  - 例如：`노래` (歌) + `가` → `노래가` [id:ex.ko.s.000040]\n\n· **常見使用場景**\n\n- **描述性質或狀態**：描述東西好不好吃、房間乾不乾淨等。[id:ex.ko.s.000035], [id:ex.ko.s.000036]\n- **標示動作主體**：說明誰到達成、誰在吃東西。[id:ex.ko.s.000037], [id:ex.ko.s.000041]\n- **敘述發生事件**：說明課程結束、電影開始等狀況。[id:ex.ko.s.000039]\n\n· **注意 (特殊形式變遷)**\n\n- 當主語是「我 (`나/저`)」、「你 (`너`)」或「誰 (`누구`)」時，接了「`~가`」之後形式會發生變化。\n  - `저` + `가` → **`제가`** [id:ex.ko.s.000034]\n  - `나` + `가` → **`내가`**\n  - `너` + `가` → **`네가`** (音同 `니가`)\n  - `누구` + `가` → **`누가`**\n\n· **注意**\n\n初學者常會混淆 `이/가` (主語) 與 `은/는` (主題)。雖然在很多情況下可以互換，但 `이/가` 更偏向於引出**新的資訊**或**強調特定的對象**。像 [id:ex.ko.s.000034] 這樣的句子，就是在明確指出「這一位」的身分。",
+      "usage_notes": []
+    }
+  },
+  {
+    "id": "kg.grammar.particle.regardless_noun_ideunji",
+    "source": {
+      "id": "kg.grammar.particle.regardless_noun_ideunji",
+      "kind": "grammar",
+      "subcategory": "particle",
+      "level": "A2",
+      "surface": "-(이)든지",
+      "tags": [
+        "grammar",
+        "particle",
+        "beginner",
+        "v5_ingestion"
+      ],
+      "provenance": {
+        "source": "youtube_beginner_grammar",
+        "source_lesson_ids": [
+          98
+        ],
+        "source_video_ids": [
+          "HmbP0Kw_sQU"
+        ]
+      },
+      "example_sentence_refs": [
+        "ex.ko.s.000977",
+        "ex.ko.s.000978",
+        "ex.ko.s.000979",
+        "ex.ko.s.000980",
+        "ex.ko.s.000981",
+        "ex.ko.s.000982",
+        "ex.ko.s.000983",
+        "ex.ko.s.000984",
+        "ex.ko.s.000985",
+        "ex.ko.s.000986"
+      ]
+    },
+    "i18n": {
+      "id": "kg.grammar.particle.regardless_noun_ideunji",
+      "locale": "zh_tw",
+      "title": "이든지 (無論如何都好)",
+      "description": "表示在多個選項中，選擇哪一個都沒關係，或者結果都一樣。語氣上帶有「無所謂、都無關緊要」的感覺。\n\n名詞有收音時接 '-이든지'，無收音時接 '-든지'。常與疑問詞如 '누구' (誰), '어디' (哪裡) 連用。",
       "usage_notes": []
     }
   },

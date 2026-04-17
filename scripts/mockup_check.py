@@ -152,6 +152,14 @@ class MockupChecker:
             # Check dialogue turns
             turns = p.get("dialogue_turns") or p.get("turns") or []
             if any("interaction_contract" in t for t in turns if isinstance(t, dict)): return True
+            
+            # Check dialogue scenes
+            scenes = p.get("dialogue_scenes") or []
+            for scene in scenes:
+                if not isinstance(scene, dict): continue
+                s_turns = scene.get("turns") or []
+                if any("interaction_contract" in t for t in s_turns if isinstance(t, dict)): return True
+
             # Check article paragraphs -> sentences
             paragraphs = p.get("paragraphs", [])
             for pg in paragraphs:
@@ -182,7 +190,7 @@ class MockupChecker:
             # 0. Presence check for required fields
             if mode is None:
                 self.log_error("MISSING_FIELD: output_mode is required", node_id=node_id)
-                mode = "none" # Internal fallback for subsequent checks
+                # We do not coerce to 'none' here to allow schema-level error propagation
 
             # 1. Contract checks
             if role not in SUPPORTED_LEARNING_ROLES:
@@ -407,6 +415,15 @@ class MockupChecker:
                 for j, turn in enumerate(turns):
                     if "interaction_contract" in turn:
                         check_contract(turn["interaction_contract"], f"{node_id}_T{j}")
+                
+                # Support scenes
+                scenes = payload.get("dialogue_scenes") or []
+                for s_idx, scene in enumerate(scenes):
+                    if not isinstance(scene, dict): continue
+                    s_turns = scene.get("turns") or []
+                    for t_idx, turn in enumerate(s_turns):
+                        if "interaction_contract" in turn:
+                            check_contract(turn["interaction_contract"], f"{node_id}_S{s_idx}T{t_idx}")
             
             elif form == "video_transcript": # Hypothetical future form
                 lines = payload.get("lines") or []

@@ -17,6 +17,8 @@ See: `.planning/PROJECT.md` (updated 2026-02-17)
 - kg-plan-014: complete (KLab Normalization Plan V1)
 
 ## Recent Actions
+- Completed full-scale Korean dictionary layering (KO-DICT-LAYER-001 through 006).
+- Promoted base layer (1-1000) to production and initialized extension layer (1001-2000) with gap filling.
 - Created KNOWLEDGE_LAB_CONTENT_NORMALIZATION_PLAN_V1.md with detailed buckets and execution guardrails.
 - Audited content-ko for transitional example_bank and legacy i18n formats.
 - Synchronized Planning-level tasks in KNOWLEDGE_INGESTION_TASKS.json.

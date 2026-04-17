@@ -52,7 +52,6 @@ Layer 5: Legacy Backfill
 | TASK_ID | 描述 | Phase | 進度 | 檔案 |
 | :--- | :--- | :--- | :--- | :--- |
 | LEARNING_LIBRARY_CONTENTKO_MIGRATION | Learning Library 正式化：content-ko overlay + build artifact + frontend intake | C+/Ops | 18/20 tasks | [JSON](LEARNING_LIBRARY_CONTENTKO_MIGRATION_TASKS.json) · [PLAN](LEARNING_LIBRARY_CONTENTKO_MIGRATION_PLAN.md) |
-| KO_DICT_LAYERING | Dictionary 常用度分層重建（1-1000 基礎 / 1001-2000 擴充 / quarantine 隔離） | C+/Ops | 0/6 tasks | [JSON](KO_DICT_LAYERING_TASKS.json) · [PLAN](KO_DICT_LAYERING_PLAN_V1.md) |
 | PRODUCTION_RELEASE_GATING | Staging candidate / production release gate（全量進 staging、allowlist 才能發佈 production） | C+/Ops | 4/6 tasks | [JSON](PRODUCTION_RELEASE_GATING_TASKS.json) · [ARCH](assets/STAGING_CANDIDATE_VS_PRODUCTION_RELEASE_ARCHITECTURE.md) |
 | GOLDEN_STANDARD_RECONCILIATION | Ingest Golden / Surgery into unified build & recovery plan | B1 | 0/3 tasks | [PLAN](GOLDEN_STANDARD_RECONCILIATION_PLAN_V0.md) · [INV](assets/REVIEW_ARTIFACT_INVENTORY_V0.md) |
 | GOLDEN_REVIEW_MATERIALIZATION | Materialize verified reviews into committed overrides | B1 | 3/4 tasks | [PLAN](GOLDEN_REVIEW_MATERIALIZATION_PLAN_V1.md) · [JSON](GOLDEN_REVIEW_MATERIALIZATION_TASKS.json) |
@@ -136,6 +135,7 @@ Layer 5: Legacy Backfill
 | CONTENT_CANDIDATE_REVIEW | Content Candidate Review Station 審核台 | 2026-02-25 | [ARCHIVE](archive/20260225/20260225_CONTENT_CANDIDATE_REVIEW_TASKS.json) |
 | KO_GEMINI_REVIEW | KO 全量 Gemini 人工審核（mapping + TOPIK POS，含 i18n/base 詞性人工複核） | 2026-02-25 | [ARCHIVE](archive/20260225/20260225_KO_GEMINI_REVIEW_TASKS.json) |
 | DIALOGUE_UI_REDESIGN | Zen Study 介面改版：居中對焦、翻譯開關、垂直字典 | 2026-02-25 | [ARCHIVE](archive/20260225/20260225_DIALOGUE_UI_REDESIGN_TASKS.json) |
+| KO_DICT_LAYERING | Dictionary 常用度分層重建（1-1000 基礎 / 1001-2000 擴充 / quarantine 隔離） | 2026-04-17 | [JSON](KO_DICT_LAYERING_TASKS.json) |
 | KO_B2_C1_OPTIMIZATION | B2/C1 課程優化：角色大修、商務/評論語氣、翻譯與文法補全 | 2026-02-25 | [ARCHIVE](archive/20260225/20260225_KO_B2_C1_OPTIMIZATION_TASKS.json) |
 | TTS_GENERATION | 高品質 Edge-TTS 語音生成 | 2026-02-25 | [ARCHIVE](archive/20260225/20260225_TTS_GENERATION_TASKS.json) |
 | CONTENT_CANDIDATE_GENERATION_FRAMEWORK | 候選內容生成雙流程框架（API + Agent + QA + 審核台對接） | 2026-02-25 | [ARCHIVE](archive/20260225/20260225_CONTENT_CANDIDATE_GENERATION_FRAMEWORK_TASKS.json) |

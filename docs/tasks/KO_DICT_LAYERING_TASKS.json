@@ -1,12 +1,12 @@
 {
   "task_group": "ko-dictionary-layering-v1",
   "owner_repo": "release-aggregator",
-  "status": "todo",
+  "status": "completed",
   "tasks": [
     {
       "id": "KO-DICT-LAYER-001",
       "title": "Inventory current mappings and vocabulary sources",
-      "status": "todo",
+      "status": "completed",
       "target_repo": "content-ko",
       "goal": "Build a ranked source inventory from docs/vocabulary and existing mapping files without treating polluted mappings as authoritative truth.",
       "actions": [
@@ -27,7 +27,7 @@
     {
       "id": "KO-DICT-LAYER-002",
       "title": "Define base, extension, tail, and quarantine policy",
-      "status": "todo",
+      "status": "completed",
       "depends_on": [
         "KO-DICT-LAYER-001"
       ],
@@ -51,7 +51,7 @@
     {
       "id": "KO-DICT-LAYER-003",
       "title": "Derive POS assignment rules from current seeds",
-      "status": "todo",
+      "status": "completed",
       "depends_on": [
         "KO-DICT-LAYER-002"
       ],
@@ -75,7 +75,7 @@
     {
       "id": "KO-DICT-LAYER-004",
       "title": "Build clean base dictionary for rank band 1-1000",
-      "status": "todo",
+      "status": "completed",
       "depends_on": [
         "KO-DICT-LAYER-003"
       ],
@@ -99,7 +99,7 @@
     {
       "id": "KO-DICT-LAYER-005",
       "title": "Build extension dictionary and quarantine outputs for rank band 1001-2000",
-      "status": "todo",
+      "status": "completed",
       "depends_on": [
         "KO-DICT-LAYER-004"
       ],
@@ -123,7 +123,7 @@
     {
       "id": "KO-DICT-LAYER-006",
       "title": "Validate layered dictionaries against XknpI48lT-g atoms",
-      "status": "todo",
+      "status": "completed",
       "depends_on": [
         "KO-DICT-LAYER-005"
       ],

@@ -1,0 +1,218 @@
+{
+  "version": "unit_blueprint_v0.1",
+  "unit": {
+    "unit_id": "REG-ARTICLE-MISS-TARGET",
+    "title_zh_tw": "Article 句子契約回歸樣本",
+    "target_language": "ko",
+    "learner_locale_source": "zh-TW",
+    "level": "A1",
+    "theme_zh_tw": "驗證 article carrier 內的 sentence contract 會被掃描"
+  },
+  "sequence": [
+    {
+      "id": "ART-L1",
+      "candidate_type": "lesson",
+      "content_form": "article",
+      "learning_role": "immersion_input",
+      "skill_focus": ["reading"],
+      "output_mode": "none",
+      "duration_min": 3,
+      "title_zh_tw": "Article 回歸樣本 1",
+      "summary_zh_tw": "文章段落中含有句子級互動契約。",
+      "sample_lines": ["안녕하세요."],
+      "expected_output_zh_tw": "能理解文章中的問候句。",
+      "payload": {
+        "paragraphs": [
+          {
+            "sentences": [
+              {
+                "text": "안녕하세요. 오늘 수업을 시작할까요?",
+                "zh_tw": "你好。今天要開始上課嗎？",
+                "interaction_contract": {
+                  "actions": ["listen", "repeat", "type"],
+                  "payload": {
+                    "tts_text": "안녕하세요. 오늘 수업을 시작할까요?",
+                    "zh_tw": "你好。今天要開始上課嗎？"
+                  },
+                  "knowledge_dive": {
+                    "dictionary_atom_refs": [
+                      { "surface": "안녕하세요", "ref": "v-ko-greeting" }
+                    ],
+                    "grammar_refs": [
+                      { "surface": "할까요", "ref": "g-ko-suggestion" }
+                    ]
+                  }
+                }
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "ART-CC1",
+      "candidate_type": "lesson",
+      "content_form": "comprehension_check",
+      "learning_role": "immersion_input",
+      "skill_focus": ["reading"],
+      "output_mode": "response_builder",
+      "duration_min": 2,
+      "title_zh_tw": "Article 回歸樣本 2",
+      "summary_zh_tw": "理解檢核。",
+      "sample_lines": ["안녕하세요."],
+      "expected_output_zh_tw": "能辨識基本問候。",
+      "payload": {
+        "question_type": "info_extract",
+        "items": [
+          {
+            "prompt_ko": "민수가 먼저 한 말은 무엇인가요?",
+            "prompt_zh_tw": "敏秀先說了什麼？",
+            "response_choices_ko": [
+              "안녕하세요.",
+              "감사합니다.",
+              "잘 가요."
+            ],
+            "accepted_responses_ko": [
+              "안녕하세요."
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "ART-L2",
+      "candidate_type": "lesson",
+      "content_form": "notice",
+      "learning_role": "immersion_input",
+      "skill_focus": ["reading"],
+      "output_mode": "none",
+      "duration_min": 2,
+      "title_zh_tw": "Article 回歸樣本 3",
+      "summary_zh_tw": "公告閱讀。",
+      "sample_lines": ["외부 음식 반입 금지."],
+      "expected_output_zh_tw": "能理解公告重點。",
+      "payload": {
+        "notice_items": ["외부 음식 반입 금지."],
+        "notice_items_zh_tw": ["禁止攜帶外食。"]
+      }
+    },
+    {
+      "id": "ART-L3",
+      "candidate_type": "lesson",
+      "content_form": "message_thread",
+      "learning_role": "immersion_input",
+      "skill_focus": ["reading"],
+      "output_mode": "none",
+      "duration_min": 2,
+      "title_zh_tw": "Article 回歸樣本 4",
+      "summary_zh_tw": "簡短訊息對話。",
+      "sample_lines": ["오늘 볼래?"],
+      "expected_output_zh_tw": "能抓到約見的意圖。",
+      "payload": {
+        "messages": [
+          {
+            "sender": "민수",
+            "is_self": true,
+            "text": "오늘 볼래?",
+            "zh_tw": "今天要見面嗎？"
+          }
+        ]
+      }
+    },
+    {
+      "id": "ART-L4",
+      "candidate_type": "lesson",
+      "content_form": "grammar_note",
+      "learning_role": "structure_grammar",
+      "skill_focus": ["reading"],
+      "output_mode": "none",
+      "duration_min": 2,
+      "title_zh_tw": "Article 回歸樣本 5",
+      "summary_zh_tw": "語法說明。",
+      "sample_lines": ["-아요/-어요"],
+      "expected_output_zh_tw": "能辨識基本語尾。",
+      "payload": {}
+    },
+    {
+      "id": "ART-L5",
+      "candidate_type": "lesson",
+      "content_form": "pattern_card",
+      "learning_role": "structure_pattern",
+      "skill_focus": ["reading"],
+      "output_mode": "none",
+      "duration_min": 2,
+      "title_zh_tw": "Article 回歸樣本 6",
+      "summary_zh_tw": "句型整理。",
+      "sample_lines": ["N이에요/예요"],
+      "expected_output_zh_tw": "能辨識句型框架。",
+      "payload": {}
+    },
+    {
+      "id": "ART-L6",
+      "candidate_type": "lesson",
+      "content_form": "functional_phrase_pack",
+      "learning_role": "immersion_input",
+      "skill_focus": ["reading"],
+      "output_mode": "none",
+      "duration_min": 2,
+      "title_zh_tw": "Article 回歸樣本 7",
+      "summary_zh_tw": "功能短語包。",
+      "sample_lines": ["감사합니다."],
+      "expected_output_zh_tw": "能辨識常用致謝。",
+      "payload": {}
+    },
+    {
+      "id": "ART-L7",
+      "candidate_type": "lesson",
+      "content_form": "comparison_card",
+      "learning_role": "immersion_input",
+      "skill_focus": ["reading"],
+      "output_mode": "none",
+      "duration_min": 2,
+      "title_zh_tw": "Article 回歸樣本 8",
+      "summary_zh_tw": "比較型閱讀。",
+      "sample_lines": ["A와 B를 비교하세요."],
+      "expected_output_zh_tw": "能做簡單比較。",
+      "payload": {}
+    },
+    {
+      "id": "ART-L8",
+      "candidate_type": "lesson",
+      "content_form": "roleplay_prompt",
+      "learning_role": "immersion_input",
+      "skill_focus": ["speaking"],
+      "output_mode": "none",
+      "duration_min": 2,
+      "title_zh_tw": "Article 回歸樣本 9",
+      "summary_zh_tw": "口說提示。",
+      "sample_lines": ["가게에서 주문하기."],
+      "expected_output_zh_tw": "能在情境中開口。",
+      "payload": {
+        "scene_zh_tw": "在咖啡廳點餐"
+      }
+    },
+    {
+      "id": "ART-L9",
+      "candidate_type": "lesson",
+      "content_form": "practice_card",
+      "learning_role": "immersion_input",
+      "skill_focus": ["writing"],
+      "output_mode": "chunk_assembly",
+      "duration_min": 3,
+      "title_zh_tw": "Article 回歸樣本 10",
+      "summary_zh_tw": "組句練習。",
+      "sample_lines": ["문장을 완성하세요."],
+      "expected_output_zh_tw": "能完成簡單句子。",
+      "payload": {
+        "tasks": [
+          {
+            "prompt_zh_tw": "請完成句子。",
+            "chunks": ["안녕", "하세요"],
+            "target_examples": ["안녕하세요."]
+          }
+        ]
+      }
+    }
+  ],
+  "scheduled_followups": []
+}

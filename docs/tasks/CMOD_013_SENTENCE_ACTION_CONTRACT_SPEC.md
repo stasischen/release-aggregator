@@ -8,9 +8,9 @@
 ## Core Concepts
 
 ### 1. Atomic Actions
-- **`listen`**: 單純播放音檔。
-- **`repeat`**: 聽完後錄音，並可回放比對。
-- **`shadow`**: 跟讀模式。在播放音檔的同時進行錄音，通常伴隨進度條或文字高亮。
+- **`listen`**: 播放可用的音訊來源，來源可以是預錄音檔或內建 TTS。
+- **`repeat`**: 聽完後錄音，並可回放比對。若無預錄音檔，可改用 TTS 文字來源。
+- **`shadow`**: 跟讀模式。在播放音訊來源的同時進行錄音，通常伴隨進度條或文字高亮。
 - **`type`**: 引導式打字（Guided Typing）。
 
 ### 2. Action Registry
@@ -34,6 +34,7 @@
   "interaction_contract": {
     "actions": ["listen", "repeat", "shadow", "type"],
     "payload": {
+      "tts_text": "안녕하세요.",
       "audio_ref": "audio/path/to/sentence.mp3",
       "target_surface": "안녕하세요",
       "alignment_ref": "audio/path/to/alignment.json",
@@ -57,7 +58,8 @@
 | :--- | :--- | :--- |
 | `actions` | array | 該句子支援的動作清單 (`listen`, `repeat`, `shadow`, `type`) |
 | `payload` | object | 執行動作所需的資料基礎 |
-| `payload.audio_ref` | string | 句子音檔路徑 |
+| `payload.audio_ref` | string | (Optional) 句子音檔路徑 |
+| `payload.tts_text` | string | (Optional) 供內建 TTS 使用的朗讀文字 |
 | `payload.target_surface` | string | 韓文表面形（用於打字檢核或顯示） |
 | `payload.alignment_ref` | string | (Optional) 音頻對齊資料，主要供 `shadow` 使用 |
 | `knowledge_dive` | object | 知識下鑽元數據 |
@@ -82,7 +84,7 @@
         "interaction_contract": {
           "actions": ["listen", "repeat", "type"],
           "payload": {
-            "audio_ref": "audio/u05/d1_t1.mp3",
+            "tts_text": "머리가 아파요.",
             "target_surface": "머리가 아파요."
           },
           "knowledge_dive": {
@@ -106,7 +108,7 @@
   "interaction_contract": {
     "actions": ["listen", "shadow"],
     "payload": {
-      "audio_ref": "audio/video/v001_l1.mp3",
+      "tts_text": "안녕하세요.",
       "alignment_ref": "audio/video/v001_l1_align.json"
     }
   }
@@ -118,15 +120,15 @@
 ## Action Semantics & Requirements
 
 ### Listen
-- **Requirement**: `audio_ref` 必須存在。
+- **Requirement**: `audio_ref` 或 `tts_text` 至少其一必須存在。
 - **UX**: 點擊發音圖示或句子本身。
 
 ### Repeat (Recording)
-- **Requirement**: `audio_ref` 必須存在。
+- **Requirement**: `audio_ref` 或 `tts_text` 至少其一必須存在。
 - **UX**: 播放一次 -> 使用者錄音 -> 系統提供簡單比對（或僅提供波形顯示）。
 
 ### Shadow (Progressive)
-- **Requirement**: `alignment_ref` 建議存在。
+- **Requirement**: `audio_ref` 或 `tts_text` 至少其一必須存在；`alignment_ref` 建議存在。
 - **UX**: 音檔播放時，文字隨進度變色。
 
 ### Type (Input)
@@ -137,7 +139,7 @@
 
 ## Compatibility Rules
 
-1. **Fallback**: 若 `interaction_contract` 缺失，系統應嘗試從內容頂層尋找 `audio_ref` 或 `text` 作為預設輸入。
+1. **Fallback**: 若 `interaction_contract` 缺失，系統應嘗試從內容頂層句子文字派生 `tts_text`，必要時再由 viewer 轉為預錄音或純文字播放模式。
 2. **Knowledge Priority**: `knowledge_dive` 中的 `surface` 應與 `CMOD-011` 的 Anchor Linking 邏輯對齊。若兩者衝突，優先使用內容層明確標記的 `knowledge_dive`。
 3. **Completion Tracking**: 若 `interaction_contract.actions` 包含 `shadow` 且 `completion_rules` 要求 `shadow` 完成，則需追蹤該動作的執行狀態。
 

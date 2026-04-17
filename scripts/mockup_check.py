@@ -191,6 +191,7 @@ class MockupChecker:
             if mode is None:
                 self.log_error("MISSING_FIELD: output_mode is required", node_id=node_id)
                 # We do not coerce to 'none' here to allow schema-level error propagation
+            skip_mode_checks = mode is None
 
             # 1. Contract checks
             if role not in SUPPORTED_LEARNING_ROLES:
@@ -222,13 +223,13 @@ class MockupChecker:
                     cc_types.append(q_type)
 
             # Pattern Transform
-            if mode == "pattern_transform":
+            if not skip_mode_checks and mode == "pattern_transform":
                 t_type = payload.get("transform_type")
                 if not t_type:
                     self.log_warning("PED_MISSING_TYPE: transform node missing 'transform_type'", node_id=node_id)
 
             # Repair Practice
-            if mode == "repair_practice":
+            if not skip_mode_checks and mode == "repair_practice":
                 if not payload.get("trigger_type") or not payload.get("repair_goal"):
                     self.log_warning("PED_MISSING_TYPE: repair_practice missing 'trigger_type' or 'repair_goal'", node_id=node_id)
 
@@ -387,10 +388,16 @@ class MockupChecker:
                 if not isinstance(c_payload, dict):
                     self.log_error("CMOD_INVALID_SCHEMA: interaction_contract.payload must be an object", node_id=context_id)
                 else:
-                    # Require audio_ref for audio actions
+                    # Audio actions can be backed by a prebuilt audio asset or by inline TTS text.
                     if any(a in ["listen", "repeat", "shadow"] for a in actions):
-                        if not c_payload.get("audio_ref"):
-                            self.log_error("CMOD_MISSING_AUDIO_REF: Action requires audio_ref", node_id=context_id)
+                        has_audio_ref = bool(c_payload.get("audio_ref"))
+                        has_tts_text = bool(c_payload.get("tts_text"))
+                        if not has_audio_ref and not has_tts_text:
+                            self.log_error("CMOD_MISSING_AUDIO_SOURCE: Action requires audio_ref or tts_text", node_id=context_id)
+                        if "audio_ref" in c_payload and c_payload.get("audio_ref") is not None and not isinstance(c_payload.get("audio_ref"), str):
+                            self.log_error("CMOD_INVALID_SCHEMA: audio_ref must be a string", node_id=context_id)
+                        if "tts_text" in c_payload and c_payload.get("tts_text") is not None and not isinstance(c_payload.get("tts_text"), str):
+                            self.log_error("CMOD_INVALID_SCHEMA: tts_text must be a string", node_id=context_id)
                     
                     # Require target_surface for type action
                     if "type" in actions and not c_payload.get("target_surface"):
@@ -425,6 +432,16 @@ class MockupChecker:
                         if "interaction_contract" in turn:
                             check_contract(turn["interaction_contract"], f"{node_id}_S{s_idx}T{t_idx}")
             
+            elif form == "article":
+                paragraphs = payload.get("paragraphs") or payload.get("sections") or []
+                for p_idx, paragraph in enumerate(paragraphs):
+                    if not isinstance(paragraph, dict):
+                        continue
+                    sentences = paragraph.get("sentences") or paragraph.get("items") or []
+                    for s_idx, sentence in enumerate(sentences):
+                        if "interaction_contract" in sentence:
+                            check_contract(sentence["interaction_contract"], f"{node_id}_P{p_idx}S{s_idx}")
+
             elif form == "video_transcript": # Hypothetical future form
                 lines = payload.get("lines") or []
                 for j, line in enumerate(lines):

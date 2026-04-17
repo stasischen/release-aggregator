@@ -3,7 +3,7 @@
 ## 1. Goal
 定義一個輕量級、具備生產可行性的「聽辨（Listening Discrimination）」微節點規格。目標是在 A1/A2 單元中針對具備「生存風險」或「高頻誤導」的聽力特徵點，進行精確的聽辨檢查，且不增加語音製作流水線的沉重負荷。
 
-本節點應能直接對接現有 Edge-TTS 流程，不依賴 ASR（語音辨識）或高品質聲學處理。
+本節點應能直接對接現有 Edge-TTS 流程，不依賴 ASR（語音辨識）或高品質聲學處理；在有既有音檔時可直接使用 `audio_refs`，沒有音檔時則以 `tts_text` 作為朗讀來源。
 
 ---
 
@@ -17,7 +17,7 @@
     - **Frequent Acoustic Confusions**: 數字（1 vs 2, 3 vs 4）、時間、方位词。
 
 ### 2.2 邊界 (Boundaries)
-- **TTS-first**: 預設支援文字轉語音（TTS），不要求專門錄音。
+- **TTS-first**: 預設支援文字轉語音（TTS），不要求專門錄音；`audio_refs` 與 `tts_text` 皆可作為輸入來源。
 - **Low Cognitive Load**: 每題只專注於 1 個區分點，不進行長對話聽力。
 - **No Production Overhead**: 使用現有的 `practice_card` 或 `path_node` 結構擴展。
 
@@ -33,6 +33,7 @@
     "discrimination_target": "minimal_pair | formality | numeral | particle",
     "prompt_zh_tw": "題目說明（例如：請問你聽到了哪個數字？）",
     "context_ko": "(選填) 輔助聽辨的前情提要",
+    "tts_text": "選項 A 對應的韓文文本（可選）",
     "audio_refs": [
       {
         "id": "audio_A",
@@ -85,7 +86,7 @@
 
 ## 6. Operational Constraints (運作約束)
 
-- **TTS Compatibility**: 所有 `audio_refs` 必須在本地 pipeline 可直接通過 `tts_gen` 生成。
+- **TTS Compatibility**: 若使用 `audio_refs`，其文字來源必須能在本地 pipeline 以 `tts_gen` 生成；若未提供音檔，應可直接以 `tts_text` 合成。
 - **No Premium Dependency**: 設計時不應依賴特定角色音色，應以「中性辨識」為主。
 - **Offline Fallback**: 若離線緩存未命中心，節點應顯示「文本閱讀」模式，並加註「視覺化聽辨提示」。
 
@@ -98,7 +99,7 @@
 - **Scenario**: 點咖啡時，「兩杯 (두 개)」 vs 「四杯 (네 개)」的數字聽辨（針對 A1 基礎）。
 - **Payload Sketch**:
     - `prompt_zh_tw`: 「請聽聽看，客人最後點了多少？」
-    - `audio_ref`: 「네 개 주세요.」
+    - `tts_text`: 「네 개 주세요.」
     - `options`: 
         - `opt_1`: { "text": "四個", "is_correct": true }
         - `opt_2`: { "text": "三個", "is_correct": false }
@@ -110,7 +111,7 @@
 - **Target**: `-요` (結尾) vs `-ㅂ니다` (結尾) 的聽感區分。
 - **Payload Sketch**:
     - `prompt_zh_tw`: 「這段話聽起來是在跟誰說話？」
-    - `audio_ref`: 「만那서 반갑습니다.」
+    - `tts_text`: 「만나서 반갑습니다.」
     - `options`: 
         - `opt_1`: { "text": "第一次見面的長輩 (正式)", "is_correct": true }
         - `opt_2`: { "text": "親近的朋友 (非正式)", "is_correct": false }
@@ -122,7 +123,7 @@
 - **Target**: 過去式雙收音 `ㅆ` 的聽辨。
 - **Payload Sketch**:
     - `prompt_zh_tw`: 「這件事情發生了嗎？」
-    - `audio_ref`: 「시장에 갔어요.」
+    - `tts_text`: 「시장에 갔어요.」
     - `options`: 
         - `opt_1`: { "text": "已經去了 (過去)", "is_correct": true }
         - `opt_2`: { "text": "正要去 (現在/未來)", "is_correct": false }
@@ -133,7 +134,7 @@
 - **Target**: `께서` vs `이/가` 助詞聽辨。
 - **Payload Sketch**:
     - `prompt_zh_tw`: 「主角在談論誰？」
-    - `audio_ref`: 「어머니께서 오셨어요.」
+    - `tts_text`: 「어머니께서 오셨어요.」
     - `options`: 
         - `opt_1`: { "text": "受尊敬的人物 (如：母親)", "is_correct": true }
         - `opt_2`: { "text": "平輩或自己", "is_correct": false }

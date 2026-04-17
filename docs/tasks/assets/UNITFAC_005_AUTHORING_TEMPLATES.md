@@ -212,9 +212,10 @@
 "interaction_contract": {
   "actions": ["listen", "repeat", "shadow", "type"],
   "payload": {
-    "audio_ref": "audio/path/to/sentence.mp3",
+    "tts_text": "韓文句子原文",
     "target_surface": "韓文句子原文",
-    "alignment_ref": "audio/path/to/alignment.json",
+    "audio_ref": "audio/path/to/sentence.mp3", // optional, when a prebuilt asset exists
+    "alignment_ref": "audio/path/to/alignment.json", // optional, mainly for shadow
     "zh_tw": "翻譯"
   },
   "knowledge_dive": {
@@ -245,6 +246,7 @@
 - [ ] **Bilingual**: 所有 `zh_tw` 翻譯是否準確且符合台灣用語習慣（非機器直譯）？
 - [ ] **Honorifics**: 韓文敬語等級在單元內是否一致（例如 A1 預設使用 해요體）？
 - [ ] **Authenticity**: 對話是否自然？（避免像機器人般的課本對話）
+- [ ] **TTS Fit**: `interaction_contract` 是否能以 `tts_text` 或既有音檔達成，不強迫作者為所有句子補錄音檔？
 
 ### 資源連接 (Resources)
 - [ ] **Lexicon**: 重要的 `dictionary_terms` 是否都有在節點中定義，以便後續關聯解析？

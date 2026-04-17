@@ -34,6 +34,24 @@ Use this file to confirm that older `unit_blueprint_v0.1` assets without modular
 python scripts/mockup_check.py docs/tasks/assets/mockups/regression/legacy_v0_1_compat_unit_blueprint.json
 ```
 
+### 5. TTS-Only Sentence Contract Regression Fixture
+Use this file to confirm that `interaction_contract` can rely on `tts_text` without `audio_ref`:
+```bash
+python scripts/mockup_check.py docs/tasks/assets/mockups/regression/tts_only_sentence_contract_unit_blueprint.json
+```
+
+### 6. Article Carrier Regression Fixture
+Use this file to confirm that article-style sentence carriers are scanned for nested `interaction_contract` entries:
+```bash
+python scripts/mockup_check.py docs/tasks/assets/mockups/regression/article_sentence_contract_missing_target_surface.json
+```
+
+### 7. Missing output_mode Regression Fixture
+Use this file to confirm that a missing `output_mode` stays visible as an error and does not collapse into `none` during dispatch checks:
+```bash
+python scripts/mockup_check.py docs/tasks/assets/mockups/regression/missing_output_mode_dispatch_unit_blueprint.json
+```
+
 ## Validation Rules
 
 ### Blocker Errors (Exit Code 1)

@@ -40,7 +40,7 @@ window.speakKo = function (text) {
     }
     window.lastTtsText = text;
 
-    console.log("[TTS Request]:", text);
+    // console.log("[TTS Request]:", text);
     
     // Only cancel if needed - Safari sends 'canceled' error to the NEW item 
     // if we cancel and speak in the same event loop in some versions.
@@ -64,15 +64,15 @@ window.speakKo = function (text) {
         utter.voice = voice;
     }
 
-    utter.onstart = () => console.log("TTS Engine: Started Speaking");
+    // utter.onstart = () => console.log("TTS Engine: Started Speaking");
     utter.onend = () => {
-        console.log("TTS Engine: Finished Speaking");
+        // console.log("TTS Engine: Finished Speaking");
         window.lastTtsText = null;
     };
     utter.onerror = (e) => {
         // If it's a 'canceled' error, it's often common and expected during user interaction
         if (e.error === 'interrupted' || e.error === 'canceled') {
-            console.log("TTS Engine: Request superseded");
+            // console.log("TTS Engine: Request superseded");
         } else {
             console.error("TTS Engine: Error Event", e);
         }
@@ -85,7 +85,7 @@ window.resetAudioEngine = function () {
     window.speechSynthesis.cancel();
     window.speechSynthesis.resume();
     if (window.refreshTtsVoices) window.refreshTtsVoices();
-    console.log("Audio Engine Forcefully Reset.");
+    // console.log("Audio Engine Forcefully Reset.");
     alert("語音引擎已重置，請再次嘗試播放。");
 };
 
@@ -136,7 +136,7 @@ window.refreshTtsVoices = function () {
 
 if (typeof window !== 'undefined' && 'speechSynthesis' in window) {
     window.speechSynthesis.onvoiceschanged = () => {
-        console.log("TTS Voices changed/updated.");
+        // console.log("TTS Voices changed/updated.");
         if (window.refreshTtsVoices) window.refreshTtsVoices();
     };
 }

@@ -8,8 +8,8 @@ Each machine should maintain its own local, gitignored claim JSON under `docs/ta
 
 | Machine ID | Label | Current Task | Status | Updated At | Notes |
 | :--- | :--- | :--- | :--- | :--- | :--- |
-| m5pro | m5pro | MODULAR_VIEWER_REFACTOR | in_progress | 2026-04-17 | Step 4 (i18n cleanup) done. Ready for Step 5 (Regression & Polish) |
-| home | home | none | idle | 2026-04-17 | CMOD-011 fully complete & audit trail repaired |
+| m5pro | m5pro | none | done | 2026-04-17 | MODULAR_VIEWER_REFACTOR Step 5 complete. Ingestion gap fixed. UI polished. |
+| home | home | CMOD-014 | done | 2026-04-17 | Regression closure for CMOD-011 complete. Positive/Negative fixtures added. |
 | 888 | 888 | yt-video-atomization | in_progress | 2026-04-17 | YouTube video atomization |
 | gamer | gamer | Ingestion Batch (L137-142) - FINAL | done | 2026-04-17 | Beginner series officially complete. |
 | mac | mac | repo-org / docs maintenance | in_progress | 2026-04-17 | Repo organization, doc cleanup, and spec stabilization |

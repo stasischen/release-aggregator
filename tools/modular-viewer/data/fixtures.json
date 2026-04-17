@@ -3,7 +3,25 @@
     {
       "id": "A1-01",
       "path": "data/content-ko/core/dialogue/A1/A1-01.json",
-      "title": "A1-01: Greetings & N-예요",
+      "title": "A1-01: Greetings (Legacy Preview)",
+      "level": "A1"
+    },
+    {
+      "id": "lesson_01",
+      "path": "data/curriculum-source/lesson_01/build/lesson_content.v1.json",
+      "title": "Lesson 01 (Source-Build)",
+      "level": "A1"
+    },
+    {
+      "id": "lesson_02",
+      "path": "data/curriculum-source/lesson_02/build/lesson_content.v1.json",
+      "title": "Lesson 02 (Source-Build)",
+      "level": "A1"
+    },
+    {
+      "id": "lesson_03",
+      "path": "data/curriculum-source/lesson_03/build/lesson_content.v1.json",
+      "title": "Lesson 03 (Source-Build)",
       "level": "A1"
     },
     {

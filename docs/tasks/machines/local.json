@@ -4,8 +4,8 @@
   "host": "home",
   "repo": "release-aggregator",
   "owner": "ywchen",
-  "current_task": "none",
-  "task_status": "idle",
-  "updated_at": "2026-04-17T21:35:00+08:00",
-  "notes": "Redundant article validation branch removed. Worklog fully repaired with all CMOD-011 sessions."
+  "current_task": "CMOD-014",
+  "task_status": "done",
+  "updated_at": "2026-04-17T22:20:00+08:00",
+  "notes": "Regression closure for CMOD-011 complete. Positive/Negative fixtures added."
 }

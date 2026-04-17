@@ -52,6 +52,18 @@ Use this file to confirm that a missing `output_mode` stays visible as an error 
 python scripts/mockup_check.py docs/tasks/assets/mockups/regression/missing_output_mode_dispatch_unit_blueprint.json
 ```
 
+### 8. Anchor Multi-Level Overlap Regression Fixture
+Use this file to confirm that identical spans can be shared across `token` / `chunk` / `sentence` anchors without triggering duplicate rejection:
+```bash
+python scripts/mockup_check.py docs/tasks/assets/mockups/regression/anchor_multilevel_overlap_allowed.json
+```
+
+### 9. Anchor Duplicate Same-Level Rejection Regression Fixture
+Use this file to confirm that identical spans with the **same level** (e.g., two `token` anchors for the same word) trigger `CMOD_DUPLICATE_ANCHOR`:
+```bash
+python scripts/mockup_check.py docs/tasks/assets/mockups/regression/anchor_duplicate_same_level_rejected.json
+```
+
 ## Validation Rules
 
 ### Blocker Errors (Exit Code 1)
@@ -59,6 +71,7 @@ python scripts/mockup_check.py docs/tasks/assets/mockups/regression/missing_outp
 - **ERR_ORDER_VIOLATION**: Output nodes appear before input or structure nodes.
 - **ERR_MISSING_COMPREHENSION**: No `comprehension_check` node found after the initial input.
 - **PED_FOLLOWUP_INCONSISTENT**: `followup_type: transfer` but `transfer_pattern_refs` is empty.
+- **CMOD_DUPLICATE_ANCHOR**: Detects identical spans (offset/length) at the same anchor level.
 - **Unsupported Values**: Use of unknown `learning_role`, `content_form`, or `output_mode`.
 - **Mixed-Script**: Detects Chinese characters accidentally mixed into Korean strings (e.g., `7時` instead of `7시`).
 
@@ -74,9 +87,9 @@ python scripts/mockup_check.py docs/tasks/assets/mockups/regression/missing_outp
 ## Allowlisted Values (Upgraded)
 
 The checker intentionally supports the following new values introduced in the UNITFAC cycle:
-- **Content Forms**: `comprehension_check`, `notice`, `message_thread`, `comparison_card`, `pattern_card`, `grammar_note`, `functional_phrase_pack`, `practice_card`, `roleplay_prompt`, `message_prompt`, `review_card`.
-- **Output Modes**: `pattern_transform` (New in UNITFAC-003), `chunk_assembly`, `frame_fill`, `response_builder`, `guided`, `review_retrieval`.
-- **Learning Roles**: `cross_unit_transfer` (New, for followups).
+- **Content Forms**: `comprehension_check`, `notice`, `message_thread`, `comparison_card`, `pattern_card`, `grammar_note`, `functional_phrase_pack`, `practice_card`, `roleplay_prompt`, `message_prompt`, `review_card`, `article`, `video_transcript`.
+- **Output Modes**: `pattern_transform`, `chunk_assembly`, `frame_fill`, `response_builder`, `guided`, `review_retrieval`.
+- **Learning Roles**: `cross_unit_transfer`.
 
 ## Exit Codes
 - `0`: Success (All blockers passed, warnings may exist).

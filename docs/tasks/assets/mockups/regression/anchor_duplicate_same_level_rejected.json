@@ -1,0 +1,90 @@
+{
+  "version": "unit_blueprint_v0.1",
+  "unit": {
+    "unit_id": "REG-ANCHOR-SAME-LEVEL-DUP",
+    "title_zh_tw": "錨點同層級重複拒絕樣本",
+    "target_language": "ko",
+    "learner_locale_source": "zh-TW",
+    "level": "A1",
+    "theme_zh_tw": "驗證相同 (offset, length, level) 的錨點會被拒絕"
+  },
+  "sequence": [
+    {
+      "id": "ART-L1",
+      "candidate_type": "lesson",
+      "content_form": "article",
+      "learning_role": "immersion_input",
+      "skill_focus": [
+        "reading"
+      ],
+      "output_mode": "none",
+      "duration_min": 3,
+      "title_zh_tw": "Article 錨點重複樣本",
+      "summary_zh_tw": "文章段落中含有相同層級的重複錨點。",
+      "sample_lines": [
+        "안녕하세요"
+      ],
+      "expected_output_zh_tw": "應觸發 CMOD_DUPLICATE_ANCHOR 錯誤。",
+      "payload": {
+        "paragraphs": [
+          {
+            "sentences": [
+              {
+                "text": "안녕하세요",
+                "zh_tw": "你好",
+                "interaction_contract": {
+                  "actions": [
+                    "listen"
+                  ],
+                  "payload": {
+                    "tts_text": "안녕하세요"
+                  },
+                  "knowledge_dive": {
+                    "anchors": [
+                      {
+                        "surface": "안녕하세요",
+                        "offset": 0,
+                        "length": 5,
+                        "level": "token",
+                        "target": "dictionary_atom_ref",
+                        "ref": "ko:greet:안녕하세요"
+                      },
+                      {
+                        "surface": "안녕하세요",
+                        "offset": 0,
+                        "length": 5,
+                        "level": "token",
+                        "target": "dictionary_atom_ref",
+                        "ref": "ko:greet:안녕하세요_DUP"
+                      }
+                    ]
+                  }
+                }
+              }
+            ]
+          }
+        ]
+      }
+    },
+    { "id": "DUMMY-2", "candidate_type": "lesson", "content_form": "notice", "learning_role": "immersion_input", "output_mode": "none", "payload": {} },
+    { "id": "DUMMY-3", "candidate_type": "lesson", "content_form": "notice", "learning_role": "immersion_input", "output_mode": "none", "payload": {} },
+    { "id": "DUMMY-4", "candidate_type": "lesson", "content_form": "notice", "learning_role": "immersion_input", "output_mode": "none", "payload": {} },
+    { "id": "DUMMY-5", "candidate_type": "lesson", "content_form": "notice", "learning_role": "immersion_input", "output_mode": "none", "payload": {} },
+    { "id": "DUMMY-6", "candidate_type": "lesson", "content_form": "notice", "learning_role": "immersion_input", "output_mode": "none", "payload": {} },
+    { "id": "DUMMY-7", "candidate_type": "lesson", "content_form": "notice", "learning_role": "immersion_input", "output_mode": "none", "payload": {} },
+    { "id": "DUMMY-8", "candidate_type": "lesson", "content_form": "notice", "learning_role": "immersion_input", "output_mode": "none", "payload": {} },
+    { "id": "DUMMY-9", "candidate_type": "lesson", "content_form": "notice", "learning_role": "immersion_input", "output_mode": "none", "payload": {} },
+    {
+      "id": "ART-CC1",
+      "candidate_type": "lesson",
+      "content_form": "comprehension_check",
+      "learning_role": "immersion_input",
+      "output_mode": "response_builder",
+      "payload": {
+        "question_type": "info_extract",
+        "items": []
+      }
+    }
+  ],
+  "scheduled_followups": []
+}

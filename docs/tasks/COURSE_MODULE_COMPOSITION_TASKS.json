@@ -1,7 +1,7 @@
 {
   "task_id": "COURSE_MODULE_COMPOSITION",
   "description": "課程模組組裝（Content / Interaction / Review 三層設計與 contract 對齊）",
-  "status": "in_progress",
+  "status": "done",
   "tasks": [
     {
       "id": "CMOD-001",
@@ -81,6 +81,14 @@
         "CMOD-001",
         "CMOD-011",
         "ULV-004"
+      ]
+    },
+    {
+      "id": "CMOD-014",
+      "desc": "Regression closure for CMOD-011 anchor linking: lock multi-level overlap behavior with positive and negative fixtures, and keep the mockup-check usage guide aligned for Gemini handoff.",
+      "status": "done",
+      "depends_on": [
+        "CMOD-011"
       ]
     }
   ]

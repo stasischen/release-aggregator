@@ -45,9 +45,9 @@ window.LessonAdapter = {
     ingest(data, locale = 'zh_tw') {
         if (!data) return null;
 
-        // Auto-Wrap raw V5 content from content-ko/core into a valid unit structure
+        // Branch 1: Auto-Wrap raw V5 content (nodes-based)
         if (data.nodes && !data.sequence) {
-            console.log("[Adapter] Wrapping raw V5 content for rendering...");
+            // console.log("[Adapter] Wrapping raw V5 content for rendering...");
             const cid = data.id || 'REAL-DATA';
             const isVlog = cid.includes('vlog') || cid.includes('v1_') || (data.nodes?.Start?.turns);
             
@@ -65,6 +65,30 @@ window.LessonAdapter = {
                         title_i18n: { zh_tw: '內容預覽 (Real Content)' },
                         summary_i18n: { zh_tw: '正在直接從 content-ko 加載實體 JSON 檔案。' },
                         content_form: data.content_form || (isVlog ? 'video' : 'dialogue'),
+                        payload: data
+                    }
+                ]
+            };
+        }
+
+        // Branch 2: Auto-Wrap source-build artifacts (content-array-based)
+        if (!data.sequence && data.content && Array.isArray(data.content)) {
+            // console.log("[Adapter] Wrapping source-build content for rendering...");
+            const cid = data.id || 'BUILD-DATA';
+            return {
+                unit: {
+                    unit_id: cid,
+                    title_i18n: { zh_tw: data.title || '無標題課程' },
+                    level: data.level || 'A1',
+                    theme_i18n: { zh_tw: '正式建置版本' },
+                    can_do_i18n: { zh_tw: [] }
+                },
+                sequence: [
+                    {
+                        id: 'node-0',
+                        title_i18n: { zh_tw: '課程內容' },
+                        summary_i18n: { zh_tw: '正式建置之課程內容。' },
+                        content_form: data.content_form || 'dialogue',
                         payload: data
                     }
                 ]
@@ -92,7 +116,7 @@ window.LessonAdapter = {
             return data; 
         }
         
-        console.log(`[Adapter] Enriching assets for Content ID: ${cid} (locale: ${locale})`);
+        // console.log(`[Adapter] Enriching assets for Content ID: ${cid} (locale: ${locale})`);
 
         try {
             let atomsData = null;
@@ -168,7 +192,7 @@ window.LessonAdapter = {
                     });
                 });
             });
-            console.log("[Adapter] Enrichment complete.");
+            // console.log("[Adapter] Enrichment complete.");
         } catch (e) {
             console.warn("[Adapter] Enrichment failed", e);
         }

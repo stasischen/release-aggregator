@@ -51,7 +51,7 @@
     {
       "id": "CMOD-010",
       "desc": "Freeze recommendation: define what enters UNITFAC-001 v0.1 contract vs what remains optional, with frozen carrier/structure boundaries and deferred migration details.",
-      "status": "todo"
+      "status": "done"
     },
     {
       "id": "CMOD-011",

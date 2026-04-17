@@ -10,7 +10,7 @@ Each machine should maintain its own local, gitignored claim JSON under `docs/ta
 | :--- | :--- | :--- | :--- | :--- | :--- |
 | m5pro | m5pro | MODULAR_VIEWER_REFACTOR | in_progress | 2026-04-17 | Step 4 (i18n cleanup) done. Ready for Step 5 (Regression & Polish) |
 | home | home | CMOD | in_progress | 2026-04-17 | CMOD track active |
-| 888 | 888 | yt-video-atomization | in_progress | 2026-04-17 | YouTube video atomization |
+| 888 | 888 | CMOD-010 | in_progress | 2026-04-17 | CMOD-010: Freeze Recommendation for UNITFAC-001 v0.1 |
 | gamer | gamer | Ingestion Batch (L137-142) - FINAL | done | 2026-04-17 | Beginner series officially complete. |
 | mac | mac | repo-org / docs maintenance | in_progress | 2026-04-17 | Repo organization, doc cleanup, and spec stabilization |
 

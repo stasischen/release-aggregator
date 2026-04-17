@@ -42,7 +42,7 @@
 *   **處理**：
     1.  **Core Parity Check**: 在進行 I18n 欄位重新命名 (Rename) 前，必須先確認對應的 Core 檔案存在。
     2.  **Orphan Handling**: 若為孤兒資料 (I18n 存在但 Core 缺失)，應轉由 `Manual Review` 處理，不執行自動化 Normalization。
-    3.  **Rename**: 將欄位名稱 `zh_tw` 重新命名為 `translation_zh_tw`。
+    3.  **Rename**: 將欄位名稱 `zh_tw` (或 `translation_zh_tw`) 統一更名為符合 V5 規範的 `translation`。
 
 ---
 
@@ -75,7 +75,7 @@
 ### 4.1 Extraction (Bucket B -> Global Bank)
 - **ID Pattern**: 使用 `ex.ko.[category].[subcategory].[desc].v1`。
 - **Provenance**: `source_type` 設為 `knowledge_item_extraction`，並填寫 `original_ki_ref`。
-- **Clean String**: 移除所有 Markdown 標記，僅保留純韓文 `surface_ko`。
+- **Clean String**: 移除所有 Markdown 標記，僅保留純韓文原文字串 `ko` (舊稱 `surface_ko`)。
 
 ### 4.2 Markdown Normalization (Bucket C)
 - **Inline Chips**: 優先處理長度大於 2 個單詞的片段。
@@ -93,7 +93,7 @@
     - 正式將例句寫入全域銀行。
     - 同步更新 Knowledge Item 為 `example_sentence_refs`。
 3.  **Phase 3: Markdown Enrichment (Two-pass Process)**
-    - **Pass 1 (Scan & Propose)**: 使用腳本掃描 `explanation_md_zh_tw` 中的例句模式，產出待審核清單 (Candidate Manifest)。不可直接以 Regex 判斷結果寫回正式檔案。
+    - **Pass 1 (Scan & Propose)**: 使用腳本掃描 `explanation_md` (或舊版 `explanation_md_zh_tw`) 中的例句模式，產出待審核清單 (Candidate Manifest)。不可直接以 Regex 判斷結果寫回正式檔案。
     - **Pass 2 (Review & Apply)**: 人工/Agent 審核清單後，再執行核准項目的批次替換。
 4.  **Phase 4: Manual Polish & Contextual Fragments**
     - 處理 Ambiguous 項目（如對話片段 `A: ... B: ...`）或需精細標註的形態變化。

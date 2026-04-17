@@ -26,7 +26,20 @@
     - 格式：使用雙底線 `__` 作為分隔符（例如 `ko__n-friend__01`）。
     - **禁止**: 不得將 `fs_safe_id` 用於任何業務邏輯或資料庫 lookup。
 
-## 4. 目錄結構規範
+### 4. V5 Field Naming Conventions
+
+To support multi-locale expansion and clean build artifacts, V5 canonical fields no longer include locale suffixes in their keys (e.g., `_zh_tw`). Locality is determined by the file path (Source) or the `locale` field (Release).
+
+- **Core (Target Language)**:
+    - Primary text field is `ko` (formerly `surface_ko`).
+- **I18n (Learner Language)**:
+    - Primary translation is `translation` (formerly `translation_zh_tw`).
+    - Primary title is `title` (formerly `title_zh_tw`).
+    - Markdown explanation is `explanation_md` (formerly `explanation_md_zh_tw`).
+
+---
+
+## 5. 目錄結構規範
 所有 `content-<lang>` 倉庫應遵循以下路徑：
 - `content/source/<lang>/core/dictionary/atoms/*.json`
 - `content/source/<lang>/i18n/<learner_lang>/dictionary/*.json`

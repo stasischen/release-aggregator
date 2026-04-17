@@ -1,4 +1,9 @@
-# Learning Library Schema Freeze v0
+# [LEGACY] Learning Library Schema Freeze v0
+
+> [!WARNING]
+> **This document is LEGACY and OUTDATED.**
+> It reflects the initial prototype state (v0). The current production standard is **V5 Schema**, which removes locale suffixes (e.g., `_zh_tw`) and renames `surface_ko` to `ko`.
+> Please refer to [DATA_MODEL_CONTRACTS.md](../../guides/DATA_MODEL_CONTRACTS.md) for current field naming rules.
 
 ## Goal
 根據目前 `lingo-frontend-web` prototype 已驗證過的學習流程（video/dialogue/article learning detail），正式凍結第一期資料合約 (v0)。

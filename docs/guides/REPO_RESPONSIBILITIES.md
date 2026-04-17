@@ -3,7 +3,7 @@
 
 > **對象 / Audience**: 專案擁有者（人類），用於瞭解每個 Repo 的職責以及如何與 AI Agent 協作。
 >
-> **最後更新 / Last Updated**: 2026-02-15
+> **最後更新 / Last Updated**: 2026-04-17
 
 ---
 
@@ -94,7 +94,7 @@ python scripts/ops/audit_reconstruction.py
 - ✅ **適合交給 Agent 的事**：
   - 新增規則到 `engine/rules/*.json`
   - 修復 `engine/` 中的還原邏輯問題
-  - 分析 `audit_reconstruction_results.txt` 並提出修復建議
+  - 分析 `audit_reconstruction.txt` (由 `audit_reconstruction.py` 產出) 並提出修復建議
   - 更新 `mapping.json` 中的缺漏詞
 - ⚠️ **需要人類確認的事**：
   - 刪除任何 `atoms/*.json`（可能影響前端）
@@ -244,7 +244,7 @@ graph TD
 | **單一職責 / Single Responsibility** | 每個 Repo 只做自己的事。如果一個任務需要改兩個 Repo，拆成兩個獨立任務。 |
 | **契約優先 / Contract First** | 任何跨 Repo 的資料格式變更，必須先更新 `core-schema`。 |
 | **向下相容 / Backward Compatible** | Schema 變更必須向下相容，除非有明確的 Migration Plan。 |
-| **審計必過 / Audit Gate** | 在發佈前，`audit_03b.py` 的結果必須接近 0 個異常。 |
+| **審計必過 / Audit Gate** | 在發佈前，`qa_v5_gate.py` (或 `audit_reconstruction.py`) 的結果必須為 SUCCESS。 |
 
 ---
 
@@ -280,7 +280,7 @@ graph TD
 | `content-ko` | 「分析 audit 結果」「修復 XX 的 Jamo 問題」「跑 import」「補 mapping」 |
 | `core-schema` | 「檢查 XX.json 是否符合 schema」「新增欄位 XX 到 atom schema」 |
 | `content-pipeline` | 「設計新的驗證 gate」「寫建置腳本」 |
-| `release-aggregator` | 「寫 worklog」「更新 index」「寫 guide 文件」 |
+| `release-aggregator` | 「寫 worklog」「更新 index」「整理過時文件 (mac)」 |
 | `lingo-frontend-web` | 「修 bug」「更新 assets」「修 TTS」 |
 | `lllo` | 「分析 L05 課程」「統計新增詞彙」（唯讀） |
 

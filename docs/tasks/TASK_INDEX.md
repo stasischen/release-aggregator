@@ -67,6 +67,7 @@ Layer 5: Legacy Backfill
 | KNOWLEDGE_LAB_VIEWER_REFACTOR | Knowledge Lab Viewer 重構（對齊 ULV runtime contract / Pattern Lab 持久化 / 真內容驗證） | C+/Ops | 6/6 tasks | [JSON](KNOWLEDGE_LAB_VIEWER_REFACTOR_TASKS.json) · [PLAN](KNOWLEDGE_LAB_VIEWER_REFACTOR_PLAN.md) |
 | UNIFIED_LESSON_VIEW_ARCHITECTURE | Modular Viewer 下游：統一定義 lesson runtime IA（primary content / support detail / navigation / mock verification / Flutter boundary） | C+/Ops | 7/7 tasks | [JSON](UNIFIED_LESSON_VIEW_ARCHITECTURE_TASKS.json) · [ARCH](assets/UNIFIED_LESSON_VIEW_ARCHITECTURE.md) · [CONTRACT](../../tools/modular-viewer/UNIFIED_LESSON_RUNTIME_CONTRACT.md) |
 | ULV_RUNTIME_MOCK_VERIFICATION | **[GATE]** ULV Runtime Mock 驗證（使用真 lesson/KLab content 驗證運作合約穩定性） | C+/Ops | 0/6 tasks | [JSON](ULV_RUNTIME_MOCK_VERIFICATION_TASKS.json) · [PLAN](ULV_RUNTIME_MOCK_VERIFICATION.md) |
+| KG-UI-019 | Dictionary-to-Grammar Deep Linking UI（字典意思連結至文法詳解 Drawer） | C+/UI | 0/4 tasks | [JSON](KG-UI-019_TASKS.json) · [PLAN](KG-UI-019_PLAN.md) |
 | UNIFIED_LESSON_VIEW_FLUTTER_TRANSFER | Modular Viewer 下游：將凍結的 unified lesson view contract 轉入 Flutter（shell / state / adapters / QA） | C+/Ops | 0/8 tasks | [JSON](UNIFIED_LESSON_VIEW_FLUTTER_TRANSFER_TASKS.json) |
 
 ### Layer 3 — 單元重構 / Unit-by-Unit Refactor
@@ -100,7 +101,6 @@ Layer 5: Legacy Backfill
 | Task ID | 描述 | Phase | 進度 | 檔案 |
 | :--- | :--- | :--- | :--- | :--- |
 | VIDEO_INGESTION_PIPELINE | 影片自動化導入管線 (YouTube Subtitles -> Source/I18N -> Product) | CI/Ops | 0/10 tasks | [PLAN](VIDEO_INGESTION_PIPELINE_PLAN.md) |
-| VIDEO_SUBTITLE_ENRICHMENT | 影片字幕校對與補全 (zh_tw) | CI/Ops | 4/4 tasks | [PLAN](VIDEO_SUBTITLE_ENRICHMENT_PLAN.md) |
 
 ### Parallel Content Enrichment (可平行但不得阻塞主線)
 
@@ -113,7 +113,6 @@ Layer 5: Legacy Backfill
 
 | Task ID | 描述 | 進度 | 檔案 |
 | :--- | :--- | :--- | :--- |
-| COURSE_PEDAGOGY_OPTIMIZATION | 語言學習效果優化（理解檢查/變體遷移/修復策略/檢索複習/guided rubric/followup 設計） | 12/12 tasks | [JSON](COURSE_PEDAGOGY_OPTIMIZATION_TASKS.json) · [PLAN](COURSE_PEDAGOGY_OPTIMIZATION_PLAN.md) |
 
 
 ### Deferred / Later
@@ -128,7 +127,8 @@ Layer 5: Legacy Backfill
 
 | Task ID | 描述 | 完成時間 | 檔案 |
 | :--- | :--- | :--- | :--- |
-| VIDEO_SUBTITLE_ENRICHMENT | 影片字幕校對與補全 (zh_tw) | 2026-04-07 | [PLAN](VIDEO_SUBTITLE_ENRICHMENT_PLAN.md) |
+| COURSE_PEDAGOGY_OPTIMIZATION | 語言學習效果優化（理解檢查/變體遷移/修復策略/檢索複習/guided rubric/followup 設計） | 2026-04-17 | [JSON](archive/20260417/20260417_COURSE_PEDAGOGY_OPTIMIZATION_TASKS.json) · [PLAN](archive/20260417/20260417_COURSE_PEDAGOGY_OPTIMIZATION_PLAN.md) |
+| VIDEO_SUBTITLE_ENRICHMENT | 影片字幕校對與補全 (zh_tw) | 2026-04-07 | [PLAN](archive/20260407/20260407_VIDEO_SUBTITLE_ENRICHMENT_PLAN.md) · [JSON](archive/20260407/20260407_VIDEO_SUBTITLE_ENRICHMENT_TASKS.json) |
 | VIEWER_ENHANCEMENT | Viewer 辭典彈出 + 舊課程顯示 | 2026-02-15 | [ARCHIVE](archive/20260215/20260215_VIEWER_ENHANCEMENT_TASKS.json) |
 | KO_RESOLUTION_100PCT | 韓語 Token 解析 100% | 2026-02-15 | [ARCHIVE](archive/20260215/20260215_KO_RESOLUTION_100PCT_TASKS.json) |
 | FRONTEND_VIEWER_INTEGRATION | Viewer 整合 (音檔/高亮/文法) | 2026-02-22 | [ARCHIVE](archive/20260222/20260222_FRONTEND_VIEWER_INTEGRATION_TASKS.json) |
@@ -137,7 +137,7 @@ Layer 5: Legacy Backfill
 | CONTENT_CANDIDATE_REVIEW | Content Candidate Review Station 審核台 | 2026-02-25 | [ARCHIVE](archive/20260225/20260225_CONTENT_CANDIDATE_REVIEW_TASKS.json) |
 | KO_GEMINI_REVIEW | KO 全量 Gemini 人工審核（mapping + TOPIK POS，含 i18n/base 詞性人工複核） | 2026-02-25 | [ARCHIVE](archive/20260225/20260225_KO_GEMINI_REVIEW_TASKS.json) |
 | DIALOGUE_UI_REDESIGN | Zen Study 介面改版：居中對焦、翻譯開關、垂直字典 | 2026-02-25 | [ARCHIVE](archive/20260225/20260225_DIALOGUE_UI_REDESIGN_TASKS.json) |
-| KO_DICT_LAYERING | Dictionary 常用度分層重建（1-1000 基礎 / 1001-2000 擴充 / quarantine 隔離） | 2026-04-17 | [JSON](KO_DICT_LAYERING_TASKS.json) |
+| KO_DICT_LAYERING | Dictionary 常用度分層重建（1-1000 基礎 / 1001-2000 擴充 / quarantine 隔離） | 2026-04-17 | [JSON](archive/20260417/20260417_KO_DICT_LAYERING_TASKS.json) |
 | KO_B2_C1_OPTIMIZATION | B2/C1 課程優化：角色大修、商務/評論語氣、翻譯與文法補全 | 2026-02-25 | [ARCHIVE](archive/20260225/20260225_KO_B2_C1_OPTIMIZATION_TASKS.json) |
 | TTS_GENERATION | 高品質 Edge-TTS 語音生成 | 2026-02-25 | [ARCHIVE](archive/20260225/20260225_TTS_GENERATION_TASKS.json) |
 | CONTENT_CANDIDATE_GENERATION_FRAMEWORK | 候選內容生成雙流程框架（API + Agent + QA + 審核台對接） | 2026-02-25 | [ARCHIVE](archive/20260225/20260225_CONTENT_CANDIDATE_GENERATION_FRAMEWORK_TASKS.json) |

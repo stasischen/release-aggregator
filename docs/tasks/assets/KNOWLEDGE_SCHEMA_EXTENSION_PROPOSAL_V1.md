@@ -12,9 +12,9 @@ We distinguish between morphological variants (Core) and localized mapping/searc
 - **Purpose**: Store exact Korean text variants that refer to the same concept (e.g., `-아서`, `-어서`, `-해서` are variants of the same cause-and-effect grammar item).
 - **Validation**: Must be a non-empty array of non-empty strings.
 
-#### [I18n] `aliases_{locale}`: `Array<string>`
+#### [I18n] `aliases`: `Array<string>`
 - **Purpose**: Store localized names, common Chinese translated titles, or keywords used by learners to find this item (e.g., "原因", "因為", "A/V-아서").
-- **Validation**: Unique items within the array.
+- **Validation**: Unique items within the array. Locality is determined by the `locale` field.
 
 ### 2. Source Traceability
 
@@ -33,7 +33,7 @@ We distinguish between morphological variants (Core) and localized mapping/searc
 
 ### 3. Pedagogical Structure
 
-#### [I18n] `teaching_blocks_{locale}`: `Array<TeachingBlock>`
+#### [I18n] `teaching_blocks`: `Array<TeachingBlock>`
 - **Purpose**: Allow explanations to be broken down into structured "cards" or "sections" rather than one giant `explanation_md`. This supports interactive "drawer" UIs.
 - **Structure**:
   ```json
@@ -81,10 +81,10 @@ We distinguish between morphological variants (Core) and localized mapping/searc
   "id": "kg.grammar.ending.reason_aseo",
   "locale": "zh_tw",
   "title": "아서/어서/해서 (原因/原因語尾)",
-  "aliases_zh_tw": ["原因", "因為", "連結子"],
-  "summary_zh_tw": "用於表示前後內容的因果關係。",
-  "explanation_md_zh_tw": "...",
-  "teaching_blocks_zh_tw": [
+  "aliases": ["原因", "因為", "連結子"],
+  "summary": "用於表示前後內容的因果關係。",
+  "explanation_md": "...",
+  "teaching_blocks": [
     {
       "title": "變化規則 (Form Rules)",
       "content_md": "- 陽性母音 (ㅏ, ㅗ) -> `-아서` \n- 陰性母音 (其他) -> `-어서` \n- `하다` -> `-해서`",

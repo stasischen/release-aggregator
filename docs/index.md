@@ -2,10 +2,10 @@
 
 Welcome to the central documentation hub for the Lingo multi-repo system.
 
-## ✅ Current Human Handbook (Latest)
+## ✅ Current Human Handbook (V5 Alignment)
 
 - [Human Handbook Start Here](human-handbook/00_START_HERE.md) - Current source-of-truth entrypoint for humans.
-- [End-to-End Stages (Current)](human-handbook/01_E2E_STAGES.md) - Stage definitions from content generation to deployment.
+- [End-to-End Stages (Current)](human-handbook/01_E2E_STAGES.md) - Stage definitions for V5 content lifecycle.
 - [Tool Catalog (Current)](human-handbook/02_TOOL_CATALOG.md) - Tools currently used in active flow.
 - [Stage Checklists](human-handbook/03_STAGE_CHECKLISTS.md) - Gate checklist before moving to next stage.
 
@@ -61,6 +61,7 @@ Welcome to the central documentation hub for the Lingo multi-repo system.
 
 ## Guides (Legacy / Archived)
 
+- [LEGACY: Learning Library Schema Freeze v0](tasks/assets/LEARNING_LIBRARY_SCHEMA_FREEZE_V0.md) - **Deprecated**: Replaced by V5 normalization spec.
 - [V5 Automation Architecture (Archived pointer)](guides/V5_AUTOMATION_ARCHITECTURE.md)
 - [Content vs Pipeline Separation (Archived pointer)](guides/CONTENT_PIPELINE_SEPARATION.md)
 - [Legacy Archive Root](archive/legacy/README.md)

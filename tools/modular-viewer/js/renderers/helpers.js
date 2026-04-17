@@ -1,97 +1,7 @@
 /**
- * Lingourmet Renderer Registry & Core Helpers
+ * Core Helpers & Utilities for Renderers
+ * Shared logic for text processing and state access.
  */
-
-window.RendererRegistry = {
-  renderers: {},
-  register(contentForm, interactionMode, fn) {
-    const key = `${contentForm}:${interactionMode}`;
-    this.renderers[key] = fn;
-  },
-  registerContent(contentForm, fn) {
-    this.renderers[contentForm] = fn;
-  },
-  registerInteraction(mode, fn) {
-    this.renderers[mode] = fn;
-  },
-  dispatch(node) {
-    const contentForm = node.content_form || 'unknown';
-    const outputMode = node.output_mode || 'none';
-    const key = `${contentForm}:${outputMode}`;
-
-    let contentHtml = '';
-    let interactionHtml = '';
-
-    if (this.renderers[key]) {
-      contentHtml = this.renderers[key](node) || '';
-    } else if (this.renderers[contentForm]) {
-      contentHtml = this.renderers[contentForm](node) || '';
-    } else {
-      contentHtml = this.renderFallback(node);
-    }
-
-    // Interaction dispatch (if separate)
-    if (this.renderers[outputMode]) {
-      interactionHtml = this.renderers[outputMode](node) || '';
-    }
-
-    return { contentHtml, interactionHtml };
-  },
-  renderFallback(node) {
-    const payload = node.payload || {};
-    const reason = `未知的內容類型: ${node.content_form}`;
-    return window.renderDataInspection(payload, reason);
-  }
-};
-
-// --- Shell Renderers ---
-
-window.renderDetailHeader = function (node) {
-  const el = document.getElementById('detailHeader');
-  if (!el) return;
-  const stage = window.nodeStageLabel(node.id) || '';
-  const skillFocus = window.nodeSkillFocusText(node);
-
-  el.innerHTML = `
-    <div class="detail-header-card animate-in">
-      <div class="tiny-text muted">${window.escapeHtml(stage || node.learning_role || 'node')}</div>
-      <h2 style="margin:4px 0 8px;">${window.escapeHtml(node.displayTitle || '')}</h2>
-      <div class="meta-tags">
-        <span class="tag">${window.escapeHtml(node.content_form || 'unknown')}</span>
-        <span class="tag">${window.escapeHtml(node.learning_role || 'learning')}</span>
-        <span class="tag">${window.escapeHtml(skillFocus)}</span>
-      </div>
-    </div>
-  `;
-};
-
-window.renderDetailSummary = function (node) {
-  const el = document.getElementById('detailSummary');
-  if (!el) return;
-  const summary = node.displaySummary || '先看這一節的內容。';
-  const expected = node.displayExpected || '先理解這一節的重點。';
-  el.innerHTML = `
-    <div class="summary-grid animate-in" style="margin-bottom:12px;">
-      <div class="summary-box">
-        <span class="label">本節目標</span>
-        ${window.escapeHtml(summary)}
-      </div>
-      <div class="summary-box">
-        <span class="label">預期輸出</span>
-        ${window.escapeHtml(expected)}
-      </div>
-    </div>
-  `;
-};
-
-window.renderFreeNote = function (node) {
-  return `
-      <div class="free-note-box animate-in">
-        <textarea placeholder="隨手筆記 (Free Note)..."></textarea>
-      </div>
-    `;
-};
-
 
 // --- Markdown & Text Processing ---
 
@@ -270,110 +180,13 @@ window.markdownToHtmlLite = function (md) {
   return out.join('');
 };
 
-// --- Reusable Content Blocks ---
-
-window.renderDataInspection = function (payload, reason = 'Data Inspection Required') {
-  return `
-      <div class="data-inspection-box animate-in">
-        <div class="empty-state">
-          <div class="icon" style="font-size:24px; margin-bottom:8px;">🧐</div>
-          <div><strong style="color:var(--warn);">${window.escapeHtml(reason)}</strong></div>
-          <p class="muted-text tiny-text" style="margin-top:4px;">此節點資料格式不符或遺漏關鍵欄位，請聯繫內容小組。</p>
-          <pre class="json-viewer">${window.escapeHtml(JSON.stringify(payload, null, 2))}</pre>
-        </div>
-      </div>
-    `;
-};
-
-window.renderEmptyState = function (message = 'No additional details available.') {
-  return `
-    <div class="empty-state animate-in">
-      <div class="icon" style="font-size:24px; margin-bottom:8px;">☕</div>
-      <div class="muted-text">${window.escapeHtml(message)}</div>
-      <p class="tiny-text" style="color:var(--muted); margin-top:4px;">本節點內容較為大綱式，請配合課堂練習進行。</p>
-    </div>
-  `;
-};
-
-window.renderUnifiedExampleSection = function (examples) {
-  if (!examples || examples.length === 0) return '';
-  
-  const isCanonical = examples[0]?.is_canonical;
-  const title = '例句';
-  const badgeClass = isCanonical ? 'tag-canonical' : 'tag-transitional';
-  const badgeText = isCanonical ? 'Canonical' : 'Transitional';
-
-  return `
-    <div class="example-section animate-in" style="margin-top:24px;">
-      <div class="section-subtitle" style="display:flex; align-items:center; gap:8px;">
-        ${title}
-        <span class="tiny-tag ${badgeClass}">${badgeText}</span>
-      </div>
-      <div class="example-grid">
-        ${examples.map(ex => {
-          const fallbackKo = window.escapeJsSingle(ex.ko);
-          return `
-            <div class="example-card">
-              <div class="example-header">
-                <div class="example-ko">${window.escapeHtml(ex.ko)}</div>
-                <button type="button" class="audio-btn" data-text="${fallbackKo}">
-                  <span class="icon">🔊</span>
-                </button>
-              </div>
-              <div class="example-zh">${window.escapeHtml(ex.translation || '')}</div>
-            </div>
-          `;
-        }).join('')}
-      </div>
-    </div>
-  `;
-};
-
-window.renderNotice = function (payload) {
-  if (!payload) return '';
-  const finalItems = (payload.what_to_notice_i18n || []).map(v => window.i18nText(v)).filter(Boolean);
-  if (finalItems.length === 0) return '';
-
-  return `
-    <div class="notice-box animate-in">
-      <div class="notice-title">💡 重點觀察 (Notice)</div>
-      <ul>
-        ${finalItems.map(item => `<li>${window.escapeHtml(item)}</li>`).join('')}
-      </ul>
-    </div>
-  `;
-};
-
-window.renderLessonSupportModule = function (module) {
-  if (!module) return '';
-  const title = window.i18nText(module.title_i18n, window.currentLocale(), '應援小提醒');
-  const why = window.i18nText(module.why_here_i18n, window.currentLocale(), '');
-
-  return `
-    <div class="support-module animate-in">
-      <div class="support-header">📚 應援：${window.escapeHtml(title)}</div>
-      <div class="support-body">
-        <div class="why-text">${window.markdownToHtmlLite(why)}</div>
-        <div class="support-items">
-          ${(module.items || []).map(item => `
-            <div class="support-item">
-              <span class="target">${window.escapeHtml(item.target || item.ko || '')}</span>
-              <span class="explain">${window.escapeHtml(window.i18nText(item.explain_i18n, window.currentLocale(), ''))}</span>
-            </div>
-          `).join('')}
-        </div>
-      </div>
-    </div>
-  `;
-};
-
 // --- Global UI Context Helpers ---
 
-window.currentLocale = () => window.state.progress.prefs.teachingLocale || 'zh_tw';
+window.currentLocale = () => window.state?.progress?.prefs?.teachingLocale || 'zh_tw';
 window.currentTeachingLocale = window.currentLocale;
-window.showBilingual = () => window.state.progress.prefs.showBilingual !== false;
+window.showBilingual = () => window.state?.progress?.prefs?.showBilingual !== false;
 
-// --- Legacy Helper Mapping ---
+// --- Node Metadata Helpers ---
 
 window.nodeTitleText = (node, locale) => node.displayTitle || window.LessonAdapter.resolveText(node && node.title_i18n, locale, window.LessonAdapter.getFallbackNodeTitle(node));
 window.nodeSummaryText = (node, locale) => node.displaySummary || '先看這一節的內容。';

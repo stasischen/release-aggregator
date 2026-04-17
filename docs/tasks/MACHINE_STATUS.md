@@ -10,7 +10,7 @@ Each machine should maintain its own local, gitignored claim JSON under `docs/ta
 | :--- | :--- | :--- | :--- | :--- | :--- |
 | m5pro | m5pro | KG-UI-019 | in_progress | 2026-04-17 | Frontend dictionary-to-grammar deep linking UI |
 | home | home | none | idle | 2026-04-17 | Batch 1.1 Ingestion completed (50 sentences, 5 KIs). |
-| 888 | 888 | yt-video-atomization | in_progress | 2026-04-17 | YouTube video atomization |
+| 888 | 888 | yt-video-atomization | done | 2026-04-18 | Vlog Mart (EpGocbJZ3jc) V5 atomization completed (159 turns). |
 | gamer | gamer | Ingestion Batch (L137-142) - FINAL | done | 2026-04-17 | Beginner series officially complete. |
 | mac | mac | repo-org / docs maintenance | in_progress | 2026-04-17 | Repo organization, doc cleanup, and spec stabilization |
 

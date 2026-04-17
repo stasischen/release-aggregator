@@ -222,6 +222,24 @@
     "zh_tw": "翻譯"
   },
   "knowledge_dive": {
+    "anchors": [
+      {
+        "surface": "생일카드",
+        "offset": 7,
+        "length": 4,
+        "level": "chunk",
+        "target": "topic_ref",
+        "ref": "topic:ko:birthday"
+      },
+      {
+        "surface": "오늘",
+        "offset": 0,
+        "length": 2,
+        "level": "token",
+        "target": "dictionary_atom_ref",
+        "ref": "ko:n:오늘"
+      }
+    ],
     "dictionary_atom_refs": [
       { "surface": "單字 A", "ref": "n-ko-0001" }
     ],

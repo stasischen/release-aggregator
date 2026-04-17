@@ -60,6 +60,12 @@ SUPPORTED_SENTENCE_ACTIONS = {
     "listen", "repeat", "shadow", "type"
 }
 
+# Anchor Support (CMOD-011)
+SUPPORTED_ANCHOR_LEVELS = {"token", "chunk", "sentence"}
+SUPPORTED_LINK_TARGETS = {"dictionary_atom_ref", "topic_ref", "grammar_ref"}
+DICT_ATOM_REGEX = re.compile(r"^[a-z]{2,3}:[a-z0-9\-]+:.+$")
+
+
 SUPPORTED_CONTENT_FORMS = {
     "dialogue", "notice", "message_thread", "comparison_card",
     "pattern_card", "grammar_note", "functional_phrase_pack",
@@ -371,7 +377,7 @@ class MockupChecker:
 
             # 5.4 Interaction Contract (CMOD-013)
             # This can appear in turns or lines within payload, or at node level
-            def check_contract(contract, context_id):
+            def check_contract(contract, context_id, parent_text=None):
                 if not isinstance(contract, dict):
                     self.log_error("CMOD_INVALID_SCHEMA: interaction_contract must be an object", node_id=context_id)
                     return
@@ -407,21 +413,85 @@ class MockupChecker:
                 if not isinstance(dive, dict):
                     self.log_error("CMOD_INVALID_SCHEMA: knowledge_dive must be an object", node_id=context_id)
                 else:
+                    # Legacy flat refs
                     for ref_key in ["dictionary_atom_refs", "grammar_refs"]:
                         refs = dive.get(ref_key, [])
                         if not isinstance(refs, list):
                             self.log_error(f"CMOD_INVALID_SCHEMA: {ref_key} must be a list", node_id=context_id)
 
+                    # CMOD-011: Anchors
+                    anchors = dive.get("anchors", [])
+                    if not isinstance(anchors, list):
+                        self.log_error("CMOD_INVALID_SCHEMA: knowledge_dive.anchors must be a list", node_id=context_id)
+                    else:
+                        seen_spans = set()
+                        for idx, anchor in enumerate(anchors):
+                            if not isinstance(anchor, dict):
+                                self.log_error(f"CMOD_INVALID_SCHEMA: anchor[{idx}] must be an object", node_id=context_id)
+                                continue
+                            
+                            # Required fields
+                            for field in ["surface", "offset", "length", "level", "target", "ref"]:
+                                if field not in anchor:
+                                    self.log_error(f"CMOD_MISSING_ANCHOR_FIELD: anchor[{idx}] missing '{field}'", node_id=context_id)
+
+                            surface = anchor.get("surface", "")
+                            offset = anchor.get("offset")
+                            length = anchor.get("length")
+                            level = anchor.get("level")
+                            target = anchor.get("target")
+                            ref = anchor.get("ref", "")
+
+                            # Level and Target validation
+                            if level and level not in SUPPORTED_ANCHOR_LEVELS:
+                                self.log_error(f"CMOD_UNSUPPORTED_ANCHOR_LEVEL: {level}", node_id=context_id)
+                            if target and target not in SUPPORTED_LINK_TARGETS:
+                                self.log_error(f"CMOD_UNSUPPORTED_LINK_TARGET: {target}", node_id=context_id)
+
+                            # Ref format validation
+                            if target == "dictionary_atom_ref":
+                                if not DICT_ATOM_REGEX.match(ref):
+                                    self.log_error(f"CMOD_INVALID_DICT_REF: {ref}", node_id=context_id)
+                            elif target == "topic_ref" and not ref.startswith("topic:"):
+                                self.log_error(f"CMOD_INVALID_TOPIC_REF: {ref}", node_id=context_id)
+                            elif target == "grammar_ref" and not ref.startswith("grammar:"):
+                                self.log_error(f"CMOD_INVALID_GRAMMAR_REF: {ref}", node_id=context_id)
+
+                            # Boundary and Integrity check
+                            if isinstance(offset, int) and isinstance(length, int):
+                                # P1: Reject negative or zero anchor spans
+                                if offset < 0:
+                                    self.log_error(f"CMOD_ANCHOR_NEGATIVE_OFFSET: {surface} (offset {offset} < 0)", node_id=context_id)
+                                if length <= 0:
+                                    self.log_error(f"CMOD_ANCHOR_INVALID_LENGTH: {surface} (length {length} <= 0)", node_id=context_id)
+                                
+                                # P2: Duplicate suppression
+                                # Hardening: Key on (offset, length, level) to allow multi-level overlap per CMOD-011
+                                anchor_key = (offset, length, level)
+                                if anchor_key in seen_spans:
+                                    self.log_error(f"CMOD_DUPLICATE_ANCHOR: {surface} at offset {offset} (duplicate of previous {level} anchor)", node_id=context_id)
+                                seen_spans.add(anchor_key)
+
+                                if parent_text:
+                                    if offset >= 0 and offset + length > len(parent_text):
+                                        self.log_error(f"CMOD_ANCHOR_OUT_OF_BOUNDS: {surface} (offset {offset} + len {length} > parent len {len(parent_text)})", node_id=context_id)
+                                    elif offset >= 0 and length > 0:
+                                        actual_text = parent_text[offset:offset+length]
+                                        if actual_text != surface:
+                                            self.log_warning(f"CMOD_ANCHOR_TEXT_MISMATCH: Expected {surface!r}, found {actual_text!r} at offset {offset}", node_id=context_id)
+                                elif not parent_text and offset + length > 0:
+                                     self.log_warning("CMOD_ANCHOR_VAL_LIMIT: Cannot validate anchor boundaries without parent text", node_id=context_id)
+
             # Check top-level contract
             if "interaction_contract" in node:
-                check_contract(node["interaction_contract"], node_id)
+                check_contract(node["interaction_contract"], node_id, node.get("text"))
             
             # Check nested contracts in payload (dialogue turns, video lines, etc)
             if form == "dialogue":
                 turns = payload.get("dialogue_turns") or payload.get("turns") or []
                 for j, turn in enumerate(turns):
                     if "interaction_contract" in turn:
-                        check_contract(turn["interaction_contract"], f"{node_id}_T{j}")
+                        check_contract(turn["interaction_contract"], f"{node_id}_T{j}", turn.get("text"))
                 
                 # Support scenes
                 scenes = payload.get("dialogue_scenes") or []
@@ -430,7 +500,7 @@ class MockupChecker:
                     s_turns = scene.get("turns") or []
                     for t_idx, turn in enumerate(s_turns):
                         if "interaction_contract" in turn:
-                            check_contract(turn["interaction_contract"], f"{node_id}_S{s_idx}T{t_idx}")
+                            check_contract(turn["interaction_contract"], f"{node_id}_S{s_idx}T{t_idx}", turn.get("text"))
             
             elif form == "article":
                 paragraphs = payload.get("paragraphs") or payload.get("sections") or []
@@ -440,23 +510,15 @@ class MockupChecker:
                     sentences = paragraph.get("sentences") or paragraph.get("items") or []
                     for s_idx, sentence in enumerate(sentences):
                         if "interaction_contract" in sentence:
-                            check_contract(sentence["interaction_contract"], f"{node_id}_P{p_idx}S{s_idx}")
+                            check_contract(sentence["interaction_contract"], f"{node_id}_P{p_idx}S{s_idx}", sentence.get("text"))
 
             elif form == "video_transcript": # Hypothetical future form
                 lines = payload.get("lines") or []
                 for j, line in enumerate(lines):
                     if "interaction_contract" in line:
-                        check_contract(line["interaction_contract"], f"{node_id}_L{j}")
+                        check_contract(line["interaction_contract"], f"{node_id}_L{j}", line.get("text"))
             
-            elif form == "article":
-                paragraphs = payload.get("paragraphs", [])
-                for i_pg, pg in enumerate(paragraphs):
-                    if not isinstance(pg, dict): continue
-                    sentences = pg.get("sentences", [])
-                    for i_s, s in enumerate(sentences):
-                        if not isinstance(s, dict): continue
-                        if "interaction_contract" in s:
-                            check_contract(s["interaction_contract"], f"{node_id}_P{i_pg}S{i_s}")
+
 
         # 6. Global Sequence Validations
         if found_input and not found_comp_check:
@@ -481,6 +543,11 @@ class MockupChecker:
 
 def main():
     parser = argparse.ArgumentParser(description="Unified mockup check for unit fixtures.")
+    if sys.platform == "win32":
+        import io
+        sys.stdout = io.TextIOWrapper(sys.stdout.buffer, encoding='utf-8')
+        sys.stderr = io.TextIOWrapper(sys.stderr.buffer, encoding='utf-8')
+
     parser.add_argument("files", nargs="*", help="Fixture JSON files to validate.")
     parser.add_argument("--index", help="Path to fixtures index JSON (e.g. modular/data/fixtures.json)")
     parser.add_argument("--schema", help="Path to unit_blueprint_v0.schema.json")

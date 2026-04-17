@@ -56,7 +56,7 @@
     {
       "id": "CMOD-011",
       "desc": "Add course content segmentation and inline anchor linking: sentence/chunk click targets should open dictionary or knowledge lab refs when canonical knowledge links exist (e.g. weekday -> topic.weekday, numbers -> topic.number, endings -> grammar refs).",
-      "status": "todo",
+      "status": "done",
       "depends_on": [
         "CMOD-001",
         "ULV-003",

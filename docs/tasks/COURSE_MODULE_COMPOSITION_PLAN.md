@@ -35,7 +35,7 @@
 - Authoring templates:
   - `docs/tasks/UNITFAC_005_AUTHORING_TEMPLATES.md`
 - Quality gate:
-  - `scripts/mockup_check.py`
+  - `release-aggregator/scripts/mockup_check.py`
 
 ## Three-Layer Model
 
@@ -67,7 +67,8 @@
 - `response_builder`
 - `frame_fill`
 - `pattern_transform`
-- `guided`
+- `guided_typing`
+- `guided_speaking`
 - `review_retrieval`
 
 ### 3) Review module
@@ -82,7 +83,7 @@
 
 **Missing anchors (to propose)**
 - `review_policy`
-- `followup_goal_type`
+- `followup_type`
 - card source tags / scheduling profile
 - `source_refs` indexing flow for knowledge-to-source traceability
 
@@ -121,9 +122,20 @@ Draft shape:
 {
   "review_policy": {
     "enabled": true,
-    "card_types": ["recognition", "recall", "response"],
-    "schedule_profile": "same_day_plus_1_plus_3",
-    "card_source_refs": ["U05-G1", "U05-P1", "U05-P5"]
+    "card_source": {
+      "prefer_carrier": true,
+      "include_support": ["pattern_card"]
+    },
+    "spacing_semantics": {
+      "profile": "same_day_plus_1_plus_3",
+      "intensity": "high"
+    },
+    "card_policies": {
+      "recognition": { "priority": 10, "cue_type": "audio_first" },
+      "recall": { "priority": 20, "cue_type": "meaning_first" },
+      "response": { "priority": 30, "cue_type": "scenario_context" }
+    },
+    "cue_source_preference": ["carrier_context", "sentence_surface", "grammar_rule"]
   }
 }
 ```
@@ -158,7 +170,7 @@ Draft shape:
 ```json
 {
   "completion_rules": {
-    "required_modes": ["chunk_assembly", "guided_typing"],
+    "required_modes": ["response_builder", "guided_typing"],
     "min_attempts": 1,
     "pass_policy": "manual_mark_after_required_modes"
   }
@@ -230,14 +242,14 @@ Good combinations:
 ### Task output nodes
 
 - Content: medium (scenario constraints)
-- Interaction: high (guided output)
+- Interaction: high (response_builder / guided production)
 - Review: high (extract mistakes/chunks for later cards)
 
 Good combinations:
-- `roleplay_prompt + guided`
-- `message_prompt + guided`
-- `dialogue + guided`
-- `video + guided`
+- `roleplay_prompt + guided_speaking`
+- `message_prompt + guided_typing`
+- `dialogue + response_builder`
+- `video + response_builder`
 
 ### Review nodes
 
@@ -247,7 +259,7 @@ Good combinations:
 
 Good combinations:
 - `review_card + review_retrieval`
-- `scheduled_followups` with `followup_goal_type`
+- `scheduled_followups` with `followup_type`
 - review cue source should prefer primary carriers, then example evidence
 
 ## Practice Layer Ownership

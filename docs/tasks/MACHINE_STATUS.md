@@ -8,7 +8,7 @@ Each machine should maintain its own local, gitignored claim JSON under `docs/ta
 
 | Machine ID | Label | Current Task | Status | Updated At | Notes |
 | :--- | :--- | :--- | :--- | :--- | :--- |
-| m5pro | m5pro | kg-pipeline-006 / course restructure | in_progress | 2026-04-17 | Course structure and KG pipeline discussion |
+| m5pro | m5pro | CMOD-005 | in_progress | 2026-04-17 | CMOD series, currently at 5 |
 | home | home | kg-mig-015 / yt atomization | in_progress | 2026-04-17 | YouTube video atomization |
 | 888 | 888 | kg-normalize-001B | in_progress | 2026-04-17 | Normalization / hardening |
 | gamer | gamer | kg-pipeline-018 | in_progress | 2026-04-17 | Dictionary deep-link pipeline |

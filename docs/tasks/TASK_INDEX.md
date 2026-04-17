@@ -112,7 +112,7 @@ Layer 5: Legacy Backfill
 
 | Task ID | 描述 | 進度 | 檔案 |
 | :--- | :--- | :--- | :--- |
-| KNOWLEDGE_LAB_ENRICHMENT | Knowledge Lab 內容充實（knowledge/topic/link/vocab/retrieval 補強；含 embedded examples 盤點與 pronunciation refs；不得改 frontend intake contract） | 8/8 tasks | [JSON](KNOWLEDGE_LAB_ENRICHMENT_TASKS.json) · [FINDINGS](assets/kg-normalize-001B_FINDINGS_HANDOFF.md) |
+| KNOWLEDGE_LAB_ENRICHMENT | Knowledge Lab 內容充實（knowledge/topic/link/vocab/retrieval 補強；含 embedded examples 盤點與 pronunciation refs；KLAB-007 phonology 已收斂為 zh_tw only；不得改 frontend intake contract） | 8/8 tasks | [JSON](KNOWLEDGE_LAB_ENRICHMENT_TASKS.json) · [FINDINGS](assets/kg-normalize-001B_FINDINGS_HANDOFF.md) |
 
 
 ### Deferred / Later

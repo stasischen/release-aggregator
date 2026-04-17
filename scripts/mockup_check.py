@@ -64,7 +64,7 @@ SUPPORTED_CONTENT_FORMS = {
     "dialogue", "notice", "message_thread", "comparison_card",
     "pattern_card", "grammar_note", "functional_phrase_pack",
     "practice_card", "roleplay_prompt", "message_prompt",
-    "review_card", "comprehension_check"
+    "review_card", "comprehension_check", "article", "video_transcript"
 }
 
 class MockupChecker:
@@ -144,6 +144,34 @@ class MockupChecker:
         found_comp_check = False
         cc_types = []
 
+        # 0. Global Modular V1 Detection
+        def deep_has_contract(n):
+            if "interaction_contract" in n: return True
+            p = n.get("payload", {})
+            if not isinstance(p, dict): return False
+            # Check dialogue turns
+            turns = p.get("dialogue_turns") or p.get("turns") or []
+            if any("interaction_contract" in t for t in turns if isinstance(t, dict)): return True
+            # Check article paragraphs -> sentences
+            paragraphs = p.get("paragraphs", [])
+            for pg in paragraphs:
+                if not isinstance(pg, dict): continue
+                sentences = pg.get("sentences", [])
+                if any("interaction_contract" in s for s in sentences if isinstance(s, dict)): return True
+            # Check video lines
+            lines = p.get("lines", [])
+            if any("interaction_contract" in l for l in lines if isinstance(l, dict)): return True
+            return False
+
+        has_modular_marker = any(
+            "interaction_modes" in n or 
+            "review_policy" in n or 
+            "completion_rules" in n or 
+            deep_has_contract(n) 
+            for n in sequence
+        ) or "review_policy" in fixture
+        is_modular_v1 = fixture.get("version", "") >= "unit_blueprint_v0.1" and has_modular_marker
+
         for i, node in enumerate(sequence):
             node_id = node.get("id", f"node_{i}")
             role = node.get("learning_role")
@@ -214,9 +242,6 @@ class MockupChecker:
             
             # 5. CMOD Modular Metadata Checks (Blockers/Errors)
             # Mandatory for v0.1+ that have opted into modularity, optional for legacy
-            sequence = fixture.get("sequence", [])
-            has_modular_marker = any("interaction_modes" in n or "review_policy" in n or "completion_rules" in n for n in sequence) or "review_policy" in fixture
-            is_modular_v1 = fixture.get("version", "") >= "unit_blueprint_v0.1" and has_modular_marker
             
             # 5.1 Interaction Modes & Dispatcher
             interaction_modes = node.get("interaction_modes")
@@ -388,6 +413,16 @@ class MockupChecker:
                 for j, line in enumerate(lines):
                     if "interaction_contract" in line:
                         check_contract(line["interaction_contract"], f"{node_id}_L{j}")
+            
+            elif form == "article":
+                paragraphs = payload.get("paragraphs", [])
+                for i_pg, pg in enumerate(paragraphs):
+                    if not isinstance(pg, dict): continue
+                    sentences = pg.get("sentences", [])
+                    for i_s, s in enumerate(sentences):
+                        if not isinstance(s, dict): continue
+                        if "interaction_contract" in s:
+                            check_contract(s["interaction_contract"], f"{node_id}_P{i_pg}S{i_s}")
 
         # 6. Global Sequence Validations
         if found_input and not found_comp_check:

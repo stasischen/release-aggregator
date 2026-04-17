@@ -3,15 +3,29 @@
 ## Goal
 在任務尚未完全結束（未達到 `/wrap` 條件）但需要中斷 Session 時，確保進度被完整記錄，讓下一個 Agent 能無縫接手。
 
+## Roles
+
+| Role | Default Machine | Responsibility |
+|---|---|---|
+| `controller` | `m5pro` | 讀全局狀態、統整回報、安排 review、分配新任務 |
+| `worker` | `home`, `888`, `gamer`, `mac`, 以及其他非 controller 機器 | 只做自己的 task、回寫本機 claim、產出交接摘要 |
+| `reviewer` | controller 指定的任一機器 | 根據 review packet 做驗收或退回 |
+
 ## Handoff Sequence
 
 ### Step 1: 整理進度狀態
 Agent 必須讀取以下檔案以彙整現況：
-- `release-aggregator/docs/tasks/TASK_INDEX.md`
-- `release-aggregator/docs/tasks/MACHINE_STATUS.md`
-- 本機 `release-aggregator/docs/tasks/machines/local.json`（若存在）
-- 各 Repo 的 `STATE.md` (若存在)
-- 當前的 `worklog`
+- `controller` mode:
+  - `release-aggregator/docs/tasks/TASK_INDEX.md`
+  - `release-aggregator/docs/tasks/MACHINE_STATUS.md`
+  - 相關 task handoff / review files
+  - 各 Repo 的 `STATE.md` (若存在)
+  - 當前的 `worklog`
+- `worker` mode:
+  - 本機 `release-aggregator/docs/tasks/machines/local.json`
+  - local.json 裡列出的 active docs
+  - 當前 task 的 handoff / review files
+  - 只有在 controller 要求時，才讀其他全局文件
 
 ### Step 2: 建立交接文件
 建立檔案 `release-aggregator/docs/handoffs/YYYY-MM-DD_{TASK_ID|Topic}.md`。內容包含：
@@ -19,6 +33,8 @@ Agent 必須讀取以下檔案以彙整現況：
 - **Accomplishments**: 本 Session 完成了什麼（含 Commit Hash）。
 - **Infrastructure**: 使用了哪些腳本、產出了哪些臨時檔案。
 - **Remaining**: 接下來要做的具體動作（帶入具體 ID 或檔案路徑）。
+- **Review Status**: `review_ready` / `needs_changes` / `done`
+- **Machine Claim**: 保留 / 釋放 / 轉交給 controller
 
 ### Step 3: 更新工作日誌
 在當天的 Worklog 中增加一個 Session 區塊，標註為 `(Handoff: Continued in next session)`。
@@ -26,7 +42,21 @@ Agent 必須讀取以下檔案以彙整現況：
 ### Step 4: 輸出接力 Prompt
 向使用者輸出一個清楚的 Markdown 區塊，包含「給下個 Agent 的啟動命令」，確保下一個 Agent 啟動後能直接進入狀態。
 
+### Step 5: Return to Controller
+若本次交接的機器已完成當前 task，必須把接力對象設為 `controller`，由 controller 來決定：
+- 是否直接標記 `done`
+- 是否指派 reviewer
+- 是否拆出下一個 task
+
+Worker 不得自行挑選下一個全局任務。
+完成後的機器只需回報：
+- `current_task` 已完成
+- `review_status`
+- 是否保留 machine claim
+- 是否要請 controller 分配新任務
+
 ## Boundary Rules
 - **不要提交未完成的破壞性變更**：如果程式碼目前無法編譯，應在交接文件中特別註明，或暫存在 `data/staging/`。
 - **路徑明確化**：交接文件中的路徑必須使用絕對路徑或 Repo 相對路徑。
 - **Machine claim**：若交接時持有 machine claim，需在 handoff 中標註是否保留、釋放，或轉交給下一個 session。
+- **New task assignment**：已完成的 worker 只能向 controller 回報完成狀態，不得自行承接新的全局任務。

@@ -6,6 +6,6 @@
   "owner": "ywchen",
   "current_task": "CMOD-013",
   "task_status": "done",
-  "updated_at": "2026-04-17T19:20:00+08:00",
-  "notes": "Completed CMOD-013: Sentence Practice Action Contract. Defined standard interaction actions and updated mockup_check.py."
+  "updated_at": "2026-04-17T19:24:00+08:00",
+  "notes": "Completed CMOD-013: Sentence Practice Action Contract. Hardened mockup_check.py validation (enforcing output_mode and contract field requirements as ERRORS) based on P1 feedback."
 }

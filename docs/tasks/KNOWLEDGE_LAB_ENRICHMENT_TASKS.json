@@ -50,7 +50,7 @@
     {
       "id": "KLAB-007",
       "desc": "Wave 4: Add pronunciation / sound-change knowledge items plus curated external reference metadata by support locale (zh_tw/en/ja), without making external videos the canonical source of truth.",
-      "status": "todo",
+      "status": "done",
       "depends_on": [
         "KLAB-006b",
         "kg-mig-010"

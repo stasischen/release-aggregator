@@ -40,7 +40,12 @@ Atomize (segment) all 26 pending YouTube videos in `content-ko` into 100% revers
 - [x] **Video 2**: `IGEj-oDKyw8` (Convenience Store) - 104 turns
     - [x] Chunks 1-6 completed and verified.
     - [x] Consolidated and Verified.
-- [ ] **Video 3**: `Q7_UmOUi1XE` (Lunar New Year Soup) - 57 turns
+- [x] **Video 3**: `Q7_UmOUi1XE` (Lunar New Year Soup) - 57 turns
+    - [x] Consolidated and Verified.
+- [x] **Video 4**: `hBGbIvyU5G4` (Birthday Story) - 77 turns
+    - [x] Chunks 1-4 completed and verified.
+    - [x] Consolidated and Verified.
+- [ ] **Video 5**: `pzqtJI-FxJg` (Christmas Cards) - 71 turns
     - [ ] Pending processing.
      - Store output as `runs/video_atomization/checkpoints/{videoId}_atoms_{start}_{end}.json`.
      - Verify each chunk individually with `verify_video_atoms.py`.

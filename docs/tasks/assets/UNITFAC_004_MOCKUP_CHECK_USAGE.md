@@ -28,6 +28,12 @@ python scripts/mockup_check.py --index docs/tasks/mockups/modular/data/fixtures.
 python scripts/mockup_check.py --index docs/tasks/mockups/modular/data/fixtures.json --schema docs/tasks/mockups/unit_blueprint_v0.schema.json
 ```
 
+### 4. Legacy v0.1 Regression Fixture
+Use this file to confirm that older `unit_blueprint_v0.1` assets without modular metadata still pass validation:
+```bash
+python scripts/mockup_check.py docs/tasks/assets/mockups/regression/legacy_v0_1_compat_unit_blueprint.json
+```
+
 ## Validation Rules
 
 ### Blocker Errors (Exit Code 1)

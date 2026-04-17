@@ -4,8 +4,8 @@
   "host": "888",
   "repo": "release-aggregator",
   "owner": "ywchen",
-  "current_task": "CMOD-013",
-  "task_status": "done",
-  "updated_at": "2026-04-17T19:24:00+08:00",
-  "notes": "Completed CMOD-013: Sentence Practice Action Contract. Hardened mockup_check.py validation (enforcing output_mode and contract field requirements as ERRORS) based on P1 feedback."
+  "current_task": "CMOD-010",
+  "task_status": "in_progress",
+  "updated_at": "2026-04-17T20:45:00+08:00",
+  "notes": "Starting CMOD-010: Freeze Recommendation for UNITFAC-001 v0.1. Goal: Define mandatory metadata and interaction contracts based on CMOD-001~013 results."
 }

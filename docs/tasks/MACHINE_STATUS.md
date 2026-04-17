@@ -9,7 +9,7 @@ Each machine should maintain its own local, gitignored claim JSON under `docs/ta
 | Machine ID | Label | Current Task | Status | Updated At | Notes |
 | :--- | :--- | :--- | :--- | :--- | :--- |
 | m5pro | m5pro | KG-UI-019 | in_progress | 2026-04-17 | Frontend dictionary-to-grammar deep linking UI |
-| home | home | CMOD-014 | done | 2026-04-17 | Regression closure for CMOD-011 complete. Positive/Negative fixtures added. |
+| home | home | none | idle | 2026-04-17 | Batch 1.1 Ingestion completed (50 sentences, 5 KIs). |
 | 888 | 888 | yt-video-atomization | in_progress | 2026-04-17 | YouTube video atomization |
 | gamer | gamer | Ingestion Batch (L137-142) - FINAL | done | 2026-04-17 | Beginner series officially complete. |
 | mac | mac | repo-org / docs maintenance | in_progress | 2026-04-17 | Repo organization, doc cleanup, and spec stabilization |

@@ -4,8 +4,8 @@
   "host": "home",
   "repo": "release-aggregator",
   "owner": "ywchen",
-  "current_task": "CMOD-014",
-  "task_status": "done",
-  "updated_at": "2026-04-17T22:20:00+08:00",
-  "notes": "Regression closure for CMOD-011 complete. Positive/Negative fixtures added."
+  "current_task": "",
+  "task_status": "idle",
+  "updated_at": "2026-04-17T23:30:00+08:00",
+  "notes": "Batch 1.1 Ingestion completed (50 sentences, 5 KIs)."
 }

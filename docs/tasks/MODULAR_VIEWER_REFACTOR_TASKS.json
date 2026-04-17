@@ -1,7 +1,7 @@
 {
   "task_id": "MODULAR_VIEWER_REFACTOR",
   "description": "重構 modular viewer，使其以 curriculum-source build artifacts 為正式輸入，移除 preview-era renderer 假設並收斂 i18n 與 adapter contract。",
-  "status": "in_progress",
+  "status": "done",
   "tasks": [
     {
       "id": "VIEWREF-001",
@@ -37,7 +37,7 @@
     {
       "id": "VIEWREF-004a",
       "desc": "Verify source-build compatibility for lesson_01~03 and map missing adapter coverage across grammar_summary, practice_card, review_card, dialogue, pattern_lab, and related content forms.",
-      "status": "todo",
+      "status": "done",
       "depends_on": [
         "VIEWREF-001",
         "VIEWREF-002"
@@ -46,7 +46,7 @@
     {
       "id": "VIEWREF-004b",
       "desc": "Patch unsupported source-build form handling so renderer dispatch fails soft on missing metadata or malformed payloads instead of relying on preview-only assumptions.",
-      "status": "todo",
+      "status": "done",
       "depends_on": [
         "VIEWREF-003b",
         "VIEWREF-004a"
@@ -55,7 +55,7 @@
     {
       "id": "VIEWREF-005",
       "desc": "Define preview fixture deprecation path: distinguish source-build fixtures from hand-authored previews and stop treating preview JSON as source of truth.",
-      "status": "todo",
+      "status": "done",
       "depends_on": [
         "VIEWREF-001",
         "VIEWREF-004b"
@@ -64,7 +64,7 @@
     {
       "id": "VIEWREF-006a",
       "desc": "Add a source-build regression checklist for lesson_01~03 covering zh_tw/en locale switching, metadata fallback, and non-crashing renderer coverage.",
-      "status": "todo",
+      "status": "done",
       "depends_on": [
         "VIEWREF-003b",
         "VIEWREF-004b",

@@ -93,7 +93,7 @@ const APP = {
 
     primeAudioEngine() {
         const handler = () => {
-            console.log("[Audio Engine] Priming for Safari/macOS...");
+            // console.log("[Audio Engine] Priming for Safari/macOS...");
 
             // 1. Prime TTS
             if (window.speakKo) {
@@ -130,7 +130,7 @@ const APP = {
 
     async loadUnit(path, autoSwitch = true) {
         try {
-            console.log(`[LOADER] Loading path: ${path}`);
+            // console.log(`[LOADER] Loading path: ${path}`);
             // Force state clearing to prevent leftovers
             window.state.data = null;
             window.state.currentNode = null;
@@ -164,7 +164,7 @@ const APP = {
 
 
     selectSegment(id) {
-        console.log(`Segment selected: ${id}`);
+        // console.log(`Segment selected: ${id}`);
         window.state.activeSegmentId = id;
         document.querySelectorAll('.subtitle-row, .dialogue-turn').forEach(el => el.classList.toggle('active', el.dataset.segmentId === id));
         // Deep integration: when a segment is selected, the first atom could be pre-selected?
@@ -172,7 +172,7 @@ const APP = {
 
     selectAtom(id, event) {
         if (event) event.stopPropagation();
-        console.log(`Atom selected: ${id}`);
+        // console.log(`Atom selected: ${id}`);
         // Highlight in UI
         document.querySelectorAll('.atom-seg').forEach(el => el.classList.toggle('active', el.dataset.atomId === id));
         
@@ -494,7 +494,7 @@ const APP = {
 
     playOriginalOrTTS(text) {
         if (!text) return;
-        console.log("TTS-only test mode: speaking via Web Speech API.");
+        // console.log("TTS-only test mode: speaking via Web Speech API.");
         if (window.speakKo) window.speakKo(text);
     },
 

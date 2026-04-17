@@ -179,7 +179,7 @@
 ### Completion Rules (完成判準)
 ```json
 "completion_rules": {
-  "required_modes": ["guided_typing"],
+  "required_modes": ["response_builder", "guided_typing"],
   "min_attempts": 1,
   "pass_policy": "manual_mark_after_required_modes"
 }
@@ -188,19 +188,20 @@
 ### Review Policy (複習策略)
 ```json
 "review_policy": {
+  "policy_id": "standard_a1_grammar",
   "enabled": true,
   "card_source": {
-    "prefer_carrier": true,
-    "include_support": ["pattern_card"]
+    "prefer_carrier": true,       // 優先從主要內容 (如對話) 提取複習語境
+    "include_support": ["pattern_card"] // 包含輔助內容 (如句型卡) 作為來源
   },
   "spacing_semantics": {
     "profile": "same_day_plus_1_plus_3",
-    "intensity": "high"
+    "intensity": "high"          // 複習強度 (high/medium/low)
   },
   "card_policies": {
     "recognition": { "priority": 10, "cue_type": "audio_first" },
     "recall": { "priority": 20, "cue_type": "meaning_first" },
-    "response": { "priority": 30, "cue_type": "scenario_context" }
+    "response": { "priority": 30, "cue_type": "scenario_context" } // 產出型複習
   },
   "cue_source_preference": ["carrier_context", "sentence_surface", "grammar_rule"]
 }

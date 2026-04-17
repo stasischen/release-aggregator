@@ -31,6 +31,30 @@ SUPPORTED_OUTPUT_MODES = {
     "open_task", "retell", "transform", "review_retrieval"
 }
 
+SUPPORTED_INTERACTION_MODES = {
+    "response_builder", "guided_typing", "guided_speaking"
+}
+
+SUPPORTED_CARD_POLICY_TYPES = {
+    "recognition", "recall", "response"
+}
+
+SUPPORTED_SPACING_INTENSITY = {
+    "high", "medium", "low"
+}
+
+SUPPORTED_SPACING_PROFILES = {
+    "same_day_plus_1_plus_3", "long_term_retention"
+}
+
+SUPPORTED_CUE_SOURCES = {
+    "carrier_context", "sentence_surface", "grammar_rule", "pattern_frame"
+}
+
+SUPPORTED_PASS_POLICIES = {
+    "manual_mark_after_required_modes"
+}
+
 SUPPORTED_CONTENT_FORMS = {
     "dialogue", "notice", "message_thread", "comparison_card",
     "pattern_card", "grammar_note", "functional_phrase_pack",
@@ -178,16 +202,115 @@ class MockupChecker:
             if "answers_ko" in payload:
                 self.log_warning("Uses legacy payload.answers_ko; prefer reference_answers_ko", node_id=node_id)
             
-            # 5. CMOD Modular Metadata Checks (Warnings)
+            # 5. CMOD Modular Metadata Checks (Blockers/Errors)
             if role == "immersion_output":
+                interaction_modes = node.get("interaction_modes", [])
                 if "interaction_modes" not in node:
-                    self.log_warning("CMOD_MISSING_INTERACTION_MODES: Output nodes should declare capability list", node_id=node_id)
+                    self.log_error("CMOD_MISSING_INTERACTION_MODES: Output nodes MUST declare capability list", node_id=node_id)
+                else:
+                    if not isinstance(interaction_modes, list):
+                        self.log_error("CMOD_INVALID_SCHEMA: interaction_modes must be a list", node_id=node_id)
+                    else:
+                        for m in interaction_modes:
+                            if m not in SUPPORTED_INTERACTION_MODES:
+                                self.log_error(f"CMOD_UNSUPPORTED_INTERACTION_MODE: {m}", node_id=node_id)
+                        # Dispatcher-Capability membership check (CMOD-003 precedence rule)
+                        if mode != "none" and mode not in interaction_modes:
+                            self.log_error(f"CMOD_DISPATCH_MISMATCH: output_mode '{mode}' is not in interaction_modes capability list", node_id=node_id)
+
                 if "completion_rules" not in node:
-                    self.log_warning("CMOD_MISSING_COMPLETION_RULES: Output nodes should declare completion gating", node_id=node_id)
+                    self.log_error("CMOD_MISSING_COMPLETION_RULES: Output nodes MUST declare completion gating", node_id=node_id)
+                else:
+                    comp_rules = node.get("completion_rules")
+                    if not isinstance(comp_rules, dict):
+                        self.log_error("CMOD_INVALID_SCHEMA: completion_rules must be an object", node_id=node_id)
+                    else:
+                        # Validate required_modes subset
+                        req_modes = comp_rules.get("required_modes", [])
+                        if not isinstance(req_modes, list):
+                            self.log_error("CMOD_INVALID_SCHEMA: completion_rules.required_modes must be a list", node_id=node_id)
+                        else:
+                            for rm in req_modes:
+                                if rm not in interaction_modes:
+                                    self.log_error(f"CMOD_CRITICAL_MISMATCH: required_mode '{rm}' is not in interaction_modes", node_id=node_id)
+                        
+                        # Validate pass_policy
+                        pass_policy = comp_rules.get("pass_policy")
+                        if not pass_policy or pass_policy not in SUPPORTED_PASS_POLICIES:
+                            self.log_error(f"CMOD_INVALID_PASS_POLICY: {pass_policy}", node_id=node_id)
+                        
+                        # Validate min_attempts (Type and Range)
+                        min_att = comp_rules.get("min_attempts")
+                        if "min_attempts" in comp_rules:
+                            if not isinstance(min_att, int):
+                                self.log_error("CMOD_INVALID_SCHEMA: min_attempts must be an integer", node_id=node_id)
+                            elif min_att < 1:
+                                self.log_error(f"CMOD_OUT_OF_RANGE: min_attempts must be >= 1 (found {min_att})", node_id=node_id)
             
             if form == "review_card" or role == "review_retrieval":
-                if "review_policy" not in node and not payload.get("review_policy"):
-                    self.log_warning("CMOD_MISSING_REVIEW_POLICY: Review nodes should declare retrieval strategy", node_id=node_id)
+                policy = node.get("review_policy") or payload.get("review_policy")
+                if not policy:
+                    self.log_error("CMOD_MISSING_REVIEW_POLICY: Review nodes MUST declare retrieval strategy", node_id=node_id)
+                elif isinstance(policy, dict):
+                    # Validate policy_id (Required string)
+                    if not policy.get("policy_id") or not isinstance(policy.get("policy_id"), str):
+                        self.log_error("CMOD_MISSING_POLICY_ID: review_policy MUST have a string policy_id", node_id=node_id)
+
+                    # Validate enabled (Required boolean)
+                    if "enabled" not in policy or not isinstance(policy.get("enabled"), bool):
+                        self.log_error("CMOD_INVALID_SCHEMA: review_policy.enabled must be a boolean", node_id=node_id)
+                    
+                    # Validate card_source (Required dict with inner fields)
+                    card_svc = policy.get("card_source")
+                    if not card_svc or not isinstance(card_svc, dict):
+                        self.log_error("CMOD_MISSING_CARD_SOURCE: review_policy MUST have a card_source object", node_id=node_id)
+                    else:
+                        if "prefer_carrier" not in card_svc or not isinstance(card_svc.get("prefer_carrier"), bool):
+                            self.log_error("CMOD_INVALID_SCHEMA: card_source.prefer_carrier must be a boolean", node_id=node_id)
+                        if "include_support" not in card_svc or not isinstance(card_svc.get("include_support"), list):
+                            self.log_error("CMOD_INVALID_SCHEMA: card_source.include_support must be a list", node_id=node_id)
+                    
+                    # Validate card_policies keys and entry shape
+                    card_policies = policy.get("card_policies", {})
+                    seen_priorities = set()
+                    for p_type, p_val in card_policies.items():
+                        if p_type not in SUPPORTED_CARD_POLICY_TYPES:
+                            self.log_error(f"CMOD_UNSUPPORTED_CARD_POLICY: {p_type}", node_id=node_id)
+                        else:
+                            if not isinstance(p_val, dict):
+                                self.log_error(f"CMOD_INVALID_SCHEMA: card_policies.{p_type} must be an object", node_id=node_id)
+                            else:
+                                if "priority" not in p_val or not isinstance(p_val.get("priority"), int):
+                                    self.log_error(f"CMOD_MISSING_ENTRY_FIELD: card_policies.{p_type} MUST have an integer 'priority'", node_id=node_id)
+                                if "cue_type" not in p_val or not isinstance(p_val.get("cue_type"), str):
+                                    self.log_error(f"CMOD_MISSING_ENTRY_FIELD: card_policies.{p_type} MUST have a string 'cue_type'", node_id=node_id)
+                                priority = p_val.get("priority")
+                                if isinstance(priority, int):
+                                    if priority in seen_priorities:
+                                        self.log_error(f"CMOD_DUPLICATE_PRIORITY: duplicate card_policies priority {priority}", node_id=node_id)
+                                    else:
+                                        seen_priorities.add(priority)
+                    
+                    # Validate spacing_semantics
+                    spacing = policy.get("spacing_semantics", {})
+                    profile = spacing.get("profile")
+                    if not profile or profile not in SUPPORTED_SPACING_PROFILES:
+                        self.log_error(f"CMOD_INVALID_SPACING_PROFILE: {profile}", node_id=node_id)
+                    
+                    intensity = spacing.get("intensity")
+                    if intensity and intensity not in SUPPORTED_SPACING_INTENSITY:
+                        self.log_error(f"CMOD_UNSUPPORTED_INTENSITY: {intensity}", node_id=node_id)
+                        
+                    # Validate cue_source_preference (Strict list and element check)
+                    csp = policy.get("cue_source_preference")
+                    if "cue_source_preference" not in policy:
+                        self.log_error("CMOD_MISSING_CUE_PREFERENCE: review_policy MUST define cue_source_preference", node_id=node_id)
+                    elif not isinstance(csp, list) or len(csp) == 0:
+                        self.log_error("CMOD_INVALID_SCHEMA: cue_source_preference MUST be a non-empty list", node_id=node_id)
+                    else:
+                        for source in csp:
+                            if source not in SUPPORTED_CUE_SOURCES:
+                                self.log_error(f"CMOD_UNSUPPORTED_CUE_SOURCE: {source}", node_id=node_id)
 
         # 6. Global Sequence Validations
         if found_input and not found_comp_check:

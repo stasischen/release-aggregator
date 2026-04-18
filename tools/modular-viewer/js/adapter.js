@@ -107,9 +107,9 @@ window.LessonAdapter = {
         if (!data || !data.sequence) return data;
         
         // Use the first node's payload as the primary content for enrichment in current viewer logic
-        const firstNode = data.sequence[0];
+        const firstNode = data.sequence[0] || {};
         const rawPayload = firstNode.payload || {};
-        const cid = rawPayload.id || data.id || data.unit?.unit_id;
+        const cid = rawPayload.video_id || rawPayload.id || data.id || data.unit?.unit_id;
         
         if (!cid || cid === 'REAL-DATA') { 
             console.warn('[Adapter] enrich: No valid content ID for enrichment, skipping.'); 

@@ -177,7 +177,17 @@ const APP = {
         document.querySelectorAll('.atom-seg').forEach(el => el.classList.toggle('active', el.dataset.atomId === id));
         
         // Find atom data in current state
-        const atomData = this.getAtomData(id);
+        let atomData = this.getAtomData(id);
+        
+        // Fallback: If not in formal atoms (Fail-soft), try heuristic dictionary lookup
+        if (!atomData && id.startsWith('fs-')) {
+            const el = document.querySelector(`.atom-seg[data-atom-id="${id}"]`);
+            const text = el ? el.dataset.text : null;
+            if (text) {
+                atomData = this.getAtomDataByText(text);
+            }
+        }
+
         if (atomData) {
             window.renderSupportDetail(atomData);
         }
@@ -197,22 +207,71 @@ const APP = {
         return null;
     },
 
+    getAtomDataByText(text) {
+        if (!text) return null;
+        // Search in the runtime library for a matching surface
+        const entry = this.libKnowledgeRuntime.find(it => 
+            (it.source?.surface || it.id || '').includes(text)
+        );
+        
+        if (entry) {
+            return {
+                id: entry.id,
+                text: text,
+                lemma: entry.source?.surface || text,
+                pos: entry.source?.kind || 'unknown',
+                definition: entry.i18n?.summary || entry.i18n?.title || ''
+            };
+        }
+        return { text: text, is_unknown: true };
+    },
+
     renderKoreanSegmentation(seg) {
-        if (!seg.atoms || seg.atoms.length === 0) {
-            const raw = window.escapeHtml(seg.ko || '');
+        const raw = seg.ko || seg.surface || '';
+        if (!raw) return '';
+
+        // Case 1: Alignment known to have failed or no atoms provided
+        if (seg.alignment_failed || !seg.atoms || seg.atoms.length === 0) {
             if (seg.alignment_failed) {
-                return `<span class="alignment-warning" title="資料對齊異常：單字分割已停用">${raw} <i class="fas fa-info-circle" style="font-size:0.7em;"></i></span>`;
+                return `<span class="alignment-warning" title="資料對齊異常：單字分割已停用">${window.escapeHtml(raw)} <i class="fas fa-info-circle" style="font-size:0.7em;"></i></span>`;
             }
-            return raw;
+            
+            // Standard space-based fail-soft (if no atoms exist)
+            return raw.split(/(\s+)/).map((part, idx) => {
+                if (/\s+/.test(part)) return part; // Preserve spaces
+                const cleanText = part.replace(/[.,?!~]/g, '');
+                if (!cleanText) return window.escapeHtml(part);
+                return `<span class="atom-seg fail-soft" data-text="${window.escapeHtml(cleanText)}" data-atom-id="fs-${idx}">${window.escapeHtml(part)}</span>`;
+            }).join('');
         }
 
-        return seg.atoms.map(a => {
-            if (a.pos === 'space' || a.id?.includes(':space:')) {
-                return ' ';
+        // Case 2: We have atoms. We must interleave them into the raw text to preserve punctuation/spaces.
+        // We use a simple greedy matching for the pilot to ensure stability.
+        let resultHtml = '';
+        let remainingRaw = raw;
+        
+        // Sort atoms by their appearance in the raw text if possible, though they are usually ordered
+        seg.atoms.forEach((a, idx) => {
+            const atomText = a.text;
+            if (!atomText) return;
+
+            const pos = remainingRaw.indexOf(atomText);
+            if (pos !== -1) {
+                // Add skipped text (punctuation, spaces) as plain text
+                resultHtml += window.escapeHtml(remainingRaw.substring(0, pos));
+                
+                // Add the atom as a span
+                const cleanId = a.id || `${a.text}-${a.pos}-${idx}`;
+                resultHtml += `<span class="atom-seg" data-atom-id="${cleanId}">${window.escapeHtml(atomText)}</span>`;
+                
+                // Move forward
+                remainingRaw = remainingRaw.substring(pos + atomText.length);
             }
-            const cleanId = a.id || `${a.text}-${a.pos}`;
-            return `<span class="atom-seg" data-atom-id="${cleanId}">${window.escapeHtml(a.text)}</span>`;
-        }).join('');
+        });
+
+        // Add any trailing punctuation
+        resultHtml += window.escapeHtml(remainingRaw);
+        return resultHtml;
     },
 
 
@@ -694,22 +753,63 @@ window.renderSupportDetail = function(atom) {
         return;
     }
 
-    // Mock definitions if missing (Heuristic)
-    let definition = atom.definition || window.getLabel('no_definition');
-    if (atom.id && atom.id.includes('안녕하세요')) definition = `${window.getLabel('definition')}安寧，平安。用於打招呼，相當於『您好』。`;
-    if (atom.id && atom.id.includes('여러분')) definition = `${window.getLabel('definition')}各位，大家。`;
+    // 1. Decompose composite IDs and lookup parts
+    const idParts = (atom.id || '').split('+');
+    const results = [];
+    
+    idParts.forEach(part => {
+        // Strip legacy prefixes like ko:n: or ko:p:
+        const cleanPart = part.replace(/^ko:[a-z]+:/i, '').replace(/[.,?!~]/g, '');
+        const surfaceText = atom.text?.includes(cleanPart) ? cleanPart : (atom.text || cleanPart);
+        
+        // Try lookup in libKnowledgeRuntime - EXACT MATCH ONLY
+        const entry = APP.libKnowledgeRuntime.find(it => {
+            const surface = it.source?.surface || '';
+            const title = it.i18n?.title || '';
+            
+            // 1. Exact surface match (e.g., "은/는" matches "은")
+            if (surface === cleanPart || surface.split('/').includes(cleanPart)) return true;
+            
+            // 2. Exact title match
+            if (title === cleanPart) return true;
+            
+            return false;
+        });
+
+        if (entry) {
+            results.push({
+                title: window.i18nText(entry.i18n?.title_i18n, window.currentLocale(), entry.i18n?.title || entry.id),
+                definition: entry.i18n?.summary || entry.i18n?.description || '',
+                id: entry.id
+            });
+        } else {
+            // Last resort: simple echo
+            results.push({
+                title: cleanPart,
+                definition: window.getLabel('no_definition') + ' (Preparing...)',
+                id: 'unknown:' + cleanPart
+            });
+        }
+    });
+
+    const bodyHtml = results.map(res => `
+        <div class="support-item animate-in" style="margin-bottom:20px; border-bottom:1px solid var(--line); padding-bottom:15px;">
+            <div class="support-header">
+                <div>
+                    <div class="support-title">${window.escapeHtml(res.title)}</div>
+                    <div class="support-meta">${window.escapeHtml(res.id)}</div>
+                </div>
+            </div>
+            <div class="support-definition">
+                ${window.escapeHtml(res.definition)}
+            </div>
+        </div>
+    `).join('');
 
     container.innerHTML = `
         <button class="close-support" onclick="document.getElementById('supportDetail').classList.remove('active')">✕</button>
-        <div class="support-header">
-            <div>
-                <div class="support-title">${window.escapeHtml(atom.text)}</div>
-                <div class="support-meta">${window.escapeHtml(atom.lemma || atom.text)} · ${window.escapeHtml(atom.id)}</div>
-            </div>
-            <span class="pos-badge">${window.escapeHtml(atom.pos || 'unknown')}</span>
-        </div>
-        <div class="support-definition">
-            ${window.escapeHtml(definition)}
+        <div class="support-content" style="padding-top:20px;">
+            ${bodyHtml}
         </div>
         <div style="margin-top: 20px; display: flex; gap: 10px;">
             <button class="btn tiny-text audio-btn" style="flex:1" data-text="${window.escapeJsSingle(atom.text)}">🔊 ${window.getLabel('play')}</button>

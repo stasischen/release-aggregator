@@ -27,6 +27,7 @@ const APP = {
         this.currentLibraryFilter = 'all';
         this.libSentences = {};
         this.libKnowledgeRuntime = [];
+        this.libDictionaryRuntime = [];
         this.libExampleCache = {};
         this.currentView = 'courseMapView';
         this.wireEvents();
@@ -329,17 +330,17 @@ const APP = {
 
     async initLibrary() {
         try {
-            const [manifestResp, knowledgeResp, sentenceResp] = await Promise.all([
+            const [manifestResp, knowledgeResp, sentenceResp, dictionaryResp] = await Promise.all([
                 fetch(`data/library_manifest.json?v=${Date.now()}`),
                 fetch(`data/runtime/zh_tw/knowledge.json?v=${Date.now()}`),
-                fetch(`data/runtime/zh_tw/example_sentence.json?v=${Date.now()}`)
+                fetch(`data/runtime/zh_tw/example_sentence.json?v=${Date.now()}`),
+                fetch(`data/runtime/zh_tw/dictionary.json?v=${Date.now()}`)
             ]);
-            if (manifestResp.ok) {
-                this.libManifest = await manifestResp.json();
-            }
-            if (knowledgeResp.ok) {
-                this.libKnowledgeRuntime = await knowledgeResp.json();
-            }
+            
+            if (manifestResp.ok) this.libManifest = await manifestResp.json();
+            if (knowledgeResp.ok) this.libKnowledgeRuntime = await knowledgeResp.json();
+            if (dictionaryResp.ok) this.libDictionaryRuntime = await dictionaryResp.json();
+            
             if (sentenceResp.ok) {
                 const runtimeSentences = await sentenceResp.json();
                 this.libSentences = runtimeSentences.reduce((acc, item) => {
@@ -347,6 +348,8 @@ const APP = {
                     return acc;
                 }, {});
             }
+
+            console.log(`[Library] Loaded ${this.libKnowledgeRuntime.length} knowledge items and ${this.libDictionaryRuntime.length} dictionary items.`);
             this.renderLibToc();
             this.renderLibFeatured();
         } catch (e) { 
@@ -598,10 +601,16 @@ const APP = {
 
     jumpToNode(nodeId) {
         const idx = window.state.data.sequence.findIndex(n => n.id === nodeId);
-        if (idx > -1) {
-            window.state.currentIndex = idx;
-            this.switchView('lessonView');
-            window.renderCurrentNode();
+        if (idx !== -1) window.setIndex(idx);
+    },
+
+    toggleGrammarDetail(idx, knowledgeId) {
+        const el = document.getElementById(`grammar_${idx}`);
+        if (el) {
+            const isHidden = el.style.display === 'none';
+            el.style.display = isHidden ? 'block' : 'none';
+            // Optional: log if needed
+            // console.log(`Toggled grammar detail for item ${idx}, target: ${knowledgeId}`);
         }
     }
 };
@@ -758,51 +767,133 @@ window.renderSupportDetail = function(atom) {
     const results = [];
     
     idParts.forEach(part => {
-        // Strip legacy prefixes like ko:n: or ko:p:
+        // Strip legacy prefixes and extract tag
+        // e.g. "ko:pron:저" -> tag: "pron", cleanPart: "저"
+        const tagMatch = part.match(/^ko:([a-z]+):/i);
+        const tag = tagMatch ? tagMatch[1].toLowerCase() : null;
         const cleanPart = part.replace(/^ko:[a-z]+:/i, '').replace(/[.,?!~]/g, '');
         const surfaceText = atom.text?.includes(cleanPart) ? cleanPart : (atom.text || cleanPart);
         
-        // Try lookup in libKnowledgeRuntime - EXACT MATCH ONLY
-        const entry = APP.libKnowledgeRuntime.find(it => {
-            const surface = it.source?.surface || '';
-            const title = it.i18n?.title || '';
+        // POS Mapping: Legacy Tag -> Knowledge Lab Category/Tag
+        const posMap = {
+            'p': ['particle', 'postposition'],
+            'pron': ['pronoun', 'noun'],
+            'n': ['noun', 'vocabulary'],
+            'v': ['verb', 'ending'],
+            'adj': ['adjective', 'ending'],
+            'adv': ['adverb'],
+            'det': ['determiner', 'adnominal'],
+            'e': ['ending', 'suffix'],
+            'count': ['count', 'unit'],
+            'vx': ['ending', 'aux_verb', 'verb']
+        };
+
+        // 1. Parallel Lookup: Dictionary (Vocab) and Knowledge (Grammar)
+        const dictEntry = APP.libDictionaryRuntime.find(it => {
+            const source = it.source || {};
+            const i18n = it.i18n || {};
             
-            // 1. Exact surface match (e.g., "은/는" matches "은")
-            if (surface === cleanPart || surface.split('/').includes(cleanPart)) return true;
+            // Strict Tag Check with Verb Flexibility
+            if (tag) {
+                const dictPos = (source.pos || i18n.pos || '').toLowerCase();
+                const isVerbClass = (tag === 'v' || tag === 'vx' || tag === 'adj');
+                const dictIsVerbClass = (dictPos === 'v' || dictPos === 'vx' || dictPos === 'adj');
+                
+                if (isVerbClass && dictIsVerbClass) {
+                    // Allow cross-linking between V and VX in dictionary
+                } else if (dictPos !== tag) {
+                    return false;
+                }
+            }
+
+            const surfaceMatch = (source.lemma_id === cleanPart || 
+                                 source.surface === cleanPart || 
+                                 i18n.headword === cleanPart || 
+                                 (source.surface_forms || []).includes(cleanPart));
+            if (surfaceMatch) return true;
             
-            // 2. Exact title match
-            if (title === cleanPart) return true;
-            
-            return false;
+            // Also check if the atom_id ends with the cleanPart
+            const atomId = source.atom_id || it.id || '';
+            return atomId.endsWith(':' + cleanPart);
         });
 
-        if (entry) {
+        const knowledgeEntry = APP.libKnowledgeRuntime.find(it => {
+            const surface = it.source?.surface || '';
+            const title = it.i18n?.title || '';
+            const subcategory = (it.source?.subcategory || '').toLowerCase();
+            const itemTags = (it.source?.tags || []).map(t => t.toLowerCase());
+            
+            const textMatched = (surface === cleanPart || surface.split('/').includes(cleanPart) || title === cleanPart);
+            if (!textMatched) return false;
+
+            if (tag && posMap[tag]) {
+                const isCompatible = posMap[tag].some(cat => subcategory === cat || itemTags.includes(cat));
+                if (tag === 'pron' && subcategory === 'determiner') return false;
+                if (!isCompatible) return false;
+            }
+            return true;
+        });
+
+        if (dictEntry) {
+            const defs = dictEntry.i18n?.definitions || [];
+            const summary = defs.map(d => `${d.gloss}${d.usage_notes ? ' (' + d.usage_notes + ')' : ''}`).join('\n');
             results.push({
-                title: window.i18nText(entry.i18n?.title_i18n, window.currentLocale(), entry.i18n?.title || entry.id),
-                definition: entry.i18n?.summary || entry.i18n?.description || '',
-                id: entry.id
+                title: dictEntry.i18n?.headword || dictEntry.source?.headword || cleanPart,
+                definition: summary || window.getLabel('no_definition'),
+                id: dictEntry.id,
+                type: 'dictionary',
+                // Link knowledge entry if it exists for the same part
+                linkedKnowledge: knowledgeEntry ? {
+                    id: knowledgeEntry.id,
+                    title: window.i18nText(knowledgeEntry.i18n?.title_i18n, window.currentLocale(), knowledgeEntry.i18n?.title),
+                    summary: knowledgeEntry.i18n?.summary || knowledgeEntry.i18n?.description || ''
+                } : null
+            });
+        } else if (knowledgeEntry) {
+            // Only if No dictionary match, show knowledge directly
+            results.push({
+                title: window.i18nText(knowledgeEntry.i18n?.title_i18n, window.currentLocale(), knowledgeEntry.i18n?.title),
+                definition: knowledgeEntry.i18n?.summary || knowledgeEntry.i18n?.description || '',
+                id: knowledgeEntry.id,
+                type: 'knowledge'
             });
         } else {
             // Last resort: simple echo
             results.push({
                 title: cleanPart,
                 definition: window.getLabel('no_definition') + ' (Preparing...)',
-                id: 'unknown:' + cleanPart
+                id: 'unknown:' + cleanPart,
+                type: 'unknown'
             });
         }
     });
 
-    const bodyHtml = results.map(res => `
-        <div class="support-item animate-in" style="margin-bottom:20px; border-bottom:1px solid var(--line); padding-bottom:15px;">
+    const bodyHtml = results.map((res, idx) => `
+        <div class="support-item animate-in" id="supportItem_${idx}" style="margin-bottom:20px; border-bottom:1px solid var(--line); padding-bottom:15px;">
             <div class="support-header">
                 <div>
                     <div class="support-title">${window.escapeHtml(res.title)}</div>
-                    <div class="support-meta">${window.escapeHtml(res.id)}</div>
+                    ${res.type !== 'unknown' ? `<div class="support-meta">${window.escapeHtml(res.id)}</div>` : ''}
                 </div>
             </div>
-            <div class="support-definition">
-                ${window.escapeHtml(res.definition)}
+            <div class="support-definition" id="def_${idx}">
+                ${window.escapeHtml(res.definition).replace(/\n/g, '<br>')}
             </div>
+            ${res.linkedKnowledge ? `
+                <div class="support-detail-action" style="margin-top:10px;">
+                    <button class="btn tiny-text secondary" style="background:var(--accent3-soft); color:var(--accent3); border:1px solid var(--accent3);"
+                        onclick="APP.toggleGrammarDetail(${idx}, '${window.escapeJsSingle(res.linkedKnowledge.id)}')">
+                        <i class="fas fa-book-open"></i> 詳解: ${window.escapeHtml(res.linkedKnowledge.title)}
+                    </button>
+                    <div id="grammar_${idx}" class="grammar-detail-box" style="display:none; margin-top:10px; padding:12px; background:var(--bg2); border-left:3px solid var(--accent3); border-radius:4px; font-size:0.9em;">
+                        <strong>文法解析：</strong><br>
+                        ${window.escapeHtml(res.linkedKnowledge.summary)}
+                        <div style="margin-top:8px; text-align:right;">
+                            <a href="#" class="tiny-text" style="color:var(--accent3);" onclick="APP.loadLibRule('${res.linkedKnowledge.id}'); return false;">查看完整文法卡片 →</a>
+                        </div>
+                    </div>
+                </div>
+            ` : ''}
         </div>
     `).join('');
 

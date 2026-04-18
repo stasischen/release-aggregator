@@ -836,7 +836,14 @@ window.renderSupportDetail = function(atom) {
 
         if (dictEntry) {
             const defs = dictEntry.i18n?.definitions || [];
-            const summary = defs.map(d => `${d.gloss}${d.usage_notes ? ' (' + d.usage_notes + ')' : ''}`).join('\n');
+            let summary = defs.map(d => `${d.gloss}${d.usage_notes ? ' (' + d.usage_notes + ')' : ''}`).join('\n');
+            
+            // Content Quality Check: If the 'Chinese' gloss still contains Hangul, treat as untranslated
+            const hasHangul = /[가-힣]/.test(summary);
+            if (hasHangul) {
+                summary = `<span class="muted-text">(${window.getLabel('no_definition')} - 內容建置中)</span>`;
+            }
+
             results.push({
                 title: dictEntry.i18n?.headword || dictEntry.source?.headword || cleanPart,
                 definition: summary || window.getLabel('no_definition'),

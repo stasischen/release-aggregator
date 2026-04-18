@@ -616,6 +616,105 @@ textarea {
   transition: width 0.6s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
+/* --- Functional Mockup Hardening --- */
+
+.action-pill.recording {
+    background: #fff0f0;
+    border-color: #ff4d4f;
+    color: #ff4d4f;
+    animation: pulse-red 1.5s infinite;
+}
+
+@keyframes pulse-red {
+    0% { box-shadow: 0 0 0 0 rgba(255, 77, 79, 0.4); }
+    70% { box-shadow: 0 0 0 10px rgba(255, 77, 79, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(255, 77, 79, 0); }
+}
+
+.action-pill.done {
+    background: var(--ok-soft);
+    border-color: var(--ok);
+    color: var(--ok);
+}
+
+.typing-overlay {
+    margin-top: 12px;
+    padding: 16px;
+    background: var(--bg);
+    border: 1px solid var(--line);
+    border-radius: var(--radius-md);
+    animation: slideDown 0.3s ease-out;
+}
+
+.typing-input {
+    width: 100%;
+    padding: 12px;
+    border: 2px solid var(--line);
+    border-radius: 8px;
+    font-size: 16px;
+    margin-bottom: 8px;
+    outline: none;
+    transition: border-color 0.2s;
+    background: var(--card);
+    color: var(--ink);
+}
+
+.typing-input:focus {
+    border-color: var(--accent);
+}
+
+.typing-input.correct {
+    border-color: var(--ok);
+    background: var(--ok-soft);
+}
+
+.typing-input.incorrect {
+    border-color: var(--accent);
+    background: var(--accent-soft);
+}
+
+.pro-item.clickable {
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.pro-item.clickable:hover {
+    border-color: var(--accent2);
+    background: var(--accent2-soft);
+    transform: translateY(-2px);
+}
+
+.slot-token {
+    display: inline-block;
+    padding: 0 4px;
+    margin: 0 2px;
+    background: var(--accent2-soft);
+    border-bottom: 2px solid var(--accent2);
+    color: var(--accent2);
+    font-weight: 700;
+    cursor: pointer;
+    border-radius: 4px;
+}
+
+.slot-token.empty {
+    background: var(--bg);
+    border-bottom: 2px dashed var(--muted);
+    color: var(--muted);
+    min-width: 60px;
+    text-align: center;
+}
+
+.slot-token.highlight {
+    animation: pulse-teal 1s infinite;
+}
+
+@keyframes pulse-teal {
+    0% { background-color: var(--accent2-soft); }
+    50% { background-color: #d1f5f0; }
+    100% { background-color: var(--accent2-soft); }
+}
+
+
 .toggle-row {
   display: flex;
   align-items: center;

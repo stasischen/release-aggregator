@@ -612,10 +612,140 @@ const APP = {
             // Optional: log if needed
             // console.log(`Toggled grammar detail for item ${idx}, target: ${knowledgeId}`);
         }
+    if (idx !== -1) window.setIndex(idx);
+    },
+
+    toggleGrammarDetail(idx, knowledgeId) {
+        const el = document.getElementById(`grammar_${idx}`);
+        if (el) {
+            const isHidden = el.style.display === 'none';
+            el.style.display = isHidden ? 'block' : 'none';
+        }
     }
 };
 
-// --- View Rendering Shims (Legacy Alignment) ---
+// --- Functional Mockup Dispatchers ---
+
+window.handleAction = function(btn) {
+    const action = btn.dataset.action;
+    const segmentId = btn.dataset.segmentId;
+    const ttsText = btn.dataset.tts;
+    const target = btn.dataset.target;
+    const overlayId = `interaction-overlay-${segmentId}`;
+    const overlay = document.getElementById(overlayId);
+
+    // 1. Audio playing for all actions
+    window.speakKo(ttsText);
+
+    // 2. Specialized Logic
+    if (action === 'shadow' || action === 'repeat') {
+        btn.classList.add('recording');
+        btn.innerHTML = `<span class="icon">⏺</span> ${window.getLabel('tap_to_record')}`;
+        
+        // Mock recording duration
+        setTimeout(() => {
+            btn.classList.remove('recording');
+            btn.classList.add('done');
+            btn.innerHTML = `<span class="icon">✅</span> ${window.getLabel(action)}`;
+            if (window.showToast) window.showToast(`${window.getLabel(action)} ${window.getLabel('correct')}`);
+        }, 3000);
+    } 
+    else if (action === 'type') {
+        if (!overlay) return;
+        
+        // Toggle input field
+        if (overlay.innerHTML) {
+            overlay.innerHTML = '';
+            return;
+        }
+
+        overlay.innerHTML = `
+            <div class="typing-overlay">
+                <div class="tiny-text muted" style="margin-bottom:8px;">${window.getLabel('mode_guided_typing')}</div>
+                <input type="text" class="typing-input" placeholder="${window.getLabel('type_response_placeholder')}" autocomplete="off" spellcheck="false">
+                <div class="typing-feedback tiny-text" style="display:none;"></div>
+            </div>
+        `;
+
+        const input = overlay.querySelector('.typing-input');
+        const feedback = overlay.querySelector('.typing-feedback');
+        
+        input.focus();
+        input.oninput = (e) => {
+            const val = e.target.value.trim();
+            if (!val) {
+                input.className = 'typing-input';
+                feedback.style.display = 'none';
+                return;
+            }
+
+            // Simple heuristic check (ignore punctuation/case for mock)
+            const cleanTarget = target.replace(/[.,?!~]/g, '').toLowerCase();
+            const cleanVal = val.replace(/[.,?!~]/g, '').toLowerCase();
+
+            if (cleanVal === cleanTarget) {
+                input.className = 'typing-input correct';
+                feedback.style.display = 'block';
+                feedback.className = 'typing-feedback tiny-text ok';
+                feedback.textContent = window.getLabel('correct');
+                btn.classList.add('done');
+                btn.innerHTML = `<span class="icon">✅</span> ${window.getLabel('type')}`;
+            } else if (cleanTarget.startsWith(cleanVal)) {
+                input.className = 'typing-input';
+                feedback.style.display = 'none';
+            } else {
+                input.className = 'typing-input incorrect';
+                feedback.style.display = 'block';
+                feedback.className = 'typing-feedback tiny-text warn';
+                feedback.textContent = window.getLabel('incorrect');
+            }
+        };
+    }
+};
+
+// --- Slot Swapping Engine ---
+
+window.handleSlotItemClick = function(itemJson) {
+    const item = JSON.parse(decodeURIComponent(itemJson));
+    const activeSlot = window.state.activeSlotToken;
+    
+    if (!activeSlot) {
+        if (window.showToast) window.showToast(window.getLabel('pick_chunks'));
+        return;
+    }
+
+    // 1. Update the UI token
+    const tokenEl = document.querySelector(`.slot-token[data-slot-id="${activeSlot}"]`);
+    if (tokenEl) {
+        tokenEl.textContent = item.ko || item.target || '';
+        tokenEl.classList.remove('empty');
+        tokenEl.classList.remove('highlight');
+    }
+
+    // 2. Update the builder state if applicable
+    const builderRoot = tokenEl ? tokenEl.closest('[data-builder-config]') : null;
+    if (builderRoot) {
+        // Find corresponding control and update it
+        const builderId = builderRoot.id;
+        const controlId = tokenEl.dataset.controlId;
+        const select = builderRoot.querySelector(`select[data-builder-control="${controlId}"]`);
+        if (select) {
+            select.value = item.value || item.ko || item.target;
+            window.updatePatternBuilderFromRoot(builderId);
+        }
+    }
+
+    if (window.showToast) window.showToast(window.getLabel('applied_preset'));
+    window.state.activeSlotToken = null;
+};
+
+window.setActiveSlot = function(slotId) {
+    window.state.activeSlotToken = slotId;
+    document.querySelectorAll('.slot-token').forEach(el => {
+        el.classList.toggle('highlight', el.dataset.slotId === slotId);
+    });
+};
+
 
 window.renderSidebar = function() {
     const unitRaw = window.state.data.unit;

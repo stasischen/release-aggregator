@@ -15,12 +15,15 @@
       <div class="content-block">
         <div class="block-title">${window.escapeHtml(window.i18nText(panel.title_i18n, locale, window.getLabel('swappable_materials')))}</div>
         <div class="compare-pros">
-          ${(panel.items_i18n || panel.items || []).map(item => `
-            <div class="pro-item">
-              <strong>${window.escapeHtml(item.ko || item.target || '')}</strong>
-              <div class="tiny-text muted" style="margin-top:3px;">${window.escapeHtml(window.i18nText(item.explain_i18n || item, locale, ''))}</div>
-            </div>
-          `).join('')}
+          ${(panel.items_i18n || panel.items || []).map(item => {
+            const itemJson = encodeURIComponent(JSON.stringify(item));
+            return `
+              <div class="pro-item clickable" onclick="window.handleSlotItemClick('${itemJson}')">
+                <strong>${window.escapeHtml(item.ko || item.target || '')}</strong>
+                <div class="tiny-text muted" style="margin-top:3px;">${window.escapeHtml(window.i18nText(item.explain_i18n || item, locale, ''))}</div>
+              </div>
+            `;
+          }).join('')}
         </div>
       </div>
     `).join('');
@@ -48,6 +51,7 @@
 
   window.renderPatternBuilderBlock = function (builder, nodeId) {
     const locale = window.currentLocale();
+    const teachingLocale = window.currentTeachingLocale();
     const builderId = `builder-${window.escapeJsSingle(nodeId || 'x')}-${window.escapeJsSingle(builder.builder_id || 'main')}`;
     const rawConfigJson = JSON.stringify(builder);
     const configJsonAttr = window.escapeHtml(rawConfigJson);
@@ -99,13 +103,10 @@
           </div>` : ''}
           <div class="pattern-entry" style="margin-top:12px; border-top:1px dashed var(--line); padding-top:12px;">
             <div style="display:flex; align-items:center; gap:8px;">
-              <div class="pattern-formula" data-builder-output style="flex:1;">${window.escapeHtml(initialComputed.sentence)}</div>
+              <div class="pattern-formula" data-builder-output style="flex:1;">${initialComputed.sentenceHtml}</div>
               <button class="btn tiny-text" data-builder-speak data-tts-text="${window.escapeHtml(initialComputed.sentence)}" onclick="window.speakKo(this.getAttribute('data-tts-text'))" style="padding:4px 8px;">▶</button>
             </div>
             <div class="pattern-use-case" data-builder-gloss>${window.escapeHtml(initialComputed.gloss)}</div>
-          </div>
-          <div class="debug-state-indicator tiny-text muted" style="margin-top:8px; font-size:10px; border-top:1px solid #eee; padding-top:4px;">
-            Persisted Key: ${builderId}
           </div>
         </div>
       </div>
@@ -156,9 +157,18 @@
       });
     }
 
-    // 3. Basic Variable Replacement
+    // 3. Basic Variable Replacement & HTML wrapping for slots
+    let sentenceHtml = window.escapeHtml(sentence);
     Object.entries(values).forEach(([key, value]) => {
       sentence = sentence.replaceAll(`{${key}}`, value);
+      
+      const isSlot = key.startsWith('slot') || (config.controls || []).find(c => c.control_id === key);
+      if (isSlot) {
+          const tokenHtml = `<span class="slot-token" data-slot-id="${key}" data-control-id="${key}" onclick="window.setActiveSlot('${key}')">${window.escapeHtml(value)}</span>`;
+          sentenceHtml = sentenceHtml.replaceAll(`{${key}}`, tokenHtml);
+      } else {
+          sentenceHtml = sentenceHtml.replaceAll(`{${key}}`, window.escapeHtml(value));
+      }
     });
 
     // 4. Gloss/Translation (i18n-first)
@@ -174,7 +184,7 @@
       });
     }
 
-    return { sentence, gloss };
+    return { sentence, sentenceHtml, gloss };
   };
 
   // Necessary for browser event handling
@@ -190,7 +200,7 @@
     const resolvedValues = window.resolvePatternBuilderValues ? window.resolvePatternBuilderValues(config, values) : values;
     const result = window.computePatternBuilderOutput(config, resolvedValues);
 
-    root.querySelector('[data-builder-output]').textContent = result.sentence;
+    root.querySelector('[data-builder-output]').innerHTML = result.sentenceHtml;
     root.querySelector('[data-builder-gloss]').textContent = result.gloss;
     const speakBtn = root.querySelector('[data-builder-speak]');
     if (speakBtn) speakBtn.setAttribute('data-tts-text', result.sentence);
@@ -199,7 +209,6 @@
     try {
         if (window.setNodeInteractionState) {
             window.setNodeInteractionState(builderId, values);
-            if (window.showToast) window.showToast(`${window.getLabel('saved_state')}: ${builderId.split('-').pop()}`);
         }
     } catch (e) {
         console.error('Pattern persistence error', e);
@@ -215,3 +224,4 @@
   };
 
 })();
+

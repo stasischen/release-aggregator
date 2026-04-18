@@ -214,6 +214,7 @@ window.renderSegmentActions = function(seg) {
     return `<div class="segment-actions-bar">${window.renderSpeakButton(seg.ko)}</div>`;
   }
 
+  const segmentId = seg.id || '';
   const buttons = contract.actions.map(action => {
     let icon = '🔊';
     let label = window.getLabel('play');
@@ -221,7 +222,7 @@ window.renderSegmentActions = function(seg) {
 
     if (action === 'shadow' || action === 'repeat') {
       icon = '🔁';
-      label = window.getLabel('shadow');
+      label = window.getLabel(action === 'shadow' ? 'shadow' : 'repeat');
       css = 'shadow-btn';
     } else if (action === 'type') {
       icon = '⌨️';
@@ -230,13 +231,24 @@ window.renderSegmentActions = function(seg) {
     }
 
     const textToSpeak = contract.payload?.tts_text || seg.ko;
-    return `<button class="action-pill ${css}" onclick="window.speakKo('${window.escapeJsSingle(textToSpeak)}')">
+    const targetSurface = contract.payload?.target_surface || seg.ko;
+    
+    return `<button class="action-pill ${css}" 
+              data-segment-id="${window.escapeHtml(segmentId)}"
+              data-action="${action}"
+              data-tts="${window.escapeHtml(textToSpeak)}"
+              data-target="${window.escapeHtml(targetSurface)}"
+              onclick="window.handleAction(this)">
               <span class="icon">${icon}</span> ${label}
             </button>`;
   });
 
-  return `<div class="segment-actions-bar">${buttons.join('')}</div>`;
+  return `
+    <div class="segment-actions-bar">${buttons.join('')}</div>
+    <div id="interaction-overlay-${window.escapeHtml(segmentId)}" class="interaction-overlay-anchor"></div>
+  `;
 };
+
 
 window.renderSpeakButton = function(text) {
   if (!text) return '';

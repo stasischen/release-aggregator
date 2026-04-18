@@ -6,25 +6,25 @@
     {
       "id": "kg-ui-019-001",
       "title": "Define visual style for '文法詳解' chip",
-      "status": "todo",
+      "status": "done",
       "deliverable": "Design spec clarification"
     },
     {
       "id": "kg-ui-019-002",
       "title": "Design multi-link resolution UI in Overlay",
-      "status": "todo",
+      "status": "done",
       "deliverable": "UI flow description"
     },
     {
       "id": "kg-ui-019-003",
       "title": "Refine fail-soft UI states (Loading/Error)",
-      "status": "todo",
+      "status": "done",
       "deliverable": "UI state mapping"
     },
     {
       "id": "kg-ui-019-004",
       "title": "Final review of dict_grammar_mapping.json format",
-      "status": "todo",
+      "status": "done",
       "deliverable": "Data schema confirmation"
     }
   ]

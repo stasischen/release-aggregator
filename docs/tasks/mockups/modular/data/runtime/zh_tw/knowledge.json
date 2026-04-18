@@ -1,5 +1,363 @@
 [
   {
+    "id": "kg.connector.cause.geuraeseo",
+    "source": {
+      "id": "kg.connector.cause.geuraeseo",
+      "kind": "grammar",
+      "subcategory": "cause",
+      "level": "A1",
+      "surface": "그래서",
+      "tags": [
+        "grammar",
+        "connector",
+        "cause",
+        "result",
+        "consequence",
+        "beginner"
+      ],
+      "provenance": {
+        "source": "knowledge_lab_rescue",
+        "rescue_batch": "kg-normalize-001B"
+      },
+      "example_sentence_refs": [
+        "ex.ko.s.001157",
+        "ex.ko.s.001158",
+        "ex.ko.s.001159",
+        "ex.ko.s.001160",
+        "ex.ko.s.001161"
+      ]
+    },
+    "i18n": {
+      "id": "kg.connector.cause.geuraeseo",
+      "locale": "zh_tw",
+      "title": "所以、因此 (그래서)",
+      "description": "用於表示前因後果，強調結果、推論或結論。",
+      "explanation_md": "· 用法說明\n`所以` (그래서) 是用於表示結果或推論的連接詞。前句通常是原因、理由或狀況，後句則是由此導出的結果、判斷或行動。它主要連結兩個獨立的句子。\n\n· 常見使用場景\n1. **描述因果結果**：例如「下雨了，所以撐了傘」。\n   - [id:ex.ko.s.001157]\n2. **描述推論與結論**：例如「工作很多，所以很累」。\n   - [id:ex.ko.s.001159]\n\n· 相近文法比較\n- **그래서**：著重在自然發生的結果或推論。常用於說明前句導出的後果。\n- **그러니까**：較常帶有說話者的整理、強調或提示語氣。\n\n· 注意\n在口語與書面語中均極為常用，是韓語中最基礎的結果型連接詞。",
+      "usage_notes": []
+    }
+  },
+  {
+    "id": "kg.connector.cause.geureonikka",
+    "source": {
+      "id": "kg.connector.cause.geureonikka",
+      "kind": "grammar",
+      "subcategory": "cause",
+      "level": "A2",
+      "surface": "그러니까",
+      "tags": [
+        "grammar",
+        "connector",
+        "cause",
+        "beginner",
+        "v5_ingestion"
+      ],
+      "provenance": {
+        "source": "knowledge_lab_rescue",
+        "rescue_batch": "KLAB-Batch-1.11"
+      },
+      "example_sentence_refs": [
+        "ex.ko.s.001934",
+        "ex.ko.s.001935",
+        "ex.ko.s.001936",
+        "ex.ko.s.001937",
+        "ex.ko.s.001938",
+        "ex.ko.s.001939",
+        "ex.ko.s.001940",
+        "ex.ko.s.001941",
+        "ex.ko.s.001942",
+        "ex.ko.s.001943"
+      ]
+    },
+    "i18n": {
+      "id": "kg.connector.cause.geureonikka",
+      "locale": "zh_tw",
+      "title": "그러니까 (所以/因而)",
+      "description": "用於連結兩個句子，表示前句是後句的原因或依據。",
+      "explanation_md": "· 用法說明\n\n用於連結兩個句子，表示前句是後句的原因或依據。相當於中文的「所以」、「因而」。常用於說話者提出自己的想法、建議或命令時。\n\n[id:ex.ko.s.001934]\n[id:ex.ko.s.001935]\n[id:ex.ko.s.001936]\n[id:ex.ko.s.001937]\n[id:ex.ko.s.001938]\n[id:ex.ko.s.001939]\n[id:ex.ko.s.001940]\n[id:ex.ko.s.001941]\n[id:ex.ko.s.001942]\n[id:ex.ko.s.001943]",
+      "usage_notes": []
+    }
+  },
+  {
+    "id": "kg.connector.contrast.bandaero",
+    "source": {
+      "id": "kg.connector.contrast.bandaero",
+      "kind": "grammar",
+      "subcategory": "contrast",
+      "level": "A2",
+      "surface": "반대로",
+      "tags": [
+        "grammar",
+        "connector",
+        "contrast",
+        "v5_ingestion"
+      ],
+      "provenance": {
+        "source": "knowledge_lab_rescue",
+        "rescue_batch": "KLAB-Batch-1.12"
+      },
+      "example_sentence_refs": [
+        "ex.ko.s.001984",
+        "ex.ko.s.001985",
+        "ex.ko.s.001986",
+        "ex.ko.s.001987",
+        "ex.ko.s.001988",
+        "ex.ko.s.001989",
+        "ex.ko.s.001990",
+        "ex.ko.s.001991",
+        "ex.ko.s.001992",
+        "ex.ko.s.001993"
+      ]
+    },
+    "i18n": {
+      "id": "kg.connector.contrast.bandaero",
+      "locale": "zh_tw",
+      "title": "반대로 (相反地)",
+      "description": "表示後面的事情或狀態與前面提到的內容正好相反。",
+      "explanation_md": "· 用法說明\n\n1. 作為接續副詞使用，用來引出與前方句子內容全然對立、相反的情況。\n2. 也可以用來描述方向、順序或立場的倒置。\n\n· 常見使用場景\n\n- 對比兩人的性質或喜好：[id:ex.ko.s.001984], [id:ex.ko.s.001988]\n- 對比天氣或時間點的狀態變化：[id:ex.ko.s.001985], [id:ex.ko.s.001991]\n- 描述行為與預期方向相反：[id:ex.ko.s.001990], [id:ex.ko.s.001993]\n\n· 注意\n\n- 在口語和書面語中都非常常用。\n- 與 `거꾸로` 不同，`반대로` 更多強調「邏輯上」或「相對應」的相反，而 `거꾸로` 常用於描述物理上的上下、前後顛倒。",
+      "usage_notes": []
+    }
+  },
+  {
+    "id": "kg.connector.contrast.geue_bihae",
+    "source": {
+      "id": "kg.connector.contrast.geue_bihae",
+      "kind": "grammar",
+      "subcategory": "contrast",
+      "level": "A2",
+      "surface": "그에 비해",
+      "tags": [
+        "grammar",
+        "connector",
+        "contrast",
+        "v5_ingestion"
+      ],
+      "provenance": {
+        "source": "knowledge_lab_rescue",
+        "rescue_batch": "KLAB-Batch-1.12"
+      },
+      "example_sentence_refs": [
+        "ex.ko.s.001994",
+        "ex.ko.s.001995",
+        "ex.ko.s.001996",
+        "ex.ko.s.001997",
+        "ex.ko.s.001998",
+        "ex.ko.s.001999",
+        "ex.ko.s.002000",
+        "ex.ko.s.002001",
+        "ex.ko.s.002002",
+        "ex.ko.s.002003"
+      ]
+    },
+    "i18n": {
+      "id": "kg.connector.contrast.geue_bihae",
+      "locale": "zh_tw",
+      "title": "그에 비해 (與之相比)",
+      "description": "用來比較兩者之前的差異，通常用於強調後者的特徵與前者不同。",
+      "explanation_md": "· 用法說明\n\n1. 用於連接兩個句子，對比前句提到的對象與後句提到的對象。\n2. 「그」指代前文內容，「비해」來自「비하다(比較)」，字面意義即為「與那相比」。\n\n· 常見使用場景\n\n- 對比兩件商品的價格或品質：[id:ex.ko.s.001994], [id:ex.ko.s.001998], [id:ex.ko.s.002002]\n- 對比天氣或環境的差異：[id:ex.ko.s.001995], [id:ex.ko.s.002000], [id:ex.ko.s.002003]\n- 對比兩人的能力或特長：[id:ex.ko.s.001997]\n\n· 注意\n\n- 比起純粹的相反（반대로），`그에 비해` 更強調「程度」或「性質」上的比較。\n- 也可以使用 `그와 달리` (與之不同) 來替換，但 `그에 비해` 帶有更強烈的比較基準感。",
+      "usage_notes": []
+    }
+  },
+  {
+    "id": "kg.connector.contrast.geuraedo",
+    "source": {
+      "id": "kg.connector.contrast.geuraedo",
+      "kind": "grammar",
+      "subcategory": "contrast",
+      "level": "A2",
+      "surface": "그래도",
+      "tags": [
+        "grammar",
+        "connector",
+        "contrast",
+        "v5_ingestion"
+      ],
+      "provenance": {
+        "source": "knowledge_lab_rescue",
+        "rescue_batch": "KLAB-Batch-1.13"
+      },
+      "example_sentence_refs": [
+        "ex.ko.s.002024",
+        "ex.ko.s.002025",
+        "ex.ko.s.002026",
+        "ex.ko.s.002027",
+        "ex.ko.s.002028",
+        "ex.ko.s.002029",
+        "ex.ko.s.002030",
+        "ex.ko.s.002031",
+        "ex.ko.s.002032",
+        "ex.ko.s.002033"
+      ]
+    },
+    "i18n": {
+      "id": "kg.connector.contrast.geuraedo",
+      "locale": "zh_tw",
+      "title": "그래도 (即便如此 / 還是)",
+      "description": "表示儘管承認前述事實，後面的情況依然成立。",
+      "explanation_md": "· 用法說明\n\n`그래도` 是由 `그렇게 해도` (即便那樣做) 縮略而來。它用來連接兩個句子，表示前句提到的情況雖然屬實，但並不會影響後句內容的發生或結果。常用於表示堅持、克服困難或補充正向說明。\n\n· 常見使用場景\n\n- [id:ex.ko.s.002024] (克服疲勞)\n- [id:ex.ko.s.002029] (鼓勵與挑戰)\n\n· 注意\n\n`그래도` 強調的是「即便如此（仍要/仍是）」，帶有一種不論外界環境如何，主體意識或事實依然不變的語氣。",
+      "usage_notes": []
+    }
+  },
+  {
+    "id": "kg.connector.contrast.geureochiman",
+    "source": {
+      "id": "kg.connector.contrast.geureochiman",
+      "kind": "grammar",
+      "subcategory": "contrast",
+      "level": "A2",
+      "surface": "그렇지만",
+      "tags": [
+        "grammar",
+        "connector",
+        "contrast",
+        "v5_ingestion"
+      ],
+      "provenance": {
+        "source": "knowledge_lab_rescue",
+        "rescue_batch": "KLAB-Batch-1.13"
+      },
+      "example_sentence_refs": [
+        "ex.ko.s.002044",
+        "ex.ko.s.002045",
+        "ex.ko.s.002046",
+        "ex.ko.s.002047",
+        "ex.ko.s.002048",
+        "ex.ko.s.002049",
+        "ex.ko.s.002050",
+        "ex.ko.s.002051",
+        "ex.ko.s.002052",
+        "ex.ko.s.002053"
+      ]
+    },
+    "i18n": {
+      "id": "kg.connector.contrast.geureochiman",
+      "locale": "zh_tw",
+      "title": "그렇지만 (雖然如此)",
+      "description": "承認前句內容後，接著敘述相反的情況。",
+      "explanation_md": "· 用法說明\n\n`그렇지만` 是由 `그러하지만` (雖然是那樣) 縮略而來。它用來引導一個與前句提到的事實相對應的內容。雖然在語義上與 `하지만` 幾乎完全重疊，但 `그렇지만` 常會在說話者想要更明確地表示「我承認你說的/先前發生的情況，但…」這種心態時使用。\n\n· 常見使用場景\n\n- [id:ex.ko.s.002044] (外貌與實力的反差)\n- [id:ex.ko.s.002053] (財富與節儉的對比)\n\n· 注意\n\n由於音節較多，在講求效率的口語對話中，人們更傾向於使用較短的 `하지만` 或縮寫後的 `근데`。",
+      "usage_notes": []
+    }
+  },
+  {
+    "id": "kg.connector.contrast.geureona",
+    "source": {
+      "id": "kg.connector.contrast.geureona",
+      "kind": "grammar",
+      "subcategory": "contrast",
+      "level": "A2",
+      "surface": "그러나",
+      "tags": [
+        "grammar",
+        "connector",
+        "contrast",
+        "v5_ingestion"
+      ],
+      "provenance": {
+        "source": "knowledge_lab_rescue",
+        "rescue_batch": "KLAB-Batch-1.13"
+      },
+      "example_sentence_refs": [
+        "ex.ko.s.002034",
+        "ex.ko.s.002035",
+        "ex.ko.s.002036",
+        "ex.ko.s.002037",
+        "ex.ko.s.002038",
+        "ex.ko.s.002039",
+        "ex.ko.s.002040",
+        "ex.ko.s.002041",
+        "ex.ko.s.002042",
+        "ex.ko.s.002043"
+      ]
+    },
+    "i18n": {
+      "id": "kg.connector.contrast.geureona",
+      "locale": "zh_tw",
+      "title": "그러나 (然而)",
+      "description": "高度正式的書面語轉折詞，用於莊重或嚴謹的場合。",
+      "explanation_md": "· 用法說明\n\n`그러나` 是韓語中最具正式感的轉折詞。它主要出現在文學作品、新聞報導、學術論文或公開演講中。它的功能是引導出一個與前述內容截然不同的嚴肅事實或結論。\n\n· 常見使用場景\n\n- [id:ex.ko.s.002034] (正式文體的因果轉折)\n- [id:ex.ko.s.002041] (品質與價格的客觀對比)\n\n· 注意\n\n1. 在日常的朋友對話或非正式場合中，使用 `그러나` 會顯得非常不自然且生硬，此時建議使用 `하지만` 或 `그런데`。\n2. 多用於書面，口語中罕見。",
+      "usage_notes": []
+    }
+  },
+  {
+    "id": "kg.connector.contrast.geureonde",
+    "source": {
+      "id": "kg.connector.contrast.geureonde",
+      "kind": "grammar",
+      "subcategory": "contrast",
+      "level": "A2",
+      "surface": "그런데",
+      "tags": [
+        "grammar",
+        "connector",
+        "contrast",
+        "v5_ingestion"
+      ],
+      "provenance": {
+        "source": "knowledge_lab_rescue",
+        "rescue_batch": "KLAB-Batch-1.13"
+      },
+      "example_sentence_refs": [
+        "ex.ko.s.002004",
+        "ex.ko.s.002005",
+        "ex.ko.s.002006",
+        "ex.ko.s.002007",
+        "ex.ko.s.002008",
+        "ex.ko.s.002009",
+        "ex.ko.s.002010",
+        "ex.ko.s.002011",
+        "ex.ko.s.002012",
+        "ex.ko.s.002013"
+      ]
+    },
+    "i18n": {
+      "id": "kg.connector.contrast.geureonde",
+      "locale": "zh_tw",
+      "title": "그런데 (但是 / 不過 / 話說回來)",
+      "description": "用於轉折或變換話題，語氣口語且活用度高。",
+      "explanation_md": "· 用法說明\n\n`그런데` 是一個非常實用的接續詞，主要有兩種用途：\n1. **轉折**：連接兩個內容相反或相對的句子。相當於「但是」、「不過」。\n2. **變換話題**：在一段對話中，想要帶出新話題時使用。相當於「對了」、「話說回來」。\n\n· 常見使用場景\n\n- [id:ex.ko.s.002004] (形容詞轉折)\n- [id:ex.ko.s.002012] (主語對比)\n\n· 注意\n\n1. 在口語中，`그런데` 常簡化縮寫為 `근데` (geunde)。\n2. 語氣輕鬆，適合日常生活及一般對話。",
+      "usage_notes": []
+    }
+  },
+  {
+    "id": "kg.connector.contrast.hajiman",
+    "source": {
+      "id": "kg.connector.contrast.hajiman",
+      "kind": "grammar",
+      "subcategory": "contrast",
+      "level": "A2",
+      "surface": "하지만",
+      "tags": [
+        "grammar",
+        "connector",
+        "contrast",
+        "v5_ingestion"
+      ],
+      "provenance": {
+        "source": "knowledge_lab_rescue",
+        "rescue_batch": "KLAB-Batch-1.13"
+      },
+      "example_sentence_refs": [
+        "ex.ko.s.002014",
+        "ex.ko.s.002015",
+        "ex.ko.s.002016",
+        "ex.ko.s.002017",
+        "ex.ko.s.002018",
+        "ex.ko.s.002019",
+        "ex.ko.s.002020",
+        "ex.ko.s.002021",
+        "ex.ko.s.002022",
+        "ex.ko.s.002023"
+      ]
+    },
+    "i18n": {
+      "id": "kg.connector.contrast.hajiman",
+      "locale": "zh_tw",
+      "title": "하지만 (但是 / 不過)",
+      "description": "最通用的轉折接續詞，可用於多種情境。",
+      "explanation_md": "· 用法說明\n\n`하지만` 是韓語中最標準且最常用的轉折詞。它連接兩個在語義上對立或矛盾的句子。不論是在口語對話還是書面寫作中，都能頻繁見到它的身影。\n\n· 常見使用場景\n\n- [id:ex.ko.s.002014] (行為的轉折)\n- [id:ex.ko.s.002016] (難度與趣味的對比)\n\n· 相近文法比較\n\n- **하지만 vs 그러나**: `하지만` 較為自然且通用；`그러나` 則顯得正式、莊重，多見於書面報導或演講。\n- **하지만 vs 그런데**: `그런데` 有時可以用來變換話題，而 `하지만` 則始終專注於邏輯上的「轉折」。",
+      "usage_notes": []
+    }
+  },
+  {
     "id": "kg.grammar.ability.can_ul_su_itda",
     "source": {
       "id": "kg.grammar.ability.can_ul_su_itda",
@@ -92,6 +450,87 @@
     }
   },
   {
+    "id": "kg.grammar.adverb.ajik",
+    "source": {
+      "id": "kg.grammar.adverb.ajik",
+      "kind": "grammar",
+      "subcategory": "adverb",
+      "level": "A2",
+      "surface": "아직",
+      "tags": [
+        "grammar",
+        "adverb",
+        "time",
+        "beginner",
+        "v5_ingestion"
+      ],
+      "provenance": {
+        "source": "knowledge_lab_rescue",
+        "rescue_batch": "KLAB-Batch-1.8"
+      },
+      "example_sentence_refs": [
+        "ex.ko.s.001757",
+        "ex.ko.s.001758",
+        "ex.ko.s.001759",
+        "ex.ko.s.001760",
+        "ex.ko.s.001761",
+        "ex.ko.s.001762",
+        "ex.ko.s.001763",
+        "ex.ko.s.001764",
+        "ex.ko.s.001765",
+        "ex.ko.s.001766"
+      ]
+    },
+    "i18n": {
+      "id": "kg.grammar.adverb.ajik",
+      "locale": "zh_tw",
+      "title": "아직 (還沒/仍然)",
+      "description": "表示某個狀態或行為持續到現在，或者尚未發生。",
+      "explanation_md": "· 用法說明\n\n`아직` 是一個時間副詞，主要有兩種用法：\n1. 用在否定句中，表示「還（沒）」。\n2. 用在肯定句中，表示「仍然」、「依舊」。\n\n· 常見使用場景\n\n- 表達某事尚未完成或發生。\n- 表達某個狀態持續存在，沒有改變。\n- 與 `안` 或 `못` 連用表示「還沒...」。\n\n· 注意\n\n與 `아직도` 相比，`아직` 較為中性，而 `아직도` 往往帶有「怎麼到現在還...」的驚訝或不耐煩感。\n\n[id:ex.ko.s.001757] [id:ex.ko.s.001758] [id:ex.ko.s.001759] [id:ex.ko.s.001760] [id:ex.ko.s.001761] [id:ex.ko.s.001762] [id:ex.ko.s.001763] [id:ex.ko.s.001764] [id:ex.ko.s.001765] [id:ex.ko.s.001766]",
+      "usage_notes": []
+    }
+  },
+  {
+    "id": "kg.grammar.adverb.aju",
+    "source": {
+      "id": "kg.grammar.adverb.aju",
+      "kind": "grammar",
+      "subcategory": "degree",
+      "level": "A2",
+      "surface": "아주",
+      "tags": [
+        "grammar",
+        "adverb",
+        "beginner",
+        "v5_ingestion"
+      ],
+      "provenance": {
+        "source": "knowledge_lab_rescue",
+        "rescue_batch": "KLAB-Batch-1.6"
+      },
+      "example_sentence_refs": [
+        "ex.ko.s.001677",
+        "ex.ko.s.001678",
+        "ex.ko.s.001679",
+        "ex.ko.s.001680",
+        "ex.ko.s.001681",
+        "ex.ko.s.001682",
+        "ex.ko.s.001683",
+        "ex.ko.s.001684",
+        "ex.ko.s.001685",
+        "ex.ko.s.001686"
+      ]
+    },
+    "i18n": {
+      "id": "kg.grammar.adverb.aju",
+      "locale": "zh_tw",
+      "title": "아주 (非常)",
+      "description": "表示程度很高，超出了普通水準，偏向中性或正面強調。",
+      "explanation_md": "· 用法說明\n\n用於強調事物的性質或程度極其強烈。在口語和書面語中都很常見。\n\n· 常見使用場景\n\n當想要表達「很」、「非常」的心情，且帶有感嘆色彩時使用。常用於正面描述。\n\n· 相近文法比較\n\n- `매우`: 語氣較重，常用於書面或廣播。\n- `너무`: 原本指「過度 (超過限度)」，但現代韓語中也常用於正面強調。\n- `아주`: 比較自然且語氣溫和的強調，語意偏向完全、徹底的「非常」。\n\n· 注意\n\n除了「非常」以外，也有「完全」、「從此」的意思，例如 `아주 잊었어요` (完全忘記了)。\n\n[id:ex.ko.s.001677]\n[id:ex.ko.s.001678]\n[id:ex.ko.s.001679]\n[id:ex.ko.s.001680]\n[id:ex.ko.s.001681]\n[id:ex.ko.s.001682]\n[id:ex.ko.s.001683]\n[id:ex.ko.s.001684]\n[id:ex.ko.s.001685]\n[id:ex.ko.s.001686]",
+      "usage_notes": []
+    }
+  },
+  {
     "id": "kg.grammar.adverb.akka",
     "source": {
       "id": "kg.grammar.adverb.akka",
@@ -100,9 +539,10 @@
       "level": "A1",
       "surface": "아까",
       "tags": [
-        "grammar",
         "adverb",
         "beginner",
+        "grammar",
+        "time",
         "v5_ingestion"
       ],
       "provenance": {
@@ -133,6 +573,169 @@
       "title": "아까 (剛才 - 稍早)",
       "description": "表示在不久前的過去，通常是指「在同一天之內」較早的時間點。",
       "explanation_md": "· 用法說明\n用於表示在當天內稍早的一段時間，常用於口語中，意為「剛才」、「剛才那一會兒」。\n\n· 常見使用場景\n- 提及剛做完的事：[id:ex.ko.s.000387]\n- 描述剛才的天氣或狀態：[id:ex.ko.s.000389]\n- 詢問刚才見過的人或事：[id:ex.ko.s.000390]\n\n· 相近文法比較\n- `아까`: 指當天內、剛過一會兒的過去（如：幾分鐘或幾小時前）。\n- `방금` / `금방`: 指非常接近現在的過去（如：幾秒鐘或幾分鐘前）。`아까` 比範圍稍大一些。\n\n· 注意\n與 `이따가`（等一下）相對，一個是指過去，一個是指未來，且都通常限於「當天之內」。",
+      "usage_notes": []
+    }
+  },
+  {
+    "id": "kg.grammar.adverb.bandeusi",
+    "source": {
+      "id": "kg.grammar.adverb.bandeusi",
+      "kind": "grammar",
+      "subcategory": "adverb",
+      "subfamily": "manner",
+      "level": "A2",
+      "surface": "반드시",
+      "tags": [
+        "grammar",
+        "adverb",
+        "beginner",
+        "v5_ingestion"
+      ],
+      "provenance": {
+        "source": "knowledge_lab_rescue",
+        "rescue_batch": "KLAB-Batch-1.10"
+      },
+      "example_sentence_refs": [
+        "ex.ko.s.001897",
+        "ex.ko.s.001898",
+        "ex.ko.s.001899",
+        "ex.ko.s.001900",
+        "ex.ko.s.001901",
+        "ex.ko.s.001902",
+        "ex.ko.s.001903",
+        "ex.ko.s.001904",
+        "ex.ko.s.001905",
+        "ex.ko.s.001906"
+      ]
+    },
+    "i18n": {
+      "id": "kg.grammar.adverb.bandeusi",
+      "locale": "zh_tw",
+      "title": "반드시 (必定、必須)",
+      "description": "強調邏輯上的必然性或毫不妥協的規定與決心。",
+      "explanation_md": "· 用法說明\n\n`반드시` 意為「必定」、「必須」、「絕對」，強調事情不可避免地發生，或者是必須遵守的規範。語氣比 `꼭` 更具強制性和法律性感的正式度。\n\n· 常見使用場景\n\n1. 強調規定：如「必須預約」、「必定要確認」。\n2. 表達堅定的信念：如「必定會成功」、「一定會記住」。\n\n· 相近文法比較\n\n- `반드시` vs `꼭`: `반드시` 強調必然性與義務，口吻較硬；`꼭` 則常在口語中用於約定和請求，口吻較軟。\n\n· 注意\n\n[id:ex.ko.s.001897]",
+      "usage_notes": []
+    }
+  },
+  {
+    "id": "kg.grammar.adverb.baro",
+    "source": {
+      "id": "kg.grammar.adverb.baro",
+      "kind": "grammar",
+      "subcategory": "time",
+      "level": "A2",
+      "surface": "바로",
+      "tags": [
+        "grammar",
+        "adverb",
+        "beginner",
+        "v5_ingestion"
+      ],
+      "provenance": {
+        "source": "knowledge_lab_rescue",
+        "rescue_batch": "KLAB-Batch-1.5"
+      },
+      "example_sentence_refs": [
+        "ex.ko.s.001627",
+        "ex.ko.s.001628",
+        "ex.ko.s.001629",
+        "ex.ko.s.001630",
+        "ex.ko.s.001631",
+        "ex.ko.s.001632",
+        "ex.ko.s.001633",
+        "ex.ko.s.001634",
+        "ex.ko.s.001635",
+        "ex.ko.s.001636"
+      ]
+    },
+    "i18n": {
+      "id": "kg.grammar.adverb.baro",
+      "locale": "zh_tw",
+      "title": "바로 (立刻、正是)",
+      "description": "表示時間上的緊迫、空間上的鄰近，或強調對象。",
+      "explanation_md": "· 用法說明\n\n1. 表示動作沒有延遲，立即執行。\n2. 表示空間上非常靠近。\n3. 用於強調，表示「正是」、「就是」。\n\n· 常見使用場景\n\n- 需要立即行動時。\n- 指出某物就在附近時。\n- 強調某人或某物正是所指對象時。\n\n[id:ex.ko.s.001627] [id:ex.ko.s.001628] [id:ex.ko.s.001629] [id:ex.ko.s.001630] [id:ex.ko.s.001631] [id:ex.ko.s.001632] [id:ex.ko.s.001633] [id:ex.ko.s.001634] [id:ex.ko.s.001635] [id:ex.ko.s.001636]",
+      "usage_notes": []
+    }
+  },
+  {
+    "id": "kg.grammar.adverb.beolsseo",
+    "source": {
+      "id": "kg.grammar.adverb.beolsseo",
+      "kind": "grammar",
+      "subcategory": "adverb",
+      "level": "A2",
+      "surface": "벌써",
+      "tags": [
+        "grammar",
+        "adverb",
+        "time",
+        "beginner",
+        "v5_ingestion"
+      ],
+      "provenance": {
+        "source": "knowledge_lab_rescue",
+        "rescue_batch": "KLAB-Batch-1.8"
+      },
+      "example_sentence_refs": [
+        "ex.ko.s.001767",
+        "ex.ko.s.001768",
+        "ex.ko.s.001769",
+        "ex.ko.s.001770",
+        "ex.ko.s.001771",
+        "ex.ko.s.001772",
+        "ex.ko.s.001773",
+        "ex.ko.s.001774",
+        "ex.ko.s.001775",
+        "ex.ko.s.001776"
+      ]
+    },
+    "i18n": {
+      "id": "kg.grammar.adverb.beolsseo",
+      "locale": "zh_tw",
+      "title": "벌써 (已經)",
+      "description": "表示事情發生或完成得比預期的要快，帶有驚訝的語氣。",
+      "explanation_md": "· 用法說明\n\n`벌써` 表示「已經」，其核心特點是帶有「驚訝」的語氣，覺得事情發生得太快或太早，超乎預期。\n\n· 常見使用場景\n\n- 感嘆時間慢得飛快。\n- 對方完成某事的的速度令人驚訝時。\n- 季节或氣候變化比預想中早時。\n\n· 注意\n\n區別於 `이미`。`벌써` 側重於「情感上的驚訝/預期之外」，而 `이미` 側重於「客觀事實的既成性」。\n\n[id:ex.ko.s.001767] [id:ex.ko.s.001768] [id:ex.ko.s.001769] [id:ex.ko.s.001770] [id:ex.ko.s.001771] [id:ex.ko.s.001772] [id:ex.ko.s.001773] [id:ex.ko.s.001774] [id:ex.ko.s.001775] [id:ex.ko.s.001776]",
+      "usage_notes": []
+    }
+  },
+  {
+    "id": "kg.grammar.adverb.botong",
+    "source": {
+      "id": "kg.grammar.adverb.botong",
+      "kind": "grammar",
+      "subcategory": "adverb",
+      "level": "A2",
+      "surface": "보통",
+      "tags": [
+        "grammar",
+        "adverb",
+        "frequency",
+        "beginner",
+        "v5_ingestion"
+      ],
+      "provenance": {
+        "source": "knowledge_lab_rescue",
+        "rescue_batch": "KLAB-Batch-1.7"
+      },
+      "example_sentence_refs": [
+        "ex.ko.s.001747",
+        "ex.ko.s.001748",
+        "ex.ko.s.001749",
+        "ex.ko.s.001750",
+        "ex.ko.s.001751",
+        "ex.ko.s.001752",
+        "ex.ko.s.001753",
+        "ex.ko.s.001754",
+        "ex.ko.s.001755",
+        "ex.ko.s.001756"
+      ]
+    },
+    "i18n": {
+      "id": "kg.grammar.adverb.botong",
+      "locale": "zh_tw",
+      "title": "보통 (通常/一般)",
+      "description": "表示在一般情況下，某個行為或狀態是普遍存在的。",
+      "explanation_md": "· 用法說明\n\n`보통` 作為副詞使用時，表示「通常」、「一般」或「平常」的意思。它用於描述不加特殊條件時的普遍規律或日常狀態。也可以作為名詞或形容詞使用，表示「普通」、「一般水平」。\n\n· 常見使用場景\n\n- 描述日常的作息規律（如幾點起床、幾點下班）。\n- 描述一般性的喜好或行為特徵。\n- 表達事物的平均或標準狀態。\n\n· 注意\n\n與 `항상이`(總是) 不同，`보통` 允許例外的存在，側重於「大多數情況下」或「按常理來說」。\n\n[id:ex.ko.s.001747] [id:ex.ko.s.001748] [id:ex.ko.s.001749] [id:ex.ko.s.001750] [id:ex.ko.s.001751] [id:ex.ko.s.001752] [id:ex.ko.s.001753] [id:ex.ko.s.001754] [id:ex.ko.s.001755] [id:ex.ko.s.001756]",
       "usage_notes": []
     }
   },
@@ -187,6 +790,89 @@
     }
   },
   {
+    "id": "kg.grammar.adverb.cham",
+    "source": {
+      "id": "kg.grammar.adverb.cham",
+      "kind": "grammar",
+      "subcategory": "adverb",
+      "subfamily": "manner",
+      "level": "A2",
+      "surface": "참",
+      "tags": [
+        "grammar",
+        "adverb",
+        "beginner",
+        "v5_ingestion"
+      ],
+      "provenance": {
+        "source": "knowledge_lab_rescue",
+        "rescue_batch": "KLAB-Batch-1.10"
+      },
+      "example_sentence_refs": [
+        "ex.ko.s.001697",
+        "ex.ko.s.001857",
+        "ex.ko.s.001858",
+        "ex.ko.s.001859",
+        "ex.ko.s.001860",
+        "ex.ko.s.001861",
+        "ex.ko.s.001862",
+        "ex.ko.s.001863",
+        "ex.ko.s.001864",
+        "ex.ko.s.001865",
+        "ex.ko.s.001866"
+      ]
+    },
+    "i18n": {
+      "id": "kg.grammar.adverb.cham",
+      "locale": "zh_tw",
+      "title": "참 (非常、真是)",
+      "description": "表示對程度的感嘆，常用於強調驚訝或讚賞。",
+      "explanation_md": "· 用法說明\n\n`참` 是表示程度的副詞，中文通常翻成「非常」、「真是」、「很」。它帶有一種感嘆的語氣，常用於稱讚或表達驚訝。在口語中非常常用。\n\n· 常見使用場景\n\n1. 表示感嘆：例如稱讚天氣、歌聲或人的特質。\n2. 強調程度：與「非常」、「真的」意思相近，但在口語中感嘆色彩更重。\n\n· 相近文法比較\n\n- `참` vs `아주`: `아주` 較為中性，強調程度深；`참` 則帶有說話者的主觀情感和感嘆成分。\n\n· 注意\n\n[id:ex.ko.s.001857] [id:ex.ko.s.001697]",
+      "usage_notes": []
+    }
+  },
+  {
+    "id": "kg.grammar.adverb.da",
+    "source": {
+      "id": "kg.grammar.adverb.da",
+      "kind": "grammar",
+      "subcategory": "adverb",
+      "level": "A2",
+      "surface": "다",
+      "tags": [
+        "grammar",
+        "adverb",
+        "quantifier",
+        "beginner",
+        "v5_ingestion"
+      ],
+      "provenance": {
+        "source": "knowledge_lab_rescue",
+        "rescue_batch": "KLAB-Batch-1.4"
+      },
+      "example_sentence_refs": [
+        "ex.ko.s.001567",
+        "ex.ko.s.001568",
+        "ex.ko.s.001569",
+        "ex.ko.s.001570",
+        "ex.ko.s.001571",
+        "ex.ko.s.001572",
+        "ex.ko.s.001573",
+        "ex.ko.s.001574",
+        "ex.ko.s.001575",
+        "ex.ko.s.001576"
+      ]
+    },
+    "i18n": {
+      "id": "kg.grammar.adverb.da",
+      "locale": "zh_tw",
+      "title": "다 (全部 - 數量)",
+      "description": "表示全部、所有，或者事情已經完全結束。",
+      "explanation_md": "· 用法說明\n\n`다` 是一個表示「全部」、「所有」或「都」的副詞。它可以用來修飾名詞或動詞，表示數量的完整性，或者是動作的徹底完成。\n\n· 常見使用場景\n\n1. 數量上的全部：`사람들이 다 왔어요.` (人都到齊了。)\n2. 動作的完成：`숙제를 다 했어요.` (作業都做完了。)\n3. 狀態的完全：`다 괜찮아요.` (都沒關係/都很好。)\n\n· 注意\n\n`다` 通常放在動詞或形容詞的前面，或者在主語之後使用以強調「全部」。\n\n[id:ex.ko.s.001567] [id:ex.ko.s.001568] [id:ex.ko.s.001569]",
+      "usage_notes": []
+    }
+  },
+  {
     "id": "kg.grammar.adverb.dangjang",
     "source": {
       "id": "kg.grammar.adverb.dangjang",
@@ -195,9 +881,10 @@
       "level": "A1",
       "surface": "당장",
       "tags": [
-        "grammar",
         "adverb",
         "beginner",
+        "grammar",
+        "time",
         "v5_ingestion"
       ],
       "provenance": {
@@ -232,6 +919,128 @@
     }
   },
   {
+    "id": "kg.grammar.adverb.dasi",
+    "source": {
+      "id": "kg.grammar.adverb.dasi",
+      "kind": "grammar",
+      "subcategory": "time",
+      "level": "A2",
+      "surface": "다시",
+      "tags": [
+        "grammar",
+        "adverb",
+        "beginner",
+        "v5_ingestion"
+      ],
+      "provenance": {
+        "source": "knowledge_lab_rescue",
+        "rescue_batch": "KLAB-Batch-1.5"
+      },
+      "example_sentence_refs": [
+        "ex.ko.s.001607",
+        "ex.ko.s.001608",
+        "ex.ko.s.001609",
+        "ex.ko.s.001610",
+        "ex.ko.s.001611",
+        "ex.ko.s.001612",
+        "ex.ko.s.001613",
+        "ex.ko.s.001614",
+        "ex.ko.s.001615",
+        "ex.ko.s.001616"
+      ]
+    },
+    "i18n": {
+      "id": "kg.grammar.adverb.dasi",
+      "locale": "zh_tw",
+      "title": "다시 (又、再)",
+      "description": "表示重複動作或回到原來的狀態。",
+      "explanation_md": "· 用法說明\n\n1. 表示動作的重複，相當於中文的「又」、「再」。\n2. 也可用於表示動作的中斷後再次開始，或恢復到之前的狀態。\n\n· 常見使用場景\n\n- 再次嘗試某事時。\n- 回到之前去過的地方時。\n- 重新確認訊息時。\n\n[id:ex.ko.s.001607] [id:ex.ko.s.001608] [id:ex.ko.s.001609] [id:ex.ko.s.001610] [id:ex.ko.s.001611] [id:ex.ko.s.001612] [id:ex.ko.s.001613] [id:ex.ko.s.001614] [id:ex.ko.s.001615] [id:ex.ko.s.001616]",
+      "usage_notes": []
+    }
+  },
+  {
+    "id": "kg.grammar.adverb.deo",
+    "source": {
+      "id": "kg.grammar.adverb.deo",
+      "kind": "grammar",
+      "subcategory": "adverb",
+      "level": "A2",
+      "surface": "더",
+      "tags": [
+        "grammar",
+        "adverb",
+        "comparison",
+        "beginner",
+        "v5_ingestion"
+      ],
+      "provenance": {
+        "source": "knowledge_lab_rescue",
+        "rescue_batch": "KLAB-Batch-1.4"
+      },
+      "example_sentence_refs": [
+        "ex.ko.s.001557",
+        "ex.ko.s.001558",
+        "ex.ko.s.001559",
+        "ex.ko.s.001560",
+        "ex.ko.s.001561",
+        "ex.ko.s.001562",
+        "ex.ko.s.001563",
+        "ex.ko.s.001564",
+        "ex.ko.s.001565",
+        "ex.ko.s.001566"
+      ]
+    },
+    "i18n": {
+      "id": "kg.grammar.adverb.deo",
+      "locale": "zh_tw",
+      "title": "더 (更多 - 比較)",
+      "description": "表示程度或數量比以前或基準更多。",
+      "explanation_md": "· 用法說明\n\n`더` 是一個副詞，用於表示程度、數量或時間上的增加，相當於中文的「更」、「更多」或「再」。它常用於比較句，或者在請求某事增加時使用。\n\n· 常見使用場景\n\n1. 表示程度的比較 (例如：更漂亮、更快)。\n2. 表示數量的增加 (例如：多給一點、再喝一杯)。\n3. 表示時間的延長 (例如：再等一下)。\n\n· 注意\n\n在口語中，`더` 經常與 `많이` (多) 連用成為 `더 많이`，或者直接放在形容詞/動詞前面。\n\n[id:ex.ko.s.001557] [id:ex.ko.s.001558] [id:ex.ko.s.001559]",
+      "usage_notes": []
+    }
+  },
+  {
+    "id": "kg.grammar.adverb.eodi",
+    "source": {
+      "id": "kg.grammar.adverb.eodi",
+      "kind": "grammar",
+      "subcategory": "adverb",
+      "level": "A2",
+      "surface": "어디",
+      "tags": [
+        "grammar",
+        "adverb",
+        "place",
+        "beginner",
+        "v5_ingestion"
+      ],
+      "provenance": {
+        "source": "knowledge_lab_rescue",
+        "rescue_batch": "KLAB-Batch-1.9"
+      },
+      "example_sentence_refs": [
+        "ex.ko.s.001837",
+        "ex.ko.s.001838",
+        "ex.ko.s.001839",
+        "ex.ko.s.001840",
+        "ex.ko.s.001841",
+        "ex.ko.s.001842",
+        "ex.ko.s.001843",
+        "ex.ko.s.001844",
+        "ex.ko.s.001845",
+        "ex.ko.s.001846"
+      ]
+    },
+    "i18n": {
+      "id": "kg.grammar.adverb.eodi",
+      "locale": "zh_tw",
+      "title": "어디 (哪裡)",
+      "description": "疑問代名詞，用來詢問場所或位置。",
+      "explanation_md": "· 用法說明\n\n`어디` 用於詢問不知道的地點或方位。它既可以作為主語，也可以接各種格助詞來表示方向、來源或所在地點。\n\n· 常見使用場景\n\n1. 詢問住處或家在哪裡時：\n[id:ex.ko.s.001837]\n[id:ex.ko.s.001838]\n\n2. 詢問目的地或想去的地方時：\n[id:ex.ko.s.001839]\n[id:ex.ko.s.001841]\n\n3. 詢問目前所在地點時：\n[id:ex.ko.s.001845]\n\n· 注意\n\n在非疑問句中，`어디` 有時也可以表示「某處」或「任何地方」。",
+      "usage_notes": []
+    }
+  },
+  {
     "id": "kg.grammar.adverb.eolleun",
     "source": {
       "id": "kg.grammar.adverb.eolleun",
@@ -240,9 +1049,10 @@
       "level": "A1",
       "surface": "얼른",
       "tags": [
-        "grammar",
         "adverb",
         "beginner",
+        "grammar",
+        "time",
         "v5_ingestion"
       ],
       "provenance": {
@@ -277,6 +1087,169 @@
     }
   },
   {
+    "id": "kg.grammar.adverb.gajang",
+    "source": {
+      "id": "kg.grammar.adverb.gajang",
+      "kind": "grammar",
+      "subcategory": "degree",
+      "level": "A2",
+      "surface": "가장",
+      "tags": [
+        "grammar",
+        "adverb",
+        "beginner",
+        "v5_ingestion"
+      ],
+      "provenance": {
+        "source": "knowledge_lab_rescue",
+        "rescue_batch": "KLAB-Batch-1.6"
+      },
+      "example_sentence_refs": [
+        "ex.ko.s.001657",
+        "ex.ko.s.001658",
+        "ex.ko.s.001659",
+        "ex.ko.s.001660",
+        "ex.ko.s.001661",
+        "ex.ko.s.001662",
+        "ex.ko.s.001663",
+        "ex.ko.s.001664",
+        "ex.ko.s.001665",
+        "ex.ko.s.001666"
+      ]
+    },
+    "i18n": {
+      "id": "kg.grammar.adverb.gajang",
+      "locale": "zh_tw",
+      "title": "가장 (最)",
+      "description": "表示在同類事物中程度最高、最突出，相當於「最」。",
+      "explanation_md": "· 用法說明\n\n表示在多個對象或範圍中，程度達到最高、最尖端的狀態。通常用於形容詞或副詞前面。\n\n· 常見使用場景\n\n在表達喜好（最喜歡）、大小（最大）、高度（最高）等比較結果時使用。\n\n· 相近文法比較\n\n與 `제일` (第一) 的語意幾乎完全相同。`가장` 是純韓文詞彙，感覺稍稍正式一些；`제일` 則是漢字詞，口語中使用頻率更高。\n\n· 注意\n\n通常用於三個以上的對象進行比較時。如果只有兩個對象，通常使用 `더` (更)。\n\n[id:ex.ko.s.001657]\n[id:ex.ko.s.001658]\n[id:ex.ko.s.001659]\n[id:ex.ko.s.001660]\n[id:ex.ko.s.001661]\n[id:ex.ko.s.001662]\n[id:ex.ko.s.001663]\n[id:ex.ko.s.001664]\n[id:ex.ko.s.001665]\n[id:ex.ko.s.001666]",
+      "usage_notes": []
+    }
+  },
+  {
+    "id": "kg.grammar.adverb.gakkeum",
+    "source": {
+      "id": "kg.grammar.adverb.gakkeum",
+      "kind": "grammar",
+      "subcategory": "adverb",
+      "level": "A2",
+      "surface": "가끔",
+      "tags": [
+        "grammar",
+        "adverb",
+        "frequency",
+        "beginner",
+        "v5_ingestion"
+      ],
+      "provenance": {
+        "source": "knowledge_lab_rescue",
+        "rescue_batch": "KLAB-Batch-1.7"
+      },
+      "example_sentence_refs": [
+        "ex.ko.s.001727",
+        "ex.ko.s.001728",
+        "ex.ko.s.001729",
+        "ex.ko.s.001730",
+        "ex.ko.s.001731",
+        "ex.ko.s.001732",
+        "ex.ko.s.001733",
+        "ex.ko.s.001734",
+        "ex.ko.s.001735",
+        "ex.ko.s.001736"
+      ]
+    },
+    "i18n": {
+      "id": "kg.grammar.adverb.gakkeum",
+      "locale": "zh_tw",
+      "title": "가끔 (有時)",
+      "description": "表示某個行為或事情發生的間隔較長，只是偶爾發生。",
+      "explanation_md": "· 用法說明\n\n`가끔` 是一個頻率副詞，表示「有時」、「偶爾」的意思。它用於描述動作發生的頻率較低，兩次發生之間有較長的間隔。在句子中通常放在動詞之前。\n\n· 常見使用場景\n\n- 描述不定期進行的休閒活動或愛好。\n- 描述某種不太常見的感覺或想法。\n- 描述某個地方或人的偶然訪問。\n\n· 注意\n\n與 `종종` 的意思相近，但 `가끔` 在日常對話中更為常用，頻率感比 `자주` (經常) 低許多。\n\n[id:ex.ko.s.001727] [id:ex.ko.s.001728] [id:ex.ko.s.001729] [id:ex.ko.s.001730] [id:ex.ko.s.001731] [id:ex.ko.s.001732] [id:ex.ko.s.001733] [id:ex.ko.s.001734] [id:ex.ko.s.001735] [id:ex.ko.s.001736]",
+      "usage_notes": []
+    }
+  },
+  {
+    "id": "kg.grammar.adverb.gapjagi",
+    "source": {
+      "id": "kg.grammar.adverb.gapjagi",
+      "kind": "grammar",
+      "subcategory": "adverb",
+      "level": "A2",
+      "surface": "갑자기",
+      "tags": [
+        "grammar",
+        "adverb",
+        "time",
+        "beginner",
+        "v5_ingestion"
+      ],
+      "provenance": {
+        "source": "knowledge_lab_rescue",
+        "rescue_batch": "KLAB-Batch-1.8"
+      },
+      "example_sentence_refs": [
+        "ex.ko.s.001787",
+        "ex.ko.s.001788",
+        "ex.ko.s.001789",
+        "ex.ko.s.001790",
+        "ex.ko.s.001791",
+        "ex.ko.s.001792",
+        "ex.ko.s.001793",
+        "ex.ko.s.001794",
+        "ex.ko.s.001795",
+        "ex.ko.s.001796"
+      ]
+    },
+    "i18n": {
+      "id": "kg.grammar.adverb.gapjagi",
+      "locale": "zh_tw",
+      "title": "갑자기 (突然)",
+      "description": "表示事情在短時間內、出乎意料地發生。",
+      "explanation_md": "· 用法說明\n\n`갑자기` 表示「突然」、「忽然」，用於描述某種變化或行為在毫無預兆的情況下突然出現。\n\n· 常見使用場景\n\n- 描述天氣的急劇變化。\n- 描述情緒或想法的突然轉變。\n- 描述突發事件的發生。\n\n· 注意\n\n在口語中非常常用，通常放在動詞或形容詞之前。\n\n[id:ex.ko.s.001787] [id:ex.ko.s.001788] [id:ex.ko.s.001789] [id:ex.ko.s.001790] [id:ex.ko.s.001791] [id:ex.ko.s.001792] [id:ex.ko.s.001793] [id:ex.ko.s.001794] [id:ex.ko.s.001795] [id:ex.ko.s.001796]",
+      "usage_notes": []
+    }
+  },
+  {
+    "id": "kg.grammar.adverb.geogi",
+    "source": {
+      "id": "kg.grammar.adverb.geogi",
+      "kind": "grammar",
+      "subcategory": "adverb",
+      "level": "A2",
+      "surface": "거기",
+      "tags": [
+        "grammar",
+        "adverb",
+        "place",
+        "beginner",
+        "v5_ingestion"
+      ],
+      "provenance": {
+        "source": "knowledge_lab_rescue",
+        "rescue_batch": "KLAB-Batch-1.9"
+      },
+      "example_sentence_refs": [
+        "ex.ko.s.001817",
+        "ex.ko.s.001818",
+        "ex.ko.s.001819",
+        "ex.ko.s.001820",
+        "ex.ko.s.001821",
+        "ex.ko.s.001822",
+        "ex.ko.s.001823",
+        "ex.ko.s.001824",
+        "ex.ko.s.001825",
+        "ex.ko.s.001826"
+      ]
+    },
+    "i18n": {
+      "id": "kg.grammar.adverb.geogi",
+      "locale": "zh_tw",
+      "title": "거기 (那裡 - 靠近聽者)",
+      "description": "指示靠近聽者場所的代名詞，相當於中文的「那裡」。",
+      "explanation_md": "· 用法說明\n\n`거기` 用來指稱靠近聽話者的場所，或者說話雙方都已經提到的某個地方。它比 `여기` 遠，但比 `저기` 近（相對於說話者而言）。\n\n· 常見使用場景\n\n1. 詢問聽者所在地點時：\n[id:ex.ko.s.001817]\n[id:ex.ko.s.001818]\n\n2. 指示聽者附近的某處時：\n[id:ex.ko.s.001819]\n[id:ex.ko.s.001824]\n\n3. 提到之前說過的某個地點時：\n[id:ex.ko.s.001821]\n\n· 相近文法比較\n\n- `여기`: 靠近說話者。\n- `거기`: 靠近聽話者，或心中想到的地點。\n- `저기`: 遠離說話者與聽話者雙方。",
+      "usage_notes": []
+    }
+  },
+  {
     "id": "kg.grammar.adverb.geumbang",
     "source": {
       "id": "kg.grammar.adverb.geumbang",
@@ -285,9 +1258,10 @@
       "level": "A1",
       "surface": "금방",
       "tags": [
-        "grammar",
         "adverb",
         "beginner",
+        "grammar",
+        "time",
         "v5_ingestion"
       ],
       "provenance": {
@@ -322,6 +1296,47 @@
     }
   },
   {
+    "id": "kg.grammar.adverb.geunyang",
+    "source": {
+      "id": "kg.grammar.adverb.geunyang",
+      "kind": "grammar",
+      "subcategory": "adverb",
+      "level": "A2",
+      "surface": "그냥",
+      "tags": [
+        "grammar",
+        "adverb",
+        "discourse",
+        "beginner",
+        "v5_ingestion"
+      ],
+      "provenance": {
+        "source": "knowledge_lab_rescue",
+        "rescue_batch": "KLAB-Batch-1.4"
+      },
+      "example_sentence_refs": [
+        "ex.ko.s.001597",
+        "ex.ko.s.001598",
+        "ex.ko.s.001599",
+        "ex.ko.s.001600",
+        "ex.ko.s.001601",
+        "ex.ko.s.001602",
+        "ex.ko.s.001603",
+        "ex.ko.s.001604",
+        "ex.ko.s.001605",
+        "ex.ko.s.001606"
+      ]
+    },
+    "i18n": {
+      "id": "kg.grammar.adverb.geunyang",
+      "locale": "zh_tw",
+      "title": "그냥 (就/只是 - 語氣)",
+      "description": "表示保持原樣、沒有理由，或者只是單純地如何。",
+      "explanation_md": "· 用法說明\n\n`그냥` 是一個非常地道的韓語副詞。它常被翻譯為「就」、「只是」或「就那樣」。它表示某件事沒有特別的意圖、理由或變化。\n\n· 常見使用場景\n\n1. 表示沒有特別理由：`그냥 궁금해서요.` (就只是因為好奇。)\n2. 表示保持現狀：`그냥 두세요.` (就放著吧/別動它。)\n3. 表示無代價或單純：`그냥 드세요.` (儘管吃吧/就這麼吃吧。)\n\n· 注意\n\n在回答別人的問題「為什麼？」時，如果不想回答具體原因，韓語者常會簡單地說 `그냥요.` (就那樣/沒什麼特別理由)。\n\n[id:ex.ko.s.001597] [id:ex.ko.s.001598] [id:ex.ko.s.001599]",
+      "usage_notes": []
+    }
+  },
+  {
     "id": "kg.grammar.adverb.got",
     "source": {
       "id": "kg.grammar.adverb.got",
@@ -330,9 +1345,10 @@
       "level": "A1",
       "surface": "곧",
       "tags": [
-        "grammar",
         "adverb",
         "beginner",
+        "grammar",
+        "time",
         "v5_ingestion"
       ],
       "provenance": {
@@ -367,6 +1383,248 @@
     }
   },
   {
+    "id": "kg.grammar.adverb.gyeou",
+    "source": {
+      "id": "kg.grammar.adverb.gyeou",
+      "kind": "grammar",
+      "subcategory": "adverb",
+      "level": "A2",
+      "surface": "겨우",
+      "tags": [
+        "grammar",
+        "adverb",
+        "v5_ingestion"
+      ],
+      "provenance": {
+        "source": "knowledge_lab_rescue",
+        "rescue_batch": "KLAB-Batch-1.12"
+      },
+      "example_sentence_refs": [
+        "ex.ko.s.001954",
+        "ex.ko.s.001955",
+        "ex.ko.s.001956",
+        "ex.ko.s.001957",
+        "ex.ko.s.001958",
+        "ex.ko.s.001959",
+        "ex.ko.s.001960",
+        "ex.ko.s.001961",
+        "ex.ko.s.001962",
+        "ex.ko.s.001963"
+      ]
+    },
+    "i18n": {
+      "id": "kg.grammar.adverb.gyeou",
+      "locale": "zh_tw",
+      "title": "겨우 (好不容易 / 勉強)",
+      "description": "表示費了很大勁才達成某事，或數量、程度極小，僅僅如此。",
+      "explanation_md": "· 用法說明\n\n1. 表示費盡周折、好不容易才完成某件事。\n2. 表示數量或程度非常少，僅僅、勉強達到某個標準。\n\n· 常見使用場景\n\n- 描述在困難的情況下勉強完成某事：[id:ex.ko.s.001955], [id:ex.ko.s.001959]\n- 描述數量極少，僅僅：[id:ex.ko.s.001954], [id:ex.ko.s.001963]\n\n· 注意\n\n- 常與 `-밖에` 或 `-만` 連用，強調數量之少：[id:ex.ko.s.001954]\n- 語氣中通常帶有「困難」或「遺憾」的正負面情緒。",
+      "usage_notes": []
+    }
+  },
+  {
+    "id": "kg.grammar.adverb.gyesok",
+    "source": {
+      "id": "kg.grammar.adverb.gyesok",
+      "kind": "grammar",
+      "subcategory": "adverb",
+      "level": "A2",
+      "surface": "계속",
+      "tags": [
+        "grammar",
+        "adverb",
+        "time",
+        "beginner",
+        "v5_ingestion"
+      ],
+      "provenance": {
+        "source": "knowledge_lab_rescue",
+        "rescue_batch": "KLAB-Batch-1.8"
+      },
+      "example_sentence_refs": [
+        "ex.ko.s.001797",
+        "ex.ko.s.001798",
+        "ex.ko.s.001799",
+        "ex.ko.s.001800",
+        "ex.ko.s.001801",
+        "ex.ko.s.001802",
+        "ex.ko.s.001803",
+        "ex.ko.s.001804",
+        "ex.ko.s.001805",
+        "ex.ko.s.001806"
+      ]
+    },
+    "i18n": {
+      "id": "kg.grammar.adverb.gyesok",
+      "locale": "zh_tw",
+      "title": "계속 (一直/繼續)",
+      "description": "表示某個行為或狀態不中斷地持續下去。",
+      "explanation_md": "· 用法說明\n\n`계속` 表示「一直」、「繼續」、「持續」。它可以用作副詞，也可以與 `하다` 結合構成動詞 `계속하다`。\n\n· 常見使用場景\n\n- 描述持續性的動作，如一直走、一直吃。\n- 描述某個狀態的維持。\n- 鼓勵他人「請繼續」時。\n\n· 注意\n\n與 `쭉` 相比，`계속` 較為正式且通用；`쭉` 則帶有更強烈的延伸或一直延伸到底的口吻。\n\n[id:ex.ko.s.001797] [id:ex.ko.s.001798] [id:ex.ko.s.001799] [id:ex.ko.s.001800] [id:ex.ko.s.001801] [id:ex.ko.s.001802] [id:ex.ko.s.001803] [id:ex.ko.s.001804] [id:ex.ko.s.001805] [id:ex.ko.s.001806]",
+      "usage_notes": []
+    }
+  },
+  {
+    "id": "kg.grammar.adverb.hangsang",
+    "source": {
+      "id": "kg.grammar.adverb.hangsang",
+      "kind": "grammar",
+      "subcategory": "adverb",
+      "level": "A2",
+      "surface": "항상",
+      "tags": [
+        "grammar",
+        "adverb",
+        "frequency",
+        "beginner",
+        "v5_ingestion"
+      ],
+      "provenance": {
+        "source": "knowledge_lab_rescue",
+        "rescue_batch": "KLAB-Batch-1.7"
+      },
+      "example_sentence_refs": [
+        "ex.ko.s.001707",
+        "ex.ko.s.001708",
+        "ex.ko.s.001709",
+        "ex.ko.s.001710",
+        "ex.ko.s.001711",
+        "ex.ko.s.001712",
+        "ex.ko.s.001713",
+        "ex.ko.s.001714",
+        "ex.ko.s.001715",
+        "ex.ko.s.001716"
+      ]
+    },
+    "i18n": {
+      "id": "kg.grammar.adverb.hangsang",
+      "locale": "zh_tw",
+      "title": "항상 (總是)",
+      "description": "表示某種狀態或行為持續不斷，或在任何時候都發生。",
+      "explanation_md": "· 用法說明\n\n`항상` 是一個頻率副詞，表示「總是」、「始終」的意思。它用於描述某個動作或狀態在所有時間或情況下都是一致的。在句子中通常放在動詞或形容詞之前。\n\n· 常見使用場景\n\n- 描述日常生活習慣或規律。\n- 表達不變的真理或事實。\n- 描述某人一貫的狀態或性格特徵。\n\n· 注意\n\n與 `언제나` 的意思相近，但在口語和書面語中 `항상` 的使用範圍都非常廣泛。\n\n[id:ex.ko.s.001707] [id:ex.ko.s.001708] [id:ex.ko.s.001709] [id:ex.ko.s.001710] [id:ex.ko.s.001711] [id:ex.ko.s.001712] [id:ex.ko.s.001713] [id:ex.ko.s.001714] [id:ex.ko.s.001715] [id:ex.ko.s.001716]",
+      "usage_notes": []
+    }
+  },
+  {
+    "id": "kg.grammar.adverb.hoksi",
+    "source": {
+      "id": "kg.grammar.adverb.hoksi",
+      "kind": "grammar",
+      "subcategory": "discourse",
+      "level": "A2",
+      "surface": "혹시",
+      "tags": [
+        "grammar",
+        "adverb",
+        "beginner",
+        "v5_ingestion"
+      ],
+      "provenance": {
+        "source": "knowledge_lab_rescue",
+        "rescue_batch": "KLAB-Batch-1.6"
+      },
+      "example_sentence_refs": [
+        "ex.ko.s.001687",
+        "ex.ko.s.001688",
+        "ex.ko.s.001689",
+        "ex.ko.s.001690",
+        "ex.ko.s.001691",
+        "ex.ko.s.001692",
+        "ex.ko.s.001693",
+        "ex.ko.s.001694",
+        "ex.ko.s.001695",
+        "ex.ko.s.001696"
+      ]
+    },
+    "i18n": {
+      "id": "kg.grammar.adverb.hoksi",
+      "locale": "zh_tw",
+      "title": "혹시 (或許/萬一)",
+      "description": "表示對不確定事實的推測，或在提問時增加委婉、禮貌語氣。",
+      "explanation_md": "· 用法說明\n\n用於談論不敢確定的事情，或在請求、詢問他人時作為開場，使語氣顯得客氣且不唐突。\n\n· 常見使用場景\n\n- 在路上問路或確認對方身份時：` 혹시... ` (請問是不是...)\n- 擔心意外發生時：` 혹시 비가 오면... ` (萬一下雨的話...)\n\n· 相近文法比較\n\n當與 `-(으)면` 搭配時，翻譯為「萬一」。當單獨用於提問時，翻譯為「或許」、「請問」。\n\n· 注意\n\n在日常社交對話中，`혹시` 是非常有用的禮貌標記詞。\n\n[id:ex.ko.s.001687]\n[id:ex.ko.s.001688]\n[id:ex.ko.s.001689]\n[id:ex.ko.s.001690]\n[id:ex.ko.s.001691]\n[id:ex.ko.s.001692]\n[id:ex.ko.s.001693]\n[id:ex.ko.s.001694]\n[id:ex.ko.s.001695]\n[id:ex.ko.s.001696]",
+      "usage_notes": []
+    }
+  },
+  {
+    "id": "kg.grammar.adverb.ije",
+    "source": {
+      "id": "kg.grammar.adverb.ije",
+      "kind": "grammar",
+      "subcategory": "discourse/time",
+      "level": "A2",
+      "surface": "이제",
+      "tags": [
+        "grammar",
+        "adverb",
+        "beginner",
+        "v5_ingestion"
+      ],
+      "provenance": {
+        "source": "knowledge_lab_rescue",
+        "rescue_batch": "KLAB-Batch-1.5"
+      },
+      "example_sentence_refs": [
+        "ex.ko.s.001617",
+        "ex.ko.s.001618",
+        "ex.ko.s.001619",
+        "ex.ko.s.001620",
+        "ex.ko.s.001621",
+        "ex.ko.s.001622",
+        "ex.ko.s.001623",
+        "ex.ko.s.001624",
+        "ex.ko.s.001625",
+        "ex.ko.s.001626"
+      ]
+    },
+    "i18n": {
+      "id": "kg.grammar.adverb.ije",
+      "locale": "zh_tw",
+      "title": "이제 (現在、從現在起)",
+      "description": "表示與過去不同的現在這一時刻，或從現在開始的改變。",
+      "explanation_md": "· 用法說明\n\n1. 表示「現在」、「此刻」，特別強調與之前的狀態有所不同。\n2. 表示「從現在開始」，引導出接下來的動作或變化。\n\n· 常見使用場景\n\n- 宣告某事即將開始時。\n- 表示不再做某事時（與 negation 連用）。\n- 表示終於達成某種狀態時。\n\n[id:ex.ko.s.001617] [id:ex.ko.s.001618] [id:ex.ko.s.001619] [id:ex.ko.s.001620] [id:ex.ko.s.001621] [id:ex.ko.s.001622] [id:ex.ko.s.001623] [id:ex.ko.s.001624] [id:ex.ko.s.001625] [id:ex.ko.s.001626]",
+      "usage_notes": []
+    }
+  },
+  {
+    "id": "kg.grammar.adverb.imi",
+    "source": {
+      "id": "kg.grammar.adverb.imi",
+      "kind": "grammar",
+      "subcategory": "adverb",
+      "level": "A2",
+      "surface": "이미",
+      "tags": [
+        "grammar",
+        "adverb",
+        "time",
+        "beginner",
+        "v5_ingestion"
+      ],
+      "provenance": {
+        "source": "knowledge_lab_rescue",
+        "rescue_batch": "KLAB-Batch-1.8"
+      },
+      "example_sentence_refs": [
+        "ex.ko.s.001777",
+        "ex.ko.s.001778",
+        "ex.ko.s.001779",
+        "ex.ko.s.001780",
+        "ex.ko.s.001781",
+        "ex.ko.s.001782",
+        "ex.ko.s.001783",
+        "ex.ko.s.001784",
+        "ex.ko.s.001785",
+        "ex.ko.s.001786"
+      ]
+    },
+    "i18n": {
+      "id": "kg.grammar.adverb.imi",
+      "locale": "zh_tw",
+      "title": "이미 (已經)",
+      "description": "表示事情已經發生或處於某種狀態，陳述客觀事實。",
+      "explanation_md": "· 用法說明\n\n`이미` 表示「已經」，通常用於陳述一個已經完成的動作或既成的狀態，語氣較為客觀，不一定帶有驚訝感。\n\n· 常見使用場景\n\n- 描述已經結束的事件。\n- 描述已經確立的情況。\n- 書面語或正式場合中較常用。\n\n· 注意\n\n雖然在很多情況下可以與 `벌써` 互換，但當說話者想強調「這麼快就...」的驚訝時，必須用 `벌써`；當單純描述「已經發生」的事實時，用 `이미` 更為自然。\n\n[id:ex.ko.s.001777] [id:ex.ko.s.001778] [id:ex.ko.s.001779] [id:ex.ko.s.001780] [id:ex.ko.s.001781] [id:ex.ko.s.001782] [id:ex.ko.s.001783] [id:ex.ko.s.001784] [id:ex.ko.s.001785] [id:ex.ko.s.001786]",
+      "usage_notes": []
+    }
+  },
+  {
     "id": "kg.grammar.adverb.ittaga",
     "source": {
       "id": "kg.grammar.adverb.ittaga",
@@ -375,9 +1633,10 @@
       "level": "A1",
       "surface": "이따가",
       "tags": [
-        "grammar",
         "adverb",
         "beginner",
+        "grammar",
+        "time",
         "v5_ingestion"
       ],
       "provenance": {
@@ -412,6 +1671,88 @@
     }
   },
   {
+    "id": "kg.grammar.adverb.jaju",
+    "source": {
+      "id": "kg.grammar.adverb.jaju",
+      "kind": "grammar",
+      "subcategory": "adverb",
+      "level": "A2",
+      "surface": "자주",
+      "tags": [
+        "grammar",
+        "adverb",
+        "frequency",
+        "beginner",
+        "v5_ingestion"
+      ],
+      "provenance": {
+        "source": "knowledge_lab_rescue",
+        "rescue_batch": "KLAB-Batch-1.7"
+      },
+      "example_sentence_refs": [
+        "ex.ko.s.001717",
+        "ex.ko.s.001718",
+        "ex.ko.s.001719",
+        "ex.ko.s.001720",
+        "ex.ko.s.001721",
+        "ex.ko.s.001722",
+        "ex.ko.s.001723",
+        "ex.ko.s.001724",
+        "ex.ko.s.001725",
+        "ex.ko.s.001726"
+      ]
+    },
+    "i18n": {
+      "id": "kg.grammar.adverb.jaju",
+      "locale": "zh_tw",
+      "title": "자주 (經常)",
+      "description": "表示某個行為或事情發生的間隔很短，多次重複發生。",
+      "explanation_md": "· 用法說明\n\n`자주` 是一個頻率副詞，表示「經常」、「常常」的意思。它用於描述動作發生的頻率很高，但並非像 `항상` (總是) 那樣百分之百發生。在句子中通常放在動詞之前。\n\n· 常見使用場景\n\n- 描述愛好或習慣性的行為。\n- 描述見面、訪問或通訊的頻率。\n- 描述天氣或情況的反覆發生。\n\n· 注意\n\n與 `흔히` (往往/常見地) 的區別在於，`자주` 側重於個人行為或具體事件的重複次數，而 `흔히` 側重於普遍存在的現象。\n\n[id:ex.ko.s.001717] [id:ex.ko.s.001718] [id:ex.ko.s.001719] [id:ex.ko.s.001720] [id:ex.ko.s.001721] [id:ex.ko.s.001722] [id:ex.ko.s.001723] [id:ex.ko.s.001724] [id:ex.ko.s.001725] [id:ex.ko.s.001726]",
+      "usage_notes": []
+    }
+  },
+  {
+    "id": "kg.grammar.adverb.jal",
+    "source": {
+      "id": "kg.grammar.adverb.jal",
+      "kind": "grammar",
+      "subcategory": "adverb",
+      "level": "A2",
+      "surface": "잘",
+      "tags": [
+        "grammar",
+        "adverb",
+        "manner",
+        "beginner",
+        "v5_ingestion"
+      ],
+      "provenance": {
+        "source": "knowledge_lab_rescue",
+        "rescue_batch": "KLAB-Batch-1.4"
+      },
+      "example_sentence_refs": [
+        "ex.ko.s.001577",
+        "ex.ko.s.001578",
+        "ex.ko.s.001579",
+        "ex.ko.s.001580",
+        "ex.ko.s.001581",
+        "ex.ko.s.001582",
+        "ex.ko.s.001583",
+        "ex.ko.s.001584",
+        "ex.ko.s.001585",
+        "ex.ko.s.001586"
+      ]
+    },
+    "i18n": {
+      "id": "kg.grammar.adverb.jal",
+      "locale": "zh_tw",
+      "title": "잘 (好/擅長 - 方式)",
+      "description": "表示動作做得好、正確，或者某種能力很強。",
+      "explanation_md": "· 用法說明\n\n`잘` 是一個多功能的副詞，最基本的意義是「好」或「正確地」。在不同的語境下，它可以表示「擅長」、「充分」或者「順利」。\n\n· 常見使用場景\n\n1. 表示能力：`한국어를 잘 해요.` (韓文說得很好。)\n2. 表示品質：`잘 먹었습니다.` (吃得很好/謝謝招待。)\n3. 表示頻率或狀態：`잘 자요.` (晚安/好好睡。)\n\n· 注意\n\n`잘` 的相反詞通常是 `못` (不能/做得不好)。在否定句中，`잘 못 하다` 表示做得不夠好，而 `못 하다` 則可能表示完全不會或沒能做到。\n\n[id:ex.ko.s.001577] [id:ex.ko.s.001578] [id:ex.ko.s.001579]",
+      "usage_notes": []
+    }
+  },
+  {
     "id": "kg.grammar.adverb.jamsi_hu",
     "source": {
       "id": "kg.grammar.adverb.jamsi_hu",
@@ -420,9 +1761,10 @@
       "level": "A1",
       "surface": "잠시 후",
       "tags": [
-        "grammar",
         "adverb",
         "beginner",
+        "grammar",
+        "time",
         "v5_ingestion"
       ],
       "provenance": {
@@ -453,6 +1795,87 @@
       "title": "잠시 후 (過了一會兒)",
       "description": "表示在短暫的時間過後。",
       "explanation_md": "· 用法說明\n`잠시 후` 是一個副詞短語，結合了 `잠시`（暫時、一會兒）和 `후`（之後）。它用來描述在一個很短的時間間隔之後發生的事。中文常譯為「過了一會兒」、「待會兒」。\n\n· 常見使用場景\n1. **描述即將發生的短暫延遲**：如「過一會兒公車就會抵達 (`잠시 후 버스가 도착할 거예요`)」。\n2. **描述過去發生的短暫間隔**：如「過了一會兒開始下雨了 (`잠시 후 비가 오기 시작했어요`)」。\n3. **用於公告語句**：如「電影即將開始 (`잠시 후 영화가 시작됩니다`)」。\n\n· 注意\n與 `나중에`（以後）相比，`잠시 후` 強調的時間跨度更短，通常是指幾分鐘或極短的時間內。",
+      "usage_notes": []
+    }
+  },
+  {
+    "id": "kg.grammar.adverb.jeil",
+    "source": {
+      "id": "kg.grammar.adverb.jeil",
+      "kind": "grammar",
+      "subcategory": "degree",
+      "level": "A2",
+      "surface": "제일",
+      "tags": [
+        "grammar",
+        "adverb",
+        "beginner",
+        "v5_ingestion"
+      ],
+      "provenance": {
+        "source": "knowledge_lab_rescue",
+        "rescue_batch": "KLAB-Batch-1.6"
+      },
+      "example_sentence_refs": [
+        "ex.ko.s.001667",
+        "ex.ko.s.001668",
+        "ex.ko.s.001669",
+        "ex.ko.s.001670",
+        "ex.ko.s.001671",
+        "ex.ko.s.001672",
+        "ex.ko.s.001673",
+        "ex.ko.s.001674",
+        "ex.ko.s.001675",
+        "ex.ko.s.001676"
+      ]
+    },
+    "i18n": {
+      "id": "kg.grammar.adverb.jeil",
+      "locale": "zh_tw",
+      "title": "제일 (最/第一)",
+      "description": "源自漢字「第一」，表示在程度或順序上最領先，口語極常用。",
+      "explanation_md": "· 用法說明\n\n表示某事物在程度、性質或順序上排在最前面。既可以作為副詞修飾後面的詞，也可以作為名詞自成句子成分。\n\n· 常見使用場景\n\n口語中非常常用，用於表示「第一名」、「最好」、「最...」等概念。\n\n· 相近文法比較\n\n與 `가장` 功能重疊。`제일` 因為是漢字詞「第一」，在日常對話中更為普遍。\n\n· 注意\n\n可以接在助詞前面使用，如 `제일이 아니에요` (不是第一)。\n\n[id:ex.ko.s.001667]\n[id:ex.ko.s.001668]\n[id:ex.ko.s.001669]\n[id:ex.ko.s.001670]\n[id:ex.ko.s.001671]\n[id:ex.ko.s.001672]\n[id:ex.ko.s.001673]\n[id:ex.ko.s.001674]\n[id:ex.ko.s.001675]\n[id:ex.ko.s.001676]",
+      "usage_notes": []
+    }
+  },
+  {
+    "id": "kg.grammar.adverb.jeogi",
+    "source": {
+      "id": "kg.grammar.adverb.jeogi",
+      "kind": "grammar",
+      "subcategory": "adverb",
+      "level": "A2",
+      "surface": "저기",
+      "tags": [
+        "grammar",
+        "adverb",
+        "place",
+        "beginner",
+        "v5_ingestion"
+      ],
+      "provenance": {
+        "source": "knowledge_lab_rescue",
+        "rescue_batch": "KLAB-Batch-1.9"
+      },
+      "example_sentence_refs": [
+        "ex.ko.s.001827",
+        "ex.ko.s.001828",
+        "ex.ko.s.001829",
+        "ex.ko.s.001830",
+        "ex.ko.s.001831",
+        "ex.ko.s.001832",
+        "ex.ko.s.001833",
+        "ex.ko.s.001834",
+        "ex.ko.s.001835",
+        "ex.ko.s.001836"
+      ]
+    },
+    "i18n": {
+      "id": "kg.grammar.adverb.jeogi",
+      "locale": "zh_tw",
+      "title": "저기 (那裡 - 遠離雙方)",
+      "description": "指示遠離說話者與聽話者場所的代名詞，相當於中文的「那邊」。",
+      "explanation_md": "· 用法說明\n\n`저기` 用來指稱距離說話者與聽話者都比較遠的地方。通常需要用手指著對方看得見的方向。\n\n· 常見使用場景\n\n1. 指出遠處目標物時：\n[id:ex.ko.s.001827]\n[id:ex.ko.s.001828]\n[id:ex.ko.s.001831]\n\n2. 說明遠處設施位置時：\n[id:ex.ko.s.001830]\n[id:ex.ko.s.001836]\n\n3. 引起注意時：\n[id:ex.ko.s.001833]\n\n· 注意\n\n`저기요` 也常用作打招呼或在餐廳呼喚服務員時的口語（類似於「不好意思/打擾一下」）。",
       "usage_notes": []
     }
   },
@@ -507,6 +1930,132 @@
     }
   },
   {
+    "id": "kg.grammar.adverb.jom",
+    "source": {
+      "id": "kg.grammar.adverb.jom",
+      "kind": "grammar",
+      "subcategory": "adverb",
+      "level": "A2",
+      "surface": "좀",
+      "tags": [
+        "grammar",
+        "adverb",
+        "degree",
+        "beginner",
+        "v5_ingestion"
+      ],
+      "provenance": {
+        "source": "knowledge_lab_rescue",
+        "rescue_batch": "KLAB-Batch-1.4"
+      },
+      "example_sentence_refs": [
+        "ex.ko.s.001587",
+        "ex.ko.s.001588",
+        "ex.ko.s.001589",
+        "ex.ko.s.001590",
+        "ex.ko.s.001591",
+        "ex.ko.s.001592",
+        "ex.ko.s.001593",
+        "ex.ko.s.001594",
+        "ex.ko.s.001595",
+        "ex.ko.s.001596"
+      ]
+    },
+    "i18n": {
+      "id": "kg.grammar.adverb.jom",
+      "locale": "zh_tw",
+      "title": "좀 (一點/請 - 程度/語氣)",
+      "description": "表示程度輕微，或者用於委婉的請求。",
+      "explanation_md": "· 用法說明\n\n`좀` 是 `조금` 的縮寫，表示「一點點」或「稍微」。在韓語口語中，它極其常用，除了表示程度外，還能起到軟化語氣、使請求顯得更有禮貌的作用。\n\n· 常見使用場景\n\n1. 表示程度：`배가 좀 고파요.` (肚子有點餓。)\n2. 委婉請求或命令：`문 좀 열어 주세요.` (請幫我開一下門。)\n3. 縮短距離感：在對話中加入 `좀` 可以讓話語聽起來不那麼唐突。\n\n· 注意\n\n雖然原意是形容數量少，但在請求時，`좀` 的重點在於語氣的客氣，而非真正的數量。\n\n[id:ex.ko.s.001587] [id:ex.ko.s.001588] [id:ex.ko.s.001589]",
+      "usage_notes": []
+    }
+  },
+  {
+    "id": "kg.grammar.adverb.juro",
+    "source": {
+      "id": "kg.grammar.adverb.juro",
+      "kind": "grammar",
+      "subcategory": "adverb",
+      "level": "A2",
+      "surface": "주로",
+      "tags": [
+        "grammar",
+        "adverb",
+        "frequency",
+        "beginner",
+        "v5_ingestion"
+      ],
+      "provenance": {
+        "source": "knowledge_lab_rescue",
+        "rescue_batch": "KLAB-Batch-1.7"
+      },
+      "example_sentence_refs": [
+        "ex.ko.s.001737",
+        "ex.ko.s.001738",
+        "ex.ko.s.001739",
+        "ex.ko.s.001740",
+        "ex.ko.s.001741",
+        "ex.ko.s.001742",
+        "ex.ko.s.001743",
+        "ex.ko.s.001744",
+        "ex.ko.s.001745",
+        "ex.ko.s.001746"
+      ]
+    },
+    "i18n": {
+      "id": "kg.grammar.adverb.juro",
+      "locale": "zh_tw",
+      "title": "주로 (主要/通常)",
+      "description": "表示在多個對象或事情中，某一個佔據了大部分或最核心的地位。",
+      "explanation_md": "· 用法說明\n\n`주로` 是一個副詞，表示「主要」、「多半」或「通常」的意思。它強調在整體的範圍中，某個部分或某個行為發生的比例最高。在句子中通常放在動詞之前，或修飾名詞性的句子成分。\n\n· 常見使用場景\n\n- 描述主要從事的活動或職業。\n- 描述經常食用的食物或使用的工具。\n- 描述某個群體的主要構成或來源。\n\n· 注意\n\n與 `보통` (通常) 相比，`주로` 更強調「比例上的主導性」或「核心選擇」。\n\n[id:ex.ko.s.001737] [id:ex.ko.s.001738] [id:ex.ko.s.001739] [id:ex.ko.s.001740] [id:ex.ko.s.001741] [id:ex.ko.s.001742] [id:ex.ko.s.001743] [id:ex.ko.s.001744] [id:ex.ko.s.001745] [id:ex.ko.s.001746]",
+      "usage_notes": []
+    }
+  },
+  {
+    "id": "kg.grammar.adverb.kkok",
+    "source": {
+      "id": "kg.grammar.adverb.kkok",
+      "kind": "grammar",
+      "subcategory": "adverb",
+      "subfamily": "manner",
+      "level": "A2",
+      "surface": "꼭",
+      "tags": [
+        "grammar",
+        "adverb",
+        "beginner",
+        "v5_ingestion"
+      ],
+      "provenance": {
+        "source": "knowledge_lab_rescue",
+        "rescue_batch": "KLAB-Batch-1.10"
+      },
+      "example_sentence_refs": [
+        "ex.ko.s.000066",
+        "ex.ko.s.000384",
+        "ex.ko.s.000672",
+        "ex.ko.s.001887",
+        "ex.ko.s.001888",
+        "ex.ko.s.001889",
+        "ex.ko.s.001890",
+        "ex.ko.s.001891",
+        "ex.ko.s.001892",
+        "ex.ko.s.001893",
+        "ex.ko.s.001894",
+        "ex.ko.s.001895",
+        "ex.ko.s.001896"
+      ]
+    },
+    "i18n": {
+      "id": "kg.grammar.adverb.kkok",
+      "locale": "zh_tw",
+      "title": "꼭 (一定要、務必)",
+      "description": "強調決心、請求或必須發生的情況。",
+      "explanation_md": "· 用法說明\n\n`꼭` 表示「一定要」、「務必」、「準確地」。主要用於強調強烈的決心、誠懇的請求，或者是某種必須達成的目標。\n\n· 常見使用場景\n\n1. 表達約定或請求：例如「請務必聯絡我」、「一定要來喔」。\n2. 表達強烈願望：例如「一定要考上吧」、「一定要去一次看看」。\n3. 表示「準確地」：例如「剛好合身」。\n\n· 相近文法比較\n\n- `꼭` vs `반드시`: `꼭` 在口語中更常用，且常帶有感切的情感（如請求）；`반드시` 則更強調邏輯上的必然性或硬性的規定。\n\n· 注意\n\n[id:ex.ko.s.000384] [id:ex.ko.s.001887]",
+      "usage_notes": []
+    }
+  },
+  {
     "id": "kg.grammar.adverb.kkwae",
     "source": {
       "id": "kg.grammar.adverb.kkwae",
@@ -515,9 +2064,10 @@
       "level": "A1",
       "surface": "꽤",
       "tags": [
-        "grammar",
         "adverb",
         "beginner",
+        "degree",
+        "grammar",
         "v5_ingestion"
       ],
       "provenance": {
@@ -552,6 +2102,87 @@
     }
   },
   {
+    "id": "kg.grammar.adverb.machim",
+    "source": {
+      "id": "kg.grammar.adverb.machim",
+      "kind": "grammar",
+      "subcategory": "adverb",
+      "level": "A2",
+      "surface": "마침",
+      "tags": [
+        "grammar",
+        "adverb",
+        "v5_ingestion"
+      ],
+      "provenance": {
+        "source": "knowledge_lab_rescue",
+        "rescue_batch": "KLAB-Batch-1.12"
+      },
+      "example_sentence_refs": [
+        "ex.ko.s.001964",
+        "ex.ko.s.001965",
+        "ex.ko.s.001966",
+        "ex.ko.s.001967",
+        "ex.ko.s.001968",
+        "ex.ko.s.001969",
+        "ex.ko.s.001970",
+        "ex.ko.s.001971",
+        "ex.ko.s.001972",
+        "ex.ko.s.001973"
+      ]
+    },
+    "i18n": {
+      "id": "kg.grammar.adverb.machim",
+      "locale": "zh_tw",
+      "title": "마침 (恰好 / 正好)",
+      "description": "表示某個情況或機會正好出現，或者時間點抓得非常準確。",
+      "explanation_md": "· 用法說明\n\n1. 表示時間、機會或情況正好符合心意或需求。\n2. 用於描述某個巧合的情況，通常帶有幸運或即時的語氣。\n\n· 常見使用場景\n\n- 剛好需要某物時某物就出現了：[id:ex.ko.s.001964], [id:ex.ko.s.001965]\n- 正想要做某事時剛好發生了相關的事：[id:ex.ko.s.001967], [id:ex.ko.s.001972]\n- 剛好趕上某個時間點：[id:ex.ko.s.001973]\n\n· 注意\n\n- 常與 `-는데` 或 `-려고 하다` 連用，描寫背景情況與後續巧合：[id:ex.ko.s.001964], [id:ex.ko.s.001967]",
+      "usage_notes": []
+    }
+  },
+  {
+    "id": "kg.grammar.adverb.maeu",
+    "source": {
+      "id": "kg.grammar.adverb.maeu",
+      "kind": "grammar",
+      "subcategory": "adverb",
+      "subfamily": "manner",
+      "level": "A2",
+      "surface": "매우",
+      "tags": [
+        "grammar",
+        "adverb",
+        "beginner",
+        "v5_ingestion"
+      ],
+      "provenance": {
+        "source": "knowledge_lab_rescue",
+        "rescue_batch": "KLAB-Batch-1.10"
+      },
+      "example_sentence_refs": [
+        "ex.ko.s.001404",
+        "ex.ko.s.001877",
+        "ex.ko.s.001878",
+        "ex.ko.s.001879",
+        "ex.ko.s.001880",
+        "ex.ko.s.001881",
+        "ex.ko.s.001882",
+        "ex.ko.s.001883",
+        "ex.ko.s.001884",
+        "ex.ko.s.001885",
+        "ex.ko.s.001886"
+      ]
+    },
+    "i18n": {
+      "id": "kg.grammar.adverb.maeu",
+      "locale": "zh_tw",
+      "title": "매우 (非常 - 書面/正式)",
+      "description": "表示程度非常高的正式詞彙，多用於書面語或正式場合。",
+      "explanation_md": "· 用法說明\n\n`매우` 意指「非常」、「很」，主要用於強調程度。比起 `아주` 或 `참`，它更常用於正式的書面語 (Written Korean) 或正式場合 (Formal Speech)。\n\n· 常見使用場景\n\n1. 正式說明：強調某事的重要性或準確性。\n2. 書面描述：在文章、演講或正式紀錄中描述程度。\n\n· 相近文法比較\n\n- `매우` vs `아주`: `매우` 多見於文章（新聞、專業書籍），`아주` 則廣泛用於日常口語和文章中。\n\n· 注意\n\n[id:ex.ko.s.001404] [id:ex.ko.s.001877]",
+      "usage_notes": []
+    }
+  },
+  {
     "id": "kg.grammar.adverb.mak",
     "source": {
       "id": "kg.grammar.adverb.mak",
@@ -560,9 +2191,10 @@
       "level": "A1",
       "surface": "막",
       "tags": [
-        "grammar",
         "adverb",
         "beginner",
+        "grammar",
+        "time",
         "v5_ingestion"
       ],
       "provenance": {
@@ -597,6 +2229,128 @@
     }
   },
   {
+    "id": "kg.grammar.adverb.mani",
+    "source": {
+      "id": "kg.grammar.adverb.mani",
+      "kind": "grammar",
+      "subcategory": "degree/quantity",
+      "level": "A2",
+      "surface": "많이",
+      "tags": [
+        "grammar",
+        "adverb",
+        "beginner",
+        "v5_ingestion"
+      ],
+      "provenance": {
+        "source": "knowledge_lab_rescue",
+        "rescue_batch": "KLAB-Batch-1.5"
+      },
+      "example_sentence_refs": [
+        "ex.ko.s.001647",
+        "ex.ko.s.001648",
+        "ex.ko.s.001649",
+        "ex.ko.s.001650",
+        "ex.ko.s.001651",
+        "ex.ko.s.001652",
+        "ex.ko.s.001653",
+        "ex.ko.s.001654",
+        "ex.ko.s.001655",
+        "ex.ko.s.001656"
+      ]
+    },
+    "i18n": {
+      "id": "kg.grammar.adverb.mani",
+      "locale": "zh_tw",
+      "title": "많이 (很多、大量地)",
+      "description": "表示數量、程度或次數的多。",
+      "explanation_md": "· 用法說明\n\n1. 表示數量的眾多。\n2. 表示程度的深入。\n3. 表示次數的頻繁。\n\n· 常見使用場景\n\n- 表示擁有很多東西時。\n- 祝福他人多吃、多休息時。\n- 表示某個變化的程度很大時。\n\n[id:ex.ko.s.001647] [id:ex.ko.s.001648] [id:ex.ko.s.001649] [id:ex.ko.s.001650] [id:ex.ko.s.001651] [id:ex.ko.s.001652] [id:ex.ko.s.001653] [id:ex.ko.s.001654] [id:ex.ko.s.001655] [id:ex.ko.s.001656]",
+      "usage_notes": []
+    }
+  },
+  {
+    "id": "kg.grammar.adverb.meolli",
+    "source": {
+      "id": "kg.grammar.adverb.meolli",
+      "kind": "grammar",
+      "subcategory": "adverb",
+      "level": "A2",
+      "surface": "멀리",
+      "tags": [
+        "grammar",
+        "adverb",
+        "place",
+        "beginner",
+        "v5_ingestion"
+      ],
+      "provenance": {
+        "source": "knowledge_lab_rescue",
+        "rescue_batch": "KLAB-Batch-1.9"
+      },
+      "example_sentence_refs": [
+        "ex.ko.s.001847",
+        "ex.ko.s.001848",
+        "ex.ko.s.001849",
+        "ex.ko.s.001850",
+        "ex.ko.s.001851",
+        "ex.ko.s.001852",
+        "ex.ko.s.001853",
+        "ex.ko.s.001854",
+        "ex.ko.s.001855",
+        "ex.ko.s.001856"
+      ]
+    },
+    "i18n": {
+      "id": "kg.grammar.adverb.meolli",
+      "locale": "zh_tw",
+      "title": "멀리 (遠遠地)",
+      "description": "副詞，表示距離很遠。",
+      "explanation_md": "· 用法說明\n\n`멀리` 是個副詞，用來修飾動詞或形容詞，表示空間上的距離遙遠。它不能直接作為代名詞使用（指代場所），而是修飾動作發生的範圍或狀態。\n\n· 常見使用場景\n\n1. 描述某物位於遠處時：\n[id:ex.ko.s.001847]\n[id:ex.ko.s.001852]\n\n2. 勸阻對方不要走遠時：\n[id:ex.ko.s.001848]\n\n3. 描述從遠處看或聽時：\n[id:ex.ko.s.001849]\n[id:ex.ko.s.001856]\n\n· 相近文法比較\n\n- `멀다` (形容詞): 表示「距離遠」。例如：학교가 **멉니다**。\n- `멀리` (副詞): 修飾動作。例如：학교가 **멀리** 있습니다。",
+      "usage_notes": []
+    }
+  },
+  {
+    "id": "kg.grammar.adverb.mucheok",
+    "source": {
+      "id": "kg.grammar.adverb.mucheok",
+      "kind": "grammar",
+      "subcategory": "adverb",
+      "subfamily": "manner",
+      "level": "A2",
+      "surface": "무척",
+      "tags": [
+        "grammar",
+        "adverb",
+        "beginner",
+        "v5_ingestion"
+      ],
+      "provenance": {
+        "source": "knowledge_lab_rescue",
+        "rescue_batch": "KLAB-Batch-1.10"
+      },
+      "example_sentence_refs": [
+        "ex.ko.s.001867",
+        "ex.ko.s.001868",
+        "ex.ko.s.001869",
+        "ex.ko.s.001870",
+        "ex.ko.s.001871",
+        "ex.ko.s.001872",
+        "ex.ko.s.001873",
+        "ex.ko.s.001874",
+        "ex.ko.s.001875",
+        "ex.ko.s.001876"
+      ]
+    },
+    "i18n": {
+      "id": "kg.grammar.adverb.mucheok",
+      "locale": "zh_tw",
+      "title": "무척 (非常、很)",
+      "description": "強調程度非常高，比「아주」程度更深一些。",
+      "explanation_md": "· 用法說明\n\n`무척` 是表示程度極高的副詞，中文翻成「非常」、「很」、「極其」。它的語氣比普通的 `아주` 稍微強一些，常用於表達說話者強烈的感受。\n\n· 常見使用場景\n\n1. 表達感受：例如非當餓、非常忙、非常開心等。\n2. 描寫狀態：例如山非常高、路非常塞等。\n\n· 相近文法比較\n\n- `무척` vs `아주`: `무척` 的強調感通常比 `아주` 更強，多用於表達主觀的感覺或經驗。\n\n· 注意\n\n[id:ex.ko.s.001867]",
+      "usage_notes": []
+    }
+  },
+  {
     "id": "kg.grammar.adverb.najunge",
     "source": {
       "id": "kg.grammar.adverb.najunge",
@@ -605,9 +2359,10 @@
       "level": "A1",
       "surface": "나중에",
       "tags": [
-        "grammar",
         "adverb",
         "beginner",
+        "grammar",
+        "time",
         "v5_ingestion"
       ],
       "provenance": {
@@ -642,6 +2397,85 @@
     }
   },
   {
+    "id": "kg.grammar.adverb.neomu",
+    "source": {
+      "id": "kg.grammar.adverb.neomu",
+      "kind": "grammar",
+      "subcategory": "degree",
+      "level": "A2",
+      "surface": "너무",
+      "tags": [
+        "grammar",
+        "adverb",
+        "beginner",
+        "v5_ingestion"
+      ],
+      "provenance": {
+        "source": "knowledge_lab_rescue",
+        "rescue_batch": "KLAB-Batch-1.5"
+      },
+      "example_sentence_refs": [
+        "ex.ko.s.001637",
+        "ex.ko.s.001638",
+        "ex.ko.s.001639",
+        "ex.ko.s.001640",
+        "ex.ko.s.001641",
+        "ex.ko.s.001642",
+        "ex.ko.s.001643",
+        "ex.ko.s.001644",
+        "ex.ko.s.001645",
+        "ex.ko.s.001646"
+      ]
+    },
+    "i18n": {
+      "id": "kg.grammar.adverb.neomu",
+      "locale": "zh_tw",
+      "title": "너무 (太、過於)",
+      "description": "表示程度超過了正常的限度或預期。",
+      "explanation_md": "· 用法說明\n\n1. 表示程度過深，通常帶有超出預期的負面或強調意味。\n2. ใน現代韓國語中，也常用於強調正面的感受，相當於「非常」、「很」。\n\n· 常見使用場景\n\n- 表達極端的感受時（如：太累、太貴）。\n- 表達強烈的讚賞時（如：太漂亮了、太好吃了）。\n\n[id:ex.ko.s.001637] [id:ex.ko.s.001638] [id:ex.ko.s.001639] [id:ex.ko.s.001640] [id:ex.ko.s.001641] [id:ex.ko.s.001642] [id:ex.ko.s.001643] [id:ex.ko.s.001644] [id:ex.ko.s.001645] [id:ex.ko.s.001646]",
+      "usage_notes": []
+    }
+  },
+  {
+    "id": "kg.grammar.adverb.ohiryeo",
+    "source": {
+      "id": "kg.grammar.adverb.ohiryeo",
+      "kind": "grammar",
+      "subcategory": "adverb",
+      "level": "A2",
+      "surface": "오히려",
+      "tags": [
+        "grammar",
+        "adverb",
+        "v5_ingestion"
+      ],
+      "provenance": {
+        "source": "knowledge_lab_rescue",
+        "rescue_batch": "KLAB-Batch-1.12"
+      },
+      "example_sentence_refs": [
+        "ex.ko.s.001974",
+        "ex.ko.s.001975",
+        "ex.ko.s.001976",
+        "ex.ko.s.001977",
+        "ex.ko.s.001978",
+        "ex.ko.s.001979",
+        "ex.ko.s.001980",
+        "ex.ko.s.001981",
+        "ex.ko.s.001982",
+        "ex.ko.s.001983"
+      ]
+    },
+    "i18n": {
+      "id": "kg.grammar.adverb.ohiryeo",
+      "locale": "zh_tw",
+      "title": "오히려 (反而)",
+      "description": "表示結果與預想或常理相反，或者在兩者比較中後者更好。",
+      "explanation_md": "· 用法說明\n\n1. 表示實際情況與預期或先前的狀態截然相反。\n2. 在對比兩個情況時，表示「與其說 A，反而 B 更好/更合適」。\n\n· 常見使用場景\n\n- 結果出乎意料：[id:ex.ko.s.001974], [id:ex.ko.s.001977], [id:ex.ko.s.001980]\n- 比較後發現另一種選擇更好：[id:ex.ko.s.001979], [id:ex.ko.s.001982]\n\n· 注意\n\n- 通常帶有驚訝或強調意外轉折的語氣。\n- 常與 `-는데`、`-니(까)` 等連接詞連用，說明背景情況：[id:ex.ko.s.001976], [id:ex.ko.s.001981]",
+      "usage_notes": []
+    }
+  },
+  {
     "id": "kg.grammar.adverb.yakgan",
     "source": {
       "id": "kg.grammar.adverb.yakgan",
@@ -650,8 +2484,10 @@
       "level": "A1",
       "surface": "약간",
       "tags": [
-        "degree",
+        "adverb",
         "beginner",
+        "degree",
+        "grammar",
         "v5_ingestion"
       ],
       "provenance": {
@@ -688,6 +2524,87 @@
       "title": "약간 (稍微、有點)",
       "description": "表示程度、數量或份量不多。可用於肯定句或否定句，是韓文中最通用的「一點點」表達方式。",
       "explanation_md": "「`약간`」是韓文中的程度副詞，意思相當於中文的「稍微、有一點、些許」。它是一個中性且客觀的詞彙。\n\n· **用法說明**\n\n「`약간`」接在**動詞或形容詞**的前面，用來修飾後面的狀態或動作。\n- [id:ex.ko.s.000240]：肚子「有點」餓。\n- [id:ex.ko.s.000241]：衣服「稍微」有點大。\n\n此外，「`약간`」也可以用來修飾名詞，表示「少量的某物」。\n- [id:ex.ko.s.000238]：在咖啡裡加了一點砂糖。\n\n· **語氣特點**\n\n相較於「`조금`」，「`약간`」聽起來稍微客觀、精確一點，但在大多數日常對話中，兩者常可以互換使用。\n\n· **常見範例**\n\n- [id:ex.ko.s.000244]：用來描述作業量多出一點點的狀態。\n- [id:ex.ko.s.000245]：描述天氣「稍微」轉陰。\n\n· **相近文法比較**\n\n| 副詞 | 核心感覺 | 注意事項 |\n| --- | --- | --- |\n| `약간` | **稍微、些許** | 語氣中性且客觀 |\n| `조금` | **一點點** | 韓文中最通用的「一點點」 |\n| `별로` | **不太...** | 必須接否定 |",
+      "usage_notes": []
+    }
+  },
+  {
+    "id": "kg.grammar.adverb.yeogi",
+    "source": {
+      "id": "kg.grammar.adverb.yeogi",
+      "kind": "grammar",
+      "subcategory": "adverb",
+      "level": "A2",
+      "surface": "여기",
+      "tags": [
+        "grammar",
+        "adverb",
+        "place",
+        "beginner",
+        "v5_ingestion"
+      ],
+      "provenance": {
+        "source": "knowledge_lab_rescue",
+        "rescue_batch": "KLAB-Batch-1.9"
+      },
+      "example_sentence_refs": [
+        "ex.ko.s.001807",
+        "ex.ko.s.001808",
+        "ex.ko.s.001809",
+        "ex.ko.s.001810",
+        "ex.ko.s.001811",
+        "ex.ko.s.001812",
+        "ex.ko.s.001813",
+        "ex.ko.s.001814",
+        "ex.ko.s.001815",
+        "ex.ko.s.001816"
+      ]
+    },
+    "i18n": {
+      "id": "kg.grammar.adverb.yeogi",
+      "locale": "zh_tw",
+      "title": "여기 (這裡)",
+      "description": "指示近處的代名詞，相當於中文的「這裡」。",
+      "explanation_md": "· 用法說明\n\n`여기` 是指示代名詞，用來指稱靠近說話者的場所。在句子中可以作為主語、賓語或副詞使用。\n\n· 常見使用場景\n\n1. 介紹場所時：\n[id:ex.ko.s.001807]\n[id:ex.ko.s.001816]\n\n2. 指示位置或邀請坐下時：\n[id:ex.ko.s.001808]\n[id:ex.ko.s.001809]\n\n3. 指定見面地點時：\n[id:ex.ko.s.001810]\n[id:ex.ko.s.001815]\n\n· 注意\n\n當 `여기` 作為主語且後面接助詞 `가/이` 時，常用 `여기가`。",
+      "usage_notes": []
+    }
+  },
+  {
+    "id": "kg.grammar.adverb.yeoksi",
+    "source": {
+      "id": "kg.grammar.adverb.yeoksi",
+      "kind": "grammar",
+      "subcategory": "discourse",
+      "level": "A2",
+      "surface": "역시",
+      "tags": [
+        "grammar",
+        "adverb",
+        "beginner",
+        "v5_ingestion"
+      ],
+      "provenance": {
+        "source": "knowledge_lab_rescue",
+        "rescue_batch": "KLAB-Batch-1.6"
+      },
+      "example_sentence_refs": [
+        "ex.ko.s.001697",
+        "ex.ko.s.001698",
+        "ex.ko.s.001699",
+        "ex.ko.s.001700",
+        "ex.ko.s.001701",
+        "ex.ko.s.001702",
+        "ex.ko.s.001703",
+        "ex.ko.s.001704",
+        "ex.ko.s.001705",
+        "ex.ko.s.001706"
+      ]
+    },
+    "i18n": {
+      "id": "kg.grammar.adverb.yeoksi",
+      "locale": "zh_tw",
+      "title": "역시 (果然/也是)",
+      "description": "表示結果如同預期，或是表示與前面提到的情況相同、不例外。",
+      "explanation_md": "· 用法說明\n\n1. 表示事實果然像先前想的那樣。\n2. 表示「也」或是「亦然」，強調某事物也沒有例外。\n\n· 常見使用場景\n\n- 表揚或感嘆時：` 역시 대단해요! ` (果然很厲害！)\n- 表達一致性時：` 그 사람도 역시 왔어요. ` (那個人果然也來了。)\n\n· 相近文法比較\n\n當語意為「也是」時，常與助詞 `-도` 同時出現，加強口氣。\n\n· 注意\n\n`역시` 在口語中常單獨使用作為回應，表示認同對方的看法。\n\n[id:ex.ko.s.001697]\n[id:ex.ko.s.001698]\n[id:ex.ko.s.001699]\n[id:ex.ko.s.001700]\n[id:ex.ko.s.001701]\n[id:ex.ko.s.001702]\n[id:ex.ko.s.001703]\n[id:ex.ko.s.001704]\n[id:ex.ko.s.001705]\n[id:ex.ko.s.001706]",
       "usage_notes": []
     }
   },
@@ -747,25 +2664,55 @@
     "id": "kg.grammar.desire.wish_go_sipda",
     "source": {
       "id": "kg.grammar.desire.wish_go_sipda",
-      "category": "grammar",
+      "kind": "grammar",
       "subcategory": "desire",
-      "knowledge_type": "official",
+      "level": "A1",
+      "surface": "고 싶다",
       "tags": [
         "desire",
         "wish",
-        "beginner"
+        "beginner",
+        "v5_ingestion"
       ],
       "provenance": {
         "source": "youtube_beginner_grammar",
         "source_lesson_ids": [
           54,
-          60
+          60,
+          138
+        ],
+        "source_lesson_titles": [
+          "想要希望 고 싶어요",
+          "想 고 싶다",
+          "想要/希望 고 싶다 (Review)"
+        ],
+        "source_video_ids": [
+          "KM6McXKn2Oc",
+          "sOOYYPmvBRY"
+        ],
+        "source_urls": [
+          "https://www.youtube.com/watch?v=sOOYYPmvBRY"
         ]
       },
-      "usage_policies": [
-        "shared_usage"
-      ],
-      "related_knowledge_ids": []
+      "example_sentence_refs": [
+        "ex.ko.s.000527",
+        "ex.ko.s.000528",
+        "ex.ko.s.000529",
+        "ex.ko.s.000530",
+        "ex.ko.s.000531",
+        "ex.ko.s.000532",
+        "ex.ko.s.000533",
+        "ex.ko.s.000534",
+        "ex.ko.s.000535",
+        "ex.ko.s.000536",
+        "ex.ko.s.001374",
+        "ex.ko.s.001375",
+        "ex.ko.s.001376",
+        "ex.ko.s.001377",
+        "ex.ko.s.001378",
+        "ex.ko.s.001379",
+        "ex.ko.s.001380"
+      ]
     },
     "i18n": {
       "id": "kg.grammar.desire.wish_go_sipda",
@@ -1136,7 +3083,9 @@
         ],
         "source_video_ids": [
           "4b8DQxb86i8"
-        ]
+        ],
+        "rescue_batch": "KLAB-Batch-1.3",
+        "rescue_source": "knowledge_lab_inventory_v3"
       },
       "example_sentence_refs": [
         "ex.ko.s.000777",
@@ -1154,7 +3103,7 @@
     "i18n": {
       "id": "kg.grammar.ending.as_soon_as_ja_ma_ja",
       "locale": "zh_tw",
-      "title": "자마자 (一～就～)",
+      "title": "자마자 (一~就)",
       "description": "表示前一個動作一發生，後一個動作立刻緊接著發生。強調時間間隔極短。",
       "explanation_md": "· 用法說明\n`자마자` 用於表示兩個動作之間幾乎沒有任何時間差。當第一個動作結束的瞬間，第二個動作就立刻開始，常用於描述反射性的動作或緊湊的行程。\n\n· 常見使用場景\n1. **反射性動作**：如一到家就躺下、一看到朋友就笑等。\n   [id:ex.ko.s.000777] [id:ex.ko.s.000784]\n2. **緊湊的連續動作**：如一畢業就找工作、一開門貓就衝出去等。\n   [id:ex.ko.s.000786]\n3. **心理或生理反應**：如一聽到音樂心情就變好、一喝咖啡就清醒等。\n   [id:ex.ko.s.000782] [id:ex.ko.s.000785]\n\n· 相近文法比較\n- **`자마자` vs `-(으)ㄴ 후에`**：\n  - `-(으)ㄴ 후에` 只表示先後順序，中間可能有間隔。\n  - `자마자` 強調「立刻、馬上」，中間幾乎沒有間隔。\n\n· 注意\n- **主語一致性**：前後句的主語可以相同，也可以不同。\n- **接續方式**：動詞詞幹直接接 `~자마자`即可，無論有無收音。",
       "usage_notes": []
@@ -1259,6 +3208,51 @@
       "locale": "zh_tw",
       "title": "ㄴ/은/는데 (委婉詢問背景狀況)",
       "description": "在詢問對方問題前，先交代目前的背景或狀況。這樣可以使詢問聽起來更自然、不突兀，且帶有一種委婉提供背景的感覺。常與背景說明後接續詢問、提議 or 請求的用法連用。",
+      "usage_notes": []
+    }
+  },
+  {
+    "id": "kg.grammar.ending.banmal_declarative_aohe",
+    "source": {
+      "id": "kg.grammar.ending.banmal_declarative_aohe",
+      "kind": "grammar",
+      "subcategory": "ending",
+      "level": "A1",
+      "surface": "~아/어/해",
+      "tags": [
+        "grammar",
+        "ending",
+        "beginner",
+        "v5_ingestion"
+      ],
+      "provenance": {
+        "source": "youtube_beginner_grammar",
+        "source_lesson_ids": [
+          135
+        ],
+        "source_video_ids": [
+          "u_k_mXYRqcI"
+        ]
+      },
+      "example_sentence_refs": [
+        "ex.ko.s.001347",
+        "ex.ko.s.001348",
+        "ex.ko.s.001349",
+        "ex.ko.s.001350",
+        "ex.ko.s.001351",
+        "ex.ko.s.001352",
+        "ex.ko.s.001353",
+        "ex.ko.s.001354",
+        "ex.ko.s.001355",
+        "ex.ko.s.001356"
+      ]
+    },
+    "i18n": {
+      "id": "kg.grammar.ending.banmal_declarative_aohe",
+      "locale": "zh_tw",
+      "title": "~아/어/해 (非敬語敘述/疑問)",
+      "description": "親近的朋友或對晚輩說話時使用的非敬語（半語），意為「…喔」、「…嗎？」。",
+      "explanation_md": "「~아/어/해」 是韓語中最基礎的「非敬語 (半語)」形式。它用於朋友、晚輩或非常親近的人之間，是不拘泥於形式、能輕鬆傳達心意的表達方式。\n\n· 用法說明\n  - 只要將平時使用的「 해요體 (禮貌體)」中的 `요` 去掉即可：\n    - `가요` -> `가` (走/去) [id:ex.ko.s.001352]\n    - `먹어요` -> `먹어` (吃) [id:ex.ko.s.001348]\n    - `공부해요` -> `공부해` (讀書) [id:ex.ko.s.001350]\n\n· 常見使用場景\n  - 平時與好友聊天或發簡訊：[id:ex.ko.s.001347], [id:ex.ko.s.001353]\n  - 詢問親近的人正在做什麼：[id:ex.ko.s.001350]\n  - 敘述自己的狀態或心情：[id:ex.ko.s.001355]\n\n· 注意\n  - **絕對不能**對初次見面的人、上司、長輩或需要保持距離的人使用，否則會顯得非常失禮。\n  - 在疑問句中，只需要將句末音調上揚即可轉變為疑問：[id:ex.ko.s.001353]\n  - 說話者與聽者的關係必須是对等的或是聽者輩分較低。",
       "usage_notes": []
     }
   },
@@ -1797,7 +3791,17 @@
         "ex.ko.s.000713",
         "ex.ko.s.000714",
         "ex.ko.s.000715",
-        "ex.ko.s.000716"
+        "ex.ko.s.000716",
+        "ex.ko.s.001257",
+        "ex.ko.s.001258",
+        "ex.ko.s.001259",
+        "ex.ko.s.001260",
+        "ex.ko.s.001261",
+        "ex.ko.s.001262",
+        "ex.ko.s.001263",
+        "ex.ko.s.001264",
+        "ex.ko.s.001265",
+        "ex.ko.s.001266"
       ]
     },
     "i18n": {
@@ -1805,7 +3809,7 @@
       "locale": "zh_tw",
       "title": "고 (串接動作)",
       "description": "用來連接兩個以上的動作或狀態，相當於「～然後～」。",
-      "explanation_md": "· 用法說明\n`~고` 用於連接兩個或多個動作、狀態或事實。在描述動作順序時，表示先做前項動作後再做後項動作。\n\n· 常見使用場景\n1. **動作先後順序**：例如「吃飯然後喝咖啡」。\n2. **並列事實**：例如「哥哥很聰明而且弟弟很帥」。\n\n· 相近文法比較\n與 `아서/어서` 不同，`고` 僅強調單純的順序或並列，前後動作不一定有緊密的因果或關聯。\n\n· 注意\n在表示動作順序時，通常主語要保持一致。\n\n[id:ex.ko.s.000707] [id:ex.ko.s.000708] [id:ex.ko.s.000709] [id:ex.ko.s.000710] [id:ex.ko.s.000711] [id:ex.ko.s.000712] [id:ex.ko.s.000713] [id:ex.ko.s.000714] [id:ex.ko.s.000715] [id:ex.ko.s.000716]",
+      "explanation_md": "· 用法說明\n`~고` 用於連接兩個或多個動作、狀態或事實。在描述動作順序時，表示先做前項動作後再做後項動作。\n\n· 常見使用場景\n1. **動作先後順序**：例如「吃飯然後喝咖啡」。\n2. **並列事實**：例如「哥哥很聰明而且弟弟很帥」。\n\n· 相近文法比較\n與 `아서/어서` 不同，`고` 僅強調單純的順序或並列，前後動作不一定有緊密的因果或關聯。\n\n· 注意\n在表示動作順序時，通常主語要保持一致。\n\n[id:ex.ko.s.000707] [id:ex.ko.s.000708] [id:ex.ko.s.000709] [id:ex.ko.s.000710] [id:ex.ko.s.000711] [id:ex.ko.s.000712] [id:ex.ko.s.000713] [id:ex.ko.s.000714] [id:ex.ko.s.000715] [id:ex.ko.s.000716] [id:ex.ko.s.001257] [id:ex.ko.s.001258] [id:ex.ko.s.001259] [id:ex.ko.s.001260]",
       "usage_notes": []
     }
   },
@@ -1855,6 +3859,167 @@
     }
   },
   {
+    "id": "kg.grammar.ending.da_ga_bomyeon",
+    "source": {
+      "id": "kg.grammar.ending.da_ga_bomyeon",
+      "kind": "grammar",
+      "subcategory": "ending",
+      "level": "A2",
+      "surface": "-다가 보면",
+      "tags": [
+        "grammar",
+        "ending",
+        "temporal",
+        "A2",
+        "v5_ingestion"
+      ],
+      "provenance": {
+        "source": "knowledge_lab_rescue",
+        "rescue_batch": "KLAB-Batch-1.14"
+      },
+      "example_sentence_refs": [
+        "ex.ko.s.002054",
+        "ex.ko.s.002055",
+        "ex.ko.s.002056",
+        "ex.ko.s.002057",
+        "ex.ko.s.002058",
+        "ex.ko.s.002059",
+        "ex.ko.s.002060",
+        "ex.ko.s.002061",
+        "ex.ko.s.002062",
+        "ex.ko.s.002063"
+      ]
+    },
+    "i18n": {
+      "id": "kg.grammar.ending.da_ga_bomyeon",
+      "locale": "zh_tw",
+      "title": "-다가 보면 (持續做某事)",
+      "description": "持續做某個動作的話，最終會出現某種結果或發現。",
+      "explanation_md": "· 用法說明\n\n用於表示如果持續進行某個動作，到最後自然而然會產生後面的結果。後面多接續表示「習慣」、「變化」、「發現」或「道理」的內容。\n\n· 常見使用場景\n\n用於描述技能的提升、習慣的養成或生活中的體悟。例如：持續練習的話就會變好、住久了就會習慣等。\n\n· 注意\n\n1. 主要用於口語，經常簡寫為 `-다 보면`。\n2. 後句通常使用現在式或將來推測式。\n\n· 連結例句\n\n[id:ex.ko.s.002054]\n[id:ex.ko.s.002058]",
+      "usage_notes": []
+    }
+  },
+  {
+    "id": "kg.grammar.ending.dasipi",
+    "source": {
+      "id": "kg.grammar.ending.dasipi",
+      "kind": "grammar",
+      "subcategory": "ending",
+      "level": "A2",
+      "surface": "-다시피",
+      "tags": [
+        "grammar",
+        "ending",
+        "beginner",
+        "v5_ingestion"
+      ],
+      "provenance": {
+        "source": "knowledge_lab_batch_1.2",
+        "rescue_batch": "kg-normalize-001"
+      },
+      "example_sentence_refs": [
+        "ex.ko.s.001497",
+        "ex.ko.s.001498",
+        "ex.ko.s.001499",
+        "ex.ko.s.001500",
+        "ex.ko.s.001501",
+        "ex.ko.s.001502",
+        "ex.ko.s.001503",
+        "ex.ko.s.001504",
+        "ex.ko.s.001505",
+        "ex.ko.s.001506"
+      ]
+    },
+    "i18n": {
+      "id": "kg.grammar.ending.dasipi",
+      "locale": "zh_tw",
+      "title": "-다시피 (如~所見/聞)",
+      "description": "表示「正如某人所知道、看到或聽到的那樣」。",
+      "explanation_md": "· 用法說明\n\n`-다시피` 用於連接兩個句子，表示後句的事實正如前句所描述的那樣發生或被感知。最常與感官動詞（如 `보다`, `알다`, `듣다`）結合，表示「正如你所見/正如你所知」。\n\n· 常見使用場景\n\n1. **正如...所見/所聞**：`보다시피`（正如所見）、`알다시피`（正如所知）。\n2. **近乎/幾乎**：表示動作或狀態幾乎達到了某種程度（如 `굶다시피 하다` 幾乎是在挨餓）。\n\n· 注意\n\n- 在表示「正如...」時，前句必須是對方也能感知到的事實。\n- 在表示「幾乎...」時，常與 `하다` 連用。\n\n[id:ex.ko.s.001497]\n[id:ex.ko.s.001498]\n[id:ex.ko.s.001499]\n[id:ex.ko.s.001500]\n[id:ex.ko.s.001501]\n[id:ex.ko.s.001502]\n[id:ex.ko.s.001503]\n[id:ex.ko.s.001504]\n[id:ex.ko.s.001505]\n[id:ex.ko.s.001506]",
+      "usage_notes": []
+    }
+  },
+  {
+    "id": "kg.grammar.ending.deon_chame",
+    "source": {
+      "id": "kg.grammar.ending.deon_chame",
+      "kind": "grammar",
+      "subcategory": "ending",
+      "level": "B1",
+      "surface": "-던 참에",
+      "tags": [
+        "grammar",
+        "ending",
+        "advanced",
+        "v5_ingestion"
+      ],
+      "provenance": {
+        "source": "knowledge_lab_rescue",
+        "rescue_batch": "KLAB-Batch-1.15"
+      },
+      "example_sentence_refs": [
+        "ex.ko.s.002144",
+        "ex.ko.s.002145",
+        "ex.ko.s.002146",
+        "ex.ko.s.002147",
+        "ex.ko.s.002148",
+        "ex.ko.s.002149",
+        "ex.ko.s.002150",
+        "ex.ko.s.002151",
+        "ex.ko.s.002152",
+        "ex.ko.s.002153"
+      ]
+    },
+    "i18n": {
+      "id": "kg.grammar.ending.deon_chame",
+      "locale": "zh_tw",
+      "title": "-던 참에 (正當/剛好)",
+      "description": "表示正當要做某事，或正當處於某種想法/打算中時，正好發生了後句的事情。",
+      "explanation_md": "· 用法說明\n\n1. 表示前句的動作或意圖正處於即將開始 or 正在進行的「節點」，此時後句的事情發生了，且往往對前句的情況有所促進 or 解決。\n2. 常與 `마침` (正巧) 搭配使用。\n\n· 常見使用場景\n\n- 剛想吃飯就有朋友約吃飯。\n- 剛要去圖書館就有人打電話問路。\n- 表達某種巧合 or 順水推舟的情況。\n\n· 注意\n\n- 與 `-(으)려던 참에` 相比，`-던 참에` 表示「正在...的那個過程/狀態中」，而 `-(으)려던 참에` 更側重於「計畫/意圖」即將執行的瞬間。\n- 主要與動詞連用。\n\n[id:ex.ko.s.002144] [id:ex.ko.s.002145]",
+      "usage_notes": []
+    }
+  },
+  {
+    "id": "kg.grammar.ending.deusi",
+    "source": {
+      "id": "kg.grammar.ending.deusi",
+      "kind": "grammar",
+      "subcategory": "ending",
+      "level": "A2",
+      "surface": "-듯이",
+      "tags": [
+        "grammar",
+        "ending",
+        "beginner",
+        "v5_ingestion"
+      ],
+      "provenance": {
+        "source": "knowledge_lab_batch_1.2",
+        "rescue_batch": "kg-normalize-001"
+      },
+      "example_sentence_refs": [
+        "ex.ko.s.001507",
+        "ex.ko.s.001508",
+        "ex.ko.s.001509",
+        "ex.ko.s.001510",
+        "ex.ko.s.001511",
+        "ex.ko.s.001512",
+        "ex.ko.s.001513",
+        "ex.ko.s.001514",
+        "ex.ko.s.001515",
+        "ex.ko.s.001516"
+      ]
+    },
+    "i18n": {
+      "id": "kg.grammar.ending.deusi",
+      "locale": "zh_tw",
+      "title": "-듯이 (像~一樣/彷彿)",
+      "description": "表示後句的動作或狀態與前句非常相似，意為「像...一樣」或「彷彿」。",
+      "explanation_md": "· 用法說明\n\n`-듯이` 用於連接兩個句子，表示後面的情況與前面的情況幾乎相同或非常相似。它常用於比喻，將某個動作或狀態類比為另一種廣為人知的情境。它是 `-듯` 的加強形，語氣更為完整。\n\n· 常見使用場景\n\n1. **類比/比喻**：形容動作的方式非常像某種事物（如 `물 쓰듯이` 像用水一樣，指揮霍）。\n2. **正如...**：表示事物的狀態正如所預期的那樣。\n\n· 注意\n\n- 常與 `-ㄴ/은/는/ㄹ` 等冠詞形結合使用。\n- 與 `-다시피` 相比，`-듯이` 更多用於文學性的比喻或形容程度，而 `-다시피` 更多用於確認事實。\n\n[id:ex.ko.s.001507]\n[id:ex.ko.s.001508]\n[id:ex.ko.s.001509]\n[id:ex.ko.s.001510]\n[id:ex.ko.s.001511]\n[id:ex.ko.s.001512]\n[id:ex.ko.s.001513]\n[id:ex.ko.s.001514]\n[id:ex.ko.s.001515]\n[id:ex.ko.s.001516]",
+      "usage_notes": []
+    }
+  },
+  {
     "id": "kg.grammar.ending.discovery_neyo",
     "source": {
       "id": "kg.grammar.ending.discovery_neyo",
@@ -1898,6 +4063,87 @@
       "title": "-네/네요 (啊/耶 - 感嘆)",
       "description": "表示對剛得知的新事實感到驚訝、感嘆，或是對當前狀況的體會。",
       "explanation_md": "· 用法說明\n直接接在詞幹後。用於表達「原來是這樣啊！」的驚奇感。\n\n· 常見使用場景\n- 親眼看到事實：哇，今天天氣真好耶！\n- 體驗後感悟：這道菜真的很好吃耶。\n- 確認新訊息：原本你是大學生啊。\n\n· 相近文法比較\n- **-군요/구나**: 通用的感嘆，但不一定需要是「剛發現」的事情。\n- **-네요**: 更強調「此刻當下」新發現的事實，口語感非常強。\n\n· 注意\n與第二人稱問句合用時，帶有「原來你...啊？」的確認色彩。",
+      "usage_notes": []
+    }
+  },
+  {
+    "id": "kg.grammar.ending.doe",
+    "source": {
+      "id": "kg.grammar.ending.doe",
+      "kind": "grammar",
+      "subcategory": "ending",
+      "level": "A2",
+      "surface": "-되",
+      "tags": [
+        "grammar",
+        "ending",
+        "beginner",
+        "v5_ingestion"
+      ],
+      "provenance": {
+        "source": "knowledge_lab_batch_1.2",
+        "rescue_batch": "kg-normalize-001"
+      },
+      "example_sentence_refs": [
+        "ex.ko.s.001477",
+        "ex.ko.s.001478",
+        "ex.ko.s.001479",
+        "ex.ko.s.001480",
+        "ex.ko.s.001481",
+        "ex.ko.s.001482",
+        "ex.ko.s.001483",
+        "ex.ko.s.001484",
+        "ex.ko.s.001485",
+        "ex.ko.s.001486"
+      ]
+    },
+    "i18n": {
+      "id": "kg.grammar.ending.doe",
+      "locale": "zh_tw",
+      "title": "-되 (雖然~但/且)",
+      "description": "表示承認前文的事實，但同時提出條件、限制或補充說明。",
+      "explanation_md": "· 用法說明\n\n`-되` 用於連接兩個句子，表示承認前句的事實，但後句會提出一定的限制、條件或補充。常用於書面語或正式場合，具有「雖然承認...但要...」的語氣。\n\n· 常見使用場景\n\n1. **提出條件/限制**：承認某事可以做，但必須遵守特定條件。\n2. **補充說明**：在承認事實的基礎上，增加額外的資訊。\n\n· 注意\n\n- 與 `-지만` 相比，`-되` 的對比感較弱，更多側重於「承上啟下的限制」。\n- 主要用於正式文書、演說或教訓性的語句中。\n\n[id:ex.ko.s.001477]\n[id:ex.ko.s.001478]\n[id:ex.ko.s.001479]\n[id:ex.ko.s.001480]\n[id:ex.ko.s.001481]\n[id:ex.ko.s.001482]\n[id:ex.ko.s.001483]\n[id:ex.ko.s.001484]\n[id:ex.ko.s.001485]\n[id:ex.ko.s.001486]",
+      "usage_notes": []
+    }
+  },
+  {
+    "id": "kg.grammar.ending.dorok",
+    "source": {
+      "id": "kg.grammar.ending.dorok",
+      "kind": "grammar",
+      "subcategory": "ending",
+      "level": "A2",
+      "surface": "도록",
+      "tags": [
+        "grammar",
+        "ending",
+        "klab_ingestion",
+        "v5_ingestion",
+        "purpose",
+        "limit"
+      ],
+      "provenance": {
+        "source": "report_source"
+      },
+      "example_sentence_refs": [
+        "ex.ko.s.001437",
+        "ex.ko.s.001438",
+        "ex.ko.s.001439",
+        "ex.ko.s.001440",
+        "ex.ko.s.001441",
+        "ex.ko.s.001462",
+        "ex.ko.s.001463",
+        "ex.ko.s.001464",
+        "ex.ko.s.001465",
+        "ex.ko.s.001466"
+      ]
+    },
+    "i18n": {
+      "id": "kg.grammar.ending.dorok",
+      "locale": "zh_tw",
+      "title": "-도록 (為了/直到)",
+      "description": "用來表示後續動作的目標、程度或時間的極限。",
+      "explanation_md": "· 用法說明\n`-도록` 是一個多功能的連接語尾，主要有兩種核心含義：\n1. **目的**：相當於「為了／好讓...」，表示後面動作的目標。\n2. **程度／時間極限**：表示動作進行到某種程度或某個時間點，相當於「直到...」。\n\n· 常見使用場景\n- 給他人建議或命令時：如「請讓大家都聽得到（하도록）」。\n- 描述長期堅持的動作：如「唸書唸到深夜（깊도록）」。\n- 表達下定決心或達成某個狀態：如「為了變健康（건강해지도록）」。\n\n· 相近文法比較\n- 與 `~게` (目的)：兩者在表示「目的」時可以互換，但 `-도록` 的語氣較為正式，且帶有一種「使之達成」的強制性或強烈意志。\n- 與 `~까지`：`~까지` 只接在名詞後，而 `-도록` 則接在動詞詞幹後表示時間的延續。\n\n· 注意\n- 直接接在動詞/形容詞詞幹後面，不分收音。\n- 表達「命令」時，常使用 `-도록 하세요` 的型態，這比直接用命令句更具建議感但仍保有權威。\n\n[id:ex.ko.s.001437] [id:ex.ko.s.001438] [id:ex.ko.s.001439] [id:ex.ko.s.001440] [id:ex.ko.s.001441] [id:ex.ko.s.001462] [id:ex.ko.s.001463] [id:ex.ko.s.001464] [id:ex.ko.s.001465] [id:ex.ko.s.001466]",
       "usage_notes": []
     }
   },
@@ -1953,6 +4199,459 @@
       "title": "아/어/해하다 (感到覺得)",
       "description": "將形容詞轉為動詞，用於描述「第三人稱」觀察到的感受或情緒。",
       "explanation_md": "· 用法說明\n用於說明朋友或家人的心情。韓語中，當我們描述「他人」的感情時，必須從直接陳述轉化為「觀察模式」。\n\n· 常見使用場景\n描述他人的情緒（感到開心、難過、害怕）或是他人的願望（想要做某事）。\n\n· 注意\n`나는 슬프다` (我很難過) 是直接陳述；但 `친구는 슬퍼해요` (朋友感到難過) 則是基於觀察的陳述。這是韓語中尊重他人內心邊界的表現。",
+      "usage_notes": []
+    }
+  },
+  {
+    "id": "kg.grammar.ending.eul_jeongdoro",
+    "source": {
+      "id": "kg.grammar.ending.eul_jeongdoro",
+      "kind": "grammar",
+      "subcategory": "ending",
+      "level": "B1",
+      "surface": "-(으)ㄹ 정도로",
+      "tags": [
+        "grammar",
+        "ending",
+        "advanced",
+        "v5_ingestion"
+      ],
+      "provenance": {
+        "source": "knowledge_lab_rescue",
+        "rescue_batch": "KLAB-Batch-1.15"
+      },
+      "example_sentence_refs": [
+        "ex.ko.s.002134",
+        "ex.ko.s.002135",
+        "ex.ko.s.002136",
+        "ex.ko.s.002137",
+        "ex.ko.s.002138",
+        "ex.ko.s.002139",
+        "ex.ko.s.002140",
+        "ex.ko.s.002141",
+        "ex.ko.s.002142",
+        "ex.ko.s.002143"
+      ]
+    },
+    "i18n": {
+      "id": "kg.grammar.ending.eul_jeongdoro",
+      "locale": "zh_tw",
+      "title": "-(으)ㄹ 정도로 (程度/限度)",
+      "description": "表示動作或狀態達到的程度，通常用來誇張地描寫後句的狀態。",
+      "explanation_md": "· 用法說明\n\n1. 表示前句是衡量後句狀態的一種「程度」或「限度」。\n2. 常與「誇張」的表達連用，用來強調當前處境的嚴重性或特徵。\n\n· 相近文法比較：`만큼` vs `정도`\n\n- **정도**：側重於「門檻」或「達到某種地步」。多用於形容抽象的極限狀態。例如：`눈물이 날 정도로 기쁘다` (高興到「眼淚快流出來的地步」)。\n- **만큼**：側重於「對等比例」。多用於具體的份量比較。\n\n· 常見使用場景\n\n- 形容極端的痛苦、快樂或驚愕。\n- 強調某種特徵非常鮮明，足以引起某種結果。\n\n· 補充\n\n- 詞幹末尾有尾音用 `-을 정도로`，無尾音或尾音為 `ㄹ` 時用 `-ㄹ 정도로`。\n\n[id:ex.ko.s.002134] [id:ex.ko.s.002135]",
+      "usage_notes": []
+    }
+  },
+  {
+    "id": "kg.grammar.ending.eul_kka_bwa",
+    "source": {
+      "id": "kg.grammar.ending.eul_kka_bwa",
+      "kind": "grammar",
+      "subcategory": "ending",
+      "level": "A2",
+      "surface": "(으)ㄹ까 봐",
+      "tags": [
+        "grammar",
+        "ending",
+        "klab_ingestion",
+        "v5_ingestion",
+        "concern"
+      ],
+      "provenance": {
+        "source": "report_source"
+      },
+      "example_sentence_refs": [
+        "ex.ko.s.001432",
+        "ex.ko.s.001433",
+        "ex.ko.s.001434",
+        "ex.ko.s.001435",
+        "ex.ko.s.001436",
+        "ex.ko.s.001457",
+        "ex.ko.s.001458",
+        "ex.ko.s.001459",
+        "ex.ko.s.001460",
+        "ex.ko.s.001461"
+      ]
+    },
+    "i18n": {
+      "id": "kg.grammar.ending.eul_kka_bwa",
+      "locale": "zh_tw",
+      "title": "-(으)ㄹ까 봐 (擔心與顧慮)",
+      "description": "表示擔心某種負面的情況發生，因而採取了後面的行動或是感到焦慮。",
+      "explanation_md": "· 用法說明\n`~(으)ㄹ까 봐` 用於表達說話者對於未來可能發生的事情感到擔憂或顧慮，中文常翻譯為「擔心會...所以...」或「怕...所以...」。這是一個在日常生活中極高頻使用的句型。\n\n· 常見使用場景\n- 表達為某事做的預防措施：如「怕下雨所以帶傘」。\n- 表達心裏的焦慮狀態：如「怕考試不及格所以緊張」。\n- 解釋採取某個行動的原因。\n\n· 相近文法比較\n- 與 `~(으)ㄹ까 봐서`：兩者意義幾乎相同，`~(으)ㄹ까 봐서` 是更完整的表達方式，口語中常省略 `~서`。\n- 與 `~기 때문에`：`~기 때문에` 是單純說明原因，而 `~(으)ㄹ까 봐` 則帶有強烈的「主觀心理擔憂」。\n\n· 注意\n- 動詞/形容詞詞幹有收音：接 `~을까 봐`。\n- 動詞/形容詞詞幹無收音：接 `~ㄹ까 봐`。\n- 注意收音 `ㄹ` 的不規則變化（如 `만들다` -> `만들까 봐`）。\n- 後句通常接續與「預防」或「焦慮」相關的動作或狀態。\n\n[id:ex.ko.s.001432] [id:ex.ko.s.001433] [id:ex.ko.s.001434] [id:ex.ko.s.001435] [id:ex.ko.s.001436] [id:ex.ko.s.001457] [id:ex.ko.s.001458] [id:ex.ko.s.001459] [id:ex.ko.s.001460] [id:ex.ko.s.001461]",
+      "usage_notes": []
+    }
+  },
+  {
+    "id": "kg.grammar.ending.eul_mankeum",
+    "source": {
+      "id": "kg.grammar.ending.eul_mankeum",
+      "kind": "grammar",
+      "subcategory": "ending",
+      "level": "B1",
+      "surface": "-(으)ㄹ 만큼",
+      "tags": [
+        "grammar",
+        "ending",
+        "advanced",
+        "v5_ingestion"
+      ],
+      "provenance": {
+        "source": "knowledge_lab_rescue",
+        "rescue_batch": "KLAB-Batch-1.15"
+      },
+      "example_sentence_refs": [
+        "ex.ko.s.002124",
+        "ex.ko.s.002125",
+        "ex.ko.s.002126",
+        "ex.ko.s.002127",
+        "ex.ko.s.002128",
+        "ex.ko.s.002129",
+        "ex.ko.s.002130",
+        "ex.ko.s.002131",
+        "ex.ko.s.002132",
+        "ex.ko.s.002133"
+      ]
+    },
+    "i18n": {
+      "id": "kg.grammar.ending.eul_mankeum",
+      "locale": "zh_tw",
+      "title": "-(으)ㄹ 만큼 (程度/分量)",
+      "description": "表示前後程度相當，或前句是後句的標準/分量。",
+      "explanation_md": "· 用法說明\n\n1. 表示動作或狀態達到了前句所描述的程度、數量或標準。\n2. 常與 `-(으)ㄹ 정도로` 通用，但 `만큼` 更強調「分量」或「對等程度」。\n\n· 相近文法比較：`만큼` vs `정도`\n\n- **만큼**：側重於「對等」、「比例」。例如：`먹을 만큼 가져가세요` (拿走「能吃掉的分量」)。\n- **정도**：側重於「限度」、「門檻」。例如：`죽을 정도로 힘들다` (累到「快死的程度」)。\n\n· 常見使用場景\n\n- 形容努力、成果與期待相等。\n- 指定特定的數量或限度。\n\n· 補充\n\n- 詞幹末尾有尾音用 `-을 만큼`，無尾音或尾音為 `ㄹ` 時用 `-ㄹ 만큼`。\n\n[id:ex.ko.s.002124] [id:ex.ko.s.002125]",
+      "usage_notes": []
+    }
+  },
+  {
+    "id": "kg.grammar.ending.eul_sera",
+    "source": {
+      "id": "kg.grammar.ending.eul_sera",
+      "kind": "grammar",
+      "subcategory": "ending",
+      "level": "A2",
+      "surface": "-(으)ㄹ세라",
+      "tags": [
+        "grammar",
+        "ending",
+        "concern",
+        "A2",
+        "v5_ingestion",
+        "formal"
+      ],
+      "provenance": {
+        "source": "knowledge_lab_rescue",
+        "rescue_batch": "KLAB-Batch-1.14"
+      },
+      "example_sentence_refs": [
+        "ex.ko.s.002084",
+        "ex.ko.s.002085",
+        "ex.ko.s.002086",
+        "ex.ko.s.002087",
+        "ex.ko.s.002088",
+        "ex.ko.s.002089",
+        "ex.ko.s.002090",
+        "ex.ko.s.002091",
+        "ex.ko.s.002092",
+        "ex.ko.s.002093"
+      ]
+    },
+    "i18n": {
+      "id": "kg.grammar.ending.eul_sera",
+      "locale": "zh_tw",
+      "title": "-(으)ㄹ세라 (唯恐)",
+      "description": "唯恐發生前面的事情，因此急忙或小心翼翼地進行後續動作。",
+      "explanation_md": "· 用法說明\n\n表示因為擔心、害怕某種不希望見到的情況發生，而感到緊張，並隨即採取行動。這種語氣帶有一種強烈且細緻的擔憂感。\n\n· 常見使用場景\n\n1. 用於文學作品或描繪情感細膩的場景。\n2. 描寫急迫的狀態。例如：擔心考試遲到而飛奔、擔心孩子醒來而輕聲移動。\n\n· 注意\n\n1. **文語感**：這是一種書面語表達，口語中常用 `-(으)ㄹ까 봐` 代替。\n2. 常見搭配：`-(으)ㄹ세라` + 急忙/快步/小心的動作。\n\n· 連結例句\n\n[id:ex.ko.s.002084]\n[id:ex.ko.s.002089]",
+      "usage_notes": []
+    }
+  },
+  {
+    "id": "kg.grammar.ending.eul_tende",
+    "source": {
+      "id": "kg.grammar.ending.eul_tende",
+      "kind": "grammar",
+      "subcategory": "ending",
+      "level": "A2",
+      "surface": "(으)ㄹ 텐데",
+      "tags": [
+        "grammar",
+        "ending",
+        "klab_ingestion",
+        "v5_ingestion",
+        "prediction",
+        "contrast"
+      ],
+      "provenance": {
+        "source": "report_source"
+      },
+      "example_sentence_refs": [
+        "ex.ko.s.001447",
+        "ex.ko.s.001448",
+        "ex.ko.s.001449",
+        "ex.ko.s.001450",
+        "ex.ko.s.001451",
+        "ex.ko.s.001472",
+        "ex.ko.s.001473",
+        "ex.ko.s.001474",
+        "ex.ko.s.001475",
+        "ex.ko.s.001476"
+      ]
+    },
+    "i18n": {
+      "id": "kg.grammar.ending.eul_tende",
+      "locale": "zh_tw",
+      "title": "-(으)ㄹ 텐데 (預測/推測 + 對照)",
+      "description": "表示對某種情況的預測或推測，並以此作為後續說明的背景，常帶有擔心、遺憾或婉轉的語氣。",
+      "explanation_md": "· 用法說明\n`~(으)ㄹ 텐데` 用於描述說話者所預期的某種情況，並將其作為背景或轉折。中文常譯為「應該會...（但是）...」或「想到...所以...」。\n\n· 常見使用場景\n- 表達婉轉的謝意或歉意：如「您應該很忙（바쁘실 텐데），還來參加」。\n- 表示擔心或遺憾：如「應該會下雨（올 텐데），沒帶傘真擔心」。\n- 作為提問的背景：如「應該很好吃（맛있을 텐데），為什麼不吃呢？」。\n\n· 相近文法比較\n- 與 `~(으)ㄴ/는데`：`~(으)ㄴ/는데` 只是單純描述現狀，而 `~(으)ㄹ 텐데` 則強調「主觀的推測、預期」。\n- 與 `~(으)ㄹ 테니까`：`~(으)ㄹ 테니까` 重點在於給對方「行動的理由」；而 `~(으)ㄹ 텐데` 重點在於「預期的背景」或「對比」。\n\n· 注意\n- 動詞/形容詞詞幹有收音：接 `~을 텐데`。\n- 動詞/形容詞詞幹無收音：接 `~ㄹ 텐데`。\n- 常以 `~(으)ㄹ 텐데요` 的型態結束句子，表達出一種推測後的感慨或遺憾。\n\n[id:ex.ko.s.001447] [id:ex.ko.s.001448] [id:ex.ko.s.001449] [id:ex.ko.s.001450] [id:ex.ko.s.001451] [id:ex.ko.s.001472] [id:ex.ko.s.001473] [id:ex.ko.s.001474] [id:ex.ko.s.001475] [id:ex.ko.s.001476]",
+      "usage_notes": []
+    }
+  },
+  {
+    "id": "kg.grammar.ending.eul_tenikka",
+    "source": {
+      "id": "kg.grammar.ending.eul_tenikka",
+      "kind": "grammar",
+      "subcategory": "ending",
+      "level": "A2",
+      "surface": "(으)ㄹ 테니까",
+      "tags": [
+        "grammar",
+        "ending",
+        "klab_ingestion",
+        "v5_ingestion",
+        "prediction",
+        "reason"
+      ],
+      "provenance": {
+        "source": "report_source"
+      },
+      "example_sentence_refs": [
+        "ex.ko.s.001442",
+        "ex.ko.s.001443",
+        "ex.ko.s.001444",
+        "ex.ko.s.001445",
+        "ex.ko.s.001446",
+        "ex.ko.s.001467",
+        "ex.ko.s.001468",
+        "ex.ko.s.001469",
+        "ex.ko.s.001470",
+        "ex.ko.s.001471"
+      ]
+    },
+    "i18n": {
+      "id": "kg.grammar.ending.eul_tenikka",
+      "locale": "zh_tw",
+      "title": "-(으)ㄹ 테니까 (預測/主觀意圖 + 原因)",
+      "description": "表示說話者的意志或強烈的推測，並以此作為後句要求或建議的理由。",
+      "explanation_md": "· 用法說明\n`~(으)ㄹ 테니까` 是 `~(으)ㄹ 터` (預定/打算) 加上 `~(으)니까` (原因) 的組合。主要用於：\n1. **展現說話者的意志**：中文即「我會...（所以你...）」。\n2. **強烈的推測**：針對某種情況做預測，並以此為由給對方建議。\n\n· 常見使用場景\n- 分工合作：如「我來掃地（할 테니까），你洗碗吧」。\n- 給予安慰或建議：如「大概會很熱（더울 테니까），穿薄一點吧」。\n- 約定與承諾。\n\n· 相近文法比較\n- 與 `~(으)니까`：單純的 `~(으)니까` 只表示原因，而 `~(으)ㄹ 테니까` 則包含了「推測」或「意圖」的成分，語氣更具引導性。\n- 與 `~(으)ㄹ 텐데`：`~(으)ㄹ 테니까` 後面通常接命令 (`~세요`)、提議 (`~읍시다`) 或請求，重心在「行動的理由」。\n\n· 注意\n- 動詞/形容詞詞幹有收音：接 `~을 테니까`。\n- 動詞/形容詞詞幹無收音：接 `~ㄹ 테니까`。\n- 第一人稱主語時，多表示「意志」；第三人稱主語時，多表示「推測」。\n\n[id:ex.ko.s.001442] [id:ex.ko.s.001443] [id:ex.ko.s.001444] [id:ex.ko.s.001445] [id:ex.ko.s.001446] [id:ex.ko.s.001467] [id:ex.ko.s.001468] [id:ex.ko.s.001469] [id:ex.ko.s.001470] [id:ex.ko.s.001471]",
+      "usage_notes": []
+    }
+  },
+  {
+    "id": "kg.grammar.ending.eun_neun_chaero",
+    "source": {
+      "id": "kg.grammar.ending.eun_neun_chaero",
+      "kind": "grammar",
+      "subcategory": "ending",
+      "level": "A2",
+      "surface": "-(으)ㄴ/는 채로",
+      "tags": [
+        "grammar",
+        "ending",
+        "beginner",
+        "v5_ingestion"
+      ],
+      "provenance": {
+        "source": "knowledge_lab_batch_1.2",
+        "rescue_batch": "kg-normalize-001"
+      },
+      "example_sentence_refs": [
+        "ex.ko.s.001517",
+        "ex.ko.s.001518",
+        "ex.ko.s.001519",
+        "ex.ko.s.001520",
+        "ex.ko.s.001521",
+        "ex.ko.s.001522",
+        "ex.ko.s.001523",
+        "ex.ko.s.001524",
+        "ex.ko.s.001525",
+        "ex.ko.s.001526"
+      ]
+    },
+    "i18n": {
+      "id": "kg.grammar.ending.eun_neun_chaero",
+      "locale": "zh_tw",
+      "title": "-(으)ㄴ/는 채로 (保持著~的狀態)",
+      "description": "表示某個動作完成後的狀態一直保持著，並接著進行後續動作。",
+      "explanation_md": "· 用法說明\n\n`-(으)ㄴ/는 채로` 用於表示前一個動作所產生的狀態被原封不動地維持著，在這種狀態下進行下一個動作。常用於描述一些與平常習慣或預期不同的、持續著的狀態（如：穿著衣服睡覺、開著燈出來）。\n\n· 常見使用場景\n\n1. **非預期的持續狀態**：`옷을 입은 채로`（穿著衣服的狀態下）、`안경을 쓴 채로`（戴著眼鏡的狀態下）。\n2. **結果的維持**：前一個動作已經結束，但其結果（狀態）仍在持續。\n\n· 注意\n\n- 前句動詞通常是表示「放置、穿著、打開、關閉」等能留下狀態的動詞。\n- 不能用於描述自然現象或不可控狀態。\n\n[id:ex.ko.s.001517]\n[id:ex.ko.s.001518]\n[id:ex.ko.s.001519]\n[id:ex.ko.s.001520]\n[id:ex.ko.s.001521]\n[id:ex.ko.s.001522]\n[id:ex.ko.s.001523]\n[id:ex.ko.s.001524]\n[id:ex.ko.s.001525]\n[id:ex.ko.s.001526]",
+      "usage_notes": []
+    }
+  },
+  {
+    "id": "kg.grammar.ending.eun_neun_gime",
+    "source": {
+      "id": "kg.grammar.ending.eun_neun_gime",
+      "kind": "grammar",
+      "subcategory": "ending",
+      "level": "A2",
+      "surface": "-(으)ㄴ/는 김에",
+      "tags": [
+        "grammar",
+        "ending",
+        "opportunity",
+        "beginner",
+        "v5_ingestion"
+      ],
+      "provenance": {
+        "source": "knowledge_lab_rescue",
+        "rescue_batch": "KLAB-Batch-1.3",
+        "rescue_source": "knowledge_lab_inventory_v3"
+      },
+      "example_sentence_refs": [
+        "ex.ko.s.001547",
+        "ex.ko.s.001548",
+        "ex.ko.s.001549",
+        "ex.ko.s.001550",
+        "ex.ko.s.001551",
+        "ex.ko.s.001552",
+        "ex.ko.s.001553",
+        "ex.ko.s.001554",
+        "ex.ko.s.001555",
+        "ex.ko.s.001556"
+      ]
+    },
+    "i18n": {
+      "id": "kg.grammar.ending.eun_neun_gime",
+      "locale": "zh_tw",
+      "title": "-(으)ㄴ/는 김에 (順便)",
+      "description": "表示藉由做某件事的機會，順便做另一件原本沒有計劃或相關的事。",
+      "explanation_md": "· 用法說明\n\n`-(으)ㄴ/는 김에` 用於表示正在進行或已經完成某個動作時，趁著這個機會順帶做另一件事。相當於中文的「順便…」、「趁著…之際」。\n\n· 常見使用場景\n\n1. **出行順便**：如「去超市的時候，順便買了牛奶」。\n2. **做某事順帶做另一事**：如「洗碗的時候，順便把廚房也清理了」。\n\n· 注意\n\n- **接續方式**：\n    - 現在進行中的動作：動詞詞幹 + `-는 김에`。\n    - 已經完成或正在移動的狀態：動詞詞幹 + `-(으)ㄴ 김에`。\n- 通常後句是說話者的意志、提議或命令。\n\n[id:ex.ko.s.001547] [id:ex.ko.s.001548] [id:ex.ko.s.001549] [id:ex.ko.s.001550] [id:ex.ko.s.001551] [id:ex.ko.s.001552] [id:ex.ko.s.001553] [id:ex.ko.s.001554] [id:ex.ko.s.001555] [id:ex.ko.s.001556]",
+      "usage_notes": []
+    }
+  },
+  {
+    "id": "kg.grammar.ending.eun_neun_keonyeong",
+    "source": {
+      "id": "kg.grammar.ending.eun_neun_keonyeong",
+      "kind": "grammar",
+      "subcategory": "ending",
+      "level": "A2",
+      "surface": "-은/는커녕",
+      "tags": [
+        "grammar",
+        "ending",
+        "contrastive",
+        "beginner",
+        "v5_ingestion"
+      ],
+      "provenance": {
+        "source": "knowledge_lab_rescue",
+        "rescue_batch": "KLAB-Batch-1.3",
+        "rescue_source": "knowledge_lab_inventory_v3"
+      },
+      "example_sentence_refs": [
+        "ex.ko.s.001537",
+        "ex.ko.s.001538",
+        "ex.ko.s.001539",
+        "ex.ko.s.001540",
+        "ex.ko.s.001541",
+        "ex.ko.s.001542",
+        "ex.ko.s.001543",
+        "ex.ko.s.001544",
+        "ex.ko.s.001545",
+        "ex.ko.s.001546"
+      ]
+    },
+    "i18n": {
+      "id": "kg.grammar.ending.eun_neun_keonyeong",
+      "locale": "zh_tw",
+      "title": "-은/는커녕 (別說~連)",
+      "description": "表示前一個事實根本不可能發生，甚至連更基本的、更低要求的後者也無法達成。",
+      "explanation_md": "· 用法說明\n\n`-은/는커녕` 表示「別說是…連…也…」。用於強調某種狀況非常糟糕，連最基本的要求或預想的情況都無法滿足。\n\n· 常見使用場景\n\n1. **否定強調**：如「別說是飯了，連水都沒喝」。\n2. **失望與落差**：預期會得到好結果，結果連底線都沒達到。\n\n· 注意\n\n- 前面的內容可以是名詞，如果是動詞則需轉為名詞形 `-기는커녕`。\n- 後句通常接否定詞（못, 안, 없다 等）。\n- **接續方式**：\n    - 有收音用 `-은커녕`。\n    - 無收音用 `-는커녕`。\n\n[id:ex.ko.s.001537] [id:ex.ko.s.001538] [id:ex.ko.s.001539] [id:ex.ko.s.001540] [id:ex.ko.s.001541] [id:ex.ko.s.001542] [id:ex.ko.s.001543] [id:ex.ko.s.001544] [id:ex.ko.s.001545] [id:ex.ko.s.001546]",
+      "usage_notes": []
+    }
+  },
+  {
+    "id": "kg.grammar.ending.eurak_neurak",
+    "source": {
+      "id": "kg.grammar.ending.eurak_neurak",
+      "kind": "grammar",
+      "subcategory": "ending",
+      "level": "B1",
+      "surface": "-(으)락 -(으)락",
+      "tags": [
+        "grammar",
+        "ending",
+        "advanced",
+        "v5_ingestion"
+      ],
+      "provenance": {
+        "source": "knowledge_lab_rescue",
+        "rescue_batch": "KLAB-Batch-1.15"
+      },
+      "example_sentence_refs": [
+        "ex.ko.s.002104",
+        "ex.ko.s.002105",
+        "ex.ko.s.002106",
+        "ex.ko.s.002107",
+        "ex.ko.s.002108",
+        "ex.ko.s.002109",
+        "ex.ko.s.002110",
+        "ex.ko.s.002111",
+        "ex.ko.s.002112",
+        "ex.ko.s.002113"
+      ]
+    },
+    "i18n": {
+      "id": "kg.grammar.ending.eurak_neurak",
+      "locale": "zh_tw",
+      "title": "-(으)락 -(으)락 (反覆/交替)",
+      "description": "表示兩個相反或相關的動作、狀態交替發生或反覆進行。",
+      "explanation_md": "· 用法說明\n\n1. 用於動詞或形容詞詞幹後，通常將兩個含義相反或相關的詞並列使用，表示動作或狀態的快速交替、反覆。\n2. 常見的固定搭配包括 `오락가락` (來來回回、晴時多雲)、`붉으락푸르락` (臉色忽紅忽青，形容憤怒)。\n\n· 常見使用場景\n\n- 形容天氣陰晴不定或雨下下停停。\n- 形容心情起伏或臉色變化。\n- 形容物體在小範圍內反覆移動。\n\n· 注意\n\n- 現代韓語中，除了少數固定搭配外，此用法在口語中較少見，多見於文學描述。\n- 詞幹末尾有尾音時用 `-으락 -으락`，無尾音時用 `-락 -락`。\n\n[id:ex.ko.s.002104] [id:ex.ko.s.002105]",
+      "usage_notes": []
+    }
+  },
+  {
+    "id": "kg.grammar.ending.exclamative_adjective_da",
+    "source": {
+      "id": "kg.grammar.ending.exclamative_adjective_da",
+      "kind": "grammar",
+      "subcategory": "ending",
+      "level": "A1",
+      "surface": "~다",
+      "tags": [
+        "grammar",
+        "ending",
+        "beginner",
+        "v5_ingestion"
+      ],
+      "provenance": {
+        "source": "youtube_beginner_grammar",
+        "source_lesson_ids": [
+          136
+        ],
+        "source_video_ids": [
+          "I72JY7bBJQ8"
+        ]
+      },
+      "example_sentence_refs": [
+        "ex.ko.s.001357",
+        "ex.ko.s.001358",
+        "ex.ko.s.001359",
+        "ex.ko.s.001360",
+        "ex.ko.s.001361",
+        "ex.ko.s.001362",
+        "ex.ko.s.001363",
+        "ex.ko.s.001364",
+        "ex.ko.s.001365",
+        "ex.ko.s.001366"
+      ]
+    },
+    "i18n": {
+      "id": "kg.grammar.ending.exclamative_adjective_da",
+      "locale": "zh_tw",
+      "title": "~다 (形容詞感嘆)",
+      "description": "直接使用形容詞原形來表達當下的感嘆或強烈心情，意為「好…啊」、「真…」。",
+      "explanation_md": "韓語中，形容詞與動詞不同，其「基本型 (詞典原形)」可以直接用於口語中，轉化為一種自然的感嘆語氣。當你看到、聽到或感受到某種強烈的狀態時，可以直接大聲喊出這個形容詞。\n\n· 用法說明\n  - 直接使用形容詞的基本型 (`-다` 結尾)，不需要進行任何詞尾變化：\n    - `예쁘다!` (好漂亮啊！) [id:ex.ko.s.001358]\n    - `춥다!` (好冷喔！) [id:ex.ko.s.001357]\n\n· 常見使用場景\n  - 自言自語或向身邊的人直接表達感官感受：[id:ex.ko.s.001357], [id:ex.ko.s.001359]\n  - 表達當時的情緒或生理反應：[id:ex.ko.s.001360], [id:ex.ko.s.001364]\n  - 對眼前的事物發出讚歎或驚訝：[id:ex.ko.s.001358], [id:ex.ko.s.001365]\n\n· 注意\n  - 此用法本身帶有非敬語 (半語) 的特質，通常用於獨白或對親近的人說話。\n  - **動詞**不能這樣使用。動詞的感嘆需要特殊的詞尾變化（如 `-ㄴ/는다`），而形容詞則可以直接用原形。",
       "usage_notes": []
     }
   },
@@ -2018,10 +4717,12 @@
       "provenance": {
         "source": "youtube_beginner_grammar",
         "source_lesson_ids": [
-          1
+          1,
+          142
         ],
         "source_lesson_titles": [
-          "敬語結尾正式敘述 습니다ㅂ니다"
+          "敬語結尾正式敘述 습니다ㅂ니다",
+          "敬語結尾正式敘述 습니다/ㅂ니다 (Review)"
         ],
         "source_video_ids": [
           "Md8ppk8GwNA"
@@ -2040,7 +4741,14 @@
         "ex.ko.s.000013",
         "ex.ko.s.000060",
         "ex.ko.s.000061",
-        "ex.ko.s.000062"
+        "ex.ko.s.000062",
+        "ex.ko.s.001402",
+        "ex.ko.s.001403",
+        "ex.ko.s.001404",
+        "ex.ko.s.001405",
+        "ex.ko.s.001406",
+        "ex.ko.s.001407",
+        "ex.ko.s.001408"
       ]
     },
     "i18n": {
@@ -2049,6 +4757,128 @@
       "title": "습니다/ㅂ니다 (正式敘述句)",
       "description": "韓文中最莊重、正式的敘述用語尾。常用於演講、新聞、正式報告或軍隊場合。在日常生活中，則用於初次見面、對上司或長輩表示端正客氣的語氣。",
       "explanation_md": "「`-습니다/ㅂ니다`」是韓文學習者最先接觸到的**正式體（格式體）**語尾。它的語氣非常莊重，會給人一種「端正、客氣、有禮貌」的印象。\n\n· **用法說明**\n\n這個語尾主要接在**動詞或形容詞**的詞幹之後。如果是名詞，則會使用「`입니다`」。\n\n- **動詞或形容詞詞幹沒有收音時**：接「`-ㅂ니다`」。例如：`가다` → [id:ex.ko.s.000008]。\n- **動詞或形容詞詞幹有收音時**：接「`-습니다`」。例如：`읽다` → [id:ex.ko.s.000009]。\n- **名詞（無論有無收音）**：直接接「`입니다`」。例如：[id:ex.ko.s.000007]、[id:ex.ko.s.000013]。\n\n· **常見使用場景**\n\n雖然在一般對話中，比較常用親切的 `-(아/어)요`，但在以下場合一定要用 `습니다` 系列：\n- **公共演講、新聞廣播**\n- **正式會議、面試、報告**\n- **軍隊、公家機關**\n- **對長輩、上司傳達重要資訊時**\n\n· **相近文法比較**\n\n| 語尾 | 核心感覺 | 常見場合 |\n| --- | --- | --- |\n| `습니다/ㅂ니다` | **莊重、端正、客觀** | 正式場合、發表 |\n| `-(아/어)요` | **禮貌、親切、自然** | 日常生活、一般對話 |\n\n· **注意**\n\n如果你想表現出「我很專業、我很尊敬對方」，或者是在嚴肅的場合，選 `습니다/ㅂ니다` 就對了。像 [id:ex.ko.s.000010] 或 [id:ex.ko.s.000011] 這樣的描述，就是在這種語境下最標準的用法。",
+      "usage_notes": []
+    }
+  },
+  {
+    "id": "kg.grammar.ending.geonman",
+    "source": {
+      "id": "kg.grammar.ending.geonman",
+      "kind": "grammar",
+      "subcategory": "ending",
+      "level": "A2",
+      "surface": "-건만",
+      "tags": [
+        "grammar",
+        "ending",
+        "beginner",
+        "v5_ingestion"
+      ],
+      "provenance": {
+        "source": "knowledge_lab_batch_1.2",
+        "rescue_batch": "kg-normalize-001"
+      },
+      "example_sentence_refs": [
+        "ex.ko.s.001487",
+        "ex.ko.s.001488",
+        "ex.ko.s.001489",
+        "ex.ko.s.001490",
+        "ex.ko.s.001491",
+        "ex.ko.s.001492",
+        "ex.ko.s.001493",
+        "ex.ko.s.001494",
+        "ex.ko.s.001495",
+        "ex.ko.s.001496"
+      ]
+    },
+    "i18n": {
+      "id": "kg.grammar.ending.geonman",
+      "locale": "zh_tw",
+      "title": "-건만 (雖然~卻/然而)",
+      "description": "表示承認前文的事實，但後句出現了與期望或常理相反的結果。",
+      "explanation_md": "· 用法說明\n\n`-건만` 是 `-거니와` 和 `-만` 的結合縮略形，用於連接兩個句子。它承認前句的事實，但後句卻出現了一個令人遺憾、失望或與預期相反的情況。語氣上比 `-지만` 更帶有一種「可惜」、「遺憾」或「期望落空」的色彩。\n\n· 常見使用場景\n\n1. **期望落空**：雖然努力了，但結果不如人意。\n2. **對比遺憾**：雖然環境或條件很好，但事實卻相反。\n\n· 注意\n\n- 主要用於書面語或口語中較為正式、感性地表達遺憾時。\n- 常與 `-았/었-` 結合使用，表示過去的努力與現狀的對比。\n\n[id:ex.ko.s.001487]\n[id:ex.ko.s.001488]\n[id:ex.ko.s.001489]\n[id:ex.ko.s.001490]\n[id:ex.ko.s.001491]\n[id:ex.ko.s.001492]\n[id:ex.ko.s.001493]\n[id:ex.ko.s.001494]\n[id:ex.ko.s.001495]\n[id:ex.ko.s.001496]",
+      "usage_notes": []
+    }
+  },
+  {
+    "id": "kg.grammar.ending.gi_ga_museopge",
+    "source": {
+      "id": "kg.grammar.ending.gi_ga_museopge",
+      "kind": "grammar",
+      "subcategory": "ending",
+      "level": "A2",
+      "surface": "기가 무섭게",
+      "tags": [
+        "grammar",
+        "ending",
+        "klab_ingestion",
+        "v5_ingestion",
+        "temporal"
+      ],
+      "provenance": {
+        "source": "report_source"
+      },
+      "example_sentence_refs": [
+        "ex.ko.s.001427",
+        "ex.ko.s.001428",
+        "ex.ko.s.001429",
+        "ex.ko.s.001430",
+        "ex.ko.s.001431",
+        "ex.ko.s.001452",
+        "ex.ko.s.001453",
+        "ex.ko.s.001454",
+        "ex.ko.s.001455",
+        "ex.ko.s.001456"
+      ]
+    },
+    "i18n": {
+      "id": "kg.grammar.ending.gi_ga_museopge",
+      "locale": "zh_tw",
+      "title": "-기가 무섭게 (即時發生)",
+      "description": "表示前一個動作結束後，後面的動作緊接著發生，強調速度極快。",
+      "explanation_md": "· 用法說明\n`~기가 무섭게` 用於表達前一個動作才剛完畢，下一個動作就「立刻、馬上」發生。相較於 `~자마자`，這個詞更強調時間上的緊湊與速度感，帶有一種「快到令人驚訝」的語氣。\n\n· 常見使用場景\n- 形容下班或下課後的「閃退」：一結束就跑了。\n- 形容商品一推出就賣完：一上架就空了。\n- 形容某個現象發生後的連鎖反應。\n\n· 相近文法比較\n- 與 `~자마자` 的差別：兩者意義相近，但 `~기가 무섭게` 的誇張程度更高，常用於強調動作發生的速度極快，甚至帶有「無縫接軌」的感覺。\n- 與 `~자마자` 不同的是，`~기가 무섭게` 較常用於動詞，且語氣更為生動。\n\n· 注意\n- 主要接在動詞後面。\n- 不分收音有無，直接在動詞詞幹後加 `~기가 무섭게`。\n- 常用於描述過去的事實，或者形容某種反覆發生的迅速規律。\n\n[id:ex.ko.s.001427] [id:ex.ko.s.001428] [id:ex.ko.s.001429] [id:ex.ko.s.001430] [id:ex.ko.s.001431] [id:ex.ko.s.001452] [id:ex.ko.s.001453] [id:ex.ko.s.001454] [id:ex.ko.s.001455] [id:ex.ko.s.001456]",
+      "usage_notes": []
+    }
+  },
+  {
+    "id": "kg.grammar.ending.gibodaneun",
+    "source": {
+      "id": "kg.grammar.ending.gibodaneun",
+      "kind": "grammar",
+      "subcategory": "ending",
+      "level": "A2",
+      "surface": "-기보다는",
+      "tags": [
+        "grammar",
+        "ending",
+        "comparison",
+        "beginner",
+        "v5_ingestion"
+      ],
+      "provenance": {
+        "source": "knowledge_lab_rescue",
+        "rescue_batch": "KLAB-Batch-1.3",
+        "rescue_source": "knowledge_lab_inventory_v3"
+      },
+      "example_sentence_refs": [
+        "ex.ko.s.001527",
+        "ex.ko.s.001528",
+        "ex.ko.s.001529",
+        "ex.ko.s.001530",
+        "ex.ko.s.001531",
+        "ex.ko.s.001532",
+        "ex.ko.s.001533",
+        "ex.ko.s.001534",
+        "ex.ko.s.001535",
+        "ex.ko.s.001536"
+      ]
+    },
+    "i18n": {
+      "id": "kg.grammar.ending.gibodaneun",
+      "locale": "zh_tw",
+      "title": "-기보다는 (比起~不如)",
+      "description": "比起前一個動作或狀態，後面的動作或狀態更為合適或更被偏好。",
+      "explanation_md": "· 用法說明\n\n`-기보다는` 用於連接兩個分句，表示說話者認為比起前面的內容，後面的內容更正確、更合適或更符合現狀。相當於中文的「比起…不如…」或「與其說…倒不如…」。\n\n· 常見使用場景\n\n1. **表達偏好**：如「比起去山上，我更想去海邊」。\n2. **修正描述**：如「與其說他是老師，不如說他是人生的導師」。\n3. **選擇決策**：在兩個選項中選擇後者。\n\n· 相近文法比較\n\n- **`-기보다는` vs `-느니`**：\n  - `-기보다는` 是中性的比較與選擇。\n  - `-느니` 通常帶有負面評價，表示「既然前面的這麼糟，那（稍微好一點點的）後面也可以」。\n\n· 注意\n\n- 直接接在動詞或形容詞詞幹後，不分有無收音。\n- 前後主語通常一致，但也可以不同。\n\n[id:ex.ko.s.001527] [id:ex.ko.s.001528] [id:ex.ko.s.001529] [id:ex.ko.s.001530] [id:ex.ko.s.001531] [id:ex.ko.s.001532] [id:ex.ko.s.001533] [id:ex.ko.s.001534] [id:ex.ko.s.001535] [id:ex.ko.s.001536]",
       "usage_notes": []
     }
   },
@@ -2241,6 +5071,137 @@
     }
   },
   {
+    "id": "kg.grammar.ending.neuni",
+    "source": {
+      "id": "kg.grammar.ending.neuni",
+      "kind": "grammar",
+      "subcategory": "ending",
+      "level": "B1",
+      "surface": "-느니",
+      "tags": [
+        "grammar",
+        "ending",
+        "advanced",
+        "v5_ingestion"
+      ],
+      "provenance": {
+        "source": "knowledge_lab_rescue",
+        "rescue_batch": "KLAB-Batch-1.15"
+      },
+      "example_sentence_refs": [
+        "ex.ko.s.002114",
+        "ex.ko.s.002115",
+        "ex.ko.s.002116",
+        "ex.ko.s.002117",
+        "ex.ko.s.002118",
+        "ex.ko.s.002119",
+        "ex.ko.s.002120",
+        "ex.ko.s.002121",
+        "ex.ko.s.002122",
+        "ex.ko.s.002123"
+      ]
+    },
+    "i18n": {
+      "id": "kg.grammar.ending.neuni",
+      "locale": "zh_tw",
+      "title": "-느니 (寧願/與其)",
+      "description": "表示與其選擇前者的行動，不如選擇後者，通常帶有消極或不滿的語氣。",
+      "explanation_md": "· 用法說明\n\n1. 表示對比兩個選擇，認為前者的選擇非常不理想，因此寧願選擇後者。\n2. 後句常與 `차라리` (乾脆、寧可)、`아예` (乾脆) 等副詞搭配使用。\n3. 後半句通常接 `-는 것이 낫다` (更好) 或 `-겠다` (意志)。\n\n· 常見使用場景\n\n- 表達強烈的不滿或拒絕某種提議。\n- 在極端的情況下做出的決斷。\n\n· 注意\n\n- 與 `-기보다(는)` 相比，`-느니` 的語氣更強烈，且往往隱含著對前者的全盤否定或極度嫌惡。\n- 直接連接於動詞詞幹後。\n\n[id:ex.ko.s.002114] [id:ex.ko.s.002115]",
+      "usage_notes": []
+    }
+  },
+  {
+    "id": "kg.grammar.ending.not_try_a_eo_boji_anta",
+    "source": {
+      "id": "kg.grammar.ending.not_try_a_eo_boji_anta",
+      "kind": "grammar",
+      "subcategory": "ending",
+      "level": "A1",
+      "surface": "~아/어/해 보지 않다",
+      "tags": [
+        "grammar",
+        "ending",
+        "beginner",
+        "v5_ingestion"
+      ],
+      "provenance": {
+        "source": "youtube_beginner_grammar",
+        "source_lesson_ids": [
+          118,
+          34
+        ],
+        "source_video_ids": [
+          "_dIyfesfsSk"
+        ]
+      },
+      "example_sentence_refs": [
+        "ex.ko.s.001187",
+        "ex.ko.s.001188",
+        "ex.ko.s.001189",
+        "ex.ko.s.001190",
+        "ex.ko.s.001191",
+        "ex.ko.s.001192",
+        "ex.ko.s.001193",
+        "ex.ko.s.001194",
+        "ex.ko.s.001195",
+        "ex.ko.s.001196"
+      ]
+    },
+    "i18n": {
+      "id": "kg.grammar.ending.not_try_a_eo_boji_anta",
+      "locale": "zh_tw",
+      "title": "아/어/해 보지 않다 (未曾嘗試)",
+      "description": "表示沒有做過某事或未曾嘗試過的經驗。",
+      "explanation_md": "· 用法說明\n`~아/어/해 보지 않다` 是 `~아/어 보다` 的否定形式，用來表達「未曾嘗試過某事」或「沒有那樣的體驗」。在口語中常以 `~아/어 보지 않았어요` 表現。\n\n· 常見使用場景\n1. **表達陌生的領域**：還沒去過那個地方、還沒吃過那種食物。\n   [id:ex.ko.s.001194] (未曾去過歐洲)\n2. **描述未開發的技能**：還沒試過打棒球、還沒試過開車。\n   [id:ex.ko.s.001196] (未曾開過車)\n\n· 注意\n- 這是 `~아/어 보다`（嘗試）加上 `-지 않다`（長形否定）的組合。\n- 也可以用 `안 ~아/어 보다` 的形式表達，但 `~아/어 보지 않다` 在描述「經驗不足」時語氣更為自然。",
+      "usage_notes": []
+    }
+  },
+  {
+    "id": "kg.grammar.ending.past_perfect_ass_eossda",
+    "source": {
+      "id": "kg.grammar.ending.past_perfect_ass_eossda",
+      "kind": "grammar",
+      "subcategory": "ending",
+      "level": "A1",
+      "surface": "~았/었었다",
+      "tags": [
+        "grammar",
+        "ending",
+        "beginner",
+        "v5_ingestion"
+      ],
+      "provenance": {
+        "source": "youtube_beginner_grammar",
+        "source_lesson_ids": [
+          124
+        ],
+        "source_video_ids": [
+          "_XGtQHojGL8"
+        ]
+      },
+      "example_sentence_refs": [
+        "ex.ko.s.001237",
+        "ex.ko.s.001238",
+        "ex.ko.s.001239",
+        "ex.ko.s.001240",
+        "ex.ko.s.001241",
+        "ex.ko.s.001242",
+        "ex.ko.s.001243",
+        "ex.ko.s.001244",
+        "ex.ko.s.001245",
+        "ex.ko.s.001246"
+      ]
+    },
+    "i18n": {
+      "id": "kg.grammar.ending.past_perfect_ass_eossda",
+      "locale": "zh_tw",
+      "title": "았/었었다 (曾經但現在不是)",
+      "description": "表示過去曾經發生的狀態或動作，但現在已經不再持續或情況已改變。",
+      "explanation_md": "· 用法說明\n`~았/었었다` 比起一般的過去式（`~았/었어요`），更強烈地暗示「過去的狀態與現在已經斷絕」。常用於回憶以前的經驗，且該情況現在已經改變了。\n\n· 常見使用場景\n1. **回憶已改變的過去經歷**：例如以前住過韓國（現在沒住了）、以前學過鋼琴（現在沒學了）。\n   [id:ex.ko.s.001237] (以前住過韓國)\n   [id:ex.ko.s.001240] (以前學過鋼琴)\n2. **對比過去與現在的差異**：以前不喜歡某物（但現在喜歡）。\n   [id:ex.ko.s.001239] (小時候曾不能吃泡菜)\n\n· 相近文法比較\n- **`~았/었었다` vs `~았/었어요`**：\n  - `~았/었어요` 單純描述過去發生的事實，可能現在依然如此。\n  - `~았/었었다` 強調「過去是那樣，但現在不是了」，有一種「曾幾何時」的回憶感。\n\n· 注意\n結合方式與過去式 `~았/었어요` 相同，差別在於中間多了一個 `었`。",
+      "usage_notes": []
+    }
+  },
+  {
     "id": "kg.grammar.ending.polite_command_useyo",
     "source": {
       "id": "kg.grammar.ending.polite_command_useyo",
@@ -2302,10 +5263,14 @@
       "provenance": {
         "source": "youtube_beginner_grammar",
         "source_lesson_ids": [
-          2
+          2,
+          140,
+          141
         ],
         "source_lesson_titles": [
-          "標準敘述一般禮貌體 아요/어요/해요"
+          "標準敘述一般禮貌體 아요/어요/해요",
+          "標準敘述一般禮貌體 아요/어요/해요 (Review)",
+          "標準敘述一般禮貌體 아요/어요/해요 (Review)"
         ],
         "source_video_ids": [
           "UE1NoiexRXk"
@@ -2324,7 +5289,21 @@
         "ex.ko.s.000020",
         "ex.ko.s.000021",
         "ex.ko.s.000022",
-        "ex.ko.s.000023"
+        "ex.ko.s.000023",
+        "ex.ko.s.001388",
+        "ex.ko.s.001389",
+        "ex.ko.s.001390",
+        "ex.ko.s.001391",
+        "ex.ko.s.001392",
+        "ex.ko.s.001393",
+        "ex.ko.s.001394",
+        "ex.ko.s.001395",
+        "ex.ko.s.001396",
+        "ex.ko.s.001397",
+        "ex.ko.s.001398",
+        "ex.ko.s.001399",
+        "ex.ko.s.001400",
+        "ex.ko.s.001401"
       ]
     },
     "i18n": {
@@ -2771,6 +5750,51 @@
     }
   },
   {
+    "id": "kg.grammar.ending.resultative_ge",
+    "source": {
+      "id": "kg.grammar.ending.resultative_ge",
+      "kind": "grammar",
+      "subcategory": "ending",
+      "level": "A1",
+      "surface": "~게",
+      "tags": [
+        "grammar",
+        "ending",
+        "beginner",
+        "v5_ingestion"
+      ],
+      "provenance": {
+        "source": "youtube_beginner_grammar",
+        "source_lesson_ids": [
+          121
+        ],
+        "source_video_ids": [
+          "gZwkXQq576I"
+        ]
+      },
+      "example_sentence_refs": [
+        "ex.ko.s.001217",
+        "ex.ko.s.001218",
+        "ex.ko.s.001219",
+        "ex.ko.s.001220",
+        "ex.ko.s.001221",
+        "ex.ko.s.001222",
+        "ex.ko.s.001223",
+        "ex.ko.s.001224",
+        "ex.ko.s.001225",
+        "ex.ko.s.001226"
+      ]
+    },
+    "i18n": {
+      "id": "kg.grammar.ending.resultative_ge",
+      "locale": "zh_tw",
+      "title": "게 (副詞化/程度)",
+      "description": "將形容詞轉為副詞，用來修飾後面的動詞，說明動作的方式或程度。",
+      "explanation_md": "· 用法說明\n`~게` 接在形容詞詞幹後，將其轉換為副詞形式，用來修飾後面的動詞。它主要說明動作是「如何」進行的，或者動作達到的「程度/目的」。\n\n· 常見使用場景\n1. **說明動作的方式**：例如「漂亮地畫」、「大聲地說」。\n   [id:ex.ko.s.001223] (漂亮地畫畫)\n   [id:ex.ko.s.001225] (大聲地寫字/寫大一點)\n2. **表示為對方著想的心意**：祝對方愉快或叮嚀。\n   [id:ex.ko.s.001220] (請慢用/美味地吃)\n   [id:ex.ko.s.001218] (穿暖和一點)\n\n· 相近文法比較\n- **`~게` vs `-(으)ㄴ`**：\n  - `-(으)ㄴ` 是形容詞修飾「名詞」（如：漂亮的衣服）。\n  - `~게` 是形容詞修飾「動詞」（如：漂亮地穿）。\n\n· 注意\n`~게` 不受收音（Batchim）影響，直接接在詞幹後即可。",
+      "usage_notes": []
+    }
+  },
+  {
     "id": "kg.grammar.ending.state_change_ajida_eojida",
     "source": {
       "id": "kg.grammar.ending.state_change_ajida_eojida",
@@ -2910,6 +5934,190 @@
     }
   },
   {
+    "id": "kg.grammar.ending.try_a_eo_boda",
+    "source": {
+      "id": "kg.grammar.ending.try_a_eo_boda",
+      "kind": "grammar",
+      "subcategory": "ending",
+      "level": "A1",
+      "surface": "~아/어/해 보다",
+      "tags": [
+        "grammar",
+        "ending",
+        "beginner",
+        "v5_ingestion"
+      ],
+      "provenance": {
+        "source": "youtube_beginner_grammar",
+        "source_lesson_ids": [
+          117,
+          22,
+          122
+        ],
+        "source_video_ids": [
+          "GqvpJ0wtIq4",
+          "eSwWwdKXzw0",
+          "fLyVdqytkaU"
+        ]
+      },
+      "example_sentence_refs": [
+        "ex.ko.s.001177",
+        "ex.ko.s.001178",
+        "ex.ko.s.001179",
+        "ex.ko.s.001180",
+        "ex.ko.s.001181",
+        "ex.ko.s.001182",
+        "ex.ko.s.001183",
+        "ex.ko.s.001184",
+        "ex.ko.s.001185",
+        "ex.ko.s.001186",
+        "ex.ko.s.001227",
+        "ex.ko.s.001228",
+        "ex.ko.s.001229",
+        "ex.ko.s.001230",
+        "ex.ko.s.001231",
+        "ex.ko.s.001232",
+        "ex.ko.s.001233",
+        "ex.ko.s.001234",
+        "ex.ko.s.001235",
+        "ex.ko.s.001236"
+      ]
+    },
+    "i18n": {
+      "id": "kg.grammar.ending.try_a_eo_boda",
+      "locale": "zh_tw",
+      "title": "아/어/해 보다 (嘗試)",
+      "description": "表示嘗試做某事或有過嘗試的經驗。",
+      "explanation_md": "· 用法說明\n`~아/어 보다` 用於表示嘗試做某事（試試看）或過去曾嘗試過的經驗。在初級課程中，常以 `~아/어 봤어요` 的形式出現，用來分享主觀的嘗試經歷。\n\n· 常見使用場景\n1. **建議他人嘗試**：請試試看穿這件衣服、請試吃看看。這是 Lesson 122 強調的「積極勸導」語氣。\n   - [id:ex.ko.s.001227] (可以試穿看看嗎？)\n   - [id:ex.ko.s.001228] (請吃吃看。)\n2. **述說自己的嘗試經歷**：我去過哪裡、我做過什麼。這是 Lesson 117 側重的經驗分享。\n   - [id:ex.ko.s.001177] (試吃過泡菜)\n\n· 相近文法比較\n- **`~아/어 보다` vs `-(으)ㄴ 적이 있다`**：\n  - `~아/어 보다` 強調的是「嘗試」的過程和動作，感官上比較生動。\n  - `-(으)ㄴ 적이 있다` 較強調「事實上有無此紀錄」，語氣較為平實中性。\n\n· 注意\n- **母音和諧**：\n  - 詞幹最後一個母音為 `ㅏ, ㅗ` 時，接 `~아 보다`。\n  - 其他母音時，接 `~어 보다`。\n  - `하다` 結尾的動詞，變為 `~해 보다`。",
+      "usage_notes": []
+    }
+  },
+  {
+    "id": "kg.grammar.ending.um_edo_bulguhago",
+    "source": {
+      "id": "kg.grammar.ending.um_edo_bulguhago",
+      "kind": "grammar",
+      "subcategory": "ending",
+      "level": "A2",
+      "surface": "-(으)ㅁ에도 불구하고",
+      "tags": [
+        "grammar",
+        "ending",
+        "concessive",
+        "A2",
+        "v5_ingestion",
+        "formal"
+      ],
+      "provenance": {
+        "source": "knowledge_lab_rescue",
+        "rescue_batch": "KLAB-Batch-1.14"
+      },
+      "example_sentence_refs": [
+        "ex.ko.s.002094",
+        "ex.ko.s.002095",
+        "ex.ko.s.002096",
+        "ex.ko.s.002097",
+        "ex.ko.s.002098",
+        "ex.ko.s.002099",
+        "ex.ko.s.002100",
+        "ex.ko.s.002101",
+        "ex.ko.s.002102",
+        "ex.ko.s.002103"
+      ]
+    },
+    "i18n": {
+      "id": "kg.grammar.ending.um_edo_bulguhago",
+      "locale": "zh_tw",
+      "title": "-(으)ㅁ에도 불구하고 (儘管)",
+      "description": "表示即便在前面的條件或環境下，後面的事實依然發生，多用於正式文書。",
+      "explanation_md": "· 用法說明\n\n表示強烈的讓步。指出儘管存在前面的事實或惡劣環境，後面的動作或結果仍然發生了。這種表達方式強調了對前面障礙的克服。\n\n· 常見使用場景\n\n1. 儘管天氣惡劣，比賽仍照常舉行。\n2. 儘管公務繁忙，他仍然抽空學習。\n\n· 注意\n\n1. **正式語感**：極具書面語色彩，常用於報告、演說或新聞評論。\n2. 口語中多使用 `-아/어도` 或 `-(으)ㄴ/는데도` 代替。\n\n· 連結例句\n\n[id:ex.ko.s.002094]\n[id:ex.ko.s.002100]",
+      "usage_notes": []
+    }
+  },
+  {
+    "id": "kg.grammar.ending.um_eurosseo",
+    "source": {
+      "id": "kg.grammar.ending.um_eurosseo",
+      "kind": "grammar",
+      "subcategory": "ending",
+      "level": "A2",
+      "surface": "-(으)ㅁ으로써",
+      "tags": [
+        "grammar",
+        "ending",
+        "means",
+        "A2",
+        "v5_ingestion",
+        "written"
+      ],
+      "provenance": {
+        "source": "knowledge_lab_rescue",
+        "rescue_batch": "KLAB-Batch-1.14"
+      },
+      "example_sentence_refs": [
+        "ex.ko.s.002074",
+        "ex.ko.s.002075",
+        "ex.ko.s.002076",
+        "ex.ko.s.002077",
+        "ex.ko.s.002078",
+        "ex.ko.s.002079",
+        "ex.ko.s.002080",
+        "ex.ko.s.002081",
+        "ex.ko.s.002082",
+        "ex.ko.s.002083"
+      ]
+    },
+    "i18n": {
+      "id": "kg.grammar.ending.um_eurosseo",
+      "locale": "zh_tw",
+      "title": "-(으)ㅁ으로써 (方式)",
+      "description": "表示達成某個目的的方法、手段或依據，多用於正式場合。",
+      "explanation_md": "· 用法說明\n\n用於表示動作的手段、方法或者是達成某件事的路徑。這是一種較為正式的書面語表達方式，常見於演講、論文或報導中。\n\n· 常見使用場景\n\n1. 透過某項技術或政策解決問題。\n2. 藉由某種行為獲得特定結果。\n\n· 注意\n\n1. **書面語感**：口語中通常被 `-아/어서` 或 `-(으)ㄹ 통해서` 取代。\n2. **拼寫區分**：與表示原因的 `-(으)므로` 容易混淆。此處的 `-(으)ㅁ으로써` 多與「手段/方法」有關，末位帶有 「써」。\n\n· 連結例句\n\n[id:ex.ko.s.002074]\n[id:ex.ko.s.002081]",
+      "usage_notes": []
+    }
+  },
+  {
+    "id": "kg.grammar.ending.umyeon_mollado",
+    "source": {
+      "id": "kg.grammar.ending.umyeon_mollado",
+      "kind": "grammar",
+      "subcategory": "ending",
+      "level": "A2",
+      "surface": "-으면 몰라도",
+      "tags": [
+        "grammar",
+        "ending",
+        "conditional",
+        "A2",
+        "v5_ingestion"
+      ],
+      "provenance": {
+        "source": "knowledge_lab_rescue",
+        "rescue_batch": "KLAB-Batch-1.14"
+      },
+      "example_sentence_refs": [
+        "ex.ko.s.002064",
+        "ex.ko.s.002065",
+        "ex.ko.s.002066",
+        "ex.ko.s.002067",
+        "ex.ko.s.002068",
+        "ex.ko.s.002069",
+        "ex.ko.s.002070",
+        "ex.ko.s.002071",
+        "ex.ko.s.002072",
+        "ex.ko.s.002073"
+      ]
+    },
+    "i18n": {
+      "id": "kg.grammar.ending.umyeon_mollado",
+      "locale": "zh_tw",
+      "title": "-으면 몰라도 (除非)",
+      "description": "表示「除非是某種特殊或極端的情況，否則後面的事情很難實現」。",
+      "explanation_md": "· 用法說明\n\n用於表示一種極端的例外條件。意指除了前面提到的這個特殊情況外，其餘的一般情況下，後面的事情都不會發生、很難發生，或者是不能接受的。\n\n· 常見使用場景\n\n1. 表達「除非有奇蹟/急事」等例外。\n2. 委婉地拒絕或說明當前的不可能。例如：「如果是免費的我還會去，但要付錢的話就不去了。」\n\n· 注意\n\n後句常帶有否定意義的詞（如 `-지 않다`, `못하다`）或者是表達「很難、不行」的內容。\n\n· 連結例句\n\n[id:ex.ko.s.002064]\n[id:ex.ko.s.002069]",
+      "usage_notes": []
+    }
+  },
+  {
     "id": "kg.grammar.ending.when_ul_tte",
     "source": {
       "id": "kg.grammar.ending.when_ul_tte",
@@ -2972,7 +6180,9 @@
         ],
         "source_video_ids": [
           "tU_bZUf11Ao"
-        ]
+        ],
+        "rescue_batch": "KLAB-Batch-1.3",
+        "rescue_source": "knowledge_lab_inventory_v3"
       },
       "example_sentence_refs": [
         "ex.ko.s.000787",
@@ -2990,7 +6200,7 @@
     "i18n": {
       "id": "kg.grammar.ending.while_ul_myeon_seo",
       "locale": "zh_tw",
-      "title": "-(으)면서 (一邊～一邊～)",
+      "title": "-(으)면서 (一邊~一邊)",
       "description": "表示兩個動作同時進行。前後句的主語必須一致。",
       "explanation_md": "· 用法說明\n`-(으)면서` 用於連接兩個動詞或形容詞，表示主體在同一段時間內同時進行兩個動作或具備兩種狀態。相當於中文的「一邊…一邊…」。\n\n· 常見使用場景\n1. **多工處理**：如一邊吃飯一邊看電視、一邊走路一邊講電話等。\n   [id:ex.ko.s.000787] [id:ex.ko.s.000788] [id:ex.ko.s.000789]\n2. **放鬆與嗜好**：如一邊打掃一邊唱歌、一邊聊天一邊休息等。\n   [id:ex.ko.s.000792] [id:ex.ko.s.000793]\n3. **狀態與對比**：有時也用於描述兩者兼具的狀態，或帶有輕微的抱怨語氣。\n\n· 相近文法比較\n- **`-(으)면서` vs `-(으)며`**：\n  - `-(으)면서` 多用於口語，強調動作的同時性。\n  - `-(으)며` 多用於書面語或正式演講，除了同時性外，也常作為並列（And）使用。\n\n· 注意\n- **主語一致**：前後兩個動作的主語必須是同一個人。如果主語不同，請使用 `~는 동안`。\n- **接續方式**：\n  - 詞幹末尾無收音（開音節）或收音為 `ㄹ` 時，接 `~면서`。\n  - 詞幹末尾有收音（閉音節）時，接 `~으면서`。",
       "usage_notes": []
@@ -3485,6 +6695,97 @@
     }
   },
   {
+    "id": "kg.grammar.expectation.ul_kka_sipda",
+    "source": {
+      "id": "kg.grammar.expectation.ul_kka_sipda",
+      "kind": "grammar",
+      "subcategory": "expectation",
+      "level": "A1",
+      "surface": "-(으)ㄹ까 싶다",
+      "tags": [
+        "expectation",
+        "thought",
+        "wonder",
+        "hesitation",
+        "beginner"
+      ],
+      "example_sentence_refs": [
+        "ex.ko.s.001307",
+        "ex.ko.s.001308",
+        "ex.ko.s.001309",
+        "ex.ko.s.001310",
+        "ex.ko.s.001311",
+        "ex.ko.s.001312",
+        "ex.ko.s.001313",
+        "ex.ko.s.001314",
+        "ex.ko.s.001315",
+        "ex.ko.s.001316"
+      ],
+      "provenance": {
+        "source": "youtube_beginner_grammar",
+        "source_lesson_ids": [
+          131
+        ],
+        "source_video_ids": [
+          "z0he-UpTcfE"
+        ]
+      }
+    },
+    "i18n": {
+      "id": "kg.grammar.expectation.ul_kka_sipda",
+      "title": "-(으)ㄹ까 싶다 (推測/猶豫)",
+      "description": "表示小心翼翼地推測、擔憂或猶豫，語氣比「-(으)ㄹ까 하다」更委婉。相當於「在想是不是～」、「擔心會不會～」。",
+      "locale": "zh_tw",
+      "usage_notes": []
+    }
+  },
+  {
+    "id": "kg.grammar.experience.un_jeoki_eopda",
+    "source": {
+      "id": "kg.grammar.experience.un_jeoki_eopda",
+      "kind": "grammar",
+      "subcategory": "experience",
+      "level": "A1",
+      "surface": "-(으)ㄴ 적이 없다",
+      "tags": [
+        "grammar",
+        "experience",
+        "beginner",
+        "v5_ingestion"
+      ],
+      "provenance": {
+        "source": "youtube_beginner_grammar",
+        "source_lesson_ids": [
+          120,
+          30
+        ],
+        "source_video_ids": [
+          "5AwFe4pRAAY"
+        ]
+      },
+      "example_sentence_refs": [
+        "ex.ko.s.001207",
+        "ex.ko.s.001208",
+        "ex.ko.s.001209",
+        "ex.ko.s.001210",
+        "ex.ko.s.001211",
+        "ex.ko.s.001212",
+        "ex.ko.s.001213",
+        "ex.ko.s.001214",
+        "ex.ko.s.001215",
+        "ex.ko.s.001216"
+      ]
+    },
+    "i18n": {
+      "id": "kg.grammar.experience.un_jeoki_eopda",
+      "locale": "zh_tw",
+      "title": "-(으)ㄴ 적이 없다 (沒有做過的經驗)",
+      "description": "表示過去從未做過某事或沒有過某種經歷。",
+      "explanation_md": "· 用法說明\n`-(으)ㄴ 적이 없다` 是 `-(으)ㄴ 적이 있다` 的相反詞，用來強調「完全沒有那樣的事實、紀錄或經驗」。常用於表示清白、澄清事實或強調某項完美的紀錄（如從未遲到）。\n\n· 常見使用場景\n1. **強調完美的紀錄**：從沒遲到過、從沒缺席過。\n   [id:ex.ko.s.001213] (從未遲到過)\n2. **澄清或聲明事實**：沒喝過酒、沒說過謊。\n   [id:ex.ko.s.001207] (從未喝過酒)\n\n· 注意\n- **收音規則**：\n  - 動詞詞幹末尾無收音時，接 `~ㄴ 적이 없다`。\n  - 動詞詞幹末尾有收音時，接 `~은 적이 없다`。\n  - 收音為 `ㄹ` 時，去掉 `ㄹ` 並接 `~ㄴ 적이 없다`。",
+      "usage_notes": []
+    }
+  },
+  {
     "id": "kg.grammar.experience.un_jeoki_itda",
     "source": {
       "id": "kg.grammar.experience.un_jeoki_itda",
@@ -3523,26 +6824,26 @@
         "ex.ko.s.001044",
         "ex.ko.s.001045",
         "ex.ko.s.001046",
-        "ex.ko.s.001157",
-        "ex.ko.s.001158",
-        "ex.ko.s.001159",
-        "ex.ko.s.001160",
-        "ex.ko.s.001161",
-        "ex.ko.s.001162",
-        "ex.ko.s.001163",
-        "ex.ko.s.001164",
-        "ex.ko.s.001165",
-        "ex.ko.s.001166",
-        "ex.ko.s.001187",
-        "ex.ko.s.001188",
-        "ex.ko.s.001189",
-        "ex.ko.s.001190",
-        "ex.ko.s.001191",
-        "ex.ko.s.001192",
-        "ex.ko.s.001193",
-        "ex.ko.s.001194",
-        "ex.ko.s.001195",
-        "ex.ko.s.001196"
+        "ex.ko.s.001167",
+        "ex.ko.s.001168",
+        "ex.ko.s.001169",
+        "ex.ko.s.001170",
+        "ex.ko.s.001171",
+        "ex.ko.s.001172",
+        "ex.ko.s.001173",
+        "ex.ko.s.001174",
+        "ex.ko.s.001175",
+        "ex.ko.s.001176",
+        "ex.ko.s.001197",
+        "ex.ko.s.001198",
+        "ex.ko.s.001199",
+        "ex.ko.s.001200",
+        "ex.ko.s.001201",
+        "ex.ko.s.001202",
+        "ex.ko.s.001203",
+        "ex.ko.s.001204",
+        "ex.ko.s.001205",
+        "ex.ko.s.001206"
       ]
     },
     "i18n": {
@@ -3602,13 +6903,58 @@
     }
   },
   {
+    "id": "kg.grammar.intent.ul_kka_hada",
+    "source": {
+      "id": "kg.grammar.intent.ul_kka_hada",
+      "kind": "grammar",
+      "subcategory": "intent",
+      "level": "A1",
+      "surface": "-(으)ㄹ까 하다",
+      "tags": [
+        "intent",
+        "plan",
+        "thought",
+        "consideration",
+        "beginner"
+      ],
+      "example_sentence_refs": [
+        "ex.ko.s.001297",
+        "ex.ko.s.001298",
+        "ex.ko.s.001299",
+        "ex.ko.s.001300",
+        "ex.ko.s.001301",
+        "ex.ko.s.001302",
+        "ex.ko.s.001303",
+        "ex.ko.s.001304",
+        "ex.ko.s.001305",
+        "ex.ko.s.001306"
+      ],
+      "provenance": {
+        "source": "youtube_beginner_grammar",
+        "source_lesson_ids": [
+          130
+        ],
+        "source_video_ids": [
+          "ZucmVOJQkvk"
+        ]
+      }
+    },
+    "i18n": {
+      "id": "kg.grammar.intent.ul_kka_hada",
+      "title": "-(으)ㄹ까 하다 (打算/考慮)",
+      "description": "表示有做某事的想法或意圖，但尚未完全決定，正處於考慮階段。相當於「考慮要不要～」、「想說要不要～」。",
+      "locale": "zh_tw",
+      "usage_notes": []
+    }
+  },
+  {
     "id": "kg.grammar.modifier.adj_noun",
     "source": {
       "id": "kg.grammar.modifier.adj_noun",
       "kind": "grammar",
       "subcategory": "modifier",
       "level": "A1",
-      "surface": "ㄴ/은 + 名詞",
+      "surface": "形容詞 + ㄴ/은 + 名詞 (現在)",
       "tags": [
         "grammar",
         "modifier",
@@ -3638,7 +6984,7 @@
     "i18n": {
       "id": "kg.grammar.modifier.adj_noun",
       "locale": "zh_tw",
-      "title": "ㄴ/은 + 名詞 (形容詞修飾名詞)",
+      "title": "形容詞 + ㄴ/은 + 名詞 (現在)",
       "description": "將形容詞轉化為修飾語，放在名詞前面進行修飾。",
       "explanation_md": "形容詞的基本型結尾是 `다`（如 `크다`、`작다`），若要用來修飾後面的名詞（如「大包包」、「小房子」），需要將詞幹進行變形。\n\n· 用法說明\n- **無收音詞幹 + `ㄴ`**: 如 `크다` -> `큰 가방`。\n- **有收音詞幹 + `은`**: 如 `작다` -> `작은 집`。\n- **收音 `ㄹ` 脫落**: 如 `길다` -> `긴 바지`。\n- **收音 `ㅂ` 變為 `우`**: 如 `맵다` -> `매운 음식`。\n\n· 常見使用場景\n- 形容物品的屬性、人的特徵或天氣狀況。\n- [id:ex.ko.s.000297]\n- [id:ex.ko.s.000300]\n- [id:ex.ko.s.000301]\n\n· 相近文法比較\n- **ㄴ/은**: 修飾名詞的形容詞（冠形詞形）。\n- **~아/어요**: 放在句尾的敘述語。\n\n· 注意\n- `있다` 和 `없다` 結尾的詞（如 `재미있다`、`맛없다`）不加 `ㄴ/은`，而是加 `는`（如 `재미있는 책`）。",
       "usage_notes": []
@@ -3696,7 +7042,7 @@
       "kind": "grammar",
       "subcategory": "modifier",
       "level": "A1",
-      "surface": "ㄴ/은 + 名詞",
+      "surface": "動詞 + ㄴ/은 + 名詞 (過去)",
       "tags": [
         "grammar",
         "modifier",
@@ -3728,7 +7074,7 @@
     "i18n": {
       "id": "kg.grammar.modifier.v_eun",
       "locale": "zh_tw",
-      "title": "ㄴ/은 + 名詞 (過去式動詞修飾語)",
+      "title": "動詞 + ㄴ/은 + 名詞 (過去)",
       "description": "接在動詞後方，用來修飾後面的名詞，表示「過去累積的動作」或「已經完成的事情」。",
       "explanation_md": "· 用法說明\n當動詞要修飾名詞，且動作發生在「過去」或已經「完成」時使用。相當於中文的「做過...的名詞」或「...了的名詞」。\n\n· 接續規則\n1. 動詞詞幹末尾無收音（Batchim）：接 `ㄴ + 名詞`。\n   - `가다` → `간 사람` (去過的人)\n2. 動詞詞幹末尾有收音時：接 `은 + 名詞`。\n   - `먹다` → `먹은 밥` (吃過的飯)\n   - `읽다` → `읽은 책` (讀過的書)\n3. 收音為 `ㄹ` 的動詞（ㄹ 脫落）：接 `ㄴ + 名詞`。\n   - `만들다` → `만든 케이크` (做的蛋糕)\n\n· 常見使用場景\n- 描述過去的經驗：[id:ex.ko.s.000357]\n- 提及剛發生的事情：[id:ex.ko.s.000359]\n\n· 注意\n- 如果是「形容詞」修飾名詞（如 `예쁜`、`좋은`），雖然形式也是 `ㄴ/은`，但在時間感上通常是指「現在的狀態」。\n- 對於「動詞」來說，`ㄴ/은` 則專門表示「過去/完成」。",
       "usage_notes": []
@@ -3849,7 +7195,8 @@
         "source": "youtube_beginner_grammar",
         "source_lesson_ids": [
           21,
-          81
+          81,
+          132
         ],
         "source_video_ids": [
           "-n1yvtRqDJ0"
@@ -3865,7 +7212,17 @@
         "ex.ko.s.000813",
         "ex.ko.s.000814",
         "ex.ko.s.000815",
-        "ex.ko.s.000816"
+        "ex.ko.s.000816",
+        "ex.ko.s.001317",
+        "ex.ko.s.001318",
+        "ex.ko.s.001319",
+        "ex.ko.s.001320",
+        "ex.ko.s.001321",
+        "ex.ko.s.001322",
+        "ex.ko.s.001323",
+        "ex.ko.s.001324",
+        "ex.ko.s.001325",
+        "ex.ko.s.001326"
       ]
     },
     "i18n": {
@@ -3873,7 +7230,7 @@
       "locale": "zh_tw",
       "title": "-(으)러 가다/오다 (目的移動)",
       "description": "表示為了做某事而去或來某地，常用於說明移動的目的。",
-      "explanation_md": "「-(으)러 가다/오다」 是韓語中最常用來表達「移動目的」的文法。它通常接在動詞之後，後面緊跟著表示移動的動詞（如 `가다`、`오다`、`다니다` 等）。\n\n· 用法說明\n| 詞幹結尾 | 接續形式 | 範例 |\n| :--- | :--- | :--- |\n| 無收音 (母音) | `-러` | `보다` -> `보러` |\n| 有收音 (子音) | `-으러` | `먹다` -> `먹으러` |\n| 收音為 `ㄹ` | `-러` | `만들다` -> `만들러` |\n\n· 常見使用場景\n  - 向他人說明出門的目的：[id:ex.ko.s.000809]\n  - 詢問他人來訪的原因：[id:ex.ko.s.000808]\n\n· 注意\n  - 此文法後面只能接 `가다` (去)、`오다` (來)、`다니다` (通勤/往返) 等具有「移動」意義的動詞。\n  - 在同一句子中，移動的目的地（地點）通常放在 `가다/오다` 之前，並加上地點助詞 `에`：[id:ex.ko.s.000807]\n  - 「-(으)러」 前面不能接形容詞或是 `이다` (是)。",
+      "explanation_md": "「-(으)러 가다/오다」 是韓語中最常用來表達「移動目的」的文法。它通常接在動詞之後，後面緊跟著表示移動的動詞（如 `가다`、`오다`、`다니다` 等）。\n\n· 用法說明\n| 詞幹結尾 | 接續形式 | 範例 |\n| :--- | :--- | :--- |\n| 無收音 (母音) | `-러` | `보다` -> `보러` |\n| 有收音 (子音) | `-으러` | `먹다` -> `먹으러` |\n| 收音為 `ㄹ` | `-러` | `만들다` -> `만들러` |\n\n· 常見使用場景\n  - 向他人說明出門的目的：[id:ex.ko.s.000809], [id:ex.ko.s.001318]\n  - 詢問他人來訪的原因：[id:ex.ko.s.000808], [id:ex.ko.s.001321]\n  - 表達旅行或休閒目的：[id:ex.ko.s.001321], [id:ex.ko.s.001325]\n\n· 注意\n  - 此文法後面只能接 `가다` (去)、`오다` (來)、`다니다` (通勤/往返) 等具有「移動」意義的動詞。\n  - 在同一句子中，移動的目的地（地點）通常放在 `가다/오다` 之前，並加上地點助詞 `에`：[id:ex.ko.s.000807], [id:ex.ko.s.001317]\n  - 「-(으)러」 前面不能接形容詞或是 `이다` (是)。",
       "usage_notes": []
     }
   },
@@ -4197,6 +7554,51 @@
     }
   },
   {
+    "id": "kg.grammar.particle.bu_teo",
+    "source": {
+      "id": "kg.grammar.particle.bu_teo",
+      "kind": "grammar",
+      "subcategory": "particle",
+      "level": "A1",
+      "surface": "부터",
+      "tags": [
+        "particle",
+        "start",
+        "priority",
+        "sequence",
+        "beginner"
+      ],
+      "example_sentence_refs": [
+        "ex.ko.s.001287",
+        "ex.ko.s.001288",
+        "ex.ko.s.001289",
+        "ex.ko.s.001290",
+        "ex.ko.s.001291",
+        "ex.ko.s.001292",
+        "ex.ko.s.001293",
+        "ex.ko.s.001294",
+        "ex.ko.s.001295",
+        "ex.ko.s.001296"
+      ],
+      "provenance": {
+        "source": "youtube_beginner_grammar",
+        "source_lesson_ids": [
+          129
+        ],
+        "source_video_ids": [
+          "pCyviIiejhA"
+        ]
+      }
+    },
+    "i18n": {
+      "id": "kg.grammar.particle.bu_teo",
+      "title": "부터 (起點/順序)",
+      "description": "表示時間或動作的起點，也可用於表示優先順序，相當於「從～開始」、「先從～」。",
+      "locale": "zh_tw",
+      "usage_notes": []
+    }
+  },
+  {
     "id": "kg.grammar.particle.cause_noun_ttaemune",
     "source": {
       "id": "kg.grammar.particle.cause_noun_ttaemune",
@@ -4237,6 +7639,46 @@
       "locale": "zh_tw",
       "title": "때문에 (因為特定人/事/物)",
       "description": "用於名詞後，表示該名詞是導致後面結果的原因。相較於 '이기 때문에'，此處直接接續單純名詞，常用於表示負面原因，但正面理由亦可使用。\n\n直接在名詞後接 '-때문에'。常用於表示因為某人或某件事而發生...",
+      "usage_notes": []
+    }
+  },
+  {
+    "id": "kg.grammar.particle.cheoreom",
+    "source": {
+      "id": "kg.grammar.particle.cheoreom",
+      "kind": "grammar",
+      "subcategory": "particle",
+      "level": "A2",
+      "surface": "처럼",
+      "tags": [
+        "grammar",
+        "particle",
+        "beginner",
+        "v5_ingestion"
+      ],
+      "provenance": {
+        "source": "knowledge_lab_rescue",
+        "rescue_batch": "KLAB-Batch-1.11"
+      },
+      "example_sentence_refs": [
+        "ex.ko.s.000562",
+        "ex.ko.s.001907",
+        "ex.ko.s.001908",
+        "ex.ko.s.001909",
+        "ex.ko.s.001910",
+        "ex.ko.s.001911",
+        "ex.ko.s.001912",
+        "ex.ko.s.001913",
+        "ex.ko.s.001914",
+        "ex.ko.s.001915"
+      ]
+    },
+    "i18n": {
+      "id": "kg.grammar.particle.cheoreom",
+      "locale": "zh_tw",
+      "title": "처럼 (像~一樣)",
+      "description": "表示與前面的內容相似或達到同樣的程度。",
+      "explanation_md": "· 用法說明\n\n表示與前面的內容相似或達到同樣的程度。相當於中文的「像…一樣」。\n\n[id:ex.ko.s.000562]\n[id:ex.ko.s.001907]\n[id:ex.ko.s.001908]\n[id:ex.ko.s.001909]\n[id:ex.ko.s.001910]\n[id:ex.ko.s.001911]\n[id:ex.ko.s.001912]\n[id:ex.ko.s.001913]\n[id:ex.ko.s.001914]\n[id:ex.ko.s.001915]",
       "usage_notes": []
     }
   },
@@ -4379,6 +7821,46 @@
     }
   },
   {
+    "id": "kg.grammar.particle.e_daehae",
+    "source": {
+      "id": "kg.grammar.particle.e_daehae",
+      "kind": "grammar",
+      "subcategory": "particle",
+      "level": "A2",
+      "surface": "에 대해(서)",
+      "tags": [
+        "grammar",
+        "particle",
+        "beginner",
+        "v5_ingestion"
+      ],
+      "provenance": {
+        "source": "knowledge_lab_rescue",
+        "rescue_batch": "KLAB-Batch-1.11"
+      },
+      "example_sentence_refs": [
+        "ex.ko.s.001924",
+        "ex.ko.s.001925",
+        "ex.ko.s.001926",
+        "ex.ko.s.001927",
+        "ex.ko.s.001928",
+        "ex.ko.s.001929",
+        "ex.ko.s.001930",
+        "ex.ko.s.001931",
+        "ex.ko.s.001932",
+        "ex.ko.s.001933"
+      ]
+    },
+    "i18n": {
+      "id": "kg.grammar.particle.e_daehae",
+      "locale": "zh_tw",
+      "title": "에 대해(서) (關於~)",
+      "description": "用於表示說話或行為的對象或主題。",
+      "explanation_md": "· 用法說明\n\n用於表示說話或行為的對象或主題。相當於中文的「關於…」。後面的「서」可以省略。\n\n[id:ex.ko.s.001924]\n[id:ex.ko.s.001925]\n[id:ex.ko.s.001926]\n[id:ex.ko.s.001927]\n[id:ex.ko.s.001928]\n[id:ex.ko.s.001929]\n[id:ex.ko.s.001930]\n[id:ex.ko.s.001931]\n[id:ex.ko.s.001932]\n[id:ex.ko.s.001933]",
+      "usage_notes": []
+    }
+  },
+  {
     "id": "kg.grammar.particle.e_jjeum",
     "source": {
       "id": "kg.grammar.particle.e_jjeum",
@@ -4449,16 +7931,20 @@
       "provenance": {
         "source": "youtube_beginner_grammar",
         "source_lesson_ids": [
-          7
+          7,
+          125
         ],
         "source_lesson_titles": [
-          "場所助詞 에"
+          "場所助詞 에",
+          "把物品放在某地 에"
         ],
         "source_video_ids": [
-          "Y1GA2rWabCU"
+          "Y1GA2rWabCU",
+          "QqZ7jn806oI"
         ],
         "source_urls": [
-          "https://www.youtube.com/watch?v=Y1GA2rWabCU"
+          "https://www.youtube.com/watch?v=Y1GA2rWabCU",
+          "https://www.youtube.com/watch?v=QqZ7jn806oI"
         ]
       },
       "example_sentence_refs": [
@@ -4471,7 +7957,17 @@
         "ex.ko.s.000073",
         "ex.ko.s.000074",
         "ex.ko.s.000075",
-        "ex.ko.s.000076"
+        "ex.ko.s.000076",
+        "ex.ko.s.001247",
+        "ex.ko.s.001248",
+        "ex.ko.s.001249",
+        "ex.ko.s.001250",
+        "ex.ko.s.001251",
+        "ex.ko.s.001252",
+        "ex.ko.s.001253",
+        "ex.ko.s.001254",
+        "ex.ko.s.001255",
+        "ex.ko.s.001256"
       ]
     },
     "i18n": {
@@ -4479,7 +7975,7 @@
       "locale": "zh_tw",
       "title": "에 (場所助詞)",
       "description": "表示存在地點、目的地或方向。",
-      "explanation_md": "· 用法說明\n`에` 是韓文中最基礎的場所助詞之一，主要接在地點名詞後方，用來標示「目的地」或「存在的場所」。\n\n· 常見使用場景\n1. **表示目的地或方向**：常用於移動動詞如 `가다`（去）、`오다`（來）、`다니다`（往返/上學/上班）。\n   - [id:ex.ko.s.000068]\n   - [id:ex.ko.s.000075]\n\n2. **表示存在的地點**：標示人或物體「在」哪裡，常用於 `있다`（有/在）、`없다`（沒有/不在）。\n   - [id:ex.ko.s.000067]\n   - [id:ex.ko.s.000073]\n\n· 注意\n- 當 `에` 用於表示地點時，通常與「靜態」的狀態（如：在某處）或「移動」的方向相關。如果是表示在某處進行「動態」的活動（如：在學校唸書），則需要使用另一個助詞 `에서`。\n- `에` 也可以接在「時間名詞」後方表示時間點，但此用法在 Lesson 007 僅側重於「場所」的功能。",
+      "explanation_md": "· 用法說明\n`에` 是韓文中最基礎的場所助詞之一，主要接在地點名詞後方，用來標示「目的地」或「存在的場所」。\n\n· 常見使用場景\n1. **表示目的地或方向**：常用於移動動詞如 `가다`（去）、`오다`（來）、`다니다`（往返/上學/上班）。\n   - [id:ex.ko.s.000068]\n   - [id:ex.ko.s.000075]\n\n2. **表示存在的地點**：標示人或物體「在」哪裡，常用於 `있다`（有/在）、`없다`（沒有/不在）。\n   - [id:ex.ko.s.000067]\n   - [id:ex.ko.s.000073]\n\n3. **表示物品放置的目標點**：表示將物品「放在」哪裡，強調動作的完成位置。這是 Lesson 125 的重點。\n   - [id:ex.ko.s.001247] (杯子放在餐桌上)\n   - [id:ex.ko.s.001249] (行李放進房間裡)\n\n· 注意\n- 當 `에` 用於表示地點時，通常與「靜態」的狀態（如：在某處）或「移動」的方向相關。如果是表示在某處進行「動態」的活動（如：在學校唸書），則需要使用另一個助詞 `에서`。\n- `에` 也可以接在「時間名詞」後方表示時間點，但此用法在 Lesson 007 僅側重於「場所」的功能。",
       "usage_notes": []
     }
   },
@@ -4531,6 +8027,51 @@
       "title": "에게 / 한테 (對象助詞)",
       "description": "接在人或動物名詞後，表示動作的對象（給～、對～）。",
       "explanation_md": "· 用法說明\n`에게` 和 `한테` 是標示「動作對象」的助詞，中譯通常為「給～」、「向～」或「對～」。\n\n· 常見使用場景\n1. **에게**：主要用於書面語、正式場合或對平輩/晚輩。\n   - [id:ex.ko.s.000087]\n   - [id:ex.ko.s.000093]\n\n2. **한테**：主要用於口語會話，感覺較為親近。\n   - [id:ex.ko.s.000089]\n   - [id:ex.ko.s.000090]\n\n· 注意\n- 這些助詞通常接在「有生命」的人或動物名詞後。如果是「無生命」的場所或組織（如：寄信給公司），通常使用 `에`。\n- 當對象是需要尊稱的長輩（如：老師、長輩）時，通常會改用敬語形式的助詞 `께`。",
+      "usage_notes": []
+    }
+  },
+  {
+    "id": "kg.grammar.particle.egeseo_hanteseo_eseo",
+    "source": {
+      "id": "kg.grammar.particle.egeseo_hanteseo_eseo",
+      "kind": "grammar",
+      "subcategory": "particle",
+      "level": "A1",
+      "surface": "~에게서/한테서/에서",
+      "tags": [
+        "grammar",
+        "particle",
+        "beginner",
+        "v5_ingestion"
+      ],
+      "provenance": {
+        "source": "youtube_beginner_grammar",
+        "source_lesson_ids": [
+          133
+        ],
+        "source_video_ids": [
+          "KINVNeWUnic"
+        ]
+      },
+      "example_sentence_refs": [
+        "ex.ko.s.001327",
+        "ex.ko.s.001328",
+        "ex.ko.s.001329",
+        "ex.ko.s.001330",
+        "ex.ko.s.001331",
+        "ex.ko.s.001332",
+        "ex.ko.s.001333",
+        "ex.ko.s.001334",
+        "ex.ko.s.001335",
+        "ex.ko.s.001336"
+      ]
+    },
+    "i18n": {
+      "id": "kg.grammar.particle.egeseo_hanteseo_eseo",
+      "locale": "zh_tw",
+      "title": "~에게서/한테서/에서 (動作來源)",
+      "description": "表示動作或事物的來源，意為「從某人那裡」或「從某處」。",
+      "explanation_md": "「~에게서/한테서/에서」 用於表示某個動作、物品或訊息的來源點。簡單來說，就是說明「從哪裡得到」或是「向誰學習」。\n\n· 用法說明\n| 對象類型 | 助詞 | 範例 |\n| :--- | :--- | :--- |\n| 人/動物 (正式) | `에게서` | `선생님에게서` |\n| 人/動物 (口語) | `한테서` | `친구한테서` |\n| 場所/機構/事物 | `에서` | `도서관에서` |\n\n· 常見使用場景\n  - 從某人那裡收到禮物或訊息：[id:ex.ko.s.001328], [id:ex.ko.s.001330]\n  - 向某人學習技能或語言：[id:ex.ko.s.001327]\n  - 訊息或物品來自某個機構或場所：[id:ex.ko.s.001332], [id:ex.ko.s.001335]\n\n· 注意\n  - 在口語中，`에게서` 和 `한테서` 常被簡略為 `에게` 和 `한테`，但意義不變：[id:ex.ko.s.001329]\n  - 當對象是「場所」時，必須使用 `에서`，不能使用 `에게서`：[id:ex.ko.s.001335]\n  - 此文法強調的是「來源 (From)」，與表示「目的地 (To)」的 `에게/한테` 正好相反。",
       "usage_notes": []
     }
   },
@@ -4683,6 +8224,96 @@
     }
   },
   {
+    "id": "kg.grammar.particle.euro_direction",
+    "source": {
+      "id": "kg.grammar.particle.euro_direction",
+      "kind": "grammar",
+      "subcategory": "particle",
+      "level": "A1",
+      "surface": "(으)로",
+      "tags": [
+        "particle",
+        "direction",
+        "destination",
+        "movement",
+        "beginner"
+      ],
+      "example_sentence_refs": [
+        "ex.ko.s.001267",
+        "ex.ko.s.001268",
+        "ex.ko.s.001269",
+        "ex.ko.s.001270",
+        "ex.ko.s.001271",
+        "ex.ko.s.001272",
+        "ex.ko.s.001273",
+        "ex.ko.s.001274",
+        "ex.ko.s.001275",
+        "ex.ko.s.001276"
+      ],
+      "provenance": {
+        "source": "youtube_beginner_grammar",
+        "source_lesson_ids": [
+          127
+        ],
+        "source_video_ids": [
+          "SYYmagkB4JU"
+        ]
+      }
+    },
+    "i18n": {
+      "id": "kg.grammar.particle.euro_direction",
+      "title": "(으)로 (方向)",
+      "description": "表示移動的方向或目的地，相當於「往～」、「向～」。",
+      "locale": "zh_tw",
+      "usage_notes": []
+    }
+  },
+  {
+    "id": "kg.grammar.particle.euro_tool",
+    "source": {
+      "id": "kg.grammar.particle.euro_tool",
+      "kind": "grammar",
+      "subcategory": "particle",
+      "level": "A1",
+      "surface": "(으)로",
+      "tags": [
+        "particle",
+        "tool",
+        "method",
+        "means",
+        "beginner"
+      ],
+      "example_sentence_refs": [
+        "ex.ko.s.001277",
+        "ex.ko.s.001278",
+        "ex.ko.s.001279",
+        "ex.ko.s.001280",
+        "ex.ko.s.001281",
+        "ex.ko.s.001282",
+        "ex.ko.s.001283",
+        "ex.ko.s.001284",
+        "ex.ko.s.001285",
+        "ex.ko.s.001286"
+      ],
+      "provenance": {
+        "source": "youtube_beginner_grammar",
+        "source_lesson_ids": [
+          128
+        ],
+        "source_video_ids": [
+          "48Yp8Y29QxE"
+        ]
+      }
+    },
+    "i18n": {
+      "id": "kg.grammar.particle.euro_tool",
+      "title": "(으)로 (手段/工具)",
+      "description": "表示手段、工具、方法、語言或材料，相當於「用～」、「以～」。",
+      "locale": "zh_tw",
+      "usage_notes": []
+    }
+  },
+  {
     "id": "kg.grammar.particle.from_to_bu_teo_kka_ji",
     "source": {
       "id": "kg.grammar.particle.from_to_bu_teo_kka_ji",
@@ -4795,10 +8426,12 @@
       "provenance": {
         "source": "youtube_beginner_grammar",
         "source_lesson_ids": [
-          4
+          4,
+          137
         ],
         "source_lesson_titles": [
-          "主語助詞이가 이가"
+          "主語助詞이가 이가",
+          "主語助詞 이/가 (Review)"
         ],
         "source_video_ids": [
           "AZUSaoBXPdY"
@@ -4817,7 +8450,14 @@
         "ex.ko.s.000040",
         "ex.ko.s.000041",
         "ex.ko.s.000042",
-        "ex.ko.s.000043"
+        "ex.ko.s.000043",
+        "ex.ko.s.001367",
+        "ex.ko.s.001368",
+        "ex.ko.s.001369",
+        "ex.ko.s.001370",
+        "ex.ko.s.001371",
+        "ex.ko.s.001372",
+        "ex.ko.s.001373"
       ]
     },
     "i18n": {
@@ -4826,6 +8466,91 @@
       "title": "이/가 (主語助詞)",
       "description": "韓文中最基礎的助詞之一，用來標示句子的「主語」，即動作或狀態的發起者。",
       "explanation_md": "「`~이/가`」是用來標示句子**主語**的助詞。當你想強調是「誰」做動作，或者「什麼」處於某種狀態時，就會在該名詞後面加上這個助詞。\n\n· **用法說明**\n\n這個助詞直接接在**名詞**後面，根據名詞最後一個字是否有收音來決定形式。\n\n- **名詞最後一個字有收音時**：接「`~이`」。\n  - 例如：`분` (位) + `이` → `분이` [id:ex.ko.s.000034]\n  - 例如：`소설` (小說) + `이` → `소설이` [id:ex.ko.s.000038]\n- **名詞最後一個字沒有收音時**：接「`~가`」。\n  - 例如：`사과` (蘋果) + `가` → `사과가` [id:ex.ko.s.000035]\n  - 例如：`노래` (歌) + `가` → `노래가` [id:ex.ko.s.000040]\n\n· **常見使用場景**\n\n- **描述性質或狀態**：描述東西好不好吃、房間乾不乾淨等。[id:ex.ko.s.000035], [id:ex.ko.s.000036]\n- **標示動作主體**：說明誰到達成、誰在吃東西。[id:ex.ko.s.000037], [id:ex.ko.s.000041]\n- **敘述發生事件**：說明課程結束、電影開始等狀況。[id:ex.ko.s.000039]\n\n· **注意 (特殊形式變遷)**\n\n- 當主語是「我 (`나/저`)」、「你 (`너`)」或「誰 (`누구`)」時，接了「`~가`」之後形式會發生變化。\n  - `저` + `가` → **`제가`** [id:ex.ko.s.000034]\n  - `나` + `가` → **`내가`**\n  - `너` + `가` → **`네가`** (音同 `니가`)\n  - `누구` + `가` → **`누가`**\n\n· **注意**\n\n初學者常會混淆 `이/가` (主語) 與 `은/는` (主題)。雖然在很多情況下可以互換，但 `이/가` 更偏向於引出**新的資訊**或**強調特定的對象**。像 [id:ex.ko.s.000034] 這樣的句子，就是在明確指出「這一位」的身分。",
+      "usage_notes": []
+    }
+  },
+  {
+    "id": "kg.grammar.particle.mada",
+    "source": {
+      "id": "kg.grammar.particle.mada",
+      "kind": "grammar",
+      "subcategory": "particle",
+      "level": "A2",
+      "surface": "마다",
+      "tags": [
+        "grammar",
+        "particle",
+        "beginner",
+        "v5_ingestion"
+      ],
+      "provenance": {
+        "source": "knowledge_lab_rescue",
+        "rescue_batch": "KLAB-Batch-1.11"
+      },
+      "example_sentence_refs": [
+        "ex.ko.s.000593",
+        "ex.ko.s.000632",
+        "ex.ko.s.001916",
+        "ex.ko.s.001917",
+        "ex.ko.s.001918",
+        "ex.ko.s.001919",
+        "ex.ko.s.001920",
+        "ex.ko.s.001921",
+        "ex.ko.s.001922",
+        "ex.ko.s.001923"
+      ]
+    },
+    "i18n": {
+      "id": "kg.grammar.particle.mada",
+      "locale": "zh_tw",
+      "title": "마다 (每~)",
+      "description": "表示「全部」、「無一例外」。常用於表示時間的名詞後。",
+      "explanation_md": "· 用法說明\n\n表示「全部」、「無一例外」。常用於表示時間的名詞後，表示重複發生。相當於中文的「每…」。\n\n[id:ex.ko.s.000593]\n[id:ex.ko.s.000632]\n[id:ex.ko.s.001916]\n[id:ex.ko.s.001917]\n[id:ex.ko.s.001918]\n[id:ex.ko.s.001919]\n[id:ex.ko.s.001920]\n[id:ex.ko.s.001921]\n[id:ex.ko.s.001922]\n[id:ex.ko.s.001923]",
+      "usage_notes": []
+    }
+  },
+  {
+    "id": "kg.grammar.particle.man",
+    "source": {
+      "id": "kg.grammar.particle.man",
+      "kind": "grammar",
+      "subcategory": "particle",
+      "level": "A1",
+      "surface": "~만",
+      "tags": [
+        "grammar",
+        "particle",
+        "beginner",
+        "v5_ingestion"
+      ],
+      "provenance": {
+        "source": "youtube_beginner_grammar",
+        "source_lesson_ids": [
+          134
+        ],
+        "source_video_ids": [
+          "DqojV8V7yeQ"
+        ]
+      },
+      "example_sentence_refs": [
+        "ex.ko.s.001337",
+        "ex.ko.s.001338",
+        "ex.ko.s.001339",
+        "ex.ko.s.001340",
+        "ex.ko.s.001341",
+        "ex.ko.s.001342",
+        "ex.ko.s.001343",
+        "ex.ko.s.001344",
+        "ex.ko.s.001345",
+        "ex.ko.s.001346"
+      ]
+    },
+    "i18n": {
+      "id": "kg.grammar.particle.man",
+      "locale": "zh_tw",
+      "title": "~만 (限定)",
+      "description": "表示排除其他，只限定這一個，意為「只」、「只有」。",
+      "explanation_md": "「~만」 是用來表示「限定」的助詞。當你想表達在眾多選項中，唯獨只有這一個時，就可以在名詞後面接上 `만`。\n\n· 用法說明\n  - 直接接在名詞後面，不論名詞是否有收音：\n    - `나` (我) -> `나만` (只有我) [id:ex.ko.s.001338]\n    - `5분` (5分鐘) -> `5분만` (只要5分鐘) [id:ex.ko.s.001337]\n\n· 常見使用場景\n  - 強調唯一的對象或行動：[id:ex.ko.s.001338]\n  - 限定數量或時間：[id:ex.ko.s.001337]\n  - 表達飲食偏好或特定選擇：[id:ex.ko.s.001339], [id:ex.ko.s.001340]\n\n· 注意\n  - `만` 可以取代主語助詞 (`이/가`) 或受語助詞 (`을/를`)：\n    - `커피를 마셔요` -> `커피만 마셔요` (只喝咖啡) [id:ex.ko.s.001340]\n  - `만` 也可以接在其他助詞（如 `에`、`에서`、`에게`）之後：\n    - `주말에만` (只有在週末) [id:ex.ko.s.001342]",
       "usage_notes": []
     }
   },
@@ -4925,6 +8650,321 @@
     }
   },
   {
+    "id": "kg.grammar.quantifier.byeong",
+    "source": {
+      "id": "kg.grammar.quantifier.byeong",
+      "kind": "grammar",
+      "subcategory": "quantifier",
+      "level": "A1",
+      "surface": "병",
+      "tags": [
+        "grammar",
+        "quantifier",
+        "beginner",
+        "v5_ingestion"
+      ],
+      "provenance": {
+        "source": "youtube_counters3",
+        "source_lesson_ids": [],
+        "source_video_ids": [
+          "V1XoPUEYaOE"
+        ]
+      },
+      "example_sentence_refs": [
+        "ex.ko.s.001419",
+        "ex.ko.s.001420"
+      ]
+    },
+    "i18n": {
+      "id": "kg.grammar.quantifier.byeong",
+      "locale": "zh_tw",
+      "title": "병 (瓶)",
+      "description": "用於瓶裝物品的量詞",
+      "explanation_md": "· 用法說明\n  - `병` 用於裝在瓶子裡的液體，如水、果汁、可樂、啤酒、燒酒等。\n  - 接在「純韓語數字」（하나, 둘, 셋...）之後。\n\n· 常見使用場景\n  - 在餐廳或便利商店買飲料時：[id:ex.ko.s.001419]\n  - 描述家裡冰箱或桌上的瓶裝物時：[id:ex.ko.s.001420]\n\n· 注意\n  - 如果是裝在杯子（cup/glass）裡的，請使用 `잔` 或 `컵`。",
+      "usage_notes": []
+    }
+  },
+  {
+    "id": "kg.grammar.quantifier.dae",
+    "source": {
+      "id": "kg.grammar.quantifier.dae",
+      "kind": "grammar",
+      "subcategory": "quantifier",
+      "level": "A1",
+      "surface": "대",
+      "tags": [
+        "grammar",
+        "quantifier",
+        "beginner",
+        "v5_ingestion"
+      ],
+      "provenance": {
+        "source": "youtube_counters3",
+        "source_lesson_ids": [],
+        "source_video_ids": [
+          "aKgQl-4WncE"
+        ]
+      },
+      "example_sentence_refs": [
+        "ex.ko.s.001423",
+        "ex.ko.s.001424"
+      ]
+    },
+    "i18n": {
+      "id": "kg.grammar.quantifier.dae",
+      "locale": "zh_tw",
+      "title": "대 (臺/台)",
+      "description": "用於車輛或機器的量詞",
+      "explanation_md": "· 用法說明\n  - `대` 用於汽車、巴士、腳踏車等交通工具，以及電腦、電視、手機等電子產品或機器。\n  - 接在「純韓語數字」（하나, 둘, 셋...）之後。\n\n· 常見使用場景\n  - 描述家裡的電腦或電視數量時：[id:ex.ko.s.001423]\n  - 在街上看見或詢問車輛數量時：[id:ex.ko.s.001424]\n\n· 注意\n  - 如果是裝在「杯子」或「盤子」裡的物品，不可以使用 `대`。",
+      "usage_notes": []
+    }
+  },
+  {
+    "id": "kg.grammar.quantifier.gae",
+    "source": {
+      "id": "kg.grammar.quantifier.gae",
+      "kind": "grammar",
+      "subcategory": "quantifier",
+      "level": "A1",
+      "surface": "개",
+      "tags": [
+        "grammar",
+        "quantifier",
+        "beginner",
+        "v5_ingestion"
+      ],
+      "provenance": {
+        "source": "youtube_counters3",
+        "source_lesson_ids": [],
+        "source_video_ids": [
+          "aKgQl-4WncE"
+        ]
+      },
+      "example_sentence_refs": [
+        "ex.ko.s.001411",
+        "ex.ko.s.001412"
+      ]
+    },
+    "i18n": {
+      "id": "kg.grammar.quantifier.gae",
+      "locale": "zh_tw",
+      "title": "개 (個)",
+      "description": "用於一般物品的通用量詞",
+      "explanation_md": "· 用法說明\n  - `개` 是韓語中最通用的量詞，當你不確定某種物品該用哪種特定量詞時，通常可以使用 `개`。\n  - 常見用於：水果（蘋果、橘子）、常見生活用品（雨傘、時鐘、包包）等。\n  - 接在「純韓語數字」（하나, 둘, 셋...）之後。\n\n· 常見使用場景\n  - 在超市買水果時：[id:ex.ko.s.001411]\n  - 描述房間或桌上有的物品時：[id:ex.ko.s.001412]\n\n· 注意\n  - 雖然 `개` 很通用，但對於「人」（명）、「動物」（마리）、「書」（권）、「車輛/機械」（대）等，習慣上仍會使用特定的量詞以顯得更道地。",
+      "usage_notes": []
+    }
+  },
+  {
+    "id": "kg.grammar.quantifier.gwon",
+    "source": {
+      "id": "kg.grammar.quantifier.gwon",
+      "kind": "grammar",
+      "subcategory": "quantifier",
+      "level": "A1",
+      "surface": "권",
+      "tags": [
+        "grammar",
+        "quantifier",
+        "beginner",
+        "v5_ingestion"
+      ],
+      "provenance": {
+        "source": "youtube_counters3",
+        "source_lesson_ids": [],
+        "source_video_ids": [
+          "aKgQl-4WncE"
+        ]
+      },
+      "example_sentence_refs": [
+        "ex.ko.s.001415",
+        "ex.ko.s.001416"
+      ]
+    },
+    "i18n": {
+      "id": "kg.grammar.quantifier.gwon",
+      "locale": "zh_tw",
+      "title": "권 (本/冊)",
+      "description": "用於書籍的量詞",
+      "explanation_md": "· 用法說明\n  - `권` 用於書籍、雜誌、筆記本、字典等有裝訂成冊的物品。\n  - 接在「純韓語數字」（하나, 둘, 셋...）之後。\n\n· 常見使用場景\n  - 買書或借書時：[id:ex.ko.s.001415]\n  - 描述書架上或桌上的書時：[id:ex.ko.s.001416]\n\n· 注意\n  - 如果是單張的紙張或票券，應該使用 `장` 而不是 `권`。",
+      "usage_notes": []
+    }
+  },
+  {
+    "id": "kg.grammar.quantifier.inbun",
+    "source": {
+      "id": "kg.grammar.quantifier.inbun",
+      "kind": "grammar",
+      "subcategory": "quantifier",
+      "level": "A1",
+      "surface": "인분",
+      "tags": [
+        "grammar",
+        "quantifier",
+        "beginner",
+        "v5_ingestion"
+      ],
+      "provenance": {
+        "source": "youtube_counters3",
+        "source_lesson_ids": [],
+        "source_video_ids": [
+          "V1XoPUEYaOE"
+        ]
+      },
+      "example_sentence_refs": [
+        "ex.ko.s.001425",
+        "ex.ko.s.001426"
+      ]
+    },
+    "i18n": {
+      "id": "kg.grammar.quantifier.inbun",
+      "locale": "zh_tw",
+      "title": "인분 (人份)",
+      "description": "用於食物份量的量詞",
+      "explanation_md": "· 用法說明\n  - `인분` 用於點餐時表示食物的份量（幾人份）。\n  - **特別注意**：與韓語大多數使用「純韓語數字」的量詞不同，`인분` 通常使用 **「漢字數字」**（일, 이, 삼, 사...）。\n\n· 常見使用場景\n  - 在餐廳點主食品（如烤肉、拌飯、火鍋）時：[id:ex.ko.s.001425]\n  - 想要追加份量時：[id:ex.ko.s.001426]\n\n· 注意\n  - 如果是數「碟/碗」裝好的食物，可以使用 `그릇`（碗/盤）。",
+      "usage_notes": []
+    }
+  },
+  {
+    "id": "kg.grammar.quantifier.jan",
+    "source": {
+      "id": "kg.grammar.quantifier.jan",
+      "kind": "grammar",
+      "subcategory": "quantifier",
+      "level": "A1",
+      "surface": "잔",
+      "tags": [
+        "grammar",
+        "quantifier",
+        "beginner",
+        "v5_ingestion"
+      ],
+      "provenance": {
+        "source": "youtube_counters3",
+        "source_lesson_ids": [],
+        "source_video_ids": [
+          "aKgQl-4WncE"
+        ]
+      },
+      "example_sentence_refs": [
+        "ex.ko.s.001421",
+        "ex.ko.s.001422"
+      ]
+    },
+    "i18n": {
+      "id": "kg.grammar.quantifier.jan",
+      "locale": "zh_tw",
+      "title": "잔 (杯)",
+      "description": "用於杯裝飲料的量詞",
+      "explanation_md": "· 用法說明\n  - `잔` 用於咖啡、茶、果汁、葡萄酒、啤酒等裝在杯子或玻璃杯裡的飲料。\n  - 接在「純韓語數字」（하나, 둘, 셋...）之後。\n\n· 常見使用場景\n  - 在咖啡廳點餐時：[id:ex.ko.s.001421]\n  - 與朋友聚會喝酒時：[id:ex.ko.s.001422]\n\n· 注意\n  - 如果是整瓶的飲料，請使用 `병`。\n  - `컵` (Cup) 也常作為量詞使用，與 `잔` 有時可互換，但 `잔` 感覺更偏向「一杯茶/酒」的氛圍。",
+      "usage_notes": []
+    }
+  },
+  {
+    "id": "kg.grammar.quantifier.jang",
+    "source": {
+      "id": "kg.grammar.quantifier.jang",
+      "kind": "grammar",
+      "subcategory": "quantifier",
+      "level": "A1",
+      "surface": "장",
+      "tags": [
+        "grammar",
+        "quantifier",
+        "beginner",
+        "v5_ingestion"
+      ],
+      "provenance": {
+        "source": "youtube_counters3",
+        "source_lesson_ids": [],
+        "source_video_ids": [
+          "aKgQl-4WncE"
+        ]
+      },
+      "example_sentence_refs": [
+        "ex.ko.s.001417",
+        "ex.ko.s.001418"
+      ]
+    },
+    "i18n": {
+      "id": "kg.grammar.quantifier.jang",
+      "locale": "zh_tw",
+      "title": "장 (張)",
+      "description": "用於薄平物品（紙、票、照片）的量詞",
+      "explanation_md": "· 用法說明\n  - `장` 用於紙張、照片、門票、郵票、名片等薄且平整的物品。\n  - 接在「純韓語數字」（하나, 둘, 셋...）之後。\n\n· 常見使用場景\n  - 拍照或洗照片時：[id:ex.ko.s.001417]\n  - 在櫃檯買票（電影、火車、飛機）時：[id:ex.ko.s.001418]\n\n· 注意\n  - 如果是成冊的書，請使用 `권`。",
+      "usage_notes": []
+    }
+  },
+  {
+    "id": "kg.grammar.quantifier.mari",
+    "source": {
+      "id": "kg.grammar.quantifier.mari",
+      "kind": "grammar",
+      "subcategory": "quantifier",
+      "level": "A1",
+      "surface": "마리",
+      "tags": [
+        "grammar",
+        "quantifier",
+        "beginner",
+        "v5_ingestion"
+      ],
+      "provenance": {
+        "source": "youtube_counters3",
+        "source_lesson_ids": [],
+        "source_video_ids": [
+          "aKgQl-4WncE"
+        ]
+      },
+      "example_sentence_refs": [
+        "ex.ko.s.001413",
+        "ex.ko.s.001414"
+      ]
+    },
+    "i18n": {
+      "id": "kg.grammar.quantifier.mari",
+      "locale": "zh_tw",
+      "title": "마리 (隻/頭)",
+      "description": "用於動物的量詞",
+      "explanation_md": "· 用法說明\n  - `마리` 用於所有的動物，包括家畜、寵物、魚類、昆蟲等。\n  - 接在「純韓語數字」（하나, 둘, 셋...）之後。\n\n· 常見使用場景\n  - 描述家裡的寵物時：[id:ex.ko.s.001413]\n  - 在寵物店或動物園看到動物時：[id:ex.ko.s.001414]\n\n· 注意\n  - 千萬不要對「人」使用 `마리`，那會是非常不禮貌甚至是侮辱的用法。對人請使用 `명` 或 `사람`。",
+      "usage_notes": []
+    }
+  },
+  {
+    "id": "kg.grammar.quantifier.myeong",
+    "source": {
+      "id": "kg.grammar.quantifier.myeong",
+      "kind": "grammar",
+      "subcategory": "quantifier",
+      "level": "A1",
+      "surface": "명",
+      "tags": [
+        "grammar",
+        "quantifier",
+        "beginner",
+        "v5_ingestion"
+      ],
+      "provenance": {
+        "source": "youtube_counters3",
+        "source_lesson_ids": [],
+        "source_video_ids": [
+          "aKgQl-4WncE"
+        ]
+      },
+      "example_sentence_refs": [
+        "ex.ko.s.001409",
+        "ex.ko.s.001410"
+      ]
+    },
+    "i18n": {
+      "id": "kg.grammar.quantifier.myeong",
+      "locale": "zh_tw",
+      "title": "명 (名/位)",
+      "description": "用於數人的量詞",
+      "explanation_md": "· 用法說明\n  - `명` 是韓語中最常用的「人數」量詞。\n  - 通常接在「純韓語數字」（하나, 둘, 셋...）之後。\n  - 在比較正式或尊重的場合，可以使用 `분` 代替。\n\n· 常見使用場景\n  - 介紹家庭人數時：[id:ex.ko.s.001409]\n  - 在餐廳詢問人數或點餐時：[id:ex.ko.s.001410]\n\n· 注意\n  - 當數字接在量詞前時，部分純韓語數字會發生形變：`하나` -> `한`, `둘` -> `두`, `셋` -> `세`, `넷` -> `네`, `스물` -> `스무`。",
+      "usage_notes": []
+    }
+  },
+  {
     "id": "kg.grammar.tense.future_ul_geoyeyo",
     "source": {
       "id": "kg.grammar.tense.future_ul_geoyeyo",
@@ -4988,13 +9028,16 @@
       "provenance": {
         "source": "youtube_beginner_grammar",
         "source_lesson_ids": [
-          27
+          27,
+          139
         ],
         "source_lesson_titles": [
-          "過去式表現 았/었어요"
+          "過去式表現 았/었어요",
+          "過去式表現 았/었어요 (Review)"
         ],
         "source_video_ids": [
-          "Md8ppk8GwNA"
+          "Md8ppk8GwNA",
+          "dbHuVNNB-8w"
         ],
         "source_urls": [
           "https://www.youtube.com/watch?v=Md8ppk8GwNA"
@@ -5010,7 +9053,14 @@
         "ex.ko.s.000223",
         "ex.ko.s.000224",
         "ex.ko.s.000225",
-        "ex.ko.s.000226"
+        "ex.ko.s.000226",
+        "ex.ko.s.001381",
+        "ex.ko.s.001382",
+        "ex.ko.s.001383",
+        "ex.ko.s.001384",
+        "ex.ko.s.001385",
+        "ex.ko.s.001386",
+        "ex.ko.s.001387"
       ]
     },
     "i18n": {
@@ -5062,6 +9112,305 @@
       "title": "았/었/했 (過去式進階)",
       "description": "韓文的過去式表現，根據詞幹母音決定結合形式。",
       "explanation_md": "韓文的過去式由詞幹結合 `았`、`었` 或 `했` 組成，通常接續終結語尾如 `~어요` 或 `~습니다`。\n\n· 用法說明\n- **았**: 詞幹最後一個母音是 `ㅏ` 或 `ㅗ` 時（例如：`가다` -> `갔어요`）。\n- **었**: 詞幹最後一個母音不是 `ㅏ` 或 `ㅗ` 時（例如：`먹다` -> `먹었어요`）。\n- **했**: 以 `하다` 結尾的動詞或形容詞（例如：`공부하다` -> `공부했어요`）。\n\n· 常見使用場景\n- 描述過去發生的動作或狀態。\n- [id:ex.ko.s.000217]\n- [id:ex.ko.s.000218]\n- [id:ex.ko.s.000281]\n\n· 相近文法比較\n- **았/었/했**: 標準過去式。\n- **았었/었었/했었**: 過去完成式（強調過去曾經...但現在已不再如此）。\n\n· 注意\n- 要注意詞幹的收音，有收音的詞幹結合時會多出一個音節（如 `먹다` -> `먹었`），無收音則常發生縮略（如 `오다` -> `왔`）。",
+      "usage_notes": []
+    }
+  },
+  {
+    "id": "kg.phonology.aspiratization",
+    "source": {
+      "id": "kg.phonology.aspiratization",
+      "kind": "knowledge",
+      "subcategory": "phonology",
+      "level": "A1",
+      "surface": "격음화",
+      "tags": [
+        "pronunciation",
+        "sound_change",
+        "beginner",
+        "v5_ingestion"
+      ],
+      "provenance": {
+        "source": "knowledge_lab_enrichment",
+        "source_lesson_ids": [],
+        "source_lesson_titles": [
+          "韓文發音規則：激音化"
+        ],
+        "source_video_ids": [],
+        "source_urls": []
+      },
+      "example_sentence_refs": [
+        "ex.ko.s.000559",
+        "ex.ko.s.001363"
+      ]
+    },
+    "i18n": {
+      "id": "kg.phonology.aspiratization",
+      "locale": "zh_tw",
+      "title": "激音化/送氣化 (격음화)",
+      "description": "當平音（ㄱ, ㄷ, ㅂ, ㅈ）與 ㅎ 相遇時，會合併為對應的激音（ㅋ, ㅌ, ㅍ, ㅊ）發音。",
+      "explanation_md": "· 用法說明\n「激音化」就像是聲音中加入了強烈的氣流。當 `ㄱ, ㄷ, ㅂ, ㅈ` 與 `ㅎ` 相鄰（不論 `ㅎ` 在前或在後）時，兩者會結合成激音：\n- `ㄱ + ㅎ` / `ㅎ + ㄱ` → **[ㅋ]**\n- `ㄷ + ㅎ` / `ㅎ + ㄷ` → **[ㅌ]**\n- `ㅂ + ㅎ` / `ㅎ + ㅂ` → **[ㅍ]**\n- `ㅈ + ㅎ` / `ㅎ + ㅈ` → **[ㅊ]**\n\n· 代表單字\n1. **백화점** [배콰점]：收音 `ㄱ` 遇到初聲 `ㅎ` 變為 `ㅋ`。\n   - [id:ex.ko.s.000559]\n   - [id:ex.ko.s.001363]\n2. **입학** [이팍]：收音 `ㅂ` 遇到初聲 `ㅎ` 變為 `ㅍ`。\n3. **좋다** [조타]：收音 `ㅎ` 遇到初聲 `ㄷ` 變為 `ㅌ`。\n\n· 注意事項\n- 激音化會大幅改變單字原本的聲響特徵，請注意帶有氣流感的強音發音。",
+      "usage_notes": []
+    }
+  },
+  {
+    "id": "kg.phonology.liaison",
+    "source": {
+      "id": "kg.phonology.liaison",
+      "kind": "knowledge",
+      "subcategory": "phonology",
+      "level": "A1",
+      "surface": "연음",
+      "tags": [
+        "pronunciation",
+        "sound_change",
+        "beginner",
+        "v5_ingestion"
+      ],
+      "provenance": {
+        "source": "knowledge_lab_enrichment",
+        "source_lesson_ids": [],
+        "source_lesson_titles": [
+          "韓文發音規則：連音"
+        ],
+        "source_video_ids": [],
+        "source_urls": []
+      },
+      "example_sentence_refs": [
+        "ex.ko.s.000079",
+        "ex.ko.s.000127"
+      ]
+    },
+    "i18n": {
+      "id": "kg.phonology.liaison",
+      "locale": "zh_tw",
+      "title": "連音 (연음)",
+      "description": "當終聲（收音）遇到以母音開頭的下一個字時，終聲會移至下一個字的初聲位置發音。",
+      "explanation_md": "· 用法說明\n「連音」是韓文中最基本的發音現象。當一個字的收音（Batchim）後面遇到沒有初聲（即以 `ㅇ` 開頭）的字時，該收音會「搬家」到下一個字的初聲位置發音，使語氣聽起來更連貫平順。\n\n· 代表單字\n1. **한국어** [한구거]：`국` 的收音 `ㄱ` 移到 `어` 的初聲位置。\n   - [id:ex.ko.s.000079]\n2. **있어요** [이써요]：雙收音 `ㅆ` 移到 `어` 的初聲位置。\n   - [id:ex.ko.s.000127]\n3. **이름이** [이르미]：`름` 的收音 `ㅁ` 移到 `이` 的初聲位置。\n\n· 注意事項\n- 這是讓韓語聽起來流暢的關鍵規則，初學者應大幅練習將單字與助詞（如 `이/가`, `을/를`, `에`）連讀。",
+      "usage_notes": []
+    }
+  },
+  {
+    "id": "kg.phonology.liquidization",
+    "source": {
+      "id": "kg.phonology.liquidization",
+      "kind": "knowledge",
+      "subcategory": "phonology",
+      "level": "A1",
+      "surface": "유음화",
+      "tags": [
+        "pronunciation",
+        "sound_change",
+        "beginner",
+        "v5_ingestion"
+      ],
+      "provenance": {
+        "source": "knowledge_lab_enrichment",
+        "source_lesson_ids": [],
+        "source_lesson_titles": [
+          "韓文發音規則：流音化"
+        ],
+        "source_video_ids": [],
+        "source_urls": []
+      },
+      "example_sentence_refs": [
+        "ex.ko.s.000384",
+        "ex.ko.s.000870"
+      ]
+    },
+    "i18n": {
+      "id": "kg.phonology.liquidization",
+      "locale": "zh_tw",
+      "title": "流音化 (유음화)",
+      "description": "當 ㄴ 遇到 ㄹ 時（不論前後），ㄴ 會受到 ㄹ 的影響也轉變為 [ㄹ] 的發音。",
+      "explanation_md": "· 用法說明\n「流音化」是指鼻音 `ㄴ` 被流音 `ㄹ` 同化的現象。只要 `ㄴ` 與 `ㄹ` 相鄰（不論是 `ㄴ+ㄹ` 還是 `ㄹ+ㄴ`），`ㄴ` 都會變成 `ㄹ` 的聲音，使舌尖連續振動發音更為順暢。\n\n· 代表單字\n1. **연락** [열락]：`ㄴ` 遇到 `ㄹ` 變為 `ㄹ + ㄹ`。\n   - [id:ex.ko.s.000384]\n   - [id:ex.ko.s.000870]\n2. **신라** [실라]：標準拼寫保留 `신라`，但發音中 `ㄴ` 會因流音化而變為 `ㄹ + ㄹ`。\n3. **관리** [괄리]：`ㄴ` 遇到 `ㄹ` 變為 `ㄹ + ㄹ`。\n\n· 注意事項\n- 流音化是讓韓語聽起來具有節奏感的關鍵規則之一。",
+      "usage_notes": []
+    }
+  },
+  {
+    "id": "kg.phonology.nasalization",
+    "source": {
+      "id": "kg.phonology.nasalization",
+      "kind": "knowledge",
+      "subcategory": "phonology",
+      "level": "A1",
+      "surface": "비음화",
+      "tags": [
+        "pronunciation",
+        "sound_change",
+        "beginner",
+        "v5_ingestion"
+      ],
+      "provenance": {
+        "source": "knowledge_lab_enrichment",
+        "source_lesson_ids": [],
+        "source_lesson_titles": [
+          "韓文發音規則：鼻音化"
+        ],
+        "source_video_ids": [],
+        "source_urls": []
+      },
+      "example_sentence_refs": [
+        "ex.ko.s.000007",
+        "ex.ko.s.001403"
+      ]
+    },
+    "i18n": {
+      "id": "kg.phonology.nasalization",
+      "locale": "zh_tw",
+      "title": "鼻音化 (비음화)",
+      "description": "當部分收音遇到鼻音（ㄴ, ㅁ）時，會轉變為鼻音（ㅇ, ㄴ, ㅁ）發音。",
+      "explanation_md": "· 用法說明\n「鼻音化」是為了讓發音更省力且自然的一種規則。當特定的收音後面緊跟著 `ㄴ` 或 `ㅁ` 時，原本的收音會發生變化：\n- `ㄱ` (ㅋ, ㄲ, ㄳ, ㄺ) → **[ㅇ]**\n- `ㄷ` (ㅅ, ㅆ, ㅈ, ㅊ, ㅌ, ㅎ) → **[ㄴ]**\n- `ㅂ` (ㅍ, ㄼ, ㄿ, ㅄ) → **[ㅁ]**\n\n· 代表單字\n1. **입니다** [임니다]：收音 `ㅂ` 遇到 `ㄴ` 變為 `ㅁ`。這是韓文中最常見的鼻音化例子。\n   - [id:ex.ko.s.000007]\n   - [id:ex.ko.s.001403]\n2. **국물** [궁물]：收音 `ㄱ` 遇到 `ㅁ` 變為 `ㅇ`。\n3. **믿나** [민나]：收音 `ㄷ` 遇到 `ㄴ` 變為 `ㄴ`。\n\n· 注意事項\n- 雖然拼寫不變，但實際說話時請務必按照變音後的聲音發音，否則聽起來會非常生硬。",
+      "usage_notes": []
+    }
+  },
+  {
+    "id": "kg.phonology.palatalization",
+    "source": {
+      "id": "kg.phonology.palatalization",
+      "kind": "knowledge",
+      "subcategory": "phonology",
+      "level": "A1",
+      "surface": "구개음화",
+      "tags": [
+        "pronunciation",
+        "sound_change",
+        "beginner",
+        "v5_ingestion"
+      ],
+      "provenance": {
+        "source": "knowledge_lab_enrichment",
+        "source_lesson_ids": [],
+        "source_lesson_titles": [
+          "韓文發音規則：腭音化"
+        ],
+        "source_video_ids": [],
+        "source_urls": []
+      },
+      "example_sentence_refs": [
+        "ex.ko.s.000108",
+        "ex.ko.s.000571"
+      ]
+    },
+    "i18n": {
+      "id": "kg.phonology.palatalization",
+      "locale": "zh_tw",
+      "title": "腭音化 (구개음화)",
+      "description": "收音 ㄷ, ㅌ 遇到以母音 '이' 開頭的字詞時，會分別變為 [ㅈ], [ㅊ] 發音。",
+      "explanation_md": "· 用法說明\n當收音 `ㄷ` 或 `ㅌ` 後面接著母音 `이`（或半母音 `히`）時，發音會向上腭移動，分別變成 `ㅈ` 或 `ㅊ` 的聲音。這在語言學上稱為腭音化。\n\n· 代表單字\n1. **같이** [가치]：收音 `ㅌ` 遇到 `이` 變為 `ㅊ`。這是使用機率最高的單字之一。\n   - [id:ex.ko.s.000108]\n   - [id:ex.ko.s.000571]\n2. **굳이** [구지]：收音 `ㄷ` 遇到 `이` 變為 `ㅈ`。\n3. **해돋이** [해도지]：收音 `ㄷ` 遇到 `이` 變為 `ㅈ`。\n\n· 注意事項\n- 這種變音通常發生在詞根與後綴（如助詞、詞尾）相接時。如果是兩個獨立的複合詞合成，規則可能會有所不同。",
+      "usage_notes": []
+    }
+  },
+  {
+    "id": "kg.phonology.tensification",
+    "source": {
+      "id": "kg.phonology.tensification",
+      "kind": "knowledge",
+      "subcategory": "phonology",
+      "level": "A1",
+      "surface": "경음화",
+      "tags": [
+        "pronunciation",
+        "sound_change",
+        "beginner",
+        "v5_ingestion"
+      ],
+      "provenance": {
+        "source": "knowledge_lab_enrichment",
+        "source_lesson_ids": [],
+        "source_lesson_titles": [
+          "韓文發音規則：硬音化"
+        ],
+        "source_video_ids": [],
+        "source_urls": []
+      },
+      "example_sentence_refs": [
+        "ex.ko.s.000189",
+        "ex.ko.s.000517"
+      ]
+    },
+    "i18n": {
+      "id": "kg.phonology.tensification",
+      "locale": "zh_tw",
+      "title": "硬音化/濃音化 (경음화)",
+      "description": "特定的收音遇到某些初聲時，初聲會轉變為硬音（ㄲ, ㄸ, ㅃ, ㅆ, ㅉ）發音。",
+      "explanation_md": "· 用法說明\n「硬音化」會使發音變得更短促且有力。最常見的情況是前字的收音為塞音（ㄱ, ㄷ, ㅂ），而後字的初聲為平音（ㄱ, ㄷ, ㅂ, ㅅ, ㅈ）時，後字的初聲會變強：\n- `ㄱ, ㄷ, ㅂ, ㅅ, ㅈ` → **[ㄲ, ㄸ, ㅃ, ㅆ, ㅉ]**\n\n· 代表單字\n1. **학교** [학꾜]：收音 `ㄱ` 遇到初聲 `ㄱ` 變為 `ㄲ`。\n   - [id:ex.ko.s.000189]\n   - [id:ex.ko.s.000517]\n2. **있고** [읻꼬]：收音 `ㅆ` 的實際發音為 [ㄷ]，遇到初聲 `ㄱ` 後變為 `[ㄲ]`。\n3. **식당** [식땅]：收音 `ㄱ` 遇到初聲 `ㄷ` 變為 `ㄸ`。\n\n· 注意事項\n- 硬音化除了上述的基本規則外，在某些動詞詞幹或漢字詞組合中也會發生，是學習中高級發音的重點。",
+      "usage_notes": []
+    }
+  },
+  {
+    "id": "kg.connector.sequence.geureomyeon",
+    "source": {
+      "id": "kg.connector.sequence.geureomyeon",
+      "kind": "grammar",
+      "subcategory": "sequence",
+      "level": "A2",
+      "surface": "그러면",
+      "tags": [
+        "grammar",
+        "connector",
+        "sequence",
+        "beginner",
+        "v5_ingestion"
+      ],
+      "provenance": {
+        "source": "knowledge_lab_rescue",
+        "rescue_batch": "KLAB-Batch-1.11"
+      },
+      "example_sentence_refs": [
+        "ex.ko.s.001944",
+        "ex.ko.s.001945",
+        "ex.ko.s.001946",
+        "ex.ko.s.001947",
+        "ex.ko.s.001948",
+        "ex.ko.s.001949",
+        "ex.ko.s.001950",
+        "ex.ko.s.001951",
+        "ex.ko.s.001952",
+        "ex.ko.s.001953"
+      ]
+    },
+    "i18n": {
+      "id": "kg.connector.sequence.geureomyeon",
+      "locale": "zh_tw",
+      "title": "그러면 (那麼)",
+      "description": "用於連結兩個句子，表示如果前句的事實成立，則會產生後句的結果。",
+      "explanation_md": "· 用法說明\n\n用於連結兩個句子，表示如果前句的事實成立，則會產生後句的結果。相當於中文的「那麼」。常用於承接對方的說話內容，引出下一步的結論或建議。\n\n[id:ex.ko.s.001944]\n[id:ex.ko.s.001945]\n[id:ex.ko.s.001946]\n[id:ex.ko.s.001947]\n[id:ex.ko.s.001948]\n[id:ex.ko.s.001949]\n[id:ex.ko.s.001950]\n[id:ex.ko.s.001951]\n[id:ex.ko.s.001952]\n[id:ex.ko.s.001953]",
+      "usage_notes": []
+    }
+  },
+  {
+    "id": "kg.connector.sequence.geurigo",
+    "source": {
+      "id": "kg.connector.sequence.geurigo",
+      "kind": "grammar",
+      "subcategory": "sequence",
+      "level": "A1",
+      "surface": "그리고",
+      "tags": [
+        "grammar",
+        "connector",
+        "sequence",
+        "addition",
+        "beginner"
+      ],
+      "provenance": {
+        "source": "knowledge_lab_rescue",
+        "rescue_batch": "kg-normalize-001B"
+      },
+      "example_sentence_refs": [
+        "ex.ko.s.001162",
+        "ex.ko.s.001163",
+        "ex.ko.s.001164",
+        "ex.ko.s.001165",
+        "ex.ko.s.001166"
+      ]
+    },
+    "i18n": {
+      "id": "kg.connector.sequence.geurigo",
+      "locale": "zh_tw",
+      "title": "然後、並且 (그리고)",
+      "description": "用於連接並列動作或項目，表示追加或先後順序。",
+      "explanation_md": "· 用法說明\n`然後、並且` (그리고) 是最常用的追加連接詞。它可以用來連接兩個獨立的句子或名詞，表示內容的追加、並列或動作的先後順序。\n\n· 常見使用場景\n1. **描述動作順序**：先做一件事，再做另一件事。\n   - [id:ex.ko.s.001162] (刷了牙，然後洗了臉)\n2. **列舉事物**：表示內容的追加。\n   - [id:ex.ko.s.001166] (買了花，並且送了禮物)\n\n· 常用用法\n- **句子 A. 그리고 句子 B.**\n- **名詞 A 그리고 名詞 B**\n\n· 注意\n在口語中也常用來承接敘述或補充說明，是韓語中最基礎的追加型連接詞。",
       "usage_notes": []
     }
   }

@@ -4,7 +4,7 @@
 
 ## 專案結構 (6 個主要儲存庫)
 
-- **content-ko**: 核心韓文課程內容，包含文字、音檔路徑與 V5 結構。
+- **content-ko**: 核心韓文課程內容，包含文字、音檔路徑與 V5 結構。 (包含 NIKL 7500 頻率詞表與 Naver MDX 字典)
 - **content-pipeline**: 內容自動化處理工具，負責 JSON 與 CSV 之間的轉換與驗證。
 - **core-schema**: 定義專案通用的資料結構 (JSON Schema)，所有內容需符合此規範。
 - **lingo-frontend-web**: 使用 Flutter 開發的 Web 前端介面。

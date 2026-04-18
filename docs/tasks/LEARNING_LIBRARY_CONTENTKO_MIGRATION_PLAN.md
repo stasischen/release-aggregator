@@ -7,6 +7,9 @@
 - 再跑 pipeline
 - 最後讓 app 改讀 artifact
 
+## Status
+已完成並完成 frontend intake 對齊；此文件保留作為封存與追蹤 reference。
+
 ## Scope
 本計畫涵蓋：
 - `Content-First Learning` 正式化

@@ -70,7 +70,7 @@ SUPPORTED_CONTENT_FORMS = {
     "dialogue", "notice", "message_thread", "comparison_card",
     "pattern_card", "grammar_note", "functional_phrase_pack",
     "practice_card", "roleplay_prompt", "message_prompt",
-    "review_card", "comprehension_check", "article", "video_transcript"
+    "review_card", "comprehension_check", "article", "video_transcript", "video"
 }
 
 class MockupChecker:

@@ -205,3 +205,42 @@ window.nodeStageLabel = function (nodeId) {
   const match = String(nodeId || '').match(/-(L1|L2|L3|G1|G2|P1|P2|P5|R1)$/);
   return match ? match[1] : '';
 };
+
+// --- CMOD-013 Segment Action Helpers ---
+
+window.renderSegmentActions = function(seg) {
+  const contract = seg.interaction_contract;
+  if (!contract || !contract.actions || contract.actions.length === 0) {
+    return `<div class="segment-actions-bar">${window.renderSpeakButton(seg.ko)}</div>`;
+  }
+
+  const buttons = contract.actions.map(action => {
+    let icon = '🔊';
+    let label = window.getLabel('play');
+    let css = 'listen-btn';
+
+    if (action === 'shadow' || action === 'repeat') {
+      icon = '🔁';
+      label = window.getLabel('shadow');
+      css = 'shadow-btn';
+    } else if (action === 'type') {
+      icon = '⌨️';
+      label = window.getLabel('type');
+      css = 'type-btn';
+    }
+
+    const textToSpeak = contract.payload?.tts_text || seg.ko;
+    return `<button class="action-pill ${css}" onclick="window.speakKo('${window.escapeJsSingle(textToSpeak)}')">
+              <span class="icon">${icon}</span> ${label}
+            </button>`;
+  });
+
+  return `<div class="segment-actions-bar">${buttons.join('')}</div>`;
+};
+
+window.renderSpeakButton = function(text) {
+  if (!text) return '';
+  return `<button class="audio-btn" data-text="${window.escapeJsSingle(text)}" title="${window.getLabel('click_to_play')}">
+            <span class="icon">🔊</span>
+          </button>`;
+};

@@ -67,8 +67,8 @@
             <div class="content bubble">
                 <div class="target">${window.APP.renderKoreanSegmentation(seg)}</div>
                 ${isBilingual ? `<div class="translation">${window.escapeHtml(seg.translation || '')}</div>` : ''}
-                <div style="margin-top:8px; text-align: right;">
-                    ${window.renderSpeakButton(seg.ko)}
+                <div class="action-row" style="margin-top:8px; text-align: right;">
+                    ${window.renderSegmentActions(seg)}
                 </div>
             </div>
         </div>

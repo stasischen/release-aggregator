@@ -1,0 +1,301 @@
+{
+  "version": "unit_blueprint_v0.1",
+  "adapter_contract": {
+    "adapter_version": "frontend_unit_adapter_v0",
+    "stability": "proposed",
+    "fallback_locale_order": [
+      "zh-TW",
+      "en"
+    ],
+    "notes": "Hybrid Pilot for A1 Routine. Unifies Jaerim Vlog (79Pwq7MTUPE) and A1-06 Dialogue. Follows CMOD-001 three-layer model."
+  },
+  "unit": {
+    "unit_id": "A1-U06",
+    "title_i18n": { "zh-TW": "我的日常作息 (Daily Life & Routine)" },
+    "target_language": "ko",
+    "learner_locale_source": "zh-TW",
+    "level": "A1",
+    "theme_i18n": { "zh-TW": "描述早晨作息、詢問他人日常、使用時間連接詞、影片動作觀察與敘述" },
+    "output_ratio_target": 0.5,
+    "can_do_i18n": [
+      { "zh-TW": "能聽懂並描述簡單的早晨作息（起床、盥洗、吃早餐）" },
+      { "zh-TW": "能詢問他人日常活動並給予適當回應" },
+      { "zh-TW": "能使用現在式 (아요/어요) 描述習慣性行為" },
+      { "zh-TW": "能對著影片畫面進行簡單的動作敘述" }
+    ]
+  },
+  "sequence": [
+    {
+      "id": "A1-U06-L1",
+      "candidate_type": "lesson",
+      "content_form": "video",
+      "learning_role": "immersion_input",
+      "skill_focus": ["listening"],
+      "output_mode": "none",
+      "duration_min": 5,
+      "title_i18n": { "zh-TW": "影片觀察：Jaerim 的早晨" },
+      "summary_i18n": { "zh-TW": "觀看 Jaerim 的真實 Vlog，觀察他早上的具體動作。" },
+      "expected_output_i18n": { "zh-TW": "初步沉浸式聽讀，將影像動作與韓文動詞標籤建立聯結。" },
+      "payload": {
+        "video_id": "79Pwq7MTUPE",
+        "turns": [
+          {
+            "id": "v_009",
+            "text": "오늘은 토요일이에요.",
+            "translations_i18n": { "zh-TW": "今天是週六。" },
+            "time": { "start": 38426, "end": 43259 },
+            "interaction_contract": {
+              "actions": ["listen"],
+              "payload": { "tts_text": "오늘은 토요일이에요." }
+            }
+          },
+          {
+            "id": "v_011",
+            "text": "오늘은 오전 9시쯤 일어났어요.",
+            "translations_i18n": { "zh-TW": "今天大約在上午 9 點起床。" },
+            "time": { "start": 49157, "end": 54690 },
+            "interaction_contract": {
+              "actions": ["listen", "shadow"],
+              "payload": { "tts_text": "오늘은 오전 9시쯤 일어났어요." }
+            }
+          },
+          {
+            "id": "v_015",
+            "text": "그리고 아침을 먹었어요.",
+            "translations_i18n": { "zh-TW": "然後吃了早餐。" },
+            "time": { "start": 69759, "end": 73586 },
+            "interaction_contract": {
+              "actions": ["listen"],
+              "payload": { "tts_text": "그리고 아침을 먹었어요." }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "A1-U06-L1-CC",
+      "candidate_type": "lesson",
+      "content_form": "comprehension_check",
+      "learning_role": "immersion_input",
+      "output_mode": "response_builder",
+      "title_i18n": { "zh-TW": "內容檢核：Jaerim 幾點起床？" },
+      "payload": {
+        "question_type": "info_extract",
+        "items": [
+          {
+            "prompt_i18n": { "zh-TW": "Jaerim 今天大約幾點起床？" },
+            "response_choices_ko": ["7시", "9시", "11시"],
+            "accepted_responses_ko": ["9시"]
+          }
+        ]
+      }
+    },
+    {
+      "id": "A1-U06-L2",
+      "candidate_type": "grammar_note",
+      "content_form": "pattern_card",
+      "learning_role": "structure_pattern",
+      "output_mode": "frame_fill",
+      "title_i18n": { "zh-TW": "核心句型：現在式習慣" },
+      "payload": {
+        "frames": [
+          {
+            "frame": "[時間]에 [동사]아요/어요.",
+            "use_i18n": { "zh-TW": "描述在什麼時間做什麼事" },
+            "slots_i18n": { "zh-TW": ["時間 (아침/9시/오전)", "動作 (일어나다/먹다)"] }
+          }
+        ],
+        "teaching_blocks": [
+          {
+            "title_i18n": { "zh-TW": "아요/어요 活用規則" },
+            "content_md_i18n": { "zh-TW": "這是在生活中最常用的標準禮貌體。結尾元音為 아, 오 時接 **-아요**，其餘接 **-어요**。" },
+            "usage_tag": "form_rule"
+          }
+        ]
+      }
+    },
+    {
+      "id": "A1-U06-D1",
+      "candidate_type": "dictionary_pack",
+      "content_form": "functional_phrase_pack",
+      "learning_role": "structure_pattern",
+      "output_mode": "chunk_assembly",
+      "title_i18n": { "zh-TW": "核心詞彙：早晨動作" },
+      "payload": {
+        "sections": [
+          {
+            "title_i18n": { "zh-TW": "常用動作" },
+            "items": ["일어나다", "세수하다", "양치하다", "샤워하다", "먹다"],
+            "item_gloss_by_ko": {
+              "일어나다": "起床",
+              "세수하다": "洗臉",
+              "양치하다": "刷牙",
+              "샤워하다": "洗澡",
+              "먹다": "吃"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "A1-U06-L3",
+      "candidate_type": "lesson",
+      "content_form": "dialogue",
+      "learning_role": "controlled_output",
+      "skill_focus": ["speaking", "reading"],
+      "output_mode": "response_builder",
+      "interaction_modes": ["response_builder", "guided_typing"],
+      "completion_rules": {
+        "required_modes": ["response_builder"],
+        "min_attempts": 1,
+        "pass_policy": "manual_mark_after_required_modes"
+      },
+      "title_i18n": { "zh-TW": "社交互動：詢問對方作息" },
+      "payload": {
+        "dialogue_turns": [
+          {
+            "id": "L06-D1-01",
+            "speaker": "민수",
+            "text": "아침에 주로 뭐 해요?",
+            "translations_i18n": { "zh-TW": "早上通常都在做什麼？" },
+            "interaction_contract": {
+              "actions": ["listen"],
+              "payload": { "tts_text": "아침에 주로 뭐 해요?" }
+            }
+          },
+          {
+            "id": "L06-D1-02",
+            "speaker": "지수",
+            "text": "일어나서 샤워해요. 그리고 아침을 먹어요.",
+            "translations_i18n": { "zh-TW": "起床後洗澡。然後吃早餐。" },
+            "interaction_contract": {
+              "actions": ["listen", "repeat"],
+              "payload": { "tts_text": "일어나서 샤워해요. 그리고 아침을 먹어요." },
+              "knowledge_dive": {
+                "grammar_refs": []
+              }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "A1-U06-P2",
+      "candidate_type": "path_node",
+      "content_form": "practice_card",
+      "learning_role": "controlled_output",
+      "output_mode": "chunk_assembly",
+      "interaction_modes": ["chunk_assembly"],
+      "completion_rules": {
+        "required_modes": ["chunk_assembly"],
+        "min_attempts": 1,
+        "pass_policy": "manual_mark_after_required_modes"
+      },
+      "title_i18n": { "zh-TW": "句子組裝：我的早餐" },
+      "payload": {
+        "mode": "chunk_assembly",
+        "tasks": [
+          {
+            "prompt_i18n": { "zh-TW": "請組出「我吃早餐。」" },
+            "chunks": ["아침을", "먹어요"],
+            "target_examples": ["아침을 먹어요."]
+          }
+        ]
+      }
+    },
+    {
+      "id": "A1-U06-P3",
+      "candidate_type": "path_node",
+      "content_form": "practice_card",
+      "learning_role": "controlled_output",
+      "output_mode": "frame_fill",
+      "interaction_modes": ["frame_fill"],
+      "completion_rules": {
+        "required_modes": ["frame_fill"],
+        "min_attempts": 1,
+        "pass_policy": "manual_mark_after_required_modes"
+      },
+      "title_i18n": { "zh-TW": "格式填空：幾點起床" },
+      "payload": {
+        "mode": "frame_fill",
+        "tasks": [
+          {
+            "prompt_i18n": { "zh-TW": "填入「8點」：___에 일어나요." },
+            "correct_answer": "8시에 일어나요."
+          }
+        ]
+      }
+    },
+    {
+      "id": "A1-U06-P1",
+      "candidate_type": "path_node",
+      "content_form": "roleplay_prompt",
+      "learning_role": "immersion_output",
+      "output_mode": "guided_speaking",
+      "interaction_modes": ["guided_speaking"],
+      "title_i18n": { "zh-TW": "影像任務：描述 Jaerim 的動作" },
+      "payload": {
+        "scenery_i18n": { "zh-TW": "請看影片畫面，描述他在做什麼。" },
+        "constraints_i18n": { "zh-TW": ["需提到 9 點", "需提到起床"] },
+        "required_patterns_i18n": { "zh-TW": ["___에 일어나요"] }
+      },
+      "completion_rules": {
+        "required_modes": ["guided_speaking"],
+        "min_attempts": 1,
+        "pass_policy": "manual_mark_after_required_modes"
+      }
+    },
+    {
+      "id": "A1-U06-P4",
+      "candidate_type": "path_node",
+      "content_form": "message_prompt",
+      "learning_role": "immersion_output",
+      "output_mode": "guided_typing",
+      "interaction_modes": ["guided_typing"],
+      "completion_rules": {
+        "required_modes": ["guided_typing"],
+        "min_attempts": 1,
+        "pass_policy": "manual_mark_after_required_modes"
+      },
+      "title_i18n": { "zh-TW": "傳訊任務：跟朋友說你起床了" },
+      "payload": {
+        "prompt_i18n": { "zh-TW": "傳訊息給朋友說：「我起床了。」" },
+        "must_include_i18n": { "zh-TW": ["일어났어"] }
+      }
+    },
+    {
+      "id": "A1-U06-R1",
+      "candidate_type": "path_node",
+      "content_form": "review_card",
+      "learning_role": "review_retrieval",
+      "output_mode": "review_retrieval",
+      "review_policy": {
+        "policy_id": "standard_a1_routine",
+        "enabled": true,
+        "card_source": {
+          "prefer_carrier": true,
+          "include_support": ["pattern_card"]
+        },
+        "spacing_semantics": { 
+          "profile": "same_day_plus_1_plus_3",
+          "intensity": "high"
+        },
+        "cue_source_preference": ["carrier_context", "sentence_surface"]
+      },
+      "payload": {
+        "target_type": "mixed",
+        "retrieval_focus": "早晨作息動詞與時間表達",
+        "prompts_i18n": { "zh-TW": [
+          "「大約九點起床」怎麼說？",
+          "「吃早餐」怎麼說？",
+          "「起床後洗澡」怎麼說？"
+        ] },
+        "reference_answers_ko": [
+          "9시쯤 일어나요.",
+          "아침을 먹어요.",
+          "일어나서 샤워해요."
+        ]
+      }
+    }
+  ]
+}

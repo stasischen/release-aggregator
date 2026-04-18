@@ -280,6 +280,7 @@ window.LessonAdapter = {
                     anchor_refs: turn.anchor_refs || [],
                     atoms: turn.atoms || [], 
                     alignment_failed: turn.alignment_failed || false,
+                    interaction_contract: turn.interaction_contract || null,
                     source_meta: { source_type: 'video' }
                 });
             });
@@ -297,6 +298,7 @@ window.LessonAdapter = {
                         anchor_refs: turn.anchor_refs || [],
                         register: turn.register || '',
                         atoms: turn.atoms || [],
+                        interaction_contract: turn.interaction_contract || null,
                         source_meta: {
                             scene_id: scene.id,
                             scene_title: this.resolveText(scene.title_i18n, locale, ''),
@@ -317,6 +319,7 @@ window.LessonAdapter = {
                     translation: this.resolveText(turn.translations_i18n, locale, turn.translation || ''),
                     anchor_refs: turn.anchor_refs || [],
                     atoms: turn.atoms || [],
+                    interaction_contract: turn.interaction_contract || null,
                     source_meta: { source_type: 'dialogue' }
                 });
             });

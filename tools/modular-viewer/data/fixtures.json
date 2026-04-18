@@ -25,6 +25,12 @@
       "level": "A1"
     },
     {
+      "id": "A1-U06-Pilot",
+      "path": "data/units/a1_u06_routine_hybrid_blueprint.json",
+      "title": "A1-U06: Routine (Hybrid Pilot)",
+      "level": "A1"
+    },
+    {
       "id": "79Pwq7MTUPE",
       "path": "data/content-ko/core/video/ko_v1_vlog_79Pwq7MTUPE_easy_listening_lesson.json",
       "title": "Vlog: Jaerim's Saturday",

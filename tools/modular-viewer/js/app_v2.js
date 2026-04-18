@@ -573,12 +573,57 @@ window.renderSidebar = function() {
 
 window.renderNodeList = function() {
     if (!APP.elements.nodeList) return;
-    APP.elements.nodeList.innerHTML = window.state.data.sequence.map((n, i) => `
-        <div class="node-card ${i === window.state.currentIndex ? 'active' : ''}" onclick="window.setIndex(${i})">
-            <span class="num">${i + 1}</span>
-            <span class="txt">${window.escapeHtml(window.nodeTitleText(n, 'zh_tw') || n.id)}</span>
-        </div>
-    `).join('');
+    APP.elements.nodeList.innerHTML = window.state.data.sequence.map((n, i) => {
+        const isDone = window.isDone(n.id);
+        const isReview = window.isReview(n.id);
+        const active = i === window.state.currentIndex;
+        
+        let classes = ['node-card'];
+        if (active) classes.push('active');
+        if (isDone) classes.push('done');
+        if (isReview) classes.push('review-mark');
+
+        return `
+            <div class="${classes.join(' ')}" onclick="window.setIndex(${i})">
+                <span class="num">${i + 1}</span>
+                <span class="txt">
+                    ${window.escapeHtml(window.nodeTitleText(n, 'zh_tw') || n.id)}
+                    ${isDone ? '<span class="status-icon">✓</span>' : ''}
+                    ${isReview ? '<span class="status-icon">★</span>' : ''}
+                </span>
+            </div>
+        `;
+    }).join('');
+};
+
+window.renderFooterButtons = function() {
+    const node = window.state.data.sequence[window.state.currentIndex];
+    if (!node) return;
+    
+    const isDone = window.isDone(node.id);
+    const isReview = window.isReview(node.id);
+
+    if (APP.elements.markDoneBtn) {
+        if (isDone) {
+            APP.elements.markDoneBtn.classList.add('success');
+            APP.elements.markDoneBtn.textContent = '✓ 已完成';
+        } else {
+            APP.elements.markDoneBtn.classList.remove('success');
+            APP.elements.markDoneBtn.textContent = '完成';
+        }
+    }
+
+    if (APP.elements.markReviewBtn) {
+        if (isReview) {
+            APP.elements.markReviewBtn.classList.add('warn'); // style.css uses .warn for yellowish/important
+            APP.elements.markReviewBtn.textContent = '★ 待回看';
+            APP.elements.markReviewBtn.style.borderColor = 'var(--warn)';
+        } else {
+            APP.elements.markReviewBtn.classList.remove('warn');
+            APP.elements.markReviewBtn.textContent = '待回看';
+            APP.elements.markReviewBtn.style.borderColor = '';
+        }
+    }
 };
 
 window.renderProgress = function() {
@@ -608,13 +653,20 @@ window.renderCurrentNode = function() {
     
     window.renderNodeList();
     window.renderProgress();
+    window.renderFooterButtons();
 
     if (window.renderDetailHeader) window.renderDetailHeader(normalized);
     if (window.renderDetailSummary) window.renderDetailSummary(normalized);
 
     const { contentHtml, interactionHtml } = window.RendererRegistry.dispatch(normalized);
     if (APP.elements.detailBody) {
-        APP.elements.detailBody.innerHTML = contentHtml + interactionHtml;
+        APP.elements.detailBody.innerHTML = contentHtml;
+        const area = document.getElementById('interactionArea');
+        if (area && interactionHtml) {
+            area.innerHTML = interactionHtml;
+        } else if (interactionHtml) {
+            APP.elements.detailBody.innerHTML += interactionHtml;
+        }
     }
     
     if (APP.elements.prevBtn) APP.elements.prevBtn.disabled = window.state.currentIndex === 0;

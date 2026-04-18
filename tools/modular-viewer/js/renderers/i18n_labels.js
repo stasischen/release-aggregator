@@ -59,6 +59,9 @@ window.I18N_LABELS = {
     mode_chunk_assembly: "詞塊組句練習",
     mode_response_builder: "回應建構",
     mode_guided: "引導式練習",
+    mode_guided_speaking: "口說引導",
+    mode_guided_typing: "打字引導",
+    mode_frame_fill: "框架填空",
     mode_flashcard_review: "閃卡複習",
     mode_review_retrieval: "回想練習",
     
@@ -100,7 +103,15 @@ window.I18N_LABELS = {
     play_tts: "播放 TTS",
     scenario: "情境",
     play: "播放",
-    save: "收藏"
+    shadow: "跟讀",
+    repeat: "重複",
+    type: "輸入",
+    save: "收藏",
+    tap_to_record: "點擊開始錄音...",
+    type_response_placeholder: "在此輸入答案...",
+    mock_submitted: "練習記錄已送出 (Mock)",
+    under_construction: "此功能開發中...",
+    comprehension_check: "理解程度檢查"
   },
   
   en: {
@@ -159,6 +170,9 @@ window.I18N_LABELS = {
     mode_chunk_assembly: "Chunk Assembly",
     mode_response_builder: "Response Builder",
     mode_guided: "Guided Practice",
+    mode_guided_speaking: "Guided Speaking",
+    mode_guided_typing: "Guided Typing",
+    mode_frame_fill: "Frame Fill",
     mode_flashcard_review: "Flashcard Review",
     mode_review_retrieval: "Retrieval Practice",
     
@@ -200,7 +214,15 @@ window.I18N_LABELS = {
     play_tts: "Play TTS",
     scenario: "Scenario",
     play: "Play",
-    save: "Save"
+    shadow: "Shadow",
+    repeat: "Repeat",
+    type: "Type",
+    save: "Save",
+    tap_to_record: "Tap to record...",
+    type_response_placeholder: "Type your response here...",
+    mock_submitted: "Mock response submitted",
+    under_construction: "Feature coming soon...",
+    comprehension_check: "Comprehension Check"
   }
 };
 

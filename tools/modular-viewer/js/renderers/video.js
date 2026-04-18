@@ -49,8 +49,8 @@
         <div class="texts">
           <div class="target">${window.APP.renderKoreanSegmentation(seg)}</div>
           ${showTrans ? `<div class="translation">${window.escapeHtml(seg.translation || '')}</div>` : ''}
-          <div class="action-row" style="margin-top:4px;">
-            ${window.renderSpeakButton(seg.ko)}
+          <div class="action-row" style="margin-top:8px;">
+            ${window.renderSegmentActions(seg)}
           </div>
         </div>
       </div>

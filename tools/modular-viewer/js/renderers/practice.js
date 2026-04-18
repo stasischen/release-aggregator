@@ -37,11 +37,9 @@
     const locale = window.currentLocale();
     const payload = node.payload || {};
     const tasks = payload.tasks || [];
-    const area = document.getElementById('interactionArea') || document.getElementById('detailBody');
 
     if (!tasks.length) {
-      area.innerHTML = `<div class="interaction-panel"><div class="muted-text">${window.getLabel('no_practice_tasks')}</div></div>`;
-      return;
+      return `<div class="interaction-panel"><div class="muted-text">${window.getLabel('no_practice_tasks')}</div></div>`;
     }
 
     const s = window.getNodeInteractionState(node.id);
@@ -69,7 +67,7 @@
       </div>
     `).join('');
 
-    area.innerHTML = `
+    return `
       <div class="interaction-panel animate-in">
         <div class="interaction-label">🧩 ${window.getLabel('mode_chunk_assembly')} (${taskIdx + 1}/${tasks.length})</div>
         <div class="muted-text" style="margin-bottom:12px;">${window.escapeHtml(window.i18nText(task.prompt_i18n, locale, ''))}</div>
@@ -78,7 +76,7 @@
           <div class="assembly-answer">${answerHtml || `<div class="tiny-text muted">${window.getLabel('pick_chunks')}</div>`}</div>
           <div class="chunk-cloud" style="margin-top:16px;">${bank}</div>
         </div>
-
+        
         <div class="btn-row" style="margin-top:20px;">
           <button class="btn" onclick="window.clearAssembly()">${window.getLabel('clear')}</button>
           <button class="btn primary" onclick="window.checkAssembly()">${window.getLabel('check')}</button>
@@ -92,13 +90,14 @@
   function renderResponseBuilderMode(node) {
     const locale = window.currentLocale();
     const items = node.payload.items || [];
-    const area = document.getElementById('interactionArea') || document.getElementById('detailBody');
     const s = window.getNodeInteractionState(node.id);
     const chosen = s.chosenByIndex || {};
 
-    const html = items.map((item, idx) => `
+    const html = items.map((item, idx) => {
+      const promptText = window.LessonAdapter.resolveText(item.prompt_i18n, locale, item.prompt_ko || '');
+      return `
       <div class="interaction-panel-item" style="margin-bottom:20px; padding-bottom:16px; border-bottom:1px dashed var(--line);">
-        <div class="muted-text" style="font-weight:700; margin-bottom:8px;">${window.getLabel('scenario')} ${idx + 1}: ${window.escapeHtml(item.prompt_ko || '')}</div>
+        <div class="muted-text" style="font-weight:700; margin-bottom:8px;">${window.getLabel('scenario')} ${idx + 1}: ${window.escapeHtml(promptText)}</div>
         <div class="btn-group" style="flex-wrap:wrap; gap:8px;">
           ${(item.response_choices_ko || []).map(choice => `
             <button class="btn ${chosen[idx] === choice ? 'success' : ''}" onclick="window.pickResponse(${idx}, '${window.escapeJsSingle(choice)}')">
@@ -107,9 +106,9 @@
           `).join('')}
         </div>
       </div>
-    `).join('');
+    `}).join('');
 
-    area.innerHTML = `
+    return `
       <div class="interaction-panel animate-in">
         <div class="interaction-label">💬 ${window.getLabel('mode_response_builder')}</div>
         ${html}
@@ -121,11 +120,9 @@
     const locale = window.currentLocale();
     const payload = node.payload || {};
     const cards = payload.cards || payload.items || [];
-    const area = document.getElementById('interactionArea') || document.getElementById('detailBody');
 
     if (!cards.length) {
-      area.innerHTML = `<div class="interaction-panel"><div class="muted-text">${window.getLabel('no_flashcards')}</div></div>`;
-      return;
+      return `<div class="interaction-panel"><div class="muted-text">${window.getLabel('no_flashcards')}</div></div>`;
     }
 
     const s = window.getNodeInteractionState(node.id);
@@ -140,7 +137,7 @@
     const card = cards[s.cardOrder[activeIdx]];
     const revealed = !!s.revealedCard;
 
-    area.innerHTML = `
+    return `
       <div class="interaction-panel animate-in">
         <div class="interaction-label">🗂️ ${window.getLabel('mode_flashcard_review')} (${activeIdx + 1}/${cards.length})</div>
         <div class="summary-box" style="background:#fff; border-radius:12px; padding:20px; text-align:center;">
@@ -173,19 +170,73 @@
   // Registry
   window.RendererRegistry.registerContent('practice_card', renderPracticeCard);
   window.RendererRegistry.registerContent('review_card', renderReviewCard);
-
+  
   window.RendererRegistry.registerInteraction('chunk_assembly', renderChunkAssemblyMode);
   window.RendererRegistry.registerInteraction('response_builder', renderResponseBuilderMode);
   window.RendererRegistry.registerInteraction('flashcard_review', renderFlashcardReviewMode);
   window.RendererRegistry.registerInteraction('review_retrieval', renderFlashcardReviewMode); // Shared for now
+  
+  window.RendererRegistry.registerInteraction('guided_speaking', (node) => window.renderGuidedModeShell(node));
+  window.RendererRegistry.registerInteraction('guided_typing', (node) => window.renderGuidedModeShell(node));
+  window.RendererRegistry.registerInteraction('frame_fill', (node) => window.renderFrameFillMode(node));
+
+  // --- Hybrid Specific Renderers ---
+  
+  window.renderComprehensionCheck = function(node) {
+    const innerHtml = renderResponseBuilderMode(node) || '';
+    return `
+      <div class="comprehension-view animate-in">
+        <div class="block-title">${window.getLabel('comprehension_check')}</div>
+        <div id="comprehensionInner">${innerHtml}</div>
+      </div>
+    `;
+  };
+
+  window.renderGuidedModeShell = function(node) {
+    const locale = window.currentLocale();
+    const mode = node.output_mode || 'none';
+    const payload = node.payload || {};
+    const promptText = window.LessonAdapter.resolveText(payload.prompt_i18n, locale, '');
+
+    return `
+      <div class="interaction-panel animate-in">
+        <div class="interaction-label">${window.getLabel('mode_' + mode)}</div>
+        <div class="rule-body" style="margin: 12px 0;">
+          ${window.escapeHtml(promptText)}
+        </div>
+        <div class="mock-input-field" style="height: 60px; border: 2px dashed var(--line); border-radius: 12px; display: flex; align-items: center; justify-content: center; color: var(--muted);">
+           ${mode.includes('speaking') ? '🎤 ' + window.getLabel('tap_to_record') : '⌨️ ' + window.getLabel('type_response_placeholder')}
+        </div>
+        <div class="btn-row" style="margin-top: 16px;">
+           <button class="btn primary" onclick="window.showToast('${window.getLabel('mock_submitted')}')">${window.getLabel('check')}</button>
+        </div>
+      </div>
+    `;
+  };
+
+  window.renderFrameFillMode = function(node) {
+    return `
+      <div class="interaction-panel animate-in">
+        <div class="interaction-label">${window.getLabel('mode_frame_fill')}</div>
+        <div class="system-message">${window.getLabel('under_construction')}</div>
+      </div>
+    `;
+  };
 
   // --- Global Helpers ---
 
   window.renderCurrentInteractionOnly = function () {
     const node = window.state.data.sequence[window.state.currentIndex];
-    const mode = node.payload.mode || node.output_mode || 'none';
+    // P2 FIX: Prioritize output_mode over payload.mode for consistency
+    const mode = node.output_mode || node.payload.mode || 'none';
     const renderer = window.RendererRegistry.renderers[mode];
-    if (renderer) renderer(node);
+    if (renderer) {
+      const html = renderer(node);
+      const area = document.getElementById('interactionArea') || document.getElementById('detailBody');
+      if (area && typeof html === 'string') {
+        area.innerHTML = html;
+      }
+    }
   };
 
   window.addChunk = (txt) => {
@@ -209,49 +260,50 @@
     const node = window.state.data.sequence[window.state.currentIndex];
     const s = window.getNodeInteractionState(node.id);
     s.answers = [];
-    s.feedbackByTaskIndex = {};
+    s.feedbackByTaskIndex = s.feedbackByTaskIndex || {};
+    s.feedbackByTaskIndex[s.taskOrder[s.activeTaskIndex]] = null;
     window.setNodeInteractionState(node.id, s);
     window.renderCurrentInteractionOnly();
   };
 
   window.checkAssembly = () => {
     const node = window.state.data.sequence[window.state.currentIndex];
+    const payload = node.payload || {};
+    const tasks = payload.tasks || [];
     const s = window.getNodeInteractionState(node.id);
-    const tasks = node.payload.tasks || [];
-    const taskIdx = s.taskOrder[s.activeTaskIndex || 0];
-    const task = tasks[taskIdx];
-    const answer = (s.answers || []).join(' ').trim();
+    const taskIdx = s.activeTaskIndex || 0;
+    const task = tasks[s.taskOrder[taskIdx]];
+    
+    const current = (s.answers || []).join(' ').trim();
+    const correctAnswers = (task.target_examples || []).map(a => a.replace(/[.,?!~]/g, '').trim());
+    const isCorrect = correctAnswers.includes(current.replace(/[.,?!~]/g, '').trim());
 
-    let kind = 'incorrect';
-    let message = window.getLabel('incorrect');
-
-    if ((task.target_examples || []).includes(answer)) {
-      kind = 'best_fit';
-      message = window.getLabel('correct');
-    }
-
-    if (!s.feedbackByTaskIndex) s.feedbackByTaskIndex = {};
-    s.feedbackByTaskIndex[taskIdx] = { kind, message };
+    s.feedbackByTaskIndex = s.feedbackByTaskIndex || {};
+    s.feedbackByTaskIndex[s.taskOrder[taskIdx]] = {
+      correct: isCorrect,
+      kind: isCorrect ? 'correct' : 'incorrect',
+      message: isCorrect ? window.getLabel('correct') : window.getLabel('incorrect')
+    };
     window.setNodeInteractionState(node.id, s);
     window.renderCurrentInteractionOnly();
   };
 
   window.nextTask = () => {
     const node = window.state.data.sequence[window.state.currentIndex];
+    const payload = node.payload || {};
+    const tasks = payload.tasks || [];
     const s = window.getNodeInteractionState(node.id);
-    const tasks = node.payload.tasks || [];
-    s.activeTaskIndex = (s.activeTaskIndex || 0) + 1;
-    if (s.activeTaskIndex >= tasks.length) s.activeTaskIndex = 0;
+    s.activeTaskIndex = ((s.activeTaskIndex || 0) + 1) % tasks.length;
     s.answers = [];
     window.setNodeInteractionState(node.id, s);
     window.renderCurrentInteractionOnly();
   };
 
-  window.pickResponse = (idx, choice) => {
+  window.pickResponse = (idx, val) => {
     const node = window.state.data.sequence[window.state.currentIndex];
     const s = window.getNodeInteractionState(node.id);
     if (!s.chosenByIndex) s.chosenByIndex = {};
-    s.chosenByIndex[idx] = choice;
+    s.chosenByIndex[idx] = val;
     window.setNodeInteractionState(node.id, s);
     window.renderCurrentInteractionOnly();
   };
@@ -266,10 +318,10 @@
 
   window.nextFlashcard = () => {
     const node = window.state.data.sequence[window.state.currentIndex];
+    const payload = node.payload || {};
+    const cards = payload.cards || payload.items || [];
     const s = window.getNodeInteractionState(node.id);
-    const count = (node.payload.cards || node.payload.items || []).length;
-    s.activeCardIndex = (s.activeCardIndex || 0) + 1;
-    if (s.activeCardIndex >= count) s.activeCardIndex = 0;
+    s.activeCardIndex = ((s.activeCardIndex || 0) + 1) % cards.length;
     s.revealedCard = false;
     window.setNodeInteractionState(node.id, s);
     window.renderCurrentInteractionOnly();
@@ -277,10 +329,11 @@
 
   window.prevFlashcard = () => {
     const node = window.state.data.sequence[window.state.currentIndex];
+    const payload = node.payload || {};
+    const cards = payload.cards || payload.items || [];
     const s = window.getNodeInteractionState(node.id);
-    const count = (node.payload.cards || node.payload.items || []).length;
     s.activeCardIndex = (s.activeCardIndex || 0) - 1;
-    if (s.activeCardIndex < 0) s.activeCardIndex = count - 1;
+    if (s.activeCardIndex < 0) s.activeCardIndex = cards.length - 1;
     s.revealedCard = false;
     window.setNodeInteractionState(node.id, s);
     window.renderCurrentInteractionOnly();

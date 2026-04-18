@@ -247,6 +247,54 @@ textarea {
     color: var(--muted);
 }
 
+.segment-actions-bar {
+    display: flex;
+    gap: 8px;
+    margin-top: 8px;
+    flex-wrap: wrap;
+}
+
+.action-pill {
+    padding: 6px 12px;
+    border-radius: 99px;
+    border: 1px solid var(--line);
+    background: var(--bg);
+    color: var(--ink);
+    font-size: 11px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.2s;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.action-pill:hover {
+    border-color: var(--accent);
+    color: var(--accent);
+    background: var(--accent-soft);
+    transform: translateY(-1px);
+}
+
+.action-pill.shadow-btn {
+    border-color: var(--accent2);
+    color: var(--accent2);
+}
+
+.action-pill.shadow-btn:hover {
+    background: var(--accent2-soft);
+}
+
+.mock-input-field {
+    background: var(--bg);
+    border: 2px dashed var(--line);
+    padding: 20px;
+    text-align: center;
+    margin: 12px 0;
+    border-radius: 12px;
+    font-weight: 500;
+}
+
 /* Interactive Korean Segmentation (LLLO Style) */
 .target {
     line-height: 1.6;

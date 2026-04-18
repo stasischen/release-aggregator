@@ -841,7 +841,8 @@ window.renderSupportDetail = function(atom) {
             // Content Quality Check: If the 'Chinese' gloss still contains Hangul, treat as untranslated
             const hasHangul = /[가-힣]/.test(summary);
             if (hasHangul) {
-                summary = `<span class="muted-text">(${window.getLabel('no_definition')} - 內容建置中)</span>`;
+                // Case 1: Entry exists but translation is missing (Korean placeholder)
+                summary = `<span class="muted-text">(尚無詳細釋義) - 內容建置中</span>`;
             }
 
             results.push({
@@ -865,10 +866,10 @@ window.renderSupportDetail = function(atom) {
                 type: 'knowledge'
             });
         } else {
-            // Last resort: simple echo
+            // Case 2: Entry is missing from the dictionary entirely
             results.push({
                 title: cleanPart,
-                definition: window.getLabel('no_definition') + ' (Preparing...)',
+                definition: `<span class="muted-text">(詞條尚未建立) - 內容建置中</span>`,
                 id: 'unknown:' + cleanPart,
                 type: 'unknown'
             });

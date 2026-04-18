@@ -10,7 +10,7 @@ Each machine should maintain its own local, gitignored claim JSON under `docs/ta
 | :--- | :--- | :--- | :--- | :--- | :--- |
 | m5pro | m5pro | KG-UI-019 | in_progress | 2026-04-17 | Frontend dictionary-to-grammar deep linking UI |
 | home | home | none | idle | 2026-04-17 | Batch 1.1 Ingestion completed (50 sentences, 5 KIs). |
-| 888 | 888 | yt-video-atomization (NyCrQ-NZMbg) | done | 2026-04-18 | Chunk 1 processing (v_001 - v_025). |
+| 888 | 888 | yt-video-atomization (goPwS4aL4Lk) | done | 2026-04-18 | v_201 - v_300 processed and validated. |
 | gamer | gamer | Ingestion Batch (L137-142) - FINAL | done | 2026-04-17 | Beginner series officially complete. |
 | mac | mac | LEARNING_LIBRARY_CONTENTKO_MIGRATION | done | 2026-04-18 | Frontend intake aligned to core/i18n packs |
 

@@ -183,11 +183,10 @@
   // --- Hybrid Specific Renderers ---
   
   window.renderComprehensionCheck = function(node) {
-    const innerHtml = renderResponseBuilderMode(node) || '';
     return `
       <div class="comprehension-view animate-in">
         <div class="block-title">${window.getLabel('comprehension_check')}</div>
-        <div id="comprehensionInner">${innerHtml}</div>
+        <div id="interactionArea"></div>
       </div>
     `;
   };

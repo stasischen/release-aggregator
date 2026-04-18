@@ -12,7 +12,7 @@ Each machine should maintain its own local, gitignored claim JSON under `docs/ta
 | home | home | none | idle | 2026-04-17 | Batch 1.1 Ingestion completed (50 sentences, 5 KIs). |
 | 888 | 888 | yt-video-atomization (NyCrQ-NZMbg) | done | 2026-04-18 | Chunk 1 processing (v_001 - v_025). |
 | gamer | gamer | Ingestion Batch (L137-142) - FINAL | done | 2026-04-17 | Beginner series officially complete. |
-| mac | mac | repo-org / docs maintenance | in_progress | 2026-04-17 | Repo organization, doc cleanup, and spec stabilization |
+| mac | mac | LEARNING_LIBRARY_CONTENTKO_MIGRATION | done | 2026-04-18 | Frontend intake aligned to core/i18n packs |
 
 ## Usage Rule
 

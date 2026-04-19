@@ -8,7 +8,7 @@ Each machine should maintain its own local, gitignored claim JSON under `docs/ta
 
 | Machine ID | Label | Current Task | Status | Updated At | Notes |
 | :--- | :--- | :--- | :--- | :--- | :--- |
-| m5pro | m5pro | KG-UI-019 | in_progress | 2026-04-17 | Frontend dictionary-to-grammar deep linking UI |
+| m5pro | m5pro | KG-UI-019 | done | 2026-04-18 | Combined entry point, side drawer, and index bridge implementation. |
 | home | home | none | idle | 2026-04-17 | Batch 1.1 Ingestion completed (50 sentences, 5 KIs). |
 | 888 | 888 | yt-video-atomization (eF65dUUDcEQ) | in_progress | 2026-04-19 | Processing turns v_064-v_085. |
 | gamer | gamer | Ingestion Batch (L137-142) - FINAL | done | 2026-04-17 | Beginner series officially complete. |

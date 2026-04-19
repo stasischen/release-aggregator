@@ -13,7 +13,9 @@ Last reviewed: 2026-02-23
 1. `docs/human-handbook/01_E2E_STAGES.md`
 2. `docs/human-handbook/02_TOOL_CATALOG.md`
 3. `docs/human-handbook/03_STAGE_CHECKLISTS.md`
-4. `docs/runbooks/release_cut_and_rollback.md`
+4. `docs/human-handbook/04_ARTIFACT_MAP.md`
+5. `docs/human-handbook/08_PRG_ARTIFACT_MAP.md`
+6. `docs/runbooks/release_cut_and_rollback.md`
 
 ## Content Candidate Framework (Draft, for AGG-GEN)
 ## 內容候選 Framework（草案，供 AGG-GEN 使用）

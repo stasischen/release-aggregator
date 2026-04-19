@@ -51,9 +51,7 @@ Layer 5: Legacy Backfill
 
 | TASK_ID | 描述 | Phase | 進度 | 檔案 |
 | :--- | :--- | :--- | :--- | :--- |
-| PRODUCTION_RELEASE_GATING | Staging candidate / production release gate（全量進 staging、allowlist 才能發佈 production） | C+/Ops | 4/6 tasks | [JSON](PRODUCTION_RELEASE_GATING_TASKS.json) · [ARCH](assets/STAGING_CANDIDATE_VS_PRODUCTION_RELEASE_ARCHITECTURE.md) |
-| GOLDEN_STANDARD_RECONCILIATION | Ingest Golden / Surgery into unified build & recovery plan | B1 | 0/3 tasks | [PLAN](GOLDEN_STANDARD_RECONCILIATION_PLAN_V0.md) · [INV](assets/REVIEW_ARTIFACT_INVENTORY_V0.md) |
-| GOLDEN_REVIEW_MATERIALIZATION | Materialize verified reviews into committed overrides | B1 | 3/4 tasks | [PLAN](GOLDEN_REVIEW_MATERIALIZATION_PLAN_V1.md) · [JSON](GOLDEN_REVIEW_MATERIALIZATION_TASKS.json) |
+| PRODUCTION_RELEASE_GATING | Staging candidate / production release gate（全量進 staging、allowlist 才能發佈 production） | C+/Ops | 4/6 tasks | [JSON](PRODUCTION_RELEASE_GATING_TASKS.json) · [ARCH](assets/STAGING_CANDIDATE_VS_PRODUCTION_RELEASE_ARCHITECTURE.md) · [MAP](assets/PRG_ARTIFACT_MAP_OVERVIEW.md) |
 | STABLE_TEST_RCA | Root Cause Analysis for Skipped Stable Tests | QA | 0/3 tasks | [PLAN](STABLE_TEST_ROOT_CAUSE_ANALYSIS.md) |
 
 ### Layer 2 — 前端承接 / Frontend Contract Integration
@@ -113,6 +111,14 @@ Layer 5: Legacy Backfill
 | :--- | :--- | :--- | :--- |
 | LEARNING_LIBRARY_CONTENTKO_MIGRATION | Learning Library 正式化：content-ko overlay + build artifact + frontend intake（已完成，frontend intake 已切至 core + selected i18n） | done | [JSON](LEARNING_LIBRARY_CONTENTKO_MIGRATION_TASKS.json) · [PLAN](LEARNING_LIBRARY_CONTENTKO_MIGRATION_PLAN.md) |
 | KNOWLEDGE_LAB_ENRICHMENT | Knowledge Lab 內容充實（knowledge/topic/link/vocab/retrieval 補強；含 embedded examples 盤點與 pronunciation refs；KLAB-007 phonology 已收斂為 zh_tw only；不得改 frontend intake contract） | 8/8 tasks | [JSON](KNOWLEDGE_LAB_ENRICHMENT_TASKS.json) · [FINDINGS](assets/kg-normalize-001B_FINDINGS_HANDOFF.md) |
+
+
+### Archived Legacy Review Tasks
+
+| Task ID | 描述 | 狀態 | 檔案 |
+| :--- | :--- | :--- | :--- |
+| GOLDEN_STANDARD_RECONCILIATION | Legacy golden/surgery reconciliation plan, superseded by `GOLDEN_REVIEW_INTEGRATION_PLAN_V1` | archived | [PLAN](archive/20260419/20260419_GOLDEN_STANDARD_RECONCILIATION_PLAN_V0.md) · [INV](archive/20260419/20260419_REVIEW_ARTIFACT_INVENTORY_V0.md) |
+| GOLDEN_REVIEW_MATERIALIZATION | Legacy materialization tracker for committed overrides, now archived | archived | [JSON](archive/20260419/20260419_GOLDEN_REVIEW_MATERIALIZATION_TASKS.json) · [PLAN](archive/20260419/20260419_GOLDEN_REVIEW_MATERIALIZATION_PLAN_V1.md) |
 
 
 ### Deferred / Later

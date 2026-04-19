@@ -1,0 +1,37 @@
+{
+  "task_id": "STITCH_UI_PROTOTYPING",
+  "description": "Rapid UI prototyping using Google Stitch for Lingourmet frontend modules",
+  "status": "in_progress",
+  "tasks": [
+    {
+      "id": "stitch-task-01",
+      "title": "Establish Design System & Baton",
+      "description": "Create BATON.md in lingo-frontend-web and define the core design system tokens (Plus Jakarta Sans, Deep Crimson Red, etc.).",
+      "status": "completed"
+    },
+    {
+      "id": "stitch-task-02",
+      "title": "Generate Home / Dashboard HTML",
+      "description": "Use Stitch to generate the Home dashboard layout including daily streak, Quick Tools bento grid, and resume learning card.",
+      "status": "completed"
+    },
+    {
+      "id": "stitch-task-03",
+      "title": "Generate Grammar Alchemy Lab HTML",
+      "description": "Use Stitch to generate the interactive grammar morphology sandbox.",
+      "status": "pending"
+    },
+    {
+      "id": "stitch-task-04",
+      "title": "Generate Teleprompter Shadowing HTML",
+      "description": "Use Stitch to generate the sentence-level audio shadowing interface.",
+      "status": "pending"
+    },
+    {
+      "id": "stitch-task-05",
+      "title": "Convert HTML to Flutter Widgets",
+      "description": "Translate the generated Tailwind/HTML into native Flutter Widgets in lingo-frontend-web.",
+      "status": "pending"
+    }
+  ]
+}

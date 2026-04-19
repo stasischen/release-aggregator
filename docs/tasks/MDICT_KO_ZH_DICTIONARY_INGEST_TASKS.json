@@ -1,0 +1,44 @@
+{
+  "task_id": "MDICT_KO_ZH_DICTIONARY_INGEST",
+  "description": "MDict 韓中字典內容清洗與導入：從 Naver MDX 韓中原始資料中擷取高品質定義，清洗 HTML/格式噪音，對齊 content_v2 dictionary inventory schema，建立可重複執行的 skill 後 pilot run。",
+  "status": "pending_plan",
+  "assigned_machine": "home",
+  "source_plan": "MDICT_KO_ZH_DICTIONARY_INGEST_PLAN.md",
+  "tasks": [
+    {
+      "id": "MDICT-001",
+      "desc": "Inventory 現有 MDict/Naver 原始資料：盤點 naver_zh_tw.jsonl (6580 rows)、naver_provenance.jsonl、review_queue.jsonl 的欄位結構與品質分佈",
+      "status": "todo"
+    },
+    {
+      "id": "MDICT-002",
+      "desc": "定義清洗規則：HTML tag 移除、多義詞 sense 拆分、簡中→繁中轉寫、例句擷取、品質標記（is_provisional / confidence）",
+      "status": "todo",
+      "depends_on": ["MDICT-001"]
+    },
+    {
+      "id": "MDICT-003",
+      "desc": "建立 mdict-dictionary-cleaning Skill (SKILL.md)：定義 SOP、input/output schema、小批次流程",
+      "status": "todo",
+      "depends_on": ["MDICT-002"]
+    },
+    {
+      "id": "MDICT-004",
+      "desc": "Pilot Run：取 50 筆高頻詞 (rank 1-50) 跑完整 pipeline，驗證 output 對齊 content_v2/inventory/dictionary/*.jsonl 格式",
+      "status": "todo",
+      "depends_on": ["MDICT-003"]
+    },
+    {
+      "id": "MDICT-005",
+      "desc": "Review Gate：人工抽查 pilot 品質，確認清洗規則穩定後核准批次擴大",
+      "status": "todo",
+      "depends_on": ["MDICT-004"]
+    },
+    {
+      "id": "MDICT-006",
+      "desc": "Batch Run：按 POS shard 分批處理剩餘 6530 筆，更新 manifest.json",
+      "status": "todo",
+      "depends_on": ["MDICT-005"]
+    }
+  ]
+}

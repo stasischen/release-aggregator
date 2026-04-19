@@ -1,0 +1,32 @@
+{
+  "task_id": "SCHEMA_DOCS_AUDIT",
+  "description": "Schema 與文件全面盤點對齊：目前 V2 導入過程中，各處 schema (dictionary, learning_library, content_assets) 更新頻繁，需確保 core-schema 庫以及對應的 docs/tech 文件保持最新同步。",
+  "status": "pending_plan",
+  "assigned_machine": "mac",
+  "source_plan": "SCHEMA_DOCS_AUDIT_PLAN.md",
+  "tasks": [
+    {
+      "id": "SDA-001",
+      "desc": "Inventory 盤點：收集 content_v2/inventory 下所有類型的 JSON 檔案結構，並與 core-schema/schemas 下的定義比對",
+      "status": "todo"
+    },
+    {
+      "id": "SDA-002",
+      "desc": "Docs 同步檢查：比對 content-ko/docs/tech 與 release-aggregator/docs/guides 下的合約文件，找出過時的描述 (如舊的 V5, V4 術語，或是未更新的 V2 contract)",
+      "status": "todo",
+      "depends_on": ["SDA-001"]
+    },
+    {
+      "id": "SDA-003",
+      "desc": "建立/更新技術文件：補齊或修改對應的 SCHEMA_V2.md, INVENTORY_SCHEMA.md 等",
+      "status": "todo",
+      "depends_on": ["SDA-002"]
+    },
+    {
+      "id": "SDA-004",
+      "desc": "Schema PR Draft：若發現 Schema 定義檔有缺漏，提出對 core-schema 的更新草案",
+      "status": "todo",
+      "depends_on": ["SDA-003"]
+    }
+  ]
+}

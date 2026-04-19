@@ -1,0 +1,38 @@
+{
+  "task_id": "YT_ATOM_TO_V2_CONTENT",
+  "description": "YT Atom 轉 V2 Content 格式：將既有的 YouTube 影片原子化資料轉換為 V2 `content_item.v1` 格式。導入 sentence bank atom化流程的驗證邏輯，建立專屬 skill 並依序 pilot 驗證後再大批啟動。",
+  "status": "pending_plan",
+  "assigned_machine": "888",
+  "source_plan": "YT_ATOM_TO_V2_CONTENT_PLAN.md",
+  "tasks": [
+    {
+      "id": "YTV2-001",
+      "desc": "盤點差距：比較現有 content/core/video_atoms/*.json 與 content_v2/inventory/content_assets/dialogue/A1-01.json 的 Schema 差異。",
+      "status": "todo"
+    },
+    {
+      "id": "YTV2-002",
+      "desc": "建立 yt-atom-to-v2-conversion Skill (SKILL.md)：明確定義如何重新封裝資料、對齊 ID 格式 (`video:<video_id>:turn_id`)，並加入 atom coverage 的驗證呼叫 (借鏡 sentence-bank-atomization)。",
+      "status": "todo",
+      "depends_on": ["YTV2-001"]
+    },
+    {
+      "id": "YTV2-003",
+      "desc": "Pilot Run：挑選 eF65dUUDcEQ (最近完成的影片) 取前 10 個 turns 執行轉換腳本/Agent 流程，產生 V2 格式。",
+      "status": "todo",
+      "depends_on": ["YTV2-002"]
+    },
+    {
+      "id": "YTV2-004",
+      "desc": "Coverage Gate Verification：運行 V2 的 check_atom_coverage.py 驗證 Pilot 結果，確認是否皆能對應到 V2 字典，或產出孤兒 (orphans) 需進 tail dict。",
+      "status": "todo",
+      "depends_on": ["YTV2-003"]
+    },
+    {
+      "id": "YTV2-005",
+      "desc": "Batch Conversion：Pilot 通過後，批次轉換剩餘的 YT 原子化檔案 (約 29 個)。",
+      "status": "todo",
+      "depends_on": ["YTV2-004"]
+    }
+  ]
+}

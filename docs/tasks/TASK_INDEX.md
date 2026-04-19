@@ -64,7 +64,6 @@ Layer 5: Legacy Backfill
 | KNOWLEDGE_LAB_VIEWER_REFACTOR | Knowledge Lab Viewer 重構（對齊 ULV runtime contract / Pattern Lab 持久化 / 真內容驗證） | C+/Ops | 6/6 tasks | [JSON](KNOWLEDGE_LAB_VIEWER_REFACTOR_TASKS.json) · [PLAN](KNOWLEDGE_LAB_VIEWER_REFACTOR_PLAN.md) |
 | UNIFIED_LESSON_VIEW_ARCHITECTURE | Modular Viewer 下游：統一定義 lesson runtime IA（primary content / support detail / navigation / mock verification / Flutter boundary） | C+/Ops | 7/7 tasks | [JSON](UNIFIED_LESSON_VIEW_ARCHITECTURE_TASKS.json) · [ARCH](assets/UNIFIED_LESSON_VIEW_ARCHITECTURE.md) · [CONTRACT](../../tools/modular-viewer/UNIFIED_LESSON_RUNTIME_CONTRACT.md) |
 | ULV_RUNTIME_MOCK_VERIFICATION | **[GATE]** ULV Runtime Mock 驗證（使用真 lesson/KLab content 驗證運作合約穩定性） | C+/Ops | 6/6 tasks | [JSON](ULV_RUNTIME_MOCK_VERIFICATION_TASKS.json) · [PLAN](ULV_RUNTIME_MOCK_VERIFICATION.md) |
-| KG-UI-019 | Dictionary-to-Grammar Deep Linking UI（字典意思連結至文法詳解 Drawer） | C+/UI | 0/4 tasks | [JSON](KG-UI-019_TASKS.json) · [PLAN](KG-UI-019_PLAN.md) |
 | UNIFIED_LESSON_VIEW_FLUTTER_TRANSFER | Modular Viewer 下游：將凍結的 unified lesson view contract 轉入 Flutter（shell / state / adapters / QA） | C+/Ops | 0/8 tasks | [JSON](UNIFIED_LESSON_VIEW_FLUTTER_TRANSFER_TASKS.json) |
 
 ### Layer 3 — 單元重構 / Unit-by-Unit Refactor
@@ -103,12 +102,14 @@ Layer 5: Legacy Backfill
 
 | Task ID | 描述 | Phase | 進度 | 檔案 |
 | :--- | :--- | :--- | :--- | :--- |
+| GRAMMAR_INDEX_BRIDGE_SYNC | Published grammar ID bridge sync（`dict_grammar_mapping.json` ↔ `assets/content/grammar/grammar_index.json`；維持 G-KO-* 與實體資產映射一致） | C+/Ops | 0/3 tasks | [JSON](GRAMMAR_INDEX_BRIDGE_SYNC_TASKS.json) · [PLAN](GRAMMAR_INDEX_BRIDGE_SYNC_PLAN.md) |
 
 
 ### Completed Pending Archive (已完成待封存)
 
 | Task ID | 描述 | 進度 | 檔案 |
 | :--- | :--- | :--- | :--- |
+| KG-UI-019 | Dictionary-to-Grammar Deep Linking UI（字典意思連結至文法詳解 Drawer；grammar bridge 已獨立拆成同步任務） | done | [JSON](KG-UI-019_TASKS.json) · [PLAN](KG-UI-019_PLAN.md) |
 | LEARNING_LIBRARY_CONTENTKO_MIGRATION | Learning Library 正式化：content-ko overlay + build artifact + frontend intake（已完成，frontend intake 已切至 core + selected i18n） | done | [JSON](LEARNING_LIBRARY_CONTENTKO_MIGRATION_TASKS.json) · [PLAN](LEARNING_LIBRARY_CONTENTKO_MIGRATION_PLAN.md) |
 | KNOWLEDGE_LAB_ENRICHMENT | Knowledge Lab 內容充實（knowledge/topic/link/vocab/retrieval 補強；含 embedded examples 盤點與 pronunciation refs；KLAB-007 phonology 已收斂為 zh_tw only；不得改 frontend intake contract） | 8/8 tasks | [JSON](KNOWLEDGE_LAB_ENRICHMENT_TASKS.json) · [FINDINGS](assets/kg-normalize-001B_FINDINGS_HANDOFF.md) |
 

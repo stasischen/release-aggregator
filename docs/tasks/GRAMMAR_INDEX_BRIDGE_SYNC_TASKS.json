@@ -1,0 +1,29 @@
+{
+  "task_id": "GRAMMAR_INDEX_BRIDGE_SYNC",
+  "description": "Published grammar ID bridge sync between dict_grammar_mapping.json and assets/content/grammar/grammar_index.json.",
+  "status": "todo",
+  "source_plan": "GRAMMAR_INDEX_BRIDGE_SYNC_PLAN.md",
+  "tasks": [
+    {
+      "id": "GIBS-001",
+      "desc": "Inventory published G-KO refs from dict_grammar_mapping.json and diff them against grammar_index.json.",
+      "status": "todo"
+    },
+    {
+      "id": "GIBS-002",
+      "desc": "Update the bridge mapping and document the canonical sync rule for published grammar IDs to asset paths.",
+      "status": "todo",
+      "depends_on": [
+        "GIBS-001"
+      ]
+    },
+    {
+      "id": "GIBS-003",
+      "desc": "Validate bridge coverage with targeted dictionary/grammar smoke tests and record residual drift risk.",
+      "status": "todo",
+      "depends_on": [
+        "GIBS-002"
+      ]
+    }
+  ]
+}

@@ -2,6 +2,9 @@
 
 This plan outlines the design and implementation phases for providing learners with immediate access to detailed grammar explanations from dictionary entries.
 
+> [!NOTE]
+> Status: completed. The dictionary chip + overlay implementation has landed, and published grammar bridge maintenance is tracked separately in `GRAMMAR_INDEX_BRIDGE_SYNC`.
+
 ## User Review Required
 
 > [!IMPORTANT]
@@ -21,7 +24,7 @@ This plan outlines the design and implementation phases for providing learners w
 - Task tracking for frontend implementation (Note: AI will only discuss/plan, not execute frontend code).
 
 #### [MODIFY] [MACHINE_STATUS.md](file:///c:/githubs/release-aggregator/docs/tasks/MACHINE_STATUS.md)
-- Ensure status is correctly reflected as `in_progress`.
+- Ensure status is correctly reflected for the active machine claim.
 
 ---
 

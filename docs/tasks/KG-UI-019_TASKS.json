@@ -1,7 +1,7 @@
 {
   "task_group": "kg-ui-019",
   "owner_repo": "release-aggregator",
-  "status": "in_progress",
+  "status": "done",
   "tasks": [
     {
       "id": "kg-ui-019-001",

@@ -44,8 +44,11 @@
 
 對應 task：
 - `LEARNING_LIBRARY_CONTENTKO_MIGRATION`
-- `GOLDEN_STANDARD_RECONCILIATION`
 - `STABLE_TEST_RCA`
+
+Legacy review reconciliation/materialization tasks are archived and no longer part of the active mainline:
+- `GOLDEN_STANDARD_RECONCILIATION`
+- `GOLDEN_REVIEW_MATERIALIZATION`
 
 ### Layer 2: Frontend Contract Integration
 
@@ -139,7 +142,6 @@
 Layer 1 內容回收
   -> LEARNING_LIBRARY_CONTENTKO_MIGRATION
   -> PRODUCTION_RELEASE_GATING
-  -> GOLDEN_STANDARD_RECONCILIATION
   -> STABLE_TEST_RCA
 
 Layer 2 前端承接

@@ -51,9 +51,7 @@ Layer 5: Legacy Backfill
 
 | TASK_ID | 描述 | Phase | 進度 | 檔案 |
 | :--- | :--- | :--- | :--- | :--- |
-| PRODUCTION_RELEASE_GATING | Staging candidate / production release gate（全量進 staging、allowlist 才能發佈 production） | C+/Ops | 4/6 tasks | [JSON](PRODUCTION_RELEASE_GATING_TASKS.json) · [ARCH](assets/STAGING_CANDIDATE_VS_PRODUCTION_RELEASE_ARCHITECTURE.md) |
-| GOLDEN_STANDARD_RECONCILIATION | Ingest Golden / Surgery into unified build & recovery plan | B1 | 0/3 tasks | [PLAN](GOLDEN_STANDARD_RECONCILIATION_PLAN_V0.md) · [INV](assets/REVIEW_ARTIFACT_INVENTORY_V0.md) |
-| GOLDEN_REVIEW_MATERIALIZATION | Materialize verified reviews into committed overrides | B1 | 3/4 tasks | [PLAN](GOLDEN_REVIEW_MATERIALIZATION_PLAN_V1.md) · [JSON](GOLDEN_REVIEW_MATERIALIZATION_TASKS.json) |
+| PRODUCTION_RELEASE_GATING | Staging candidate / production release gate（全量進 staging、allowlist 才能發佈 production） | C+/Ops | 4/6 tasks | [JSON](PRODUCTION_RELEASE_GATING_TASKS.json) · [ARCH](assets/STAGING_CANDIDATE_VS_PRODUCTION_RELEASE_ARCHITECTURE.md) · [MAP](assets/PRG_ARTIFACT_MAP_OVERVIEW.md) |
 | STABLE_TEST_RCA | Root Cause Analysis for Skipped Stable Tests | QA | 0/3 tasks | [PLAN](STABLE_TEST_ROOT_CAUSE_ANALYSIS.md) |
 
 ### Layer 2 — 前端承接 / Frontend Contract Integration
@@ -66,7 +64,6 @@ Layer 5: Legacy Backfill
 | KNOWLEDGE_LAB_VIEWER_REFACTOR | Knowledge Lab Viewer 重構（對齊 ULV runtime contract / Pattern Lab 持久化 / 真內容驗證） | C+/Ops | 6/6 tasks | [JSON](KNOWLEDGE_LAB_VIEWER_REFACTOR_TASKS.json) · [PLAN](KNOWLEDGE_LAB_VIEWER_REFACTOR_PLAN.md) |
 | UNIFIED_LESSON_VIEW_ARCHITECTURE | Modular Viewer 下游：統一定義 lesson runtime IA（primary content / support detail / navigation / mock verification / Flutter boundary） | C+/Ops | 7/7 tasks | [JSON](UNIFIED_LESSON_VIEW_ARCHITECTURE_TASKS.json) · [ARCH](assets/UNIFIED_LESSON_VIEW_ARCHITECTURE.md) · [CONTRACT](../../tools/modular-viewer/UNIFIED_LESSON_RUNTIME_CONTRACT.md) |
 | ULV_RUNTIME_MOCK_VERIFICATION | **[GATE]** ULV Runtime Mock 驗證（使用真 lesson/KLab content 驗證運作合約穩定性） | C+/Ops | 6/6 tasks | [JSON](ULV_RUNTIME_MOCK_VERIFICATION_TASKS.json) · [PLAN](ULV_RUNTIME_MOCK_VERIFICATION.md) |
-| KG-UI-019 | Dictionary-to-Grammar Deep Linking UI（字典意思連結至文法詳解 Drawer） | C+/UI | 0/4 tasks | [JSON](KG-UI-019_TASKS.json) · [PLAN](KG-UI-019_PLAN.md) |
 | UNIFIED_LESSON_VIEW_FLUTTER_TRANSFER | Modular Viewer 下游：將凍結的 unified lesson view contract 轉入 Flutter（shell / state / adapters / QA） | C+/Ops | 0/8 tasks | [JSON](UNIFIED_LESSON_VIEW_FLUTTER_TRANSFER_TASKS.json) |
 | STITCH_UI_PROTOTYPING | 快速前端 UI 原型設計與 Design Token 確立 (Home, Grammar Lab, Shadowing) | C+/UI | 2/5 tasks | [JSON](STITCH_UI_PROTOTYPING_TASKS.json) · [PLAN](STITCH_UI_PROTOTYPING_PLAN.md) |
 
@@ -106,14 +103,24 @@ Layer 5: Legacy Backfill
 
 | Task ID | 描述 | Phase | 進度 | 檔案 |
 | :--- | :--- | :--- | :--- | :--- |
+| GRAMMAR_INDEX_BRIDGE_SYNC | Published grammar ID bridge sync（`dict_grammar_mapping.json` ↔ `assets/content/grammar/grammar_index.json`；維持 G-KO-* 與實體資產映射一致） | C+/Ops | 0/3 tasks | [JSON](GRAMMAR_INDEX_BRIDGE_SYNC_TASKS.json) · [PLAN](GRAMMAR_INDEX_BRIDGE_SYNC_PLAN.md) |
 
 
 ### Completed Pending Archive (已完成待封存)
 
 | Task ID | 描述 | 進度 | 檔案 |
 | :--- | :--- | :--- | :--- |
+| KG-UI-019 | Dictionary-to-Grammar Deep Linking UI（字典意思連結至文法詳解 Drawer；grammar bridge 已獨立拆成同步任務） | done | [JSON](KG-UI-019_TASKS.json) · [PLAN](KG-UI-019_PLAN.md) |
 | LEARNING_LIBRARY_CONTENTKO_MIGRATION | Learning Library 正式化：content-ko overlay + build artifact + frontend intake（已完成，frontend intake 已切至 core + selected i18n） | done | [JSON](LEARNING_LIBRARY_CONTENTKO_MIGRATION_TASKS.json) · [PLAN](LEARNING_LIBRARY_CONTENTKO_MIGRATION_PLAN.md) |
 | KNOWLEDGE_LAB_ENRICHMENT | Knowledge Lab 內容充實（knowledge/topic/link/vocab/retrieval 補強；含 embedded examples 盤點與 pronunciation refs；KLAB-007 phonology 已收斂為 zh_tw only；不得改 frontend intake contract） | 8/8 tasks | [JSON](KNOWLEDGE_LAB_ENRICHMENT_TASKS.json) · [FINDINGS](assets/kg-normalize-001B_FINDINGS_HANDOFF.md) |
+
+
+### Archived Legacy Review Tasks
+
+| Task ID | 描述 | 狀態 | 檔案 |
+| :--- | :--- | :--- | :--- |
+| GOLDEN_STANDARD_RECONCILIATION | Legacy golden/surgery reconciliation plan, superseded by `GOLDEN_REVIEW_INTEGRATION_PLAN_V1` | archived | [PLAN](archive/20260419/20260419_GOLDEN_STANDARD_RECONCILIATION_PLAN_V0.md) · [INV](archive/20260419/20260419_REVIEW_ARTIFACT_INVENTORY_V0.md) |
+| GOLDEN_REVIEW_MATERIALIZATION | Legacy materialization tracker for committed overrides, now archived | archived | [JSON](archive/20260419/20260419_GOLDEN_REVIEW_MATERIALIZATION_TASKS.json) · [PLAN](archive/20260419/20260419_GOLDEN_REVIEW_MATERIALIZATION_PLAN_V1.md) |
 
 
 ### Deferred / Later
@@ -128,6 +135,8 @@ Layer 5: Legacy Backfill
 
 | Task ID | 描述 | 完成時間 | 檔案 |
 | :--- | :--- | :--- | :--- |
+| YT_VIDEO_ATOMIZATION_EF65DUUDCEQ | YouTube 影片原子化：Talking About Daily Routines (eF65dUUDcEQ) 全量完成並促銷 | 2026-04-19 | [PLAN](YT_VIDEO_ATOMIZATION_EF65DUUDCEQ_PLAN.md) |
+| KO_7500_DICT_MAPPING | NIKL 7500 詞頻表與核心詞典 Token 基礎映射完成 | 2026-04-19 | [INDEX](TASK_INDEX.md) |
 | COURSE_PEDAGOGY_OPTIMIZATION | 語言學習效果優化（理解檢查/變體遷移/修復策略/檢索複習/guided rubric/followup 設計） | 2026-04-17 | [JSON](archive/20260417/20260417_COURSE_PEDAGOGY_OPTIMIZATION_TASKS.json) · [PLAN](archive/20260417/20260417_COURSE_PEDAGOGY_OPTIMIZATION_PLAN.md) |
 | VIDEO_SUBTITLE_ENRICHMENT | 影片字幕校對與補全 (zh_tw) | 2026-04-07 | [PLAN](archive/20260407/20260407_VIDEO_SUBTITLE_ENRICHMENT_PLAN.md) · [JSON](archive/20260407/20260407_VIDEO_SUBTITLE_ENRICHMENT_TASKS.json) |
 | VIEWER_ENHANCEMENT | Viewer 辭典彈出 + 舊課程顯示 | 2026-02-15 | [ARCHIVE](archive/20260215/20260215_VIEWER_ENHANCEMENT_TASKS.json) |

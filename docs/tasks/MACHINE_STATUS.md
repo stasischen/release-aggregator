@@ -8,7 +8,7 @@ Each machine should maintain its own local, gitignored claim JSON under `docs/ta
 
 | Machine ID | Label | Current Task | Status | Updated At | Notes |
 | :--- | :--- | :--- | :--- | :--- | :--- |
-| m5pro | m5pro | idle | idle | 2026-04-20 | Frontend compilation fixed & ULV pushed |
+| m5pro | m5pro | STITCH_UI_PROTOTYPING | idle | 2026-04-20 | ULV Core & PatternLab restored |
 | home | home | MDICT_KO_ZH_DICTIONARY_INGEST | pending_plan | 2026-04-19 | MDict 韓中字典清洗與導入；建 skill 後 pilot |
 | 888 | 888 | YT_ATOM_TO_V2_CONTENT | pending_plan | 2026-04-19 | YT atom 轉 V2 content 格式；建 skill 後 pilot |
 | gamer | gamer | SENTENCE_BANK_ATOMIZATION | in_progress | 2026-04-19 | 批次 sentence bank atom 化導入中 |

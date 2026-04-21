@@ -5,7 +5,7 @@
 
 > [!IMPORTANT]
 > 若任務涉及多個 Repo、phase 拆分執行、或需嚴格 session 重開，必須走 GSD 模式並載入：
-> `release-aggregator/docs/runbooks/gsd_multi_repo_workflow.md`
+> `docs/runbooks/gsd_multi_repo_workflow.md`
 
 ## Startup Sequence
 
@@ -13,8 +13,8 @@
 
 Before any task discovery, determine whether this session has a local machine claim file.
 
-- Read the shared summary first: `release-aggregator/docs/tasks/MACHINE_STATUS.md`
-- Then read the local claim file at `release-aggregator/docs/tasks/machines/local.json` if present on this machine
+- Read the shared summary first: `docs/tasks/MACHINE_STATUS.md`
+- Then read the local claim file at `docs/tasks/machines/local.json` if present on this machine
 - If no local claim exists yet, create `local.json` before claiming a task
 
 Purpose:
@@ -46,7 +46,7 @@ Rules:
 // turbo
 讀取任務索引（唯一入口，不要直接讀 JSON）：
 ```
-view_file <repo_root>/docs/tasks/TASK_INDEX.md
+view_file docs/tasks/TASK_INDEX.md
 ```
 
 讀完後，向使用者展示 **Active Tasks** 清單，詢問要做哪一個。
@@ -71,11 +71,11 @@ Worker mode 的目標是：
 
 | 目標 Repo | 需要載入的文件 |
 |---|---|
-| **任何 Repo** | `release-aggregator/docs/index.md`, `release-aggregator/docs/guides/REPO_RESPONSIBILITIES.md` |
-| **跨 Repo / phase-based 任務** | `release-aggregator/docs/runbooks/gsd_multi_repo_workflow.md` |
-| `content-ko` | `release-aggregator/docs/ops/stage_contract_matrix_ko.md` |
+| **任何 Repo** | `docs/index.md`, `docs/guides/REPO_RESPONSIBILITIES.md` |
+| **跨 Repo / phase-based 任務** | `docs/runbooks/gsd_multi_repo_workflow.md` |
+| `content-ko` | `docs/ops/stage_contract_matrix_ko.md` |
 | `lingo-frontend-web` | `.agent/skills/flutter-coding-standards/SKILL.md` |
-| `core-schema` | `release-aggregator/docs/guides/DATA_MODEL_CONTRACTS.md` |
+| `core-schema` | `docs/guides/DATA_MODEL_CONTRACTS.md` |
 | `lllo` | `docs/SETUP_FOR_AGENT.md` |
 
 ### Step 2.5: 決定執行模式
@@ -125,8 +125,8 @@ If the session needs an explicit prompt to continue, use one of the following:
 你現在是 controller，machine_id = m5pro。
 
 先讀：
-1. <repo_root>/docs/tasks/MACHINE_STATUS.md
-2. <repo_root>/docs/tasks/TASK_INDEX.md
+1. docs/tasks/MACHINE_STATUS.md
+2. docs/tasks/TASK_INDEX.md
 3. 相關 handoff / review files
 
 你的工作是：
@@ -141,13 +141,13 @@ If the session needs an explicit prompt to continue, use one of the following:
 你現在是 worker，machine_id = <YOUR_MACHINE_ID>。
 
 先讀：
-1. <repo_root>/docs/tasks/machines/local.json
+1. docs/tasks/machines/local.json
 2. local.json 裡列出的 active docs
 3. 只和該 task 相關的 handoff / plan
 
 不要讀：
-- <repo_root>/docs/tasks/TASK_INDEX.md
-- <repo_root>/docs/tasks/MACHINE_STATUS.md
+- docs/tasks/TASK_INDEX.md
+- docs/tasks/MACHINE_STATUS.md
 - 其他機器的文件
 
 你的工作是：
@@ -158,7 +158,7 @@ If the session needs an explicit prompt to continue, use one of the following:
 
 ## Boundary Rules
 - **語言**: 使用**繁體中文 (Traditional Chinese)** 交流，除非使用者明確要求其他語言。
-- **Worklog 規則**: 每個 Session 結束時，worklog 必須寫入 `release-aggregator/docs/worklogs/YYYY-MM-DD.md`（見收工協議）。
+- **Worklog 規則**: 每個 Session 結束時，worklog 必須寫入 `docs/worklogs/YYYY-MM-DD.md`（見收工協議）。
 - **不要跨邊界**: 除非使用者明確要求，不要自動跳到其他 Repo 或 Stage。
 - **Archive 唯讀**: `docs/archive/` 下的文件僅供參考比對，不可用為執行依據。
 - **Encoding 安全**: 撰寫 script 時嚴禁包含 Emoji 或特殊 Unicode 字元，以避免 Windows 環境下的 `UnicodeEncodeError`。

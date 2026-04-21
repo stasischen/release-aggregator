@@ -1,8 +1,8 @@
 {
   "task_id": "MDICT_KO_ZH_DICTIONARY_INGEST",
   "description": "MDict 韓中字典內容清洗與導入：從 Naver MDX 韓中原始資料中擷取高品質定義，清洗 HTML/格式噪音，對齊 content_v2 dictionary inventory schema，建立可重複執行的 skill 後 pilot run。",
-  "status": "pending_plan",
-  "assigned_machine": "home",
+  "status": "in_progress",
+  "assigned_machine": "mac",
   "source_plan": "MDICT_KO_ZH_DICTIONARY_INGEST_PLAN.md",
   "tasks": [
     {

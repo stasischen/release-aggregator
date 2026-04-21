@@ -46,7 +46,7 @@ Rules:
 // turbo
 讀取任務索引（唯一入口，不要直接讀 JSON）：
 ```
-view_file /Users/ywchen/Dev/lingo/release-aggregator/docs/tasks/TASK_INDEX.md
+view_file <repo_root>/docs/tasks/TASK_INDEX.md
 ```
 
 讀完後，向使用者展示 **Active Tasks** 清單，詢問要做哪一個。
@@ -125,8 +125,8 @@ If the session needs an explicit prompt to continue, use one of the following:
 你現在是 controller，machine_id = m5pro。
 
 先讀：
-1. /Users/ywchen/Dev/lingo/release-aggregator/docs/tasks/MACHINE_STATUS.md
-2. /Users/ywchen/Dev/lingo/release-aggregator/docs/tasks/TASK_INDEX.md
+1. <repo_root>/docs/tasks/MACHINE_STATUS.md
+2. <repo_root>/docs/tasks/TASK_INDEX.md
 3. 相關 handoff / review files
 
 你的工作是：
@@ -141,13 +141,13 @@ If the session needs an explicit prompt to continue, use one of the following:
 你現在是 worker，machine_id = <YOUR_MACHINE_ID>。
 
 先讀：
-1. /Users/ywchen/Dev/lingo/release-aggregator/docs/tasks/machines/local.json
+1. <repo_root>/docs/tasks/machines/local.json
 2. local.json 裡列出的 active docs
 3. 只和該 task 相關的 handoff / plan
 
 不要讀：
-- /Users/ywchen/Dev/lingo/release-aggregator/docs/tasks/TASK_INDEX.md
-- /Users/ywchen/Dev/lingo/release-aggregator/docs/tasks/MACHINE_STATUS.md
+- <repo_root>/docs/tasks/TASK_INDEX.md
+- <repo_root>/docs/tasks/MACHINE_STATUS.md
 - 其他機器的文件
 
 你的工作是：

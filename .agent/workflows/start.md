@@ -10,13 +10,13 @@ description: control-tower startup shim — 開工協議入口
 // turbo
 1. 讀取開工協議：
    ```
-   view_file /Users/ywchen/Dev/lingo/release-aggregator/docs/runbooks/gemini_startup_protocol.md
+   view_file <repo_root>/docs/runbooks/gemini_startup_protocol.md
    ```
 
 // turbo
 2. 讀取控制塔首頁：
    ```
-   view_file /Users/ywchen/Dev/lingo/release-aggregator/docs/index.md
+   view_file <repo_root>/docs/index.md
    ```
 
 3. 按照開工協議的 Step 1~3 向使用者確認目標。

@@ -12,9 +12,16 @@ Welcome to the central documentation hub for the Lingo multi-repo system.
 ## 📋 Recent Worklogs
 
 | Date | File |
-| --- | --- |
+| :--- | :--- |
+| 2026-04-21 | [2026-04-21.md](worklogs/2026-04-21.md) |
+| 2026-04-20 | [2026-04-20.md](worklogs/2026-04-20.md) |
+| 2026-04-19 | [2026-04-19.md](worklogs/2026-04-19.md) |
+| 2026-04-18 | [2026-04-18.md](worklogs/2026-04-18.md) |
+| 2026-04-17 | [2026-04-17.md](worklogs/2026-04-17.md) |
+| 2026-04-16 | [2026-04-16.md](worklogs/2026-04-16.md) |
+| 2026-04-11 | [2026-04-11.md](worklogs/2026-04-11.md) |
+| 2026-04-04 | [2026-04-04.md](worklogs/2026-04-04.md) |
 | 2026-02-15 | [2026-02-15.md](worklogs/2026-02-15.md) |
-| 2026-02-13 | [2026-02-13.md](worklogs/2026-02-13.md) |
 
 > [!TIP]
 > Worklog 唯一存放處：`release-aggregator/docs/worklogs/YYYY-MM-DD.md`。

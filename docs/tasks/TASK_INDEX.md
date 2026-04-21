@@ -157,3 +157,41 @@ Layer 5: Legacy Backfill
 | MAPPING_DICTIONARY | 字典映射標準化 + 品質驗證（含雙層詞性落地） | 2026-02-27 | [ARCHIVE](archive/20260227/20260227_MAPPING_DICTIONARY_TASKS.json) |
 | COURSE_UNIT_FACTORY | 課程單元量產工廠（unit blueprint 模板化 + lint + multi-unit mockup 驗證） | 2026-02-27 | [ARCHIVE](archive/20260227/20260227_COURSE_UNIT_FACTORY_TASKS.json) |
 | CONTENT_PIPELINE_POST_SEPARATION_GAPS | Universal Pipeline 後續缺口收斂 | 2026-02-27 | [ARCHIVE](archive/20260227/20260227_CONTENT_PIPELINE_POST_SEPARATION_GAPS_TASKS.json) |
+
+---
+
+## 📌 Conventions (慣例)
+
+### 共享 Plan 檔案
+
+所有 implementation plan **必須存放在 `docs/tasks/`** 的 active working set，命名慣例：
+
+```text
+{TASK_ID}_PLAN.md    — 例如 KO_DICT_01_PLAN.md
+{TASK_ID}_TASKS.json  — 例如 MAPPING_DICTIONARY_TASKS.json
+```
+
+> [!IMPORTANT]
+> **不要只把 plan 放在個別 Agent 的 brain 資料夾。** 放在 release-aggregator 確保：
+>
+> - 任何電腦上的 Agent 都能讀到
+> - 版本控制 (git) 追蹤變更歷史
+> - 人類和 Agent 共享同一份文件
+
+### Active / Assets / Archive
+
+- `docs/tasks/` 根層：active working set，放正在執行的 plan、tasks、verification、walkthrough
+- `docs/tasks/assets/`：可重用的 reference、spec、schema、contract、guide、mockup
+- `docs/tasks/archive/`：已完成或封存的歷史文件
+- `docs/tasks/machines/*.json`：每台電腦本機的 gitignored claim 記錄，用來標示目前身份與正在處理的 task
+- `docs/tasks/MACHINE_STATUS.md`：共享的 machine claim 摘要，用來讓其他電腦快速看見誰正在做什麼
+- machine claim 的最小流程：先更新本機 JSON，再更新並 push `MACHINE_STATUS.md`，之後才開始實作
+
+### 封存 (Archive)
+
+完成的 Task JSON 和 Plan **應移至 `docs/tasks/archive/YYYYMMDD/`**，且檔名開頭應加上日期：
+
+- 命名格式：`YYYYMMDD_{ORIGINAL_NAME}`
+- 例如：`20260215_VIEWER_ENHANCEMENT_TASKS.json`
+
+`TASK_INDEX.md` 中的「已完成」區塊應指向這些封存檔案，以保持主目錄整潔，同時保留歷史記錄。

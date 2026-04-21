@@ -12,7 +12,9 @@ Each machine should maintain its own local, gitignored claim JSON under `docs/ta
 | home | home | MDICT_KO_ZH_DICTIONARY_INGEST | pending_plan | 2026-04-19 | MDict 韓中字典清洗與導入；建 skill 後 pilot |
 | 888 | 888 | YT_ATOM_TO_V2_CONTENT | pending_plan | 2026-04-19 | YT atom 轉 V2 content 格式；建 skill 後 pilot |
 | gamer | gamer | SENTENCE_BANK_ATOMIZATION | in_progress | 2026-04-19 | 批次 sentence bank atom 化導入中 |
+| atg | atg | BATCH_07_PREPARATION | in_progress | 2026-04-21 | Batch 07 readiness audit (251-300) |
 | mac | mac | SCHEMA_DOCS_AUDIT | pending_plan | 2026-04-19 | 盤點最新 schema 與文件同步狀態 |
+
 
 ## Usage Rule
 

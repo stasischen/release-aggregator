@@ -2,7 +2,7 @@
   "task_id": "YT_ATOM_TO_V2_CONTENT",
   "description": "YT Atom 轉 V2 Content 格式：將既有的 YouTube 影片原子化資料轉換為 V2 `content_item.v1` 格式。導入 sentence bank atom化流程的驗證邏輯，建立專屬 skill 並依序 pilot 驗證後再大批啟動。",
   "status": "pending_plan",
-  "assigned_machine": "888",
+  "assigned_machine": "home",
   "source_plan": "YT_ATOM_TO_V2_CONTENT_PLAN.md",
   "tasks": [
     {

@@ -77,6 +77,7 @@ Layer 5: Legacy Backfill
 | TARGET_LANG_READING_SKILLS | 目標語系閱讀層（文本理解/證據定位/推論） | C+/Ops | 0/10 tasks | [JSON](TARGET_LANG_READING_SKILLS_TASKS.json) · [PLAN](TARGET_LANG_READING_SKILLS_PLAN.md) |
 | TARGET_LANG_WRITING_SKILLS | 目標語系寫作層（句級到段落級產出） | C+/Ops | 0/6 tasks | [JSON](TARGET_LANG_WRITING_SKILLS_TASKS.json) · [PLAN](TARGET_LANG_WRITING_SKILLS_PLAN.md) |
 | TARGET_LANG_VOCAB_COLLOCATION | 目標語系詞彙/搭配層（功能詞塊與語域） | C+/Ops | 0/6 tasks | [JSON](TARGET_LANG_VOCAB_COLLOCATION_TASKS.json) · [PLAN](TARGET_LANG_VOCAB_COLLOCATION_PLAN.md) |
+| MDICT_KO_ZH_DICTIONARY_INGEST | Dictionary ingest / normalization from MDict and Naver source | C+/Ops | 0/6 tasks | [JSON](MDICT_KO_ZH_DICTIONARY_INGEST_TASKS.json) · [PLAN](MDICT_KO_ZH_DICTIONARY_INGEST_PLAN.md) · [HANDOFF](../handoffs/2026-04-21_MDICT_KO_ZH_DICTIONARY_INGEST_BATCH1.md) |
 | TARGET_LANG_GRAMMAR_PROGRESSION | 目標語系文法進階層（功能導向 unlock + DAG） | C+/Ops | 0/6 tasks | [JSON](TARGET_LANG_GRAMMAR_PROGRESSION_TASKS.json) · [PLAN](TARGET_LANG_GRAMMAR_PROGRESSION_PLAN.md) |
 | TARGET_LANG_ASSESSMENT_LAYER | 目標語系測評層（placement/progress/mastery） | C+/Ops | 0/6 tasks | [JSON](TARGET_LANG_ASSESSMENT_LAYER_TASKS.json) · [PLAN](TARGET_LANG_ASSESSMENT_LAYER_PLAN.md) |
 | TARGET_LANG_PERSONALIZATION_LAYER | 目標語系個人化層（動態派題與補救） | C+/Ops | 0/6 tasks | [JSON](TARGET_LANG_PERSONALIZATION_LAYER_TASKS.json) · [PLAN](TARGET_LANG_PERSONALIZATION_LAYER_PLAN.md) |
@@ -87,6 +88,7 @@ Layer 5: Legacy Backfill
 | :--- | :--- | :--- | :--- | :--- |
 | CONTENT_V5_MIGRATION_L0 | Legacy L0 Content V5 Standardization | A2 | 0/8 tasks | [JSON](CONTENT_V5_MIGRATION_L0_TASKS.json) · [PLAN](CONTENT_V5_MIGRATION_L0.md) |
 | BATCH_V5_VIDEO_GATE | Batch process remaining 4 pilot videos (V5 Gate) | Ops | 0/4 tasks | [PLAN](BATCH_V5_VIDEO_GATE_PLAN.md) |
+| YT_ATOM_TO_V2_CONTENT | YouTube Atom to V2 content conversion for video atoms | C+/Ops | 0/5 tasks | [JSON](YT_ATOM_TO_V2_CONTENT_TASKS.json) · [PLAN](YT_ATOM_TO_V2_CONTENT_PLAN.md) · [HANDOFF](../handoffs/2026-04-21_YT_ATOM_TO_V2_CONTENT_BATCH1.md) |
 
 ### Future / Automation (未來優化)
 

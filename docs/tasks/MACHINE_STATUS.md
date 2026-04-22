@@ -13,7 +13,7 @@ Each machine should maintain its own local, gitignored claim JSON under `docs/ta
 | 888 | 888 | - | idle | 2026-04-21 | Released from YT_ATOM_TO_V2_CONTENT |
 | gamer | gamer | SENTENCE_BANK_ATOMIZATION | in_progress | 2026-04-21 | Batch 06 ingested; Batch 07 readiness complete |
 | atg | atg | BATCH_07_INGESTION | idle | 2026-04-21 | Batch 07 ingestion completed. |
-| mac | mac | MDICT_KO_ZH_DICTIONARY_INGEST | in_progress | 2026-04-21 | Switched to dictionary ingest work. |
+| mac | mac | MDICT_KO_ZH_DICTIONARY_INGEST | idle | 2026-04-23 | Switched to dictionary ingest work. |
 
 
 ## Usage Rule

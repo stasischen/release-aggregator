@@ -1,0 +1,37 @@
+{
+  "task_id": "ULV_MODULAR_RUNTIME_ERROR_LOGGING",
+  "description": "建立 Modular Lesson Runtime 的 Detailed Error Logging / 錯誤細節追蹤，收集並顯示練習節點的最小錯誤摘要。",
+  "status": "completed",
+  "tasks": [
+    {
+      "id": "ERR-001",
+      "desc": "Expand PracticeEffortMetrics model with error fields.",
+      "status": "completed",
+      "depends_on": []
+    },
+    {
+      "id": "ERR-002",
+      "desc": "Update ModularSession.reportEffort and state management for errors.",
+      "status": "completed",
+      "depends_on": ["ERR-001"]
+    },
+    {
+      "id": "ERR-003",
+      "desc": "Integrate error reporting in Practice Renderers (Typing, Scramble, Speaking, P1, P2).",
+      "status": "completed",
+      "depends_on": ["ERR-002"]
+    },
+    {
+      "id": "ERR-004",
+      "desc": "Update ModularLessonResult aggregation and UlvLessonSummaryView UI.",
+      "status": "completed",
+      "depends_on": ["ERR-003"]
+    },
+    {
+      "id": "ERR-005",
+      "desc": "Verify with tests (unit/widget) and manual check.",
+      "status": "completed",
+      "depends_on": ["ERR-004"]
+    }
+  ]
+}

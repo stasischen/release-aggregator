@@ -12,7 +12,7 @@ Each machine should maintain its own local, gitignored claim JSON under `docs/ta
 | home | home | YT_ATOM_TO_V2_CONTENT | pending_plan | 2026-04-21 | Ready for worker pickup from batch handoff |
 | 888 | 888 | - | idle | 2026-04-21 | Released from YT_ATOM_TO_V2_CONTENT |
 | gamer | gamer | SENTENCE_BANK_ATOMIZATION | in_progress | 2026-04-21 | Batch 06 ingested; Batch 07 readiness complete |
-| atg | atg | BATCH_07_INGESTION | idle | 2026-04-21 | Batch 07 ingestion completed. |
+| atg | atg | DICTIONARY_BATCH_6_RANK_251_300 | in_progress | 2026-04-23 | Processing Rank 251-300 |
 | mac | mac | MDICT_KO_ZH_DICTIONARY_INGEST | idle | 2026-04-23 | Switched to dictionary ingest work. |
 
 

@@ -62,6 +62,7 @@ Layer 5: Legacy Backfill
 | :--- | :--- | :--- | :--- | :--- |
 | UNIFIED_LESSON_VIEW_FLUTTER_TRANSFER | Modular Viewer 下游：將凍結的 unified lesson view contract 轉入 Flutter（shell / state / adapters / QA） | C+/Ops | 0/8 tasks | [JSON](UNIFIED_LESSON_VIEW_FLUTTER_TRANSFER_TASKS.json) |
 | ULV_MODULAR_RUNTIME_ERROR_LOGGING | Modular Lesson Runtime 錯誤細節追蹤 (Error Logging) | C+/UI | 5/5 tasks | [JSON](ULV_MODULAR_RUNTIME_ERROR_LOGGING_TASKS.json) · [PLAN](ULV_MODULAR_RUNTIME_ERROR_LOGGING_PLAN.md) |
+| ULV_MODULAR_RUNTIME_INSIGHTS | Modular Lesson Runtime 學習洞察 (In-App Insights) | C+/UI | 0/3 tasks | [JSON](ULV_MODULAR_RUNTIME_INSIGHTS_TASKS.json) · [PLAN](ULV_MODULAR_RUNTIME_INSIGHTS_PLAN.md) |
 | STITCH_UI_PROTOTYPING | 快速前端 UI 原型設計與 Design Token 確立 (Home, Grammar Lab, Shadowing) | C+/UI | 0/5 tasks | [JSON](STITCH_UI_PROTOTYPING_TASKS.json) · [PLAN](STITCH_UI_PROTOTYPING_PLAN.md) |
 
 ### Layer 3 — 單元重構 / Unit-by-Unit Refactor

@@ -13,7 +13,7 @@ Each machine should maintain its own local, gitignored claim JSON under `docs/ta
 | 888 | 888 | - | idle | 2026-04-21 | Released from YT_ATOM_TO_V2_CONTENT |
 | gamer | gamer | SENTENCE_BANK_ATOMIZATION | in_progress | 2026-04-21 | Batch 06 ingested; Batch 07 readiness complete |
 | atg | atg | - | idle | 2026-04-23 | Batch 6 processing completed. |
-| mac | mac | ULV_MODULAR_RUNTIME_INSIGHTS | in_progress | 2026-04-23 | Implementing In-App Lesson Insights for Modular Runtime. |
+| mac | mac | - | idle | 2026-04-25 | Completed Cloze Content Pipeline implementation. |
 
 
 ## Usage Rule

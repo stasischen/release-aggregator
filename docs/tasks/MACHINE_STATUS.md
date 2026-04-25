@@ -13,7 +13,7 @@ Each machine should maintain its own local, gitignored claim JSON under `docs/ta
 | 888 | 888 | - | idle | 2026-04-21 | Released from YT_ATOM_TO_V2_CONTENT |
 | gamer | gamer | SENTENCE_BANK_ATOMIZATION | in_progress | 2026-04-21 | Batch 06 ingested; Batch 07 readiness complete |
 | atg | atg | - | idle | 2026-04-23 | Batch 6 processing completed. |
-| mac | mac | - | idle | 2026-04-25 | Completed Cloze Content Pipeline implementation. |
+| mac | mac | CONTENT_V2_FRONTEND_EXPORT_SYNC | in_progress | 2026-04-25 | Wiring frontend to v2 artifacts. |
 
 
 ## Usage Rule

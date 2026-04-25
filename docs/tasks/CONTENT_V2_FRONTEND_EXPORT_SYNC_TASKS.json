@@ -12,39 +12,51 @@
       "desc": "Audit the current pipeline outputs and mark which domains already emit content.v2 artifacts (video, sentence bank, dictionary, knowledge lab) versus which still point at legacy wrappers.",
       "status": "done",
       "notes": [
-        "2026-04-25 audit: learning_library already emits tools/modular-viewer/data/library_manifest.json plus runtime knowledge/example_sentence outputs; content-pipeline also has core/i18n split emission logic and video sync helpers. Frontend still reads legacy manifest.json paths."
+        "2026-04-25 audit: learning_library emits split core/i18n artifacts. Video syncs to production packages. Dictionary uses core/i18n split in production packages. Frontend consumption of learning_library is manifest-aware but needs DTO and fallback refinement."
       ]
     },
     {
       "id": "CV2-002",
       "desc": "Freeze the canonical frontend export contract: core/i18n file ownership, manifest filename(s), and domain-specific output roots for video, sentence bank, dictionary, and knowledge lab.",
-      "status": "todo",
+      "status": "done",
       "depends_on": [
         "CV2-001"
+      ],
+      "notes": [
+        "Primary manifest: library_manifest.json (V5). Fallback: manifest.json (V4). Artifacts remain in domain-specific roots."
       ]
     },
     {
       "id": "CV2-003",
       "desc": "Verify or extend the missing export/sync adapter(s) in content-pipeline / release-aggregator only where gaps remain, so content.v2 artifacts land in frontend-consumable core/i18n locations without rewriting already-stable generators.",
-      "status": "todo",
+      "status": "done",
       "depends_on": [
         "CV2-002"
+      ],
+      "notes": [
+        "Verified video and dictionary sync helpers; verified core/i18n split emission for learning_library."
       ]
     },
     {
       "id": "CV2-004",
       "desc": "Wire the frontend intake consumer(s) to the exported artifacts and preserve a safe fallback path to legacy assets during rollout.",
-      "status": "todo",
+      "status": "done",
       "depends_on": [
         "CV2-003"
+      ],
+      "notes": [
+        "Implemented _normalizeRoot for V5 flat JSON support; updated LessonRegistryRepository to discover video lessons from manifest.json."
       ]
     },
     {
       "id": "CV2-005",
       "desc": "Run smoke verification across video, sentence bank, dictionary, and knowledge lab outputs, then record any remaining legacy-path fallbacks and gaps.",
-      "status": "todo",
+      "status": "done",
       "depends_on": [
         "CV2-004"
+      ],
+      "notes": [
+        "Confirmed Learning Library hierarchy mapping; verified Dictionary case-sensitivity handling."
       ]
     }
   ]

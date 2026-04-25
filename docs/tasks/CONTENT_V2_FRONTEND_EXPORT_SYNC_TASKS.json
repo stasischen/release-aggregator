@@ -1,0 +1,51 @@
+{
+  "task_id": "CONTENT_V2_FRONTEND_EXPORT_SYNC",
+  "description": "Bridge content.v2 exports into frontend-consumable artifacts for video, sentence bank, dictionary, and knowledge lab, without reworking already-stabilized generators.",
+  "status": "in_progress",
+  "notes": [
+    "2026-04-25 audit: content-pipeline already has core/i18n split emission logic for learning_library (e04a3f3) and video sync helpers exist. Do not reimplement stable exporters.",
+    "Current risk is frontend consumption still pointing at legacy manifest/package shapes; keep this task focused on the remaining export-contract and sync gap."
+  ],
+  "tasks": [
+    {
+      "id": "CV2-001",
+      "desc": "Audit the current pipeline outputs and mark which domains already emit content.v2 artifacts (video, sentence bank, dictionary, knowledge lab) versus which still point at legacy wrappers.",
+      "status": "done",
+      "notes": [
+        "2026-04-25 audit: learning_library already emits tools/modular-viewer/data/library_manifest.json plus runtime knowledge/example_sentence outputs; content-pipeline also has core/i18n split emission logic and video sync helpers. Frontend still reads legacy manifest.json paths."
+      ]
+    },
+    {
+      "id": "CV2-002",
+      "desc": "Freeze the canonical frontend export contract: core/i18n file ownership, manifest filename(s), and domain-specific output roots for video, sentence bank, dictionary, and knowledge lab.",
+      "status": "todo",
+      "depends_on": [
+        "CV2-001"
+      ]
+    },
+    {
+      "id": "CV2-003",
+      "desc": "Verify or extend the missing export/sync adapter(s) in content-pipeline / release-aggregator only where gaps remain, so content.v2 artifacts land in frontend-consumable core/i18n locations without rewriting already-stable generators.",
+      "status": "todo",
+      "depends_on": [
+        "CV2-002"
+      ]
+    },
+    {
+      "id": "CV2-004",
+      "desc": "Wire the frontend intake consumer(s) to the exported artifacts and preserve a safe fallback path to legacy assets during rollout.",
+      "status": "todo",
+      "depends_on": [
+        "CV2-003"
+      ]
+    },
+    {
+      "id": "CV2-005",
+      "desc": "Run smoke verification across video, sentence bank, dictionary, and knowledge lab outputs, then record any remaining legacy-path fallbacks and gaps.",
+      "status": "todo",
+      "depends_on": [
+        "CV2-004"
+      ]
+    }
+  ]
+}

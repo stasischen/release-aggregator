@@ -36,10 +36,22 @@ graph LR
 
 ### 3. Build (content-pipeline)
 - **Goal**: build and validate artifacts from canonical source.
+- **Reusable Python Entrypoints**
+  - `main.py` in `content-pipeline`: unified verify/build/integrity workflow.
+  - `pipelines/build.py`: production lesson artifact build.
+  - `pipelines/learning_library.py`: learning-library artifact export for frontend intake.
+  - `scripts/mapping_tool.py`: mapping verification helper.
+  - `scripts/integrity_gate.py`: build-output integrity gate.
+  - `scripts/handoff/export_frontend_intake.py`: frontend package and manifest export.
+  - `scripts/sync_video_to_frontend.py`: sync video/dialogue output and update manifests.
 
 ### 4. Release (release-aggregator)
 - **Tool**: `scripts/release.py` and `scripts/release.sh`
 - **Validation**: strict schema check against `core-schema`.
+- **Reusable Python Entrypoints**
+  - `scripts/prg/seed_release_manifest.py`: derive release manifest seed data from pipeline outputs.
+  - `scripts/prg/assembler_prototype.py`: manifest-driven packaging and catalog derivation.
+  - `scripts/release.py`: release assembly and schema validation.
 
 ### 5. Intake (lingo-frontend-web)
 - **Action**: sync assets to app and verify runtime contracts.

@@ -58,12 +58,12 @@ def infer_alias_candidates(lesson_id: str, catalog_lessons: list[dict[str, Any]]
 
 def seed_release_manifest(
     production_manifest_path: Path,
-    lesson_catalog_path: Path,
+    study_discovery_path: Path,
     output_path: Path,
     report_path: Path,
 ) -> dict[str, Any]:
     manifest_data = load_json(production_manifest_path)
-    catalog_data = load_json(lesson_catalog_path)
+    catalog_data = load_json(study_discovery_path)
 
     manifest_lessons = manifest_data.get("lessons", [])
     catalog_lessons = catalog_data.get("lessons", [])
@@ -162,7 +162,7 @@ def seed_release_manifest(
         "generated_at": utc_now(),
         "sources": {
             "manifest_json": str(production_manifest_path),
-            "lesson_catalog_json": str(lesson_catalog_path),
+            "study_discovery_json": str(study_discovery_path),
         },
         "summary": {
             "manifest_lessons": len(manifest_lessons),
@@ -192,9 +192,9 @@ def parse_args() -> argparse.Namespace:
         default=frontend_root / "assets/content/production/manifest.json",
     )
     parser.add_argument(
-        "--lesson-catalog",
+        "--study-discovery",
         type=Path,
-        default=frontend_root / "assets/content/production/lesson_catalog.json",
+        default=frontend_root / "assets/content/production/study_discovery.json",
     )
     parser.add_argument(
         "--output",
@@ -213,7 +213,7 @@ def main() -> int:
     args = parse_args()
     report = seed_release_manifest(
         production_manifest_path=args.production_manifest,
-        lesson_catalog_path=args.lesson_catalog,
+        study_discovery_path=args.study_discovery,
         output_path=args.output,
         report_path=args.report,
     )
@@ -221,7 +221,7 @@ def main() -> int:
         "Seeded release manifest with "
         f"{report['summary']['manifest_lessons']} manifest lessons; "
         f"{report['summary']['unmatched_manifest_lessons']} unmatched manifest lessons; "
-        f"{report['summary']['catalog_only_lessons']} catalog-only lessons."
+        f"{report['summary']['catalog_only_lessons']} discovery-only lessons."
     )
     print(f"Seed report written to {args.report}")
     return 0

@@ -405,7 +405,7 @@ def assemble_release(
     # Write outputs
     output_dir.mkdir(parents=True, exist_ok=True)
     write_json(output_dir / "manifest.json", derived_manifest)
-    write_json(output_dir / "lesson_catalog.json", derived_catalog)
+    write_json(output_dir / "study_discovery.json", derived_catalog)
     write_json(output_dir / "production_plan.json", production_plan)
         
     return production_plan

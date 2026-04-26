@@ -46,7 +46,7 @@
     {
       "id": "SDA-007",
       "desc": "Frontend 消費端升級：更新 lingo-frontend-web 的字典 parser 與 UI，改讀 definitions[] 結構並移除舊版 fallback",
-      "status": "todo",
+      "status": "done",
       "depends_on": ["SDA-006"]
     },
     {

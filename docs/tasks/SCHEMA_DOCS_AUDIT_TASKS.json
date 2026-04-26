@@ -37,8 +37,11 @@
     {
       "id": "SDA-006",
       "desc": "Exporter 升級：更新 content-pipeline / content-ko 的輸出工具，確保字典 JSON 符合新版 entry/sense 合約",
-      "status": "todo",
-      "depends_on": ["SDA-005"]
+      "status": "done",
+      "depends_on": ["SDA-005"],
+      "notes": [
+        "2026-04-26: Modified scripts/handoff/run_handoff_stage.py — build_dict_translation_index now returns structured sense objects; stage_dict_translate emits definitions map without top-level translation field. Weak sense_ids (s1/s2) are remapped to canonical <atom_id>:<entry_no>:<sense_no> format. Validated against dictionary_i18n.schema.json: Passed."
+      ]
     },
     {
       "id": "SDA-007",

@@ -27,6 +27,30 @@
       "desc": "Schema PR Draft：若發現 Schema 定義檔有缺漏，提出對 core-schema 的更新草案",
       "status": "todo",
       "depends_on": ["SDA-003"]
+    },
+    {
+      "id": "SDA-005",
+      "desc": "Dictionary Hard Break: 更新 core-schema 以強制執行 entry + sense 結構，移除舊版 translation 欄位",
+      "status": "done",
+      "depends_on": ["SDA-004"]
+    },
+    {
+      "id": "SDA-006",
+      "desc": "Exporter 升級：更新 content-pipeline / content-ko 的輸出工具，確保字典 JSON 符合新版 entry/sense 合約",
+      "status": "todo",
+      "depends_on": ["SDA-005"]
+    },
+    {
+      "id": "SDA-007",
+      "desc": "Frontend 消費端升級：更新 lingo-frontend-web 的字典 parser 與 UI，改讀 definitions[] 結構並移除舊版 fallback",
+      "status": "todo",
+      "depends_on": ["SDA-006"]
+    },
+    {
+      "id": "SDA-008",
+      "desc": "全庫驗證：對所有已輸出的字典 Inventory 進行 schema validation，確保 100% 合規",
+      "status": "todo",
+      "depends_on": ["SDA-007"]
     }
   ]
 }

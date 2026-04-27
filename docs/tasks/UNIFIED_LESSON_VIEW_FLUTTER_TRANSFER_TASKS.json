@@ -1,12 +1,12 @@
 {
   "task_id": "UNIFIED_LESSON_VIEW_FLUTTER_TRANSFER",
   "description": "將已凍結的 unified lesson view contract 搬到 Flutter。必須先通過 Architecture, Modular Refactor, KLab Refactor, 與 Runtime Mock Verification 四大門檻後方可開始。",
-  "status": "todo",
+  "status": "in_progress",
   "tasks": [
     {
       "id": "ULVFT-000",
       "desc": "Confirm transfer gate prerequisites: Architecture frozen, Modular Viewer refactored, Knowledge Lab Viewer refactored, and Runtime Mock Verification completed.",
-      "status": "todo",
+      "status": "done",
       "depends_on": [
         "UNIFIED_LESSON_VIEW_ARCHITECTURE",
         "MODULAR_VIEWER_REFACTOR",
@@ -17,7 +17,7 @@
     {
       "id": "ULVFT-001",
       "desc": "Freeze the Flutter shell contract for unified lesson view, including screen layout, panel regions, and the minimum runtime entry points needed by the view.",
-      "status": "todo",
+      "status": "done",
       "depends_on": [
         "ULVFT-000"
       ]
@@ -25,7 +25,7 @@
     {
       "id": "ULVFT-002",
       "desc": "Map the frozen unified lesson view contract into Flutter state models, preserving primary/support surface separation and explicit selection state.",
-      "status": "todo",
+      "status": "done",
       "depends_on": [
         "ULVFT-001"
       ]
@@ -33,7 +33,7 @@
     {
       "id": "ULVFT-003",
       "desc": "Implement Flutter adapters for primary content surfaces, covering video, dialogue, and article rendering entry points without weakening the contract.",
-      "status": "todo",
+      "status": "done",
       "depends_on": [
         "ULVFT-002"
       ]
@@ -41,7 +41,7 @@
     {
       "id": "ULVFT-004",
       "desc": "Implement Flutter adapters for support detail surfaces, covering knowledge lab grammar, pattern, usage, and vocab panels with consistent loading and empty states.",
-      "status": "todo",
+      "status": "done",
       "depends_on": [
         "ULVFT-002"
       ]
@@ -49,7 +49,7 @@
     {
       "id": "ULVFT-005",
       "desc": "Wire data and adapter boundaries for mock/staging sources, making sure the Flutter shell can run against frozen mock data before live content is attached.",
-      "status": "todo",
+      "status": "done",
       "depends_on": [
         "ULVFT-003",
         "ULVFT-004"

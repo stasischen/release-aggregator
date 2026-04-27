@@ -66,6 +66,7 @@ Layer 5: Legacy Backfill
 | CLOZE_CONTENT_PIPELINE_SCHEMA | Cloze Content Pipeline Schema Implementation | C+/Ops | 5/5 tasks | [JSON](CLOZE_CONTENT_PIPELINE_SCHEMA_TASKS.json) · [PLAN](CLOZE_CONTENT_PIPELINE_SCHEMA_PLAN.md) |
 | CONTENT_V2_FRONTEND_EXPORT_SYNC | content.v2 canonical export / frontend sync（video, sentence bank, dictionary, knowledge lab） | C+/Ops | 1/5 tasks | [JSON](CONTENT_V2_FRONTEND_EXPORT_SYNC_TASKS.json) |
 | STITCH_UI_PROTOTYPING | 快速前端 UI 原型設計與 Design Token 確立 (Home, Grammar Lab, Shadowing) | C+/UI | 0/5 tasks | [JSON](STITCH_UI_PROTOTYPING_TASKS.json) · [PLAN](STITCH_UI_PROTOTYPING_PLAN.md) |
+| SDA-007 | Frontend Dictionary Structure Upgrade (Entry + Sense) | C+/UI | done | [PLAN](SDA-007_PLAN.md) |
 
 ### Layer 3 — 單元重構 / Unit-by-Unit Refactor
 

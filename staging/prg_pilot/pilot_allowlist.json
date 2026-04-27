@@ -31,6 +31,21 @@
       "qa_gate_passed": true,
       "staging_only": false,
       "notes": "Pilot Slice 2: Exact match video lesson."
+    },
+    {
+      "unit_id": "a1_unit_01_intro_identity",
+      "lesson_id": "ko_l1_dialogue_a1_01_staging_only",
+      "release_status": "production",
+      "content_type": "dialogue",
+      "course_type": "lesson",
+      "source_refs": [
+        "src.ko.dialogue.a1_01"
+      ],
+      "contract_version": "cm-v1.0.0",
+      "viewer_verified": true,
+      "qa_gate_passed": true,
+      "staging_only": false,
+      "notes": "Pilot Slice 3: Promoted from staging only."
     }
   ]
 }

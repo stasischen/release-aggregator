@@ -64,9 +64,7 @@ Layer 5: Legacy Backfill
 | ULV_MODULAR_RUNTIME_ERROR_LOGGING | Modular Lesson Runtime 錯誤細節追蹤 (Error Logging) | C+/UI | 5/5 tasks | [JSON](ULV_MODULAR_RUNTIME_ERROR_LOGGING_TASKS.json) · [PLAN](ULV_MODULAR_RUNTIME_ERROR_LOGGING_PLAN.md) |
 | ULV_MODULAR_RUNTIME_INSIGHTS | Modular Lesson Runtime 學習洞察 (In-App Insights) | C+/UI | 0/3 tasks | [JSON](ULV_MODULAR_RUNTIME_INSIGHTS_TASKS.json) · [PLAN](ULV_MODULAR_RUNTIME_INSIGHTS_PLAN.md) |
 | CLOZE_CONTENT_PIPELINE_SCHEMA | Cloze Content Pipeline Schema Implementation | C+/Ops | 5/5 tasks | [JSON](CLOZE_CONTENT_PIPELINE_SCHEMA_TASKS.json) · [PLAN](CLOZE_CONTENT_PIPELINE_SCHEMA_PLAN.md) |
-| CONTENT_V2_FRONTEND_EXPORT_SYNC | content.v2 canonical export / frontend sync（video, sentence bank, dictionary, knowledge lab） | C+/Ops | 1/5 tasks | [JSON](CONTENT_V2_FRONTEND_EXPORT_SYNC_TASKS.json) |
 | STITCH_UI_PROTOTYPING | 快速前端 UI 原型設計與 Design Token 確立 (Home, Grammar Lab, Shadowing) | C+/UI | 0/5 tasks | [JSON](STITCH_UI_PROTOTYPING_TASKS.json) · [PLAN](STITCH_UI_PROTOTYPING_PLAN.md) |
-| SDA-007 | Frontend Dictionary Structure Upgrade (Entry + Sense) | C+/UI | done | [PLAN](SDA-007_PLAN.md) |
 
 ### Layer 3 — 單元重構 / Unit-by-Unit Refactor
 
@@ -118,6 +116,8 @@ Layer 5: Legacy Backfill
 | KG-UI-019 | Dictionary-to-Grammar Deep Linking UI | done | [JSON](KG-UI-019_TASKS.json) |
 | LEARNING_LIBRARY_CONTENTKO_MIGRATION | Learning Library 正式化 | done | [JSON](LEARNING_LIBRARY_CONTENTKO_MIGRATION_TASKS.json) |
 | KNOWLEDGE_LAB_ENRICHMENT | Knowledge Lab 內容充實 | 8/8 tasks | [JSON](KNOWLEDGE_LAB_ENRICHMENT_TASKS.json) |
+| CONTENT_V2_FRONTEND_EXPORT_SYNC | Frontend Sync Realignment (Batch E) | done | [JSON](CONTENT_V2_FRONTEND_EXPORT_SYNC_TASKS.json) |
+| SDA-007 | Dictionary Structure Upgrade | done | [PLAN](SDA-007_PLAN.md) |
 
 
 ### Archived Legacy Review Tasks

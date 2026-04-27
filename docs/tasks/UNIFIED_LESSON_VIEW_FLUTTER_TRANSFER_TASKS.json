@@ -1,7 +1,7 @@
 {
   "task_id": "UNIFIED_LESSON_VIEW_FLUTTER_TRANSFER",
   "description": "將已凍結的 unified lesson view contract 搬到 Flutter。必須先通過 Architecture, Modular Refactor, KLab Refactor, 與 Runtime Mock Verification 四大門檻後方可開始。",
-  "status": "in_progress",
+  "status": "done",
   "tasks": [
     {
       "id": "ULVFT-000",
@@ -58,7 +58,7 @@
     {
       "id": "ULVFT-006",
       "desc": "Add QA and regression checks for loading, fallback, missing metadata, and panel switching behavior across the Flutter implementation.",
-      "status": "todo",
+      "status": "done",
       "depends_on": [
         "ULVFT-003",
         "ULVFT-004",
@@ -68,7 +68,7 @@
     {
       "id": "ULVFT-007",
       "desc": "Document handoff notes and remaining implementation gaps so the Flutter transfer can be reviewed against the frozen unified lesson view contract.",
-      "status": "todo",
+      "status": "done",
       "depends_on": [
         "ULVFT-005",
         "ULVFT-006"

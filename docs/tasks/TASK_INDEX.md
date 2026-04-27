@@ -60,7 +60,6 @@ Layer 5: Legacy Backfill
 
 | Task ID | 描述 | Phase | 進度 | 檔案 |
 | :--- | :--- | :--- | :--- | :--- |
-| UNIFIED_LESSON_VIEW_FLUTTER_TRANSFER | Modular Viewer 下游：將凍結的 unified lesson view contract 轉入 Flutter（shell / state / adapters / QA） | C+/Ops | 6/8 tasks | [JSON](UNIFIED_LESSON_VIEW_FLUTTER_TRANSFER_TASKS.json) |
 | ULV_MODULAR_RUNTIME_ERROR_LOGGING | Modular Lesson Runtime 錯誤細節追蹤 (Error Logging) | C+/UI | 5/5 tasks | [JSON](ULV_MODULAR_RUNTIME_ERROR_LOGGING_TASKS.json) · [PLAN](ULV_MODULAR_RUNTIME_ERROR_LOGGING_PLAN.md) |
 | ULV_MODULAR_RUNTIME_INSIGHTS | Modular Lesson Runtime 學習洞察 (In-App Insights) | C+/UI | 0/3 tasks | [JSON](ULV_MODULAR_RUNTIME_INSIGHTS_TASKS.json) · [PLAN](ULV_MODULAR_RUNTIME_INSIGHTS_PLAN.md) |
 | CLOZE_CONTENT_PIPELINE_SCHEMA | Cloze Content Pipeline Schema Implementation | C+/Ops | 5/5 tasks | [JSON](CLOZE_CONTENT_PIPELINE_SCHEMA_TASKS.json) · [PLAN](CLOZE_CONTENT_PIPELINE_SCHEMA_PLAN.md) |
@@ -106,8 +105,9 @@ Layer 5: Legacy Backfill
 
 ### Completed Pending Archive (已完成待封存)
 
-| Task ID | 描述 | 進度 | 檔案 |
+| Task Id | 描述 | 進度 | 檔案 |
 | :--- | :--- | :--- | :--- |
+| UNIFIED_LESSON_VIEW_FLUTTER_TRANSFER | Modular Viewer 下游：將凍結的 unified lesson view contract 轉入 Flutter（shell / state / adapters / QA） | 8/8 tasks | [JSON](UNIFIED_LESSON_VIEW_FLUTTER_TRANSFER_TASKS.json) |
 | MODULAR_VIEWER_REFACTOR | Modular Viewer 重構 | done | [JSON](MODULAR_VIEWER_REFACTOR_TASKS.json) |
 | KNOWLEDGE_LAB_VIEWER_REFACTOR | Knowledge Lab Viewer 重構 | done | [JSON](KNOWLEDGE_LAB_VIEWER_REFACTOR_TASKS.json) |
 | UNIFIED_LESSON_VIEW_ARCHITECTURE | Unified Lesson View 架構定義 | done | [JSON](UNIFIED_LESSON_VIEW_ARCHITECTURE_TASKS.json) |

@@ -1,7 +1,7 @@
 {
   "task_id": "PRODUCTION_RELEASE_GATING",
   "description": "建立 staging candidate 與 production release 的分層 gate：先全量進 staging，再以 lesson/unit allowlist 發佈 production，避免 core dialogue/video 全量直進 production。",
-  "status": "in_progress",
+  "status": "done",
   "tasks": [
     {
       "id": "PRG-001",

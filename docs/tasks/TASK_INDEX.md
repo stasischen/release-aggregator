@@ -51,7 +51,6 @@ Layer 5: Legacy Backfill
 
 | TASK_ID | 描述 | Phase | 進度 | 檔案 |
 | :--- | :--- | :--- | :--- | :--- |
-| PRODUCTION_RELEASE_GATING | Staging candidate / production release gate（全量進 staging、allowlist 才能發佈 production） | C+/Ops | 6/6 tasks | [JSON](PRODUCTION_RELEASE_GATING_TASKS.json) · [ARCH](assets/STAGING_CANDIDATE_VS_PRODUCTION_RELEASE_ARCHITECTURE.md) · [MAP](assets/PRG_ARTIFACT_MAP_OVERVIEW.md) |
 | STABLE_TEST_RCA | Root Cause Analysis for Skipped Stable Tests | QA | 0/3 tasks | [PLAN](STABLE_TEST_ROOT_CAUSE_ANALYSIS.md) |
 
 ### Layer 2 — 前端承接 / Frontend Contract Integration
@@ -61,7 +60,6 @@ Layer 5: Legacy Backfill
 | Task ID | 描述 | Phase | 進度 | 檔案 |
 | :--- | :--- | :--- | :--- | :--- |
 | STITCH_UI_PROTOTYPING | 快速前端 UI 原型設計與 Design Token 確立 (Home, Grammar Lab, Shadowing) | C+/UI | 3/5 tasks | [JSON](STITCH_UI_PROTOTYPING_TASKS.json) · [PLAN](STITCH_UI_PROTOTYPING_PLAN.md) |
-| KG-UI-019 | Dictionary-to-Grammar Deep Linking UI | C+/UI | partial | [JSON](KG-UI-019_TASKS.json) · [PLAN](KG-UI-019_PLAN.md) |
 
 ### Layer 3 — 單元重構 / Unit-by-Unit Refactor
 
@@ -105,6 +103,8 @@ Layer 5: Legacy Backfill
 
 | Task Id | 描述 | 進度 | 檔案 |
 | :--- | :--- | :--- | :--- |
+| KG-UI-019 | Dictionary-to-Grammar Deep Linking UI | done | [JSON](archive/20260428/20260428_KG-UI-019_TASKS.json) · [PLAN](archive/20260428/20260428_KG-UI-019_PLAN.md) |
+| PRODUCTION_RELEASE_GATING | Staging candidate / production release gate | done | [JSON](archive/20260428/20260428_PRODUCTION_RELEASE_GATING_TASKS.json) |
 | UNIFIED_LESSON_VIEW_FLUTTER_TRANSFER | Modular Viewer 下游：將凍結的 unified lesson view contract 轉入 Flutter（shell / state / adapters / QA） | 8/8 tasks | [JSON](archive/20260428/20260428_UNIFIED_LESSON_VIEW_FLUTTER_TRANSFER_TASKS.json) |
 | MODULAR_VIEWER_REFACTOR | Modular Viewer 重構 | done | [JSON](archive/20260428/20260428_MODULAR_VIEWER_REFACTOR_TASKS.json) |
 | KNOWLEDGE_LAB_VIEWER_REFACTOR | Knowledge Lab Viewer 重構 | done | [JSON](archive/20260428/20260428_KNOWLEDGE_LAB_VIEWER_REFACTOR_TASKS.json) |

@@ -31,7 +31,7 @@
       "id": "stitch-task-05",
       "title": "Convert HTML to Flutter Widgets",
       "description": "Translate the generated Tailwind/HTML into native Flutter Widgets in lingo-frontend-web.",
-      "status": "in_progress"
+      "status": "completed"
     }
   ]
 }

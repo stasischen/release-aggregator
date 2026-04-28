@@ -1,40 +1,41 @@
 {
   "task_id": "CLOZE_CONTENT_PIPELINE_SCHEMA",
+  "status": "completed",
   "steps": [
     {
       "id": "define_schema",
       "description": "Define ReviewCardPayload schema with cloze/choices and protected metadata",
-      "status": "todo"
+      "status": "completed"
     },
     {
       "id": "implement_generator",
       "description": "Implement ClozeGenerator with Rule 3 fallback (downgrade to typing_practice)",
-      "status": "todo"
+      "status": "completed"
     },
     {
       "id": "integrate_artifact",
       "description": "Integrate frozen cloze/typing nodes into lesson_content.v1.json via build pipeline",
-      "status": "todo"
+      "status": "completed"
     },
     {
       "id": "update_adapter",
       "description": "Update ModularLessonAdapter with hard short-circuit bypass for cloze_practice",
-      "status": "todo"
+      "status": "completed"
     },
     {
       "id": "implement_cloze_renderer",
       "description": "Implement UlvClozeRenderer with semantic 'Skip' (report failure, then advance)",
-      "status": "todo"
+      "status": "completed"
     },
     {
       "id": "wire_node_viewer",
       "description": "Wire cloze_practice routing in ModularNodeViewer",
-      "status": "todo"
+      "status": "completed"
     },
     {
       "id": "verify_e2e",
       "description": "Verify E2E generation and rendering with skip flow and hard-bypass tests",
-      "status": "todo"
+      "status": "completed"
     }
   ]
 }

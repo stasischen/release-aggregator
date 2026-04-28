@@ -61,9 +61,8 @@ Layer 5: Legacy Backfill
 | Task ID | 描述 | Phase | 進度 | 檔案 |
 | :--- | :--- | :--- | :--- | :--- |
 | ULV_MODULAR_RUNTIME_ERROR_LOGGING | Modular Lesson Runtime 錯誤細節追蹤 (Error Logging) | C+/UI | 5/5 tasks | [JSON](ULV_MODULAR_RUNTIME_ERROR_LOGGING_TASKS.json) · [PLAN](ULV_MODULAR_RUNTIME_ERROR_LOGGING_PLAN.md) |
-| ULV_MODULAR_RUNTIME_INSIGHTS | Modular Lesson Runtime 學習洞察 (In-App Insights) | C+/UI | 0/3 tasks | [JSON](ULV_MODULAR_RUNTIME_INSIGHTS_TASKS.json) · [PLAN](ULV_MODULAR_RUNTIME_INSIGHTS_PLAN.md) |
-| CLOZE_CONTENT_PIPELINE_SCHEMA | Cloze Content Pipeline Schema Implementation | C+/Ops | 5/5 tasks | [JSON](CLOZE_CONTENT_PIPELINE_SCHEMA_TASKS.json) · [PLAN](CLOZE_CONTENT_PIPELINE_SCHEMA_PLAN.md) |
-| STITCH_UI_PROTOTYPING | 快速前端 UI 原型設計與 Design Token 確立 (Home, Grammar Lab, Shadowing) | C+/UI | 0/5 tasks | [JSON](STITCH_UI_PROTOTYPING_TASKS.json) · [PLAN](STITCH_UI_PROTOTYPING_PLAN.md) |
+| STITCH_UI_PROTOTYPING | 快速前端 UI 原型設計與 Design Token 確立 (Home, Grammar Lab, Shadowing) | C+/UI | 3/5 tasks | [JSON](STITCH_UI_PROTOTYPING_TASKS.json) · [PLAN](STITCH_UI_PROTOTYPING_PLAN.md) |
+| KG-UI-019 | Dictionary-to-Grammar Deep Linking UI | C+/UI | partial | [JSON](KG-UI-019_TASKS.json) · [PLAN](KG-UI-019_PLAN.md) |
 
 ### Layer 3 — 單元重構 / Unit-by-Unit Refactor
 
@@ -113,11 +112,12 @@ Layer 5: Legacy Backfill
 | UNIFIED_LESSON_VIEW_ARCHITECTURE | Unified Lesson View 架構定義 | done | [JSON](UNIFIED_LESSON_VIEW_ARCHITECTURE_TASKS.json) |
 | ULV_RUNTIME_MOCK_VERIFICATION | ULV Runtime Mock 驗證 | done | [JSON](ULV_RUNTIME_MOCK_VERIFICATION_TASKS.json) |
 | COURSE_MODULE_COMPOSITION | 課程模組組裝 | done | [JSON](COURSE_MODULE_COMPOSITION_TASKS.json) |
-| KG-UI-019 | Dictionary-to-Grammar Deep Linking UI | done | [JSON](KG-UI-019_TASKS.json) |
 | LEARNING_LIBRARY_CONTENTKO_MIGRATION | Learning Library 正式化 | done | [JSON](LEARNING_LIBRARY_CONTENTKO_MIGRATION_TASKS.json) |
 | KNOWLEDGE_LAB_ENRICHMENT | Knowledge Lab 內容充實 | 8/8 tasks | [JSON](KNOWLEDGE_LAB_ENRICHMENT_TASKS.json) |
 | CONTENT_V2_FRONTEND_EXPORT_SYNC | Frontend Sync Realignment (Batch E) | done | [JSON](CONTENT_V2_FRONTEND_EXPORT_SYNC_TASKS.json) |
 | SDA-007 | Dictionary Structure Upgrade | done | [PLAN](SDA-007_PLAN.md) |
+| ULV_MODULAR_RUNTIME_INSIGHTS | Modular Lesson Runtime 學習洞察 (In-App Insights) | done | [JSON](ULV_MODULAR_RUNTIME_INSIGHTS_TASKS.json) |
+| CLOZE_CONTENT_PIPELINE_SCHEMA | Cloze Content Pipeline Schema Implementation | done | [JSON](CLOZE_CONTENT_PIPELINE_SCHEMA_TASKS.json) |
 
 
 ### Archived Legacy Review Tasks

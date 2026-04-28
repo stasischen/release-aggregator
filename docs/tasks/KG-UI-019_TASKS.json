@@ -1,7 +1,7 @@
 {
   "task_group": "kg-ui-019",
   "owner_repo": "release-aggregator",
-  "status": "done",
+  "status": "in_progress",
   "tasks": [
     {
       "id": "kg-ui-019-001",
@@ -26,6 +26,12 @@
       "title": "Final review of dict_grammar_mapping.json format",
       "status": "done",
       "deliverable": "Data schema confirmation"
+    },
+    {
+      "id": "kg-ui-019-005",
+      "title": "Integrate grammar chip into ImmersiveDictionaryOverlay",
+      "status": "todo",
+      "deliverable": "Automatic deep-link integration logic"
     }
   ]
 }

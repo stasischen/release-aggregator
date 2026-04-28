@@ -1,22 +1,22 @@
 {
   "task_id": "ULV_MODULAR_RUNTIME_INSIGHTS",
   "description": "Modular Lesson Runtime 學習洞察 (In-App Insights)",
-  "status": "in_progress",
+  "status": "completed",
   "tasks": [
     {
       "id": "model_implementation",
       "desc": "Create LessonInsights model and logic",
-      "status": "todo"
+      "status": "completed"
     },
     {
       "id": "ui_implementation",
       "desc": "Implement Insights UI in Lesson Summary",
-      "status": "todo"
+      "status": "completed"
     },
     {
       "id": "verification",
       "desc": "Final Verification & Tests",
-      "status": "todo"
+      "status": "completed"
     }
   ]
 }

@@ -60,7 +60,6 @@ Layer 5: Legacy Backfill
 
 | Task ID | 描述 | Phase | 進度 | 檔案 |
 | :--- | :--- | :--- | :--- | :--- |
-| ULV_MODULAR_RUNTIME_ERROR_LOGGING | Modular Lesson Runtime 錯誤細節追蹤 (Error Logging) | C+/UI | 5/5 tasks | [JSON](ULV_MODULAR_RUNTIME_ERROR_LOGGING_TASKS.json) · [PLAN](ULV_MODULAR_RUNTIME_ERROR_LOGGING_PLAN.md) |
 | STITCH_UI_PROTOTYPING | 快速前端 UI 原型設計與 Design Token 確立 (Home, Grammar Lab, Shadowing) | C+/UI | 3/5 tasks | [JSON](STITCH_UI_PROTOTYPING_TASKS.json) · [PLAN](STITCH_UI_PROTOTYPING_PLAN.md) |
 | KG-UI-019 | Dictionary-to-Grammar Deep Linking UI | C+/UI | partial | [JSON](KG-UI-019_TASKS.json) · [PLAN](KG-UI-019_PLAN.md) |
 
@@ -106,18 +105,19 @@ Layer 5: Legacy Backfill
 
 | Task Id | 描述 | 進度 | 檔案 |
 | :--- | :--- | :--- | :--- |
-| UNIFIED_LESSON_VIEW_FLUTTER_TRANSFER | Modular Viewer 下游：將凍結的 unified lesson view contract 轉入 Flutter（shell / state / adapters / QA） | 8/8 tasks | [JSON](UNIFIED_LESSON_VIEW_FLUTTER_TRANSFER_TASKS.json) |
-| MODULAR_VIEWER_REFACTOR | Modular Viewer 重構 | done | [JSON](MODULAR_VIEWER_REFACTOR_TASKS.json) |
-| KNOWLEDGE_LAB_VIEWER_REFACTOR | Knowledge Lab Viewer 重構 | done | [JSON](KNOWLEDGE_LAB_VIEWER_REFACTOR_TASKS.json) |
-| UNIFIED_LESSON_VIEW_ARCHITECTURE | Unified Lesson View 架構定義 | done | [JSON](UNIFIED_LESSON_VIEW_ARCHITECTURE_TASKS.json) |
-| ULV_RUNTIME_MOCK_VERIFICATION | ULV Runtime Mock 驗證 | done | [JSON](ULV_RUNTIME_MOCK_VERIFICATION_TASKS.json) |
-| COURSE_MODULE_COMPOSITION | 課程模組組裝 | done | [JSON](COURSE_MODULE_COMPOSITION_TASKS.json) |
-| LEARNING_LIBRARY_CONTENTKO_MIGRATION | Learning Library 正式化 | done | [JSON](LEARNING_LIBRARY_CONTENTKO_MIGRATION_TASKS.json) |
-| KNOWLEDGE_LAB_ENRICHMENT | Knowledge Lab 內容充實 | 8/8 tasks | [JSON](KNOWLEDGE_LAB_ENRICHMENT_TASKS.json) |
-| CONTENT_V2_FRONTEND_EXPORT_SYNC | Frontend Sync Realignment (Batch E) | done | [JSON](CONTENT_V2_FRONTEND_EXPORT_SYNC_TASKS.json) |
-| SDA-007 | Dictionary Structure Upgrade | done | [PLAN](SDA-007_PLAN.md) |
-| ULV_MODULAR_RUNTIME_INSIGHTS | Modular Lesson Runtime 學習洞察 (In-App Insights) | done | [JSON](ULV_MODULAR_RUNTIME_INSIGHTS_TASKS.json) |
-| CLOZE_CONTENT_PIPELINE_SCHEMA | Cloze Content Pipeline Schema Implementation | done | [JSON](CLOZE_CONTENT_PIPELINE_SCHEMA_TASKS.json) |
+| UNIFIED_LESSON_VIEW_FLUTTER_TRANSFER | Modular Viewer 下游：將凍結的 unified lesson view contract 轉入 Flutter（shell / state / adapters / QA） | 8/8 tasks | [JSON](archive/20260428/20260428_UNIFIED_LESSON_VIEW_FLUTTER_TRANSFER_TASKS.json) |
+| MODULAR_VIEWER_REFACTOR | Modular Viewer 重構 | done | [JSON](archive/20260428/20260428_MODULAR_VIEWER_REFACTOR_TASKS.json) |
+| KNOWLEDGE_LAB_VIEWER_REFACTOR | Knowledge Lab Viewer 重構 | done | [JSON](archive/20260428/20260428_KNOWLEDGE_LAB_VIEWER_REFACTOR_TASKS.json) |
+| UNIFIED_LESSON_VIEW_ARCHITECTURE | Unified Lesson View 架構定義 | done | [JSON](archive/20260428/20260428_UNIFIED_LESSON_VIEW_ARCHITECTURE_TASKS.json) |
+| ULV_RUNTIME_MOCK_VERIFICATION | ULV Runtime Mock 驗證 | done | [JSON](archive/20260428/20260428_ULV_RUNTIME_MOCK_VERIFICATION_TASKS.json) |
+| COURSE_MODULE_COMPOSITION | 課程模組組裝 | done | [JSON](archive/20260428/20260428_COURSE_MODULE_COMPOSITION_TASKS.json) |
+| LEARNING_LIBRARY_CONTENTKO_MIGRATION | Learning Library 正式化 | done | [JSON](archive/20260428/20260428_LEARNING_LIBRARY_CONTENTKO_MIGRATION_TASKS.json) |
+| KNOWLEDGE_LAB_ENRICHMENT | Knowledge Lab 內容充實 | 8/8 tasks | [JSON](archive/20260428/20260428_KNOWLEDGE_LAB_ENRICHMENT_TASKS.json) |
+| CONTENT_V2_FRONTEND_EXPORT_SYNC | Frontend Sync Realignment (Batch E) | done | [JSON](archive/20260428/20260428_CONTENT_V2_FRONTEND_EXPORT_SYNC_TASKS.json) |
+| SDA-007 | Dictionary Structure Upgrade | done | [PLAN](archive/20260428/20260428_SDA-007_PLAN.md) |
+| ULV_MODULAR_RUNTIME_INSIGHTS | Modular Lesson Runtime 學習洞察 (In-App Insights) | done | [JSON](archive/20260428/20260428_ULV_MODULAR_RUNTIME_INSIGHTS_TASKS.json) |
+| CLOZE_CONTENT_PIPELINE_SCHEMA | Cloze Content Pipeline Schema Implementation | done | [JSON](archive/20260428/20260428_CLOZE_CONTENT_PIPELINE_SCHEMA_TASKS.json) |
+| ULV_MODULAR_RUNTIME_ERROR_LOGGING | Modular Lesson Runtime 錯誤細節追蹤 (Error Logging) | done | [JSON](archive/20260428/20260428_ULV_MODULAR_RUNTIME_ERROR_LOGGING_TASKS.json) |
 
 
 ### Archived Legacy Review Tasks

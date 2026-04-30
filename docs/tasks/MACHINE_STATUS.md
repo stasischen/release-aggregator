@@ -13,7 +13,7 @@ Each machine should maintain its own local, gitignored claim JSON under `docs/ta
 | 888 | 888 | - | idle | 2026-04-21 | Released from YT_ATOM_TO_V2_CONTENT |
 | gamer | gamer | - | idle | 2026-04-27 | Migration of sentences 001051 to 001100. |
 | atg | atg | - | idle | 2026-04-25 | NyCrQ-NZMbg atomization (109 turns) completed and promoted. |
-| mac | mac | - | idle | 2026-04-27 | PRG-005 Pilot completed; ready for new task |
+| mac | mac | - | idle | 2026-04-30 | Round 2 re-atomization sweep completed |
 
 
 ## Usage Rule

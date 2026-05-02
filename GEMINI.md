@@ -8,7 +8,7 @@
 - **content-pipeline**: 內容自動化處理工具，負責 JSON 與 CSV 之間的轉換與驗證。
 - **core-schema**: 定義專案通用的資料結構 (JSON Schema)，所有內容需符合此規範。
 - **lingo-frontend-web**: 使用 Flutter 開發的 Web 前端介面。
-- **lllo**: LLLO Viewer，用於預覽課程內容。
+- **lllo**: LLLO Writer/Source Input，用於編寫課程內容；不得直接發佈。
 - **release-aggregator**: 負責彙整各儲存庫，進行版本發佈與管理。
 
 ## 工作流程與協議

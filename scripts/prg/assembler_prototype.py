@@ -136,7 +136,7 @@ class CandidateInventory:
 
     @classmethod
     def scan_directory(cls, staging_root: Path) -> CandidateInventory:
-        """Adapter: Scan staging directory to build a candidate inventory."""
+        """Planning-only adapter: scan a directory to build a candidate inventory."""
         lessons = {}
         
         # Scanning logic remains the same (it creates relative paths without redundancy)
@@ -500,7 +500,6 @@ def assemble_release(
 def parse_args() -> argparse.Namespace:
     script_dir = Path(__file__).resolve().parent
     aggregator_root = script_dir.parent.parent
-    content_ko_staging = aggregator_root.parent / "content-ko/dist_unified/staging/ko"
 
     parser = argparse.ArgumentParser(description="Prototype manifest-driven production assembler")
     parser.add_argument(
@@ -511,8 +510,8 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument(
         "--candidate-source",
         type=str,
-        help="Path to candidate manifest.json or a staging directory to scan",
-        default=str(content_ko_staging) if content_ko_staging.exists() else None,
+        help="Path to Phase 1 global_manifest.json; planning mode may also use a legacy manifest or staging directory",
+        default=None,
     )
     parser.add_argument(
         "--candidate-root",
@@ -560,12 +559,8 @@ def main() -> int:
     
     if args.candidate_source is None:
         print("ERROR: No candidate source available.")
-        # Explicit path from requirement: e:\Githubs\lingo\content-ko\dist_unified\staging\ko
-        script_dir = Path(__file__).resolve().parent
-        aggregator_root = script_dir.parent.parent
-        expected_default = aggregator_root.parent / "content-ko/dist_unified/staging/ko"
-        print(f"Default expected path: {expected_default}")
-        print("Required: Re-run with --candidate-source <path>")
+        print("Required: Re-run with --candidate-source <global_manifest.json>.")
+        print("Planning mode may use --planning --candidate-source <staging-directory> for analysis.")
         return 1
 
     source_path = Path(args.candidate_source)
@@ -588,6 +583,10 @@ def main() -> int:
         if isinstance(source_data, dict) and isinstance(source_data.get("packages"), list):
             inventory = CandidateInventory.load_from_global_manifest(source_path, root)
         else:
+            if args.strict:
+                print("ERROR: Strict production assembly requires Phase 1 global_manifest.json as candidate source.")
+                print("Re-run with --candidate-source <global_manifest.json> or use --planning for legacy manifests.")
+                return 1
             inventory = CandidateInventory.load_from_manifest(source_path, root)
 
     try:

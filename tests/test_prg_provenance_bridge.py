@@ -1,4 +1,6 @@
 import importlib.util
+import contextlib
+import io
 import json
 import subprocess
 import sys
@@ -105,16 +107,17 @@ class PrgProvenanceBridgeTest(unittest.TestCase):
             write_json(release_manifest, {"entries": [release_entry("missing_lesson")]})
 
             inventory = assembler.CandidateInventory.load_from_global_manifest(global_manifest)
-            with self.assertRaisesRegex(ValueError, "validation gaps"):
-                assembler.assemble_release(
-                    release_manifest_path=release_manifest,
-                    candidate_inventory=inventory,
-                    output_dir=root / "out",
-                    strict_mode=True,
-                    allow_unassigned_units=False,
-                    lang="ko",
-                    study_discovery_path="assets/content/production/lesson_catalog.json",
-                )
+            with contextlib.redirect_stdout(io.StringIO()):
+                with self.assertRaisesRegex(ValueError, "validation gaps"):
+                    assembler.assemble_release(
+                        release_manifest_path=release_manifest,
+                        candidate_inventory=inventory,
+                        output_dir=root / "out",
+                        strict_mode=True,
+                        allow_unassigned_units=False,
+                        lang="ko",
+                        study_discovery_path="assets/content/production/lesson_catalog.json",
+                    )
 
     def test_cli_rejects_raw_directory_scan_in_strict_mode(self):
         with tempfile.TemporaryDirectory() as tmp:
@@ -142,6 +145,33 @@ class PrgProvenanceBridgeTest(unittest.TestCase):
 
             self.assertNotEqual(result.returncode, 0)
             self.assertIn("Strict production assembly requires a manifest source", result.stdout)
+
+    def test_cli_rejects_legacy_manifest_in_strict_mode(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp)
+            legacy_manifest = root / "manifest.json"
+            write_json(legacy_manifest, {"lessons": [{"level_id": "ko_l1_dialogue_a1_01"}]})
+            release_manifest = root / "prd.release_manifest.json"
+            write_json(release_manifest, {"entries": [release_entry()]})
+
+            result = subprocess.run(
+                [
+                    sys.executable,
+                    str(ASSEMBLER_PATH),
+                    "--release-manifest",
+                    str(release_manifest),
+                    "--candidate-source",
+                    str(legacy_manifest),
+                    "--output-dir",
+                    str(root / "out"),
+                ],
+                capture_output=True,
+                text=True,
+                cwd=REPO_ROOT,
+            )
+
+            self.assertNotEqual(result.returncode, 0)
+            self.assertIn("requires Phase 1 global_manifest.json", result.stdout)
 
 
 if __name__ == "__main__":

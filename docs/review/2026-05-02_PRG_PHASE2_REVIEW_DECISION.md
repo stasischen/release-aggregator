@@ -17,13 +17,13 @@ PRG is the right architectural direction for a future `staging -> production` ga
 - writes `global_manifest.json`
 - validates the manifest against `core-schema`
 
-PRG should become Phase 2 only after it consumes Phase 1 staging artifacts and preserves the provenance boundary.
+PRG should become Phase 2 only after it consumes Phase 1 staging artifacts, preserves the provenance boundary, and passes promotion-readiness drift checks.
 
 ## Review Findings
 
 ### P0: PRG can bypass hardened staging provenance
 
-`scripts/prg/assembler_prototype.py` defaults its candidate source to `../content-ko/dist_unified/staging/ko` when that directory exists.
+At the time of this review, `scripts/prg/assembler_prototype.py` defaulted its candidate source to a legacy `content-ko` staging directory when that directory existed.
 
 That bypasses:
 
@@ -33,20 +33,16 @@ That bypasses:
 - `global_manifest.json`
 - core-schema manifest validation
 
-PRG must not be promoted until its candidate source is explicitly tied to a `release.py` staging output or a derived candidate inventory built from that output.
+Status: fixed in code after this review. Strict mode now requires an explicit Phase 1 `global_manifest.json` or equivalent manifest-backed source and rejects raw directory scanning.
 
 ### P1: PRG contract and implementation disagree
 
 The PRG contract says the production assembler should not discover releasable content by recursively scanning `core/dialogue` or `core/video`.
 
 Current implementation still has a directory scanner adapter in `CandidateInventory.scan_directory`.
-This is acceptable for prototype analysis, but not for production promotion.
+This is acceptable for planning-mode analysis, but not for production promotion.
 
-Before promotion, PRG needs one of these:
-
-- consume `global_manifest.json` plus a typed candidate inventory derived from staged artifacts
-- consume a validated `stg.candidate_inventory.json`
-- reject raw directory scanning in strict production mode
+Status: fixed in code after this review. Strict CLI rejects raw directory scanning; planning mode may still use the scanner for analysis.
 
 ### P1: PRG output is frontend production-shaped, not release-aggregator provenance-shaped
 
@@ -56,8 +52,8 @@ Before promotion, PRG needs one of these:
 - `lesson_catalog.json`
 - `production_plan.json`
 
-Those are useful Phase 2 outputs, but the script does not yet preserve or link back to Phase 1 provenance hashes from `global_manifest.json`.
-Promotion must include a trace from each production lesson back to the staged artifact hash and source commit.
+Those are useful Phase 2 outputs. The script now preserves Phase 1 artifact hash and provenance from `global_manifest.json` into `production_plan.json`.
+Promotion still needs final output ownership and bundle generation decisions before the prototype is renamed or wired as a production command.
 
 ## Architecture Decision
 
@@ -77,11 +73,11 @@ Do not make PRG the default release command until the P0/P1 gaps above are fixed
 
 ## Codex-Ready Next Tasks
 
-1. Add a PRG strict mode guard that rejects raw `content-ko` candidate sources.
-2. Add support for reading `release.py` staging output through `global_manifest.json`.
-3. Add provenance carry-through from `global_manifest.json` into `production_plan.json`.
-4. Add tests with a minimal staged release fixture.
-5. Only after those pass, rename the script and wire it into a Makefile target.
+1. Done: add a PRG strict mode guard that rejects raw `content-ko` candidate sources.
+2. Done: add support for reading `release.py` staging output through `global_manifest.json`.
+3. Done: add provenance carry-through from `global_manifest.json` into `production_plan.json`.
+4. Done: add tests with a minimal staged release fixture.
+5. Remaining: align docs/Makefile validation and decide final promotion target before renaming the script.
 
 ## Needs Gemini / DeepSeek Before Implementation
 

@@ -15,7 +15,7 @@ spec.loader.exec_module(assembler)
 
 
 class PrgFrontendContractTest(unittest.TestCase):
-    def test_assembler_outputs_frontend_required_manifest_and_catalog_fields(self):
+    def test_planning_scan_outputs_frontend_required_manifest_and_catalog_fields(self):
         with tempfile.TemporaryDirectory() as tmp:
             root = Path(tmp)
             candidate_root = root / "staging"
@@ -92,6 +92,84 @@ class PrgFrontendContractTest(unittest.TestCase):
             self.assertEqual(lesson["can_do"], {"zh_tw": ["可以打招呼"]})
             self.assertEqual(lesson["knowledge_refs"], ["ki:greeting"])
             self.assertEqual(lesson["key_sentence_preview"]["ko"], "안녕하세요")
+
+    def test_global_manifest_outputs_frontend_required_manifest_and_catalog_fields(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp)
+            staged_file = root / "core" / "dialogue" / "ko_l1_dialogue_a1_01.json"
+            staged_file.parent.mkdir(parents=True)
+            staged_file.write_text("{}", encoding="utf-8")
+
+            global_manifest = root / "global_manifest.json"
+            global_manifest.write_text(
+                json.dumps(
+                    {
+                        "version": "1.2.3",
+                        "packages": [
+                            {
+                                "id": "ko_l1_dialogue_a1_01",
+                                "version": "1.2.3",
+                                "path": "core/dialogue/ko_l1_dialogue_a1_01.json",
+                                "hash": "sha256:testhash",
+                                "provenance": {
+                                    "source_repo": "content-pipeline",
+                                    "source_commit": "abc123",
+                                    "pipeline_version": "pipeline-1",
+                                    "schema_version": "1.0.0",
+                                    "built_at": "2026-05-02T00:00:00+00:00",
+                                },
+                            }
+                        ],
+                    }
+                ),
+                encoding="utf-8",
+            )
+
+            release_manifest = root / "prd.release_manifest.json"
+            release_manifest.write_text(
+                json.dumps(
+                    {
+                        "entries": [
+                            {
+                                "unit_id": "a1_u01",
+                                "lesson_id": "ko_l1_dialogue_a1_01",
+                                "release_status": "production",
+                                "content_type": "dialogue",
+                                "course_type": "lesson",
+                                "contract_version": "cm-v1.0.0",
+                                "viewer_verified": True,
+                                "qa_gate_passed": True,
+                                "staging_only": False,
+                                "source_refs": ["fixture:ko_l1_dialogue_a1_01"],
+                                "lang": "ko",
+                                "title": {"zh_tw": "第一課"},
+                                "unit_title": {"zh_tw": "A1 單元 1"},
+                                "unit_level": "A1",
+                            }
+                        ]
+                    }
+                ),
+                encoding="utf-8",
+            )
+
+            out = root / "out"
+            inventory = assembler.CandidateInventory.load_from_global_manifest(global_manifest)
+            assembler.assemble_release(
+                release_manifest_path=release_manifest,
+                candidate_inventory=inventory,
+                output_dir=out,
+                strict_mode=True,
+                allow_unassigned_units=False,
+                lang="ko",
+                study_discovery_path="assets/content/production/lesson_catalog.json",
+            )
+
+            manifest = json.loads((out / "manifest.json").read_text(encoding="utf-8"))
+            self.assertEqual(manifest["lang"], "ko")
+            self.assertEqual(manifest["files"]["study_discovery"], "assets/content/production/lesson_catalog.json")
+            self.assertEqual(manifest["lessons"][0]["level_id"], "ko_l1_dialogue_a1_01")
+            self.assertEqual(manifest["lessons"][0]["lesson_id"], "ko_l1_dialogue_a1_01")
+            self.assertEqual(manifest["lessons"][0]["unit_id"], "a1_u01")
 
 
 if __name__ == "__main__":

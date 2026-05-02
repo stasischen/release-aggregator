@@ -7,7 +7,8 @@ This document explains the main files used in the Production Release Gating (PRG
 The key idea is:
 
 - `release manifest` decides what may be released
-- `staging candidates` provide buildable source material
+- `global_manifest.json` is the Phase 1 staging provenance index
+- `staging candidates` provide buildable source material, but production mode must enter PRG through `global_manifest.json`
 - `production artifacts` are generated outputs
 - `mockup viewer` files are for UI/runtime testing, not release decisions
 
@@ -16,10 +17,12 @@ The key idea is:
 | Artifact | Typical Path | What It Does | Source of Truth |
 | :--- | :--- | :--- | :--- |
 | Release Manifest | `staging/production_release_gating/prd.release_manifest.json` or `staging/prg_pilot/pilot_allowlist.json` | The allowlist of lessons/units that may enter production. This is the release decision layer. | Yes |
-| Staging Candidate Inventory | `content-pipeline/staging/**` or prototype staging outputs in `staging/prototype_output/**` | The pool of buildable candidate lessons gathered from source content. It is for verification and assembly, not release approval. | No |
-| Production `manifest.json` | `lingo-frontend-web/assets/content/production/manifest.json` | The generated asset manifest consumed by the app or frontend package. It lists what is shipped. | No, derived output |
-| Production `lesson_catalog.json` | `lingo-frontend-web/assets/content/production/lesson_catalog.json` | The generated lesson metadata catalog. It holds instructional structure, unit mapping, and display metadata. | No, derived output |
-| Production bundles | `lingo-frontend-web/assets/content/production/packages/ko/**` | The actual lesson JSON and related assets that are shipped to production. | No, derived output |
+| Phase 1 Staging Index | `release-aggregator/staging/<version>/global_manifest.json` | The authoritative Phase 1 staging index. It carries artifact paths, hashes, source commit, pipeline version, and schema provenance. | Yes, for staging provenance |
+| Staging Candidate Inventory | Derived from Phase 1 `global_manifest.json` | The pool of buildable candidate lessons available to PRG. It is for verification and assembly, not release approval. | No |
+| Production `manifest.json` | Current prototype: `staging/prototype_output/manifest.json`; future target: `lingo-frontend-web/assets/content/production/manifest.json` | The generated asset manifest consumed by the app or frontend package. It lists what is shipped. | No, derived output |
+| Production `lesson_catalog.json` | Current prototype: `staging/prototype_output/lesson_catalog.json`; future target: `lingo-frontend-web/assets/content/production/lesson_catalog.json` | The generated lesson metadata catalog. It holds instructional structure, unit mapping, and display metadata. | No, derived output |
+| Production plan | `staging/prototype_output/production_plan.json` | Current PRG prototype audit output containing gaps, allowlisted lessons, and packaged artifact hash/provenance. | No, derived review output |
+| Production bundles | Future target: `lingo-frontend-web/assets/content/production/packages/ko/**` | The actual lesson JSON and related assets that are shipped to production. The PRG prototype does not emit bundles yet. | No, future derived output |
 | Viewer mockup data | `tools/modular-viewer/**`, `docs/tasks/mockups/**` | Local mock / demo data used for UI and runtime validation. It helps test viewer behavior but does not decide release eligibility. | No |
 
 ## What Each One Does
@@ -88,7 +91,7 @@ Reference:
 
 ### 2. Staging Candidate Inventory
 
-This is the staging-side pool of content that can be built, validated, or reviewed.
+This is the staging-side pool of content that can be built, validated, or reviewed. In production mode, PRG derives this inventory from Phase 1 `global_manifest.json`; raw directory scanning is planning-only.
 
 It may include:
 
@@ -147,7 +150,7 @@ Reference:
 
 ### 5. Production Bundles
 
-These are the actual packaged lesson artifacts and related assets.
+These are the future packaged lesson artifacts and related assets. The current PRG prototype emits `production_plan.json` first so reviewers can inspect gaps, allowlisted lessons, and Phase 1 provenance before bundle output is promoted.
 
 They are the files that the app ultimately consumes after assembly.
 
@@ -184,11 +187,13 @@ Reference:
 ## Flow Summary
 
 ```text
-source truth
-  -> staging candidate inventory
-  -> release manifest
-  -> production assembler
-  -> production manifest / lesson catalog / bundles
+content-pipeline/dist
+  -> Phase 1 release.py staging
+  -> global_manifest.json
+  -> Phase 2 release manifest + candidate inventory derived from global_manifest.json
+  -> PRG prototype assembler
+  -> manifest.json / lesson_catalog.json / production_plan.json
+  -> future production bundles
 ```
 
 The viewer mockup files sit beside this flow as test fixtures, not as release inputs.

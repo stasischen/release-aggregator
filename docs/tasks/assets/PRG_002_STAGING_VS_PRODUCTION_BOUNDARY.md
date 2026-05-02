@@ -10,7 +10,7 @@ Define a clear division of responsibility between the **Staging Catalog** and th
 | :--- | :--- | :--- |
 | **Name** | `stg.candidate_inventory.json` | `prd.release_manifest.json` |
 | **Logic** | Build-driven (Automatic scanning) | Decision-driven (Explicit allowlist) |
-| **Scope** | All content in `content-ko` (including B1+ segmentation-in-progress) | Only `production-ready` units and lessons. |
+| **Scope** | All content in Phase 1 staging output, indexed by `global_manifest.json` | Only `production-ready` units and lessons. |
 | **Gating Level** | Content Integrity (Core + I18N check) | QA + Instructional Verification |
 | **Target Audience** | Internal QA, Reviewers, In-situ Verification | Final App Users |
 | **Content Units** | `raw source` & `lesson` | `lesson` & `unit` |
@@ -25,16 +25,17 @@ Define a clear division of responsibility between the **Staging Catalog** and th
 
 ```mermaid
 graph TD
-    A[content-ko / source truth] -->|Pipeline Build| B[Staging Candidate Artifacts]
-    B --> C[Staging Catalog / Full Inventory]
-    C -->|Inst. Review & QA| D{Release Decision}
-    D -->|Allowlist| E[Production Release Manifest]
-    E -->|Production Assembler| F[Production Bundle / Frontend Assets]
-    D -- x |Omitted/Draft| G[Remains Staging Only]
+    A[content-pipeline/dist] -->|Phase 1 release.py| B[release-aggregator staging]
+    B --> C[global_manifest.json]
+    C --> D[Candidate Inventory derived from global_manifest.json]
+    D -->|Inst. Review & QA| E{Release Decision}
+    E -->|Allowlist| F[Production Release Manifest]
+    F -->|PRG Prototype Assembler| G[manifest.json / lesson_catalog.json / production_plan.json]
+    E -- x |Omitted/Draft| H[Remains Staging Only]
 ```
 
 ## 4. Key Takeaways for Developers
 
-- **Staging** is for "Can I build it?"
+- **Staging** is for "Can I build and prove provenance?"
 - **Production** is for "Should I release it?"
-- **Production Assembler** should NEVER scan `core/dialogue` or `core/video` directly for production releases. Its ONLY source of truth for "what to include" is the Production Release Manifest.
+- **Production Assembler** should NEVER scan `core/dialogue` or `core/video` directly for production releases. Its release decision source is the Production Release Manifest, and its candidate provenance source is Phase 1 `global_manifest.json`.

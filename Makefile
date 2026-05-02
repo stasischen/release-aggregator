@@ -5,7 +5,7 @@
 PYTHON = python
 SCRIPTS = scripts
 
-.PHONY: help gsd sync-tasks ingest-ko check check-tlg check-tlg-unit gen-tlg-unit check-tlg-unit-llm emit-gemini-prompts run-gemini-unit-demo
+.PHONY: help gsd sync-tasks ingest-ko check test-prg check-tlg check-tlg-unit gen-tlg-unit check-tlg-unit-llm emit-gemini-prompts run-gemini-unit-demo
 
 help:
 	@echo "Available commands:"
@@ -13,6 +13,7 @@ help:
 	@echo "  make sync-tasks   - Sync task JSONs with TASK_INDEX.md"
 	@echo "  make ingest-ko    - Unified ingestion for Korean (pull lllo -> ingest -> pipeline)"
 	@echo "  make check        - Run dictionary and content quality gates"
+	@echo "  make test-prg     - Run PRG contract and provenance tests"
 	@echo "  make check-tlg    - Run TLG pattern library gate (TLG-004/TLG-006)"
 	@echo "  make gen-tlg-unit - Generate unit_blueprint_v1 draft from TLG-005 input"
 	@echo "  make check-tlg-unit - Validate unit_blueprint_v1 draft with TLG-006 rules"
@@ -31,6 +32,9 @@ ingest-ko:
 
 check:
 	$(PYTHON) $(SCRIPTS)/check_quality.py
+
+test-prg:
+	$(PYTHON) -m unittest discover -s tests -p "test_prg*.py" -v
 
 check-tlg:
 	$(PYTHON) $(SCRIPTS)/tlg006_pattern_gate.py \

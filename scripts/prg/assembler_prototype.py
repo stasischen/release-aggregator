@@ -240,6 +240,9 @@ def build_catalog_from_entries(entries: list[dict[str, Any]]) -> dict[str, Any]:
                 "subtitle": entry.get("subtitle"),
                 "theme_tags": entry.get("theme_tags", []),
                 "skill_tags": entry.get("skill_tags", []),
+                "can_do": entry.get("can_do"),
+                "knowledge_refs": entry.get("knowledge_refs", []),
+                "key_sentence_preview": entry.get("key_sentence_preview"),
                 "status_flags": entry.get("status_flags", []),
             }
         )
@@ -262,12 +265,36 @@ def build_catalog_from_entries(entries: list[dict[str, Any]]) -> dict[str, Any]:
     }
 
 
+def build_manifest_lesson(candidate: dict[str, Any], entry: dict[str, Any], lang: str) -> dict[str, Any]:
+    lesson_id = entry["lesson_id"]
+    lesson = copy.deepcopy(candidate)
+    lesson["level_id"] = lesson.get("level_id") or lesson_id
+    lesson["lesson_id"] = lesson.get("lesson_id") or lesson_id
+    lesson["unit_id"] = lesson.get("unit_id") or entry["unit_id"]
+    lesson["lang"] = lesson.get("lang") or entry.get("lang") or lang
+    lesson["type"] = normalize_content_type(lesson.get("type") or entry["content_type"])
+
+    for field in [
+        "title",
+        "subtitle",
+        "theme_tags",
+        "skill_tags",
+        "status_flags",
+    ]:
+        if lesson.get(field) is None and entry.get(field) is not None:
+            lesson[field] = entry.get(field)
+
+    return lesson
+
+
 def assemble_release(
     release_manifest_path: Path,
     candidate_inventory: CandidateInventory,
     output_dir: Path,
     strict_mode: bool,
     allow_unassigned_units: bool,
+    lang: str,
+    study_discovery_path: str,
 ) -> dict[str, Any]:
     release_manifest = load_json(release_manifest_path)
 
@@ -369,7 +396,7 @@ def assemble_release(
         # Only add to packaged list if no error gaps for this lesson? 
         # Actually, if we have gaps, we should still allow planning mode to finish.
         # Strict mode will fail later.
-        packaged_manifest_lessons.append(copy.deepcopy(candidate))
+        packaged_manifest_lessons.append(build_manifest_lesson(candidate, entry, lang))
         packaged_entries.append(entry)
 
     if strict_mode and gaps:
@@ -382,7 +409,11 @@ def assemble_release(
 
     derived_manifest = {
         "version": "1.0.0",
+        "lang": lang,
         "last_updated": utc_now(),
+        "files": {
+            "study_discovery": study_discovery_path,
+        },
         "lessons": packaged_manifest_lessons,
     }
     derived_catalog = build_catalog_from_entries(packaged_entries)
@@ -440,6 +471,16 @@ def parse_args() -> argparse.Namespace:
         default=aggregator_root / "staging/prototype_output",
     )
     parser.add_argument(
+        "--lang",
+        default="ko",
+        help="Root language code to emit in production manifest.json",
+    )
+    parser.add_argument(
+        "--study-discovery-path",
+        default="assets/content/production/lesson_catalog.json",
+        help="Frontend asset path for the generated lesson_catalog.json",
+    )
+    parser.add_argument(
         "--strict",
         action="store_true",
         default=True,
@@ -493,6 +534,8 @@ def main() -> int:
             output_dir=args.output_dir,
             strict_mode=args.strict,
             allow_unassigned_units=args.allow_unassigned_units,
+            lang=args.lang,
+            study_discovery_path=args.study_discovery_path,
         )
         mode_str = "STRICT" if args.strict else "PLANNING"
         print(

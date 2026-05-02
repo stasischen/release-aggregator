@@ -11,7 +11,7 @@ Each machine should maintain its own local, gitignored claim JSON under `docs/ta
 | m5pro | m5pro | STITCH_UI_PROTOTYPING | idle | 2026-04-20 | ULV Core & PatternLab restored |
 | home | home | YT_ATOM_TO_V2_CONTENT | pending_plan | 2026-04-21 | Ready for worker pickup from batch handoff |
 | 888 | 888 | - | idle | 2026-04-21 | Released from YT_ATOM_TO_V2_CONTENT |
-| gamer | gamer | - | idle | 2026-04-29 | Completed SENTENCE_BANK_BATCH_23 |
+| gamer | gamer | - | idle | 2026-05-02 | Completed Batch 24 (1201-1250) |
 | atg | atg | - | idle | 2026-04-25 | NyCrQ-NZMbg atomization (109 turns) completed and promoted. |
 | mac | mac | - | idle | 2026-04-30 | Round 2 re-atomization sweep completed |
 

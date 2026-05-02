@@ -42,6 +42,14 @@ def normalize_content_type(raw_value: Any) -> str:
     return "dialogue"
 
 
+def infer_content_type_from_path(path: str) -> str:
+    normalized = path.replace("\\", "/").lower()
+    for content_type in ["dialogue", "video", "article"]:
+        if f"/{content_type}/" in f"/{normalized}":
+            return content_type
+    return "dialogue"
+
+
 class CandidateInventory:
     """Inventory of available candidate lessons from staging."""
 
@@ -91,6 +99,39 @@ class CandidateInventory:
             level_id = lesson.get("level_id")
             if isinstance(level_id, str):
                 lessons[level_id] = lesson
+        return cls(lessons, final_root)
+
+    @classmethod
+    def load_from_global_manifest(cls, manifest_path: Path, root: Optional[Path] = None) -> CandidateInventory:
+        """Load Phase 2 candidate inventory from Phase 1 global_manifest.json."""
+        data = load_json(manifest_path)
+        packages = data.get("packages")
+        if not isinstance(packages, list):
+            raise ValueError("global_manifest.json must contain a packages array")
+
+        final_root = root or manifest_path.parent
+        lessons = {}
+        for index, package in enumerate(packages):
+            if not isinstance(package, dict):
+                raise ValueError(f"packages[{index}] must be an object")
+
+            package_id = package.get("id")
+            package_path = package.get("path")
+            if not isinstance(package_id, str) or not package_id:
+                raise ValueError(f"packages[{index}].id must be a non-empty string")
+            if not isinstance(package_path, str) or not package_path:
+                raise ValueError(f"packages[{index}].path must be a non-empty string")
+
+            lessons[package_id] = {
+                "level_id": package_id,
+                "lesson_id": package_id,
+                "path": package_path,
+                "type": infer_content_type_from_path(package_path),
+                "version": package.get("version"),
+                "hash": package.get("hash"),
+                "provenance": copy.deepcopy(package.get("provenance")),
+            }
+
         return cls(lessons, final_root)
 
     @classmethod
@@ -287,6 +328,17 @@ def build_manifest_lesson(candidate: dict[str, Any], entry: dict[str, Any], lang
     return lesson
 
 
+def build_packaged_artifact(candidate: dict[str, Any], entry: dict[str, Any]) -> dict[str, Any]:
+    artifact = {
+        "lesson_id": entry["lesson_id"],
+        "unit_id": entry["unit_id"],
+        "path": candidate.get("path"),
+        "hash": candidate.get("hash"),
+        "provenance": copy.deepcopy(candidate.get("provenance")),
+    }
+    return artifact
+
+
 def assemble_release(
     release_manifest_path: Path,
     candidate_inventory: CandidateInventory,
@@ -313,6 +365,7 @@ def assemble_release(
     gaps: list[dict[str, Any]] = []
     packaged_manifest_lessons: list[dict[str, Any]] = []
     packaged_entries: list[dict[str, Any]] = []
+    packaged_artifacts: list[dict[str, Any]] = []
 
     for entry in eligible_entries:
         lesson_id = entry["lesson_id"]
@@ -398,6 +451,7 @@ def assemble_release(
         # Strict mode will fail later.
         packaged_manifest_lessons.append(build_manifest_lesson(candidate, entry, lang))
         packaged_entries.append(entry)
+        packaged_artifacts.append(build_packaged_artifact(candidate, entry))
 
     if strict_mode and gaps:
         print(f"ERROR: {len(gaps)} validation gaps found in STRICT MODE.")
@@ -431,6 +485,7 @@ def assemble_release(
         },
         "gaps": gaps,
         "allowlisted_lessons": [entry["lesson_id"] for entry in packaged_entries],
+        "packaged_artifacts": packaged_artifacts,
     }
 
     # Write outputs
@@ -519,13 +574,21 @@ def main() -> int:
         return 1
 
     if source_path.is_dir():
+        if args.strict:
+            print("ERROR: Strict production assembly requires a manifest source, not raw directory scanning.")
+            print("Re-run with --candidate-source <global_manifest.json> or use --planning for directory analysis.")
+            return 1
         print(f"Candidate Source: Directory ({source_path}) - Using Scanner Adapter")
         inventory = CandidateInventory.scan_directory(source_path)
     else:
         print(f"Candidate Source: Manifest ({source_path})")
         # If explicitly providing a manifest, root defaults to manifest dir unless overridden
         root = args.candidate_root or source_path.parent
-        inventory = CandidateInventory.load_from_manifest(source_path, root)
+        source_data = load_json(source_path)
+        if isinstance(source_data, dict) and isinstance(source_data.get("packages"), list):
+            inventory = CandidateInventory.load_from_global_manifest(source_path, root)
+        else:
+            inventory = CandidateInventory.load_from_manifest(source_path, root)
 
     try:
         plan = assemble_release(

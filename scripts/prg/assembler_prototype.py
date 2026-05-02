@@ -42,6 +42,14 @@ def normalize_content_type(raw_value: Any) -> str:
     return "dialogue"
 
 
+def infer_content_type_from_path(path: str) -> str:
+    normalized = path.replace("\\", "/").lower()
+    for content_type in ["dialogue", "video", "article"]:
+        if f"/{content_type}/" in f"/{normalized}":
+            return content_type
+    return "dialogue"
+
+
 class CandidateInventory:
     """Inventory of available candidate lessons from staging."""
 
@@ -94,8 +102,41 @@ class CandidateInventory:
         return cls(lessons, final_root)
 
     @classmethod
+    def load_from_global_manifest(cls, manifest_path: Path, root: Optional[Path] = None) -> CandidateInventory:
+        """Load Phase 2 candidate inventory from Phase 1 global_manifest.json."""
+        data = load_json(manifest_path)
+        packages = data.get("packages")
+        if not isinstance(packages, list):
+            raise ValueError("global_manifest.json must contain a packages array")
+
+        final_root = root or manifest_path.parent
+        lessons = {}
+        for index, package in enumerate(packages):
+            if not isinstance(package, dict):
+                raise ValueError(f"packages[{index}] must be an object")
+
+            package_id = package.get("id")
+            package_path = package.get("path")
+            if not isinstance(package_id, str) or not package_id:
+                raise ValueError(f"packages[{index}].id must be a non-empty string")
+            if not isinstance(package_path, str) or not package_path:
+                raise ValueError(f"packages[{index}].path must be a non-empty string")
+
+            lessons[package_id] = {
+                "level_id": package_id,
+                "lesson_id": package_id,
+                "path": package_path,
+                "type": infer_content_type_from_path(package_path),
+                "version": package.get("version"),
+                "hash": package.get("hash"),
+                "provenance": copy.deepcopy(package.get("provenance")),
+            }
+
+        return cls(lessons, final_root)
+
+    @classmethod
     def scan_directory(cls, staging_root: Path) -> CandidateInventory:
-        """Adapter: Scan staging directory to build a candidate inventory."""
+        """Planning-only adapter: scan a directory to build a candidate inventory."""
         lessons = {}
         
         # Scanning logic remains the same (it creates relative paths without redundancy)
@@ -240,6 +281,9 @@ def build_catalog_from_entries(entries: list[dict[str, Any]]) -> dict[str, Any]:
                 "subtitle": entry.get("subtitle"),
                 "theme_tags": entry.get("theme_tags", []),
                 "skill_tags": entry.get("skill_tags", []),
+                "can_do": entry.get("can_do"),
+                "knowledge_refs": entry.get("knowledge_refs", []),
+                "key_sentence_preview": entry.get("key_sentence_preview"),
                 "status_flags": entry.get("status_flags", []),
             }
         )
@@ -262,12 +306,47 @@ def build_catalog_from_entries(entries: list[dict[str, Any]]) -> dict[str, Any]:
     }
 
 
+def build_manifest_lesson(candidate: dict[str, Any], entry: dict[str, Any], lang: str) -> dict[str, Any]:
+    lesson_id = entry["lesson_id"]
+    lesson = copy.deepcopy(candidate)
+    lesson["level_id"] = lesson.get("level_id") or lesson_id
+    lesson["lesson_id"] = lesson.get("lesson_id") or lesson_id
+    lesson["unit_id"] = lesson.get("unit_id") or entry["unit_id"]
+    lesson["lang"] = lesson.get("lang") or entry.get("lang") or lang
+    lesson["type"] = normalize_content_type(lesson.get("type") or entry["content_type"])
+
+    for field in [
+        "title",
+        "subtitle",
+        "theme_tags",
+        "skill_tags",
+        "status_flags",
+    ]:
+        if lesson.get(field) is None and entry.get(field) is not None:
+            lesson[field] = entry.get(field)
+
+    return lesson
+
+
+def build_packaged_artifact(candidate: dict[str, Any], entry: dict[str, Any]) -> dict[str, Any]:
+    artifact = {
+        "lesson_id": entry["lesson_id"],
+        "unit_id": entry["unit_id"],
+        "path": candidate.get("path"),
+        "hash": candidate.get("hash"),
+        "provenance": copy.deepcopy(candidate.get("provenance")),
+    }
+    return artifact
+
+
 def assemble_release(
     release_manifest_path: Path,
     candidate_inventory: CandidateInventory,
     output_dir: Path,
     strict_mode: bool,
     allow_unassigned_units: bool,
+    lang: str,
+    study_discovery_path: str,
 ) -> dict[str, Any]:
     release_manifest = load_json(release_manifest_path)
 
@@ -286,6 +365,7 @@ def assemble_release(
     gaps: list[dict[str, Any]] = []
     packaged_manifest_lessons: list[dict[str, Any]] = []
     packaged_entries: list[dict[str, Any]] = []
+    packaged_artifacts: list[dict[str, Any]] = []
 
     for entry in eligible_entries:
         lesson_id = entry["lesson_id"]
@@ -369,8 +449,9 @@ def assemble_release(
         # Only add to packaged list if no error gaps for this lesson? 
         # Actually, if we have gaps, we should still allow planning mode to finish.
         # Strict mode will fail later.
-        packaged_manifest_lessons.append(copy.deepcopy(candidate))
+        packaged_manifest_lessons.append(build_manifest_lesson(candidate, entry, lang))
         packaged_entries.append(entry)
+        packaged_artifacts.append(build_packaged_artifact(candidate, entry))
 
     if strict_mode and gaps:
         print(f"ERROR: {len(gaps)} validation gaps found in STRICT MODE.")
@@ -382,7 +463,11 @@ def assemble_release(
 
     derived_manifest = {
         "version": "1.0.0",
+        "lang": lang,
         "last_updated": utc_now(),
+        "files": {
+            "study_discovery": study_discovery_path,
+        },
         "lessons": packaged_manifest_lessons,
     }
     derived_catalog = build_catalog_from_entries(packaged_entries)
@@ -400,6 +485,7 @@ def assemble_release(
         },
         "gaps": gaps,
         "allowlisted_lessons": [entry["lesson_id"] for entry in packaged_entries],
+        "packaged_artifacts": packaged_artifacts,
     }
 
     # Write outputs
@@ -414,7 +500,6 @@ def assemble_release(
 def parse_args() -> argparse.Namespace:
     script_dir = Path(__file__).resolve().parent
     aggregator_root = script_dir.parent.parent
-    content_ko_staging = aggregator_root.parent / "content-ko/dist_unified/staging/ko"
 
     parser = argparse.ArgumentParser(description="Prototype manifest-driven production assembler")
     parser.add_argument(
@@ -425,8 +510,8 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument(
         "--candidate-source",
         type=str,
-        help="Path to candidate manifest.json or a staging directory to scan",
-        default=str(content_ko_staging) if content_ko_staging.exists() else None,
+        help="Path to Phase 1 global_manifest.json; planning mode may also use a legacy manifest or staging directory",
+        default=None,
     )
     parser.add_argument(
         "--candidate-root",
@@ -438,6 +523,16 @@ def parse_args() -> argparse.Namespace:
         "--output-dir",
         type=Path,
         default=aggregator_root / "staging/prototype_output",
+    )
+    parser.add_argument(
+        "--lang",
+        default="ko",
+        help="Root language code to emit in production manifest.json",
+    )
+    parser.add_argument(
+        "--study-discovery-path",
+        default="assets/content/production/lesson_catalog.json",
+        help="Frontend asset path for the generated lesson_catalog.json",
     )
     parser.add_argument(
         "--strict",
@@ -464,12 +559,8 @@ def main() -> int:
     
     if args.candidate_source is None:
         print("ERROR: No candidate source available.")
-        # Explicit path from requirement: e:\Githubs\lingo\content-ko\dist_unified\staging\ko
-        script_dir = Path(__file__).resolve().parent
-        aggregator_root = script_dir.parent.parent
-        expected_default = aggregator_root.parent / "content-ko/dist_unified/staging/ko"
-        print(f"Default expected path: {expected_default}")
-        print("Required: Re-run with --candidate-source <path>")
+        print("Required: Re-run with --candidate-source <global_manifest.json>.")
+        print("Planning mode may use --planning --candidate-source <staging-directory> for analysis.")
         return 1
 
     source_path = Path(args.candidate_source)
@@ -478,13 +569,25 @@ def main() -> int:
         return 1
 
     if source_path.is_dir():
+        if args.strict:
+            print("ERROR: Strict production assembly requires a manifest source, not raw directory scanning.")
+            print("Re-run with --candidate-source <global_manifest.json> or use --planning for directory analysis.")
+            return 1
         print(f"Candidate Source: Directory ({source_path}) - Using Scanner Adapter")
         inventory = CandidateInventory.scan_directory(source_path)
     else:
         print(f"Candidate Source: Manifest ({source_path})")
         # If explicitly providing a manifest, root defaults to manifest dir unless overridden
         root = args.candidate_root or source_path.parent
-        inventory = CandidateInventory.load_from_manifest(source_path, root)
+        source_data = load_json(source_path)
+        if isinstance(source_data, dict) and isinstance(source_data.get("packages"), list):
+            inventory = CandidateInventory.load_from_global_manifest(source_path, root)
+        else:
+            if args.strict:
+                print("ERROR: Strict production assembly requires Phase 1 global_manifest.json as candidate source.")
+                print("Re-run with --candidate-source <global_manifest.json> or use --planning for legacy manifests.")
+                return 1
+            inventory = CandidateInventory.load_from_manifest(source_path, root)
 
     try:
         plan = assemble_release(
@@ -493,6 +596,8 @@ def main() -> int:
             output_dir=args.output_dir,
             strict_mode=args.strict,
             allow_unassigned_units=args.allow_unassigned_units,
+            lang=args.lang,
+            study_discovery_path=args.study_discovery_path,
         )
         mode_str = "STRICT" if args.strict else "PLANNING"
         print(

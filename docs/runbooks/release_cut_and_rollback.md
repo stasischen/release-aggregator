@@ -26,13 +26,16 @@ Procedures for aggregating build artifacts and preparing production releases.
 - **Candidate implementation**: `scripts/prg/assembler_prototype.py`.
 - **Decision source**: `prd.release_manifest.json` or another explicit release allowlist.
 - **Hard rule**: PRG must consume validated staging artifacts from Step 1 or a candidate inventory derived from them. It must not bypass Step 1 by reading raw source repositories as a production input.
-- **Promotion blocker**: PRG remains prototype until it preserves provenance from `global_manifest.json` into its `production_plan.json` and rejects raw directory scanning in strict production mode.
+- **Implemented guardrails**: PRG strict mode consumes Phase 1 `global_manifest.json`, rejects raw directory scanning, and carries hash/provenance into `production_plan.json`.
+- **Remaining blocker**: PRG remains prototype until docs, Makefile validation, and promotion target/output ownership are aligned.
 
 ### 3. Frontend Intake
 - **Repo**: `lingo-frontend-web`
 - **Action**: Sync the aggregated folder to `assets/content/production/`.
 
 ### 4. Validation
+- **Command**: `make test-prg` (in release-aggregator)
+- **Check**: Verify PRG frontend contract, strict-mode source rules, and provenance bridge.
 - **Command**: `npm run test:content` (in frontend)
 - **Check**: Verify all `atom_id` references in grammar files exist in the dictionary.
 

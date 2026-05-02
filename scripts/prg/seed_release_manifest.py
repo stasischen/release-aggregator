@@ -144,6 +144,9 @@ def seed_release_manifest(
                 "estimated_minutes": catalog_lesson.get("estimated_minutes") if isinstance(catalog_lesson, dict) else None,
                 "theme_tags": catalog_lesson.get("theme_tags", []) if isinstance(catalog_lesson, dict) else [],
                 "skill_tags": catalog_lesson.get("skill_tags", []) if isinstance(catalog_lesson, dict) else [],
+                "can_do": catalog_lesson.get("can_do") if isinstance(catalog_lesson, dict) else None,
+                "knowledge_refs": catalog_lesson.get("knowledge_refs", []) if isinstance(catalog_lesson, dict) else [],
+                "key_sentence_preview": catalog_lesson.get("key_sentence_preview") if isinstance(catalog_lesson, dict) else None,
                 "status_flags": catalog_lesson.get("status_flags", []) if isinstance(catalog_lesson, dict) else [],
                 "notes": " ".join(notes),
             }

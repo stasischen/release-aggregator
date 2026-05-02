@@ -1,6 +1,6 @@
 # PRG-005: Production Release Gating - Pilot 1 (Strict Reality)
 
-Establish a small, production-ready allowlist slice using **exactly-matched** content from the current staging candidate. This pilot explicitly avoids cross-level shims (e.g. mapping A1 to A2) and focuses on the "clean" path where manifest entries perfectly align with staging assets.
+Establish a small pilot allowlist slice using **exactly-matched** content from the current staging candidate. This pilot explicitly avoids cross-level shims (e.g. mapping A1 to A2) and focuses on the "clean" path where manifest entries perfectly align with staging assets.
 
 ## User Review Required
 

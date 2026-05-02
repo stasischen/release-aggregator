@@ -4,7 +4,7 @@ Procedures for aggregating build artifacts and preparing production releases.
 
 ## Steps
 
-### 1. Aggregate Artifacts
+### 1. Aggregate Artifacts To Staging
 - **Repo**: `release-aggregator`
 - **Command (standard)**:
   - `./scripts/release.sh --version X.Y.Z --scope <scope> --source-manifest <manifest> --pipeline-version <pipeline-version> --schema-version <schema-version> --source-commit <content-pipeline-commit>`
@@ -21,11 +21,18 @@ Procedures for aggregating build artifacts and preparing production releases.
   - `schema-version`
 - **Action**: The script runs the requested quality scope, verifies artifacts against the source manifest, copies JSON/audio artifacts into clean staging, generates `global_manifest.json`, then validates the manifest via `core-schema/validators/validate.py`.
 
-### 2. Frontend Intake
+### 2. Production Gate
+- **Current status**: planned Phase 2.
+- **Candidate implementation**: `scripts/prg/assembler_prototype.py`.
+- **Decision source**: `prd.release_manifest.json` or another explicit release allowlist.
+- **Hard rule**: PRG must consume validated staging artifacts from Step 1 or a candidate inventory derived from them. It must not bypass Step 1 by reading raw source repositories as a production input.
+- **Promotion blocker**: PRG remains prototype until it preserves provenance from `global_manifest.json` into its `production_plan.json` and rejects raw directory scanning in strict production mode.
+
+### 3. Frontend Intake
 - **Repo**: `lingo-frontend-web`
 - **Action**: Sync the aggregated folder to `assets/content/production/`.
 
-### 3. Validation
+### 4. Validation
 - **Command**: `npm run test:content` (in frontend)
 - **Check**: Verify all `atom_id` references in grammar files exist in the dictionary.
 

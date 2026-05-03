@@ -32,7 +32,7 @@ Goal: catalog every script, Makefile target, and documented command that writes 
 | 12 | content-ko | `scripts/ops/export_learning_library_runtime.py` | `python3 ... --locale zh_tw` | Writes to `content-ko/runs/learning_library_runtime/` — **not** frontend | No | Not needed | **Keep** — produces runtime payloads for the viewer, not frontend assets. |
 | 13 | content-ko | `scripts/ops/prepare_viewer_data.py` | `python3 scripts/ops/prepare_viewer_data.py` | Writes to `content-ko/scripts/tools/dict_viewer/data/` — **not** frontend | No | Not needed | **Keep** — developer tool for dict_viewer. |
 | 14 | content-ko | `scripts/dev/update_polysemy.py` | Removed | N/A | No | N/A | **Removed** — ad-hoc in-place mutator with hardcoded Windows paths. |
-| 15 | content-ko | `scripts/tools/generate_mapping_patch.py` | `main()` reads legacy dict, writes patch locally | Reads `lingo-frontend-web/assets/content/production/.../dict_ko_zh_tw.json`; writes to `content/staging/` | No (reads frontend, writes locally) | Not needed | **Keep** — diagnostic tool. |
+| 15 | content-ko | `scripts/tools/generate_mapping_patch.py` | Removed | N/A | No | N/A | **Removed** — stale diagnostic dependent on frontend dictionary assets. |
 | 16 | content-ko | `scripts/tools/generate_zh_tw.py` | Removed | N/A | No | N/A | **Removed** — stale one-off with hardcoded Windows path. |
 | 17 | content-ko | `scripts/tools/generate_en.py` | Removed | N/A | No | N/A | **Removed** — stale one-off with hardcoded Windows path. |
 | 18 | content-ko | `scripts/archive/merge_dict.py` | Removed | N/A | No | N/A | **Removed** — archived hardcoded Windows direct writer. |
@@ -41,7 +41,7 @@ Goal: catalog every script, Makefile target, and documented command that writes 
 | 21 | lingo-frontend-web | `scripts/sync_content.sh` | Deprecated redirect | No direct legacy copy; redirects to `release-aggregator && make sync-frontend-assets` | No | **Yes** — redirect to bridge | **Deprecated** — safe compatibility wrapper. |
 | 22 | lingo-frontend-web | `scripts/ci_preflight.sh` | `make ci-preflight` | Reads `assets/content/production/` and `assets/content/VERSION` | No (read-only gate) | Not needed (validation gate) | **Keep** — CI validation gate. |
 | 23 | lingo-frontend-web | `finalize_a1_assets.py` | Removed | N/A | No | N/A | **Removed** — one-time repair script. |
-| 24 | lingo-frontend-web | `enrich_a1_atoms.py` | `python3 enrich_a1_atoms.py --yarn-root ...` | Explicit yarn root only | No default direct write; caller must provide target path | Not yet wrapped | **Migrate** — hardcoded frontend path removed, but atom injection should happen in the pipeline/PRG. |
+| 24 | lingo-frontend-web | `enrich_a1_atoms.py` | Removed | N/A | No | N/A | **Removed** — atom injection is covered by `export_dialogue_track.py` and PRG intake. |
 | 25 | lingo-frontend-web | `tools/scripts/sync_manifest.py` | Removed | N/A | No | N/A | **Removed** — stale, hardcoded lesson IDs, wrong manifest path, source directory no longer exists. |
 | 26 | lingo-frontend-web | `normalize_filenames_safe.py` | `python3 normalize_filenames_safe.py` | Renames files in `assets/audio/` (NFC normalization of filenames) | **Yes** — renames audio files in place | **No** | **Keep** — utility; not a content-asset writer. |
 | 27 | lingo-frontend-web | `check_encoding.py` | `python3 check_encoding.py` | Reads `assets/audio/` and `assets/content/production/packages/ko/yarn/` | No (read-only diagnostic) | Not needed | **Keep** — diagnostic utility. |
@@ -60,7 +60,7 @@ These are either correctly bridged, read-only, produce intermediate artifacts, o
 Rows: 5 (`generate_video_index.py` — direct write removed), 21 (`sync_content.sh` — redirects to `sync_frontend_assets.py`)
 
 ### Migrate (3 entries)
-Rows: 9 (`export_to_app.py` — largest gap; dictionary + dialogue assembly must move into pipeline/PRG), 10 (`export_dialogue_track.py` — overlap with row 9), 24 (`enrich_a1_atoms.py` — atom injection should be a pipeline step)
+Rows: 9 (`export_to_app.py` — largest gap; dictionary + dialogue assembly must move into pipeline/PRG), 10 (`export_dialogue_track.py` — overlap with row 9)
 
 ### Removed (6 entries)
 Rows: 14 (`update_polysemy.py` — ad-hoc with hardcoded Windows path), 16 (`generate_zh_tw.py` — stale one-off), 17 (`generate_en.py` — stale one-off), 18 (`merge_dict.py` — archived direct writer), 23 (`finalize_a1_assets.py` — one-time repair done), 25 (`sync_manifest.py` — stale, broken paths)
@@ -73,7 +73,7 @@ Three scripts still write directly into `lingo-frontend-web/assets/` without goi
 
 1. **`content-ko/scripts/ops/export_to_app.py`** (row 9) — now requires explicit output roots, but its dictionary/dialogue/grammar assembly logic still needs to move into pipeline/PRG.
 2. **`content-ko/scripts/ops/export_dialogue_track.py`** (row 10) — now requires explicit content root, but profile-based dialogue export still needs PRG ownership.
-3. **`lingo-frontend-web/enrich_a1_atoms.py`** (row 24) — now requires explicit yarn root, but atom injection should move upstream.
+3. **`lingo-frontend-web/enrich_a1_atoms.py`** (row 24) — removed after parity review confirmed atom injection is already covered upstream.
 
 These represent the main attack surface for asset drift between the content pipeline and the frontend. They should be the priority targets for migration into the PRG assembler or the staging bridge.
 

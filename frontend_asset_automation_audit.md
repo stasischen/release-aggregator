@@ -34,12 +34,12 @@ The automation already exists but is **fragmented across three repos and partial
 | `tools/scripts/sync_manifest.py` | lingo-frontend-web | Removed after direct-write inventory review. |
 | `scripts/tools/generate_zh_tw.py` | content-ko | Removed after direct-write inventory review. |
 | `scripts/tools/generate_en.py` | content-ko | Removed after direct-write inventory review. |
-| `scripts/tools/generate_mapping_patch.py` | content-ko | References `proposed_core.json` (file not present in repo). Windows hardcoded path. **UNSAFE/STALE** |
+| `scripts/tools/generate_mapping_patch.py` | content-ko | Removed stale diagnostic dependent on frontend dictionary assets. |
 | `scripts/tools/generate_dictionary_core.py` | content-ko | Generates individual atom files under `content/core/dictionary/atoms/`, NOT the consolidated `dictionary_core.json` the frontend needs. **MISLEADING NAME** |
 | `scripts/tools/generate_dictionary_i18n.py` | content-ko | Same: individual i18n atom files, not the frontend payload. **MISLEADING NAME** |
 | `scripts/build.sh` | content-pipeline | Runs `python3 scripts/build.py` — but `build.py` is in `pipelines/`, not `scripts/`. **BROKEN** |
 | `Makefile` `sync-prod` target | content-ko | Runs `generate_dictionary_core.py` + `generate_dictionary_i18n.py` which produce atom files, not frontend payloads. **MISLEADING TARGET NAME** |
-| `enrich_a1_atoms.py` | lingo-frontend-web | One-off repair script. **ARCHIVE** after automation is live. |
+| `enrich_a1_atoms.py` | lingo-frontend-web | Removed redundant migration utility; atom injection is covered by `export_dialogue_track.py` and PRG intake. |
 | `finalize_a1_assets.py` | lingo-frontend-web | Removed one-off repair script. |
 
 ---
@@ -183,9 +183,9 @@ ci-preflight:
 - **Files to archive**:
   - `content-ko/scripts/tools/generate_zh_tw.py` (removed)
   - `content-ko/scripts/tools/generate_en.py` (removed)
-  - `content-ko/scripts/tools/generate_mapping_patch.py`
+  - `content-ko/scripts/tools/generate_mapping_patch.py` (removed)
   - `lingo-frontend-web/tools/scripts/sync_manifest.py` (removed)
-  - `lingo-frontend-web/enrich_a1_atoms.py`
+  - `lingo-frontend-web/enrich_a1_atoms.py` (removed)
   - `lingo-frontend-web/finalize_a1_assets.py` (removed)
 - **Rename**: Add `.archived` suffix or move to an `archive/` directory.
 - **Why after T5**: Parity audit confirms the replacement scripts work before retiring the old ones.
@@ -320,7 +320,7 @@ lingo-frontend-web: flutter test test/core/asset_integrity_test.dart
 - `/Users/ywchen/Dev/lingo/content-ko/scripts/tools/generate_dictionary_core.py`
 - `/Users/ywchen/Dev/lingo/content-ko/scripts/tools/generate_dictionary_i18n.py`
 - `/Users/ywchen/Dev/lingo/content-ko/scripts/tools/generate_zh_tw.py` (removed)
-- `/Users/ywchen/Dev/lingo/content-ko/scripts/tools/generate_mapping_patch.py`
+- `/Users/ywchen/Dev/lingo/content-ko/scripts/tools/generate_mapping_patch.py` (removed)
 - `/Users/ywchen/Dev/lingo/content-ko/scripts/tools/generate_en.py` (removed)
 - `/Users/ywchen/Dev/lingo/content-ko/scripts/tools/validate_dictionary_schema.py`
 - `/Users/ywchen/Dev/lingo/content-ko/scripts/ops/export_to_app.py`

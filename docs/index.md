@@ -51,6 +51,7 @@ Welcome to the central documentation hub for the Lingo multi-repo system.
 - **[Multi-Model Project Review](review/MULTI_MODEL_PROJECT_REVIEW.md)** - Gemini / DeepSeek / GPT / Codex 分工式架構 review 流程。
 - **[Project Review Packet Template](review/PROJECT_REVIEW_PACKET_TEMPLATE.md)** - 給 GPT 的濃縮 review 包格式。
 - **[Model Input Specs](review/MODEL_INPUT_SPECS.md)** - 給 Gemini、DeepSeek、GPT 的固定輸入規格。
+- **[Handoff Summary Template](handoffs/HANDOFF_SUMMARY_TEMPLATE.md)** - milestone / 換 thread / 換機器時使用的標準交接卡。
 - **[Korean Stage Contract Matrix](ops/stage_contract_matrix_ko.md)** - 韓文階段產出規範。
 
 ## 🛠️ Operational Runbooks (技術手冊)

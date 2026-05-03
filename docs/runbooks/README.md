@@ -21,6 +21,7 @@ Execution and closeout protocols:
 - [Multi-Model Task Orchestration](multi_model_task_orchestration.md)
 - [Codex <-> Antigravity Orchestration](codex_antigravity_orchestration.md)
 - [Gemini Closeout Protocol (Dispatcher)](gemini_closeout_protocol.md)
+- [Handoff Summary Template](../handoffs/HANDOFF_SUMMARY_TEMPLATE.md)
 - [Closeout - Frontend](closeout_frontend.md)
 - [Closeout - Content](closeout_content.md)
 - [Closeout - Pipeline](closeout_pipeline.md)

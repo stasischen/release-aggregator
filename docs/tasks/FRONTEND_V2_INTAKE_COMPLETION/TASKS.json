@@ -14,7 +14,7 @@
       "id": "frontend-v2-intake-02",
       "title": "Define frontend v2 resolver contract",
       "description": "Define the minimal adapter/resolver contract that lets frontend consume v2-derived production artifacts without binding UI-facing repositories to raw package layout.",
-      "status": "pending"
+      "status": "completed"
     },
     {
       "id": "frontend-v2-intake-03",

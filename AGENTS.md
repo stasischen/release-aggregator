@@ -40,6 +40,15 @@ release or code change decision.
 Do not keep task state only in chat. For persistent work, create or update artifacts
 under `docs/tasks/`, `docs/handoffs/`, or `docs/worklogs/`.
 
+## Coding Guardrails
+
+- Think before editing: state assumptions, uncertainty, tradeoffs, and blockers.
+- Prefer simple changes over new abstractions unless the repo already has that pattern.
+- Edit only files required by the task; do not opportunistically refactor nearby code.
+- Preserve existing style, public APIs, and ownership boundaries unless the brief approves changes.
+- Define validation before implementation and report commands run or why they could not run.
+- Remove only dead code introduced by the current change; do not delete unrelated legacy code.
+
 ## Scope Rule
 
 For implementation tasks, work only inside the repo and file scope stated in the task

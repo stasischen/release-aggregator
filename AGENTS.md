@@ -40,6 +40,19 @@ release or code change decision.
 Do not keep task state only in chat. For persistent work, create or update artifacts
 under `docs/tasks/`, `docs/handoffs/`, or `docs/worklogs/`.
 
+## Routine Skills
+
+Use repo-local skills in `.agent/skills/` for repeated workflows:
+
+- `lingo-task-brief`: task brief, task directory, implementation packet, model routing.
+- `lingo-diff-review`: diff review against a brief, completion candidate, or PR-like change.
+- `lingo-release-closeout`: session closeout, worklog, handoff, next-phase prompt.
+- `lingo-content-batch-handoff`: content batch, lesson/video/grammar migration handoff.
+- `lingo-dictionary-drift-audit`: Korean dictionary drift and metadata readiness audit.
+
+Create a new skill only when a routine has a clear trigger, repeated steps, stable inputs,
+and fixed outputs. Keep general coding behavior in this file or the relevant runbook.
+
 ## Coding Guardrails
 
 - Think before editing: state assumptions, uncertainty, tradeoffs, and blockers.

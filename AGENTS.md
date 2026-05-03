@@ -30,6 +30,13 @@ non-trivial tasks:
 - Codex implements narrow scoped changes and runs validation.
 - Local Qwen may draft private, low-cost, or bulk text work.
 
+## DeepSeek Default
+
+When Claude Code is routed to DeepSeek in this workspace, default to `deepseek-v4-flash`
+for drafting, scanning, and bulk text work. Escalate to `deepseek-v4-pro` for review,
+architecture judgment, root-cause analysis, or any task where the output will drive a
+release or code change decision.
+
 Do not keep task state only in chat. For persistent work, create or update artifacts
 under `docs/tasks/`, `docs/handoffs/`, or `docs/worklogs/`.
 
@@ -38,4 +45,3 @@ under `docs/tasks/`, `docs/handoffs/`, or `docs/worklogs/`.
 For implementation tasks, work only inside the repo and file scope stated in the task
 brief or implementation packet. Do not expand into sibling repos unless the brief
 explicitly approves it.
-

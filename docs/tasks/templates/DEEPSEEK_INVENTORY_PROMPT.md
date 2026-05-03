@@ -3,6 +3,13 @@
 Objective:
 整理問題、cleanup candidates、方案草稿，產出給 GPT 5.5 決策用的材料。
 
+Default model:
+- `deepseek-v4-flash`
+
+Escalate to:
+- `deepseek-v4-pro` when the output is expected to include a decision, review verdict,
+  root-cause analysis, or any conclusion that will directly change code or release state.
+
 Scope:
 - Repo:
 - Target directories:
@@ -47,3 +54,5 @@ Constraints:
 - Do not delete or rewrite code.
 - Mark confidence for dead-code claims.
 
+If the prompt is being used to produce a final recommendation instead of raw inventory,
+switch to `deepseek-v4-pro`.

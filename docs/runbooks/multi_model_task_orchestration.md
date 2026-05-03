@@ -24,6 +24,35 @@
 | DeepSeek | 低成本整理者 | 大量草稿、cleanup inventory、方案初稿、內容初稿 | production-critical 決策 |
 | Local Qwen | 私有低成本草稿者 | 私有資料初篩、快速改寫、翻譯/atom 批量實驗 | 最終品質裁決 |
 
+## DeepSeek Model Choice
+
+DeepSeek 在本 workspace 以 `deepseek-v4-flash` 作為預設省成本模型，以 `deepseek-v4-pro` 作為高可靠模型。
+
+### Use `flash` when
+
+- 起草 Task Brief
+- 大量整理、摘要、轉述、格式化
+- repo 掃描、inventory、文件歸納
+- 低風險的第一輪 bug triage
+- 內容初稿、翻譯、批量改寫
+- 只是要把資訊蒸餾成給 GPT 5.5 的材料
+
+### Use `pro` when
+
+- 需要做結論或裁決
+- review diff、review architecture
+- 涉及資料流、schema、release path、public API
+- 跨 repo / 跨模組的高風險推理
+- bug root cause 不容易定位
+- 任何失誤會導致重工或破壞發布
+
+### Switch Rule
+
+- 先 `flash`，再 `pro`：先蒐集材料，再做決策。
+- 如果任務要「產生材料」就用 `flash`。
+- 如果任務要「下判斷」就用 `pro`。
+- 如果不確定，預設 `flash`，但在輸出前由 GPT 5.5 或 Codex 判定是否升級到 `pro`。
+
 ## Default Flow
 
 1. Gemini 掃全局，輸出 architecture / relevant files / risk hotspots。
@@ -44,8 +73,8 @@
 | 單 repo 中型改動 | Gemini 或 Codex 先整理 context，GPT 決策，Codex 實作 |
 | 跨 repo 改動 | Gemini 掃全局 + DeepSeek inventory + GPT 決策 + Codex 分段 |
 | 大 refactor | GPT 先切 phase / plan，Codex 或 Antigravity 分段執行 |
-| 內容/課程草稿 | DeepSeek 或 Qwen 起草，GPT 定稿 |
-| 翻譯/atom 批量處理 | Qwen 或 DeepSeek 批量跑，GPT 抽查 |
+| 內容/課程草稿 | DeepSeek `flash` 或 Qwen 起草，GPT 定稿 |
+| 翻譯/atom 批量處理 | Qwen 或 DeepSeek `flash` 批量跑，GPT 抽查 |
 | 架構決策 | 必須 GPT 5.5 |
 
 ## Required Artifacts
@@ -56,6 +85,7 @@
 - `Implementation Packet`：給 Codex / executor 的窄 scope 指令。
 - `Review Prompt`：給 GPT 5.5 review diff 的固定問題。
 - `Handoff Summary`：milestone 結束或換 thread / 換電腦時使用。
+- `DeepSeek Model Hint`：當任務要交給 DeepSeek 時，先標明 `flash` 或 `pro`。
 
 模板在 `docs/tasks/templates/`。
 
@@ -68,6 +98,7 @@ docs/tasks/<TASK_ID>/
   TASK_BRIEF.md
   GEMINI_SCAN.md
   DEEPSEEK_INVENTORY.md
+  DEEPSEEK_DECISION.md
   GPT_DECISION.md
   CODEX_TASK.md
   GPT_DIFF_REVIEW.md
@@ -100,4 +131,3 @@ docs/tasks/<TASK_ID>/
 - 若跨 repo，資料契約與 release path 有明確驗證。
 - GPT review 的必修問題已修正或明確 deferred。
 - `TASK_INDEX.md`、worklog、handoff 已按需要更新。
-

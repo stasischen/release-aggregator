@@ -23,4 +23,5 @@
 - Task brief template：`docs/tasks/templates/TASK_BRIEF_TEMPLATE.md`
 - Codex implementation packet：`docs/tasks/templates/CODEX_TASK_TEMPLATE.md`
 - GPT diff review prompt：`docs/tasks/templates/GPT_DIFF_REVIEW_TEMPLATE.md`
+- DeepSeek decision note：`docs/tasks/templates/DEEPSEEK_DECISION_TEMPLATE.md`
 - Milestone handoff：`docs/tasks/templates/HANDOFF_SUMMARY_TEMPLATE.md`

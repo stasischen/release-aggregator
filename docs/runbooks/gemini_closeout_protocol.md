@@ -176,6 +176,20 @@ commit_reminder:
 - docs/archive/** 只能參考，不可作為執行依據
 ```
 
+3. `handoff_summary`
+```yaml
+handoff_summary:
+  task_id: <TASK_ID>
+  current_decision: <what is decided>
+  important_context:
+    - <fact>
+  related_files:
+    - <path>
+  deepseek_model:
+    recommended: <flash|pro>
+    reason: <why>
+```
+
 若未輸出上述兩段，收工視為不完整。
 
 ## Step 4: 選擇性執行 Repo 專用檢查

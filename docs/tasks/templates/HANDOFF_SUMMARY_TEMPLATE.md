@@ -12,6 +12,12 @@
 
 - ...
 
+## DeepSeek Model
+
+- Recommended: flash / pro
+- Reason:
+- If switching models, next step should use:
+
 ## 相關檔案
 
 - `path/to/file`
@@ -33,4 +39,3 @@
 - Command:
 - Result:
 - Notes:
-

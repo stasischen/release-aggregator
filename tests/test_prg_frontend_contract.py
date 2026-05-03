@@ -84,6 +84,10 @@ class PrgFrontendContractTest(unittest.TestCase):
             self.assertEqual(manifest["lessons"][0]["level_id"], "ko_l1_dialogue_a1_01")
             self.assertEqual(manifest["lessons"][0]["lesson_id"], "ko_l1_dialogue_a1_01")
             self.assertEqual(manifest["lessons"][0]["unit_id"], "a1_u01")
+            self.assertEqual(
+                manifest["lessons"][0]["path"],
+                "assets/content/production/packages/ko/core/dialogue/ko_l1_dialogue_a1_01.json",
+            )
 
             catalog = json.loads((out / "lesson_catalog.json").read_text(encoding="utf-8"))
             lesson = catalog["lessons"][0]
@@ -170,6 +174,16 @@ class PrgFrontendContractTest(unittest.TestCase):
             self.assertEqual(manifest["lessons"][0]["level_id"], "ko_l1_dialogue_a1_01")
             self.assertEqual(manifest["lessons"][0]["lesson_id"], "ko_l1_dialogue_a1_01")
             self.assertEqual(manifest["lessons"][0]["unit_id"], "a1_u01")
+            self.assertEqual(
+                manifest["lessons"][0]["path"],
+                "assets/content/production/packages/ko/core/dialogue/ko_l1_dialogue_a1_01.json",
+            )
+
+            plan = json.loads((out / "production_plan.json").read_text(encoding="utf-8"))
+            self.assertEqual(
+                plan["packaged_artifacts"][0]["path"],
+                "core/dialogue/ko_l1_dialogue_a1_01.json",
+            )
 
 
 if __name__ == "__main__":

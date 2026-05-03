@@ -306,6 +306,18 @@ def build_catalog_from_entries(entries: list[dict[str, Any]]) -> dict[str, Any]:
     }
 
 
+def frontend_asset_path(candidate_path: Any, lang: str) -> Any:
+    if not isinstance(candidate_path, str) or not candidate_path:
+        return candidate_path
+
+    normalized = candidate_path.replace("\\", "/").lstrip("/")
+    if normalized.startswith("assets/content/production/"):
+        return normalized
+    if normalized.startswith("packages/"):
+        return f"assets/content/production/{normalized}"
+    return f"assets/content/production/packages/{lang}/{normalized}"
+
+
 def build_manifest_lesson(candidate: dict[str, Any], entry: dict[str, Any], lang: str) -> dict[str, Any]:
     lesson_id = entry["lesson_id"]
     lesson = copy.deepcopy(candidate)
@@ -314,6 +326,7 @@ def build_manifest_lesson(candidate: dict[str, Any], entry: dict[str, Any], lang
     lesson["unit_id"] = lesson.get("unit_id") or entry["unit_id"]
     lesson["lang"] = lesson.get("lang") or entry.get("lang") or lang
     lesson["type"] = normalize_content_type(lesson.get("type") or entry["content_type"])
+    lesson["path"] = frontend_asset_path(lesson.get("path"), lesson["lang"])
 
     for field in [
         "title",

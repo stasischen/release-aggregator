@@ -46,6 +46,54 @@ class FrontendAssetBridgeTests(unittest.TestCase):
             self.assertIn("video", manifest["modules"])
             self.assertNotEqual(manifest["updated_at"], "2026-05-03T00:00:00+00:00")
 
+    def test_video_manifest_paths_are_frontend_resolver_loadable(self) -> None:
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp)
+            worktree = root / "worktree"
+            video_core = worktree / sync_frontend_assets.VIDEO_CORE_REL
+            self._write_json(
+                video_core / "ko_v1_music_test123_sample.json",
+                {
+                    "metadata": {
+                        "title": "Test Video",
+                    },
+                },
+            )
+            self._write_json(
+                worktree / "assets/content/production/manifest.json",
+                {
+                    "lang": "ko",
+                    "files": {},
+                    "lessons": [
+                        {
+                            "lesson_id": "a1_bg_l01",
+                            "type": "grammar-heavy",
+                            "path": "assets/content/production/packages/ko/lessons/a1_bg_l01/build/lesson_content.v1.json",
+                        },
+                    ],
+                    "packages": {
+                        "ko": {},
+                    },
+                },
+            )
+            self._write_package_manifest(worktree)
+
+            sync_frontend_assets.update_video_manifests(worktree, ["zh_tw"])
+
+            manifest = self._read_json(worktree / "assets/content/production/manifest.json")
+            video_lesson = next(lesson for lesson in manifest["lessons"] if lesson["type"] == "video")
+            video_path = video_lesson["path"]
+
+            self.assertEqual(
+                video_path,
+                "assets/content/production/packages/ko/video/core/ko_v1_music_test123_sample.json",
+            )
+            self.assertTrue((worktree / video_path).is_file())
+            self.assertEqual(
+                manifest["files"]["study_discovery"],
+                "assets/content/production/lesson_catalog.json",
+            )
+
     def _write_dictionary_source(self, source: Path) -> None:
         for rel_path in sync_frontend_assets.DICTIONARY_FILES:
             self._write_json(source / rel_path, {"fixture": rel_path.name})

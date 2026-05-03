@@ -97,6 +97,7 @@ Layer 5: Legacy Backfill
 | Task ID | 描述 | Phase | 進度 | 檔案 |
 | :--- | :--- | :--- | :--- | :--- |
 | GRAMMAR_INDEX_BRIDGE_SYNC | Published grammar ID bridge sync（`dict_grammar_mapping.json` ↔ `assets/content/grammar/grammar_index.json`；維持 G-KO-* 與實體資產映射一致） | C+/Ops | 0/3 tasks | [JSON](GRAMMAR_INDEX_BRIDGE_SYNC_TASKS.json) · [PLAN](GRAMMAR_INDEX_BRIDGE_SYNC_PLAN.md) |
+| DICTIONARY_ENTRY_DRIFT_REVIEW | Korean dictionary entry drift audit（homonym/polysemy、Hanja/source metadata、`mapping_v2.entry_refs` readiness） | C+/Lexicon | 0/4 tasks | [PLAN](DICTIONARY_ENTRY_DRIFT_REVIEW_PLAN.md) |
 
 
 ### Completed Pending Archive (已完成待封存)

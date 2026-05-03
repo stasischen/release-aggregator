@@ -1,7 +1,7 @@
 {
   "task_id": "FRONTEND_V2_INTAKE_COMPLETION",
   "description": "Complete frontend intake of content_v2-derived study, dictionary, and UI display data contracts",
-  "status": "in_progress",
+  "status": "completed",
   "deepseek_routing": "flash -> pro",
   "tasks": [
     {
@@ -38,7 +38,7 @@
       "id": "frontend-v2-intake-06",
       "title": "Verify PRG/frontend production artifact handoff",
       "description": "Update PRG/frontend contract validation so release artifacts are derived from global_manifest/release manifest and match frontend resolver expectations.",
-      "status": "pending"
+      "status": "completed"
     }
   ]
 }

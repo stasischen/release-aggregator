@@ -13,6 +13,7 @@
 - Frontend commit: `99a4b9e6 feat: prefer core dictionary origins`.
 - Frontend commit: `e8972299 test: refresh event repository production fixture`.
 - Frontend commit: `6b72ec1a test: add korean v2 production validation`.
+- Aggregator commit: `c56ab0f fix: emit frontend-loadable PRG manifest paths`.
 
 ## 目前決策
 
@@ -43,7 +44,11 @@
 - `frontend-v2-intake-03` is complete.
 - `frontend-v2-intake-04` is complete.
 - `frontend-v2-intake-05` is complete.
+- `frontend-v2-intake-06` is complete.
+- `FRONTEND_V2_INTAKE_COMPLETION` is complete.
 - `EventRepository` now ignores empty overlay results and falls back to manifest-resolved atom loading.
+- PRG prototype manifest output now converts global-manifest candidate paths into frontend-loadable asset keys under `assets/content/production/packages/{lang}/...`.
+- PRG `production_plan.packaged_artifacts[].path` still preserves the original candidate/global-manifest path for provenance and staging traceability.
 
 ## DeepSeek Model
 
@@ -69,9 +74,9 @@
 
 ## 下一步
 
-1. Start `frontend-v2-intake-06`: verify PRG/frontend production artifact handoff.
-2. Check release artifacts are derived from global/release manifest and match frontend resolver expectations.
-3. Keep `mapping_v2` origin cache until Phase 3 validation proves frontend passes without it.
+1. Review and merge frontend dictionary thread changes with the final frontend state.
+2. Keep `mapping_v2` origin cache until Phase 3 validation proves frontend passes without it.
+3. If PRG promotion resumes, run both PRG tests and frontend asset validation before deploying generated manifests.
 
 ## 不要重做 / 不要改的東西
 
@@ -100,3 +105,7 @@
 - Result: pass after replacing stale event fixture with a current manifest-listed production video lesson.
 - Command: `flutter test test/core/korean_v2_production_validation_test.dart test/repositories/event_repository_test.dart test/repositories/event_repository_integration_test.dart && flutter analyze`
 - Result: pass after real Korean v2 production validation slice.
+- Command: `python -m unittest tests/test_prg_frontend_contract.py tests/test_prg_provenance_bridge.py tests/test_frontend_asset_bridge.py -v`
+- Result: pass after PRG/frontend handoff path fix.
+- Command: `python scripts/sync_frontend_assets.py --validate-only`
+- Result: pass; invokes frontend `make validate-assets`, which passes `test/core/asset_integrity_test.dart`.

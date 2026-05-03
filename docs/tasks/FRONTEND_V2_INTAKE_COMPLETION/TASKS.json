@@ -20,7 +20,7 @@
       "id": "frontend-v2-intake-03",
       "title": "Refactor study lesson discovery and loading",
       "description": "Move study lesson metadata/body path resolution behind the accepted resolver boundary and remove hardcoded modular lesson discovery as an independent truth source.",
-      "status": "pending"
+      "status": "in_progress"
     },
     {
       "id": "frontend-v2-intake-04",

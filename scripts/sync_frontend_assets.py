@@ -11,6 +11,7 @@ the long-term release path should move these writes behind PRG.
 from __future__ import annotations
 
 import argparse
+import shutil
 import subprocess
 import sys
 from pathlib import Path
@@ -19,6 +20,11 @@ from pathlib import Path
 SCRIPT_DIR = Path(__file__).resolve().parent
 RELEASE_AGGREGATOR_ROOT = SCRIPT_DIR.parent
 LINGO_ROOT = RELEASE_AGGREGATOR_ROOT.parent
+DEFAULT_STAGING_ROOT = RELEASE_AGGREGATOR_ROOT / "staging" / "frontend_asset_bridge"
+
+PRODUCTION_REL = Path("assets/content/production")
+GRAMMAR_REL = Path("assets/content/grammar")
+VIDEO_METADATA_REL = Path("assets/config/video_metadata.json")
 
 
 def run(command: list[str], cwd: Path) -> None:
@@ -32,6 +38,36 @@ def existing_dir(path: Path, label: str) -> Path:
     if not resolved.is_dir():
         raise SystemExit(f"{label} not found: {resolved}")
     return resolved
+
+
+def copy_tree(source: Path, target: Path) -> None:
+    if target.exists():
+        shutil.rmtree(target)
+    shutil.copytree(source, target)
+
+
+def copy_file(source: Path, target: Path) -> None:
+    target.parent.mkdir(parents=True, exist_ok=True)
+    shutil.copy2(source, target)
+
+
+def prepare_worktree(frontend_repo: Path, staging_root: Path) -> Path:
+    worktree = staging_root / "worktree"
+    if worktree.exists():
+        shutil.rmtree(worktree)
+
+    for rel_path in [PRODUCTION_REL, GRAMMAR_REL]:
+        copy_tree(frontend_repo / rel_path, worktree / rel_path)
+    copy_file(frontend_repo / VIDEO_METADATA_REL, worktree / VIDEO_METADATA_REL)
+    return worktree
+
+
+def deploy_from_worktree(worktree: Path, frontend_repo: Path, *, deploy_video: bool, deploy_grammar: bool) -> None:
+    if deploy_video:
+        copy_tree(worktree / PRODUCTION_REL, frontend_repo / PRODUCTION_REL)
+        copy_file(worktree / VIDEO_METADATA_REL, frontend_repo / VIDEO_METADATA_REL)
+    if deploy_grammar:
+        copy_tree(worktree / GRAMMAR_REL, frontend_repo / GRAMMAR_REL)
 
 
 def parse_args() -> argparse.Namespace:
@@ -55,6 +91,12 @@ def parse_args() -> argparse.Namespace:
         type=Path,
         default=LINGO_ROOT / "lingo-frontend-web",
         help="Path to lingo-frontend-web repo.",
+    )
+    parser.add_argument(
+        "--staging-root",
+        type=Path,
+        default=DEFAULT_STAGING_ROOT,
+        help="Local staging root used before deploying allowed asset paths into the frontend repo.",
     )
     parser.add_argument(
         "--validate-only",
@@ -83,13 +125,17 @@ def main() -> int:
     if args.validate_only:
         print("validate-only mode: skipping asset sync steps.", flush=True)
     else:
+        staging_root = args.staging_root.resolve()
+        worktree = prepare_worktree(frontend_repo, staging_root)
+        print(f"staging frontend asset worktree: {worktree}", flush=True)
+
         if not args.skip_video:
             run(
                 [
                     "make",
                     "sync-video-frontend",
                     f"CONTENT_REPO={content_ko_repo}",
-                    f"FRONTEND_REPO={frontend_repo}",
+                    f"FRONTEND_REPO={worktree}",
                 ],
                 content_pipeline_repo,
             )
@@ -100,10 +146,17 @@ def main() -> int:
                     "python3",
                     "scripts/ops/export_frontend_grammar.py",
                     "--frontend-repo",
-                    str(frontend_repo),
+                    str(worktree),
                 ],
                 content_ko_repo,
             )
+
+        deploy_from_worktree(
+            worktree,
+            frontend_repo,
+            deploy_video=not args.skip_video,
+            deploy_grammar=not args.skip_grammar,
+        )
 
     print(
         "\nDictionary and learning-library assets are validation-gated here but "

@@ -26,7 +26,7 @@
       "id": "frontend-v2-intake-04",
       "title": "Align dictionary runtime to v2 contract",
       "description": "Unify dictionary hub, overlay, and lesson lookup around one v2-aware adapter. Keep legacy packaged files only as an explicit compatibility layer.",
-      "status": "pending"
+      "status": "completed"
     },
     {
       "id": "frontend-v2-intake-05",

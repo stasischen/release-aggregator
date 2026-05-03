@@ -112,3 +112,30 @@ Runtime spot-check after export:
 - Should the frontend hide row-level origin entirely when `entry_refs.origin` exists?
 - Should search result grouping use `homograph_key` as the UI candidate key?
 - Should legacy `mapping.json` be deprecated from runtime lookup once `mapping_v2` adapter is complete?
+
+## Frontend Intake Response
+
+Frontend commit: `5abcc31c feat: load dictionary mapping v2 candidates`
+
+The frontend adapter now treats `mapping_v2.json` as the primary lookup source and retains the full candidate model. This matches the dictionary-side contract assumptions above.
+
+Frontend implementation notes:
+
+- `mapping_v2.json` is primary.
+- `mapping.json` is fallback only when `mapping_v2.json` is missing from the manifest or fails to load.
+- Candidate lists are preserved; the adapter no longer collapses lookup to a single atom ID internally.
+- `entry_refs`, `sense_refs`, `homograph_key`, `origin`, and `row_origin` are parsed and retained.
+- Existing UI APIs remain compatible by returning candidates in `mapping_v2` order.
+- `entry_no` is not treated as a global ID.
+
+Dictionary-side answers to frontend open questions:
+
+- `homograph_key`: The current `content-pipeline/scripts/export_bridge_dictionary.py` exporter emits `homograph_key` for every candidate as `{surface}|{pos}|{atom_id}`. Frontend fallback to `atom_id` is still appropriate defensive behavior for older or malformed fixture data.
+- `entry_no`: Treat as string/number tolerant at intake. Source inventory is intended to normalize entry numbers as integers, but the public contract should allow either JSON number or string because historical fixtures and hand-authored patches have used both.
+- `sense_id`: Treat as atom-local only. It is stable within one atom definition, but must not become a global lookup key. Use it together with `atom_id` and, when relevant, `entry_no`.
+
+Additional adapter assumptions after frontend intake:
+
+- Candidate identity should prefer `homograph_key` when present, otherwise fall back to `atom_id`.
+- UI disambiguation should operate over candidate lists, not over raw surface strings.
+- Per-entry display should prefer `entry_refs.origin` / `sense_refs.origin`; row-level origin remains a fallback only.

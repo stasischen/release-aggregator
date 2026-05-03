@@ -8,7 +8,7 @@
       "id": "frontend-v2-intake-01",
       "title": "Inventory frontend data-flow and path coupling",
       "description": "Map study, dictionary, grammar, learning-library, PRG, and production asset flows. Identify every direct production path coupling and classify required vs legacy compatibility.",
-      "status": "pending"
+      "status": "completed"
     },
     {
       "id": "frontend-v2-intake-02",

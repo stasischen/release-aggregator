@@ -5,7 +5,7 @@
 PYTHON = python
 SCRIPTS = scripts
 
-.PHONY: help gsd sync-tasks ingest-ko check test-prg check-tlg check-tlg-unit gen-tlg-unit check-tlg-unit-llm emit-gemini-prompts run-gemini-unit-demo
+.PHONY: help gsd sync-tasks ingest-ko check test-prg sync-frontend-assets validate-frontend-assets check-tlg check-tlg-unit gen-tlg-unit check-tlg-unit-llm emit-gemini-prompts run-gemini-unit-demo
 
 help:
 	@echo "Available commands:"
@@ -14,6 +14,8 @@ help:
 	@echo "  make ingest-ko    - Unified ingestion for Korean (pull lllo -> ingest -> pipeline)"
 	@echo "  make check        - Run dictionary and content quality gates"
 	@echo "  make test-prg     - Run PRG contract and provenance tests"
+	@echo "  make sync-frontend-assets - Sync stable frontend assets and validate them"
+	@echo "  make validate-frontend-assets - Run frontend asset validation without syncing"
 	@echo "  make check-tlg    - Run TLG pattern library gate (TLG-004/TLG-006)"
 	@echo "  make gen-tlg-unit - Generate unit_blueprint_v1 draft from TLG-005 input"
 	@echo "  make check-tlg-unit - Validate unit_blueprint_v1 draft with TLG-006 rules"
@@ -35,6 +37,12 @@ check:
 
 test-prg:
 	$(PYTHON) -m unittest discover -s tests -p "test_prg*.py" -v
+
+sync-frontend-assets:
+	$(PYTHON) $(SCRIPTS)/sync_frontend_assets.py
+
+validate-frontend-assets:
+	$(PYTHON) $(SCRIPTS)/sync_frontend_assets.py --validate-only
 
 check-tlg:
 	$(PYTHON) $(SCRIPTS)/tlg006_pattern_gate.py \

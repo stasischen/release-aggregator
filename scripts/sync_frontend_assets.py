@@ -38,6 +38,7 @@ DICTIONARY_FILES = (
     Path("i18n/dict_ko_zh_tw.json"),
     Path("i18n/Strings_zh_tw.json"),
     Path("i18n/mapping.json"),
+    Path("i18n/mapping_v2.json"),
 )
 
 
@@ -226,6 +227,7 @@ def sync_dictionary_assets(worktree: Path, dictionary_source: Path) -> None:
             "dict_ko_zh_tw.json",
             "Strings_zh_tw.json",
             "mapping.json",
+            "mapping_v2.json",
         ],
     }
     manifest["modules"] = modules

@@ -21,6 +21,7 @@ class FrontendAssetBridgeTests(unittest.TestCase):
             self.assertIn("dictionary bridge source is incomplete", str(raised.exception))
             self.assertIn("dictionary_core.json", str(raised.exception))
             self.assertIn("Strings_zh_tw.json", str(raised.exception))
+            self.assertIn("mapping_v2.json", str(raised.exception))
 
     def test_dictionary_sync_copies_assets_and_preserves_manifest_modules(self) -> None:
         with tempfile.TemporaryDirectory() as tmp:
@@ -40,7 +41,7 @@ class FrontendAssetBridgeTests(unittest.TestCase):
             self.assertEqual(manifest["modules"]["dictionary"]["core"], "dictionary_core.json")
             self.assertEqual(
                 manifest["modules"]["dictionary"]["i18n"],
-                ["dict_ko_zh_tw.json", "Strings_zh_tw.json", "mapping.json"],
+                ["dict_ko_zh_tw.json", "Strings_zh_tw.json", "mapping.json", "mapping_v2.json"],
             )
             self.assertIn("video", manifest["modules"])
             self.assertNotEqual(manifest["updated_at"], "2026-05-03T00:00:00+00:00")

@@ -40,6 +40,22 @@ release or code change decision.
 Do not keep task state only in chat. For persistent work, create or update artifacts
 under `docs/tasks/`, `docs/handoffs/`, or `docs/worklogs/`.
 
+## Thread Hygiene Rule
+
+Proactively suggest starting a new thread when the current conversation becomes long,
+dirty, or cross-milestone. Common triggers:
+
+- The thread has completed one or more major milestones and the next request starts a new theme.
+- Multiple agents or sibling repos have concurrent dirty state.
+- Earlier decisions in chat have been superseded by newer repo artifacts.
+- The task is shifting from implementation to UI completeness, product QA, architecture review,
+  or final checklist.
+- You need to repeatedly re-read old chat context to avoid stale assumptions.
+
+Before recommending a new thread, produce and persist a `Handoff Summary` for the active
+task when possible. Include completed work, current decisions, important context, relevant
+files, unresolved questions, next steps, and explicit "do not redo / do not change" notes.
+
 ## Routine Skills
 
 Use repo-local skills in `.agent/skills/` for repeated workflows:

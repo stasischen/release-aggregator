@@ -1,13 +1,12 @@
 import os
 import json
-import re
-import sys
 
 # 設定路徑 (以 release-aggregator 根目錄為基準)
 # 腳本預期在 release-aggregator/scripts 下執行，或從根目錄執行
 BASE_DIR = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
 TASK_DIR = os.path.join(BASE_DIR, "docs", "tasks")
 INDEX_FILE = os.path.join(TASK_DIR, "TASK_INDEX.md")
+DONE_STATUSES = {"done", "completed", "complete", "DONE", "COMPLETED", "COMPLETE"}
 
 def get_task_status(json_path):
     """讀取 JSON 檔案並計算任務進度 (DONE/TOTAL)"""
@@ -22,10 +21,22 @@ def get_task_status(json_path):
     if not tasks:
         return None
     
-    done_count = sum(1 for t in tasks if t.get("status") in ["DONE", "COMPLETED", "done"])
+    done_count = sum(1 for t in tasks if t.get("status") in DONE_STATUSES)
     total_count = len(tasks)
     
     return f"{done_count}/{total_count} tasks"
+
+def extract_json_filename(cell):
+    marker = "[JSON]("
+    start = cell.find(marker)
+    if start == -1:
+        return None
+    start += len(marker)
+    end = cell.find(")", start)
+    if end == -1:
+        return None
+    filename = cell[start:end]
+    return filename if filename.endswith(".json") else None
 
 def update_index():
     """更新 TASK_INDEX.md 中的進度欄位"""
@@ -39,36 +50,32 @@ def update_index():
     lines = content.splitlines()
     updated_lines = []
     
-    # 正規表達式說明：
-    # 1. | ID | Description | Phase | Progress | [JSON](FILE.json) |
-    # 2. 擷取 ID, 當前 Progress, 以及 JSON 檔名
-    # 範例：| MAPPING_DICTIONARY | ... | A2 | 8/14 tasks | [JSON](MAPPING_DICTIONARY_TASKS.json) |
-    pattern = re.compile(r'\|\s*([A-Z0-9_-]+)\s*\|[^|]*\|[^|]*\|\s*([^|]*tasks[^|]*|Backlog|Pending)\s*\|\s*\[JSON\]\(([^)]+\.json)\)', re.IGNORECASE)
-
     change_count = 0
+    current_headers = None
     for line in lines:
         new_line = line
-        match = pattern.search(line)
-        if match:
-            task_id = match.group(1)
-            current_progress = match.group(2).strip()
-            json_filename = match.group(3)
-            
-            json_path = os.path.join(TASK_DIR, json_filename)
-            if os.path.exists(json_path):
-                new_progress = get_task_status(json_path)
-                if new_progress and new_progress != current_progress:
-                    print(f"Updating {task_id}: {current_progress} -> {new_progress}")
-                    # 使用 replace 且確保只替換 Progress 部分
-                    # 重新組合該列或使用更精確的 replace
-                    new_line = line.replace(f" {current_progress} ", f" {new_progress} ")
-                    # 如果 replace 失敗 (可能是空格不對)，改用分割替換
-                    if new_line == line:
-                         parts = line.split('|')
-                         if len(parts) >= 5:
-                             parts[4] = f" {new_progress} "
-                             new_line = "|".join(parts)
-                    change_count += 1
+
+        if line.startswith("|") and "Task" in line and "檔案" in line:
+            current_headers = [cell.strip() for cell in line.strip("|").split("|")]
+        elif line.startswith("|") and current_headers and not set(line.replace("|", "").strip()) <= {":", "-", " "}:
+            cells = [cell.strip() for cell in line.strip("|").split("|")]
+            if len(cells) == len(current_headers):
+                header_index = {name: idx for idx, name in enumerate(current_headers)}
+                progress_idx = header_index.get("進度")
+                files_idx = header_index.get("檔案")
+                task_idx = header_index.get("TASK_ID", header_index.get("Task ID"))
+                if progress_idx is not None and files_idx is not None and task_idx is not None:
+                    json_filename = extract_json_filename(cells[files_idx])
+                    if json_filename:
+                        json_path = os.path.join(TASK_DIR, json_filename)
+                        if os.path.exists(json_path):
+                            current_progress = cells[progress_idx]
+                            new_progress = get_task_status(json_path)
+                            if new_progress and new_progress != current_progress:
+                                print(f"Updating {cells[task_idx]}: {current_progress} -> {new_progress}")
+                                cells[progress_idx] = new_progress
+                                new_line = "| " + " | ".join(cells) + " |"
+                                change_count += 1
         
         updated_lines.append(new_line)
 

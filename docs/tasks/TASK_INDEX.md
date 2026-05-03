@@ -189,6 +189,7 @@ Layer 5: Legacy Backfill
 - `docs/tasks/` 根層：active working set，放正在執行的 plan、tasks、verification、walkthrough
 - `docs/tasks/assets/`：可重用的 reference、spec、schema、contract、guide、mockup
 - `docs/tasks/` active task 表中的 `DeepSeek` 欄位用來標示預設 routing：`flash` = 起草/掃描/整理，`flash -> pro` = 先整理再決策，`pro` = 直接決策/review/root-cause
+- 開工前可用 `python scripts/check_task_readiness.py <TASK_ID>` 檢查 ready / blocked subtasks
 - `docs/tasks/archive/`：已完成或封存的歷史文件
 - `docs/tasks/machines/*.json`：每台電腦本機的 gitignored claim 記錄，用來標示目前身份與正在處理的 task
 - `docs/tasks/MACHINE_STATUS.md`：共享的 machine claim 摘要，用來讓其他電腦快速看見誰正在做什麼

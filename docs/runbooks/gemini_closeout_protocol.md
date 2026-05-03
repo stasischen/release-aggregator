@@ -111,7 +111,7 @@ git push origin main
 3. **不要覆蓋已有內容。**
 4. **不要重寫標題 `# Daily Worklog`**（它已經存在）。
 
-### Step 2.5: Closeout Checklist（release-aggregator）
+## Step 4: Closeout Checklist（release-aggregator）
 若本次 session 在 `release-aggregator` 執行，收工前必須逐項確認：
 1. Worklog 已 append 到 `docs/worklogs/YYYY-MM-DD.md`（不可寫到其他位置）。
 2. 本 phase touched repo 的 `STATE.md` 已同步（若本 repo 即 release-aggregator，檢查 `.planning/STATE.md`）。
@@ -120,7 +120,7 @@ git push origin main
 5. 本機 machine claim 已更新為 `idle` / `done`，且 `docs/tasks/MACHINE_STATUS.md` 已同步。
 6. **Encoding 檢查**: 檢查本次撰寫/修改的 Script 是否誤植 Emoji 或特殊 Unicode（建議使用 `grep -P "[^\x00-\x7F]" <files>`）。
 
-## Step 3: 輸出收工報告
+## Step 5: 輸出收工報告
 
 向使用者展示簡明的收工摘要：
 
@@ -141,7 +141,7 @@ next_actions:
   - <待辦 1>
 ```
 
-### Step 3.5: 下一階段交接輸出（Mandatory for phase workflow）
+## Step 6: 下一階段交接輸出（Mandatory for phase workflow）
 Agent 在每次流程結束時，必須額外輸出三段：
 
 1. `commit_reminder`
@@ -192,7 +192,7 @@ handoff_summary:
 
 若未輸出上述三段，收工視為不完整。
 
-## Step 4: 選擇性執行 Repo 專用檢查
+## Step 7: 選擇性執行 Repo 專用檢查
 
 根據 touched repo 執行對應的 closeout 子協議：
 

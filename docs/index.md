@@ -13,19 +13,21 @@ Welcome to the central documentation hub for the Lingo multi-repo system.
 
 | Date | File |
 | :--- | :--- |
-| 2026-04-21 | [2026-04-21.md](worklogs/2026-04-21.md) |
-| 2026-04-20 | [2026-04-20.md](worklogs/2026-04-20.md) |
-| 2026-04-19 | [2026-04-19.md](worklogs/2026-04-19.md) |
-| 2026-04-18 | [2026-04-18.md](worklogs/2026-04-18.md) |
-| 2026-04-17 | [2026-04-17.md](worklogs/2026-04-17.md) |
-| 2026-04-16 | [2026-04-16.md](worklogs/2026-04-16.md) |
-| 2026-04-11 | [2026-04-11.md](worklogs/2026-04-11.md) |
-| 2026-04-04 | [2026-04-04.md](worklogs/2026-04-04.md) |
-| 2026-02-15 | [2026-02-15.md](worklogs/2026-02-15.md) |
+| 2026-05-03 | [2026-05-03.md](worklogs/2026-05-03.md) |
+| 2026-05-02 | [2026-05-02.md](worklogs/2026-05-02.md) |
+| 2026-05-01 | [2026-05-01.md](worklogs/2026-05-01.md) |
+| 2026-04-30 | [2026-04-30.md](worklogs/2026-04-30.md) |
+| 2026-04-29 | [2026-04-29.md](worklogs/2026-04-29.md) |
+| 2026-04-28 | [2026-04-28.md](worklogs/2026-04-28.md) |
+| 2026-04-27 | [2026-04-27.md](worklogs/2026-04-27.md) |
+| 2026-04-26 | [2026-04-26.md](worklogs/2026-04-26.md) |
+| 2026-04-25 | [2026-04-25.md](worklogs/2026-04-25.md) |
+| 2026-04-24 | [2026-04-24.md](worklogs/2026-04-24.md) |
 
 > [!TIP]
 > Worklog 唯一存放處：`docs/worklogs/YYYY-MM-DD.md`。
 > 所有 Repo 的收工協議 (`/wrap`) 都會自動寫入此處。
+> 若 recent list 過期，執行 `python scripts/update_recent_worklogs.py`。
 
 ## 🎯 Task Registry (任務總表)
 

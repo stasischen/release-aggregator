@@ -7,6 +7,7 @@
 - Implemented first study resolver slice in `lingo-frontend-web`.
 - Frontend commit: `563181ed feat: resolve study lessons from frontend contract`.
 - Frontend commit: `5193205e feat: resolve event lessons from frontend contract`.
+- Frontend commit: `01f6a399 feat: resolve modular study artifacts from contract`.
 - Prior dictionary mapping v2 frontend commit remains baseline: `5abcc31c feat: load dictionary mapping v2 candidates`.
 
 ## 目前決策
@@ -23,7 +24,9 @@
 - `LessonRegistryRepository` now loads manifest/study discovery through `FrontendContentContractResolver`.
 - `LessonRegistryRepository` can refine discovery metadata with manifest-listed lesson body metadata.
 - `EventRepository` now uses `FrontendContentContractResolver` for manifest lookup and fallback lesson body path loading.
-- `I18nOverlayService`, `VideoRepository`, `ModularLessonRepository`, and seed repositories still have direct `StudyContentLocator` usage.
+- `ModularLessonRepository` now uses `FrontendContentContractResolver.resolveLessonBodyPath()`.
+- `ProjectionSeedRepository` now uses resolver-owned p1/p2 sibling artifact paths derived from manifest `path`.
+- Remaining direct `StudyContentLocator` usage is now limited to `I18nOverlayService`, `VideoRepository`, and resolver fallback.
 - The current `frontend-v2-intake-03` task is in progress, not complete, because those runtime call sites are not fully migrated.
 
 ## DeepSeek Model
@@ -53,9 +56,10 @@
 ## 下一步
 
 1. Inventory remaining direct `StudyContentLocator` runtime call sites.
-2. Decide whether `ModularLessonRepository` and projection seed repositories should share explicit resolver methods for `lesson_content.v1.json`, `p1_seed.v1.json`, and `p2_seed.v1.json`.
-3. Update the stale `EventRepository` test fixture to a current manifest-listed asset or move event coverage to resolver-level tests.
-4. Re-run targeted repository tests and `flutter analyze`.
+2. Decide whether `I18nOverlayService` should become resolver-aware or stay as explicit legacy overlay compatibility.
+3. Decide whether `VideoRepository` should use manifest `path` for core video assets and resolver-derived i18n overlay paths.
+4. Update the stale `EventRepository` test fixture to a current manifest-listed asset or move event coverage to resolver-level tests.
+5. Re-run targeted repository tests and `flutter analyze`.
 
 ## 不要重做 / 不要改的東西
 
@@ -66,10 +70,8 @@
 
 ## Latest Validation
 
-- Command: `flutter test test/features/study/data/repositories/lesson_registry_repository_test.dart test/core/asset_integrity_test.dart`
-- Result: pass.
 - Command: `flutter test test/features/study/data/repositories/lesson_registry_repository_test.dart test/core/asset_integrity_test.dart && flutter analyze`
-- Result: pass.
+- Result: pass after modular artifact resolver slice.
 - Command: `flutter test test/repositories/event_repository_test.dart`
 - Result: fails because `ko_l1_dialogue_a1_01` is not present in the current production manifest.
 - Command: `flutter test test/features/video/data/video_repository_test.dart test/features/study/presentation/screens/modular_lesson_runtime_screen_test.dart`

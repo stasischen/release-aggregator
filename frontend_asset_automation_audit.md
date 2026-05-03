@@ -17,11 +17,11 @@ The automation already exists but is **fragmented across three repos and partial
 | Script | Repo | Assets it already produces/copies | Notes |
 |---|---|---|---|
 | `pipelines/learning_library.py --v2` | content-pipeline | `dictionary_core.json`, `dict_ko_zh_tw.json`, `manifest.json` (package), learning_library artifacts under `artifacts/` | Reads from `content-ko/content_v2/inventory/dictionary/manifest.json`. Writes to `--out` dir. Key script. |
-| `scripts/sync_video_to_frontend.py` | content-pipeline | `video/core/*.json`, `i18n/zh_tw/video/*.json`, `manifest.json` (package, video module), `manifest.json` (production, lessons list), `video_metadata.json` | Reads `content-ko/content/core/video/` + `content-ko/content/i18n/`. Directly writes into `lingo-frontend-web/assets/`. |
+| `scripts/sync_video_to_frontend.py` | content-pipeline | `video/core/*.json`, `i18n/zh_tw/video/*.json`, `video_metadata.json` | Reads `content-ko/content/core/video/` + `content-ko/content/i18n/`. The release-aggregator bridge passes a staging worktree as `FRONTEND_REPO`; manifest merge is owned by release-aggregator. |
 | `scripts/handoff/export_frontend_intake.py` | content-pipeline | `dictionary_core.json`, `dict_ko_zh_tw.json`, `Strings_zh_tw.json`, `mapping.json`, `manifest.json` (package) | Reads from release-aggregator staging handoffs. Writes to an output-root. |
 | `scripts/ops/export_to_app.py` | content-ko | `dictionary_core.json`, `dict_ko_zh_tw.json`, `mapping.json`, dialogue yarn files, grammar notes, package manifest | Reads V2 inventory. Writes directly into `lingo-frontend-web/assets/`. Runs `aggregate_dictionary()` + `aggregate_dialogues()` + `sync_grammar()`. |
 | `scripts/sync_learning_library.sh` | lingo-frontend-web | Learning library artifacts (`sources_index.json`, `sentences.json`, etc.) | Wrapper around `rsync` from `content-pipeline/dist/ko/` to `assets/artifacts/learning_library/ko/`. Functional. |
-| `scripts/sync_content.sh` | lingo-frontend-web | Dialogue files under `packages/ko/dialogue/` | Reads from `release-aggregator/staging/`. Only covers dialogue. |
+| `scripts/sync_content.sh` | lingo-frontend-web | Compatibility redirect | Deprecated wrapper that redirects to `cd ../release-aggregator && make sync-frontend-assets`. |
 | `pipelines/build.py` | content-pipeline | Dialogue tokenized JSON, video core + i18n copies (to staging) | Reads `content-ko/content/core/dialogue/` + video. Writes to staging dir. Requires engine. |
 | `main.py run --v2` | content-pipeline | Unified: runs verify, V2 export, packaging | The `--v2` flag delegates build to `learning_library.py --v2`. |
 
@@ -31,16 +31,16 @@ The automation already exists but is **fragmented across three repos and partial
 
 | Script | Repo | Problem |
 |---|---|---|
-| `tools/scripts/sync_manifest.py` | lingo-frontend-web | Scans `assets/content/{lang}/dialogue/*.json` — path no longer exists. Outputs to `assets/config/universal_manifest.json` (wrong target). Hardcoded lesson IDs for `ko_l0_001_hangul_1` etc. **STALE** |
-| `scripts/tools/generate_zh_tw.py` | content-ko | Hardcoded Windows path (`e:\Githubs\lingo\...`). Writes directly to frontend's `dict_ko_zh_tw.json` with hardcoded translation map. **UNSAFE** |
-| `scripts/tools/generate_en.py` | content-ko | Same Windows hardcode pattern. **UNSAFE** |
+| `tools/scripts/sync_manifest.py` | lingo-frontend-web | Removed after direct-write inventory review. |
+| `scripts/tools/generate_zh_tw.py` | content-ko | Removed after direct-write inventory review. |
+| `scripts/tools/generate_en.py` | content-ko | Removed after direct-write inventory review. |
 | `scripts/tools/generate_mapping_patch.py` | content-ko | References `proposed_core.json` (file not present in repo). Windows hardcoded path. **UNSAFE/STALE** |
 | `scripts/tools/generate_dictionary_core.py` | content-ko | Generates individual atom files under `content/core/dictionary/atoms/`, NOT the consolidated `dictionary_core.json` the frontend needs. **MISLEADING NAME** |
 | `scripts/tools/generate_dictionary_i18n.py` | content-ko | Same: individual i18n atom files, not the frontend payload. **MISLEADING NAME** |
 | `scripts/build.sh` | content-pipeline | Runs `python3 scripts/build.py` — but `build.py` is in `pipelines/`, not `scripts/`. **BROKEN** |
 | `Makefile` `sync-prod` target | content-ko | Runs `generate_dictionary_core.py` + `generate_dictionary_i18n.py` which produce atom files, not frontend payloads. **MISLEADING TARGET NAME** |
 | `enrich_a1_atoms.py` | lingo-frontend-web | One-off repair script. **ARCHIVE** after automation is live. |
-| `finalize_a1_assets.py` | lingo-frontend-web | One-off repair script. **ARCHIVE** after automation is live. |
+| `finalize_a1_assets.py` | lingo-frontend-web | Removed one-off repair script. |
 
 ---
 
@@ -181,12 +181,12 @@ ci-preflight:
 
 - **Risk**: Low (only affects scripts already identified as stale)
 - **Files to archive**:
-  - `content-ko/scripts/tools/generate_zh_tw.py`
-  - `content-ko/scripts/tools/generate_en.py`
+  - `content-ko/scripts/tools/generate_zh_tw.py` (removed)
+  - `content-ko/scripts/tools/generate_en.py` (removed)
   - `content-ko/scripts/tools/generate_mapping_patch.py`
-  - `lingo-frontend-web/tools/scripts/sync_manifest.py`
+  - `lingo-frontend-web/tools/scripts/sync_manifest.py` (removed)
   - `lingo-frontend-web/enrich_a1_atoms.py`
-  - `lingo-frontend-web/finalize_a1_assets.py`
+  - `lingo-frontend-web/finalize_a1_assets.py` (removed)
 - **Rename**: Add `.archived` suffix or move to an `archive/` directory.
 - **Why after T5**: Parity audit confirms the replacement scripts work before retiring the old ones.
 
@@ -319,9 +319,9 @@ lingo-frontend-web: flutter test test/core/asset_integrity_test.dart
 - `/Users/ywchen/Dev/lingo/content-ko/Makefile`
 - `/Users/ywchen/Dev/lingo/content-ko/scripts/tools/generate_dictionary_core.py`
 - `/Users/ywchen/Dev/lingo/content-ko/scripts/tools/generate_dictionary_i18n.py`
-- `/Users/ywchen/Dev/lingo/content-ko/scripts/tools/generate_zh_tw.py`
+- `/Users/ywchen/Dev/lingo/content-ko/scripts/tools/generate_zh_tw.py` (removed)
 - `/Users/ywchen/Dev/lingo/content-ko/scripts/tools/generate_mapping_patch.py`
-- `/Users/ywchen/Dev/lingo/content-ko/scripts/tools/generate_en.py`
+- `/Users/ywchen/Dev/lingo/content-ko/scripts/tools/generate_en.py` (removed)
 - `/Users/ywchen/Dev/lingo/content-ko/scripts/tools/validate_dictionary_schema.py`
 - `/Users/ywchen/Dev/lingo/content-ko/scripts/ops/export_to_app.py`
 - `/Users/ywchen/Dev/lingo/content-ko/scripts/ops/build_unified_content_release_manifest.py`
@@ -331,9 +331,9 @@ lingo-frontend-web: flutter test test/core/asset_integrity_test.dart
 - `/Users/ywchen/Dev/lingo/release-aggregator/docs/guides/RELEASE_ASSET_STRATEGY.md`
 
 **lingo-frontend-web:**
-- `/Users/ywchen/Dev/lingo/lingo-frontend-web/scripts/sync_content.sh`
+- `/Users/ywchen/Dev/lingo/lingo-frontend-web/scripts/sync_content.sh` (deprecated redirect)
 - `/Users/ywchen/Dev/lingo/lingo-frontend-web/scripts/sync_learning_library.sh`
-- `/Users/ywchen/Dev/lingo/lingo-frontend-web/tools/scripts/sync_manifest.py`
+- `/Users/ywchen/Dev/lingo/lingo-frontend-web/tools/scripts/sync_manifest.py` (removed)
 - `/Users/ywchen/Dev/lingo/lingo-frontend-web/scripts/ci_preflight.sh`
 - `/Users/ywchen/Dev/lingo/lingo-frontend-web/test/core/asset_integrity_test.dart`
 - `/Users/ywchen/Dev/lingo/lingo-frontend-web/test/content/content_validation_test.dart`

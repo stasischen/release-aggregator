@@ -94,13 +94,13 @@
   - manifest_schema_pass == true
   - provenance_fields_complete == true
 
-## STAGE-06 (lingo-frontend-web): Intake + Runtime Verify
-- owner_repo: lingo-frontend-web
+## STAGE-06 (release-aggregator + lingo-frontend-web): Intake + Runtime Verify
+- owner_repo: release-aggregator
 - consumer_repo: production runtime
 - inputs:
-  - `release-aggregator/staging/vX.Y.Z/**`
+  - `release-aggregator/staging/frontend_asset_bridge/worktree/**`
 - command:
-  - `./scripts/sync_content.sh --version vX.Y.Z`
+  - `cd ../release-aggregator && make sync-frontend-assets`
   - `flutter test test/core/asset_integrity_test.dart`
   - `flutter test test/repositories/event_repository_integration_test.dart`
 - outputs:

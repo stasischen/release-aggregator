@@ -5,7 +5,7 @@
 PYTHON = python
 SCRIPTS = scripts
 
-.PHONY: help gsd sync-tasks ingest-ko check test-prg sync-frontend-assets validate-frontend-assets check-tlg check-tlg-unit gen-tlg-unit check-tlg-unit-llm emit-gemini-prompts run-gemini-unit-demo
+.PHONY: help gsd sync-tasks ingest-ko check test-prg test-frontend-asset-bridge sync-frontend-assets sync-frontend-assets-dry-run validate-frontend-assets check-tlg check-tlg-unit gen-tlg-unit check-tlg-unit-llm emit-gemini-prompts run-gemini-unit-demo
 
 help:
 	@echo "Available commands:"
@@ -14,7 +14,9 @@ help:
 	@echo "  make ingest-ko    - Unified ingestion for Korean (pull lllo -> ingest -> pipeline)"
 	@echo "  make check        - Run dictionary and content quality gates"
 	@echo "  make test-prg     - Run PRG contract and provenance tests"
+	@echo "  make test-frontend-asset-bridge - Run frontend asset bridge unit tests"
 	@echo "  make sync-frontend-assets - Sync stable frontend assets and validate them"
+	@echo "  make sync-frontend-assets-dry-run - Stage stable frontend assets without deployment"
 	@echo "  make validate-frontend-assets - Run frontend asset validation without syncing"
 	@echo "  make check-tlg    - Run TLG pattern library gate (TLG-004/TLG-006)"
 	@echo "  make gen-tlg-unit - Generate unit_blueprint_v1 draft from TLG-005 input"
@@ -38,8 +40,14 @@ check:
 test-prg:
 	$(PYTHON) -m unittest discover -s tests -p "test_prg*.py" -v
 
+test-frontend-asset-bridge:
+	$(PYTHON) -m unittest tests/test_frontend_asset_bridge.py -v
+
 sync-frontend-assets:
 	$(PYTHON) $(SCRIPTS)/sync_frontend_assets.py
+
+sync-frontend-assets-dry-run:
+	$(PYTHON) $(SCRIPTS)/sync_frontend_assets.py --dry-run
 
 validate-frontend-assets:
 	$(PYTHON) $(SCRIPTS)/sync_frontend_assets.py --validate-only

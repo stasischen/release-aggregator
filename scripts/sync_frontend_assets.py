@@ -2,10 +2,10 @@
 """Orchestrate the current stable frontend asset sync bridge.
 
 This script intentionally wires only generators that are currently safe to run
-against the frontend repo. Dictionary and learning-library regeneration remain
-validated by the frontend asset gate, but are not overwritten here until their
-candidate exporters are promoted. This is a bridge for the current asset flow;
-the long-term release path should move these writes behind PRG.
+against a staged frontend worktree before deploying the allowed asset paths.
+Dictionary sync is opt-in until content-pipeline produces the complete frontend
+runtime package. This is a bridge for the current asset flow; the long-term
+release path should move these writes behind PRG.
 """
 
 from __future__ import annotations
@@ -32,6 +32,13 @@ VIDEO_METADATA_REL = Path("assets/config/video_metadata.json")
 VIDEO_CORE_REL = Path("assets/content/production/packages/ko/video/core")
 PACKAGE_MANIFEST_REL = Path("assets/content/production/packages/ko/manifest.json")
 PRODUCTION_MANIFEST_REL = Path("assets/content/production/manifest.json")
+DEFAULT_DICTIONARY_SOURCE = LINGO_ROOT / "content-pipeline" / "dist" / "ko" / "packages"
+DICTIONARY_FILES = (
+    Path("core/dictionary_core.json"),
+    Path("i18n/dict_ko_zh_tw.json"),
+    Path("i18n/Strings_zh_tw.json"),
+    Path("i18n/mapping.json"),
+)
 
 
 def run(command: list[str], cwd: Path) -> None:
@@ -69,6 +76,13 @@ def copy_tree(source: Path, target: Path) -> None:
 def copy_file(source: Path, target: Path) -> None:
     target.parent.mkdir(parents=True, exist_ok=True)
     shutil.copy2(source, target)
+
+
+def require_files(root: Path, rel_paths: tuple[Path, ...], label: str) -> None:
+    missing = [rel_path for rel_path in rel_paths if not (root / rel_path).is_file()]
+    if missing:
+        formatted = "\n".join(f"  - {root / rel_path}" for rel_path in missing)
+        raise SystemExit(f"{label} is incomplete. Missing files:\n{formatted}")
 
 
 def prepare_worktree(frontend_repo: Path, staging_root: Path) -> Path:
@@ -188,8 +202,47 @@ def update_video_manifests(worktree: Path, langs: list[str]) -> None:
     update_production_manifest(worktree, video_files)
 
 
-def deploy_from_worktree(worktree: Path, frontend_repo: Path, *, deploy_video: bool, deploy_grammar: bool) -> None:
-    if deploy_video:
+def sync_dictionary_assets(worktree: Path, dictionary_source: Path) -> None:
+    source = dictionary_source.resolve()
+    if not source.is_dir():
+        raise SystemExit(f"dictionary source not found: {source}")
+    require_files(source, DICTIONARY_FILES, "dictionary bridge source")
+
+    package_root = worktree / PRODUCTION_REL / "packages" / "ko"
+    for rel_path in DICTIONARY_FILES:
+        copy_file(source / rel_path, package_root / rel_path)
+
+    manifest_path = worktree / PACKAGE_MANIFEST_REL
+    manifest = read_json(manifest_path)
+    original_manifest = copy.deepcopy(manifest)
+    existing_updated_at = manifest.get("updated_at")
+    modules = manifest.get("modules")
+    if not isinstance(modules, dict):
+        raise SystemExit(f"ko package manifest must use modules object: {manifest_path}")
+
+    modules["dictionary"] = {
+        "core": "dictionary_core.json",
+        "i18n": [
+            "dict_ko_zh_tw.json",
+            "Strings_zh_tw.json",
+            "mapping.json",
+        ],
+    }
+    manifest["modules"] = modules
+
+    original_without_timestamp = copy.deepcopy(original_manifest)
+    original_without_timestamp.pop("updated_at", None)
+    next_without_timestamp = copy.deepcopy(manifest)
+    next_without_timestamp.pop("updated_at", None)
+    if original_without_timestamp != next_without_timestamp:
+        manifest["updated_at"] = utc_now()
+    elif existing_updated_at is not None:
+        manifest["updated_at"] = existing_updated_at
+    write_json(manifest_path, manifest)
+
+
+def deploy_from_worktree(worktree: Path, frontend_repo: Path, *, deploy_production: bool, deploy_grammar: bool) -> None:
+    if deploy_production:
         copy_tree(worktree / PRODUCTION_REL, frontend_repo / PRODUCTION_REL)
         copy_file(worktree / VIDEO_METADATA_REL, frontend_repo / VIDEO_METADATA_REL)
     if deploy_grammar:
@@ -244,6 +297,22 @@ def parse_args() -> argparse.Namespace:
         action="store_true",
         help="Skip grammar note export.",
     )
+    parser.add_argument(
+        "--include-dictionary",
+        action="store_true",
+        help="Copy dictionary runtime assets from content-pipeline dist into the staged frontend worktree.",
+    )
+    parser.add_argument(
+        "--dictionary-source",
+        type=Path,
+        default=DEFAULT_DICTIONARY_SOURCE,
+        help="Path containing core/ and i18n/ dictionary runtime files.",
+    )
+    parser.add_argument(
+        "--dry-run",
+        action="store_true",
+        help="Build and validate the staged worktree but do not deploy staged assets into the frontend repo.",
+    )
     return parser.parse_args()
 
 
@@ -285,18 +354,21 @@ def main() -> int:
                 content_ko_repo,
             )
 
-        deploy_from_worktree(
-            worktree,
-            frontend_repo,
-            deploy_video=not args.skip_video,
-            deploy_grammar=not args.skip_grammar,
-        )
+        if args.include_dictionary:
+            sync_dictionary_assets(worktree, args.dictionary_source)
 
-    print(
-        "\nDictionary and learning-library assets are validation-gated here but "
-        "not regenerated by this bridge yet.",
-        flush=True,
-    )
+        if args.dry_run:
+            print(f"dry-run mode: staged assets were not deployed: {worktree}", flush=True)
+        else:
+            deploy_from_worktree(
+                worktree,
+                frontend_repo,
+                deploy_production=(not args.skip_video or args.include_dictionary),
+                deploy_grammar=not args.skip_grammar,
+            )
+
+    if not args.include_dictionary:
+        print("\nDictionary assets were not regenerated; pass --include-dictionary to opt in.", flush=True)
     run(["make", "validate-assets"], frontend_repo)
     return 0
 

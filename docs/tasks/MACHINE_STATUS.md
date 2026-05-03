@@ -13,7 +13,7 @@ Each machine should maintain its own local, gitignored claim JSON under `docs/ta
 | 888 | 888 | - | idle | 2026-04-21 | Released from YT_ATOM_TO_V2_CONTENT |
 | gamer | gamer | SENTENCE_BANK_BATCH_28 | busy | 2026-05-02 | Atomizing Batch 28 (1401-1450) |
 | atg | atg | - | idle | 2026-04-25 | NyCrQ-NZMbg atomization (109 turns) completed and promoted. |
-| mac | mac | AGGREGATOR_SYNC | busy | 2026-05-03 | Merging origin/main and synchronizing repo |
+| mac | mac | - | idle | 2026-05-03 | Aggregator synchronized and pushed to origin |
 
 
 ## Usage Rule

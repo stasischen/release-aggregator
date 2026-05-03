@@ -33,6 +33,7 @@ VIDEO_CORE_REL = Path("assets/content/production/packages/ko/video/core")
 PACKAGE_MANIFEST_REL = Path("assets/content/production/packages/ko/manifest.json")
 PRODUCTION_MANIFEST_REL = Path("assets/content/production/manifest.json")
 DEFAULT_DICTIONARY_SOURCE = LINGO_ROOT / "content-pipeline" / "dist" / "ko" / "packages"
+FRONTEND_STRINGS_REL = Path("assets/content/production/packages/ko/i18n/Strings_zh_tw.json")
 DICTIONARY_FILES = (
     Path("core/dictionary_core.json"),
     Path("i18n/dict_ko_zh_tw.json"),
@@ -357,6 +358,15 @@ def main() -> int:
             )
 
         if args.include_dictionary:
+            run(
+                [
+                    "make",
+                    "export-bridge-dictionary",
+                    f"CONTENT_REPO={content_ko_repo}",
+                    f"STRINGS_SOURCE={frontend_repo / FRONTEND_STRINGS_REL}",
+                ],
+                content_pipeline_repo,
+            )
             sync_dictionary_assets(worktree, args.dictionary_source)
 
         if args.dry_run:

@@ -8,9 +8,10 @@ Prevent agent confusion between active protocol and archived historical docs.
 2. `docs/workflow_map.md`
 3. `docs/runbooks/gemini_startup_protocol.md`
 4. `docs/runbooks/gsd_multi_repo_workflow.md` (跨 Repo 或 phase-based 任務必讀)
-5. `docs/runbooks/gemini_stage_execution_protocol.md`
-6. `docs/runbooks/gemini_closeout_protocol.md`
-7. `docs/ops/stage_contract_matrix_ko.md`
+5. `docs/runbooks/multi_model_task_orchestration.md` (多模型協作、跨 thread、跨電腦任務必讀)
+6. `docs/runbooks/gemini_stage_execution_protocol.md`
+7. `docs/runbooks/gemini_closeout_protocol.md`
+8. `docs/ops/stage_contract_matrix_ko.md`
 
 ## Optional Read (When Comparing Legacy Process)
 - `docs/archive/universal/INDEX.md`

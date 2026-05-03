@@ -47,6 +47,7 @@ Welcome to the central documentation hub for the Lingo multi-repo system.
 - **[Gemini Stage Execution Protocol](runbooks/gemini_stage_execution_protocol.md)** - 單階段執行協議。
 - **[Gemini Closeout Protocol](runbooks/gemini_closeout_protocol.md)** - 收工協議 (/wrap) 主體與分配器。
 - **[Codex <-> Antigravity Orchestration](runbooks/codex_antigravity_orchestration.md)** - 跨機協作與計畫包封協議。
+- **[Multi-Model Task Orchestration](runbooks/multi_model_task_orchestration.md)** - GPT 5.5 / Codex / Gemini / DeepSeek / Qwen 的日常任務分工與封包規範。
 - **[Multi-Model Project Review](review/MULTI_MODEL_PROJECT_REVIEW.md)** - Gemini / DeepSeek / GPT / Codex 分工式架構 review 流程。
 - **[Project Review Packet Template](review/PROJECT_REVIEW_PACKET_TEMPLATE.md)** - 給 GPT 的濃縮 review 包格式。
 - **[Model Input Specs](review/MODEL_INPUT_SPECS.md)** - 給 Gemini、DeepSeek、GPT 的固定輸入規格。

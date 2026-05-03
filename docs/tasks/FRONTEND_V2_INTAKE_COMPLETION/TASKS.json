@@ -32,7 +32,7 @@
       "id": "frontend-v2-intake-05",
       "title": "Add real Korean v2 production validation",
       "description": "Add or update frontend tests to load a real Korean v2-derived fixture and validate lesson display, dictionary lookup, and translation/hydration basics.",
-      "status": "pending"
+      "status": "completed"
     },
     {
       "id": "frontend-v2-intake-06",

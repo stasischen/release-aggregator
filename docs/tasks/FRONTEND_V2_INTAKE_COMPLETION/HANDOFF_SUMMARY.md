@@ -11,6 +11,8 @@
 - Frontend commit: `dbdda4c5 feat: centralize video and overlay content paths`.
 - Prior dictionary mapping v2 frontend commit remains baseline: `5abcc31c feat: load dictionary mapping v2 candidates`.
 - Frontend commit: `99a4b9e6 feat: prefer core dictionary origins`.
+- Frontend commit: `e8972299 test: refresh event repository production fixture`.
+- Frontend commit: `6b72ec1a test: add korean v2 production validation`.
 
 ## 目前決策
 
@@ -40,6 +42,8 @@
 - Remaining direct `StudyContentLocator` usage is limited to resolver compatibility fallback and the locator class itself.
 - `frontend-v2-intake-03` is complete.
 - `frontend-v2-intake-04` is complete.
+- `frontend-v2-intake-05` is complete.
+- `EventRepository` now ignores empty overlay results and falls back to manifest-resolved atom loading.
 
 ## DeepSeek Model
 
@@ -60,16 +64,14 @@
 
 ## 未解問題
 
-- Which real Korean v2 production fixture should become the stable end-to-end validation target.
-- Existing `test/repositories/event_repository_test.dart` uses `ko_l1_dialogue_a1_01`, which is not listed in current `assets/content/production/manifest.json`; update or retire that fixture before treating it as a regression signal.
+- Current real Korean production validation target is `ko_v1_vlog_79Pwq7MTUPE_easy_listening_lesson` for video core/i18n and event repository coverage.
 - Dictionary thread handoff says no runtime contract shape change; frontend keeps `mapping_v2` primary and treats `mapping_v2` origin cache as fallback until the dictionary core-origin migration reaches its Phase 3 validation gate.
 
 ## 下一步
 
-1. Start `frontend-v2-intake-05`: add real Korean v2 production validation coverage.
-2. Include dictionary checks that prove runtime can load `mapping_v2` candidates and display origin through the service-owned precedence path.
-3. Update the stale `EventRepository` test fixture to a current manifest-listed asset or move event coverage to resolver-level tests.
-4. Keep `mapping_v2` origin cache until Phase 3 validation proves frontend passes without it.
+1. Start `frontend-v2-intake-06`: verify PRG/frontend production artifact handoff.
+2. Check release artifacts are derived from global/release manifest and match frontend resolver expectations.
+3. Keep `mapping_v2` origin cache until Phase 3 validation proves frontend passes without it.
 
 ## 不要重做 / 不要改的東西
 
@@ -94,3 +96,7 @@
 - Result: pass after dictionary core origin join slice.
 - Command: `flutter analyze`
 - Result: pass after dictionary core origin join slice.
+- Command: `flutter test test/repositories/event_repository_test.dart test/repositories/event_repository_integration_test.dart`
+- Result: pass after replacing stale event fixture with a current manifest-listed production video lesson.
+- Command: `flutter test test/core/korean_v2_production_validation_test.dart test/repositories/event_repository_test.dart test/repositories/event_repository_integration_test.dart && flutter analyze`
+- Result: pass after real Korean v2 production validation slice.

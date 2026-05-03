@@ -59,7 +59,7 @@ Layer 5: Legacy Backfill
 
 | Task ID | 描述 | Phase | DeepSeek | 進度 | 檔案 |
 | :--- | :--- | :--- | :--- | :--- | :--- |
-| FRONTEND_V2_INTAKE_COMPLETION | 前端 study / dictionary / UI 顯示資料收斂到 `content_v2` 衍生 stable contract | C+/Frontend Contract | flash -> pro | 3/6 tasks | [JSON](FRONTEND_V2_INTAKE_COMPLETION/TASKS.json) · [BRIEF](FRONTEND_V2_INTAKE_COMPLETION/TASK_BRIEF.md) |
+| FRONTEND_V2_INTAKE_COMPLETION | 前端 study / dictionary / UI 顯示資料收斂到 `content_v2` 衍生 stable contract | C+/Frontend Contract | flash -> pro | 5/6 tasks | [JSON](FRONTEND_V2_INTAKE_COMPLETION/TASKS.json) · [BRIEF](FRONTEND_V2_INTAKE_COMPLETION/TASK_BRIEF.md) |
 | STITCH_UI_PROTOTYPING | 快速前端 UI 原型設計與 Design Token 確立 (Home, Grammar Lab, Shadowing) | C+/UI | flash -> pro | 3/5 tasks | [JSON](STITCH_UI_PROTOTYPING_TASKS.json) · [PLAN](STITCH_UI_PROTOTYPING_PLAN.md) |
 
 ### Layer 3 — 單元重構 / Unit-by-Unit Refactor

@@ -142,7 +142,7 @@ next_actions:
 ```
 
 ### Step 3.5: 下一階段交接輸出（Mandatory for phase workflow）
-Agent 在每次流程結束時，必須額外輸出兩段：
+Agent 在每次流程結束時，必須額外輸出三段：
 
 1. `commit_reminder`
 ```yaml
@@ -190,7 +190,7 @@ handoff_summary:
     reason: <why>
 ```
 
-若未輸出上述兩段，收工視為不完整。
+若未輸出上述三段，收工視為不完整。
 
 ## Step 4: 選擇性執行 Repo 專用檢查
 

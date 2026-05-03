@@ -59,44 +59,44 @@ Layer 5: Legacy Backfill
 
 | Task ID | 描述 | Phase | DeepSeek | 進度 | 檔案 |
 | :--- | :--- | :--- | :--- | :--- | :--- |
-| STITCH_UI_PROTOTYPING | 快速前端 UI 原型設計與 Design Token 確立 (Home, Grammar Lab, Shadowing) | C+/UI | pro | 3/5 tasks | [JSON](STITCH_UI_PROTOTYPING_TASKS.json) · [PLAN](STITCH_UI_PROTOTYPING_PLAN.md) |
+| STITCH_UI_PROTOTYPING | 快速前端 UI 原型設計與 Design Token 確立 (Home, Grammar Lab, Shadowing) | C+/UI | flash -> pro | 3/5 tasks | [JSON](STITCH_UI_PROTOTYPING_TASKS.json) · [PLAN](STITCH_UI_PROTOTYPING_PLAN.md) |
 
 ### Layer 3 — 單元重構 / Unit-by-Unit Refactor
 
 | Task ID | 描述 | Phase | DeepSeek | 進度 | 檔案 |
 | :--- | :--- | :--- | :--- | :--- | :--- |
-| TARGET_LANG_COURSE_FACTORY | 目標語系課程工廠（目標語內容優先 + 中英文教學層 + 前端轉換） | C+/Ops | pro | 10/20 tasks | [JSON](TARGET_LANG_COURSE_FACTORY_TASKS.json) |
+| TARGET_LANG_COURSE_FACTORY | 目標語系課程工廠（目標語內容優先 + 中英文教學層 + 前端轉換） | C+/Ops | flash -> pro | 10/20 tasks | [JSON](TARGET_LANG_COURSE_FACTORY_TASKS.json) |
 
 ### Layer 4 — 技能深化 / Skill-Layer Expansion
 
 | Task ID | 描述 | Phase | DeepSeek | 進度 | 檔案 |
 | :--- | :--- | :--- | :--- | :--- | :--- |
-| TARGET_LANG_AUDIO_SKILLS | 目標語系聽力/發音層（手機 App、無真人依賴） | C+/Ops | pro | 0/10 tasks | [JSON](TARGET_LANG_AUDIO_SKILLS_TASKS.json) · [PLAN](TARGET_LANG_AUDIO_SKILLS_PLAN.md) |
-| TARGET_LANG_READING_SKILLS | 目標語系閱讀層（文本理解/證據定位/推論） | C+/Ops | pro | 0/10 tasks | [JSON](TARGET_LANG_READING_SKILLS_TASKS.json) · [PLAN](TARGET_LANG_READING_SKILLS_PLAN.md) |
-| TARGET_LANG_WRITING_SKILLS | 目標語系寫作層（句級到段落級產出） | C+/Ops | pro | 0/6 tasks | [JSON](TARGET_LANG_WRITING_SKILLS_TASKS.json) · [PLAN](TARGET_LANG_WRITING_SKILLS_PLAN.md) |
-| TARGET_LANG_VOCAB_COLLOCATION | 目標語系詞彙/搭配層（功能詞塊與語域） | C+/Ops | pro | 0/6 tasks | [JSON](TARGET_LANG_VOCAB_COLLOCATION_TASKS.json) · [PLAN](TARGET_LANG_VOCAB_COLLOCATION_PLAN.md) |
-| TARGET_LANG_GRAMMAR_PROGRESSION | 目標語系文法進階層（功能導向 unlock + DAG） | C+/Ops | pro | 0/6 tasks | [JSON](TARGET_LANG_GRAMMAR_PROGRESSION_TASKS.json) · [PLAN](TARGET_LANG_GRAMMAR_PROGRESSION_PLAN.md) |
-| TARGET_LANG_ASSESSMENT_LAYER | 目標語系測評層（placement/progress/mastery） | C+/Ops | pro | 0/6 tasks | [JSON](TARGET_LANG_ASSESSMENT_LAYER_TASKS.json) · [PLAN](TARGET_LANG_ASSESSMENT_LAYER_PLAN.md) |
-| TARGET_LANG_PERSONALIZATION_LAYER | 目標語系個人化層（動態派題與補救） | C+/Ops | pro | 0/6 tasks | [JSON](TARGET_LANG_PERSONALIZATION_LAYER_TASKS.json) · [PLAN](TARGET_LANG_PERSONALIZATION_LAYER_PLAN.md) |
+| TARGET_LANG_AUDIO_SKILLS | 目標語系聽力/發音層（手機 App、無真人依賴） | C+/Ops | flash -> pro | 0/10 tasks | [JSON](TARGET_LANG_AUDIO_SKILLS_TASKS.json) · [PLAN](TARGET_LANG_AUDIO_SKILLS_PLAN.md) |
+| TARGET_LANG_READING_SKILLS | 目標語系閱讀層（文本理解/證據定位/推論） | C+/Ops | flash -> pro | 0/10 tasks | [JSON](TARGET_LANG_READING_SKILLS_TASKS.json) · [PLAN](TARGET_LANG_READING_SKILLS_PLAN.md) |
+| TARGET_LANG_WRITING_SKILLS | 目標語系寫作層（句級到段落級產出） | C+/Ops | flash -> pro | 0/6 tasks | [JSON](TARGET_LANG_WRITING_SKILLS_TASKS.json) · [PLAN](TARGET_LANG_WRITING_SKILLS_PLAN.md) |
+| TARGET_LANG_VOCAB_COLLOCATION | 目標語系詞彙/搭配層（功能詞塊與語域） | C+/Ops | flash -> pro | 0/6 tasks | [JSON](TARGET_LANG_VOCAB_COLLOCATION_TASKS.json) · [PLAN](TARGET_LANG_VOCAB_COLLOCATION_PLAN.md) |
+| TARGET_LANG_GRAMMAR_PROGRESSION | 目標語系文法進階層（功能導向 unlock + DAG） | C+/Ops | flash -> pro | 0/6 tasks | [JSON](TARGET_LANG_GRAMMAR_PROGRESSION_TASKS.json) · [PLAN](TARGET_LANG_GRAMMAR_PROGRESSION_PLAN.md) |
+| TARGET_LANG_ASSESSMENT_LAYER | 目標語系測評層（placement/progress/mastery） | C+/Ops | flash -> pro | 0/6 tasks | [JSON](TARGET_LANG_ASSESSMENT_LAYER_TASKS.json) · [PLAN](TARGET_LANG_ASSESSMENT_LAYER_PLAN.md) |
+| TARGET_LANG_PERSONALIZATION_LAYER | 目標語系個人化層（動態派題與補救） | C+/Ops | flash -> pro | 0/6 tasks | [JSON](TARGET_LANG_PERSONALIZATION_LAYER_TASKS.json) · [PLAN](TARGET_LANG_PERSONALIZATION_LAYER_PLAN.md) |
 
 ### Layer 5 — Legacy Backfill
 
 | Task ID | 描述 | Phase | DeepSeek | 進度 | 檔案 |
 | :--- | :--- | :--- | :--- | :--- | :--- |
-| CONTENT_V5_MIGRATION_L0 | Legacy L0 Content V5 Standardization | A2 | pro | 0/8 tasks | [JSON](CONTENT_V5_MIGRATION_L0_TASKS.json) · [PLAN](CONTENT_V5_MIGRATION_L0.md) |
-| BATCH_V5_VIDEO_GATE | Batch process remaining 4 pilot videos (V5 Gate) | Ops | pro | 0/4 tasks | [PLAN](BATCH_V5_VIDEO_GATE_PLAN.md) |
+| CONTENT_V5_MIGRATION_L0 | Legacy L0 Content V5 Standardization | A2 | flash -> pro | 0/8 tasks | [JSON](CONTENT_V5_MIGRATION_L0_TASKS.json) · [PLAN](CONTENT_V5_MIGRATION_L0.md) |
+| BATCH_V5_VIDEO_GATE | Batch process remaining 4 pilot videos (V5 Gate) | Ops | flash -> pro | 0/4 tasks | [PLAN](BATCH_V5_VIDEO_GATE_PLAN.md) |
 
 ### Future / Automation (未來優化)
 
 | Task ID | 描述 | Phase | DeepSeek | 進度 | 檔案 |
 | :--- | :--- | :--- | :--- | :--- | :--- |
-| VIDEO_INGESTION_PIPELINE | 影片自動化導入管線 (YouTube Subtitles -> Source/I18N -> Product) | CI/Ops | pro | 0/10 tasks | [PLAN](VIDEO_INGESTION_PIPELINE_PLAN.md) |
+| VIDEO_INGESTION_PIPELINE | 影片自動化導入管線 (YouTube Subtitles -> Source/I18N -> Product) | CI/Ops | flash -> pro | 0/10 tasks | [PLAN](VIDEO_INGESTION_PIPELINE_PLAN.md) |
 
 ### Parallel Content Enrichment (可平行但不得阻塞主線)
 
 | Task ID | 描述 | Phase | DeepSeek | 進度 | 檔案 |
 | :--- | :--- | :--- | :--- | :--- | :--- |
-| GRAMMAR_INDEX_BRIDGE_SYNC | Published grammar ID bridge sync（`dict_grammar_mapping.json` ↔ `assets/content/grammar/grammar_index.json`；維持 G-KO-* 與實體資產映射一致） | C+/Ops | pro | 0/3 tasks | [JSON](GRAMMAR_INDEX_BRIDGE_SYNC_TASKS.json) · [PLAN](GRAMMAR_INDEX_BRIDGE_SYNC_PLAN.md) |
+| GRAMMAR_INDEX_BRIDGE_SYNC | Published grammar ID bridge sync（`dict_grammar_mapping.json` ↔ `assets/content/grammar/grammar_index.json`；維持 G-KO-* 與實體資產映射一致） | C+/Ops | flash -> pro | 0/3 tasks | [JSON](GRAMMAR_INDEX_BRIDGE_SYNC_TASKS.json) · [PLAN](GRAMMAR_INDEX_BRIDGE_SYNC_PLAN.md) |
 | DICTIONARY_ENTRY_DRIFT_REVIEW | Korean dictionary entry drift audit（homonym/polysemy、Hanja/source metadata、`mapping_v2.entry_refs` readiness） | C+/Lexicon | pro | 0/4 tasks | [PLAN](DICTIONARY_ENTRY_DRIFT_REVIEW_PLAN.md) |
 
 
@@ -188,7 +188,7 @@ Layer 5: Legacy Backfill
 
 - `docs/tasks/` 根層：active working set，放正在執行的 plan、tasks、verification、walkthrough
 - `docs/tasks/assets/`：可重用的 reference、spec、schema、contract、guide、mockup
-- `docs/tasks/` active task 表中的 `DeepSeek` 欄位用來標示預設模型：`flash` = 起草/掃描/整理，`pro` = 決策/review/root-cause
+- `docs/tasks/` active task 表中的 `DeepSeek` 欄位用來標示預設 routing：`flash` = 起草/掃描/整理，`flash -> pro` = 先整理再決策，`pro` = 直接決策/review/root-cause
 - `docs/tasks/archive/`：已完成或封存的歷史文件
 - `docs/tasks/machines/*.json`：每台電腦本機的 gitignored claim 記錄，用來標示目前身份與正在處理的 task
 - `docs/tasks/MACHINE_STATUS.md`：共享的 machine claim 摘要，用來讓其他電腦快速看見誰正在做什麼

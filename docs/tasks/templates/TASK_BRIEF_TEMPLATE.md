@@ -6,8 +6,15 @@
 - Owner:
 - Target repo:
 - Status: draft / ready_for_decision / ready_for_implementation / in_progress / review / done / blocked
+- DeepSeek routing: flash / flash -> pro / pro
 - Created:
 - Last updated:
+
+## Model Routing
+
+- DeepSeek: flash / flash -> pro / pro
+- Reason:
+- Escalation trigger:
 
 ## 目標
 
@@ -69,4 +76,3 @@
 ## Out Of Scope
 
 - 明確列出這次不處理的事。
-

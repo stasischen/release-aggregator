@@ -118,9 +118,11 @@ docs/tasks/<TASK_ID>/
 
 1. 讀 `GEMINI.md`。
 2. 讀 `docs/index.md`。
-3. 讀 `docs/tasks/TASK_INDEX.md`。
-4. 若有指定 task，讀該 task 目錄內的 `TASK_BRIEF.md` 和最新 `HANDOFF_SUMMARY.md`。
-5. 只在指定 repo / scope 內操作。
+3. 讀 `docs/runbooks/agent_reference_order.md`。
+4. 讀 `docs/runbooks/multi_model_task_orchestration.md`。
+5. 讀 `docs/tasks/TASK_INDEX.md`。
+6. 若有指定 task，讀該 task 目錄內的 `TASK_BRIEF.md` 和最新 `HANDOFF_SUMMARY.md`。
+7. 只在指定 repo / scope 內操作。
 
 ## Completion Checklist
 

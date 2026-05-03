@@ -1,5 +1,6 @@
 import os
 import json
+import sys
 from pathlib import Path
 
 # Configuration
@@ -19,6 +20,7 @@ OUTPUT_MANIFEST = MOCKUP_DATA_ROOT / "library_manifest.json"
 OUTPUT_SENTENCES = MOCKUP_DATA_ROOT / "global_sentences.json"
 OUTPUT_RUNTIME_KNOWLEDGE = RUNTIME_OUTPUT_DIR / "knowledge.json"
 OUTPUT_RUNTIME_SENTENCES = RUNTIME_OUTPUT_DIR / "example_sentence.json"
+RUNTIME_KNOWLEDGE_SOURCE = CONTENT_KO_ROOT / "runs" / "learning_library_runtime" / "zh_tw" / "knowledge.json"
 
 
 def ensure_output_dirs():
@@ -37,23 +39,52 @@ def write_json(path, data):
 
 
 def load_runtime_knowledge():
-    runtime_source = CONTENT_KO_ROOT / "runs" / "learning_library_runtime" / "zh_tw" / "knowledge.json"
-    if runtime_source.exists():
-        try:
-            return load_json(runtime_source)
-        except Exception as e:
-            print(f"Error reading runtime knowledge {runtime_source}: {e}")
-    return []
+    if not RUNTIME_KNOWLEDGE_SOURCE.exists():
+        raise FileNotFoundError(
+            f"Runtime knowledge source not found: {RUNTIME_KNOWLEDGE_SOURCE}"
+        )
+
+    runtime_knowledge = load_json(RUNTIME_KNOWLEDGE_SOURCE)
+    if not isinstance(runtime_knowledge, list):
+        raise ValueError(
+            f"Runtime knowledge source must be a list: {RUNTIME_KNOWLEDGE_SOURCE}"
+        )
+    if not runtime_knowledge:
+        raise ValueError(
+            f"Runtime knowledge source is empty: {RUNTIME_KNOWLEDGE_SOURCE}"
+        )
+    return runtime_knowledge
+
+
+def preflight():
+    if not I18N_KNOWLEDGE_DIR.exists():
+        raise FileNotFoundError(f"I18N knowledge directory not found: {I18N_KNOWLEDGE_DIR}")
+    if not CORE_SENTENCE_DIR.exists():
+        raise FileNotFoundError(f"Sentence core directory not found: {CORE_SENTENCE_DIR}")
+    if not I18N_SENTENCE_DIR.exists():
+        raise FileNotFoundError(f"Sentence i18n directory not found: {I18N_SENTENCE_DIR}")
+
+    runtime_knowledge = load_runtime_knowledge()
+    runtime_ids = {item.get("id") for item in runtime_knowledge if item.get("id")}
+    if not runtime_ids:
+        raise ValueError(f"Runtime knowledge source has no item ids: {RUNTIME_KNOWLEDGE_SOURCE}")
+
+    matching_items = 0
+    for root, dirs, files in os.walk(I18N_KNOWLEDGE_DIR):
+        for file in files:
+            if file.endswith(".json") and Path(file).stem in runtime_ids:
+                matching_items += 1
+
+    if matching_items == 0:
+        raise ValueError(
+            "No i18n knowledge files match runtime knowledge ids; refusing to overwrite viewer data."
+        )
+
+    return runtime_knowledge
 
 def generate_global_sentences():
     print(f"Aggregating sentences from: {CORE_SENTENCE_DIR}")
     sentences = []
-
-    if not CORE_SENTENCE_DIR.exists():
-        print("Sentence core directory not found.")
-        write_json(OUTPUT_SENTENCES, sentences)
-        write_json(OUTPUT_RUNTIME_SENTENCES, sentences)
-        return sentences
 
     core_map = {}
 
@@ -98,13 +129,12 @@ def generate_global_sentences():
     print(f"Generated example_sentence runtime with {len(sentences)} items.")
     return sentences
 
-def generate_manifest():
+def generate_manifest(runtime_knowledge):
     print(f"Scanning knowledge from: {I18N_KNOWLEDGE_DIR}")
     
     # Ensure output directory exists
     ensure_output_dirs()
 
-    runtime_knowledge = load_runtime_knowledge()
     runtime_index = {item.get("id"): item for item in runtime_knowledge if item.get("id")}
     
     categories_tree = {}
@@ -206,6 +236,9 @@ def generate_manifest():
         "items": all_items
     }
 
+    if not all_items:
+        raise ValueError("Generated manifest has no items; refusing to overwrite viewer data.")
+
     write_json(OUTPUT_RUNTIME_KNOWLEDGE, runtime_knowledge)
     write_json(OUTPUT_MANIFEST, manifest)
         
@@ -221,5 +254,10 @@ def self_map_cat_title(cid):
     return mapping.get(cid, cid.capitalize())
 
 if __name__ == "__main__":
-    generate_global_sentences()
-    generate_manifest()
+    try:
+        runtime_knowledge = preflight()
+        generate_global_sentences()
+        generate_manifest(runtime_knowledge)
+    except Exception as e:
+        print(f"Refusing to generate modular viewer data: {e}", file=sys.stderr)
+        raise SystemExit(1)

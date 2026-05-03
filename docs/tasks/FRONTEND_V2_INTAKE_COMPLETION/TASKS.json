@@ -1,0 +1,44 @@
+{
+  "task_id": "FRONTEND_V2_INTAKE_COMPLETION",
+  "description": "Complete frontend intake of content_v2-derived study, dictionary, and UI display data contracts",
+  "status": "in_progress",
+  "deepseek_routing": "flash -> pro",
+  "tasks": [
+    {
+      "id": "frontend-v2-intake-01",
+      "title": "Inventory frontend data-flow and path coupling",
+      "description": "Map study, dictionary, grammar, learning-library, PRG, and production asset flows. Identify every direct production path coupling and classify required vs legacy compatibility.",
+      "status": "pending"
+    },
+    {
+      "id": "frontend-v2-intake-02",
+      "title": "Define frontend v2 resolver contract",
+      "description": "Define the minimal adapter/resolver contract that lets frontend consume v2-derived production artifacts without binding UI-facing repositories to raw package layout.",
+      "status": "pending"
+    },
+    {
+      "id": "frontend-v2-intake-03",
+      "title": "Refactor study lesson discovery and loading",
+      "description": "Move study lesson metadata/body path resolution behind the accepted resolver boundary and remove hardcoded modular lesson discovery as an independent truth source.",
+      "status": "pending"
+    },
+    {
+      "id": "frontend-v2-intake-04",
+      "title": "Align dictionary runtime to v2 contract",
+      "description": "Unify dictionary hub, overlay, and lesson lookup around one v2-aware adapter. Keep legacy packaged files only as an explicit compatibility layer.",
+      "status": "pending"
+    },
+    {
+      "id": "frontend-v2-intake-05",
+      "title": "Add real Korean v2 production validation",
+      "description": "Add or update frontend tests to load a real Korean v2-derived fixture and validate lesson display, dictionary lookup, and translation/hydration basics.",
+      "status": "pending"
+    },
+    {
+      "id": "frontend-v2-intake-06",
+      "title": "Verify PRG/frontend production artifact handoff",
+      "description": "Update PRG/frontend contract validation so release artifacts are derived from global_manifest/release manifest and match frontend resolver expectations.",
+      "status": "pending"
+    }
+  ]
+}

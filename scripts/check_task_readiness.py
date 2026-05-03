@@ -16,6 +16,8 @@ def load_json(path):
 
 def find_task_json(task_id):
     candidates = [
+        os.path.join(TASK_DIR, task_id, "TASKS.json"),
+        os.path.join(TASK_DIR, task_id, f"{task_id}_TASKS.json"),
         os.path.join(TASK_DIR, f"{task_id}_TASKS.json"),
         os.path.join(TASK_DIR, f"{task_id}.json"),
     ]

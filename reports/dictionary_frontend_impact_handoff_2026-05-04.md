@@ -139,3 +139,25 @@ Additional adapter assumptions after frontend intake:
 - Candidate identity should prefer `homograph_key` when present, otherwise fall back to `atom_id`.
 - UI disambiguation should operate over candidate lists, not over raw surface strings.
 - Per-entry display should prefer `entry_refs.origin` / `sense_refs.origin`; row-level origin remains a fallback only.
+
+## Core Origin Migration Plan
+
+Decision: dictionary origin metadata belongs to the Korean lexical core, not to locale i18n payloads.
+
+New canonical direction:
+
+- `dictionary_core.json` / inventory rows carry language-neutral `entries[]` and `senses[]`.
+- `entries[].origin` is the authoritative place for entry-level Hanja/source metadata.
+- `senses[]` links `sense_id` to `entry_no`.
+- `definitions.zh_tw[]` remains the Traditional Chinese translation/gloss block.
+- `mapping_v2.entry_refs.origin` and `mapping_v2.sense_refs.origin` remain derived runtime cache fields during the transition.
+
+Compatibility removal timing:
+
+- Phase 1, current: add `entries[]` / `senses[]` to inventory output and teach exporter to prefer core entries. Keep existing `mapping_v2` origin cache.
+- Phase 2: frontend adapter joins origin from `dictionary_core.entries[]` and treats `mapping_v2` origin as optional.
+- Phase 3: add a validation gate proving frontend tests pass when `mapping_v2` origin fields are absent.
+- Phase 4: remove exporter denormalization of origin into `mapping_v2`.
+- Phase 5: remove definition-level origin fallback after no active inventory shard relies on `definitions.<locale>[].hanja/origin`.
+
+Do not remove the compatibility cache before Phase 3 passes. The current user-visible dictionary overlay depends on fast candidate metadata, and the data cleanup work is still active.

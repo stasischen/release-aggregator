@@ -1,7 +1,7 @@
 {
   "task_id": "LEARNING_LIBRARY_KNOWLEDGE_FIRST_LAB_HANDOFF",
   "description": "Turn the deferred LLCM-008 Knowledge-First Lab handoff into an active frontend/product task without reinventing the existing multi-layer content plan.",
-  "status": "in_progress",
+  "status": "completed",
   "deepseek_routing": "flash -> pro",
   "tasks": [
     {
@@ -29,10 +29,10 @@
     {
       "id": "ll-klab-handoff-04",
       "title": "Prepare frontend implementation packet for Knowledge Lab index-first UI",
-      "status": "ready",
+      "status": "completed",
       "owner": "Codex",
       "repo": "release-aggregator + lingo-frontend-web",
-      "notes": "Artifact emission contract drift is resolved. Prepare the frontend index-first UI packet next.",
+      "notes": "Frontend packet prepared and implemented. Knowledge Lab now preserves canonical vocab/source/sentence relationships, exposes index-first learning-map entry points, adds vocab detail routing, and has targeted smoke coverage.",
       "depends_on": [
         "ll-klab-handoff-02",
         "ll-klab-handoff-03",

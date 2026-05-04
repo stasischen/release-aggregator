@@ -4,35 +4,35 @@
   "phase": "C+/Frontend Contract",
   "status": "active",
   "progress": {
-    "done": 0,
+    "done": 4,
     "total": 4
   },
   "tasks": [
     {
       "id": "modular-contract-01",
       "title": "Run Gemini contract options inventory",
-      "status": "pending",
+      "status": "done",
       "type": "inventory",
       "notes": "Read-only. Gemini should list options, risks, and evidence, not decide final contract."
     },
     {
       "id": "modular-contract-02",
       "title": "Review inventory and choose recommended contract boundaries",
-      "status": "pending",
+      "status": "done",
       "type": "decision",
       "notes": "Codex/user review step. Decide article/support/video route and fallback boundaries."
     },
     {
       "id": "modular-contract-03",
       "title": "Draft implementation task split after brief approval",
-      "status": "pending",
+      "status": "done",
       "type": "planning",
       "notes": "No implementation until the brief is accepted."
     },
     {
       "id": "modular-contract-04",
       "title": "Define smoke-test matrix for production exposure",
-      "status": "pending",
+      "status": "done",
       "type": "qa",
       "notes": "Article, support, video, fail-soft, and route exposure gates."
     }

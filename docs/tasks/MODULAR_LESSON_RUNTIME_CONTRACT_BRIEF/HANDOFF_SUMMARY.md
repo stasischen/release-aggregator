@@ -2,11 +2,11 @@
 
 ## Status
 
-Ready for Gemini read-only inventory.
+Contract brief reviewed. Gemini inventory has been converted into accepted implementation boundaries in `CONTRACT_DECISION.md`.
 
 ## Current Boundary
 
-This is not an implementation task. The next step is to collect contract options and evidence, then Codex/user review chooses boundaries before code tasks are created.
+This was a brief-first task. The next step may be implementation, but only within the approved boundaries in `CONTRACT_DECISION.md`.
 
 ## Inputs
 
@@ -15,7 +15,12 @@ This is not an implementation task. The next step is to collect contract options
 
 ## Expected Next Step
 
-Send `GEMINI_PROMPT.md` to Gemini and bring back the output for review.
+Create implementation tasks for:
+
+1. Article runtime surface using `ArticleContentLayout` plus local payload mapper.
+2. Support drawer stabilization and direct canonical vocab support.
+3. Video runtime smoke gate.
+4. Route exposure guard.
 
 ## Do Not Do Yet
 
@@ -24,3 +29,10 @@ Send `GEMINI_PROMPT.md` to Gemini and bring back the output for review.
 - Do not finalize video renderer assumptions.
 - Do not remove Beta/Experimental labels unless route exposure is decided.
 - Do not change lesson format.
+
+## Accepted Decisions
+
+- Article uses existing `ArticleContentLayout` with local frontend mapper; no schema change.
+- Support remains drawer-based and reuses existing Learning Library / Knowledge Lab side-panel renderers.
+- Video remains owned by `UlvVideoRenderer`; no external route-driven playback.
+- Modular routes remain internal/pilot until article/support/video smoke gates pass.

@@ -1,0 +1,33 @@
+{
+  "task_id": "FRONTEND_UI_COMPLETENESS_QA",
+  "description": "Close frontend UI completeness gaps after v2 intake completion",
+  "status": "in_progress",
+  "deepseek_routing": "flash -> pro",
+  "tasks": [
+    {
+      "id": "frontend-ui-qa-01",
+      "title": "Switch Learning Library product default away from seed-only mode",
+      "status": "completed"
+    },
+    {
+      "id": "frontend-ui-qa-02",
+      "title": "Fix VideoList product navigation to registered player route",
+      "status": "completed"
+    },
+    {
+      "id": "frontend-ui-qa-03",
+      "title": "Remove or replace VideoList coming-soon gallery action",
+      "status": "completed"
+    },
+    {
+      "id": "frontend-ui-qa-04",
+      "title": "Define and implement minimal dictionary candidate disambiguation UI",
+      "status": "completed"
+    },
+    {
+      "id": "frontend-ui-qa-05",
+      "title": "Classify modular runtime pilot placeholders and hide or replace product-visible ones",
+      "status": "deferred"
+    }
+  ]
+}

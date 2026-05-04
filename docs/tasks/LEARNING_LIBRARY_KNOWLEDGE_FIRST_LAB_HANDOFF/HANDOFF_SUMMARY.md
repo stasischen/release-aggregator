@@ -10,6 +10,7 @@
 - Added `UI_ACCEPTANCE_MATRIX.md` for Knowledge-First Lab product acceptance.
 - Reviewed Gemini inventory and marked `ll-klab-handoff-02` completed.
 - Added `ARTIFACT_CONTRACT_FIX_PROMPT.md` for the next artifact emission contract slice.
+- Completed `ll-klab-handoff-05`: `content-pipeline` now emits final LLCM-005G canonical files, frontend assets were regenerated, and frontend loader fallback was removed.
 
 ## Current Decisions
 
@@ -23,18 +24,15 @@
 
 - `FRONTEND_V2_INTAKE_COMPLETION` did not include dictionary, grammar, or learning-library in its resolver slice.
 - Existing frontend artifact mode is necessary but not sufficient for Knowledge Lab product completeness.
-- Current artifact naming drift around `vocab_sets` must be resolved by contract decision, not hidden indefinitely by frontend compatibility fallback.
-- Codex review confirmed the next slice should be artifact contract/content emission before index-first UI implementation.
-- Current frontend artifacts have empty `core/vocab_sets_index.json` and `core/links.json`.
-- Current `topics.json` source refs use prefixed source IDs while `sources_index.json` uses bare IDs.
+- Artifact naming drift around `vocab_sets` has been resolved by final contract alignment, not compatibility fallback.
+- Current frontend artifacts use canonical core files only: `sources_index.json`, `sentences.json`, `knowledge.json`, `topics.json`, `vocab_sets.json`, and `links.json`.
+- `core/vocab_sets.json` and `core/links.json` are non-empty and emitted links have no dangling refs in the regenerated artifact set.
 
 ## Next Steps
 
-1. Run the artifact contract fix slice using `ARTIFACT_CONTRACT_FIX_PROMPT.md`.
-2. Validate generated artifact counts and manifest entries.
-3. Keep the frontend compatibility fallback until regenerated artifacts pass validation.
-4. Prepare the first frontend Knowledge Lab index-first implementation packet.
-5. Only then implement the first frontend Knowledge Lab index-first UI slice.
+1. Prepare the first frontend Knowledge Lab index-first implementation packet.
+2. Implement the first UI slice against the canonical Learning Library artifacts.
+3. Add product smoke tests for index-first Knowledge Lab home/detail/reverse lookup.
 
 ## Do Not Redo / Do Not Change
 

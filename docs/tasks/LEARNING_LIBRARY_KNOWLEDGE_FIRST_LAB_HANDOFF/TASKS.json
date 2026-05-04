@@ -29,10 +29,10 @@
     {
       "id": "ll-klab-handoff-04",
       "title": "Prepare frontend implementation packet for Knowledge Lab index-first UI",
-      "status": "blocked",
+      "status": "ready",
       "owner": "Codex",
       "repo": "release-aggregator + lingo-frontend-web",
-      "notes": "Blocked until artifact emission contract drift is resolved enough for reverse lookup and vocab acceptance.",
+      "notes": "Artifact emission contract drift is resolved. Prepare the frontend index-first UI packet next.",
       "depends_on": [
         "ll-klab-handoff-02",
         "ll-klab-handoff-03",
@@ -42,9 +42,10 @@
     {
       "id": "ll-klab-handoff-05",
       "title": "Implement or schedule artifact contract fix for vocab_sets pack naming",
-      "status": "ready",
-      "owner": "Codex decision, executor TBD",
-      "repo": "lingo-frontend-web or content-pipeline",
+      "status": "completed",
+      "owner": "Codex",
+      "repo": "content-pipeline + lingo-frontend-web",
+      "notes": "Pipeline emits canonical LLCM-005G files only; frontend assets regenerated; loader fallback removed.",
       "depends_on": [
         "ll-klab-handoff-02"
       ]

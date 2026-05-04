@@ -1,0 +1,23 @@
+{
+  "task_id": "V2_ATOMIZED_RUNTIME_FRONTEND_BRIDGE_FIX",
+  "status": "completed",
+  "phase": "C+/Frontend Contract",
+  "deepseek": "flash -> pro",
+  "tasks": [
+    {
+      "id": "slice_a_video_runtime_atoms",
+      "status": "completed",
+      "description": "Ensure video frontend runtime packages receive atomized subtitle atoms and add coverage gate."
+    },
+    {
+      "id": "slice_b_sentence_bank_atoms",
+      "status": "completed",
+      "description": "Preserve sentence-bank atoms through DTO/domain mapping and expose atom-aware UI drilldown."
+    },
+    {
+      "id": "slice_c_regression_tests",
+      "status": "completed",
+      "description": "Add tests preventing video and sentence-bank atom coverage from returning to zero."
+    }
+  ]
+}

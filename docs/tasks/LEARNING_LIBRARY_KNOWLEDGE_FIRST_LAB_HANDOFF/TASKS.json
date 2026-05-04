@@ -14,10 +14,10 @@
     {
       "id": "ll-klab-handoff-02",
       "title": "Run content/artifact inventory for learning_library core/i18n and manifest naming drift",
-      "status": "ready",
+      "status": "completed",
       "owner": "Gemini",
       "repo": "content-ko + lingo-frontend-web",
-      "notes": "Read-only audit first. Do not edit frontend code."
+      "notes": "Completed as INVENTORY_DRIFT_REPORT.md. Codex review confirmed core vocab_sets and links are empty, manifest omits vocab_sets, and topic source_refs use prefixed IDs while sources_index uses bare IDs."
     },
     {
       "id": "ll-klab-handoff-03",
@@ -29,18 +29,20 @@
     {
       "id": "ll-klab-handoff-04",
       "title": "Prepare frontend implementation packet for Knowledge Lab index-first UI",
-      "status": "pending",
+      "status": "blocked",
       "owner": "Codex",
       "repo": "release-aggregator + lingo-frontend-web",
+      "notes": "Blocked until artifact emission contract drift is resolved enough for reverse lookup and vocab acceptance.",
       "depends_on": [
         "ll-klab-handoff-02",
-        "ll-klab-handoff-03"
+        "ll-klab-handoff-03",
+        "ll-klab-handoff-05"
       ]
     },
     {
       "id": "ll-klab-handoff-05",
       "title": "Implement or schedule artifact contract fix for vocab_sets pack naming",
-      "status": "pending",
+      "status": "ready",
       "owner": "Codex decision, executor TBD",
       "repo": "lingo-frontend-web or content-pipeline",
       "depends_on": [

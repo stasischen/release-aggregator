@@ -8,6 +8,8 @@
 - Assigned Gemini to read-only content/artifact inventory only.
 - Kept frontend code changes out of scope until the task artifact exists and the inventory is reviewed.
 - Added `UI_ACCEPTANCE_MATRIX.md` for Knowledge-First Lab product acceptance.
+- Reviewed Gemini inventory and marked `ll-klab-handoff-02` completed.
+- Added `ARTIFACT_CONTRACT_FIX_PROMPT.md` for the next artifact emission contract slice.
 
 ## Current Decisions
 
@@ -22,12 +24,15 @@
 - `FRONTEND_V2_INTAKE_COMPLETION` did not include dictionary, grammar, or learning-library in its resolver slice.
 - Existing frontend artifact mode is necessary but not sufficient for Knowledge Lab product completeness.
 - Current artifact naming drift around `vocab_sets` must be resolved by contract decision, not hidden indefinitely by frontend compatibility fallback.
+- Codex review confirmed the next slice should be artifact contract/content emission before index-first UI implementation.
+- Current frontend artifacts have empty `core/vocab_sets_index.json` and `core/links.json`.
+- Current `topics.json` source refs use prefixed source IDs while `sources_index.json` uses bare IDs.
 
 ## Next Steps
 
-1. Run Gemini prompt in `GEMINI_PROMPT.md`.
-2. Review returned inventory against `TASK_BRIEF.md`.
-3. Decide whether `vocab_sets` fix belongs in frontend compatibility, content-pipeline emission, or both.
+1. Run the artifact contract fix slice using `ARTIFACT_CONTRACT_FIX_PROMPT.md`.
+2. Validate generated artifact counts and manifest entries.
+3. Keep the frontend compatibility fallback until regenerated artifacts pass validation.
 4. Prepare the first frontend Knowledge Lab index-first implementation packet.
 5. Only then implement the first frontend Knowledge Lab index-first UI slice.
 

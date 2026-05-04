@@ -44,10 +44,10 @@ test-frontend-asset-bridge:
 	$(PYTHON) -m unittest tests/test_frontend_asset_bridge.py -v
 
 sync-frontend-assets:
-	$(PYTHON) $(SCRIPTS)/sync_frontend_assets.py
+	$(PYTHON) $(SCRIPTS)/sync_frontend_assets.py --include-dictionary
 
 sync-frontend-assets-dry-run:
-	$(PYTHON) $(SCRIPTS)/sync_frontend_assets.py --dry-run
+	$(PYTHON) $(SCRIPTS)/sync_frontend_assets.py --include-dictionary --dry-run
 
 validate-frontend-assets:
 	$(PYTHON) $(SCRIPTS)/sync_frontend_assets.py --validate-only

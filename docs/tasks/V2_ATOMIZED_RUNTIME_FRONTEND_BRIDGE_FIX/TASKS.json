@@ -18,6 +18,12 @@
       "id": "slice_c_regression_tests",
       "status": "completed",
       "description": "Add tests preventing video and sentence-bank atom coverage from returning to zero."
+    },
+    {
+      "id": "followup_content_dictionary_i18n_coverage",
+      "status": "open",
+      "description": "Content-side follow-up: ensure every high-frequency atom emitted by video/sentence artifacts has dictionary inventory coverage and non-empty zh_tw definitions.",
+      "artifact": "CONTENT_DICTIONARY_COVERAGE_DRIFT_REPORT.md"
     }
   ]
 }

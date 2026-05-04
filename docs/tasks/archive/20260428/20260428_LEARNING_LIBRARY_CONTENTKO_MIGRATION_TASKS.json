@@ -1,7 +1,7 @@
 {
   "task_id": "LEARNING_LIBRARY_CONTENTKO_MIGRATION",
   "description": "把 learning_library prototype 從 app seed 遷移到 content-ko learning overlay，並建立 frontend 可用的 build artifact。",
-  "status": "in_progress",
+  "status": "done_with_active_followup",
   "tasks": [
     {
       "id": "LLCM-001",
@@ -155,7 +155,8 @@
     {
       "id": "LLCM-008",
       "desc": "Plan the handoff from content-first prototype to future knowledge-first lab once artifact mode is stable.",
-      "status": "todo",
+      "status": "promoted_to_active_followup",
+      "followup_task_id": "LEARNING_LIBRARY_KNOWLEDGE_FIRST_LAB_HANDOFF",
       "depends_on": [
         "LLCM-007b"
       ]

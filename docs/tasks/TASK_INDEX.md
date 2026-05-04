@@ -61,6 +61,7 @@ Layer 5: Legacy Backfill
 | :--- | :--- | :--- | :--- | :--- | :--- |
 | FRONTEND_V2_INTAKE_COMPLETION | 前端 study / dictionary / UI 顯示資料收斂到 `content_v2` 衍生 stable contract | C+/Frontend Contract | flash -> pro | 6/6 tasks | [JSON](FRONTEND_V2_INTAKE_COMPLETION/TASKS.json) · [BRIEF](FRONTEND_V2_INTAKE_COMPLETION/TASK_BRIEF.md) |
 | FRONTEND_UI_COMPLETENESS_QA | Frontend v2 product UI completeness gaps（artifact default、video routes、dictionary disambiguation、pilot placeholders） | C+/Frontend QA | flash -> pro | 4/5 tasks | [JSON](FRONTEND_UI_COMPLETENESS_QA/TASKS.json) · [BRIEF](FRONTEND_UI_COMPLETENESS_QA/TASK_BRIEF.md) |
+| LEARNING_LIBRARY_KNOWLEDGE_FIRST_LAB_HANDOFF | Learning Library `LLCM-008` handoff：將 artifact-backed prototype 轉為 Knowledge-First Lab index-first product path | C+/Frontend Contract | flash -> pro | 2/5 tasks | [JSON](LEARNING_LIBRARY_KNOWLEDGE_FIRST_LAB_HANDOFF/TASKS.json) · [BRIEF](LEARNING_LIBRARY_KNOWLEDGE_FIRST_LAB_HANDOFF/TASK_BRIEF.md) |
 | MODULAR_LESSON_RUNTIME_PRODUCT_BRIEF | Modular lesson runtime UI cleanup and product-contract boundary brief | C+/Frontend Contract | flash -> pro | 4/4 tasks | [JSON](MODULAR_LESSON_RUNTIME_PRODUCT_BRIEF/TASKS.json) · [BRIEF](MODULAR_LESSON_RUNTIME_PRODUCT_BRIEF/TASK_BRIEF.md) |
 | MODULAR_LESSON_RUNTIME_CONTRACT_BRIEF | Modular lesson runtime article/support/video contract options inventory | C+/Frontend Contract | flash -> pro | 4/4 tasks | [JSON](MODULAR_LESSON_RUNTIME_CONTRACT_BRIEF/TASKS.json) · [BRIEF](MODULAR_LESSON_RUNTIME_CONTRACT_BRIEF/TASK_BRIEF.md) |
 | MODULAR_LESSON_RUNTIME_IMPLEMENTATION | Modular lesson runtime article/support/video smoke-gate implementation | C+/Frontend Contract | flash -> pro | 5/5 tasks | [JSON](MODULAR_LESSON_RUNTIME_IMPLEMENTATION/TASKS.json) · [BRIEF](MODULAR_LESSON_RUNTIME_IMPLEMENTATION/TASK_BRIEF.md) |
@@ -117,7 +118,7 @@ Layer 5: Legacy Backfill
 | UNIFIED_LESSON_VIEW_ARCHITECTURE | Unified Lesson View 架構定義 | done | [JSON](archive/20260428/20260428_UNIFIED_LESSON_VIEW_ARCHITECTURE_TASKS.json) |
 | ULV_RUNTIME_MOCK_VERIFICATION | ULV Runtime Mock 驗證 | done | [JSON](archive/20260428/20260428_ULV_RUNTIME_MOCK_VERIFICATION_TASKS.json) |
 | COURSE_MODULE_COMPOSITION | 課程模組組裝 | done | [JSON](archive/20260428/20260428_COURSE_MODULE_COMPOSITION_TASKS.json) |
-| LEARNING_LIBRARY_CONTENTKO_MIGRATION | Learning Library 正式化 | done | [JSON](archive/20260428/20260428_LEARNING_LIBRARY_CONTENTKO_MIGRATION_TASKS.json) |
+| LEARNING_LIBRARY_CONTENTKO_MIGRATION | Learning Library artifact 正式化（Knowledge-First Lab handoff 已拆到 active `LEARNING_LIBRARY_KNOWLEDGE_FIRST_LAB_HANDOFF`） | done-with-followup | [JSON](archive/20260428/20260428_LEARNING_LIBRARY_CONTENTKO_MIGRATION_TASKS.json) |
 | KNOWLEDGE_LAB_ENRICHMENT | Knowledge Lab 內容充實 | 8/8 tasks | [JSON](archive/20260428/20260428_KNOWLEDGE_LAB_ENRICHMENT_TASKS.json) |
 | CONTENT_V2_FRONTEND_EXPORT_SYNC | Frontend Sync Realignment (Batch E) | done | [JSON](archive/20260428/20260428_CONTENT_V2_FRONTEND_EXPORT_SYNC_TASKS.json) |
 | SDA-007 | Dictionary Structure Upgrade | done | [PLAN](archive/20260428/20260428_SDA-007_PLAN.md) |

@@ -63,6 +63,7 @@ Layer 5: Legacy Backfill
 | FRONTEND_UI_COMPLETENESS_QA | Frontend v2 product UI completeness gaps（artifact default、video routes、dictionary disambiguation、pilot placeholders） | C+/Frontend QA | flash -> pro | 4/5 tasks | [JSON](FRONTEND_UI_COMPLETENESS_QA/TASKS.json) · [BRIEF](FRONTEND_UI_COMPLETENESS_QA/TASK_BRIEF.md) |
 | MODULAR_LESSON_RUNTIME_PRODUCT_BRIEF | Modular lesson runtime UI cleanup and product-contract boundary brief | C+/Frontend Contract | flash -> pro | 4/4 tasks | [JSON](MODULAR_LESSON_RUNTIME_PRODUCT_BRIEF/TASKS.json) · [BRIEF](MODULAR_LESSON_RUNTIME_PRODUCT_BRIEF/TASK_BRIEF.md) |
 | MODULAR_LESSON_RUNTIME_CONTRACT_BRIEF | Modular lesson runtime article/support/video contract options inventory | C+/Frontend Contract | flash -> pro | 4/4 tasks | [JSON](MODULAR_LESSON_RUNTIME_CONTRACT_BRIEF/TASKS.json) · [BRIEF](MODULAR_LESSON_RUNTIME_CONTRACT_BRIEF/TASK_BRIEF.md) |
+| MODULAR_LESSON_RUNTIME_IMPLEMENTATION | Modular lesson runtime article/support/video smoke-gate implementation | C+/Frontend Contract | flash -> pro | 5/5 tasks | [JSON](MODULAR_LESSON_RUNTIME_IMPLEMENTATION/TASKS.json) · [BRIEF](MODULAR_LESSON_RUNTIME_IMPLEMENTATION/TASK_BRIEF.md) |
 | STITCH_UI_PROTOTYPING | 快速前端 UI 原型設計與 Design Token 確立 (Home, Grammar Lab, Shadowing) | C+/UI | flash -> pro | 3/5 tasks | [JSON](STITCH_UI_PROTOTYPING_TASKS.json) · [PLAN](STITCH_UI_PROTOTYPING_PLAN.md) |
 
 ### Layer 3 — 單元重構 / Unit-by-Unit Refactor

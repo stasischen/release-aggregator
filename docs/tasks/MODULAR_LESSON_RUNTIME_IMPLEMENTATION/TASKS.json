@@ -1,0 +1,54 @@
+{
+  "task_id": "MODULAR_LESSON_RUNTIME_IMPLEMENTATION",
+  "description": "Implement approved modular lesson runtime article/support/video smoke-gate slice",
+  "phase": "C+/Frontend Contract",
+  "status": "active",
+  "progress": {
+    "done": 5,
+    "total": 5
+  },
+  "tasks": [
+    {
+      "id": "modular-impl-01",
+      "title": "Wire article runtime surface with local payload mapper",
+      "status": "done",
+      "type": "code",
+      "notes": "Reuse ArticleContentLayout. No lesson schema changes."
+    },
+    {
+      "id": "modular-impl-02",
+      "title": "Stabilize support drawer fallback and canonical vocab rendering",
+      "status": "done",
+      "type": "code",
+      "notes": "Pattern/usage remain explicit unsupported fallbacks."
+    },
+    {
+      "id": "modular-impl-03",
+      "title": "Add video runtime smoke coverage",
+      "status": "done",
+      "type": "qa",
+      "notes": "Use fake player builder and verify callback wiring."
+    },
+    {
+      "id": "modular-impl-04",
+      "title": "Add route exposure guard",
+      "status": "done",
+      "type": "qa",
+      "notes": "Production curriculum/path must not route to modular runtime yet."
+    },
+    {
+      "id": "modular-impl-05",
+      "title": "Run validation and update handoff",
+      "status": "done",
+      "type": "qa",
+      "notes": "Run targeted tests, flutter analyze, and update handoff."
+    }
+  ],
+  "constraints": [
+    "Do not modify lesson data format.",
+    "Do not touch content-ko or content-pipeline.",
+    "Do not remove mapping_v2 origin cache.",
+    "Do not make modular runtime production-facing from curriculum/path navigation.",
+    "Do not unify domain adapter semantics."
+  ]
+}

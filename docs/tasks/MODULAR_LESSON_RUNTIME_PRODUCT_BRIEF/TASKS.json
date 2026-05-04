@@ -1,0 +1,46 @@
+{
+  "task_id": "MODULAR_LESSON_RUNTIME_PRODUCT_BRIEF",
+  "description": "Modular lesson runtime UI cleanup and product brief boundaries",
+  "phase": "C+/Frontend Contract",
+  "status": "active",
+  "progress": {
+    "done": 4,
+    "total": 4
+  },
+  "tasks": [
+    {
+      "id": "modular-runtime-brief-01",
+      "title": "Centralize modular runtime summary and navigation UI copy",
+      "status": "done",
+      "type": "code",
+      "notes": "Code-only cleanup. Use localized constants/provider integration without changing lesson schema or content."
+    },
+    {
+      "id": "modular-runtime-brief-02",
+      "title": "Document article/support/video runtime contract questions",
+      "status": "done",
+      "type": "brief",
+      "notes": "Implementation must wait for a separate product/runtime decision."
+    },
+    {
+      "id": "modular-runtime-brief-03",
+      "title": "Keep preview and dev testbed pilot labels deferred",
+      "status": "done",
+      "type": "defer",
+      "notes": "Do not productize preview/testbed labels unless these routes become user-facing."
+    },
+    {
+      "id": "modular-runtime-brief-04",
+      "title": "Review post-cleanup tests and update handoff",
+      "status": "done",
+      "type": "qa",
+      "notes": "Run targeted widget tests and update handoff with remaining runtime contract blockers."
+    }
+  ],
+  "constraints": [
+    "Do not modify lesson data format.",
+    "Do not touch content-ko or content-pipeline.",
+    "Do not remove mapping_v2 origin cache.",
+    "Do not unify domain adapter semantics."
+  ]
+}

@@ -85,13 +85,13 @@
     {
       "id": "lrsut-07",
       "title": "Redesign Video Player learning overlay",
-      "status": "pending",
+      "status": "in_progress",
       "owner": "Codex",
       "repo": "lingo-frontend-web",
       "depends_on": [
         "lrsut-03"
       ],
-      "notes": "Apply current subtitle focus card, transcript, selected-token dictionary panel, and no duplicate dictionary popup rule. Match the Sentence Detail interaction contract: tapping another token should update one in-page/side detail panel, not open stacked popups or bottom sheets."
+      "notes": "First interaction slice implemented in lingo-frontend-web: normal transcript taps now update one in-page LingoDictionaryPanel below the player, fullscreen subtitle taps route through selectedCluster to one side panel, and InteractiveSubtitle disables floating dictionary overlays in video. ParsedTextWithDictionary no longer debounces parent-managed lookup callbacks, so tapping another token immediately updates the same panel. Regression coverage asserts no ImmersiveDictionaryOverlay and no stacked dictionary surfaces when switching tokens. Remaining work: visual focus/transcript polish after user QA."
     },
     {
       "id": "lrsut-08",

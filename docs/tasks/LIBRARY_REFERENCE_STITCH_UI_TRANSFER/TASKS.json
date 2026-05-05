@@ -95,15 +95,16 @@
     },
     {
       "id": "lrsut-08",
-      "title": "Redesign Knowledge Index",
+      "title": "Redesign Knowledge Index as reference browser",
       "status": "pending",
       "owner": "Codex",
       "repo": "lingo-frontend-web",
+      "deliverable": "KNOWLEDGE_INDEX_REFERENCE_BROWSER_BRIEF.md",
       "depends_on": [
         "lrsut-03",
         "lrsut-05"
       ],
-      "notes": "Apply index cards, filters, featured section, topic clusters, and evidence counts using artifact-backed data only."
+      "notes": "Planned. This slice must follow LEARNING_SOURCE_MULTILAYER_ARCHITECTURE, CONTENT_FIRST_AND_KNOWLEDGE_LAB_SPLIT, KNOWLEDGE_LAB_CONTENTKO_ARCHITECTURE, and KG Pipeline 006 course restructure notes. Knowledge Lab is a Knowledge-First Lab reference browser, not the primary Content-First Learning surface. Default catalog should be knowledge-item-first, use centralized derived card views, show target surface, learner title, short usage preview, one resolved example, and level/kind/subcategory tags. Do not use artifact/source/example counts as the main learner-facing hero; topics/vocab remain secondary while sparse."
     },
     {
       "id": "lrsut-09",

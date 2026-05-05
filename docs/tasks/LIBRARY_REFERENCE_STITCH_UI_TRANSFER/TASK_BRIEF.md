@@ -28,6 +28,17 @@ Flutter component audit:
 
 - [FLUTTER_COMPONENT_AUDIT.md](FLUTTER_COMPONENT_AUDIT.md)
 
+Knowledge index reference-browser implementation brief:
+
+- [KNOWLEDGE_INDEX_REFERENCE_BROWSER_BRIEF.md](KNOWLEDGE_INDEX_REFERENCE_BROWSER_BRIEF.md)
+
+Architecture authority for the Knowledge index slice:
+
+- `docs/guides/LEARNING_SOURCE_MULTILAYER_ARCHITECTURE.md`
+- `docs/guides/CONTENT_FIRST_AND_KNOWLEDGE_LAB_SPLIT.md`
+- `docs/guides/KNOWLEDGE_LAB_CONTENTKO_ARCHITECTURE.md`
+- `docs/handoffs/2026-04-16_KG_PIPELINE_006_COURSE_RESTRUCTURE_NOTES.md`
+
 ## Product Boundary
 
 This task covers the Library/reference learning product line:
@@ -40,6 +51,12 @@ This task covers the Library/reference learning product line:
 
 This task does not change lesson data format, `content-ko`, or
 `content-pipeline` contracts unless a separate content brief is approved.
+
+Knowledge Lab is a `Knowledge-First Lab` reference feature under the existing
+Learning Source Multi-Layer Architecture. It must not be treated as the primary
+Content-First Learning surface. Video, dialogue, article, story, and lesson
+remain `source` types; Knowledge Lab may reverse-link to them, but should not
+replace source-first content experiences.
 
 ## Implementation Authority
 
@@ -141,8 +158,8 @@ tokens out of unrelated app surfaces.
 
 From Stitch, keep:
 
-- Knowledge index cards with target form, learner title, summary, level, tags,
-  and evidence counts.
+- Knowledge index cards with target form, learner title, short usage preview,
+  level/kind/subcategory tags, and one resolved example sentence when available.
 - Knowledge detail structure: hero, core meaning, semantic form/example rows,
   usage scenarios, comparison, related resources.
 - Sentence microscope structure: sentence hero, token breakdown, related
@@ -164,6 +181,12 @@ From Stitch, keep:
 - Replace `N4 LEVEL` style labels with app artifact levels such as A1/A2 unless
   the content artifact explicitly provides JLPT-like levels for another target
   language.
+- Do not use artifact counts, source counts, or example counts as the primary
+  Knowledge index hero. Counts are QA/secondary metadata, not the learner's main
+  decision signal.
+- Do not rename the existing architecture into a new graph. Use `source`,
+  `sentence`, `topic`, `knowledge_item`, `vocab_item`, `Content-First Learning`,
+  and `Knowledge-First Lab` consistently.
 
 ## Route Policy
 
@@ -219,7 +242,8 @@ Shared components should be extracted before large page rewrites:
 2. Knowledge detail renderer cleanup using semantic examples/tables.
 3. Dictionary entry detail redesign.
 4. Video player subtitle focus and dictionary panel redesign.
-5. Knowledge index card/filter redesign.
+5. Knowledge index reference-browser redesign using
+   [KNOWLEDGE_INDEX_REFERENCE_BROWSER_BRIEF.md](KNOWLEDGE_INDEX_REFERENCE_BROWSER_BRIEF.md).
 6. Canonical route migration brief.
 
 ## Validation Gates

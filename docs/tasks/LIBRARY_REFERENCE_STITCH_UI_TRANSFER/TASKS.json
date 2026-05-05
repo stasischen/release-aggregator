@@ -46,7 +46,7 @@
       "depends_on": [
         "lrsut-02"
       ],
-      "notes": "In progress. Added LibraryReferenceColors ThemeExtension, registered light/dark tokens in AppTheme, and introduced shared stateless components: LibrarySectionCard, EvidenceChip, TargetTextBlock, LearnerTranslationBlock, TokenBreakdownTile, InlineExampleGroup, SemanticExampleTable, SourceMomentCard, RelatedKnowledgeCard, and DictionarySenseCard. KnowledgeModuleCard now delegates inline examples and semantic tables to shared components. Remaining work: video-specific focus/transcript cards and final component naming cleanup."
+      "notes": "In progress. Added LibraryReferenceColors ThemeExtension, registered light/dark tokens in AppTheme, and introduced shared stateless components: LibrarySectionCard, EvidenceChip, TargetTextBlock, LearnerTranslationBlock, TokenBreakdownTile, InlineExampleGroup, SemanticExampleTable, SourceMomentCard, RelatedKnowledgeCard, and DictionarySenseCard. KnowledgeModuleCard now delegates inline examples and semantic tables to shared components and uses LibraryReferenceColors instead of hardcoded Material colors. Remaining work: video-specific focus/transcript cards and final component naming cleanup."
     },
     {
       "id": "lrsut-04",

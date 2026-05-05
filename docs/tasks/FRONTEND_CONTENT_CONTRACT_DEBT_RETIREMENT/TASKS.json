@@ -116,6 +116,18 @@
         "fccdr-09"
       ],
       "notes": "Current LingoAtom.pos can carry either displayable POS or backend validation composition such as adj+e+e/v+e. Short-term frontend may filter technical values, but the contract should split learner-facing display_pos_key/pos from backend-only composition/debug_pos_composition. No schema implementation in this slice; first deliver a migration brief and validator expectation."
+    },
+    {
+      "id": "fccdr-11",
+      "title": "Neutralize Learning Library frontend field names for multilingual content",
+      "status": "completed",
+      "owner": "Codex",
+      "repo": "lingo-frontend-web + release-aggregator",
+      "depends_on": [
+        "fccdr-01",
+        "fccdr-09"
+      ],
+      "notes": "Pre-launch direct cleanup: Learning Library domain models, DTOs, mapper, reference UI, seed fixtures, and tests now use surface/translation/title/summary instead of surfaceKo/translationZhTw/titleZhTw/summaryZhTw. Deprecated field names are intentionally not supported as runtime fallbacks."
     }
   ]
 }

@@ -101,6 +101,21 @@ resolver-like technical identifiers.
   `debug_pos_composition` is backend/pipeline-only. Frontend token UI consumes only the
   display field and never parses composition strings.
 
+### 8. Locale-specific Learning Library frontend field names
+
+Learning Library frontend models previously encoded the current Korean to zh-TW package in
+field names such as `surfaceKo`, `translationZhTw`, `titleZhTw`, and `summaryZhTw`.
+
+- Previous code: `lingo-frontend-web/lib/features/learning_library/...`
+- Risk: adding another target language or learner locale would require duplicating domain
+  model fields instead of swapping content packages. It also encouraged tests and mock
+  fixtures to preserve old schema names even after v2 artifacts moved to neutral fields.
+- Decision: because the app is pre-launch, do not add compatibility fallbacks. Runtime
+  frontend contracts use `surface`, `translation`, `title`, and `summary` directly.
+- Retirement condition: completed in frontend slice `fccdr-11`; content/package validators
+  should reject the old Learning Library frontend field names if they reappear in runtime
+  fixtures or synced artifacts.
+
 ## Non-Goals
 
 - Do not modify lesson runtime data format.
@@ -114,14 +129,16 @@ resolver-like technical identifiers.
 
 ## Recommended Order
 
-1. Add manifest-driven supported-locale resolution for dictionary/video/learning_library.
-2. Add asset integrity gates for stale aliases, per-word dictionary files, and empty i18n
+1. Keep Learning Library frontend/domain fields locale-neutral: `surface`, `translation`,
+   `title`, and `summary`; do not reintroduce `Ko`/`ZhTw` suffixes in domain DTOs.
+2. Add manifest-driven supported-locale resolution for dictionary/video/learning_library.
+3. Add asset integrity gates for stale aliases, per-word dictionary files, and empty i18n
    regressions.
-3. Move `shared_bank` semantics into Learning Library manifest/source metadata.
-4. Define dictionary resolver package placement for `mapping_v2` and related bridge data.
-5. Split display POS from backend POS composition in atom/runtime DTO contracts.
-6. Strip localized fields from dictionary core after i18n pack coverage gates pass.
-7. Remove legacy i18n bridges from `content-pipeline` only after v2 inventory emits
+4. Move `shared_bank` semantics into Learning Library manifest/source metadata.
+5. Define dictionary resolver package placement for `mapping_v2` and related bridge data.
+6. Split display POS from backend POS composition in atom/runtime DTO contracts.
+7. Strip localized fields from dictionary core after i18n pack coverage gates pass.
+8. Remove legacy i18n bridges from `content-pipeline` only after v2 inventory emits
    canonical i18n sidecars.
 
 ## Acceptance Criteria
@@ -135,3 +152,5 @@ resolver-like technical identifiers.
 - Source-of-truth policy defines which runtime artifacts are authoritative and which
   legacy paths are quarantined.
 - No schema change is implemented without a reviewed brief and migration plan.
+- Learning Library frontend/runtime code no longer uses `surfaceKo`, `translationZhTw`,
+  `titleZhTw`, or `summaryZhTw` as domain or DTO fields.

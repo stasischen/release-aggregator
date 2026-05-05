@@ -62,14 +62,14 @@
     {
       "id": "lrsut-05",
       "title": "Redesign Knowledge Detail with semantic examples and tables",
-      "status": "pending",
+      "status": "completed",
       "owner": "Codex",
       "repo": "lingo-frontend-web",
       "depends_on": [
         "lrsut-03",
         "lrsut-04"
       ],
-      "notes": "Reuse shared inline example and semantic table components; ensure explanation refs resolve, bottom examples are deduplicated, and table/example layout supports actual artifact fields rather than mockup-only rows."
+      "notes": "Completed first production pass. KnowledgeItemReaderView now uses LibrarySectionCard, TargetTextBlock, LearnerTranslationBlock, InlineExampleGroup, EvidenceChip, and SourceMomentCard for the detail header and reference sections. KnowledgeModuleCard resolves inline sentence refs into shared example groups, renders markdown tables with SemanticExampleTable, deduplicates bottom practical examples already used inline, and sanitizes unresolved raw [id:...] refs from display. Added regression tests for inline ref resolution, bottom example dedupe, and markdown table conversion."
     },
     {
       "id": "lrsut-06",

@@ -31,3 +31,5 @@ Completed implementation. Pending human review / commit.
 ## Follow-Up Notes
 - This bridges the existing complete 29/29 `video_atoms` sidecars into frontend runtime packages. It does not claim `content_v2/inventory/content_assets/video` is complete; that inventory still appears partial in this checkout.
 - Tail review may still affect individual atom quality, but the frontend no longer sees zero atoms for shipped video or sentence-bank assets.
+- Post-handoff frontend lookup repair: video subtitle atoms use composite ids such as `ko:adj:안녕하다+ko:e:시+ko:e:어요`. `DictionaryService.lookupAtom()` previously looked up the full composite id as a single inventory key, causing user-visible `Not in dictionary` even when every component atom existed. The service now resolves composite ids through component entries and returns a synthetic inventory entry for the surface.
+- Production video component coverage after this repair: `18023 / 20107` component occurrences are covered by the dictionary package; remaining misses are content coverage follow-up, not the primary UI link failure.

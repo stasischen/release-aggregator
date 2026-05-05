@@ -1,0 +1,95 @@
+{
+  "task_id": "LEARNING_LIBRARY_REFERENCE_UI_RESTRUCTURE",
+  "description": "Redesign Knowledge Lab, Sentence Bank, and Dictionary example lookup into one coherent education-app reference system without changing the Learning Library content schema.",
+  "status": "in_progress",
+  "deepseek_routing": "flash -> pro",
+  "tasks": [
+    {
+      "id": "ll-ref-ui-01",
+      "title": "Audit current frontend artifact density and click-path failures",
+      "status": "completed",
+      "owner": "Codex",
+      "repo": "lingo-frontend-web + release-aggregator",
+      "notes": "Current frontend assets contain 11 sources, 3346 sentences, 218 knowledge items, 4 topics, 8 vocab sets, and 5 links. The UI overexposes sparse topic/vocab/link layers while hiding shared_bank sentences behind source-first browsing."
+    },
+    {
+      "id": "ll-ref-ui-02",
+      "title": "Freeze product IA and route rules for Knowledge Bank, sentence evidence, and dictionary examples",
+      "status": "completed",
+      "owner": "Codex",
+      "repo": "release-aggregator",
+      "deliverable": "PRODUCT_IA_PLAN.md",
+      "depends_on": [
+        "ll-ref-ui-01"
+      ]
+    },
+    {
+      "id": "ll-ref-ui-03",
+      "title": "Implement Knowledge Bank focused index and detail navigation cleanup",
+      "status": "completed",
+      "owner": "Codex",
+      "repo": "lingo-frontend-web",
+      "notes": "Knowledge Bank home now leads with the knowledge catalog, keeps sparse topic/vocab lanes collapsed, and internal Learning Library navigation uses canonical /library routes.",
+      "depends_on": [
+        "ll-ref-ui-02"
+      ]
+    },
+    {
+      "id": "ll-ref-ui-04",
+      "title": "Implement sentence evidence lookup and shared_bank detail support",
+      "status": "completed",
+      "owner": "Codex",
+      "repo": "lingo-frontend-web",
+      "notes": "Sentence Evidence home is sentence-first, includes source-less/shared_bank sentences when no source filter is active, and source browsing is secondary/collapsed.",
+      "depends_on": [
+        "ll-ref-ui-02"
+      ]
+    },
+    {
+      "id": "ll-ref-ui-05",
+      "title": "Implement Dictionary example-sentence integration",
+      "status": "completed",
+      "owner": "Codex",
+      "repo": "lingo-frontend-web",
+      "notes": "Dictionary detail can show related Learning Library example sentences matched by atom id, composite component atom id, surface, or weak sentence-surface fallback.",
+      "depends_on": [
+        "ll-ref-ui-03",
+        "ll-ref-ui-04"
+      ]
+    },
+    {
+      "id": "ll-ref-ui-06",
+      "title": "Add navigation, detail, dark-mode, sparse-content, and dictionary-example smoke tests",
+      "status": "in_progress",
+      "owner": "Codex",
+      "repo": "lingo-frontend-web",
+      "notes": "Targeted lookup and home-screen tests updated. Remaining follow-up: explicit dark-mode smoke for Knowledge Bank and Sentence Evidence detail surfaces.",
+      "depends_on": [
+        "ll-ref-ui-03",
+        "ll-ref-ui-04",
+        "ll-ref-ui-05"
+      ]
+    },
+    {
+      "id": "ll-ref-ui-08",
+      "title": "Fix Learning Library v2 i18n bridge for grammar explanations and video sentences",
+      "status": "completed",
+      "owner": "Codex",
+      "repo": "content-pipeline + lingo-frontend-web",
+      "notes": "Grammar zh_tw detail exists in explanation_md and is now rendered by the reader. V2 video source i18n now merges existing legacy zh_tw video translations by source id and turn id; synced frontend artifacts verify 1212/1212 translated sentences across the 10 Learning Library video sources.",
+      "artifact": "V2_I18N_BRIDGE_FINDINGS.md",
+      "depends_on": [
+        "ll-ref-ui-03",
+        "ll-ref-ui-04"
+      ]
+    },
+    {
+      "id": "ll-ref-ui-07",
+      "title": "Prepare content-side follow-up inventory for topic/vocab/link density",
+      "status": "pending",
+      "owner": "Gemini",
+      "repo": "content-ko read-only",
+      "notes": "Read-only inventory only. Include whether dictionary should eventually expose stable example_sentence_refs. Do not let Gemini modify frontend code."
+    }
+  ]
+}

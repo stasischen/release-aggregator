@@ -112,3 +112,13 @@ i18n/zh_tw/
 - Frontend video dictionary lookup test uses production assets and fails on unsupported
   locale routing.
 - Sync scripts fail if legacy alias files reappear in frontend runtime artifacts.
+
+## Source-Of-Truth Enforcement
+
+Use `SOURCE_OF_TRUTH_POLICY.md` as the operational rule for future debugging and
+implementation. The policy is intentionally stricter than the current repo state:
+
+- frontend runtime reads exported runtime artifacts only
+- pipeline may read legacy only through named bridges
+- agents inspect runtime artifact and manifest before grepping legacy source files
+- legacy paths are quarantined by tests and bridge-retirement tasks instead of deleted

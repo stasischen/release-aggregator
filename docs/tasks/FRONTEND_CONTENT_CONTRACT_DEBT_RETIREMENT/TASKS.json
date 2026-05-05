@@ -80,6 +80,18 @@
       ],
       "blocker": "content_v2 inventory must emit canonical i18n sidecars keyed by source_id, turn_id, and sentence_id.",
       "notes": "Current legacy bridge is acceptable until canonical v2 i18n sidecars are emitted and coverage tests pass."
+    },
+    {
+      "id": "fccdr-08",
+      "title": "Define and enforce source-of-truth lookup policy",
+      "status": "completed",
+      "owner": "Codex",
+      "repo": "release-aggregator",
+      "deliverable": "SOURCE_OF_TRUTH_POLICY.md",
+      "depends_on": [
+        "fccdr-01"
+      ],
+      "notes": "Defines runtime truth tables, legacy quarantine rules, agent lookup order, and gate recommendations to prevent frontend work from accidentally attaching to old data or old schemas."
     }
   ]
 }

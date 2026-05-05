@@ -116,4 +116,6 @@ Current packaged dictionary core may include `definitions.zh_tw` and `translatio
   i18n package.
 - Pipeline tests fail if Learning Library sentence i18n coverage regresses to empty output.
 - Release docs clearly state current acceptable bridge behavior versus final contract.
+- Source-of-truth policy defines which runtime artifacts are authoritative and which
+  legacy paths are quarantined.
 - No schema change is implemented without a reviewed brief and migration plan.

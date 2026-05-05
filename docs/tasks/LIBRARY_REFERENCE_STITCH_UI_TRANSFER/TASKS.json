@@ -74,13 +74,13 @@
     {
       "id": "lrsut-06",
       "title": "Redesign Dictionary Entry Detail",
-      "status": "pending",
+      "status": "in_progress",
       "owner": "Codex",
       "repo": "lingo-frontend-web",
       "depends_on": [
         "lrsut-03"
       ],
-      "notes": "Implement learner-friendly homograph/sense display, examples, morphology, and related knowledge without raw resolver IDs or technical POS strings in primary UI."
+      "notes": "Started. DictionaryMeaningSection now renders structured senses through shared DictionarySenseCard, normalizes sparse homograph entry numbers, and displays Korean-dictionary-style labels such as headword 1/headword 2 instead of Entry labels or superscripts. Remaining work: componentize morphology rows, candidate selector, and examples with LibraryReferenceColors."
     },
     {
       "id": "lrsut-07",

@@ -57,7 +57,7 @@
       "depends_on": [
         "lrsut-03"
       ],
-      "notes": "Started early after core lrsut-03 shared components were available. SentenceDetailScreen now uses sentence microscope hero, target/learner blocks, evidence chips, token breakdown tiles, SourceMomentCard, RelatedKnowledgeCard, and topic/vocab evidence chips. It hides technical atom IDs/POS compositions from the primary UI. Remaining work: refine visual density and connect dictionary-specific sense cards where applicable."
+      "notes": "Started early after core lrsut-03 shared components were available. SentenceDetailScreen now uses sentence microscope hero, target/learner blocks, evidence chips, token breakdown tiles, SourceMomentCard, RelatedKnowledgeCard, and topic/vocab evidence chips. SentenceBankHomeScreen is now a sentence-first evidence browser that renders target sentence, learner translation, optional real source context, UIStrings-backed source-type filters/copy, and dark-mode-safe reference components; shared_bank examples no longer get a fake source fallback. It hides technical atom IDs/POS compositions/counts from the primary UI. Remaining work: refine visual density and connect dictionary-specific sense cards where applicable."
     },
     {
       "id": "lrsut-05",

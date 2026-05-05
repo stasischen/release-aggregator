@@ -40,7 +40,7 @@
       "status": "completed",
       "owner": "Codex",
       "repo": "lingo-frontend-web",
-      "notes": "Sentence Evidence home is sentence-first, includes source-less/shared_bank sentences when no source filter is active, and source browsing is secondary/collapsed.",
+      "notes": "Sentence Evidence home is sentence-first, includes source-less/shared_bank sentences when no source filter is active, renders learner-language translations directly, avoids fake source fallbacks, and keeps source browsing secondary/collapsed.",
       "depends_on": [
         "ll-ref-ui-02"
       ]
@@ -63,7 +63,7 @@
       "status": "in_progress",
       "owner": "Codex",
       "repo": "lingo-frontend-web",
-      "notes": "Targeted lookup and home-screen tests updated. Remaining follow-up: explicit dark-mode smoke for Knowledge Bank and Sentence Evidence detail surfaces.",
+      "notes": "Targeted lookup and home-screen tests updated. Sentence Evidence home now has shared_bank, learner-language translation, UIStrings-backed source-type filter/copy, dark-mode, and route smoke coverage. Remaining follow-up: explicit dark-mode smoke for detail surfaces.",
       "depends_on": [
         "ll-ref-ui-03",
         "ll-ref-ui-04",

@@ -104,6 +104,18 @@
         "fccdr-08"
       ],
       "notes": "Adds learning_library.package.v1 and manifest.package.v1 schemas plus an executable standard-library validator for runtime manifest shape, deprecated alias rejection, referenced-file existence, locale presence, and sentence i18n baseline coverage."
+    },
+    {
+      "id": "fccdr-10",
+      "title": "Split display POS from backend POS composition in atom/runtime DTOs",
+      "status": "pending",
+      "owner": "Codex + content contract owner",
+      "repo": "release-aggregator + lingo-frontend-web + content-pipeline",
+      "depends_on": [
+        "fccdr-01",
+        "fccdr-09"
+      ],
+      "notes": "Current LingoAtom.pos can carry either displayable POS or backend validation composition such as adj+e+e/v+e. Short-term frontend may filter technical values, but the contract should split learner-facing display_pos_key/pos from backend-only composition/debug_pos_composition. No schema implementation in this slice; first deliver a migration brief and validator expectation."
     }
   ]
 }

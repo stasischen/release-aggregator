@@ -86,6 +86,21 @@ Current packaged dictionary core may include `definitions.zh_tw` and `translatio
 - Retirement condition: dictionary package emission strips localized display text from
   core and emits all display strings/senses through locale packs.
 
+### 7. Atom POS composition leaks through UI DTOs
+
+`LingoAtom.pos` may currently contain either a displayable POS label such as `noun` /
+`verb` / `particle`, or backend validation composition such as `adj+e+e`, `v+e`, or
+resolver-like technical identifiers.
+
+- Current frontend behavior: reference UI filters out POS values containing `+` or `:`
+  before rendering token breakdown labels.
+- Risk: one DTO field has two meanings. Frontend components must know backend debug
+  conventions to avoid leaking technical composition into learner-facing UI.
+- Retirement condition: atom/runtime DTOs split display POS from validation composition:
+  `pos` or `display_pos_key` is learner-facing/i18n-safe, while `composition` or
+  `debug_pos_composition` is backend/pipeline-only. Frontend token UI consumes only the
+  display field and never parses composition strings.
+
 ## Non-Goals
 
 - Do not modify lesson runtime data format.
@@ -104,8 +119,9 @@ Current packaged dictionary core may include `definitions.zh_tw` and `translatio
    regressions.
 3. Move `shared_bank` semantics into Learning Library manifest/source metadata.
 4. Define dictionary resolver package placement for `mapping_v2` and related bridge data.
-5. Strip localized fields from dictionary core after i18n pack coverage gates pass.
-6. Remove legacy i18n bridges from `content-pipeline` only after v2 inventory emits
+5. Split display POS from backend POS composition in atom/runtime DTO contracts.
+6. Strip localized fields from dictionary core after i18n pack coverage gates pass.
+7. Remove legacy i18n bridges from `content-pipeline` only after v2 inventory emits
    canonical i18n sidecars.
 
 ## Acceptance Criteria

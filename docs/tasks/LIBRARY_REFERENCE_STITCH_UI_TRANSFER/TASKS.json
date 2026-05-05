@@ -14,37 +14,50 @@
       "notes": "Captured current Stitch pages, accepted design direction, rejected navigation/color artifacts, content correctness rules, multilingual rules, light/dark token policy, route policy, component plan, and validation gates."
     },
     {
-      "id": "lrsut-02",
-      "title": "Audit current Flutter Library components against Stitch direction",
-      "status": "pending",
+      "id": "lrsut-01a",
+      "title": "Define Library light/dark semantic token plan",
+      "status": "completed",
       "owner": "Codex",
-      "repo": "lingo-frontend-web",
+      "repo": "release-aggregator",
+      "deliverable": "THEME_TOKEN_PLAN.md",
       "depends_on": [
         "lrsut-01"
       ],
-      "notes": "Map existing KnowledgeItemReaderView, SentenceDetailScreen, DictionaryContent, and VideoPlayerScreen components to proposed shared component boundaries before editing. Explicitly identify the real artifact fields powering each Stitch-inspired section and reject mockup-only content."
+      "notes": "Defined Stitch color authority boundaries, recommended LibraryReferenceColors ThemeExtension, required surface/text/domain/interaction token families, initial palette direction, accessibility gates, and a Stitch prompt for palette exploration."
+    },
+    {
+      "id": "lrsut-02",
+      "title": "Audit current Flutter Library components against Stitch direction",
+      "status": "completed",
+      "owner": "Codex",
+      "repo": "lingo-frontend-web",
+      "deliverable": "FLUTTER_COMPONENT_AUDIT.md",
+      "depends_on": [
+        "lrsut-01"
+      ],
+      "notes": "Mapped current Knowledge, Sentence, Dictionary, and Video components to real artifact fields and shared component boundaries. Confirmed the gap is presentation/component structure rather than data aggregate availability."
     },
     {
       "id": "lrsut-03",
       "title": "Implement shared Library reference tokens and base components",
-      "status": "pending",
+      "status": "in_progress",
       "owner": "Codex",
       "repo": "lingo-frontend-web",
       "depends_on": [
         "lrsut-02"
       ],
-      "notes": "Introduce theme-derived helper components for surfaces, evidence chips, target/learner text blocks, inline examples, semantic example tables, and token breakdown tiles."
+      "notes": "In progress. Added LibraryReferenceColors ThemeExtension, registered light/dark tokens in AppTheme, and introduced shared stateless components: LibrarySectionCard, EvidenceChip, TargetTextBlock, LearnerTranslationBlock, TokenBreakdownTile, InlineExampleGroup, SemanticExampleTable, SourceMomentCard, RelatedKnowledgeCard, and DictionarySenseCard. KnowledgeModuleCard now delegates inline examples and semantic tables to shared components. Remaining work: video-specific focus/transcript cards and final component naming cleanup."
     },
     {
       "id": "lrsut-04",
       "title": "Redesign Sentence Detail as sentence microscope",
-      "status": "pending",
+      "status": "in_progress",
       "owner": "Codex",
       "repo": "lingo-frontend-web",
       "depends_on": [
         "lrsut-03"
       ],
-      "notes": "Apply Stitch sentence detail structure while keeping raw IDs hidden, token breakdown generic, source links working, and light/dark tests passing."
+      "notes": "Started early after core lrsut-03 shared components were available. SentenceDetailScreen now uses sentence microscope hero, target/learner blocks, evidence chips, token breakdown tiles, SourceMomentCard, RelatedKnowledgeCard, and topic/vocab evidence chips. It hides technical atom IDs/POS compositions from the primary UI. Remaining work: refine visual density and connect dictionary-specific sense cards where applicable."
     },
     {
       "id": "lrsut-05",

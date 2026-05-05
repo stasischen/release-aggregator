@@ -20,6 +20,14 @@ Current Stitch pages:
 - `dictionary detail.html`
 - `video player.html`
 
+Theme/token transfer plan:
+
+- [THEME_TOKEN_PLAN.md](THEME_TOKEN_PLAN.md)
+
+Flutter component audit:
+
+- [FLUTTER_COMPONENT_AUDIT.md](FLUTTER_COMPONENT_AUDIT.md)
+
 ## Product Boundary
 
 This task covers the Library/reference learning product line:
@@ -123,6 +131,11 @@ Required token layer:
 
 Implementation may model these as helper methods/extensions rather than a new
 design-token framework, but no page should hardcode light-only backgrounds.
+
+Preferred implementation shape is a Library-specific Flutter
+`ThemeExtension` such as `LibraryReferenceColors`, registered alongside the
+existing app `SemanticColors`. This keeps Knowledge/Sentence/Dictionary/Video
+tokens out of unrelated app surfaces.
 
 ## Accepted Design Direction
 

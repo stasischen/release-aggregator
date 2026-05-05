@@ -80,7 +80,7 @@
       "depends_on": [
         "lrsut-03"
       ],
-      "notes": "Started. DictionaryMeaningSection now renders structured senses through shared DictionarySenseCard, normalizes sparse homograph entry numbers, and displays Korean-dictionary-style labels such as headword 1/headword 2 instead of Entry labels or superscripts. Remaining work: componentize morphology rows, candidate selector, and examples with LibraryReferenceColors."
+      "notes": "In progress. DictionaryMeaningSection now renders structured senses through shared DictionarySenseCard, normalizes sparse homograph entry numbers, and displays Korean-dictionary-style labels such as headword 1/headword 2 instead of Entry labels or superscripts. DictionaryContent now renders morphology/component rows through DictionaryComponentRow and uses DictionaryFallbackNotice without debug fallback strings or raw [MISSING ID] copy. Remaining work: componentize candidate selector and examples with LibraryReferenceColors."
     },
     {
       "id": "lrsut-07",

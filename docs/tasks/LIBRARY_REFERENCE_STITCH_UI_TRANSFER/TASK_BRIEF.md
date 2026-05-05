@@ -33,6 +33,35 @@ This task covers the Library/reference learning product line:
 This task does not change lesson data format, `content-ko`, or
 `content-pipeline` contracts unless a separate content brief is approved.
 
+## Implementation Authority
+
+Stitch mockups are visual references, not product or content contracts. They may
+invent content, route labels, hierarchy, examples, counts, images, or
+interactions that do not match the real app.
+
+When transferring a mockup, implementation authority is:
+
+1. Real exported frontend artifacts and current repository contracts.
+2. Teaching correctness and learner comprehension.
+3. Smooth user flow across Knowledge, Sentences, Dictionary, and Video.
+4. Existing app navigation and platform conventions.
+5. Stitch visual direction.
+
+If Stitch conflicts with real content or teaching flow, adapt or reject the
+mockup detail. Do not force real data into an invented visual slot just because
+the mockup contains it.
+
+Every implementation slice must answer:
+
+- Which real artifact fields power each visible section?
+- What happens when an optional field is missing?
+- Does the presentation help the learner understand the language point, or just
+  mirror the mockup?
+- Does the interaction path let the learner continue naturally to sentence,
+  dictionary, source, or video context?
+- Are labels and examples grounded in real content rather than placeholder
+  sample data?
+
 ## Non-Negotiable Content Rules
 
 User-facing UI must render educational content, not artifact mechanics.
@@ -53,6 +82,10 @@ User-facing UI must render educational content, not artifact mechanics.
   `v+e`, `n+p`, or resolver IDs as primary labels.
 - Missing localized content must use localized UI strings, never hardcoded
   English fallbacks such as `[no meaning]`, `No definition`, or raw IDs.
+- Stitch-invented examples, counts, levels, images, and labels must not replace
+  artifact-backed content.
+- Visual placeholders are acceptable only in empty/loading/error states and must
+  be explicitly labeled as UI states, not content.
 
 ## Multilingual Readiness Rules
 

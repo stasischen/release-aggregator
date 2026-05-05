@@ -22,7 +22,7 @@
       "depends_on": [
         "lrsut-01"
       ],
-      "notes": "Map existing KnowledgeItemReaderView, SentenceDetailScreen, DictionaryContent, and VideoPlayerScreen components to proposed shared component boundaries before editing."
+      "notes": "Map existing KnowledgeItemReaderView, SentenceDetailScreen, DictionaryContent, and VideoPlayerScreen components to proposed shared component boundaries before editing. Explicitly identify the real artifact fields powering each Stitch-inspired section and reject mockup-only content."
     },
     {
       "id": "lrsut-03",
@@ -56,7 +56,7 @@
         "lrsut-03",
         "lrsut-04"
       ],
-      "notes": "Reuse shared inline example and semantic table components; ensure explanation refs resolve and bottom examples are deduplicated."
+      "notes": "Reuse shared inline example and semantic table components; ensure explanation refs resolve, bottom examples are deduplicated, and table/example layout supports actual artifact fields rather than mockup-only rows."
     },
     {
       "id": "lrsut-06",

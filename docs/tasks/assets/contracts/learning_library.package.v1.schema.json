@@ -1,0 +1,85 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://lingo.local/contracts/learning_library.package.v1.schema.json",
+  "title": "Learning Library Runtime Package Manifest v1",
+  "type": "object",
+  "required": [
+    "lang",
+    "version",
+    "modules",
+    "files"
+  ],
+  "additionalProperties": true,
+  "properties": {
+    "contract": {
+      "const": "learning_library.package.v1"
+    },
+    "lang": {
+      "type": "string",
+      "minLength": 2
+    },
+    "version": {
+      "type": "string",
+      "minLength": 1
+    },
+    "modules": {
+      "type": "array",
+      "items": {
+        "enum": [
+          "core",
+          "i18n"
+        ]
+      },
+      "allOf": [
+        {
+          "contains": {
+            "const": "core"
+          }
+        },
+        {
+          "contains": {
+            "const": "i18n"
+          }
+        }
+      ]
+    },
+    "files": {
+      "type": "object",
+      "required": [
+        "core",
+        "i18n"
+      ],
+      "additionalProperties": true,
+      "properties": {
+        "core": {
+          "type": "array",
+          "items": {
+            "enum": [
+              "sources_index.json",
+              "sentences.json",
+              "knowledge.json",
+              "topics.json",
+              "vocab_sets.json",
+              "links.json"
+            ]
+          }
+        },
+        "i18n": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "array",
+            "items": {
+              "enum": [
+                "sources.json",
+                "sentences.json",
+                "knowledge.json",
+                "topics.json",
+                "vocab_sets.json"
+              ]
+            }
+          }
+        }
+      }
+    }
+  }
+}

@@ -113,6 +113,28 @@ i18n/zh_tw/
   locale routing.
 - Sync scripts fail if legacy alias files reappear in frontend runtime artifacts.
 
+### Executable Contract Registry
+
+The first gate is now codified in:
+
+- `docs/tasks/assets/contracts/learning_library.package.v1.schema.json`
+- `docs/tasks/assets/contracts/manifest.package.v1.schema.json`
+- `scripts/validate_content_contracts.py`
+
+Run this before accepting pipeline or frontend asset-sync changes:
+
+```bash
+python3 scripts/validate_content_contracts.py \
+  --learning-library-manifest /Users/ywchen/Dev/lingo/lingo-frontend-web/assets/artifacts/learning_library/ko/library_manifest.json \
+  --package-manifest /Users/ywchen/Dev/lingo/content-pipeline/dist/ko/packages/manifest.json \
+  --require-locale zh_tw \
+  --min-sentence-translations 3345
+```
+
+This prevents the common failure mode where frontend code silently reads a stale
+Learning Library layout, deprecated `*_index.json` aliases, missing i18n packs,
+or a package manifest pointing at files that no longer exist.
+
 ## Source-Of-Truth Enforcement
 
 Use `SOURCE_OF_TRUTH_POLICY.md` as the operational rule for future debugging and

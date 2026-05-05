@@ -92,6 +92,18 @@
         "fccdr-01"
       ],
       "notes": "Defines runtime truth tables, legacy quarantine rules, agent lookup order, and gate recommendations to prevent frontend work from accidentally attaching to old data or old schemas."
+    },
+    {
+      "id": "fccdr-09",
+      "title": "Add versioned content contract registry and Learning Library runtime validator",
+      "status": "completed",
+      "owner": "Codex",
+      "repo": "release-aggregator",
+      "deliverable": "docs/tasks/assets/contracts + scripts/validate_content_contracts.py",
+      "depends_on": [
+        "fccdr-08"
+      ],
+      "notes": "Adds learning_library.package.v1 and manifest.package.v1 schemas plus an executable standard-library validator for runtime manifest shape, deprecated alias rejection, referenced-file existence, locale presence, and sentence i18n baseline coverage."
     }
   ]
 }

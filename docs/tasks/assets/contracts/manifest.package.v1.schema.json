@@ -1,0 +1,64 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://lingo.local/contracts/manifest.package.v1.schema.json",
+  "title": "Production Package Manifest v1",
+  "type": "object",
+  "required": [
+    "version",
+    "target",
+    "learner_lang",
+    "modules"
+  ],
+  "additionalProperties": true,
+  "properties": {
+    "contract": {
+      "const": "manifest.package.v1"
+    },
+    "version": {
+      "type": "string",
+      "minLength": 1
+    },
+    "target": {
+      "type": "string",
+      "minLength": 2
+    },
+    "learner_lang": {
+      "type": "string",
+      "minLength": 2
+    },
+    "modules": {
+      "type": "object",
+      "additionalProperties": true,
+      "properties": {
+        "dictionary": {
+          "type": "object",
+          "required": [
+            "core",
+            "i18n"
+          ]
+        },
+        "learning_library": {
+          "type": "object",
+          "required": [
+            "core",
+            "i18n"
+          ],
+          "properties": {
+            "core": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "i18n": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

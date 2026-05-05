@@ -1,0 +1,85 @@
+{
+  "task_id": "FRONTEND_CONTENT_CONTRACT_DEBT_RETIREMENT",
+  "description": "Retire temporary frontend/content hardcoding and bridge logic after the v2 Korean reference/runtime surfaces became usable.",
+  "status": "queued",
+  "deepseek_routing": "flash -> pro",
+  "tasks": [
+    {
+      "id": "fccdr-01",
+      "title": "Inventory current hardcoded bridges and accepted temporary behavior",
+      "status": "completed",
+      "owner": "Codex",
+      "repo": "release-aggregator",
+      "deliverable": "TASK_BRIEF.md",
+      "notes": "Captured video locale fallback, Learning Library legacy i18n bridge, sync alias exclusions, shared_bank UI semantics, mapping_v2 placement, and localized dictionary core leakage."
+    },
+    {
+      "id": "fccdr-02",
+      "title": "Add manifest-driven supported-locale resolution",
+      "status": "pending",
+      "owner": "Codex",
+      "repo": "lingo-frontend-web + content-pipeline",
+      "depends_on": [
+        "fccdr-01"
+      ],
+      "notes": "Replace Korean-only video locale fallback with package manifest declarations for dictionary, video, and Learning Library support locales."
+    },
+    {
+      "id": "fccdr-03",
+      "title": "Add asset integrity gates for stale layout and empty i18n regressions",
+      "status": "pending",
+      "owner": "Codex",
+      "repo": "lingo-frontend-web + content-pipeline",
+      "depends_on": [
+        "fccdr-01"
+      ],
+      "notes": "Gate no per-word dictionary runtime files, no Learning Library *_index aliases except sources_index, and no large drop in sentence/video i18n coverage."
+    },
+    {
+      "id": "fccdr-04",
+      "title": "Move shared_bank semantics into Learning Library artifact metadata",
+      "status": "pending",
+      "owner": "Codex",
+      "repo": "content-pipeline + lingo-frontend-web",
+      "depends_on": [
+        "fccdr-02"
+      ],
+      "notes": "Artifact should expose source/source-group metadata and localized label for shared example banks. Frontend should stop hardcoding Example Bank semantics."
+    },
+    {
+      "id": "fccdr-05",
+      "title": "Brief dictionary resolver package placement",
+      "status": "pending",
+      "owner": "Codex",
+      "repo": "release-aggregator",
+      "depends_on": [
+        "fccdr-01"
+      ],
+      "notes": "Decide whether mapping_v2 and origin resolver data live in a core resolver module, bridge module, or separate dictionary resolver package. Do not remove mapping_v2 before Phase 3 validation."
+    },
+    {
+      "id": "fccdr-06",
+      "title": "Prepare dictionary strict core/i18n split plan",
+      "status": "pending",
+      "owner": "Codex",
+      "repo": "release-aggregator + content-pipeline",
+      "depends_on": [
+        "fccdr-05"
+      ],
+      "notes": "Plan migration so dictionary_core.json stops carrying localized zh_tw definitions/translations once i18n pack coverage and resolver placement are gated."
+    },
+    {
+      "id": "fccdr-07",
+      "title": "Retire Learning Library legacy i18n bridge after canonical v2 sidecars exist",
+      "status": "blocked",
+      "owner": "Content pipeline owner",
+      "repo": "content-pipeline + content-ko",
+      "depends_on": [
+        "fccdr-02",
+        "fccdr-03"
+      ],
+      "blocker": "content_v2 inventory must emit canonical i18n sidecars keyed by source_id, turn_id, and sentence_id.",
+      "notes": "Current legacy bridge is acceptable until canonical v2 i18n sidecars are emitted and coverage tests pass."
+    }
+  ]
+}

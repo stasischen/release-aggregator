@@ -1,0 +1,111 @@
+{
+  "task_id": "LIBRARY_REFERENCE_STITCH_UI_TRANSFER",
+  "description": "Transfer Stitch reference designs for Library / Knowledge / Sentence / Dictionary / Video surfaces into Flutter with content-correct, multilingual, light/dark-safe components.",
+  "status": "queued",
+  "deepseek_routing": "flash -> pro",
+  "tasks": [
+    {
+      "id": "lrsut-01",
+      "title": "Freeze Stitch design inventory and acceptance rules",
+      "status": "completed",
+      "owner": "Codex",
+      "repo": "release-aggregator",
+      "deliverable": "TASK_BRIEF.md",
+      "notes": "Captured current Stitch pages, accepted design direction, rejected navigation/color artifacts, content correctness rules, multilingual rules, light/dark token policy, route policy, component plan, and validation gates."
+    },
+    {
+      "id": "lrsut-02",
+      "title": "Audit current Flutter Library components against Stitch direction",
+      "status": "pending",
+      "owner": "Codex",
+      "repo": "lingo-frontend-web",
+      "depends_on": [
+        "lrsut-01"
+      ],
+      "notes": "Map existing KnowledgeItemReaderView, SentenceDetailScreen, DictionaryContent, and VideoPlayerScreen components to proposed shared component boundaries before editing."
+    },
+    {
+      "id": "lrsut-03",
+      "title": "Implement shared Library reference tokens and base components",
+      "status": "pending",
+      "owner": "Codex",
+      "repo": "lingo-frontend-web",
+      "depends_on": [
+        "lrsut-02"
+      ],
+      "notes": "Introduce theme-derived helper components for surfaces, evidence chips, target/learner text blocks, inline examples, semantic example tables, and token breakdown tiles."
+    },
+    {
+      "id": "lrsut-04",
+      "title": "Redesign Sentence Detail as sentence microscope",
+      "status": "pending",
+      "owner": "Codex",
+      "repo": "lingo-frontend-web",
+      "depends_on": [
+        "lrsut-03"
+      ],
+      "notes": "Apply Stitch sentence detail structure while keeping raw IDs hidden, token breakdown generic, source links working, and light/dark tests passing."
+    },
+    {
+      "id": "lrsut-05",
+      "title": "Redesign Knowledge Detail with semantic examples and tables",
+      "status": "pending",
+      "owner": "Codex",
+      "repo": "lingo-frontend-web",
+      "depends_on": [
+        "lrsut-03",
+        "lrsut-04"
+      ],
+      "notes": "Reuse shared inline example and semantic table components; ensure explanation refs resolve and bottom examples are deduplicated."
+    },
+    {
+      "id": "lrsut-06",
+      "title": "Redesign Dictionary Entry Detail",
+      "status": "pending",
+      "owner": "Codex",
+      "repo": "lingo-frontend-web",
+      "depends_on": [
+        "lrsut-03"
+      ],
+      "notes": "Implement learner-friendly homograph/sense display, examples, morphology, and related knowledge without raw resolver IDs or technical POS strings in primary UI."
+    },
+    {
+      "id": "lrsut-07",
+      "title": "Redesign Video Player learning overlay",
+      "status": "pending",
+      "owner": "Codex",
+      "repo": "lingo-frontend-web",
+      "depends_on": [
+        "lrsut-03"
+      ],
+      "notes": "Apply current subtitle focus card, transcript, selected-token dictionary panel, and no duplicate dictionary popup rule."
+    },
+    {
+      "id": "lrsut-08",
+      "title": "Redesign Knowledge Index",
+      "status": "pending",
+      "owner": "Codex",
+      "repo": "lingo-frontend-web",
+      "depends_on": [
+        "lrsut-03",
+        "lrsut-05"
+      ],
+      "notes": "Apply index cards, filters, featured section, topic clusters, and evidence counts using artifact-backed data only."
+    },
+    {
+      "id": "lrsut-09",
+      "title": "Prepare canonical Library route migration brief",
+      "status": "pending",
+      "owner": "Codex",
+      "repo": "release-aggregator",
+      "depends_on": [
+        "lrsut-04",
+        "lrsut-05",
+        "lrsut-06",
+        "lrsut-07",
+        "lrsut-08"
+      ],
+      "notes": "Only after UI stabilizes, brief /library/knowledge, /library/sentences, /library/dictionary/entry, and /library/videos redirects."
+    }
+  ]
+}

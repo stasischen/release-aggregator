@@ -110,14 +110,15 @@
     {
       "id": "fccdr-10",
       "title": "Split display POS from backend POS composition in atom/runtime DTOs",
-      "status": "pending",
+      "status": "completed",
       "owner": "Codex + content contract owner",
       "repo": "release-aggregator + lingo-frontend-web + content-pipeline",
+      "deliverable": "ATOM_POS_COMPOSITION_SPLIT_BRIEF.md",
       "depends_on": [
         "fccdr-01",
         "fccdr-09"
       ],
-      "notes": "Current LingoAtom.pos can carry either displayable POS or backend validation composition such as adj+e+e/v+e. Short-term frontend may filter technical values, but the contract should split learner-facing display_pos_key/pos from backend-only composition/debug_pos_composition. No schema implementation in this slice; first deliver a migration brief and validator expectation."
+      "notes": "Migration brief completed. Current bundled assets expose 54 unique video atom pos values and 158 unique Sentence Bank atom pos values, including Korean chunk composition chains such as adj+e+e, v+e, n+cop+e. The plan explicitly preserves + composition and composite ids; it adds learner-facing display_pos_key plus an automated composition-to-display mapping table, with only unknown/ambiguous mappings sent to review. Validators should reject composition strings in display_pos_key, not reject composition itself."
     },
     {
       "id": "fccdr-11",

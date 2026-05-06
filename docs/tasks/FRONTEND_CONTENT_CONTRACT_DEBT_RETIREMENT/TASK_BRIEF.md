@@ -122,6 +122,14 @@ resolver-like technical identifiers.
   before rendering token breakdown labels.
 - Risk: one DTO field has two meanings. Frontend components must know backend debug
   conventions to avoid leaking technical composition into learner-facing UI.
+- Finding: current bundled assets expose 54 unique video atom `pos` values and 158 unique
+  Sentence Bank atom `pos` values. Many are composition chains such as `adj+e+e`, `v+e`,
+  and `n+cop+e`.
+- Decision: completed in `fccdr-10`. Runtime atom contracts should preserve Korean `+`
+  composition and composite ids, add learner-facing `display_pos_key`, and add an
+  automated composition-to-display mapping table. Only unknown/ambiguous mappings need
+  review. Frontend learner UI should consume `display_pos_key` and must not render
+  composition strings as POS labels.
 - Retirement condition: atom/runtime DTOs split display POS from validation composition:
   `pos` or `display_pos_key` is learner-facing/i18n-safe, while `composition` or
   `debug_pos_composition` is backend/pipeline-only. Frontend token UI consumes only the

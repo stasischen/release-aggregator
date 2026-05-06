@@ -160,14 +160,14 @@
     {
       "id": "fccdr-14",
       "title": "Remove explicit Learning Library legacy i18n fallback and pass forbid gate",
-      "status": "pending",
-      "owner": "Content pipeline owner",
+      "status": "completed",
+      "owner": "Codex",
       "repo": "content-pipeline + release-aggregator",
       "depends_on": [
         "fccdr-07",
         "fccdr-13"
       ],
-      "notes": "Follow-up after one validation slice: remove --allow-legacy-i18n-bridge and legacy helper symbols from content-pipeline once synced frontend output is confirmed. Release gate must pass with --legacy-learning-library-bridge-policy forbid."
+      "notes": "Completed in content-pipeline: removed --allow-legacy-i18n-bridge, legacy Learning Library i18n helper symbols, and legacy fallback code paths. Release gate passes with --legacy-learning-library-bridge-policy forbid; no-legacy v2 export still validates package and Learning Library manifests with 3345+ sentence translations."
     },
     {
       "id": "fccdr-15",

@@ -89,6 +89,10 @@ mapping data, not pure localized display text.
 - Current code: `lingo-frontend-web/lib/core/repositories/dictionary_repository.dart`
 - Risk: core/i18n boundary remains semantically muddy. Removing it prematurely could break
   dictionary origin and candidate disambiguation.
+- Decision: completed in `fccdr-05`. `mapping_v2` / surface candidate routing belongs in
+  a target-language `dictionary.resolver` module, not learner-locale i18n. The resolver
+  module owns candidate ordering, homograph metadata, entry/sense references, and temporary
+  origin fallback cache until core-origin Phase 3 validation passes.
 - Retirement condition: a dictionary resolver package or bridge module is defined and the
   dictionary core-origin migration Phase 3 validation passes.
 

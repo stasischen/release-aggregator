@@ -49,13 +49,14 @@
     {
       "id": "fccdr-05",
       "title": "Brief dictionary resolver package placement",
-      "status": "pending",
+      "status": "completed",
       "owner": "Codex",
       "repo": "release-aggregator",
+      "deliverable": "DICTIONARY_RESOLVER_PACKAGE_BRIEF.md",
       "depends_on": [
         "fccdr-01"
       ],
-      "notes": "Decide whether mapping_v2 and origin resolver data live in a core resolver module, bridge module, or separate dictionary resolver package. Do not remove mapping_v2 before Phase 3 validation."
+      "notes": "Decision brief completed: move mapping_v2/surface candidate routing out of learner-locale i18n into a target-language dictionary.resolver module, preferably packages/{target}/resolver/surface_candidates.v1.json. Core remains target lexical inventory, i18n remains learner-language display, resolver owns surface candidates/homograph/entry/sense refs plus temporary origin fallback until core-origin Phase 3 validation passes."
     },
     {
       "id": "fccdr-06",

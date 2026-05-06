@@ -38,6 +38,42 @@ DEPRECATED_LEARNING_LIBRARY_ALIASES = {
     "vocab_sets_index.json",
 }
 
+LL_SIDECAR_SOURCE_TYPES = {
+    "shared_bank",
+    "video",
+    "dialogue",
+    "article",
+    "knowledge_collection",
+}
+
+LL_SIDECAR_STATUSES = {
+    "active",
+    "needs_review",
+    "deprecated",
+}
+
+LL_TURN_BASED_SOURCE_TYPES = {
+    "video",
+    "dialogue",
+    "article",
+}
+
+LL_LEGACY_BRIDGE_MARKERS = (
+    "_load_legacy_source_i18n",
+    "_load_legacy_learning_library_i18n",
+    "content/i18n/<locale>/learning_library",
+    "content/i18n/<locale>/video",
+    "content/i18n/<locale>/dialogue",
+)
+
+LL_LEGACY_BRIDGE_FLAG_MARKERS = (
+    "allow_legacy_i18n_bridge",
+    "allow_legacy_learning_library_i18n",
+    "enable_legacy_i18n_bridge",
+    "--allow-legacy-i18n-bridge",
+    "ALLOW_LEGACY_I18N_BRIDGE",
+)
+
 
 def load_json(path: Path) -> Any:
     try:
@@ -95,6 +131,13 @@ def _non_empty_translation_count(payload: Any) -> int:
         for item in payload:
             count += _non_empty_translation_count(item)
     return count
+
+
+def _require_non_empty_string(value: Any, label: str, errors: list[str]) -> str:
+    if not isinstance(value, str) or not value.strip():
+        errors.append(f"{label} must be a non-empty string")
+        return ""
+    return value
 
 
 def validate_learning_library_manifest(
@@ -175,6 +218,134 @@ def validate_learning_library_manifest(
     return errors
 
 
+def validate_learning_library_i18n_sidecar_manifest(
+    manifest_path: Path,
+    *,
+    min_sentence_coverage: float = 0.0,
+) -> list[str]:
+    errors: list[str] = []
+
+    try:
+        manifest = _require_object(load_json(manifest_path), str(manifest_path), errors)
+    except ValueError as exc:
+        return [str(exc)]
+
+    schema_version = _require_non_empty_string(manifest.get("schema_version"), "schema_version", errors)
+    if schema_version and schema_version != "learning-library-i18n-manifest-v1":
+        errors.append(f"schema_version must be learning-library-i18n-manifest-v1: {schema_version}")
+
+    study_language = _require_non_empty_string(manifest.get("study_language"), "study_language", errors)
+    learner_language = _require_non_empty_string(manifest.get("learner_language"), "learner_language", errors)
+
+    files = _require_object(manifest.get("files"), "files", errors)
+    required_files = {
+        "sources": "sources.json",
+        "sentences": "sentences.json",
+        "knowledge": "knowledge.json",
+    }
+    root = manifest_path.parent
+    resolved_files: dict[str, Path] = {}
+    for key, expected_name in required_files.items():
+        filename = files.get(key)
+        if filename != expected_name:
+            errors.append(f"files.{key} must be {expected_name}")
+            continue
+        path = root / expected_name
+        if not path.is_file():
+            errors.append(f"files.{key} references missing sidecar: {expected_name}")
+        else:
+            resolved_files[key] = path
+
+    if errors:
+        return errors
+
+    sources = _require_object(load_json(resolved_files["sources"]), str(resolved_files["sources"]), errors)
+    sentences = _require_object(load_json(resolved_files["sentences"]), str(resolved_files["sentences"]), errors)
+    knowledge = _require_object(load_json(resolved_files["knowledge"]), str(resolved_files["knowledge"]), errors)
+
+    for label, payload, expected_version in (
+        ("sources", sources, "learning-library-i18n-sources-v1"),
+        ("sentences", sentences, "learning-library-i18n-sentences-v1"),
+        ("knowledge", knowledge, "learning-library-i18n-knowledge-v1"),
+    ):
+        value = _require_non_empty_string(payload.get("schema_version"), f"{label}.schema_version", errors)
+        if value and value != expected_version:
+            errors.append(f"{label}.schema_version must be {expected_version}: {value}")
+        if payload.get("study_language") != study_language:
+            errors.append(f"{label}.study_language must match manifest study_language")
+        if payload.get("learner_language") != learner_language:
+            errors.append(f"{label}.learner_language must match manifest learner_language")
+
+    source_entries = _require_object(sources.get("entries"), "sources.entries", errors)
+    sentence_entries = _require_object(sentences.get("entries"), "sentences.entries", errors)
+    knowledge_entries = _require_object(knowledge.get("entries"), "knowledge.entries", errors)
+
+    for source_id, row in source_entries.items():
+        label = f"sources.entries.{source_id}"
+        source = _require_object(row, label, errors)
+        if source.get("source_id") != source_id:
+            errors.append(f"{label}.source_id must match entry key")
+        source_type = source.get("source_type")
+        if source_type not in LL_SIDECAR_SOURCE_TYPES:
+            errors.append(f"{label}.source_type is invalid: {source_type!r}")
+        _require_non_empty_string(source.get("title"), f"{label}.title", errors)
+        if source.get("status") not in LL_SIDECAR_STATUSES:
+            errors.append(f"{label}.status is invalid: {source.get('status')!r}")
+        _require_list(source.get("source_refs"), f"{label}.source_refs", errors)
+
+    total_sentence_rows = 0
+    translated_sentence_rows = 0
+    for source_id, block_value in sentence_entries.items():
+        block_label = f"sentences.entries.{source_id}"
+        block = _require_object(block_value, block_label, errors)
+        if block.get("source_id") != source_id:
+            errors.append(f"{block_label}.source_id must match entry key")
+        source_type = block.get("source_type")
+        if source_type not in LL_SIDECAR_SOURCE_TYPES:
+            errors.append(f"{block_label}.source_type is invalid: {source_type!r}")
+        rows = _require_object(block.get("sentences"), f"{block_label}.sentences", errors)
+        for sentence_id, row_value in rows.items():
+            row_label = f"{block_label}.sentences.{sentence_id}"
+            row = _require_object(row_value, row_label, errors)
+            total_sentence_rows += 1
+            if row.get("sentence_id") != sentence_id:
+                errors.append(f"{row_label}.sentence_id must match entry key")
+            status = row.get("status")
+            if status not in LL_SIDECAR_STATUSES:
+                errors.append(f"{row_label}.status is invalid: {status!r}")
+            translation = row.get("translation")
+            has_translation = isinstance(translation, str) and bool(translation.strip())
+            if has_translation:
+                translated_sentence_rows += 1
+            if status == "active" and not has_translation:
+                errors.append(f"{row_label}.translation must be non-empty when status is active")
+            _require_list(row.get("source_refs"), f"{row_label}.source_refs", errors)
+            if source_type in LL_TURN_BASED_SOURCE_TYPES:
+                _require_non_empty_string(row.get("turn_id"), f"{row_label}.turn_id", errors)
+
+    if total_sentence_rows == 0:
+        errors.append("sentences.entries must contain at least one sentence row")
+    elif min_sentence_coverage > 0:
+        coverage = translated_sentence_rows / total_sentence_rows
+        if coverage < min_sentence_coverage:
+            errors.append(
+                "sidecar sentence i18n coverage below baseline: "
+                f"{translated_sentence_rows}/{total_sentence_rows} = {coverage:.2%} < {min_sentence_coverage:.2%}"
+            )
+
+    for knowledge_id, row_value in knowledge_entries.items():
+        row_label = f"knowledge.entries.{knowledge_id}"
+        row = _require_object(row_value, row_label, errors)
+        if row.get("knowledge_id") != knowledge_id:
+            errors.append(f"{row_label}.knowledge_id must match entry key")
+        _require_non_empty_string(row.get("title"), f"{row_label}.title", errors)
+        if row.get("status") not in LL_SIDECAR_STATUSES:
+            errors.append(f"{row_label}.status is invalid: {row.get('status')!r}")
+        _require_list(row.get("source_refs"), f"{row_label}.source_refs", errors)
+
+    return errors
+
+
 def validate_package_manifest(manifest_path: Path) -> list[str]:
     errors: list[str] = []
     try:
@@ -207,12 +378,55 @@ def validate_package_manifest(manifest_path: Path) -> list[str]:
     return errors
 
 
+def validate_learning_library_pipeline_legacy_bridge(
+    source_path: Path,
+    *,
+    policy: str,
+) -> list[str]:
+    try:
+        source = source_path.read_text(encoding="utf-8")
+    except FileNotFoundError:
+        return [f"missing file: {source_path}"]
+
+    marker_hits = [marker for marker in LL_LEGACY_BRIDGE_MARKERS if marker in source]
+    flag_hits = [marker for marker in LL_LEGACY_BRIDGE_FLAG_MARKERS if marker in source]
+
+    if policy == "allow":
+        return []
+
+    if policy == "flagged":
+        if marker_hits and not flag_hits:
+            return [
+                "Learning Library legacy i18n bridge markers exist without an explicit fallback flag: "
+                + ", ".join(marker_hits)
+            ]
+        return []
+
+    if policy == "forbid":
+        if marker_hits:
+            return [
+                "Learning Library legacy i18n bridge markers are forbidden after fccdr-07 retirement: "
+                + ", ".join(marker_hits)
+            ]
+        return []
+
+    return [f"unknown legacy bridge policy: {policy}"]
+
+
 def build_parser() -> argparse.ArgumentParser:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--learning-library-manifest", type=Path)
+    parser.add_argument("--learning-library-i18n-sidecar-manifest", type=Path)
     parser.add_argument("--package-manifest", type=Path)
+    parser.add_argument("--content-pipeline-learning-library-source", type=Path)
+    parser.add_argument(
+        "--legacy-learning-library-bridge-policy",
+        choices=("allow", "flagged", "forbid"),
+        default="allow",
+    )
     parser.add_argument("--require-locale", default=None)
     parser.add_argument("--min-sentence-translations", type=int, default=0)
+    parser.add_argument("--min-sidecar-sentence-coverage", type=float, default=0.0)
     return parser
 
 
@@ -220,8 +434,16 @@ def main(argv: list[str] | None = None) -> int:
     parser = build_parser()
     args = parser.parse_args(argv)
 
-    if not args.learning_library_manifest and not args.package_manifest:
-        parser.error("provide --learning-library-manifest and/or --package-manifest")
+    if (
+        not args.learning_library_manifest
+        and not args.learning_library_i18n_sidecar_manifest
+        and not args.package_manifest
+        and not args.content_pipeline_learning_library_source
+    ):
+        parser.error(
+            "provide --learning-library-manifest, --learning-library-i18n-sidecar-manifest, "
+            "--package-manifest, and/or --content-pipeline-learning-library-source"
+        )
 
     errors: list[str] = []
     if args.learning_library_manifest:
@@ -232,8 +454,22 @@ def main(argv: list[str] | None = None) -> int:
                 min_sentence_translations=args.min_sentence_translations,
             )
         )
+    if args.learning_library_i18n_sidecar_manifest:
+        errors.extend(
+            validate_learning_library_i18n_sidecar_manifest(
+                args.learning_library_i18n_sidecar_manifest,
+                min_sentence_coverage=args.min_sidecar_sentence_coverage,
+            )
+        )
     if args.package_manifest:
         errors.extend(validate_package_manifest(args.package_manifest))
+    if args.content_pipeline_learning_library_source:
+        errors.extend(
+            validate_learning_library_pipeline_legacy_bridge(
+                args.content_pipeline_learning_library_source,
+                policy=args.legacy_learning_library_bridge_policy,
+            )
+        )
 
     if errors:
         for error in errors:

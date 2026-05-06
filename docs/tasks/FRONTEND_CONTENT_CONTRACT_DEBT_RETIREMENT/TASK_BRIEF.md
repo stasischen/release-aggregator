@@ -55,11 +55,13 @@ not a content translation pack.
 - Current code: `content-pipeline/pipelines/learning_library.py`
 - Risk: output correctness depends on path conventions and id string transforms such as
   `video:{source}:turn_v_001 -> v_001`.
-- 2026-05-06 recheck: still blocked. `content_v2/i18n` has 0 files; runtime coverage is
-  currently high only because the pipeline still reads legacy `content/i18n` bridges.
-  The current missing row is `sent.src.ko.dialogue.a1_01.L01-D1-01`.
-- Retirement condition: v2 inventory artifacts or a canonical sidecar contain stable
-  i18n records keyed by canonical `source_id`, `turn_id`, and `sentence_id`.
+- 2026-05-06 recheck: content-ko now has canonical zh-TW Learning Library sidecars
+  under `content_v2/i18n/zh_tw/learning_library`, but `content-pipeline` still reads
+  legacy `content/i18n` bridges when emitting runtime artifacts. The current missing
+  row is `sent.src.ko.dialogue.a1_01.L01-D1-01`.
+- Retirement condition: `content-pipeline` reads canonical sidecars first, legacy bridge
+  reads are removed or quarantined behind an explicit fallback flag, and a no-legacy
+  fixture still emits non-empty aligned runtime i18n artifacts.
 
 ### 3. Sync script alias exclusions
 
@@ -175,8 +177,8 @@ field names such as `surfaceKo`, `translationZhTw`, `titleZhTw`, and `summaryZhT
 5. Define dictionary resolver package placement for `mapping_v2` and related bridge data.
 6. Split display POS from backend POS composition in atom/runtime DTO contracts.
 7. Strip localized fields from dictionary core after i18n pack coverage gates pass.
-8. Remove legacy i18n bridges from `content-pipeline` only after v2 inventory emits
-   canonical i18n sidecars.
+8. Cut `content-pipeline` over to canonical Learning Library i18n sidecars and quarantine
+   or remove legacy bridge reads.
 
 ## Acceptance Criteria
 

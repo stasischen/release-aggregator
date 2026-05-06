@@ -81,8 +81,8 @@
         "fccdr-02",
         "fccdr-03"
       ],
-      "blocker": "content_v2 inventory must emit canonical i18n sidecars keyed by source_id, turn_id, and sentence_id.",
-      "notes": "2026-05-06 recheck confirms still blocked: content_v2/i18n has 0 files. Frontend coverage gate passes only because content-pipeline still reads legacy content/i18n bridges. Current runtime coverage is 3345/3346 sentence translations; missing sent.src.ko.dialogue.a1_01.L01-D1-01. Required sidecars and retirement conditions are documented in FCCDR_07_BLOCKER_RECHECK.md."
+      "blocker": "content-pipeline must consume canonical content_v2/i18n Learning Library sidecars before legacy bridges.",
+      "notes": "2026-05-06 recheck: content-ko now has canonical zh_tw Learning Library sidecars under content_v2/i18n/zh_tw/learning_library, but content-pipeline still reads legacy content/i18n bridges. Current sidecar/runtime coverage is 3345/3346 sentence translations; missing sent.src.ko.dialogue.a1_01.L01-D1-01 remains needs_review. Pipeline cutover requirements are documented in FCCDR_07_PIPELINE_CUTOVER_BRIEF.md."
     },
     {
       "id": "fccdr-08",
@@ -144,6 +144,19 @@
         "fccdr-06"
       ],
       "notes": "Frontend now prefers future dictionary.resolver surface candidate packages when present (surface_candidates.v1.json, mapping_v2.json, or surface_mapping_v2.json) and falls back to current i18n mapping_v2/mapping until content-pipeline emits the resolver package. Validated with manifest, repository, dictionary service, and asset integrity tests."
+    },
+    {
+      "id": "fccdr-13",
+      "title": "Add Learning Library canonical sidecar and legacy bridge quarantine gates",
+      "status": "completed",
+      "owner": "Codex",
+      "repo": "release-aggregator",
+      "deliverable": "FCCDR_07_PIPELINE_CUTOVER_BRIEF.md + validate_content_contracts.py",
+      "depends_on": [
+        "fccdr-07",
+        "fccdr-09"
+      ],
+      "notes": "Release-side gate added for learning_library.i18n_sidecar.v1 sidecars and content-pipeline legacy bridge quarantine. The sidecar gate validates manifest-listed sources/sentences/knowledge files, source_id/sentence_id/knowledge_id key alignment, active translation non-emptiness, turn_id on turn-based rows, and minimum sentence coverage. The bridge gate supports allow/flagged/forbid modes so content-pipeline can cut over to canonical sidecars first and then retire legacy reads."
     }
   ]
 }

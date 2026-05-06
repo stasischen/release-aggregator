@@ -1,0 +1,62 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://lingo.local/contracts/learning_library.i18n_sidecar.v1.schema.json",
+  "title": "Learning Library Canonical I18n Sidecar Manifest v1",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "study_language",
+    "learner_language",
+    "files"
+  ],
+  "additionalProperties": true,
+  "properties": {
+    "schema_version": {
+      "const": "learning-library-i18n-manifest-v1"
+    },
+    "study_language": {
+      "type": "string",
+      "minLength": 2
+    },
+    "learner_language": {
+      "type": "string",
+      "minLength": 2
+    },
+    "files": {
+      "type": "object",
+      "required": [
+        "sources",
+        "sentences",
+        "knowledge"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "sources": {
+          "const": "sources.json"
+        },
+        "sentences": {
+          "const": "sentences.json"
+        },
+        "knowledge": {
+          "const": "knowledge.json"
+        }
+      }
+    },
+    "coverage_floor": {
+      "type": "object",
+      "additionalProperties": true,
+      "properties": {
+        "sentences": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1
+        },
+        "knowledge": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1
+        }
+      }
+    }
+  }
+}

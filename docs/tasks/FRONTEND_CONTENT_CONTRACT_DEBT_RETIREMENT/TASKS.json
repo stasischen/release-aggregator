@@ -168,6 +168,18 @@
         "fccdr-13"
       ],
       "notes": "Follow-up after one validation slice: remove --allow-legacy-i18n-bridge and legacy helper symbols from content-pipeline once synced frontend output is confirmed. Release gate must pass with --legacy-learning-library-bridge-policy forbid."
+    },
+    {
+      "id": "fccdr-15",
+      "title": "Fix Learning Library package manifest artifact paths",
+      "status": "completed",
+      "owner": "Codex",
+      "repo": "content-pipeline + release-aggregator",
+      "depends_on": [
+        "fccdr-07",
+        "fccdr-09"
+      ],
+      "notes": "content-pipeline package manifest Learning Library paths now resolve relative to packages/manifest.json as ../artifacts/core/* and ../artifacts/i18n/<locale>/*. Added a unit assertion that every emitted learning_library manifest path resolves to an actual artifact. Validated with release package manifest and Learning Library manifest gates."
     }
   ]
 }

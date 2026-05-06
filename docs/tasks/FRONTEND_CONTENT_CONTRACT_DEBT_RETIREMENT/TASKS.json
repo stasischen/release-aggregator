@@ -132,6 +132,18 @@
         "fccdr-09"
       ],
       "notes": "Pre-launch direct cleanup: Learning Library domain models, DTOs, mapper, reference UI, seed fixtures, and tests now use surface/translation/title/summary instead of surfaceKo/translationZhTw/titleZhTw/summaryZhTw. Deprecated field names are intentionally not supported as runtime fallbacks."
+    },
+    {
+      "id": "fccdr-12",
+      "title": "Prepare frontend dictionary resolver module loading",
+      "status": "completed",
+      "owner": "Codex",
+      "repo": "lingo-frontend-web + release-aggregator",
+      "depends_on": [
+        "fccdr-05",
+        "fccdr-06"
+      ],
+      "notes": "Frontend now prefers future dictionary.resolver surface candidate packages when present (surface_candidates.v1.json, mapping_v2.json, or surface_mapping_v2.json) and falls back to current i18n mapping_v2/mapping until content-pipeline emits the resolver package. Validated with manifest, repository, dictionary service, and asset integrity tests."
     }
   ]
 }

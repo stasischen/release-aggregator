@@ -61,13 +61,14 @@
     {
       "id": "fccdr-06",
       "title": "Prepare dictionary strict core/i18n split plan",
-      "status": "pending",
+      "status": "completed",
       "owner": "Codex",
       "repo": "release-aggregator + content-pipeline",
+      "deliverable": "DICTIONARY_CORE_I18N_SPLIT_PLAN.md",
       "depends_on": [
         "fccdr-05"
       ],
-      "notes": "Plan migration so dictionary_core.json stops carrying localized zh_tw definitions/translations once i18n pack coverage and resolver placement are gated."
+      "notes": "Plan completed: current bundled ko dictionary has 7,329/7,329 core atoms carrying definitions.zh_tw and translation.zh_tw duplicated with dict_ko_zh_tw.json. Target contract splits dictionary.core lexical inventory, dictionary.i18n learner display, and dictionary.resolver surface candidates. Plan defines forbidden core localized fields, allowed i18n fields, resolver placement, frontend migration points, pipeline slices, and validation gates."
     },
     {
       "id": "fccdr-07",

@@ -103,6 +103,12 @@ Current packaged dictionary core may include `definitions.zh_tw` and `translatio
 - Current output: `assets/content/production/packages/ko/core/dictionary_core.json`
 - Risk: strict core/i18n separation is not enforceable; localized text can leak through
   fallback code and hide missing i18n pack coverage.
+- Finding: current bundled Korean core has 7,329 atoms, and all 7,329 carry
+  `definitions.zh_tw` and `translation.zh_tw` duplicated with `dict_ko_zh_tw.json`.
+- Decision: completed in `fccdr-06`. Dictionary packages should split into
+  `dictionary.core` lexical inventory, locale-keyed `dictionary.i18n` display packs, and
+  `dictionary.resolver` surface candidate routing. Frontend should not use core as a
+  learner-language display fallback after strict assets are emitted.
 - Retirement condition: dictionary package emission strips localized display text from
   core and emits all display strings/senses through locale packs.
 

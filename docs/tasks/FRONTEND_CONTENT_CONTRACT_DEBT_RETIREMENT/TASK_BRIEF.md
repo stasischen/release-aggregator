@@ -49,19 +49,17 @@ not a content translation pack.
 ### 2. Learning Library v2 i18n legacy bridge
 
 `content-pipeline` reads `content_v2/inventory/example_sentence` and
-`content_v2/inventory/content_assets/video`, then merges zh_tw text from legacy
-`content/i18n/zh_tw/...`.
+`content_v2/inventory/content_assets/video`, then merges learner-language text
+from canonical `content_v2/i18n/<locale>/learning_library` sidecars.
 
 - Current code: `content-pipeline/pipelines/learning_library.py`
 - Risk: output correctness depends on path conventions and id string transforms such as
   `video:{source}:turn_v_001 -> v_001`.
-- 2026-05-06 recheck: content-ko now has canonical zh-TW Learning Library sidecars
-  under `content_v2/i18n/zh_tw/learning_library`, but `content-pipeline` still reads
-  legacy `content/i18n` bridges when emitting runtime artifacts. The current missing
-  row is `sent.src.ko.dialogue.a1_01.L01-D1-01`.
-- Retirement condition: `content-pipeline` reads canonical sidecars first, legacy bridge
-  reads are removed or quarantined behind an explicit fallback flag, and a no-legacy
-  fixture still emits non-empty aligned runtime i18n artifacts.
+- 2026-05-06 cutover: content-pipeline commit `c2bfba7` reads canonical sidecars first
+  and only reads legacy `content/i18n` behind explicit `--allow-legacy-i18n-bridge`.
+  The current missing row is `sent.src.ko.dialogue.a1_01.L01-D1-01`.
+- Retirement condition: completed for sidecar-first default path. Final fallback symbol
+  removal and the release-side `forbid` gate are tracked by `fccdr-14`.
 
 ### 3. Sync script alias exclusions
 

@@ -1,7 +1,7 @@
 # fccdr-07 Pipeline Cutover Brief
 
 Date: 2026-05-06
-Status: ready for content-pipeline implementation
+Status: implemented as sidecar-first default path
 
 ## Goal
 
@@ -11,6 +11,10 @@ canonical `content_v2/i18n/<locale>/learning_library` sidecars.
 This is not a frontend UI task. The frontend already has runtime coverage gates;
 the remaining blocker is that `content-pipeline` still reads legacy
 `content/i18n/**` paths when building Learning Library runtime artifacts.
+
+2026-05-06 update: content-pipeline commit `c2bfba7` now loads canonical
+sidecars first. Legacy bridge reads remain available only behind explicit
+`--allow-legacy-i18n-bridge`; final removal is tracked by `fccdr-14`.
 
 ## Canonical Input
 

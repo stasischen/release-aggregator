@@ -38,13 +38,13 @@
     {
       "id": "fccdr-04",
       "title": "Move shared_bank semantics into Learning Library artifact metadata",
-      "status": "pending",
+      "status": "completed",
       "owner": "Codex",
       "repo": "content-pipeline + lingo-frontend-web",
       "depends_on": [
         "fccdr-02"
       ],
-      "notes": "Artifact should expose source/source-group metadata and localized label for shared example banks. Frontend should stop hardcoding Example Bank semantics."
+      "notes": "Frontend bundled artifact and mapper slice completed: shared_bank is modeled as a source with source_role=example_bank metadata, localized zh_tw label, and display flags. LearningLibrarySourceDto preserves metadata through core/i18n pack composition, Sentence Bank hides source chrome/source-browser inclusion from metadata instead of ID hardcoding, and asset integrity gates now require every sentence index source id to be modeled with aligned source i18n. Upstream content-pipeline emission should adopt the same metadata contract so future syncs do not overwrite the bundled fix."
     },
     {
       "id": "fccdr-05",

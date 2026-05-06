@@ -76,12 +76,13 @@
       "status": "blocked",
       "owner": "Content pipeline owner",
       "repo": "content-pipeline + content-ko",
+      "deliverable": "FCCDR_07_BLOCKER_RECHECK.md",
       "depends_on": [
         "fccdr-02",
         "fccdr-03"
       ],
       "blocker": "content_v2 inventory must emit canonical i18n sidecars keyed by source_id, turn_id, and sentence_id.",
-      "notes": "Current legacy bridge is acceptable until canonical v2 i18n sidecars are emitted and coverage tests pass."
+      "notes": "2026-05-06 recheck confirms still blocked: content_v2/i18n has 0 files. Frontend coverage gate passes only because content-pipeline still reads legacy content/i18n bridges. Current runtime coverage is 3345/3346 sentence translations; missing sent.src.ko.dialogue.a1_01.L01-D1-01. Required sidecars and retirement conditions are documented in FCCDR_07_BLOCKER_RECHECK.md."
     },
     {
       "id": "fccdr-08",

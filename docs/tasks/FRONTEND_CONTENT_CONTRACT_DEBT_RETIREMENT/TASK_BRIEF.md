@@ -55,6 +55,9 @@ not a content translation pack.
 - Current code: `content-pipeline/pipelines/learning_library.py`
 - Risk: output correctness depends on path conventions and id string transforms such as
   `video:{source}:turn_v_001 -> v_001`.
+- 2026-05-06 recheck: still blocked. `content_v2/i18n` has 0 files; runtime coverage is
+  currently high only because the pipeline still reads legacy `content/i18n` bridges.
+  The current missing row is `sent.src.ko.dialogue.a1_01.L01-D1-01`.
 - Retirement condition: v2 inventory artifacts or a canonical sidecar contain stable
   i18n records keyed by canonical `source_id`, `turn_id`, and `sentence_id`.
 

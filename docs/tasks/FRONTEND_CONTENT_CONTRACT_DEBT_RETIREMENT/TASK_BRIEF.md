@@ -23,14 +23,28 @@ decisions required before removing each bridge.
 
 ### 1. Korean video locale fallback
 
-Frontend video runtime currently maps unsupported Korean learner locales to `zh_tw` because
-the shipped Korean video/dictionary content package only includes `zh_tw`.
+Frontend video runtime previously mapped unsupported Korean learner locales to `zh_tw`
+because the shipped Korean video/dictionary content package only includes `zh_tw`.
 
 - Current code: `lingo-frontend-web/lib/features/video/domain/video_locale_support.dart`
 - Risk: user locale and content locale are conflated. Future `ko -> en` package support
   could be masked if the fallback is not retired.
-- Retirement condition: production package manifest explicitly declares supported content
-  locales per domain and frontend resolves video/dictionary locale through that manifest.
+- Retirement condition: completed for frontend in `fccdr-02`. Production package manifests
+  now drive supported content locale resolution for video, dictionary, and Learning
+  Library. If a requested learner locale is not packaged, runtime selects from manifest
+  supported locales instead of relying on a Korean-only special case.
+
+### 1a. English UI fallback chrome
+
+The app already ships `assets/config/ui_strings_en.json`; this is UI chrome fallback only,
+not a content translation pack.
+
+- Current code: `lingo-frontend-web/lib/core/i18n/ui_strings_provider.dart`
+- Decision: keep English UI as the safety language for app navigation and empty/error
+  states, but do not synthesize `ko -> en` dictionary/video/Learning Library content until
+  a real package exists.
+- Guard: English UI string asset is parsed in tests, and provider parsing is BOM-safe for
+  existing config files.
 
 ### 2. Learning Library v2 i18n legacy bridge
 
@@ -131,7 +145,7 @@ field names such as `surfaceKo`, `translationZhTw`, `titleZhTw`, and `summaryZhT
 
 1. Keep Learning Library frontend/domain fields locale-neutral: `surface`, `translation`,
    `title`, and `summary`; do not reintroduce `Ko`/`ZhTw` suffixes in domain DTOs.
-2. Add manifest-driven supported-locale resolution for dictionary/video/learning_library.
+2. Keep manifest-driven supported-locale resolution for dictionary/video/learning_library.
 3. Add asset integrity gates for stale aliases, per-word dictionary files, and empty i18n
    regressions.
 4. Move `shared_bank` semantics into Learning Library manifest/source metadata.

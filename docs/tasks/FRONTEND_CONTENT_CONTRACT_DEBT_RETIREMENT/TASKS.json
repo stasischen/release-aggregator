@@ -16,13 +16,13 @@
     {
       "id": "fccdr-02",
       "title": "Add manifest-driven supported-locale resolution",
-      "status": "pending",
+      "status": "completed",
       "owner": "Codex",
       "repo": "lingo-frontend-web + content-pipeline",
       "depends_on": [
         "fccdr-01"
       ],
-      "notes": "Replace Korean-only video locale fallback with package manifest declarations for dictionary, video, and Learning Library support locales."
+      "notes": "Frontend slice completed in lingo-frontend-web: PipelineManifest now infers supported locales from dictionary/video/Learning Library manifests; dictionary, video, and Learning Library resolve content locale through manifest data instead of Korean-only hardcoded fallback. English UI chrome asset remains the fallback UI locale, with BOM-safe parsing."
     },
     {
       "id": "fccdr-03",

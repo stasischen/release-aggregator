@@ -27,13 +27,13 @@
     {
       "id": "fccdr-03",
       "title": "Add asset integrity gates for stale layout and empty i18n regressions",
-      "status": "pending",
+      "status": "completed",
       "owner": "Codex",
       "repo": "lingo-frontend-web + content-pipeline",
       "depends_on": [
         "fccdr-01"
       ],
-      "notes": "Gate no per-word dictionary runtime files, no Learning Library *_index aliases except sources_index, and no large drop in sentence/video i18n coverage."
+      "notes": "Frontend gates completed in test/core/asset_integrity_test.dart: rejects stale Learning Library *_index aliases except sources_index, rejects unexpected dictionary i18n root files that would indicate per-word runtime files, and enforces non-empty >=95% Learning Library sentence and video i18n coverage. Also corrected the packaged ko manifest Learning Library core paths to canonical files."
     },
     {
       "id": "fccdr-04",

@@ -66,8 +66,10 @@ Frontend sync excludes stale legacy alias files such as `sentences_index.json` a
 - Current code: `lingo-frontend-web/scripts/sync_learning_library.sh`
 - Risk: file exclusion hides output drift instead of making the pipeline contract the only
   source of truth.
-- Retirement condition: pipeline no longer emits stale aliases and an asset integrity gate
-  fails if aliases reappear.
+- Retirement condition: frontend gate completed in `fccdr-03`. Bundled artifacts and the
+  packaged Korean manifest reject stale Learning Library aliases except the canonical
+  `sources_index.json` file. Pipeline cleanup remains a follow-up if emission still
+  requires sync-time exclusions.
 
 ### 4. `shared_bank` frontend semantics
 
@@ -162,6 +164,9 @@ field names such as `surfaceKo`, `translationZhTw`, `titleZhTw`, and `summaryZhT
 - Frontend tests fail if Korean video dictionary runtime silently routes to an unsupported
   i18n package.
 - Pipeline tests fail if Learning Library sentence i18n coverage regresses to empty output.
+- Frontend asset integrity tests fail if bundled Learning Library artifacts reintroduce
+  stale `*_index.json` aliases, dictionary packages ship per-word i18n runtime files, or
+  Learning Library/video i18n coverage drops below the configured baseline.
 - Release docs clearly state current acceptable bridge behavior versus final contract.
 - Source-of-truth policy defines which runtime artifacts are authoritative and which
   legacy paths are quarantined.

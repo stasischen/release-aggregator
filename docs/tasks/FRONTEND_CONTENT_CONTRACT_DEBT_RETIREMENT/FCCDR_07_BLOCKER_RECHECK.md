@@ -51,6 +51,10 @@ These bridge reads are acceptable only while `fccdr-07` remains blocked.
 
 ## Missing Canonical Sidecars
 
+Implementation contract:
+
+- `content-ko/docs/tech/LEARNING_LIBRARY_I18N_SIDECAR_CONTRACT_V1.md`
+
 Recommended minimum canonical v2 sidecars:
 
 - `content_v2/i18n/zh_tw/learning_library/sources.json`

@@ -180,6 +180,19 @@
         "fccdr-09"
       ],
       "notes": "content-pipeline package manifest Learning Library paths now resolve relative to packages/manifest.json as ../artifacts/core/* and ../artifacts/i18n/<locale>/*. Added a unit assertion that every emitted learning_library manifest path resolves to an actual artifact. Validated with release package manifest and Learning Library manifest gates."
+    },
+    {
+      "id": "fccdr-16",
+      "title": "Emit Learning Library topic sidecars and shared bank source metadata",
+      "status": "completed",
+      "owner": "Codex",
+      "repo": "content-ko + content-pipeline + lingo-frontend-web",
+      "depends_on": [
+        "fccdr-04",
+        "fccdr-07",
+        "fccdr-09"
+      ],
+      "notes": "content-ko sidecar builder now emits optional topics.json from canonical v2 topic ids plus localized legacy topic copy, and content-pipeline consumes optional topic sidecars in no-legacy mode. Pipeline also models shared_bank as a first-class source with example_bank metadata and localized i18n source copy, preventing frontend ID hardcoding. Frontend asset sync now passes the Learning Library topic raw-id and sentence source modeling gates."
     }
   ]
 }

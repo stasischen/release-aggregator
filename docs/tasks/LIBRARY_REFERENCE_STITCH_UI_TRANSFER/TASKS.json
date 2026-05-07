@@ -202,6 +202,17 @@
         "lrsut-15"
       ],
       "notes": "Follow-up to video dictionary QA. The prior repair covered bare surfaces such as 여러분, but production video clicks commonly pass eojeol surfaces such as 여러분은 and 오늘은 while the resolver index is keyed by dictionary surfaces like 여러분 and 오늘. DictionaryContent now derives candidate lookup surfaces from exact display text, split composite atom ids, and inventory entry terms/lemmas. Composite authoritative ids are intentionally allowed to switch to a component resolver candidate because DictionaryService can synthesize composite entries that should not block component meanings. DictionaryService also now builds inventory senses from localized i18n definitions first; this fixes bare multi-entry words such as 여러분 where core only carries sense ids but zh_tw carries the actual glosses. This relies on the existing plus-separated atom segmentation instead of guessing Korean suffixes in the UI. Added regression tests for composite 여러분은, 오늘은, and localized multi-entry senses so the panel shows dictionary meanings instead of learner-facing missing-entry placeholders."
+    },
+    {
+      "id": "lrsut-17",
+      "title": "Strip dictionary governance fields from frontend runtime core",
+      "status": "completed",
+      "owner": "Codex",
+      "repo": "content-pipeline, lingo-frontend-web",
+      "depends_on": [
+        "lrsut-16"
+      ],
+      "notes": "Dictionary runtime export now uses a strict app-runtime allowlist for core atoms. Content governance fields such as metadata, tags, source_refs, mapping_status, status, nikl_* fields, topik_level, difficulty_rank, and relations are not emitted to frontend dictionary_core.json. Runtime keeps only lookup/display primitives needed by the app: id, atom_id, lemma, pos, surface_forms, usage_rank, entries, senses, origin, and type. Frontend asset integrity now fails if dictionary core ships learner display fields or content-governance fields. This preserves content-side review metadata in content-ko while preventing non-user-facing labels such as nikl_seed and functional_foundation_cleanup from reaching app UI."
     }
   ]
 }

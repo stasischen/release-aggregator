@@ -132,6 +132,30 @@
         "lrsut-09"
       ],
       "notes": "Completed first route migration implementation slice. Added canonical /library/knowledge* and /library/sentences* routes, redirected legacy /library/knowledge-lab* and /library/sentence-bank* plus study aliases to canonical routes, updated production Knowledge/Sentence links, and added route smoke coverage. Validation: flutter analyze; targeted router/library/Knowledge/Sentence widget tests. Out of scope remains /library/videos, /library/dictionary/entry/:entryId, and Study video route redesign."
+    },
+    {
+      "id": "lrsut-11",
+      "title": "Prepare Video Library route brief",
+      "status": "completed",
+      "owner": "Codex",
+      "repo": "release-aggregator",
+      "deliverable": "VIDEO_LIBRARY_ROUTE_BRIEF.md",
+      "depends_on": [
+        "lrsut-09",
+        "lrsut-10"
+      ],
+      "notes": "Completed video-specific route brief. Defined /library/videos and /library/videos/:videoId as Library reference routes, preserved /study/video as a Study source path, required /video to redirect to /library/videos, required deep-linkable player routing without state.extra, and split implementation into route correctness, reference UI copy, and later Study/source flow decisions."
+    },
+    {
+      "id": "lrsut-12",
+      "title": "Implement deep-linkable Video Library routes",
+      "status": "queued",
+      "owner": "Codex",
+      "repo": "lingo-frontend-web",
+      "depends_on": [
+        "lrsut-11"
+      ],
+      "notes": "Next safe code slice. Implement VIDEO_LIBRARY_ROUTE_BRIEF.md Slice 1 only: add /library/videos and /library/videos/:videoId, redirect /video to /library/videos, update LibraryHubScreen and SourceDetailScreen video links, make VideoListScreen route-aware while preserving /study/video behavior, and add route/list tests. Do not redesign video UI or redirect /study/video yet."
     }
   ]
 }

@@ -190,7 +190,7 @@
         "lrsut-07",
         "lrsut-12"
       ],
-      "notes": "Completed video dictionary panel repair. DictionaryContent now resolves surface candidates even when video atoms already carry authoritative ids, shows homograph candidates when multiple resolver candidates exist, and preselects the candidate matching the atom id. Removed circular check/sense markers that looked like stray UI circles in the video panel, switched polysemy labels to plain numeric markers, and increased the inline video dictionary panel height so candidate/sense content is visible. Validation: flutter analyze; dictionary candidate selector tests; video dictionary E2E tests; video callback tests."
+      "notes": "Completed video dictionary panel repair. DictionaryContent now resolves surface candidates even when video atoms already carry authoritative ids, shows homograph candidates when multiple resolver candidates exist, and preselects the candidate matching the atom id. If an authoritative video atom id is stale or not present in the dictionary package, the UI now repairs display through the resolver's canonical surface candidate, covering cases like 여러분 emitted as ko:n:여러분 while the dictionary entry is ko:pron:여러분. Removed circular check/sense markers that looked like stray UI circles in the video panel, switched polysemy labels to plain numeric markers, and increased the inline video dictionary panel height so candidate/sense content is visible. Validation: flutter analyze; dictionary candidate selector tests including stale-id repair; video dictionary E2E tests; video callback tests."
     }
   ]
 }

@@ -32,6 +32,10 @@ Knowledge index reference-browser implementation brief:
 
 - [KNOWLEDGE_INDEX_REFERENCE_BROWSER_BRIEF.md](KNOWLEDGE_INDEX_REFERENCE_BROWSER_BRIEF.md)
 
+Canonical Library route migration brief:
+
+- [CANONICAL_LIBRARY_ROUTE_MIGRATION_BRIEF.md](CANONICAL_LIBRARY_ROUTE_MIGRATION_BRIEF.md)
+
 Architecture authority for the Knowledge index slice:
 
 - `docs/guides/LEARNING_SOURCE_MULTILAYER_ARCHITECTURE.md`

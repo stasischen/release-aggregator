@@ -109,9 +109,10 @@
     {
       "id": "lrsut-09",
       "title": "Prepare canonical Library route migration brief",
-      "status": "pending",
+      "status": "completed",
       "owner": "Codex",
       "repo": "release-aggregator",
+      "deliverable": "CANONICAL_LIBRARY_ROUTE_MIGRATION_BRIEF.md",
       "depends_on": [
         "lrsut-04",
         "lrsut-05",
@@ -119,7 +120,7 @@
         "lrsut-07",
         "lrsut-08"
       ],
-      "notes": "Only after UI stabilizes, brief /library/knowledge, /library/sentences, /library/dictionary/entry, and /library/videos redirects."
+      "notes": "Completed route migration brief. Defined canonical /library/knowledge, /library/sentences, /library/dictionary, /library/videos route targets, legacy knowledge-lab/sentence-bank/study redirect policy, explicit non-redirect internal routes, implementation order, route smoke tests, and deferred dictionary-entry/video-study decisions. This is a brief only; router code should wait for final user QA of the redesigned UI."
     }
   ]
 }

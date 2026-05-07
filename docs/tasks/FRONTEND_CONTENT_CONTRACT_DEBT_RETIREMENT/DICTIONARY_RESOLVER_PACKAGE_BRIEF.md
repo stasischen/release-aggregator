@@ -102,11 +102,10 @@ Resolver owns target-language lookup bridges:
 - `entry_refs`
 - `sense_refs`
 - usage rank / confidence
-- temporary origin fallback cache
+- no origin fallback cache
 
-Resolver may keep origin fallback fields only until core-origin migration Phase
-3 validation passes. After that, origin fallback fields become deprecated and
-should be removed from emitted resolver artifacts.
+Origin fallback fields were retired in `fccdr-19`; emitted resolver artifacts
+must not contain `origin`, `row_origin`, or `origin_candidates`.
 
 ## Proposed Resolver Schema
 
@@ -187,8 +186,9 @@ After dictionary core-origin migration Phase 3 validation passes:
 
 - core origin becomes the only canonical origin source.
 - resolver origin cache fields are rejected by validation.
-- `DictionaryResolver.getOrigin()` no longer needs resolver fallback except for
-  legacy fixtures.
+- `DictionaryResolver.getOrigin()` no longer uses resolver fallback.
+
+Status: completed in `fccdr-19`.
 
 ## Pipeline Migration Plan
 
@@ -209,13 +209,13 @@ After dictionary core-origin migration Phase 3 validation passes:
   `DictionaryMappingCandidate`.
 - `DictionaryResolver.resolveSurfaceToCandidates()` uses these candidates for
   homograph and multi-candidate lookup.
-- `DictionaryResolver.getOrigin()` already prioritizes core origin over mapping
-  cache, which matches the migration direction.
+- `DictionaryResolver.getOrigin()` resolves origin display from dictionary core
+  entries only; resolver origin cache is ignored/retired.
 - Tests already cover:
   - composite candidates
   - multi-candidate homographs
-  - core origin winning over mapping cache
-  - mapping origin cache as fallback when core origin is missing
+  - core origin selection by `entry_no` and `sense_id`
+  - resolver origin cache ignored when core origin is missing
   - no-context multi-entry core origin is not guessed
 
 ## Acceptance Criteria
@@ -226,14 +226,13 @@ After dictionary core-origin migration Phase 3 validation passes:
   learner-locale dictionary i18n runtime files.
 - Resolver candidates still support video atom lookup, sentence detail lookup,
   dictionary candidate selection, and homograph display.
-- No removal of mapping/origin fallback occurs until Phase 3 core-origin
-  validation passes.
+- Resolver candidates do not contain `origin`, `row_origin`, or
+  `origin_candidates`.
 
 ## Non-Goals
 
 - Do not change lesson runtime format.
 - Do not collapse dictionary, Knowledge Lab, Sentence Bank, or video domain
   semantics into one adapter.
-- Do not remove resolver origin fallback fields until dictionary core-origin
-  migration Phase 3 validation passes.
+- Do not reintroduce resolver origin fallback fields after `fccdr-19`.
 - Do not solve dictionary localized-core leakage here; that is `fccdr-06`.

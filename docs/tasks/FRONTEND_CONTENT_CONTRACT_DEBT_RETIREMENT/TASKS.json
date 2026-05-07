@@ -218,6 +218,18 @@
         "fccdr-17"
       ],
       "notes": "Completed: content-pipeline strips learner display fields and learner-locale maps from dictionary.core while preserving display text in dictionary.i18n. Resolver package generation overlays i18n definitions/translation only while building resolver sense/entry refs, so strict core does not weaken homograph/candidate routing. release-aggregator package validation and frontend asset integrity tests now reject display/locale leakage in dictionary_core.json; synced frontend assets have 7,381 strict core atoms with 0 localized display fields."
+    },
+    {
+      "id": "fccdr-19",
+      "title": "Retire dictionary resolver origin fallback cache",
+      "status": "completed",
+      "owner": "Codex",
+      "repo": "content-pipeline + lingo-frontend-web + release-aggregator",
+      "depends_on": [
+        "fccdr-17",
+        "fccdr-18"
+      ],
+      "notes": "Completed: content-pipeline resolver emission no longer writes candidate/ref origin fallback fields; resolver keeps routing metadata only. Frontend dictionary resolver now ignores resolver origin cache and resolves origin display from dictionary.core entry origins. release-aggregator package validation and frontend asset integrity tests reject origin, row_origin, and origin_candidates inside resolver/surface_candidates.v1.json; synced frontend resolver has 6,900 entries and 0 origin fallback hits."
     }
   ]
 }

@@ -100,9 +100,10 @@ localized display text.
 - Status: package placement completed in `fccdr-17`. Runtime now loads
   `resolver/surface_candidates.v1.json`, and package/asset gates reject
   `mapping.json` / `mapping_v2.json` under dictionary i18n.
-- Remaining retirement condition: dictionary core-origin migration Phase 3
-  validation passes, then the temporary origin fallback fields inside resolver
-  candidates can be removed.
+- Status: completed in `fccdr-19`. Resolver candidates no longer carry origin
+  fallback fields; frontend origin display resolves from dictionary core entry
+  origins only, and package/frontend gates reject origin cache fields in
+  `surface_candidates.v1.json`.
 
 ### 6. Dictionary core contains localized fields
 
@@ -164,8 +165,8 @@ field names such as `surfaceKo`, `translationZhTw`, `titleZhTw`, and `summaryZhT
 ## Non-Goals
 
 - Do not modify lesson runtime data format.
-- Do not remove resolver origin fallback fields until dictionary core-origin migration
-  Phase 3 validation passes.
+- Resolver origin fallback fields were retired in `fccdr-19`; do not reintroduce
+  `origin`, `row_origin`, or `origin_candidates` into dictionary resolver assets.
 - Do not change `content-ko` source files as part of this task unless a later content
   subtask explicitly approves it.
 - Do not block current UI polish or missing-word cleanup on schema retirement.

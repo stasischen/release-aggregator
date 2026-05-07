@@ -156,8 +156,7 @@ Use the `fccdr-05` decision:
 - schema: `dictionary.surface_candidates.v1`
 - target-language specific
 - no learner-language display text
-- temporary origin fallback cache allowed only until core-origin Phase 3
-  validation passes
+- no origin fallback cache; origin display resolves from dictionary core entries
 
 ## Frontend Migration
 
@@ -209,7 +208,8 @@ that fail once strict assets are expected.
    - `dictionary.resolver`
 5. Preserve enough core entry/sense references so i18n and resolver can align to
    core without duplicate display data.
-6. Keep origin cache in resolver only until Phase 3 validation passes.
+6. Origin cache retirement completed in `fccdr-19`; resolver no longer emits
+   `origin`, `row_origin`, or `origin_candidates`.
 
 ## Validation Gates
 
@@ -242,8 +242,8 @@ that fail once strict assets are expected.
 - Every candidate `atom_id` component must exist in core.
 - `entry_refs` and `sense_refs` must reference core entries/senses when present.
 - Resolver must not contain learner-locale display keys.
-- Temporary origin fallback fields are allowed only while the Phase 3 origin
-  validation flag is false.
+- Resolver must not contain origin fallback fields: `origin`, `row_origin`, or
+  `origin_candidates`.
 
 ## Suggested Task Split
 
@@ -275,6 +275,8 @@ that fail once strict assets are expected.
 - `dict_ko_zh_tw.json` remains complete enough for dictionary, video atom, and
   sentence detail display.
 - `surface_candidates.v1.json` powers all surface candidate lookups.
+- `surface_candidates.v1.json` contains routing refs only and has zero resolver
+  origin fallback fields.
 - Multi-candidate / homograph UI still works.
 - Missing i18n displays a localized "uncollected" placeholder, not `[No Meaning]`
   and not stale core display text.
@@ -282,7 +284,7 @@ that fail once strict assets are expected.
 
 ## Non-Goals
 
-- Do not remove mapping/origin fallback before core-origin Phase 3 validation.
+- Do not reintroduce mapping/origin fallback after `fccdr-19`.
 - Do not rewrite lesson runtime format.
 - Do not change `content-ko` source inventory in this planning slice.
 - Do not reduce dictionary display quality while moving fields; i18n coverage

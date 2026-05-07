@@ -67,6 +67,12 @@ DICTIONARY_LEARNER_LOCALE_KEYS = {
     "zh-hant",
 }
 
+DICTIONARY_RESOLVER_FORBIDDEN_ORIGIN_KEYS = {
+    "origin",
+    "row_origin",
+    "origin_candidates",
+}
+
 LL_SIDECAR_SOURCE_TYPES = {
     "shared_bank",
     "video",
@@ -425,8 +431,11 @@ def validate_package_manifest(manifest_path: Path) -> list[str]:
             errors,
         )
         for raw_path in resolver_paths:
-            if not (manifest_path.parent / "resolver" / raw_path).resolve().is_file():
+            resolved_resolver_path = (manifest_path.parent / "resolver" / raw_path).resolve()
+            if not resolved_resolver_path.is_file():
                 errors.append(f"modules.dictionary.resolver references missing artifact: resolver/{raw_path}")
+            elif raw_path == "surface_candidates.v1.json":
+                errors.extend(validate_dictionary_resolver_payload(resolved_resolver_path))
 
     learning_library = modules.get("learning_library")
     if learning_library is None:
@@ -468,6 +477,34 @@ def validate_dictionary_core_payload(core_path: Path) -> list[str]:
         for path in _find_forbidden_dictionary_core_nested_keys(atom_value):
             errors.append(f"dictionary core atom {atom_id} contains forbidden nested display/locale key: {path}")
     return errors
+
+
+def validate_dictionary_resolver_payload(resolver_path: Path) -> list[str]:
+    errors: list[str] = []
+    try:
+        payload = _require_object(load_json(resolver_path), str(resolver_path), errors)
+    except ValueError as exc:
+        return [str(exc)]
+
+    for path in _find_forbidden_dictionary_resolver_origin_keys(payload):
+        errors.append(f"dictionary resolver contains deprecated origin fallback field: {path}")
+    return errors
+
+
+def _find_forbidden_dictionary_resolver_origin_keys(value: Any, prefix: str = "") -> list[str]:
+    hits: list[str] = []
+    if isinstance(value, dict):
+        for key, nested in value.items():
+            key_text = str(key)
+            path = f"{prefix}.{key_text}" if prefix else key_text
+            if key_text in DICTIONARY_RESOLVER_FORBIDDEN_ORIGIN_KEYS:
+                hits.append(path)
+            hits.extend(_find_forbidden_dictionary_resolver_origin_keys(nested, path))
+    elif isinstance(value, list):
+        for index, item in enumerate(value):
+            path = f"{prefix}[{index}]" if prefix else f"[{index}]"
+            hits.extend(_find_forbidden_dictionary_resolver_origin_keys(item, path))
+    return hits
 
 
 def _find_forbidden_dictionary_core_nested_keys(value: Any, prefix: str = "") -> list[str]:

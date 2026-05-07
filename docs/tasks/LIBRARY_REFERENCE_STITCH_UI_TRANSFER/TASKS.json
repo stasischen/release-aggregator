@@ -156,6 +156,29 @@
         "lrsut-11"
       ],
       "notes": "Completed source-route code slice. Added /sources/videos and /sources/videos/:videoId, removed /study/video, /study/video/player, and /video from production router, updated production video links to /sources/videos*, made VideoListScreen card taps open /sources/videos/:videoId, and added source route/list tests. Validation: flutter analyze; targeted source/library/video route tests; production link scan found no old video route pushes. Do not redesign video player UI or add article/dialogue source routes yet."
+    },
+    {
+      "id": "lrsut-13",
+      "title": "Prepare Sources IA route brief",
+      "status": "completed",
+      "owner": "Codex",
+      "repo": "release-aggregator",
+      "deliverable": "SOURCES_IA_BRIEF.md",
+      "depends_on": [
+        "lrsut-12"
+      ],
+      "notes": "Completed Sources IA brief. Defined /sources as the content-source layer for video/article/dialogue, kept Library as the reference layer for knowledge/sentences/dictionary, recommended typed routes before generic /sources/:sourceType/:sourceId, and listed viewer contract/test rules for future article/dialogue source routes."
+    },
+    {
+      "id": "lrsut-14",
+      "title": "Enable local dev onboarding bypass",
+      "status": "completed",
+      "owner": "Codex",
+      "repo": "lingo-frontend-web",
+      "depends_on": [
+        "lrsut-13"
+      ],
+      "notes": "Completed frontend testability slice. UserProfileNotifier now treats onboarding as complete in non-release builds by default so local app testing starts at the main app without rerunning onboarding every launch. Release builds are unchanged, and onboarding QA can disable the bypass with --dart-define=LINGO_DEV_SKIP_ONBOARDING=false. Validation: flutter analyze; targeted provider/router/video/library tests."
     }
   ]
 }

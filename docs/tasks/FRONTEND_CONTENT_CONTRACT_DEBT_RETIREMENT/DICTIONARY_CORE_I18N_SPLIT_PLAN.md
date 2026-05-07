@@ -8,9 +8,11 @@ Repos: `lingo-frontend-web`, `content-pipeline`, `content-ko`, `release-aggregat
 
 Make dictionary runtime packages enforce a clean three-way split:
 
-1. `dictionary.core`: target-language lexical inventory and non-localized metadata
+1. `dictionary.core`: target-language lexical inventory required for runtime lookup
 2. `dictionary.i18n`: learner-language display strings
 3. `dictionary.resolver`: target-language surface candidate routing
+4. optional dictionary learning index sidecars: pedagogy, frequency, readiness,
+   and release-review metadata that should not be loaded as dictionary core
 
 This prevents the app from accidentally showing stale Korean-to-zh-TW data when
 another learner locale or another target language is added.
@@ -31,6 +33,10 @@ Observed drift:
 - `dict_ko_zh_tw.json` duplicates those display fields in the i18n pack.
 - Resolver placement drift was resolved in `fccdr-17`: surface candidate routing
   now lives under `dictionary.resolver`, not dictionary i18n.
+- Governance and pedagogy metadata drift was resolved in `lrsut-17`: frontend
+  runtime dictionary core rejects review-only fields such as `metadata`, `tags`,
+  `source_refs`, `mapping_status`, `status`, `topik_level`, `nikl_level`,
+  `nikl_rank`, `difficulty_rank`, and `relations`.
 
 This is pre-launch, so the migration should be direct rather than preserving old
 runtime shapes indefinitely.
@@ -48,7 +54,8 @@ runtime shapes indefinitely.
       "i18n": {
         "zh_tw": ["dict_ko_zh_tw.json", "Strings_zh_tw.json"]
       },
-      "resolver": ["surface_candidates.v1.json"]
+      "resolver": ["surface_candidates.v1.json"],
+      "learning_index": ["dictionary_public_index.v1.json"]
     }
   }
 }
@@ -59,27 +66,17 @@ mixes `dict_ko_zh_tw.json`, `Strings_zh_tw.json`, and resolver files.
 
 ## Core Contract
 
-Allowed core fields:
+Allowed runtime core fields:
 
 - `id`
 - `atom_id`
 - `lemma`
 - `pos`
-- `display_pos_key`
 - `surface_forms`
 - `entries`
 - `senses`
-- `relations`
 - `origin`
-- `metadata`
-- `source_refs`
-- `status`
-- `mapping_status`
-- `tags`
 - `usage_rank`
-- `difficulty_rank`
-- target-language proficiency metadata such as `topik_level`, `nikl_level`,
-  `nikl_rank`
 
 Forbidden core localized display fields:
 
@@ -95,6 +92,83 @@ Forbidden core localized display fields:
 Important nuance: core may contain target-language origin data such as Hanja if
 it is lexical source metadata. Core must not contain learner-language glosses or
 explanations.
+
+Forbidden runtime core governance and pedagogy fields:
+
+- `metadata`
+- `source_refs`
+- `status`
+- `mapping_status`
+- `tags`
+- `relations`
+- `difficulty_rank`
+- `topik_level`
+- `nikl_level`
+- `nikl_rank`
+- review or migration markers such as `content_v2_promoted`,
+  `functional_foundation_cleanup`, `nikl_seed`
+
+Runtime core is the app lookup payload, not the content-review database. Keep it
+small enough for search, candidate resolution, and dictionary display. Fields
+used for learning order, level filters, release readiness, or audit trails must
+live in a separate sidecar/index artifact.
+
+`usage_rank` is the only rank-like field currently allowed in runtime core
+because dictionary resolver and search ranking use it directly. If resolver
+sorting moves to an index package later, `usage_rank` can be retired from core
+behind a dedicated migration gate.
+
+## Learning Index Sidecar Contract
+
+A sidecar is a companion artifact shipped next to the runtime dictionary package
+when a feature needs extra metadata. It is not part of dictionary core lookup.
+The app may load it for browse/filter/syllabus views, but dictionary meaning
+resolution must still work without it.
+
+Existing source-side artifact:
+
+- `content-ko/content_v2/core/dictionary/public_index.json`
+- `content-ko/content_v2/core/dictionary/public_index.csv`
+- generator: `content-ko/scripts/ops/build_dictionary_public_index.py`
+
+Recommended runtime sidecar path if/when the frontend needs these fields:
+
+```json
+{
+  "schema": "dictionary.learning_index.v1",
+  "target": "ko",
+  "items": [
+    {
+      "atom_id": "ko:n:사람",
+      "lemma": "사람",
+      "pos": "n",
+      "learning_band": "beginner",
+      "clean_rank": 12,
+      "status": "active",
+      "sense_count": 1,
+      "surface_forms": ["사람"]
+    }
+  ]
+}
+```
+
+Allowed sidecar fields include:
+
+- frequency and ordering: `learning_band`, `clean_rank`, `usage_rank`
+- release and review state: `status`, `readiness_tag`, `mapping_status`
+- pedagogy hints: `frame_refs`, `register_hints`, `recommended_stage`
+- source/audit references: `source_refs`, `metadata`, `tags`
+
+Sidecar fields are not allowed to backfill dictionary meanings. They may only
+drive browsing, filtering, study-order decisions, release warnings, and internal
+QA views. If a sidecar is missing, dictionary lookup should degrade by hiding
+level/filter metadata, not by changing the definition text.
+
+Historical note: older planning allowed `topik_level`, `nikl_level`, and
+`nikl_rank` in dictionary core. That is no longer the frontend runtime contract.
+`content-ko/scripts/ops/enrich_dictionary_normalized_with_rank.py` already
+treats `topik_level` as a legacy compatibility field; canonical frontend-facing
+learning metadata should use `learning_band` / `clean_rank` in the sidecar.
 
 ## I18n Contract
 
@@ -227,6 +301,9 @@ that fail once strict assets are expected.
 - Reject any core atom with top-level learner-locale keys.
 - Reject core nested maps that use learner-locale keys for display fields.
 - Allow target-language lexical origin fields.
+- Reject runtime core atoms containing governance or pedagogy fields:
+  `metadata`, `tags`, `source_refs`, `mapping_status`, `status`,
+  `difficulty_rank`, `topik_level`, `nikl_level`, `nikl_rank`, or `relations`.
 
 ### I18n gates
 
@@ -244,6 +321,15 @@ that fail once strict assets are expected.
 - Resolver must not contain learner-locale display keys.
 - Resolver must not contain origin fallback fields: `origin`, `row_origin`, or
   `origin_candidates`.
+
+### Learning index sidecar gates
+
+- Every sidecar `atom_id` must exist in dictionary core.
+- Sidecar schema must be explicit, for example `dictionary.learning_index.v1`.
+- Sidecar may contain pedagogy/review/rank metadata, but it must not contain
+  learner-language definitions, translations, or resolver candidate routing.
+- Dictionary display and candidate resolution tests must pass when the sidecar
+  is absent.
 
 ## Suggested Task Split
 
@@ -269,6 +355,15 @@ that fail once strict assets are expected.
 - Add frontend asset integrity tests for shipped assets.
 - Add pipeline tests for strict core and resolver reference alignment.
 
+### Slice E: Learning Index Sidecar
+
+- Treat `content_v2/core/dictionary/public_index.json` as the existing
+  source-side learning index.
+- Export a frontend runtime sidecar only when product UI needs level/rank
+  browsing or study-order filters.
+- Do not re-add `topik_level`, `nikl_rank`, readiness tags, or cleanup markers to
+  dictionary core to satisfy those UI needs.
+
 ## Acceptance Criteria
 
 - `dictionary_core.json` has zero learner-language display fields.
@@ -281,6 +376,8 @@ that fail once strict assets are expected.
 - Missing i18n displays a localized "uncollected" placeholder, not `[No Meaning]`
   and not stale core display text.
 - Asset integrity tests fail if old mixed module placement reappears.
+- Any level/rank/readiness UI reads a sidecar or hides that metadata; it never
+  reads governance fields from dictionary core.
 
 ## Non-Goals
 

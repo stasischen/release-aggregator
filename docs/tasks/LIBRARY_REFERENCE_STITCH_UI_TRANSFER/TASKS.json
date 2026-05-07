@@ -40,13 +40,13 @@
     {
       "id": "lrsut-03",
       "title": "Implement shared Library reference tokens and base components",
-      "status": "in_progress",
+      "status": "completed",
       "owner": "Codex",
       "repo": "lingo-frontend-web",
       "depends_on": [
         "lrsut-02"
       ],
-      "notes": "In progress. Added LibraryReferenceColors ThemeExtension, registered light/dark tokens in AppTheme, and introduced shared stateless components: LibrarySectionCard, EvidenceChip, TargetTextBlock, LearnerTranslationBlock, TokenBreakdownTile, InlineExampleGroup, SemanticExampleTable, SourceMomentCard, RelatedKnowledgeCard, and DictionarySenseCard. KnowledgeModuleCard now delegates inline examples and semantic tables to shared components and uses LibraryReferenceColors instead of hardcoded Material colors. Remaining work: video-specific focus/transcript cards and final component naming cleanup."
+      "notes": "Completed. Added LibraryReferenceColors ThemeExtension, registered light/dark tokens in AppTheme, and introduced shared stateless components: LibrarySectionCard, EvidenceChip, TargetTextBlock, LearnerTranslationBlock, TokenBreakdownTile, SourceMomentCard, VideoTranscriptLineCard, RelatedKnowledgeCard, DictionarySenseCard, SemanticExampleTable, and InlineExampleGroup. KnowledgeModuleCard delegates inline examples and semantic tables to shared components, and video/reference widgets no longer rely on ad-hoc red/amber/purple/surfaceContainerHighest colors for reference states."
     },
     {
       "id": "lrsut-04",
@@ -91,7 +91,7 @@
       "depends_on": [
         "lrsut-03"
       ],
-      "notes": "In progress. First interaction slice implemented in lingo-frontend-web: normal transcript taps now update one in-page LingoDictionaryPanel below the player, fullscreen subtitle taps route through selectedCluster to one side panel, and InteractiveSubtitle disables floating dictionary overlays in video. ParsedTextWithDictionary no longer debounces parent-managed lookup callbacks, so tapping another token immediately updates the same panel. Latest slice completed: added VideoTranscriptLineCard, moved transcript current-line/timestamp/loop/translation colors onto LibraryReferenceColors, allowed InteractiveSubtitle highlight color injection for video, and styled LingoDictionaryPanel as a reference surface. Also repaired video test mocks for supported subtitle locale lookup so the E2E gate exercises the real screen path."
+      "notes": "In progress, implementation-ready pending final user QA. First interaction slice implemented in lingo-frontend-web: normal transcript taps now update one in-page LingoDictionaryPanel below the player, fullscreen subtitle taps route through selectedCluster to one side panel, and InteractiveSubtitle disables floating dictionary overlays in video. ParsedTextWithDictionary no longer debounces parent-managed lookup callbacks, so tapping another token immediately updates the same panel. Latest slice completed: added VideoTranscriptLineCard, moved transcript current-line/timestamp/loop/translation/player control colors onto LibraryReferenceColors, allowed InteractiveSubtitle highlight color injection for video, styled LingoDictionaryPanel as a reference surface, and repaired video test mocks for supported subtitle locale lookup so the E2E gate exercises the real screen path."
     },
     {
       "id": "lrsut-08",

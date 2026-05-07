@@ -57,7 +57,7 @@
       "depends_on": [
         "lrsut-03"
       ],
-      "notes": "Started early after core lrsut-03 shared components were available. SentenceDetailScreen now shows sentence chunks only once: full sentence segmentations are rendered inline as tappable chunks, supplementary lookup words stay in the separate breakdown section, and dictionary lookup updates an in-page detail panel instead of opening a bottom sheet. The page avoids helper/instruction copy, technical atom IDs/POS compositions, and metadata count chips in the primary UI. SentenceBankHomeScreen is now a sentence-first evidence browser that renders target sentence, learner translation, optional real source context, UIStrings-backed source-type filters/copy, and dark-mode-safe reference components; shared_bank examples no longer get a fake source fallback. Remaining work: refine visual density and connect dictionary-specific sense cards where applicable."
+      "notes": "In progress. SentenceDetailScreen now shows sentence chunks only once: full sentence segmentations are rendered inline as tappable chunks, supplementary lookup words stay in the separate breakdown section, and dictionary lookup updates one in-page detail panel immediately below the sentence card instead of after source/knowledge/vocab sections or in a bottom sheet. Token chips now use LibraryReferenceColors for light/dark-safe selected states and avoid duplicate panel titles during atom switching. Remaining work: refine visual density and connect dictionary-specific sense cards where applicable."
     },
     {
       "id": "lrsut-05",

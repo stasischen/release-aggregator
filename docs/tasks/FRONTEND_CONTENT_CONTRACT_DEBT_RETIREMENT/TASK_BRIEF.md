@@ -84,10 +84,11 @@ Sentence Evidence treats `shared_bank` as source-less example material and label
 - Retirement condition: Learning Library core manifest models `shared_bank` or example
   banks as first-class source/source-group metadata with localized display labels.
 
-### 5. `mapping_v2` module placement
+### 5. Dictionary resolver module placement
 
-`mapping_v2.json` is loaded from the dictionary i18n module, but it is resolver/origin
-mapping data, not pure localized display text.
+Surface candidate routing used to be loaded as `mapping_v2.json` from the
+dictionary i18n module, but it is resolver/origin mapping data, not pure
+localized display text.
 
 - Current code: `lingo-frontend-web/lib/core/repositories/dictionary_repository.dart`
 - Risk: core/i18n boundary remains semantically muddy. Removing it prematurely could break
@@ -96,8 +97,12 @@ mapping data, not pure localized display text.
   a target-language `dictionary.resolver` module, not learner-locale i18n. The resolver
   module owns candidate ordering, homograph metadata, entry/sense references, and temporary
   origin fallback cache until core-origin Phase 3 validation passes.
-- Retirement condition: a dictionary resolver package or bridge module is defined and the
-  dictionary core-origin migration Phase 3 validation passes.
+- Status: package placement completed in `fccdr-17`. Runtime now loads
+  `resolver/surface_candidates.v1.json`, and package/asset gates reject
+  `mapping.json` / `mapping_v2.json` under dictionary i18n.
+- Remaining retirement condition: dictionary core-origin migration Phase 3
+  validation passes, then the temporary origin fallback fields inside resolver
+  candidates can be removed.
 
 ### 6. Dictionary core contains localized fields
 
@@ -156,8 +161,8 @@ field names such as `surfaceKo`, `translationZhTw`, `titleZhTw`, and `summaryZhT
 ## Non-Goals
 
 - Do not modify lesson runtime data format.
-- Do not remove `mapping_v2` origin cache until dictionary core-origin migration Phase 3
-  validation passes.
+- Do not remove resolver origin fallback fields until dictionary core-origin migration
+  Phase 3 validation passes.
 - Do not change `content-ko` source files as part of this task unless a later content
   subtask explicitly approves it.
 - Do not block current UI polish or missing-word cleanup on schema retirement.
@@ -172,7 +177,7 @@ field names such as `surfaceKo`, `translationZhTw`, `titleZhTw`, and `summaryZhT
 3. Add asset integrity gates for stale aliases, per-word dictionary files, and empty i18n
    regressions.
 4. Move `shared_bank` semantics into Learning Library manifest/source metadata.
-5. Define dictionary resolver package placement for `mapping_v2` and related bridge data.
+5. Keep dictionary surface candidates in `dictionary.resolver`, not learner-locale i18n.
 6. Split display POS from backend POS composition in atom/runtime DTO contracts.
 7. Strip localized fields from dictionary core after i18n pack coverage gates pass.
 8. Cut `content-pipeline` over to canonical Learning Library i18n sidecars and quarantine

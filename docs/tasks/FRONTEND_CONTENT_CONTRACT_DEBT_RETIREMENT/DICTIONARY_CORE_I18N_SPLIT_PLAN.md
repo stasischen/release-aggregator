@@ -22,8 +22,7 @@ Bundled Korean package currently ships:
 - `assets/content/production/packages/ko/core/dictionary_core.json`
 - `assets/content/production/packages/ko/i18n/dict_ko_zh_tw.json`
 - `assets/content/production/packages/ko/i18n/Strings_zh_tw.json`
-- `assets/content/production/packages/ko/i18n/mapping.json`
-- `assets/content/production/packages/ko/i18n/mapping_v2.json`
+- `assets/content/production/packages/ko/resolver/surface_candidates.v1.json`
 
 Observed drift:
 
@@ -31,8 +30,8 @@ Observed drift:
 - All 7,329 core atoms currently include `definitions.zh_tw`.
 - All 7,329 core atoms currently include `translation.zh_tw`.
 - `dict_ko_zh_tw.json` duplicates those display fields in the i18n pack.
-- `mapping_v2.json` is still listed under i18n even though `fccdr-05` decided it
-  belongs in `dictionary.resolver`.
+- Resolver placement drift was resolved in `fccdr-17`: surface candidate routing
+  now lives under `dictionary.resolver`, not dictionary i18n.
 
 This is pre-launch, so the migration should be direct rather than preserving old
 runtime shapes indefinitely.
@@ -165,8 +164,8 @@ Use the `fccdr-05` decision:
 
 ### Current frontend dependency points
 
-- `DictionaryRepository.loadChunkMapping()` loads `mapping_v2.json` from
-  `dictionary.i18n`.
+- `DictionaryRepository.loadSurfaceCandidates()` loads
+  `resolver/surface_candidates.v1.json` from `dictionary.resolver`.
 - `DictionaryResolver._findRawEntry()` falls back to `_baseDict` when a language
   pack entry is missing.
 - `DictionaryParser.extractMeaning()` and `DictionaryParser.extractSenses()`
@@ -176,11 +175,7 @@ Use the `fccdr-05` decision:
 
 ### Required frontend changes
 
-1. Add `dictionary.resolver` manifest parsing and repository loading.
-2. Rename `loadChunkMapping()` / internal `_chunkMappings` concepts to
-   `loadSurfaceCandidates()` / `_surfaceCandidates` after the resolver module
-   exists.
-3. Stop reading display meanings/senses from core:
+1. Stop reading display meanings/senses from core:
    - if learner pack is loaded, display fields come from i18n only
    - if i18n is missing, return a UIStrings-backed "uncollected" placeholder
      rather than silently using core localized fallback
@@ -251,15 +246,13 @@ that fail once strict assets are expected.
 
 ### Slice A: Pipeline Package Shape
 
-- Add `dictionary.resolver` emission.
-- Move `mapping_v2` output to `resolver/surface_candidates.v1.json`.
-- Change manifest structure to locale-keyed dictionary i18n.
+- Completed in `fccdr-17`: `dictionary.resolver` emission, resolver file
+  placement, and locale-keyed dictionary i18n manifest structure.
 
 ### Slice B: Frontend Resolver Module Loading
 
-- Read `dictionary.resolver` from manifest.
-- Load `surface_candidates.v1.json`.
-- Keep existing candidate/homograph UI behavior unchanged.
+- Completed in `fccdr-17`: frontend loads `surface_candidates.v1.json` from
+  `dictionary.resolver` and keeps candidate/homograph UI behavior unchanged.
 
 ### Slice C: Strict Core Emission
 

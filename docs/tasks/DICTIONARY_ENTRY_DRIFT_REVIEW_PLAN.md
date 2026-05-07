@@ -36,7 +36,8 @@ homonym, polysemy, origin, and source metadata.
 4. Which rows have contradictory `hanja`/origin values across senses or
    homonym entries that cannot be represented cleanly at row-level metadata?
 5. Which `surface_forms` create same-surface cross-POS candidates, and does
-   `mapping_v2.json` preserve all candidates without collapsing them?
+   `resolver/surface_candidates.v1.json` preserve all candidates without
+   collapsing them?
 6. Are `entry_no`, `sense_no`, and `sense_id` stable enough to support future
    lesson-level disambiguation?
 
@@ -50,7 +51,7 @@ homonym, polysemy, origin, and source metadata.
   - suspicious merged entries
 - Do not edit dictionary inventory in the first pass.
 - Recommend a batch remediation order and identify rows requiring human review.
-- Confirm whether `mapping_v2.entry_refs` is sufficient for current frontend
+- Confirm whether resolver `entry_refs` are sufficient for current frontend
   and future tokenizer/handoff disambiguation.
 
 ## Suggested First Command
@@ -89,4 +90,3 @@ print('same surface+pos multi rows', sum(1 for v in surface_pos.values() if len(
 print('same row multi entry_no', len(multi_entry))
 PY
 ```
-

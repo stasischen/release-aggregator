@@ -251,7 +251,7 @@ def render_report(result: AuditResult, content_ko: Path) -> str:
             "## Next Actions\n\n"
             "1. Review the top suspicious rows manually before editing inventory.\n"
             "2. Decide whether rows with row-level origin and multiple `entry_no` need entry-level origin metadata.\n"
-            "3. Keep `mapping_v2.entry_refs` aligned with the current key model until an explicit homonym-ID migration is approved.\n"
+            "3. Keep resolver `entry_refs` aligned with the current key model until an explicit homonym-ID migration is approved.\n"
             "4. Use tokenizer/handoff context for lesson-level disambiguation instead of changing global atom IDs prematurely.",
         ]
     ) + "\n"

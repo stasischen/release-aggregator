@@ -142,7 +142,7 @@
         "fccdr-05",
         "fccdr-06"
       ],
-      "notes": "Frontend now prefers future dictionary.resolver surface candidate packages when present (surface_candidates.v1.json, mapping_v2.json, or surface_mapping_v2.json) and falls back to current i18n mapping_v2/mapping until content-pipeline emits the resolver package. Validated with manifest, repository, dictionary service, and asset integrity tests."
+      "notes": "Completed as the preparatory frontend slice, then superseded by fccdr-17. Runtime now loads the canonical dictionary.resolver surface_candidates.v1.json package; i18n mapping_v2/mapping fallback was removed after content-pipeline emitted the resolver package."
     },
     {
       "id": "fccdr-13",

@@ -204,8 +204,9 @@ After dictionary core-origin migration Phase 3 validation passes:
 
 ## Current Frontend Findings
 
-- `DictionaryLoader.loadChunkMapping()` loads `mapping_v2` and parses
-  `entries` into `DictionaryMappingCandidate`.
+- Current runtime code loads `dictionary.resolver` from
+  `resolver/surface_candidates.v1.json` and parses `entries` into
+  `DictionaryMappingCandidate`.
 - `DictionaryResolver.resolveSurfaceToCandidates()` uses these candidates for
   homograph and multi-candidate lookup.
 - `DictionaryResolver.getOrigin()` already prioritizes core origin over mapping
@@ -233,6 +234,6 @@ After dictionary core-origin migration Phase 3 validation passes:
 - Do not change lesson runtime format.
 - Do not collapse dictionary, Knowledge Lab, Sentence Bank, or video domain
   semantics into one adapter.
-- Do not remove `mapping_v2` from the currently bundled frontend until the
-  replacement resolver module exists and tests pass.
+- Do not remove resolver origin fallback fields until dictionary core-origin
+  migration Phase 3 validation passes.
 - Do not solve dictionary localized-core leakage here; that is `fccdr-06`.

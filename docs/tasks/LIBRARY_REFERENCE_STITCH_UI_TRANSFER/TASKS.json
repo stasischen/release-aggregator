@@ -121,6 +121,17 @@
         "lrsut-08"
       ],
       "notes": "Completed route migration brief. Defined canonical /library/knowledge, /library/sentences, /library/dictionary, /library/videos route targets, legacy knowledge-lab/sentence-bank/study redirect policy, explicit non-redirect internal routes, implementation order, route smoke tests, and deferred dictionary-entry/video-study decisions. This is a brief only; router code should wait for final user QA of the redesigned UI."
+    },
+    {
+      "id": "lrsut-10",
+      "title": "Implement canonical Knowledge and Sentence Library routes",
+      "status": "completed",
+      "owner": "Codex",
+      "repo": "lingo-frontend-web",
+      "depends_on": [
+        "lrsut-09"
+      ],
+      "notes": "Completed first route migration implementation slice. Added canonical /library/knowledge* and /library/sentences* routes, redirected legacy /library/knowledge-lab* and /library/sentence-bank* plus study aliases to canonical routes, updated production Knowledge/Sentence links, and added route smoke coverage. Validation: flutter analyze; targeted router/library/Knowledge/Sentence widget tests. Out of scope remains /library/videos, /library/dictionary/entry/:entryId, and Study video route redesign."
     }
   ]
 }

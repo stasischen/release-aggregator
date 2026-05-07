@@ -179,6 +179,18 @@
         "lrsut-13"
       ],
       "notes": "Completed frontend testability slice. UserProfileNotifier now treats onboarding as complete in non-release builds by default so local app testing starts at the main app without rerunning onboarding every launch. Release builds are unchanged, and onboarding QA can disable the bypass with --dart-define=LINGO_DEV_SKIP_ONBOARDING=false. Validation: flutter analyze; targeted provider/router/video/library tests."
+    },
+    {
+      "id": "lrsut-15",
+      "title": "Fix video dictionary homograph and polysemy display",
+      "status": "completed",
+      "owner": "Codex",
+      "repo": "lingo-frontend-web",
+      "depends_on": [
+        "lrsut-07",
+        "lrsut-12"
+      ],
+      "notes": "Completed video dictionary panel repair. DictionaryContent now resolves surface candidates even when video atoms already carry authoritative ids, shows homograph candidates when multiple resolver candidates exist, and preselects the candidate matching the atom id. Removed circular check/sense markers that looked like stray UI circles in the video panel, switched polysemy labels to plain numeric markers, and increased the inline video dictionary panel height so candidate/sense content is visible. Validation: flutter analyze; dictionary candidate selector tests; video dictionary E2E tests; video callback tests."
     }
   ]
 }

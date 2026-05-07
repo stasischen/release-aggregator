@@ -4,7 +4,7 @@
 
 Move Library reference surfaces onto stable learner-facing routes after the
 Stitch UI transfer is visually accepted, without reconnecting users to old
-Knowledge Lab / Sentence Bank / video entry points or dev/testbed surfaces.
+Knowledge Lab / Sentence Bank entry points or dev/testbed surfaces.
 
 This is a routing brief only. Do not change lesson runtime contracts, content
 schemas, `content-ko`, or `content-pipeline` as part of this migration.
@@ -24,8 +24,8 @@ Current working routes in `lingo-frontend-web`:
 | Sentence detail | `/library/sentence-bank/sentence/:sentenceId` | `SentenceDetailScreen` | Legacy product name |
 | Source detail | `/library/sentence-bank/source/:sourceId` | `SourceDetailScreen` | Legacy product name |
 | Dictionary hub | `/library/dictionary?q=` | `StudyDictionaryHubScreen` | Keep hub route |
-| Video list | `/study/video` | `VideoListScreen` | Study/source route |
-| Video player | `/study/video/player` with `state.extra` video id | `VideoPlayerScreen` | Not deep-linkable |
+| Video list | `/study/video` | `VideoListScreen` | Old route; move to `/sources/videos` |
+| Video player | `/study/video/player` with `state.extra` video id | `VideoPlayerScreen` | Old route; replace with `/sources/videos/:videoId` |
 
 Existing redirects:
 
@@ -56,8 +56,13 @@ Introduce these learner-facing routes:
 | `/library/sentences/source/:sourceId` | `SourceDetailScreen` | Source evidence route. |
 | `/library/dictionary` | `StudyDictionaryHubScreen` | Search route with query support remains valid. |
 | `/library/dictionary/entry/:entryId` | `StudyDictionaryHubScreen` or dedicated entry screen | Add only if entry-id initialization exists. Otherwise defer. |
-| `/library/videos` | `VideoListScreen` | Library reference browse path for video sources. |
-| `/library/videos/:videoId` | `VideoPlayerScreen` | Deep-linkable player route; do not require `state.extra`. |
+
+Video source routes are intentionally not under `/library`:
+
+| Canonical route | Target screen | Notes |
+| --- | --- | --- |
+| `/sources/videos` | `VideoListScreen` | Source browser for video content. |
+| `/sources/videos/:videoId` | `VideoPlayerScreen` | Deep-linkable source viewer; do not require `state.extra`. |
 
 ## Redirect Policy
 
@@ -76,9 +81,9 @@ so compatibility is for developer links and test stability, not public SEO.
 | `/study/knowledge-lab*` | canonical `/library/knowledge*` equivalents |
 | `/study/sentence-bank*` | canonical `/library/sentences*` equivalents |
 | `/study/dictionary` | `/library/dictionary` |
-| `/study/video` | Keep as Study source browse route initially |
-| `/study/video/player` | Keep as old route but allow `state.extra`; prefer `/library/videos/:videoId` for deep links |
-| `/video` | `/library/videos` |
+| `/study/video` | Remove in the source-route slice; Study can link to `/sources/videos` |
+| `/study/video/player` | Remove in the source-route slice; use `/sources/videos/:videoId` |
+| `/video` | Remove; app is not launched |
 
 Do not redirect these into canonical Library routes:
 
@@ -109,7 +114,7 @@ Library hub cards should route to canonical routes after migration:
 | Knowledge Lab / Knowledge | `/library/knowledge` |
 | Sentence Bank / Sentences | `/library/sentences` |
 | Dictionary | `/library/dictionary` |
-| Videos | `/library/videos` |
+| Source videos | `/sources/videos` |
 
 The UI copy may still say "Knowledge Lab" if that remains the product name, but
 the path should be `/library/knowledge` to avoid old `knowledge-lab` coupling.
@@ -119,18 +124,15 @@ the path should be `/library/knowledge` to avoid old `knowledge-lab` coupling.
 1. Add canonical nested `GoRoute`s under `/library`.
 2. Convert existing `/library/knowledge-lab*` and `/library/sentence-bank*`
    routes into redirects to canonical routes.
-3. Add `/library/videos` and `/library/videos/:videoId`.
-4. Keep `/study/video` as a Study tab source path during the first migration.
-   Update `VideoListScreen` card taps based on the current parent route:
-   - from `/study/video`, preserve `/study/video/player` until Study source
-     flow is redesigned;
-   - from `/library/videos`, navigate to `/library/videos/:videoId`.
-5. Update in-app links in Knowledge, Sentence, Dictionary, Library hub, and
+3. Add `/sources/videos` and `/sources/videos/:videoId`.
+4. Remove old `/study/video`, `/study/video/player`, and `/video` routes because
+   the app is not launched and fallback compatibility is not required.
+5. Update `VideoListScreen` card taps to navigate to
+   `/sources/videos/:videoId`.
+6. Update in-app links in Knowledge, Sentence, Dictionary, Library hub, and
    video widgets to canonical routes.
-6. Add redirect tests for all legacy Library/Study aliases.
-7. Add smoke tests that canonical routes instantiate the expected screens.
-8. Only after user QA, consider removing dead route aliases. Until then, keep
-   redirects cheap and explicit.
+7. Add redirect tests for all remaining legacy Library/Study aliases.
+8. Add smoke tests that canonical routes instantiate the expected screens.
 
 ## Tests To Add Or Update
 
@@ -149,8 +151,8 @@ Required assertions:
 - `/library/sentences/source/:sourceId` renders `SourceDetailScreen`.
 - `/library/dictionary?q=...` renders `StudyDictionaryHubScreen` and preserves
   query initialization.
-- `/library/videos` renders `VideoListScreen`.
-- `/library/videos/:videoId` renders `VideoPlayerScreen` without requiring
+- `/sources/videos` renders `VideoListScreen`.
+- `/sources/videos/:videoId` renders `VideoPlayerScreen` without requiring
   `state.extra`.
 - Legacy `/library/knowledge-lab*` routes redirect to `/library/knowledge*`.
 - Legacy `/library/sentence-bank*` routes redirect to `/library/sentences*`.
@@ -178,15 +180,17 @@ Before the route migration can be considered complete:
 - No canonical route requires `state.extra` for a deep-linkable content id.
 - In-app links use canonical routes, not old `knowledge-lab` or
   `sentence-bank` paths.
+- Video links use `/sources/videos*`, not `/study/video*`, `/video`, or
+  `/library/videos*`.
 
 ## Deferred Decisions
 
 - Whether `/library/dictionary/entry/:entryId` should open a dedicated entry
   detail screen or initialize `StudyDictionaryHubScreen` with a resolved entry.
   Do not add this route until the entry-id initialization contract is clear.
-- Whether `/study/video` should eventually redirect to `/library/videos` or
-  remain a Study source path. Video is content-first, so this should wait for
-  the broader Study/source navigation design.
+- Whether article/dialogue should use typed routes such as
+  `/sources/articles/:articleId` and `/sources/dialogues/:dialogueId` or a
+  generic `/sources/:sourceType/:sourceId` route.
 - Whether topic and vocab routes remain first-class if content density stays
   sparse. Keep redirects and screens for now.
 
@@ -196,4 +200,6 @@ Before the route migration can be considered complete:
 - Do not merge lesson runtime routes into Library.
 - Do not touch `content-ko` or `content-pipeline`.
 - Do not rename content architecture layers.
-- Do not remove working redirects until the final UI QA pass is accepted.
+- Do not remove working Knowledge/Sentence redirects until the final UI QA pass
+  is accepted. Video is different: remove old `/study/video*` and `/video`
+  routes in the source-route slice because the app is not launched.

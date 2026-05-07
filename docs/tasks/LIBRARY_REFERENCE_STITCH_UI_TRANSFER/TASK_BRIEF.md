@@ -194,7 +194,8 @@ From Stitch, keep:
 
 ## Route Policy
 
-Short-term implementation should preserve current working routes:
+Short-term implementation originally preserved current working routes while the
+UI was unstable:
 
 ```text
 /library/knowledge-lab
@@ -207,8 +208,7 @@ Short-term implementation should preserve current working routes:
 /study/video/player
 ```
 
-Future canonical routes should be introduced with redirects after the UI is
-stable:
+Current canonical routes after the route migration decision:
 
 ```text
 /library/knowledge
@@ -218,8 +218,12 @@ stable:
 /library/sentences/:sentenceId
 /library/sentences/source/:sourceId
 /library/dictionary/entry/:entryId
-/library/videos/:videoId
+/sources/videos
+/sources/videos/:videoId
 ```
+
+Video is source content, not a Library reference surface. Do not add
+`/library/videos`; route video source browsing through `/sources/videos*`.
 
 ## Component Plan
 

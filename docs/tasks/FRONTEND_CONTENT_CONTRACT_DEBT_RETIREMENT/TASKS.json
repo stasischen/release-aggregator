@@ -206,6 +206,18 @@
         "fccdr-12"
       ],
       "notes": "Completed: content-pipeline now emits resolver/surface_candidates.v1.json and lists it under dictionary.resolver, while dictionary.i18n is a locale-keyed display-only map. release-aggregator sync/contract gates copy and validate the resolver module and reject mapping.json/mapping_v2.json under dictionary i18n. Frontend production assets and tests now load resolver surface candidates from packages/ko/resolver/surface_candidates.v1.json with no i18n mapping fallback."
+    },
+    {
+      "id": "fccdr-18",
+      "title": "Strip learner display fields from dictionary core",
+      "status": "completed",
+      "owner": "Codex",
+      "repo": "content-pipeline + lingo-frontend-web + release-aggregator",
+      "depends_on": [
+        "fccdr-06",
+        "fccdr-17"
+      ],
+      "notes": "Completed: content-pipeline strips learner display fields and learner-locale maps from dictionary.core while preserving display text in dictionary.i18n. Resolver package generation overlays i18n definitions/translation only while building resolver sense/entry refs, so strict core does not weaken homograph/candidate routing. release-aggregator package validation and frontend asset integrity tests now reject display/locale leakage in dictionary_core.json; synced frontend assets have 7,381 strict core atoms with 0 localized display fields."
     }
   ]
 }

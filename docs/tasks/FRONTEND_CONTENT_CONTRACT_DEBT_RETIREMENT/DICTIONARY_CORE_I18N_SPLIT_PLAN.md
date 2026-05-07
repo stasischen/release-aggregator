@@ -26,9 +26,8 @@ Bundled Korean package currently ships:
 
 Observed drift:
 
-- `dictionary_core.json` has 7,329 atoms.
-- All 7,329 core atoms currently include `definitions.zh_tw`.
-- All 7,329 core atoms currently include `translation.zh_tw`.
+- Resolved in `fccdr-18`: synced `dictionary_core.json` has 7,381 atoms with
+  0 localized display fields and 0 learner-locale keys.
 - `dict_ko_zh_tw.json` duplicates those display fields in the i18n pack.
 - Resolver placement drift was resolved in `fccdr-17`: surface candidate routing
   now lives under `dictionary.resolver`, not dictionary i18n.
@@ -198,8 +197,12 @@ that fail once strict assets are expected.
 ## Content Pipeline Migration
 
 1. Emit strict `core/dictionary_core.json` with no localized display fields.
+   - Status: completed in `fccdr-18`.
 2. Emit learner display packs under `i18n/{learner}/`.
 3. Emit `resolver/surface_candidates.v1.json`.
+   - Status: resolver generation overlays i18n definitions/translation at build
+     time only, preserving `sense_refs` / `entry_refs` without reintroducing
+     learner display text into core.
 4. Update manifest shape to use:
    - `dictionary.core`
    - `dictionary.i18n.{learner}`

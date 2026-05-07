@@ -117,8 +117,11 @@ Current packaged dictionary core may include `definitions.zh_tw` and `translatio
   `dictionary.core` lexical inventory, locale-keyed `dictionary.i18n` display packs, and
   `dictionary.resolver` surface candidate routing. Frontend should not use core as a
   learner-language display fallback after strict assets are emitted.
-- Retirement condition: dictionary package emission strips localized display text from
-  core and emits all display strings/senses through locale packs.
+- Status: completed in `fccdr-18`. Dictionary package emission strips localized display
+  text from core, keeps display strings/senses in locale packs, and builds resolver
+  references by overlaying i18n only during resolver package generation.
+- Retirement condition: completed; package and frontend gates now reject localized display
+  leakage back into `dictionary_core.json`.
 
 ### 7. Atom POS composition leaks through UI DTOs
 

@@ -49,6 +49,24 @@ DICTIONARY_RESOLVER_FILES = [
     "surface_candidates.v1.json",
 ]
 
+DICTIONARY_CORE_FORBIDDEN_DISPLAY_KEYS = {
+    "definitions",
+    "translation",
+    "meaning",
+    "description",
+    "gloss",
+    "localized",
+    "i18n",
+}
+
+DICTIONARY_LEARNER_LOCALE_KEYS = {
+    "zh",
+    "zh_tw",
+    "zh-tw",
+    "zh_hant",
+    "zh-hant",
+}
+
 LL_SIDECAR_SOURCE_TYPES = {
     "shared_bank",
     "video",
@@ -376,8 +394,12 @@ def validate_package_manifest(manifest_path: Path) -> list[str]:
         core_path = dictionary_module.get("core")
         if not isinstance(core_path, str) or not core_path.strip():
             errors.append("modules.dictionary.core must be a non-empty string")
-        elif not (manifest_path.parent / "core" / core_path).resolve().is_file():
-            errors.append(f"modules.dictionary.core references missing artifact: core/{core_path}")
+        else:
+            resolved_core_path = (manifest_path.parent / "core" / core_path).resolve()
+            if not resolved_core_path.is_file():
+                errors.append(f"modules.dictionary.core references missing artifact: core/{core_path}")
+            else:
+                errors.extend(validate_dictionary_core_payload(resolved_core_path))
 
         dictionary_i18n = _require_object(dictionary_module.get("i18n"), "modules.dictionary.i18n", errors)
         if not dictionary_i18n:
@@ -423,6 +445,49 @@ def validate_package_manifest(manifest_path: Path) -> list[str]:
                 errors.append(f"modules.learning_library.{bucket} references missing artifact: {raw_path}")
 
     return errors
+
+
+def validate_dictionary_core_payload(core_path: Path) -> list[str]:
+    errors: list[str] = []
+    try:
+        payload = _require_object(load_json(core_path), str(core_path), errors)
+    except ValueError as exc:
+        return [str(exc)]
+
+    atoms = _require_list(payload.get("atoms"), "dictionary_core.atoms", errors)
+    for index, atom_value in enumerate(atoms):
+        if not isinstance(atom_value, dict):
+            errors.append(f"dictionary_core.atoms[{index}] must be an object")
+            continue
+        atom_id = str(atom_value.get("atom_id") or atom_value.get("id") or f"#{index}")
+        for key in atom_value:
+            if key in DICTIONARY_CORE_FORBIDDEN_DISPLAY_KEYS:
+                errors.append(f"dictionary core atom {atom_id} contains forbidden display field: {key}")
+            if str(key).lower() in DICTIONARY_LEARNER_LOCALE_KEYS:
+                errors.append(f"dictionary core atom {atom_id} contains learner locale key: {key}")
+        for path in _find_forbidden_dictionary_core_nested_keys(atom_value):
+            errors.append(f"dictionary core atom {atom_id} contains forbidden nested display/locale key: {path}")
+    return errors
+
+
+def _find_forbidden_dictionary_core_nested_keys(value: Any, prefix: str = "") -> list[str]:
+    hits: list[str] = []
+    if isinstance(value, dict):
+        for key, nested in value.items():
+            key_text = str(key)
+            key_lower = key_text.lower()
+            path = f"{prefix}.{key_text}" if prefix else key_text
+            if prefix and (
+                key in DICTIONARY_CORE_FORBIDDEN_DISPLAY_KEYS
+                or key_lower in DICTIONARY_LEARNER_LOCALE_KEYS
+            ):
+                hits.append(path)
+            hits.extend(_find_forbidden_dictionary_core_nested_keys(nested, path))
+    elif isinstance(value, list):
+        for index, item in enumerate(value):
+            path = f"{prefix}[{index}]" if prefix else f"[{index}]"
+            hits.extend(_find_forbidden_dictionary_core_nested_keys(item, path))
+    return hits
 
 
 def validate_learning_library_pipeline_legacy_bridge(

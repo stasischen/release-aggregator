@@ -38,6 +38,17 @@ DEPRECATED_LEARNING_LIBRARY_ALIASES = {
     "vocab_sets_index.json",
 }
 
+DICTIONARY_I18N_FORBIDDEN_FILES = {
+    "mapping.json",
+    "mapping_v2.json",
+    "surface_candidates.v1.json",
+    "surface_mapping_v2.json",
+}
+
+DICTIONARY_RESOLVER_FILES = [
+    "surface_candidates.v1.json",
+]
+
 LL_SIDECAR_SOURCE_TYPES = {
     "shared_bank",
     "video",
@@ -359,6 +370,42 @@ def validate_package_manifest(manifest_path: Path) -> list[str]:
             errors.append(f"package manifest must declare non-empty {field}")
 
     modules = _require_object(manifest.get("modules"), "modules", errors)
+    dictionary = modules.get("dictionary")
+    if dictionary is not None:
+        dictionary_module = _require_object(dictionary, "modules.dictionary", errors)
+        core_path = dictionary_module.get("core")
+        if not isinstance(core_path, str) or not core_path.strip():
+            errors.append("modules.dictionary.core must be a non-empty string")
+        elif not (manifest_path.parent / "core" / core_path).resolve().is_file():
+            errors.append(f"modules.dictionary.core references missing artifact: core/{core_path}")
+
+        dictionary_i18n = _require_object(dictionary_module.get("i18n"), "modules.dictionary.i18n", errors)
+        if not dictionary_i18n:
+            errors.append("modules.dictionary.i18n must declare at least one locale")
+        for locale, entries in dictionary_i18n.items():
+            if not isinstance(locale, str) or not locale:
+                errors.append(f"modules.dictionary.i18n has invalid locale key: {locale!r}")
+                continue
+            paths = _require_list(entries, f"modules.dictionary.i18n.{locale}", errors)
+            for raw_path in paths:
+                if not isinstance(raw_path, str):
+                    continue
+                filename = Path(raw_path).name
+                if filename in DICTIONARY_I18N_FORBIDDEN_FILES:
+                    errors.append(f"modules.dictionary.i18n.{locale} references resolver/non-i18n file: {raw_path}")
+                if not (manifest_path.parent / "i18n" / raw_path).resolve().is_file():
+                    errors.append(f"modules.dictionary.i18n.{locale} references missing artifact: i18n/{raw_path}")
+
+        resolver_paths = _check_exact_file_set(
+            _require_list(dictionary_module.get("resolver"), "modules.dictionary.resolver", errors),
+            DICTIONARY_RESOLVER_FILES,
+            "modules.dictionary.resolver",
+            errors,
+        )
+        for raw_path in resolver_paths:
+            if not (manifest_path.parent / "resolver" / raw_path).resolve().is_file():
+                errors.append(f"modules.dictionary.resolver references missing artifact: resolver/{raw_path}")
+
     learning_library = modules.get("learning_library")
     if learning_library is None:
         return errors

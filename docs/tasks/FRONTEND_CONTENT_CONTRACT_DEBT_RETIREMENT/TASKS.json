@@ -193,6 +193,19 @@
         "fccdr-09"
       ],
       "notes": "content-ko sidecar builder now emits optional topics.json from canonical v2 topic ids plus localized legacy topic copy, and content-pipeline consumes optional topic sidecars in no-legacy mode. Pipeline also models shared_bank as a first-class source with example_bank metadata and localized i18n source copy, preventing frontend ID hardcoding. Frontend asset sync now passes the Learning Library topic raw-id and sentence source modeling gates."
+    },
+    {
+      "id": "fccdr-17",
+      "title": "Emit dictionary resolver package and remove mapping files from i18n",
+      "status": "completed",
+      "owner": "Codex",
+      "repo": "content-pipeline + lingo-frontend-web + release-aggregator",
+      "depends_on": [
+        "fccdr-05",
+        "fccdr-06",
+        "fccdr-12"
+      ],
+      "notes": "Completed: content-pipeline now emits resolver/surface_candidates.v1.json and lists it under dictionary.resolver, while dictionary.i18n is a locale-keyed display-only map. release-aggregator sync/contract gates copy and validate the resolver module and reject mapping.json/mapping_v2.json under dictionary i18n. Frontend production assets and tests now load resolver surface candidates from packages/ko/resolver/surface_candidates.v1.json with no i18n mapping fallback."
     }
   ]
 }

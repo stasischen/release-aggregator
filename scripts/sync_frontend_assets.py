@@ -38,6 +38,9 @@ DICTIONARY_FILES = (
     Path("core/dictionary_core.json"),
     Path("i18n/dict_ko_zh_tw.json"),
     Path("i18n/Strings_zh_tw.json"),
+    Path("resolver/surface_candidates.v1.json"),
+)
+DICTIONARY_I18N_FORBIDDEN_FILES = (
     Path("i18n/mapping.json"),
     Path("i18n/mapping_v2.json"),
 )
@@ -211,6 +214,10 @@ def sync_dictionary_assets(worktree: Path, dictionary_source: Path) -> None:
     require_files(source, DICTIONARY_FILES, "dictionary bridge source")
 
     package_root = worktree / PRODUCTION_REL / "packages" / "ko"
+    for rel_path in DICTIONARY_I18N_FORBIDDEN_FILES:
+        stale_path = package_root / rel_path
+        if stale_path.exists():
+            stale_path.unlink()
     for rel_path in DICTIONARY_FILES:
         copy_file(source / rel_path, package_root / rel_path)
 
@@ -224,11 +231,14 @@ def sync_dictionary_assets(worktree: Path, dictionary_source: Path) -> None:
 
     modules["dictionary"] = {
         "core": "dictionary_core.json",
-        "i18n": [
-            "dict_ko_zh_tw.json",
-            "Strings_zh_tw.json",
-            "mapping.json",
-            "mapping_v2.json",
+        "i18n": {
+            "zh_tw": [
+                "dict_ko_zh_tw.json",
+                "Strings_zh_tw.json",
+            ]
+        },
+        "resolver": [
+            "surface_candidates.v1.json",
         ],
     }
     manifest["modules"] = modules

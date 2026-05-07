@@ -34,8 +34,42 @@
           "type": "object",
           "required": [
             "core",
-            "i18n"
-          ]
+            "i18n",
+            "resolver"
+          ],
+          "properties": {
+            "core": {
+              "type": "string",
+              "minLength": 1
+            },
+            "i18n": {
+              "type": "object",
+              "minProperties": 1,
+              "additionalProperties": {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "not": {
+                    "enum": [
+                      "mapping.json",
+                      "mapping_v2.json",
+                      "surface_candidates.v1.json",
+                      "surface_mapping_v2.json"
+                    ]
+                  }
+                }
+              }
+            },
+            "resolver": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              },
+              "contains": {
+                "const": "surface_candidates.v1.json"
+              }
+            }
+          }
         },
         "learning_library": {
           "type": "object",

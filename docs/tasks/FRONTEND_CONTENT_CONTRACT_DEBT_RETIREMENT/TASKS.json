@@ -230,6 +230,19 @@
         "fccdr-18"
       ],
       "notes": "Completed: content-pipeline resolver emission no longer writes candidate/ref origin fallback fields; resolver keeps routing metadata only. Frontend dictionary resolver now ignores resolver origin cache and resolves origin display from dictionary.core entry origins. release-aggregator package validation and frontend asset integrity tests reject origin, row_origin, and origin_candidates inside resolver/surface_candidates.v1.json; synced frontend resolver has 6,900 entries and 0 origin fallback hits."
+    },
+    {
+      "id": "fccdr-20",
+      "title": "Remove frontend target/learner locale hardcoding in reference runtime",
+      "status": "completed",
+      "owner": "Codex",
+      "repo": "lingo-frontend-web + release-aggregator",
+      "depends_on": [
+        "fccdr-11",
+        "fccdr-16",
+        "fccdr-18"
+      ],
+      "notes": "Completed: Learning Library language selection now follows global target/learner providers; Sentence Detail and Dictionary detail pass dynamic target/content locale into dictionary panels; Source Detail example/TTS helpers use target/content locale fallback instead of direct ko/zh_tw lookup; Library Hub, Knowledge Lab search hint, and Video Library hero copy use the active target language display name. Deferred Korean-specific surfaces remain intentionally scoped: Korean keyboard/STT/text similarity, legacy modular preview/register card fixtures, and lesson runtime pilot renderers."
     }
   ]
 }

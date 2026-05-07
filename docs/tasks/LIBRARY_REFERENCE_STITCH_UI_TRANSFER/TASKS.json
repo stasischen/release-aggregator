@@ -91,7 +91,7 @@
       "depends_on": [
         "lrsut-03"
       ],
-      "notes": "First interaction slice implemented in lingo-frontend-web: normal transcript taps now update one in-page LingoDictionaryPanel below the player, fullscreen subtitle taps route through selectedCluster to one side panel, and InteractiveSubtitle disables floating dictionary overlays in video. ParsedTextWithDictionary no longer debounces parent-managed lookup callbacks, so tapping another token immediately updates the same panel. Regression coverage asserts no ImmersiveDictionaryOverlay and no stacked dictionary surfaces when switching tokens. Remaining work: visual focus/transcript polish after user QA."
+      "notes": "In progress. First interaction slice implemented in lingo-frontend-web: normal transcript taps now update one in-page LingoDictionaryPanel below the player, fullscreen subtitle taps route through selectedCluster to one side panel, and InteractiveSubtitle disables floating dictionary overlays in video. ParsedTextWithDictionary no longer debounces parent-managed lookup callbacks, so tapping another token immediately updates the same panel. Latest slice completed: added VideoTranscriptLineCard, moved transcript current-line/timestamp/loop/translation colors onto LibraryReferenceColors, allowed InteractiveSubtitle highlight color injection for video, and styled LingoDictionaryPanel as a reference surface. Also repaired video test mocks for supported subtitle locale lookup so the E2E gate exercises the real screen path."
     },
     {
       "id": "lrsut-08",

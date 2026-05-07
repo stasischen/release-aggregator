@@ -201,7 +201,7 @@
       "depends_on": [
         "lrsut-15"
       ],
-      "notes": "Follow-up to video dictionary QA. The prior repair covered bare surfaces such as 여러분, but production video clicks commonly pass eojeol surfaces such as 여러분은 and 오늘은 while the resolver index is keyed by dictionary surfaces like 여러분 and 오늘. DictionaryContent now derives candidate lookup surfaces from exact display text, split composite atom ids, and inventory entry terms/lemmas. This intentionally relies on the existing plus-separated atom segmentation instead of guessing Korean suffixes in the UI. Added regression tests for composite 여러분은 and 오늘은 so the panel shows dictionary meanings instead of learner-facing missing-entry placeholders."
+      "notes": "Follow-up to video dictionary QA. The prior repair covered bare surfaces such as 여러분, but production video clicks commonly pass eojeol surfaces such as 여러분은 and 오늘은 while the resolver index is keyed by dictionary surfaces like 여러분 and 오늘. DictionaryContent now derives candidate lookup surfaces from exact display text, split composite atom ids, and inventory entry terms/lemmas. Composite authoritative ids are intentionally allowed to switch to a component resolver candidate because DictionaryService can synthesize composite entries that should not block component meanings. This relies on the existing plus-separated atom segmentation instead of guessing Korean suffixes in the UI. Added regression tests for composite 여러분은 and 오늘은 so the panel shows dictionary meanings instead of learner-facing missing-entry placeholders."
     }
   ]
 }
